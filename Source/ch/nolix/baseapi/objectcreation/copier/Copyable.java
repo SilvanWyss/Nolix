@@ -7,7 +7,7 @@ package ch.nolix.baseapi.objectcreation.copier;
  * A {@link Copyable} can create a copy of itself.
  * 
  * @author Silvan Wyss
- * @param <C> is the type of a {@link Copyable}.
+ * @param <C> the type of a {@link Copyable}.
  */
 public interface Copyable<C extends Copyable<C>> {
   /**

@@ -14,7 +14,7 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
 
 /**
  * @author Silvan Wyss
- * @param <S> is the type of a {@link AbstractStyle}.
+ * @param <S> the type of a {@link AbstractStyle}.
  */
 abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement implements IBaseStyle<S> {
   protected static final String ATTACHING_ATTRIBUTE_HEADER = "AttachingAttribute";

@@ -12,14 +12,14 @@ package ch.nolix.baseapi.component.guicomponent;
 public interface GuiComponent<G> {
   /**
    * @return true if the current {@link GuiComponent} belongs to a GUI, false
-   *         otherwise.
+   *         otherwise
    */
   boolean belongsToGui();
 
   /**
    * @return the GUI of the current {@link GuiComponent}.
    * @throws RuntimeException if the current {@link GuiComponent} does not belong
-   *                          to a GUI.
+   *                          to a GUI
    */
   G getStoredParentGui();
 }

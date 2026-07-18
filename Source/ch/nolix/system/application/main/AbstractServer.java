@@ -20,7 +20,7 @@ import ch.nolix.systemapi.application.main.IServer;
  * A {@link AbstractServer} can contain {@link Application}s. A
  * {@link AbstractServer} is closable.
  * 
- * @param <S> is the type of a {@link AbstractServer}.
+ * @param <S> the type of a {@link AbstractServer}.
  * @author Silvan Wyss
  */
 public abstract class AbstractServer<S extends AbstractServer<S>> implements IServer<S> {

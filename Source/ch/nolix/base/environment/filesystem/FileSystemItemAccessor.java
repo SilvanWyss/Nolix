@@ -89,7 +89,7 @@ public class FileSystemItemAccessor {
    * @param extension
    * @return true if the file system item of the current
    *         {@link FileSystemItemAccessor} has the given extension, false
-   *         otherwise.
+   *         otherwise
    */
   public final boolean hasExtension(final String extension) {
     return getExtension().equals(extension);

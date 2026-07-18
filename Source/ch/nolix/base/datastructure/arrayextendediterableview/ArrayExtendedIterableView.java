@@ -15,8 +15,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements of a
- *            {@link ArrayExtendedIterableView}.
+ * @param <E> the type of the elements of a {@link ArrayExtendedIterableView}
  */
 public final class ArrayExtendedIterableView<E> extends AbstractExtendedIterable<E> {
   private static final ArrayExtendedIterableView<Object> EMPTY_ARRAY_CONTAINER_VIEW = new ArrayExtendedIterableView<>(
@@ -37,9 +36,9 @@ public final class ArrayExtendedIterableView<E> extends AbstractExtendedIterable
   }
 
   /**
-   * @return an empty {@link ArrayExtendedIterableView}.
-   * @param <T> is the types the elements the {@link ArrayExtendedIterableView}
-   *            would have.
+   * @return an empty {@link ArrayExtendedIterableView}
+   * @param <T> the type the elements the {@link ArrayExtendedIterableView} would
+   *            have.
    */
   @SuppressWarnings("unchecked")
   public static <T> ArrayExtendedIterableView<T> createEmpty() {

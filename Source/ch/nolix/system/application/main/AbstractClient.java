@@ -18,7 +18,7 @@ import ch.nolix.systemapi.application.client.IClient;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of a {@link AbstractClient}.
+ * @param <C> the type of a {@link AbstractClient}.
  */
 public abstract class AbstractClient<C extends AbstractClient<C>> implements IClient {
   private final ICloseController closeController = CloseController.forElement(this);
@@ -192,7 +192,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements ICl
 
   /**
    * @return true if the current {@link AbstractClient} is connected, false
-   *         otherwise.
+   *         otherwise
    */
   private boolean isConnected() {
     return (nullableEndPoint != null);

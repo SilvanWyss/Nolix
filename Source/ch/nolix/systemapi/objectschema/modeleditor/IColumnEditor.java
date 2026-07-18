@@ -11,7 +11,7 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of {@link IColumn}s a {@link IColumnEditor} can edit.
+ * @param <C> the type of {@link IColumn}s a {@link IColumnEditor} can edit.
  */
 public interface IColumnEditor<C extends IColumn> {
   /**

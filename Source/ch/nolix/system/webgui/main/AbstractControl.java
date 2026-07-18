@@ -38,7 +38,7 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of a {@link AbstractControl}.
+ * @param <C> the type of a {@link AbstractControl}.
  * @param <S> the type of the {@link IControlStyle} of a
  *            {@link AbstractControl}.
  */

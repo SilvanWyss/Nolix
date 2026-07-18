@@ -14,7 +14,7 @@ import ch.nolix.systemapi.element.mutableelement.IMutableElement;
  * {@link IStylableElement}s.
  * 
  * @author Silvan Wyss
- * @param <E> is the type of a {@link IStylableElement}.
+ * @param <E> the type of a {@link IStylableElement}.
  */
 public interface IStylableElement<E extends IStylableElement<E>>
 extends

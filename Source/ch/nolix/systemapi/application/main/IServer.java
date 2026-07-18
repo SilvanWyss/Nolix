@@ -11,7 +11,7 @@ import ch.nolix.baseapi.state.statemutation.Clearable;
 
 /**
  * @author Silvan Wyss
- * @param <S> is the type of a {@link IServer}.
+ * @param <S> the type of a {@link IServer}.
  */
 public interface IServer<S extends IServer<S>>
 extends Clearable, GroupCloseable, ApplicationManager<IApplication<?, ?>>, ISecuriyModeHolder {

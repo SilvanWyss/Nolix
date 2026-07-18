@@ -103,7 +103,7 @@ implements ILinkedList<E> {
    * @param elements
    * @param <T>      is the type of the given elements.
    * @return a new {@link LinkedList} with the given elements.
-   * @throws RuntimeException if one of the given elements is null.
+   * @throws RuntimeException if one of the given elements is null
    */
   @SuppressWarnings("unchecked")
   public static <T> LinkedList<T> withElements(final T... elements) {
@@ -590,7 +590,7 @@ implements ILinkedList<E> {
    * be added in the given order.
    * 
    * @param elements
-   * @throws RuntimeException if one of the given elements is null.
+   * @throws RuntimeException if one of the given elements is null
    */
   @SuppressWarnings("null")
   private void addAtBeginWhenContainsAny(E[] elements) {
@@ -623,7 +623,7 @@ implements ILinkedList<E> {
    * added in the given order.
    * 
    * @param elements
-   * @throws RuntimeException if one of the given elements is null.
+   * @throws RuntimeException if one of the given elements is null
    */
   private void addAtBeginWhenIsEmpty(E[] elements) {
     LinkedListNode<E> iteratorNode = null;

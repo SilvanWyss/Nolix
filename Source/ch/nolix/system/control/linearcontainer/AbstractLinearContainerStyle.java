@@ -12,7 +12,7 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 
 /**
  * @author Silvan Wyss
- * @param <S> is the type of a {@link AbstractLinearContainerStyle}.
+ * @param <S> the type of a {@link AbstractLinearContainerStyle}.
  */
 public abstract class AbstractLinearContainerStyle< //
 S extends ILinearContainerStyle<S> & IMultiStateConfiguration<S, ControlState> //

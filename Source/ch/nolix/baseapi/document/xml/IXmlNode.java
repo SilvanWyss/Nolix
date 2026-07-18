@@ -9,7 +9,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
- * @param <N> is the type of a {@link IXmlNode}.
+ * @param <N> the type of a {@link IXmlNode}
  */
 public interface IXmlNode<N extends IXmlNode<N>>
 extends FluentMutableOptionalNameHolder<N>, OptionalValueHolder<String> {

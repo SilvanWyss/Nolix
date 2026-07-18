@@ -328,7 +328,7 @@ public final class JobExecutor extends Thread {
 
   /**
    * @return true if the current {@link JobExecutor} has caught an error, false
-   *         otherwise.
+   *         otherwise
    */
   public boolean caughtError() {
     return (optionalCaughtError != null);
@@ -359,7 +359,7 @@ public final class JobExecutor extends Thread {
 
   /**
    * @return true if the current {@link JobExecutor} has a condition, false
-   *         otherwise.
+   *         otherwise
    */
   public boolean hasCondition() {
     return (optionalNextStepRunCondition != null);
@@ -367,7 +367,7 @@ public final class JobExecutor extends Thread {
 
   /**
    * @return true if the current {@link JobExecutor} has a max run count, false
-   *         otherwise.
+   *         otherwise
    */
   public boolean hasMaxRunCount() {
     return (optionalMaxStepRunCount != null);
@@ -375,7 +375,7 @@ public final class JobExecutor extends Thread {
 
   /**
    * @return true if the current {@link JobExecutor} has a time interval, false
-   *         otherwise.
+   *         otherwise
    */
   public boolean hasTimeInterval() {
     return (optionalDelayBetweenStepRunsInMilliseconds != null);

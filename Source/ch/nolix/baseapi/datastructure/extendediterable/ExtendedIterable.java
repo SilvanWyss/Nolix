@@ -21,7 +21,7 @@ import ch.nolix.baseapi.state.staterequest.MaterializationRequestable;
  * exists additional orders. A {@link ExtendedIterable} is iterable.
  * 
  * @author Silvan Wyss
- * @param <E> the type of the elements of a {@link ExtendedIterable}.
+ * @param <E> the type of the elements of a {@link ExtendedIterable}
  */
 public interface ExtendedIterable<E>
 extends
@@ -51,13 +51,13 @@ StringMappable {
    *         {@link ExtendedIterable}.
    * @throws RuntimeException if the given comparableMapper is null
    * @throws RuntimeException if one of the elements of the current
-   *                          {@link ExtendedIterable} is null.
+   *                          {@link ExtendedIterable} is null
    */
   <C extends Comparable<C>> ExtendedIterable<E> toOrderedList(Function<E, C> comparableMapper);
 
   /**
    * @return a new {@link ExtendedIterable} with the elements of the current
-   *         {@link ExtendedIterable} in reversed order.
+   *         {@link ExtendedIterable} in reversed order
    */
   ExtendedIterable<E> toReversedList();
 }

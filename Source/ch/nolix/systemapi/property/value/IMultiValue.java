@@ -15,7 +15,7 @@ public interface IMultiValue<V> extends Clearable, IBaseValue {
    * Adds the given value to the current {@link IMultiValue}.
    * 
    * @param value
-   * @throws RuntimeException if the given value is null.
+   * @throws RuntimeException if the given value is null
    */
   void addValue(V value);
 

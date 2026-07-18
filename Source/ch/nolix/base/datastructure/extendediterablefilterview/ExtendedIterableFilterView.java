@@ -19,7 +19,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements of a {@link ExtendedIterableFilterView}.
+ * @param <E> the type of the elements of a {@link ExtendedIterableFilterView}
  */
 public final class ExtendedIterableFilterView<E> extends AbstractExtendedIterable<E> {
   private static final IterableSearcher ITERABLE_SEARCHER = new IterableSearcher();
@@ -35,7 +35,7 @@ public final class ExtendedIterableFilterView<E> extends AbstractExtendedIterabl
    * @param container
    * @param selector
    * @throws RuntimeException if the given container is null
-   * @throws RuntimeException if the given selector is null.
+   * @throws RuntimeException if the given selector is null
    */
   private ExtendedIterableFilterView(final ExtendedIterable<E> container, final Predicate<E> selector) {
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableNameCatalog.CONTAINER).isNotNull();
@@ -52,7 +52,7 @@ public final class ExtendedIterableFilterView<E> extends AbstractExtendedIterabl
    * @return a new {@link ExtendedIterableFilterView} for the given container and
    *         selector.
    * @throws RuntimeException if the given container is null
-   * @throws RuntimeException if the given selector is null.
+   * @throws RuntimeException if the given selector is null
    */
   public static <T> ExtendedIterableFilterView<T> forContainerAndSelector(
     final ExtendedIterable<T> container,
@@ -68,7 +68,7 @@ public final class ExtendedIterableFilterView<E> extends AbstractExtendedIterabl
    * @return a new {@link ExtendedIterableFilterView} for the given element and
    *         array.
    * @throws RuntimeException if the given array is null
-   * @throws RuntimeException if the given selector is null.
+   * @throws RuntimeException if the given selector is null
    */
   public static <T> ExtendedIterableFilterView<T> forArrayAndSelector(
     final T[] array,

@@ -7,7 +7,7 @@ import ch.nolix.systemapi.element.mutableelement.IRespondingMutableElement;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of a {@link IMultiStateConfiguration}.
+ * @param <C> the type of a {@link IMultiStateConfiguration}.
  * @param <S> the type of the states a {@link IMultiStateConfiguration} is
  *            for.
  */

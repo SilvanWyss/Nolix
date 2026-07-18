@@ -9,7 +9,7 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 
 /**
  * @author Silvan Wyss
- * @param <S> is the type of a {@link IShadowStyle}.
+ * @param <S> the type of a {@link IShadowStyle}.
  */
 public interface IShadowStyle<S extends IShadowStyle<S>> {
   ExtendedIterable<? extends ICornerShadow> getCornerShadowsWhenHasState(ControlState state);

@@ -14,7 +14,7 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of a {@link AbstractStylableElement}.
+ * @param <E> the type of a {@link AbstractStylableElement}.
  */
 public abstract class AbstractStylableElement<E extends IStylableElement<E>>
 extends AbstractPropertiesElement

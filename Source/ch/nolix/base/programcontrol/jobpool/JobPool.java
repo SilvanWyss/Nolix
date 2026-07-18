@@ -39,7 +39,7 @@ public final class JobPool {
 
   /**
    * @return true if the current {@link JobPool} contains waiting jobs, false
-   *         otherwise.
+   *         otherwise
    */
   public boolean containsWaitingJobs() {
     return jobWrappers.containsMatching(JobWrapper::isFresh);

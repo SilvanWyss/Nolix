@@ -12,14 +12,14 @@ public interface ILicenseValidator {
   /**
    * @param license
    * @throws RuntimeException if the given {@link AbstractLicense} is null or not
-   *                          activated.
+   *                          activated
    */
   void assertIsActivated(License license);
 
   /**
    * @param license
-   * @throws RuntimeException if the given {@link AbstractLicense} is null or already
-   *                          activated.
+   * @throws RuntimeException if the given {@link AbstractLicense} is null or
+   *                          already activated
    */
   void assertIsNotActivated(License license);
 }

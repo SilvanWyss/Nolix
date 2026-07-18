@@ -6,13 +6,13 @@ package ch.nolix.baseapi.datastructure.extendediterable;
 /**
  * @author Silvan Wyss
  * @param <E> the type of the elements of a
- *            {@link IntervallContainerViewProvider}.
+ *            {@link IntervallContainerViewProvider}
  */
 public interface IntervallContainerViewProvider<E> {
   /**
    * @param oneBasedStartIndex
-   * @return a new view of the current {@link IntervallContainerViewProvider}
-   *         from the given oneBasedStartIndex.
+   * @return a new view of the current {@link IntervallContainerViewProvider} from
+   *         the given oneBasedStartIndex.
    * @throws RuntimeException if the given oneBasedStartIndex is bigger than the
    *                          number of elements of the current
    *                          {@link ExtendedIterable}.
@@ -22,8 +22,8 @@ public interface IntervallContainerViewProvider<E> {
   /**
    * @param oneBasedStartIndex
    * @param oneBasedEndIndex
-   * @return a new view of the current {@link IntervallContainerViewProvider}
-   *         from the given oneBasedStartIndex to the given oneBasedEndIndex.
+   * @return a new view of the current {@link IntervallContainerViewProvider} from
+   *         the given oneBasedStartIndex to the given oneBasedEndIndex.
    * @throws RuntimeException if the given oneBasedStartIndex is not positive.
    * @throws RuntimeException if the given oneBasedStartIndex is smaller than the
    *                          given oneBasedEndIndex.
@@ -36,8 +36,7 @@ public interface IntervallContainerViewProvider<E> {
   /**
    * @param oneBasedEndIndex
    * @return a new view {@link ExtendedIterable} of the current
-   *         {@link IntervallContainerViewProvider} to the given
-   *         oneBasedEndIndex.
+   *         {@link IntervallContainerViewProvider} to the given oneBasedEndIndex.
    * @throws RuntimeException if the given oneBasedEndIndex is not positive.
    * @throws RuntimeException if the given oneBasedEndIndex is bigger than the
    *                          number of the elements of the current

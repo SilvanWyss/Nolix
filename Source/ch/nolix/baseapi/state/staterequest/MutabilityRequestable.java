@@ -19,7 +19,7 @@ public interface MutabilityRequestable {
 
   /**
    * @return true if the current {@link MutabilityRequestable} is mutable, false
-   *         otherwise.
+   *         otherwise
    */
   boolean isMutable();
 }

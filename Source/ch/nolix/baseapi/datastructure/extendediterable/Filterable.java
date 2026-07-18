@@ -7,31 +7,32 @@ import java.util.function.Predicate;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements a {@link Filterable}.
+ * @param <E> the type of the elements a {@link Filterable}
  */
 public interface Filterable<E> {
   /**
    * @param type
-   * @param <T>  is the type of the elements of the returned {@link ExtendedIterable}.
+   * @param <T>  is the type of the elements of the returned
+   *             {@link ExtendedIterable}.
    * @return a new {@link ExtendedIterable} with the elements from the current
-   *         {@link Filterable} that are of the given type. Ignores null elements.
-   * @throws RuntimeException if the given type is null.
+   *         {@link Filterable} that are of the given type, ignoring null elements
+   * @throws RuntimeException if the given type is null
    */
   <T extends E> ExtendedIterable<T> getStoredOfType(Class<T> type);
 
   /**
    * @param selector
    * @return a new {@link ExtendedIterable} with the elements from the current
-   *         {@link Filterable} the given selector skips. Ignores null elements.
-   * @throws RuntimeException if the given selector is null.
+   *         {@link Filterable} the given selector skips, ignoring null elements
+   * @throws RuntimeException if the given selector is null
    */
   ExtendedIterable<E> getStoredOthers(Predicate<E> selector);
 
   /**
    * @param selector
-   * @return a new {@link ExtendedIterable} with the elements the given selector selects
-   *         from the current {@link Filterable}. Ignores null elements.
-   * @throws RuntimeException if the given selector is null.
+   * @return a new {@link ExtendedIterable} with the elements the given selector
+   *         selects from the current {@link Filterable}, ignoring null elements
+   * @throws RuntimeException if the given selector is null
    */
   ExtendedIterable<E> getStoredSelected(Predicate<? super E> selector);
 }

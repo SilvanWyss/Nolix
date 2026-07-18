@@ -22,8 +22,8 @@ public interface IArrayList<E> extends Clearable, Copyable<IArrayList<E>>, IAppe
    * @param element
    * @throws RuntimeException if the given oneBasedIndex is not positive or bigger
    *                          than the one-incremented number of the elements of
-   *                          the current {@link IArrayList}.
-   * @throws RuntimeException if the given elements is null.
+   *                          the current {@link IArrayList}
+   * @throws RuntimeException if the given elements is null
    */
   void insertAtOneBasedIndex(int oneBasedIndex, E element);
 }

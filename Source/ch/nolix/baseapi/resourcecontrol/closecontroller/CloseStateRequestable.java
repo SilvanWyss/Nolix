@@ -11,13 +11,13 @@ package ch.nolix.baseapi.resourcecontrol.closecontroller;
 public interface CloseStateRequestable {
   /**
    * @return true if the current {@link CloseStateRequestable} is closed, false
-   *         otherwise.
+   *         otherwise
    */
   boolean isClosed();
 
   /**
-   * @return true if the current {@link CloseStateRequestable} is not closed,
-   *         false otherwise
+   * @return true if the current {@link CloseStateRequestable} is open, false
+   *         otherwise
    */
   default boolean isOpen() {
     return !isClosed();

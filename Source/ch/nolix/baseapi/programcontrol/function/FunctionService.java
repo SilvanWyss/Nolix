@@ -32,7 +32,7 @@ public final class FunctionService {
    * @param object1
    * @param object2
    * @return true if the given object1 and the given object2 are equal, false
-   *         otherwise.
+   *         otherwise
    */
   public static boolean areEqual(final Object object1, final Object object2) {
     return Objects.equals(object1, object2);

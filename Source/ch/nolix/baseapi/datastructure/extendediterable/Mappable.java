@@ -8,63 +8,64 @@ import java.util.function.Function;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements a {@link Mappable}.
+ * @param <E> the type of the elements a {@link Mappable}
  */
 public interface Mappable<E> {
   /**
    * @param mapper
-   * @param <T>    is the type of the elements the given mapper maps from the
+   * @param <T>    the type of the elements the given mapper maps from the
    *               elements of the current {@link Mappable}.
-   * @return a new {@link ExtendedIterable} with the elements the given mapper maps from
-   *         the elements of the current {@link Mappable}.
+   * @return a new {@link ExtendedIterable} with the elements the given mapper
+   *         maps from the elements of the current {@link Mappable}
    * @throws RuntimeException if the given mapper is null
    * @throws RuntimeException if one of the elements of the current
-   *                          {@link Mappable} is null.
+   *                          {@link Mappable} is null
    */
   <T> ExtendedIterable<T> to(Function<E, T> mapper);
 
   /**
    * @param multipleMapper
-   * @param <T>            is the type of the elements of the {@link ExtendedIterable}s
-   *                       the given multipleMapper maps from the elements of the
-   *                       current {@link Mappable}.
-   * @return a new {@link ExtendedIterable} with the elements of the {@link ExtendedIterable}s
-   *         the given multipleMapper maps from the elements of the current
-   *         {@link Mappable}.
+   * @param <T>            the type of the elements of the
+   *                       {@link ExtendedIterable}s the given multipleMapper maps
+   *                       from the elements of the current {@link Mappable}.
+   * @return a new {@link ExtendedIterable} with the elements of the
+   *         {@link ExtendedIterable}s the given multipleMapper maps from the
+   *         elements of the current {@link Mappable}
    * @throws RuntimeException if the given multipleMapper is null
    * @throws RuntimeException if one of the elements of the current
-   *                          {@link Mappable} is null.
+   *                          {@link Mappable} is null
    */
   <T> ExtendedIterable<T> toMultiples(Function<E, ExtendedIterable<T>> multipleMapper);
 
   /**
    * @param numberMapper
-   * @param <N>          is the type of the {@link Number}s the given numberMapper
+   * @param <N>          the type of the {@link Number}s the given numberMapper
    *                     maps from the elements of the current {@link Mappable}.
    * @return a new {@link ExtendedIterable} with the {@link Number}s the given
    *         numberMapper maps from the elements of the current {@link Mappable}.
-   *         Maps null elements to 0.0.
-   * @throws RuntimeException if the given numberMapper is null.
+   *         Maps null elements to 0.0
+   * @throws RuntimeException if the given numberMapper is null
    */
   <N extends Number> ExtendedIterable<N> toNumbers(Function<E, N> numberMapper);
 
   /**
-   * @return a new {@link ExtendedIterable} with the {@link String} representations of
-   *         the elements of the current {@link ExtendedIterable}.
+   * @return a new {@link ExtendedIterable} with the {@link String}
+   *         representations of the elements of the current
+   *         {@link ExtendedIterable}
    */
   ExtendedIterable<String> toStrings();
 
   /**
    * @param mapper
-   * @param <T>    is the type of the elements the given mapper maps from the
+   * @param <T>    the type of the elements the given mapper maps from the
    *               elements of the current {@link Mappable} and from the one-based
-   *               index of these elements.
-   * @return a new {@link ExtendedIterable} with the elements the given mapper maps from
-   *         the elements of the current {@link Mappable} and from the one-based
-   *         index of these elements.
+   *               index of these elements
+   * @return a new {@link ExtendedIterable} with the elements the given mapper
+   *         maps from the elements of the current {@link Mappable} and from the
+   *         one-based index of these elements
    * @throws RuntimeException if the given mapper is null
    * @throws RuntimeException if one of the elements of the current
-   *                          {@link Mappable} is null.
+   *                          {@link Mappable} is null
    */
   <T> ExtendedIterable<T> toWithOneBasedIndex(BiFunction<Integer, E, T> mapper);
 }

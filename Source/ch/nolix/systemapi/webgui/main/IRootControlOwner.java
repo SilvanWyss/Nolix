@@ -10,7 +10,7 @@ import ch.nolix.baseapi.state.statemutation.Clearable;
 
 /**
  * @author Silvan Wyss
- * @param <O> is the type of a {@link IRootControlOwner}.
+ * @param <O> the type of a {@link IRootControlOwner}.
  */
 public interface IRootControlOwner<O extends IRootControlOwner<O>> extends Clearable {
   Optional<Control<?, ?>> getOptionalStoredControlByInternalId(String internalId);

@@ -7,7 +7,7 @@ import ch.nolix.baseapi.document.node.INode;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of a {@link IRespondingMutableElement}.
+ * @param <E> the type of a {@link IRespondingMutableElement}.
  */
 public interface IRespondingMutableElement<E extends IRespondingMutableElement<E>> extends IMutableElement {
   /**

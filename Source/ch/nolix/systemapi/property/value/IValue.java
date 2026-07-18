@@ -17,7 +17,7 @@ public interface IValue<V> extends IBaseValue {
    * Sets the given value to the current {@link IValue}.
    * 
    * @param value
-   * @throws RuntimeException if the given value is null.
+   * @throws RuntimeException if the given value is null
    */
   void setValue(V value);
 }

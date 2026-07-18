@@ -18,7 +18,7 @@ public interface IOptionalValue<V> extends Clearable, IBaseValue {
    * Sets the given value to the current {@link IOptionalValue}.
    * 
    * @param value
-   * @throws RuntimeException if the given value is null.
+   * @throws RuntimeException if the given value is null
    */
   void setValue(V value);
 }

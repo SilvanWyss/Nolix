@@ -34,19 +34,19 @@ public interface IAbsoluteOrRelativeInt extends IElement {
 
   /**
    * @return true if the current {@link IAbsoluteOrRelativeInt} is absolute, false
-   *         otherwise.
+   *         otherwise
    */
   boolean isAbsolute();
 
   /**
    * @return true if the current {@link IAbsoluteOrRelativeInt} is positive, false
-   *         otherwise.
+   *         otherwise
    */
   boolean isPositive();
 
   /**
    * @return true if the current {@link IAbsoluteOrRelativeInt} is relative, false
-   *         otherwise.
+   *         otherwise
    */
   boolean isRelative();
 }

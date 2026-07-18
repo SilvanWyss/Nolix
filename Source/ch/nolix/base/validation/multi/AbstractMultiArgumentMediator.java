@@ -30,7 +30,7 @@ public abstract class AbstractMultiArgumentMediator<A> { //NOSONAR: The Abstract
 
   /**
    * @throws RuntimeException if one of the arguments of the current
-   *                          {@link AbstractMultiArgumentMediator} is null.
+   *                          {@link AbstractMultiArgumentMediator} is null
    */
   public final void areNotNull() {
     var index = 1;

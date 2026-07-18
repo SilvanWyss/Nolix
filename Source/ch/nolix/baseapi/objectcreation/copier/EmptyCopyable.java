@@ -7,7 +7,7 @@ package ch.nolix.baseapi.objectcreation.copier;
  * A {@link EmptyCopyable} can create an empty copy of itself.
  * 
  * @author Silvan Wyss
- * @param <C> is the type of a {@link EmptyCopyable}.
+ * @param <C> the type of a {@link EmptyCopyable}.
  */
 public interface EmptyCopyable<C extends EmptyCopyable<C>> {
   /**

@@ -12,7 +12,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
  */
 public interface IMatrixColumn<E> extends ExtendedIterable<E> {
   /**
-   * @return the one-based column index of the current {@link IMatrixColumn}.
+   * @return the one-based column index of the current {@link IMatrixColumn}
    */
   int getOneBasedColumnIndex();
 }

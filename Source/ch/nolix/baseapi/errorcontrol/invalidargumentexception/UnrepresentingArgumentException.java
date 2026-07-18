@@ -27,7 +27,7 @@ public final class UnrepresentingArgumentException extends AbstractInvalidArgume
    * 
    * @param argument - Can be null.
    * @param type
-   * @throws RuntimeException if the given type is null.
+   * @throws RuntimeException if the given type is null
    */
   private UnrepresentingArgumentException(final Object argument, final Class<?> type) {
     super(argument, new ErrorPredicateDto("does not represent " + getPronounAndNameOfType(type)));
@@ -41,7 +41,7 @@ public final class UnrepresentingArgumentException extends AbstractInvalidArgume
    * @param argumentName
    * @param type
    * @throws RuntimeException if the given argumentName is null or blank.
-   * @throws RuntimeException if the given type is null.
+   * @throws RuntimeException if the given type is null
    */
   private UnrepresentingArgumentException(final Object argument, final String argumentName, final Class<?> type) {
     super(
@@ -57,7 +57,7 @@ public final class UnrepresentingArgumentException extends AbstractInvalidArgume
    * @return a new {@link UnrepresentingArgumentException} for the given argument,
    *         argumentName and type.
    * @throws RuntimeException if the given argumentName is null or blank.
-   * @throws RuntimeException if the given type is null.
+   * @throws RuntimeException if the given type is null
    */
   public static UnrepresentingArgumentException forArgumentAndArgumentNameAndType(
     final Object argument,
@@ -71,7 +71,7 @@ public final class UnrepresentingArgumentException extends AbstractInvalidArgume
    * @param type
    * @return a new {@link UnrepresentingArgumentException} for the given argument
    *         and type.
-   * @throws RuntimeException if the given type is null.
+   * @throws RuntimeException if the given type is null
    */
   public static UnrepresentingArgumentException forArgumentAndType(final Object argument, final Class<?> type) {
     return new UnrepresentingArgumentException(argument, type);
@@ -80,7 +80,7 @@ public final class UnrepresentingArgumentException extends AbstractInvalidArgume
   /**
    * @param type
    * @return the name of the given type.
-   * @throws RuntimeException if the given type is null.
+   * @throws RuntimeException if the given type is null
    */
   private static String getNameOfType(final Class<?> type) {
     if (type == null) {
@@ -99,7 +99,7 @@ public final class UnrepresentingArgumentException extends AbstractInvalidArgume
   /**
    * @param type
    * @return the pronoun and name of the given type.
-   * @throws RuntimeException if the given type is null.
+   * @throws RuntimeException if the given type is null
    */
   private static String getPronounAndNameOfType(final Class<?> type) {
     final var name = getNameOfType(type);

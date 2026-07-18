@@ -19,7 +19,7 @@ public interface UpToDateRequestable {
 
   /**
    * @return true if the current {@link UpToDateRequestable} is up-to-date, false
-   *         otherwise.
+   *         otherwise
    */
   boolean isUpToDate();
 }

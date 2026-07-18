@@ -13,7 +13,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 
 /**
  * @author Silvan Wyss
- * @param <N> is the type of a {@link AbstractMutableNode}.
+ * @param <N> the type of a {@link AbstractMutableNode}.
  */
 public abstract class AbstractMutableNode<N extends AbstractMutableNode<N>>
 extends AbstractNode<N>

@@ -25,13 +25,13 @@ public interface IFuture extends FinishRequestable {
 
   /**
    * @return true if the current {@link IFuture} is finished successfully, false
-   *         otherwise.
+   *         otherwise
    */
   boolean isFinishedSuccessfully();
 
   /**
    * @return true if the current {@link IFuture} is finished with an error, false
-   *         otherwise.
+   *         otherwise
    */
   boolean isFinishedWithError();
 

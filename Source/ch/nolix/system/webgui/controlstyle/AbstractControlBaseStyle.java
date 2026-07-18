@@ -19,7 +19,7 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of a {@link AbstractControlBaseStyle}.
+ * @param <C> the type of a {@link AbstractControlBaseStyle}.
  */
 abstract class AbstractControlBaseStyle<C extends IControlBaseStyle<C>>
 extends AbstractMultiStateConfiguration<C, ControlState>

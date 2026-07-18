@@ -13,15 +13,15 @@ public interface CountRequestable<E> extends BaseCountRequestable {
   /**
    * @param selector
    * @return the number of elements the given selector selects from the current
-   *         {@link CountRequestable}. Ignores null elements.
-   * @throws RuntimeException if the given selector is null.
+   *         {@link CountRequestable}, ignoring null elements
+   * @throws RuntimeException if the given selector is null
    */
   int getCount(Predicate<E> selector);
 
   /**
    * @param element
    * @return the number how many times the current {@link CountRequestable}
-   *         contains the given element.
+   *         contains the given element
    */
   int getCountOf(Object element);
 }

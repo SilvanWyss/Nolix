@@ -11,13 +11,13 @@ package ch.nolix.baseapi.state.staterequest;
 public interface AlivenessRequestable {
   /**
    * @return true if the current {@link AlivenessRequestable} is alive, false
-   *         otherwise.
+   *         otherwise
    */
   boolean isAlive();
 
   /**
    * @return true if the current {@link AlivenessRequestable} is outdated, false
-   *         otherwise.
+   *         otherwise
    */
   default boolean isOutdated() {
     return !isAlive();

@@ -27,7 +27,7 @@ public interface FieldTypeRequestable {
 
   /**
    * @return true if the current {@link FieldTypeRequestable} is for values, false
-   *         otherwise.
+   *         otherwise
    */
   boolean isForValues();
 }

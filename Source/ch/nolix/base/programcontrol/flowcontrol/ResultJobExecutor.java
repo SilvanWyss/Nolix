@@ -93,7 +93,7 @@ final class ResultJobExecutor<R> extends Thread {
 
   /**
    * @return true if the current {@link ResultJobExecutor} is finished, false
-   *         otherwise.
+   *         otherwise
    */
   public boolean isFinished() {
     return !isRunning();
@@ -111,7 +111,7 @@ final class ResultJobExecutor<R> extends Thread {
 
   /**
    * @return true if the current {@link ResultJobExecutor} is running, false
-   *         otherwise.
+   *         otherwise
    */
   public boolean isRunning() {
     return running;

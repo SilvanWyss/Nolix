@@ -12,7 +12,7 @@ package ch.nolix.baseapi.objectcomposition.hierarchy;
 public interface RootRequestable {
   /**
    * @return true if the current {@link RootRequestable} is a child object, false
-   *         otherwise.
+   *         otherwise
    */
   default boolean isChild() {
     return !isRoot();
@@ -20,7 +20,7 @@ public interface RootRequestable {
 
   /**
    * @return true if the current {@link RootRequestable} is a root object, false
-   *         otherwise.
+   *         otherwise
    */
   boolean isRoot();
 }

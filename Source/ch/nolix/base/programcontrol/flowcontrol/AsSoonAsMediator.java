@@ -20,7 +20,7 @@ public final class AsSoonAsMediator implements IAsSoonAsMediator {
    * Creates a new {@link AsSoonAsMediator} with the given condition.
    * 
    * @param condition
-   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given condition is null
    */
   private AsSoonAsMediator(final BooleanSupplier condition) {
     Validator.assertThat(condition).thatIsNamed(LowerCaseVariableNameCatalog.CONDITION).isNotNull();
@@ -31,7 +31,7 @@ public final class AsSoonAsMediator implements IAsSoonAsMediator {
   /**
    * @param condition
    * @return a new {@link AsSoonAsMediator} with the given condition.
-   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given condition is null
    */
   public static AsSoonAsMediator withCondition(final BooleanSupplier condition) {
     return new AsSoonAsMediator(condition);

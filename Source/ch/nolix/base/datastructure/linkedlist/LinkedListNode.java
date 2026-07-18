@@ -83,7 +83,7 @@ public final class LinkedListNode<E> {
 
   /**
    * @return true if the current {@link LinkedListNode} has a next node, false
-   *         otherwise.
+   *         otherwise
    */
   public boolean hasNextNode() {
     return (nullableNextNode != null);

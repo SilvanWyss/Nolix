@@ -19,7 +19,7 @@ import ch.nolix.systemapi.element.multistateconfiguration.IMultiStateConfigurati
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of a {@link AbstractMultiStateConfiguration}.
+ * @param <C> the type of a {@link AbstractMultiStateConfiguration}.
  * @param <S> the type of the {@link Enum} representation of the
  *            {@link State}s of a {@link AbstractMultiStateConfiguration}.
  */

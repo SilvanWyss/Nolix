@@ -24,7 +24,7 @@ public final class AsLongAsMediator implements IAsLongAsMediator {
    * Creates a new {@link AsLongAsMediator} with the given condition.
    * 
    * @param condition
-   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given condition is null
    */
   private AsLongAsMediator(final BooleanSupplier condition) {
     Validator.assertThat(condition).thatIsNamed(LowerCaseVariableNameCatalog.CONDITION).isNotNull();
@@ -35,7 +35,7 @@ public final class AsLongAsMediator implements IAsLongAsMediator {
   /**
    * @param condition
    * @return a new {@link AsLongAsMediator} with the given condition.
-   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given condition is null
    */
   public static AsLongAsMediator withCondition(final BooleanSupplier condition) {
     return new AsLongAsMediator(condition);

@@ -27,7 +27,7 @@ public interface IArrayTool {
    * @param elements
    * @param <E>      is the type of the given elements.
    * @return a new {@link Iterable} with the given elements.
-   * @throws RuntimeException if the given elements is null.
+   * @throws RuntimeException if the given elements is null
    */
   <E> Iterable<E> createIterable(final E[] elements);
 

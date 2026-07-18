@@ -52,7 +52,7 @@ public abstract class AbstractLicense implements License {
   /**
    * @param key
    * @return true if the current {@link AbstractLicense} accepts the given key,
-   *         false otherwise.
+   *         false otherwise
    */
   private boolean acceptsKey(final String key) {
     final var refinedKey = KeyRefinder.getRefinedKeyFromKey(key);

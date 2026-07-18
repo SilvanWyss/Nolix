@@ -10,7 +10,7 @@ import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
 /**
  * @author Silvan Wyss
  * @param <E> the type of the elements of the parent array of a
- *            {@link ArrayListIterator}.
+ *            {@link ArrayListIterator}
  */
 public final class ArrayListIterator<E> implements CopyableIterator<E> {
   private static final IteratorValidator ITERATOR_VALIDATOR = new IteratorValidator();

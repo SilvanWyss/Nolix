@@ -36,7 +36,7 @@ public final class FlowController {
   /**
    * @param condition
    * @return a new {@link IAsLongAsMediator} with the given condition.
-   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given condition is null
    */
   public static IAsLongAsMediator asLongAs(final BooleanSupplier condition) {
     return AsLongAsMediator.withCondition(condition);
@@ -45,7 +45,7 @@ public final class FlowController {
   /**
    * @param condition
    * @return a new {@link IAsSoonAsMediator} with the given condition.
-   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given condition is null
    */
   public static IAsSoonAsMediator asSoonAs(final BooleanSupplier condition) {
     return AsSoonAsMediator.withCondition(condition);
@@ -55,7 +55,7 @@ public final class FlowController {
    * @param condition
    * @return a new {@link IAsSoonAsMediator} with the negation of the given
    *         condition.
-   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given condition is null
    */
   public static IAsSoonAsMediator asSoonAsNoMore(final BooleanSupplier condition) {
     return AsSoonAsMediator.withCondition(() -> !condition.getAsBoolean());
@@ -176,7 +176,7 @@ public final class FlowController {
    * @param condition
    * @return a new {@link IAsLongAsMediator} for the negation of the given
    *         condition.
-   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given condition is null
    */
   public static IAsLongAsMediator until(final BooleanSupplier condition) {
     return AsLongAsMediator.withCondition(() -> !condition.getAsBoolean());
@@ -187,7 +187,7 @@ public final class FlowController {
    * 
    * @param condition
    * @return a {@link IWaitMediator}.
-   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given condition is null
    */
   public static IWaitMediator waitAsLongAs(final BooleanSupplier condition) {
     Validator.assertThat(condition).thatIsNamed(LowerCaseVariableNameCatalog.CONDITION).isNotNull();
@@ -236,7 +236,7 @@ public final class FlowController {
    * 
    * @param condition
    * @return a new {@link IWaitMediator}.
-   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given condition is null
    */
   public static IWaitMediator waitUntil(final BooleanSupplier condition) {
     waitAsLongAs(() -> !condition.getAsBoolean());

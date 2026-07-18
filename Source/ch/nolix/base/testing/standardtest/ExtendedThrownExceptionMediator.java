@@ -44,7 +44,7 @@ public final class ExtendedThrownExceptionMediator extends AbstractThrownExcepti
    * @return a new {@link ThrownExceptionMediator} that belongs to the test of the
    *         current {@link ThrownExceptionMediator} and is for the exception of
    *         the current {@link ThrownExceptionMediator}.
-   * @throws RuntimeException if the given type is null.
+   * @throws RuntimeException if the given type is null
    */
   public <E extends Exception> ThrownExceptionMediator ofType(final Class<E> type) {
     // Asserts that the given type is not null.

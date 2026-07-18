@@ -19,7 +19,7 @@ import ch.nolix.baseapi.programcontrol.processproperty.WriteMode;
 
 /**
  * @author Silvan Wyss
- * @param <N> is the type of a {@link AbstractNode}.
+ * @param <N> the type of a {@link AbstractNode}.
  */
 public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N> {
   public static final String COMMA_CODE = "$M";

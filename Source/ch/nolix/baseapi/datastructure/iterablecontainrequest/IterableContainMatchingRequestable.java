@@ -43,7 +43,7 @@ public interface IterableContainMatchingRequestable<E> {
    * @return true if the current {@link IterableContainMatchingRequestable} does not
    *         contain an element the given selector selects, false otherwise,
    *         ignoring null elements
-   * @throws RuntimeException if the given selector is null.
+   * @throws RuntimeException if the given selector is null
    */
   boolean containsNoMatching(Predicate<E> selector);
 
@@ -56,7 +56,7 @@ public interface IterableContainMatchingRequestable<E> {
    * @return true if the current {@link IterableContainMatchingRequestable} contains
    *         exactly 1 element the given selector selects, false otherwise,
    *         ignoring null elements
-   * @throws RuntimeException if the given selector is null.
+   * @throws RuntimeException if the given selector is null
    */
   boolean containsOneMatching(Predicate<E> selector);
 }

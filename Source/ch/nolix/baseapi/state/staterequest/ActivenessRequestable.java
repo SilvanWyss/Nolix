@@ -11,7 +11,7 @@ package ch.nolix.baseapi.state.staterequest;
 public interface ActivenessRequestable {
   /**
    * @return true if the current {@link ActivenessRequestable} is active, false
-   *         otherwise.
+   *         otherwise
    */
   boolean isActive();
 

@@ -14,7 +14,7 @@ import ch.nolix.systemapi.style.stylable.IStyleElement;
  * have a {@link Style}.
  * 
  * @author Silvan Wyss
- * @param <E> is the type of a {@link AbstractStyleElement}.
+ * @param <E> the type of a {@link AbstractStyleElement}.
  */
 public abstract class AbstractStyleElement<E extends AbstractStyleElement<E>> extends AbstractStylableElement<E>
 implements IStyleElement<E> {

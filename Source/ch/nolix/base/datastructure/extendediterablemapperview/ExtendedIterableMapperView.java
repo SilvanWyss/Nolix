@@ -17,9 +17,9 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements of a {@link ExtendedIterableMapperView}.
+ * @param <E> the type of the elements of a {@link ExtendedIterableMapperView}
  * @param <T> the type of the elements a {@link ExtendedIterableMapperView} maps
- *            from its elements.
+ *            from its elements
  */
 public final class ExtendedIterableMapperView<E, T> extends AbstractExtendedIterable<T> {
   private static final IterableSearcher ITERABLE_SEARCHER = new IterableSearcher();

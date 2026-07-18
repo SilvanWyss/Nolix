@@ -63,7 +63,7 @@ public class IndexedPackage<C> {
   /**
    * @param index
    * @return true if the current {@link IndexedPackage} has the given index, false
-   *         otherwise.
+   *         otherwise
    */
   public final boolean hasIndex(final int index) {
     return (getIndex() == index);

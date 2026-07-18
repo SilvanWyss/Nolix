@@ -160,7 +160,7 @@ public abstract class AbstractObjectMediator<A> extends AbstractMediator {
 
   /**
    * @throws RuntimeException if the argument of the current
-   *                          {@link AbstractObjectMediator} is null.
+   *                          {@link AbstractObjectMediator} is null
    */
   public final void isNotNull() {
     if (argument == null) {

@@ -10,7 +10,7 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 
 /**
  * @author Silvan Wyss
- * @param <S> is the type of a {@link AbstractItemMenuStyle}.
+ * @param <S> the type of a {@link AbstractItemMenuStyle}.
  */
 public abstract class AbstractItemMenuStyle<S extends IItemMenuStyle<S> & IMultiStateConfiguration<S, ControlState>>
 extends AbstractControlStyle<S>

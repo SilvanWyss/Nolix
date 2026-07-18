@@ -10,7 +10,7 @@ import ch.nolix.systemapi.style.model.IStyle;
  * its child elements.
  * 
  * @author Silvan Wyss
- * @param <E> is the type of a {@link IStyleElement}.
+ * @param <E> the type of a {@link IStyleElement}.
  */
 public interface IStyleElement<E extends IStyleElement<E>> extends IStylableElement<E> {
   /**
@@ -22,7 +22,7 @@ public interface IStyleElement<E extends IStyleElement<E>> extends IStylableElem
 
   /**
    * @return true if the current {@link IStyleElement} has a {@link IStyle}, false
-   *         otherwise.
+   *         otherwise
    */
   boolean hasStyle();
 

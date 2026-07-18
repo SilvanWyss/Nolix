@@ -10,8 +10,8 @@ import ch.nolix.baseapi.objectcreation.copier.Copyable;
 import ch.nolix.baseapi.state.statemutation.Clearable;
 
 /**
- * A {@link ILinkedList} is a {@link ExtendedIterable} that can add and
- * remove elements.
+ * A {@link ILinkedList} is a {@link ExtendedIterable} that can add and remove
+ * elements.
  * 
  * @author Silvan Wyss
  * @param <E> the type of the elements of a {@link ILinkedList}.
@@ -22,7 +22,7 @@ extends Clearable, Copyable<ILinkedList<E>>, IAppendableList<E>, ExtendedIterabl
    * Adds the given element at the begin of the current {@link ILinkedList}.
    * 
    * @param element
-   * @throws RuntimeException if the given elements is null.
+   * @throws RuntimeException if the given elements is null
    */
   void addAtBegin(E element);
 
@@ -32,7 +32,7 @@ extends Clearable, Copyable<ILinkedList<E>>, IAppendableList<E>, ExtendedIterabl
    * 
    * @param elements
    * @throws RuntimeException if the given elements is null
-   * @throws RuntimeException if one of the given elements is null.
+   * @throws RuntimeException if one of the given elements is null
    */
   void addAtBegin(@SuppressWarnings("unchecked") E... elements);
 
@@ -41,7 +41,7 @@ extends Clearable, Copyable<ILinkedList<E>>, IAppendableList<E>, ExtendedIterabl
    * elements will be added in the given order.
    * 
    * @param elements
-   * @throws RuntimeException if one of the given elements is null.
+   * @throws RuntimeException if one of the given elements is null
    */
   void addAtBegin(Iterable<? extends E> elements);
 
@@ -65,7 +65,7 @@ extends Clearable, Copyable<ILinkedList<E>>, IAppendableList<E>, ExtendedIterabl
    * Removes and returns the first element of the current {@link ILinkedList}.
    * 
    * @return the first element of the current {@link ILinkedList}.
-   * @throws RuntimeException if the current {@link ILinkedList} is empty.
+   * @throws RuntimeException if the current {@link ILinkedList} is empty
    */
   E removeAndGetStoredFirst();
 
@@ -77,20 +77,20 @@ extends Clearable, Copyable<ILinkedList<E>>, IAppendableList<E>, ExtendedIterabl
    * @return the first element the given selector selects from the current
    *         {@link ILinkedList}.
    * @throws RuntimeException if the current {@link ILinkedList} does not contain
-   *                          an element the given selector selects.
+   *                          an element the given selector selects
    */
   E removeAndGetStoredFirst(Predicate<E> selector);
 
   /**
    * Removes and returns the last element of the current {@link ILinkedList}.
    * 
-   * @return the last element of the current {@link ILinkedList}.
-   * @throws RuntimeException if the current {@link ILinkedList} is empty.
+   * @return the last element of the current {@link ILinkedList}
+   * @throws RuntimeException if the current {@link ILinkedList} is empty
    */
   E removeAndGetStoredLast();
 
   /**
-   * Removes the first element from the current {@link ILinkedList}.
+   * Removes the first element from the current {@link ILinkedList}
    */
   void removeFirst();
 

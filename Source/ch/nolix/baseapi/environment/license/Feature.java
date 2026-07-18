@@ -10,13 +10,12 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
  */
 public interface Feature {
   /**
-   * @return the authorized {@link License} types of the current
-   *         {@link Feature}.
+   * @return the authorized {@link License} types of the current {@link Feature}
    */
   ExtendedIterable<Class<License>> getAuthorizedLicenseTypes();
 
   /**
-   * @return the name of the current {@link Feature}.
+   * @return the name of the current {@link Feature}
    */
   String getName();
 }

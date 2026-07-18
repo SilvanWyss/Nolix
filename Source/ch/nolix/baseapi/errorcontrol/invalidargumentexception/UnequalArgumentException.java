@@ -23,7 +23,7 @@ public final class UnequalArgumentException extends AbstractInvalidArgumentExcep
    * 
    * @param argument - Can be null.
    * @param value
-   * @throws RuntimeException if the given value is null.
+   * @throws RuntimeException if the given value is null
    */
   private UnequalArgumentException(final Object argument, final Object value) {
     super(argument, new ErrorPredicateDto("does not equal the " + getNameOfValue(value) + " '" + value + "'"));
@@ -37,7 +37,7 @@ public final class UnequalArgumentException extends AbstractInvalidArgumentExcep
    * @param argumentName
    * @param value
    * @throws RuntimeException if the given argumentName is null or blank.
-   * @throws RuntimeException if the given value is null.
+   * @throws RuntimeException if the given value is null
    */
   private UnequalArgumentException(final Object argument, final String argumentName, final Object value) {
     super(
@@ -53,7 +53,7 @@ public final class UnequalArgumentException extends AbstractInvalidArgumentExcep
    * @return a new {@link UnequalArgumentException} for the given argument,
    *         argumentName and value.
    * @throws RuntimeException if the given argumentName is null or blank.
-   * @throws RuntimeException if the given value is null.
+   * @throws RuntimeException if the given value is null
    */
   public static UnequalArgumentException forArgumentAndArgumentNameAndValue(
     final Object argument,
@@ -67,7 +67,7 @@ public final class UnequalArgumentException extends AbstractInvalidArgumentExcep
    * @param value
    * @return a new {@link UnequalArgumentException} for the given argument and
    *         value.
-   * @throws RuntimeException if the given value is null.
+   * @throws RuntimeException if the given value is null
    */
   public static UnequalArgumentException forArgumentAndValue(final Object argument, final Object value) {
     return new UnequalArgumentException(argument, value);
@@ -76,7 +76,7 @@ public final class UnequalArgumentException extends AbstractInvalidArgumentExcep
   /**
    * @param value
    * @return the name of the given value.
-   * @throws RuntimeException if the given value is null.
+   * @throws RuntimeException if the given value is null
    */
   private static String getNameOfValue(final Object value) {
     if (value == null) {

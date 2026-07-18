@@ -96,7 +96,7 @@ public final class UnsignedByte {
 
   /**
    * @param index
-   * @return the bit at the given index from the current {@link UnsignedByte}.
+   * @return the bit at the given index from the current {@link UnsignedByte}
    */
   public boolean getBitAt(final int index) { //NOSONAR: This method returns a bit as a boolean.
     return (getBitAtAsInt(index) == 1);
@@ -114,7 +114,7 @@ public final class UnsignedByte {
   }
 
   /**
-   * @return a {@link String} with the bits of the current {@link UnsignedByte}.
+   * @return a {@link String} with the bits of the current {@link UnsignedByte}
    */
   public String toBitString() {
     return String.format(

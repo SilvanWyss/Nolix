@@ -14,8 +14,8 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 
 /**
  * @author Silvan Wyss
- * @param <A> the type of the argument of a {@link AbstractArgumentCaptor}.
- * @param <S> the type of the successor of a {@link AbstractArgumentCaptor}.
+ * @param <A> the type of the argument of a {@link AbstractArgumentCaptor}
+ * @param <S> the type of the successor of a {@link AbstractArgumentCaptor}
  */
 public abstract class AbstractArgumentCaptor<A, S> implements ArgumentCaptor<S> {
   private boolean hasArgument;

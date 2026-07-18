@@ -98,7 +98,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
 
   /**
    * @return true if the current {@link AfterEveryMediator} has a condition, false
-   *         otherwise.
+   *         otherwise
    */
   private boolean hasCondition() {
     return (condition != null);

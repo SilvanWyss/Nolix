@@ -13,7 +13,7 @@ public interface IndexRequestable<E> {
   /**
    * @param selector
    * @return the 1-based index of the first element the given selector selects
-   *         from the current {@link IndexRequestable}. Ignores null elements.
+   *         from the current {@link IndexRequestable}, ignoring null elements
    * @throws RuntimeException if the given selector is null
    * @throws RuntimeException if the current {@link IndexRequestable} does not
    *                          contain an element the given selector selects.

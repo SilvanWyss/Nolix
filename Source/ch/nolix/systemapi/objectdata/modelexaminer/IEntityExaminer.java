@@ -27,14 +27,14 @@ public interface IEntityExaminer extends IDatabaseObjectExaminer {
   /**
    * @param entity
    * @return true if the given entity can be inserted into a {@link ITable}, false
-   *         otherwise.
+   *         otherwise
    */
   boolean canBeInsertedIntoTable(IEntity entity);
 
   /**
    * @param entity
    * @return true if a parent table can be set to the given entity, false
-   *         otherwise.
+   *         otherwise
    */
   boolean canSetParentTable(IEntity entity);
 

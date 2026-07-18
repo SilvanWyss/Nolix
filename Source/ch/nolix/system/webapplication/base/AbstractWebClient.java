@@ -18,7 +18,7 @@ import ch.nolix.systemapi.application.main.IApplication;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of a {@link AbstractWebClient}.
+ * @param <C> the type of a {@link AbstractWebClient}.
  * @param <S> the type of the application service of the {@link IApplication}
  *            of a {@link AbstractWebClient}.
  */

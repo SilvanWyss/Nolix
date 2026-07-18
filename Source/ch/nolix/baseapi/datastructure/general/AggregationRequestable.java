@@ -10,7 +10,7 @@ import java.util.function.ToIntFunction;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements a {@link AggregationRequestable}.
+ * @param <E> the type of the elements a {@link AggregationRequestable}
  */
 public interface AggregationRequestable<E> {
   /**
@@ -20,7 +20,7 @@ public interface AggregationRequestable<E> {
    *         elements to 0.0.
    * @throws RuntimeException if the given valueMapper is null
    * @throws RuntimeException if the current {@link AggregationRequestable} is
-   *                          empty.
+   *                          empty
    */
   double getAverage(Function<E, Number> valueMapper);
 
@@ -29,22 +29,22 @@ public interface AggregationRequestable<E> {
    * @return the average of the values the given valueMapper maps from the
    *         elements of the current {@link AggregationRequestable} if the current
    *         {@link AggregationRequestable} contains any, 0.0 otherwise. Maps null
-   *         elements to 0.0.
-   * @throws RuntimeException if the given valueMapper is null.
+   *         elements to 0.0
+   * @throws RuntimeException if the given valueMapper is null
    */
   double getAverageOrZero(Function<E, Number> valueMapper);
 
   /**
    * @param comparableMapper
-   * @param <C>              is the type of the {@link Comparable}s the given
+   * @param <C>              the type of the {@link Comparable}s the given
    *                         comparableMapper maps from the elements of the
-   *                         current {@link AggregationRequestable}.
+   *                         current {@link AggregationRequestable}
    * @return the biggest {@link Comparable} the given comparableMapper maps from
    *         the elements of the current {@link AggregationRequestable}. Ignores
-   *         null elements.
+   *         null elements
    * @throws RuntimeException if the given comparableMapper is null
    * @throws RuntimeException if the current {@link AggregationRequestable} does
-   *                          not contain a non-null element.
+   *                          not contain a non-null element
    */
   <C extends Comparable<C>> C getMax(Function<E, C> comparableMapper);
 
@@ -53,7 +53,7 @@ public interface AggregationRequestable<E> {
    * @return the biggest number the given numberMapper maps from the non-null
    *         elements of the current {@link AggregationRequestable} if the current
    *         {@link AggregationRequestable} contains non-null elements, 0.0
-   *         otherwise.
+   *         otherwise
    */
   double getMaxOrZero(Function<E, Number> numberMapper);
 
@@ -61,10 +61,10 @@ public interface AggregationRequestable<E> {
    * @param numberMapper
    * @return the median of the numbers the given numberMapper maps from the
    *         elements of the current {@link AggregationRequestable}. Maps null
-   *         elements to 0.0.
+   *         elements to 0.0
    * @throws RuntimeException if the given numberMapper is null
    * @throws RuntimeException if the current {@link AggregationRequestable} is
-   *                          empty.
+   *                          empty
    */
   double getMedian(Function<E, Number> numberMapper);
 
@@ -73,8 +73,8 @@ public interface AggregationRequestable<E> {
    * @return the median of the numbers the given numberMapper maps from the
    *         elements of the current {@link AggregationRequestable} if the current
    *         {@link AggregationRequestable} is not empty, 0.0 otherwise. Maps null
-   *         elements to 0.0.
-   * @throws RuntimeException if the given numberMapper is null.
+   *         elements to 0.0
+   * @throws RuntimeException if the given numberMapper is null
    */
   double getMedianOrZero(Function<E, Number> numberMapper);
 
@@ -82,13 +82,13 @@ public interface AggregationRequestable<E> {
    * @param comparableMapper
    * @param <C>              is the type of the {@link Comparable}s the given
    *                         comparableMapper maps from the elements of the
-   *                         current {@link AggregationRequestable}.
+   *                         current {@link AggregationRequestable}
    * @return the smallest {@link Comparable} the given comparableMapper maps from
    *         the elements of the current {@link AggregationRequestable}. Ignores
-   *         null elements.
+   *         null elements
    * @throws RuntimeException if the given comparableMapper is null
    * @throws RuntimeException if the current {@link AggregationRequestable} does
-   *                          not contain a non-null element.
+   *                          not contain a non-null element
    */
   <C extends Comparable<C>> C getMin(Function<E, C> comparableMapper);
 
@@ -97,7 +97,7 @@ public interface AggregationRequestable<E> {
    * @return the smallest number the given numberMapper maps from the non-null
    *         elements of the current {@link AggregationRequestable} if the current
    *         {@link AggregationRequestable} contains non-null elements, 0.0
-   *         otherwise.
+   *         otherwise
    */
   double getMinOrZero(Function<E, Number> numberMapper);
 
@@ -107,7 +107,7 @@ public interface AggregationRequestable<E> {
    *         from the elements of the current {@link AggregationRequestable}.
    * @throws RuntimeException if the given numberMapper is null
    * @throws RuntimeException if the current {@link AggregationRequestable} is
-   *                          empty.
+   *                          empty
    */
   double getStandardDeviation(Function<E, Number> numberMapper);
 
@@ -124,7 +124,7 @@ public interface AggregationRequestable<E> {
    * @param intMapper
    * @return the sum of the ints the given intMapper maps from the elements of the
    *         current {@link AggregationRequestable}. Maps null elements to 0.0.
-   * @throws RuntimeException if the given intMapper is null.
+   * @throws RuntimeException if the given intMapper is null
    */
   BigInteger getSumOfInts(ToIntFunction<E> intMapper);
 
@@ -135,7 +135,7 @@ public interface AggregationRequestable<E> {
    *         elements to 0.0.
    * @throws RuntimeException if the given numberMapper is null
    * @throws RuntimeException if the current {@link AggregationRequestable} is
-   *                          empty.
+   *                          empty
    */
   double getVariance(Function<E, Number> numberMapper);
 }

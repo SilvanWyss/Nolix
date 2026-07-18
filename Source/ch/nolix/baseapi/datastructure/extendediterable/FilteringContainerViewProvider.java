@@ -8,15 +8,15 @@ import java.util.function.Predicate;
 /**
  * @author Silvan Wyss
  * @param <E> the type of the elements of a
- *            {@link FilteringContainerViewProvider}.
+ *            {@link FilteringContainerViewProvider}
  */
 public interface FilteringContainerViewProvider<E> {
   /**
    * @param selector
-   * @return a new {@link ExtendedIterable} view with the elements the given selector
-   *         selects from the current {@link FilteringContainerViewProvider}.
-   *         Ignores null elements.
-   * @throws RuntimeException if the given selector is null.
+   * @return a new {@link ExtendedIterable} view with the elements the given
+   *         selector selects from the current
+   *         {@link FilteringContainerViewProvider}, ignoring null elements
+   * @throws RuntimeException if the given selector is null
    */
   ExtendedIterable<E> getViewOfStoredSelected(Predicate<E> selector);
 }

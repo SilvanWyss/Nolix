@@ -8,8 +8,8 @@ import ch.nolix.baseapi.argumentcaptor.withargumentcaptor.IWithDatabaseCaptor;
 
 /**
  * @author Silvan Wyss
- * @param <D> the type of the database of a {@link WithDatabaseCaptor}.
- * @param <S> the type of the next thing of a {@link WithDatabaseCaptor}.
+ * @param <D> the type of the database of a {@link WithDatabaseCaptor}
+ * @param <S> the type of the next thing of a {@link WithDatabaseCaptor}
  */
 public class WithDatabaseCaptor<D, S> extends AbstractArgumentCaptor<D, S> implements IWithDatabaseCaptor<D, S> {
   public WithDatabaseCaptor() {

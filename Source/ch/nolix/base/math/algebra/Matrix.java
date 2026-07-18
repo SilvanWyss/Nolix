@@ -596,7 +596,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
 
   /**
    * @return true if the current {@link Matrix} is an identity matrix, false
-   *         otherwise.
+   *         otherwise
    */
   public boolean isIdentityMatrix() {
     if (!isQuadratic()) {
@@ -616,7 +616,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
 
   /**
    * @return true if the current {@link Matrix} is a quadratic matrix, false
-   *         otherwise.
+   *         otherwise
    */
   public boolean isQuadratic() {
     return (getRowCount() == getColumnCount());
@@ -1050,7 +1050,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   /**
    * @param matrix
    * @return true if the current {@link Matrix} equals the given matrix, false
-   *         otherwise.
+   *         otherwise
    */
   private boolean equalsMatrix(Matrix matrix) {
     if (!hasSameSize(matrix)) {

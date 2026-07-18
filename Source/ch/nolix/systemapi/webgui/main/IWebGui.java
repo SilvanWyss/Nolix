@@ -18,7 +18,7 @@ import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
 
 /**
  * @author Silvan Wyss
- * @param <G> is the type of a {@link IWebGui}.
+ * @param <G> the type of a {@link IWebGui}.
  */
 public interface IWebGui<G extends IWebGui<G>> extends Clearable, IBackgroundHolder<G>, IGui<G>, IStyleElement<G> {
   boolean containsControl(Control<?, ?> control);

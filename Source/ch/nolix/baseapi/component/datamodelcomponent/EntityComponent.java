@@ -7,8 +7,7 @@ package ch.nolix.baseapi.component.datamodelcomponent;
  * A {@link EntityComponent} can belong to an entity.
  * 
  * @author Silvan Wyss
- * @param <E> the type of the entity a {@link EntityComponent} can belong
- *            to.
+ * @param <E> the type of the entity a {@link EntityComponent} can belong to.
  */
 public interface EntityComponent<E> {
   /**
@@ -20,7 +19,7 @@ public interface EntityComponent<E> {
   /**
    * @return the entity of the current {@link EntityComponent}.
    * @throws RuntimeException if the current {@link EntityComponent} does not
-   *                          belong to an entity.
+   *                          belong to an entity
    */
   E getStoredParentEntity();
 }

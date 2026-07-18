@@ -16,7 +16,7 @@ import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of a {@link AbstractLinearContainer}.
+ * @param <C> the type of a {@link AbstractLinearContainer}.
  * @param <S> the type of the {@link ILinearContainerStyle}s of a
  *            {@link AbstractLinearContainer}.
  */

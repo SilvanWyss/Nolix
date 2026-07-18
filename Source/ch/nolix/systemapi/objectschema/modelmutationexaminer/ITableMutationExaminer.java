@@ -13,7 +13,7 @@ public interface ITableMutationExaminer {
   /**
    * @param table
    * @return true if the given table can be added to a {@link IDatabase}, false
-   *         otherwise.
+   *         otherwise
    */
   boolean canBeAddedToDatabase(ITable table);
 }

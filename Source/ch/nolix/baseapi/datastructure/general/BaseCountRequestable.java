@@ -8,7 +8,7 @@ package ch.nolix.baseapi.datastructure.general;
  */
 public interface BaseCountRequestable {
   /**
-   * @return the number of elements of the current {@link BaseCountRequestable}.
+   * @return the number of elements of the current {@link BaseCountRequestable}
    */
   int getCount();
 }

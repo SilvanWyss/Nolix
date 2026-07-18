@@ -22,7 +22,7 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of a {@link WebClient}.
+ * @param <C> the type of a {@link WebClient}.
  */
 public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
   private final WebClientRefreshQueue refreshQueue = //

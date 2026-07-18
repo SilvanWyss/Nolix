@@ -12,14 +12,14 @@ package ch.nolix.baseapi.component.guicomponent;
 public interface LayerComponent<L> {
   /**
    * @return true if the current {@link LayerComponent} belongs to a layer, false
-   *         otherwise.
+   *         otherwise
    */
   boolean belongsToLayer();
 
   /**
    * @return the parent layer of the current {@link LayerComponent}.
    * @throws RuntimeException if the current {@link LayerComponent} does not
-   *                          belong to a layer.
+   *                          belong to a layer
    */
   L getStoredParentLayer();
 }

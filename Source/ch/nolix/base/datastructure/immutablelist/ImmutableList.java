@@ -49,7 +49,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
    * 
    * @param elements
    * @throws RuntimeException if the given element is null
-   * @throws RuntimeException if one of the given elements is null.
+   * @throws RuntimeException if one of the given elements is null
    */
   private ImmutableList(final E[] elements) {
     Validator.assertThatTheElements(elements).areNotNull();
@@ -63,7 +63,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
    * 
    * @param elements
    * @throws RuntimeException if the given element is null
-   * @throws RuntimeException if one of the given elements is null.
+   * @throws RuntimeException if one of the given elements is null
    */
   @SuppressWarnings("unchecked")
   private ImmutableList(final Iterable<E> elements) {
@@ -158,7 +158,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
    * @param <T>      is the type of the given elements.
    * @return a new {@link ImmutableList} with the given elements.
    * @throws RuntimeException if the given elements is null
-   * @throws RuntimeException if one of the given elements is null.
+   * @throws RuntimeException if one of the given elements is null
    */
   @SafeVarargs
   public static <T> ImmutableList<T> withElements(final T... elements) {

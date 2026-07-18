@@ -12,14 +12,14 @@ public interface INodeDatabaseExaminer {
   /**
    * @param nodeDatabase
    * @return true if the given nodeDatabase is properly (!) initialized, false
-   *         otherwise.
+   *         otherwise
    */
   boolean nodeDatabaseIsInitialized(IMutableNode<?> nodeDatabase);
 
   /**
    * @param nodeDatabase
    * @return true if the given nodeDatabase is properly (!) uninitialized, false
-   *         otherwise.
+   *         otherwise
    */
   boolean nodeDatabaseIsUninitialized(IMutableNode<?> nodeDatabase);
 }

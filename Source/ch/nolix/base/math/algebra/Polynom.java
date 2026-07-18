@@ -198,7 +198,7 @@ public final class Polynom {
    * A {@link Polynom} is a zero {@link Polynom} if all its coefficients are 0.0.
    * 
    * @return true if the current {@link Polynom} is a zero {@link Polynom}, false
-   *         otherwise.
+   *         otherwise
    */
   public boolean isZeroPolynom() {
     return (coefficients.length == 0);

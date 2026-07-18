@@ -26,7 +26,7 @@ public interface IColumnMutationExaminer {
    * @param referenceableTables
    * @param backReferenceableColumns
    * @return true if the given contentModel can be set to the given column, false
-   *         otherwise.
+   *         otherwise
    */
   boolean canSetContentModel(
     IColumn column,
@@ -39,7 +39,7 @@ public interface IColumnMutationExaminer {
    * @param column
    * @param name
    * @return true if the given name can be set to the given column, false
-   *         otherwise.
+   *         otherwise
    */
   boolean canSetName(IColumn column, String name);
 }

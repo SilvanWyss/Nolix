@@ -11,7 +11,7 @@ public interface IIterableExaminer {
    * @param iterable
    * @param element
    * @return true if the given iterable contains the given element, false
-   *         otherwise.
+   *         otherwise
    */
   boolean containsElement(Iterable<?> iterable, Object element);
 

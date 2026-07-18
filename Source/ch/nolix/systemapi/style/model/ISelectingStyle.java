@@ -10,13 +10,13 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
  * {@link IStylableElement} that is given to be styled.
  * 
  * @author Silvan Wyss
- * @param <S> is the type of a {@link ISelectingStyle}.
+ * @param <S> the type of a {@link ISelectingStyle}.
  */
 public interface ISelectingStyle<S extends ISelectingStyle<S>> extends IBaseStyle<S> {
   /**
    * @return true if the current {@link ISelectingStyle} would select the child
    *         elements of a given {@link IStylableElement} to style, false
-   *         otherwise.
+   *         otherwise
    */
   boolean selectsChildElements();
 
@@ -30,7 +30,7 @@ public interface ISelectingStyle<S extends ISelectingStyle<S>> extends IBaseStyl
   /**
    * @return true if the current {@link ISelectingStyle} would not (!) select the
    *         child elements of a given {@link IStylableElement} to style, false
-   *         otherwise.
+   *         otherwise
    */
   default boolean skipsChildElements() {
     return !selectsChildElements();

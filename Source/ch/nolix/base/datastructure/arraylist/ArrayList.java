@@ -16,7 +16,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements of a {@link ArrayList}.
+ * @param <E> the type of the elements of a {@link ArrayList}
  */
 public final class ArrayList<E> extends AbstractExtendedIterable<E> implements IArrayList<E> {
   private static final IterableSearcher ITERABLE_SEARCHER = new IterableSearcher();
@@ -27,14 +27,14 @@ public final class ArrayList<E> extends AbstractExtendedIterable<E> implements I
   private E[] memberElements = (E[]) new Object[0];
 
   /**
-   * Creates a new empty {@link ArrayList}.
+   * Creates a new empty {@link ArrayList}
    */
   private ArrayList() {
   }
 
   /**
-   * @return a new empty {@link ArrayList}.
-   * @param <T> the type of the elements of the {@link ArrayList}.
+   * @return a new empty {@link ArrayList}
+   * @param <T> the type of the elements of the {@link ArrayList}
    */
   public static <T> ArrayList<T> createEmpty() {
     return new ArrayList<>();
@@ -47,7 +47,7 @@ public final class ArrayList<E> extends AbstractExtendedIterable<E> implements I
    * @param <T>      is the type of the given elements.
    * @return a new {@link ArrayList} with the given elements.
    * @throws RuntimeException if the given elements is null
-   * @throws RuntimeException if one of the given elements is null.
+   * @throws RuntimeException if one of the given elements is null
    */
   @SafeVarargs
   public static <T> ArrayList<T> withElements(T... elements) {
@@ -63,9 +63,9 @@ public final class ArrayList<E> extends AbstractExtendedIterable<E> implements I
    * 
    * @param initialCapacity
    * @param <T>             is the type of the elements of the created
-   *                        {@link ArrayList}.
+   *                        {@link ArrayList}
    * @return a new {@link ArrayList} with the given initialCapacity
-   * @throws RuntimeException if the given initialCapacity is negative.
+   * @throws RuntimeException if the given initialCapacity is negative
    */
   public static <T> ArrayList<T> withInitialCapacity(final int initialCapacity) {
     Validator
@@ -83,8 +83,7 @@ public final class ArrayList<E> extends AbstractExtendedIterable<E> implements I
    * The time complexity of this implementation is O(1).
    * 
    * @param container
-   * @param <T>       is the type of the elements of the created
-   *                  {@link ArrayList}.
+   * @param <T>       is the type of the elements of the created {@link ArrayList}
    * @return a new {@link ArrayList} with a initialCapacity that is the size of
    *         the given container.
    * @throws NullPointerException if the given container is null.
@@ -217,7 +216,7 @@ public final class ArrayList<E> extends AbstractExtendedIterable<E> implements I
    * 
    * The time complexity of this implementation is O(1) if the given oneBasedIndex
    * is not bigger than the number of the elements of the current
-   * {@link ArrayList}.
+   * {@link ArrayList}
    * 
    * {@inheritDoc}
    */
@@ -293,7 +292,7 @@ public final class ArrayList<E> extends AbstractExtendedIterable<E> implements I
   /**
    * The time complexity of this implementation is O(1).
    * 
-   * @return the capacity of the current {@link ArrayList}.
+   * @return the capacity of the current {@link ArrayList}
    */
   private int getCapacity() {
     return memberElements.length;

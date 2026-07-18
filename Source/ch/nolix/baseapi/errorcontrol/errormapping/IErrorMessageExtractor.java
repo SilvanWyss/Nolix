@@ -10,7 +10,7 @@ public interface IErrorMessageExtractor {
   /**
    * @param error
    * @return the message of the given error. Handles the case when the given error
-   *         is null or when the message of the given error is null or blank.
+   *         is null or when the message of the given error is null or blank
    */
   String getMessageOfError(Throwable error);
 }

@@ -16,7 +16,7 @@ public interface IColumnExaminer extends IDatabaseObjectExaminer {
    * @param column
    * @param referenceableTable
    * @return true if the given column contains the given referenceableTable, false
-   *         otherwise.
+   *         otherwise
    */
   boolean containsReferenceableTable(IColumn column, ITable<IEntity> referenceableTable);
 }

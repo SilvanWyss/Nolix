@@ -34,8 +34,8 @@ public interface ISequencePattern<E> {
    * @param condition
    * @return a new {@link ISequencePattern} from the current
    *         {@link ISequencePattern } with the given condition for the next
-   *         element of the sequences of the {@link ISequencePattern}.
-   * @throws RuntimeException if the given condition is null.
+   *         element of the sequences of the {@link ISequencePattern}
+   * @throws RuntimeException if the given condition is null
    */
   ISequencePattern<E> withConditionForNext(Predicate<E> condition);
 
@@ -43,7 +43,7 @@ public interface ISequencePattern<E> {
    * @param conditions
    * @return a new {@link ISequencePattern} from the current
    *         {@link ISequencePattern } with the given conditions for the next
-   *         elements of the sequences of the {@link ISequencePattern}.
+   *         elements of the sequences of the {@link ISequencePattern}
    * @throws RuntimeException if the given condition is null
    * @throws RuntimeException if one of the given conditions is null.
    */
@@ -55,7 +55,7 @@ public interface ISequencePattern<E> {
    * @param sequenceCondition
    * @return a new {@link ISequencePattern} from the current
    *         {@link ISequencePattern } with the given sequenceCondition for the
-   *         sequences the {@link ISequencePattern}.
+   *         sequences the {@link ISequencePattern}
    * @throws RuntimeException if the given sequenceCondition is null
    * 
    */
@@ -64,15 +64,15 @@ public interface ISequencePattern<E> {
   /**
    * @param count
    * @return a new {@link ISequencePatternNextMediator} for the current
-   *         {@link ISequencePattern} and the given count.
-   * @throws RuntimeException if the given count is negative.
+   *         {@link ISequencePattern} and the given count
+   * @throws RuntimeException if the given count is negative
    */
   ISequencePatternNextMediator<E> forNext(int count);
 
   /**
    * @param container
    * @return all sequences from the given container that match the current
-   *         {@link ISequencePattern}.
+   *         {@link ISequencePattern}
    */
   ExtendedIterable<? extends ExtendedIterable<E>> getMatchingSequencesFrom(ExtendedIterable<E> container);
 }

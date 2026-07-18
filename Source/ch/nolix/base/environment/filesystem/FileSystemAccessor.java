@@ -249,7 +249,7 @@ public final class FileSystemAccessor {
   /**
    * @param path
    * @return true if there exists a file system item with given path, false
-   *         otherwise.
+   *         otherwise
    */
   public static boolean exists(final String path) {
     return new File(path).exists();

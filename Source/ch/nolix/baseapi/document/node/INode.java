@@ -22,7 +22,7 @@ import ch.nolix.baseapi.state.staterequest.BlanknessRequestable;
  * A sub type of {@link INode} may be or may be not mutable.
  * 
  * @author Silvan Wyss
- * @param <N> is the type of a {@link INode}.
+ * @param <N> the type of a {@link INode}
  */
 public interface INode<N extends INode<N>>
 extends BlanknessRequestable, FormattedStringRepresentable, OptionalHeaderHolder {
@@ -53,22 +53,22 @@ extends BlanknessRequestable, FormattedStringRepresentable, OptionalHeaderHolder
   boolean containsOneChildNode();
 
   /**
-   * @return the number of child {@link INode}s of the current {@link INode}.
+   * @return the number of child {@link INode}s of the current {@link INode}
    */
   int getChildNodeCount();
 
   /**
    * @param selector
    * @return the number of child {@link INode}s the given selector selects from
-   *         the current {@link INode}.
-   * @throws RuntimeException if the given selector is null.
+   *         the current {@link INode}
+   * @throws RuntimeException if the given selector is null
    */
   int getChildNodeCount(Predicate<INode<?>> selector);
 
   /**
-   * @return the headers of the child {@link INode}s of the current {@link INode}.
+   * @return the headers of the child {@link INode}s of the current {@link INode}
    * @throws RuntimeException if one of the child {@link INode}s of the current
-   *                          {@link INode} does not have a header.
+   *                          {@link INode} does not have a header
    */
   ExtendedIterable<String> getChildNodesHeaders();
 
@@ -76,7 +76,7 @@ extends BlanknessRequestable, FormattedStringRepresentable, OptionalHeaderHolder
    * @param selector
    * @return a new {@link Optional} with the first child {@link INode} the given
    *         selector selects from the current {@link INode}, an empty
-   *         {@link Optional} otherwise.
+   *         {@link Optional} otherwise
    */
   Optional<N> getOptionalStoredFirstChildNodeThat(Predicate<INode<?>> selector);
 
@@ -86,136 +86,136 @@ extends BlanknessRequestable, FormattedStringRepresentable, OptionalHeaderHolder
    *         {@link INode}.
    * @throws RuntimeException if the given index is not positive.
    * @throws RuntimeException if the current {@link INode} does not contain a
-   *                          child {@link INode} at the given oneBasedIndex.
+   *                          child {@link INode} at the given oneBasedIndex
    */
   N getStoredChildNodeAtOneBasedIndex(int oneBasedIndex);
 
   /**
-   * @return the child {@link INode}s of the current {@link INode}.
+   * @return the child {@link INode}s of the current {@link INode}
    */
   ExtendedIterable<N> getStoredChildNodes();
 
   /**
    * @param selector
    * @return the child {@link INode}s the given selector selects from the current
-   *         {@link INode}.
+   *         {@link INode}
    */
   ExtendedIterable<N> getStoredChildNodesThat(Predicate<INode<?>> selector);
 
   /**
    * @param header
    * @return the child {@link INode}s with the given header from the current
-   *         {@link INode}.
+   *         {@link INode}
    */
   ExtendedIterable<N> getStoredChildNodesWithHeader(String header);
 
   /**
    * @return the first child {@link INode} from the current {@link INode}.
    * @throws RuntimeException if the current {@link INode} does not contain child
-   *                          {@link INode}s.
+   *                          {@link INode}s
    */
   N getStoredFirstChildNode();
 
   /**
    * @param selector
    * @return the first child {@link INode} the given selector selects from the
-   *         current {@link INode}.
+   *         current {@link INode}
    * @throws RuntimeException if the current {@link INode} does not contain a
-   *                          child {@link INode} the given selector selects.
+   *                          child {@link INode} the given selector selects
    */
   N getStoredFirstChildNodeThat(Predicate<INode<?>> selector);
 
   /**
    * @param header
    * @return the first child {@link INode} with the given header from the current
-   *         {@link INode}.
+   *         {@link INode}
    * @throws RuntimeException if the current {@link INode} does not contain a
-   *                          child {@link INode} with the given header.
+   *                          child {@link INode} with the given header
    */
   N getStoredFirstChildNodeWithHeader(String header);
 
   /**
-   * @return the single child {@link INode} of the current {@link INode}.
+   * @return the single child {@link INode} of the current {@link INode}
    * @throws RuntimeException if the current {@link INode} does not contain child
    *                          {@link INode}s or contains several child
-   *                          {@link INode}s.
+   *                          {@link INode}s
    */
   N getStoredSingleChildNode();
 
   /**
    * @return the boolean the single child {@link INode} of the current
-   *         {@link INode} represents.
+   *         {@link INode} represents
    * @throws RuntimeException if the current {@link INode} does not contain child
    *                          {@link INode}s or contains several child
-   *                          {@link INode}s.
+   *                          {@link INode}s
    * @throws RuntimeException if the single child {@link INode} of the current
-   *                          {@link INode} does not represent a boolean.
+   *                          {@link INode} does not represent a boolean
    */
   boolean getSingleChildNodeAsBoolean(); //NOSONAR: This method returns a boolean representation.
 
   /**
    * @return the double the single child {@link INode} of the current
-   *         {@link INode} represents.
+   *         {@link INode} represents
    * @throws RuntimeException if the current {@link INode} does not contain child
    *                          {@link INode}s or contains several child
-   *                          {@link INode}s.
+   *                          {@link INode}s
    * @throws RuntimeException if the single child {@link INode} of the current
-   *                          {@link INode} does not represent a double.
+   *                          {@link INode} does not represent a double
    */
   double getSingleChildNodeAsDouble();
 
   /**
    * @return the int the single child {@link INode} of the current {@link INode}
-   *         represents.
+   *         represents
    * @throws RuntimeException if the current {@link INode} does not contain child
    *                          {@link INode}s or contains several child
-   *                          {@link INode}s.
+   *                          {@link INode}s
    * @throws RuntimeException if the single child {@link INode} of the current
-   *                          {@link INode} does not represent an int.
+   *                          {@link INode} does not represent an int
    */
   int getSingleChildNodeAsInt();
 
   /**
    * @return the header of the single child {@link INode} of the current
-   *         {@link INode}.
+   *         {@link INode}
    * @throws RuntimeException if the current {@link INode} does not contain child
    *                          {@link INode}s or contains several child
-   *                          {@link INode}s.
+   *                          {@link INode}s
    * @throws RuntimeException if the single child {@link INode} of the current
-   *                          {@link INode} does not have a header.
+   *                          {@link INode} does not have a header
    */
   String getSingleChildNodeHeader();
 
   /**
    * @return the boolean the current {@link INode} represents.
    * @throws RuntimeException if the current {@link INode} does not represent a
-   *                          boolean.
+   *                          boolean
    */
   boolean toBoolean();
 
   /**
-   * @return the double the current {@link INode} represents.
+   * @return the double the current {@link INode} represents
    * @throws RuntimeException if the current {@link INode} does not represent a
-   *                          double.
+   *                          double
    */
   double toDouble();
 
   /**
    * @return the int the current {@link INode} represents.
    * @throws RuntimeException if the current {@link INode} does not represent an
-   *                          int.
+   *                          int
    */
   int toInt();
 
   /**
-   * @return a {@link IXmlNode} representation of the current {@link INode}.
+   * @return a {@link IXmlNode} representation of the current {@link INode}
    */
   IXmlNode<?> toXml();
 
   /**
    * @param header
    * @return a new {@link INode} from the current {@link INode} with the given new
-   *         header.
+   *         header
    * @throws RuntimeException if the given header is null or blank
    */
   INode<?> withNewHeader(String header);

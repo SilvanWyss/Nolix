@@ -33,7 +33,7 @@ extends ControlComponent<Control<?, ?>>, GuiComponent<IWebGui<?>>, LayerComponen
 
   /**
    * @return true if the current {@link IControlParent} is a {@link ILayer}, false
-   *         otherwise.
+   *         otherwise
    */
   boolean isLayer();
 }

@@ -7,8 +7,7 @@ package ch.nolix.baseapi.component.guicomponent;
  * A {@link ControlComponent} can belong to a control.
  * 
  * @author Silvan Wyss
- * @param <C> the type of the control a {@link ControlComponent} can belong
- *            to.
+ * @param <C> the type of the control a {@link ControlComponent} can belong to.
  */
 public interface ControlComponent<C> {
   /**
@@ -20,7 +19,7 @@ public interface ControlComponent<C> {
   /**
    * @return the control of the current {@link ControlComponent}.
    * @throws RuntimeException if the current {@link ControlComponent} does not
-   *                          belong to a control.
+   *                          belong to a control
    */
   C getStoredParentControl();
 }

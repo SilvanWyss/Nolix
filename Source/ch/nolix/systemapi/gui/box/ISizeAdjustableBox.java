@@ -7,7 +7,7 @@ import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 
 /**
  * @author Silvan Wyss
- * @param <B> is the type of a {@link ISizeAdjustableBox}.
+ * @param <B> the type of a {@link ISizeAdjustableBox}.
  */
 public interface ISizeAdjustableBox<B extends ISizeAdjustableBox<B>> {
   IAbsoluteOrRelativeInt getMaxHeight();

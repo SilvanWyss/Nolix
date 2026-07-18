@@ -16,14 +16,14 @@ public interface IFlowControllerMediator {
   /**
    * @param condition
    * @return a new {@link IAsLongAsMediator} with the given condition.
-   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given condition is null
    */
   IAsLongAsMediator asLongAs(BooleanSupplier condition);
 
   /**
    * @param condition
    * @return a new {@link IAsSoonAsMediator} with the given condition.
-   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given condition is null
    */
   IAsSoonAsMediator asSoonAs(BooleanSupplier condition);
 
@@ -31,7 +31,7 @@ public interface IFlowControllerMediator {
    * @param condition
    * @return a new {@link IAsSoonAsMediator} with the negation of the given
    *         condition.
-   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given condition is null
    */
   IAsSoonAsMediator asSoonAsNoMore(BooleanSupplier condition);
 
@@ -91,7 +91,7 @@ public interface IFlowControllerMediator {
    * @param condition
    * @return a new {@link IAsLongAsMediator} for the negation of the given
    *         condition.
-   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given condition is null
    */
   IAsLongAsMediator until(BooleanSupplier condition);
 
@@ -99,7 +99,7 @@ public interface IFlowControllerMediator {
    * Waits as long as the given condition is fulfilled.
    * 
    * @param condition
-   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given condition is null
    */
   void waitAsLongAs(BooleanSupplier condition);
 
@@ -123,7 +123,7 @@ public interface IFlowControllerMediator {
    * Waits until the given condition is fulfilled.
    * 
    * @param condition
-   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given condition is null
    */
   void waitUntil(BooleanSupplier condition);
 }

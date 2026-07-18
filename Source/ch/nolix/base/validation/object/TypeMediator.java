@@ -10,7 +10,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 
 /**
  * @author Silvan Wyss
- * @param <T> is the type a {@link TypeMediator} is for.
+ * @param <T> the type a {@link TypeMediator} is for.
  */
 public class TypeMediator<T> extends AbstractObjectMediator<Class<T>> {
   protected TypeMediator(final Class<T> argument) {

@@ -203,7 +203,7 @@ public final class Vector {
   /**
    * @param vector
    * @return true if the current {@link Vector} equals the given vector, false
-   *         otherwise.
+   *         otherwise
    */
   private boolean equalsVector(final Vector vector) {
     if (!canEqualVectorBecauseOfSize(vector)) {

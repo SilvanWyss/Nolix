@@ -24,7 +24,7 @@ import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of a {@link Control}.
+ * @param <C> the type of a {@link Control}.
  * @param <S> the type of the {@link IControlStyle} of a {@link Control}.
  */
 public interface Control<C extends Control<C, S>, S extends IControlStyle<S>>

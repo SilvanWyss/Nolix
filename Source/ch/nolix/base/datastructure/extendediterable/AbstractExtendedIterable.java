@@ -35,7 +35,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements of a {@link AbstractExtendedIterable}.
+ * @param <E> the type of the elements of a {@link AbstractExtendedIterable}
  */
 public abstract class AbstractExtendedIterable<E> //NOSONAR: An AbstractExtendedIterable is a principal object thus it has many methods.
 implements ExtendedIterable<E> {
@@ -1448,7 +1448,7 @@ implements ExtendedIterable<E> {
    * -The current * {@link AbstractExtendedIterable} contains m elements.
    * 
    * -On average, the given multipleMapper maps n elements from an element of the
-   * current {@link AbstractExtendedIterable}.
+   * current {@link AbstractExtendedIterable}
    * 
    * {@inheritDoc}
    */

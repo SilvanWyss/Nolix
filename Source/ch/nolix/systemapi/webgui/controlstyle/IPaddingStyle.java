@@ -8,7 +8,7 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 
 /**
  * @author Silvan Wyss
- * @param <S> is the type of a {@link IPaddingStyle}.
+ * @param <S> the type of a {@link IPaddingStyle}.
  */
 public interface IPaddingStyle<S extends IPaddingStyle<S>> {
   IAbsoluteOrRelativeInt getBottomPaddingWhenHasState(ControlState state);

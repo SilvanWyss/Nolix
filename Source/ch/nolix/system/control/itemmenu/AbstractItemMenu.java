@@ -22,7 +22,7 @@ import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
- * @param <M> is the type of a {@link AbstractItemMenu}.
+ * @param <M> the type of a {@link AbstractItemMenu}.
  * @param <S> the type of the {@link IItemMenuStyle}s of a
  *            {@link AbstractItemMenu}.
  */

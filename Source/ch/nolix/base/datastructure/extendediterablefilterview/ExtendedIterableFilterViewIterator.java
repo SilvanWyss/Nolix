@@ -13,7 +13,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 /**
  * @author Silvan Wyss
  * @param <E> the type of the elements of a
- *            {@link ExtendedIterableFilterViewIterator}.
+ *            {@link ExtendedIterableFilterViewIterator}
  */
 public final class ExtendedIterableFilterViewIterator<E> implements CopyableIterator<E> {
   private static final IteratorValidator ITERATOR_VALIDATOR = new IteratorValidator();
@@ -25,13 +25,13 @@ public final class ExtendedIterableFilterViewIterator<E> implements CopyableIter
   private E optionalNextElement;
 
   /**
-   * Creates a new {@link ExtendedIterableFilterViewIterator} with the given iterator and
-   * selector.
+   * Creates a new {@link ExtendedIterableFilterViewIterator} with the given
+   * iterator and selector.
    * 
    * @param iterator
    * @param selector
    * @throws RuntimeException if the given container is null
-   * @throws RuntimeException if the given selector is null.
+   * @throws RuntimeException if the given selector is null
    */
   private ExtendedIterableFilterViewIterator(final CopyableIterator<E> iterator, final Predicate<E> selector) {
     Validator.assertThat(iterator).thatIsNamed(LowerCaseVariableNameCatalog.ITERATOR).isNotNull();

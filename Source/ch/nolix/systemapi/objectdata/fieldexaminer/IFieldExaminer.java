@@ -15,14 +15,14 @@ public interface IFieldExaminer extends IDatabaseObjectExaminer {
   /**
    * @param field
    * @return true if the given field belongs to a {@link IEntity}, false
-   *         otherwise.
+   *         otherwise
    */
   boolean belongsToEntity(IField field);
 
   /**
    * @param field
    * @return true if the given field belongs to a loaded {@link IEntity}, false
-   *         otherwise.
+   *         otherwise
    */
   boolean belongsToLoadedEntity(IField field);
 

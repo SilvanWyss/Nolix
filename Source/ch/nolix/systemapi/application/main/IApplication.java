@@ -21,7 +21,7 @@ public interface IApplication<C extends IBackendClient<S>, S> extends ClientMana
 
   /**
    * @return true if the current {@link IApplication} belongs to a server, false
-   *         otherwise.
+   *         otherwise
    */
   boolean belongsToServer();
 

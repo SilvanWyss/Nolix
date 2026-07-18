@@ -116,7 +116,7 @@ public interface IDataReader extends GroupCloseable, DatabaseNameHolder {
    * @param value
    * @return true if the table with the given tableName contains in the column
    *         with the given columnName the given value on the database, false
-   *         otherwise.
+   *         otherwise
    * @throws RuntimeException if the current {@link IDataReader} is closed.
    */
   boolean tableContainsEntityWithValueAtColumn(String tableName, String columnName, String value);

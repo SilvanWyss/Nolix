@@ -10,8 +10,7 @@ import ch.nolix.baseapi.sql.sqlproperty.SqlDatabaseEngine;
 
 /**
  * @author Silvan Wyss
- * @param <S> the type of the successor of a
- *            {@link WithSqlDatabaseEngineCaptor}.
+ * @param <S> the type of the successor of a {@link WithSqlDatabaseEngineCaptor}
  */
 public class WithSqlDatabaseEngineCaptor<S> extends AbstractArgumentCaptor<SqlDatabaseEngine, S>
 implements IWithSqlDatabaseEngineCaptor<S> {

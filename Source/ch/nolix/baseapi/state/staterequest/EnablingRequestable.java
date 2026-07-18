@@ -11,7 +11,7 @@ package ch.nolix.baseapi.state.staterequest;
 public interface EnablingRequestable {
   /**
    * @return true if the current {@link EnablingRequestable} is disabled, false
-   *         otherwise.
+   *         otherwise
    */
   default boolean isDisabled() {
     return !isEnabled();
@@ -19,7 +19,7 @@ public interface EnablingRequestable {
 
   /**
    * @return true if the current {@link EnablingRequestable} is enabled, false
-   *         otherwise.
+   *         otherwise
    */
   boolean isEnabled();
 }

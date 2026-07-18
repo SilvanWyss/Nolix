@@ -8,15 +8,14 @@ import java.util.function.Predicate;
 /**
  * @author Silvan Wyss
  * @param <E> the type of the elements of the sequences of the
- *            {@link ISequencePattern} of a
- *            {@link ISequencePatternNextMediator}.
+ *            {@link ISequencePattern} of a {@link ISequencePatternNextMediator}
  */
 public interface ISequencePatternNextMediator<E> {
   /**
    * @return a new {@link ISequencePattern} from the {@link ISequencePattern} of
    *         the current {@link ISequencePatternNextMediator} with a blank
    *         condition for the next elements of the sequences of the
-   *         {@link ISequencePattern}.
+   *         {@link ISequencePattern}
    */
   ISequencePattern<E> withBlank();
 
@@ -25,8 +24,8 @@ public interface ISequencePatternNextMediator<E> {
    * @return a new {@link ISequencePattern} from the {@link ISequencePattern} of
    *         the current {@link ISequencePatternNextMediator} with the given
    *         condition for the next elements of the sequences of the
-   *         {@link ISequencePattern}.
-   * @throws RuntimeException if the given condition is null.
+   *         {@link ISequencePattern}
+   * @throws RuntimeException if the given condition is null
    */
   ISequencePattern<E> withCondition(Predicate<E> condition);
 }

@@ -12,12 +12,12 @@ public interface License {
    * 
    * @param key
    * @throws RuntimeException if the current {@link License} is already activated
-   *                          or does not accept the given key.
+   *                          or does not accept the given key
    */
   void activateWithKey(String key);
 
   /**
-   * @return the name of the current {@link License}.
+   * @return the name of the current {@link License}
    */
   String getName();
 

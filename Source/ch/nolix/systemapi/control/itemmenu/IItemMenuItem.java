@@ -10,7 +10,7 @@ import ch.nolix.systemapi.gui.selection.Selectable;
 
 /**
  * @author Silvan Wyss
- * @param <I> is the type of a {@link IItemMenuItem}.
+ * @param <I> the type of a {@link IItemMenuItem}.
  */
 public interface IItemMenuItem<I extends IItemMenuItem<I>>
 extends BlanknessRequestable, IdHolder, IMutableElement, Selectable {

@@ -10,7 +10,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 
 /**
  * @author Silvan Wyss
- * @param <S> the type of the successor of a {@link WithNameCaptor}.
+ * @param <S> the type of the successor of a {@link WithNameCaptor}
  */
 public class WithNameCaptor<S> extends AbstractArgumentCaptor<String, S> implements IWithNameCaptor<S> {
   public WithNameCaptor() {

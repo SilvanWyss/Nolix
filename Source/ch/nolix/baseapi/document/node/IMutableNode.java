@@ -12,7 +12,7 @@ import ch.nolix.baseapi.state.statemutation.Resettable;
  * A {@link IMutableNode} is a {@link INode} that is mutable.
  * 
  * @author Silvan Wyss
- * @param <N> is the type of a {@link IMutableNode}.
+ * @param <N> the type of a {@link IMutableNode}
  */
 public interface IMutableNode<N extends IMutableNode<N>>
 extends
@@ -23,7 +23,7 @@ Resettable {
    * Adds the given childNode to the current {@link IMutableNode}.
    * 
    * @param childNode
-   * @return the current {@link IMutableNode}.
+   * @return the current {@link IMutableNode}
    * @throws RuntimeException if the given childNodes is null
    */
   N addChildNode(INode<?> childNode);
@@ -32,7 +32,7 @@ Resettable {
    * Adds the given childNodes to the current {@link IMutableNode}.
    * 
    * @param childNodes
-   * @return the current {@link IMutableNode}.
+   * @return the current {@link IMutableNode}
    * @throws RuntimeException if one of the given childNodes is null
    */
   N addChildNodes(INode<?>... childNodes);
@@ -41,8 +41,8 @@ Resettable {
    * Adds the given childNodes to the current {@link IMutableNode}.
    * 
    * @param childNodes
-   * @return the current {@link IMutableNode}.
-   * @param <N2> the type of the given childNodes.
+   * @return the current {@link IMutableNode}
+   * @param <N2> the type of the given childNodes
    * @throws RuntimeException if one of the given childNodes is null
    */
   <N2 extends INode<?>> N addChildNodes(Iterable<N2> childNodes);
@@ -52,9 +52,9 @@ Resettable {
    * {@link IMutableNode}.
    * 
    * @param strings
-   * @return the current {@link IMutableNode}.
+   * @return the current {@link IMutableNode}
    * @throws RuntimeException if one of the given strings does not represent a
-   *                          {@link INode}.
+   *                          {@link INode}
    */
   N addChildNodesFromStrings(Iterable<String> strings);
 
@@ -63,10 +63,10 @@ Resettable {
    * {@link IMutableNode}.
    * 
    * @param strings
-   * @return the current {@link IMutableNode}.
+   * @return the current {@link IMutableNode}
    * @throws RuntimeException if the given strings is null
    * @throws RuntimeException if one of the given strings does not represent a
-   *                          {@link INode}.
+   *                          {@link INode}
    */
   N addChildNodesFromStrings(String... strings);
 
@@ -74,12 +74,11 @@ Resettable {
    * Adds the given postfix at the end of the header of the current
    * {@link IMutableNode} if the current {@link IMutableNode} has a header. Sets
    * the given postfix as the header of the current {@link IMutableNode} if the
-   * current {@link IMutableNode} does not have a header.
+   * current {@link IMutableNode} does not have a header
    * 
    * @param postfix
-   * @return the current {@link IMutableNode}.
-   * @throws RuntimeException if the given postfix is null
-   * @throws RuntimeException if the given postfix is blank.
+   * @return the current {@link IMutableNode}
+   * @throws RuntimeException if the given postfix is null or blank
    */
   N addPostfixToHeader(String postfix);
 
@@ -87,12 +86,11 @@ Resettable {
    * Adds the given prefix at the begin of the header of the current
    * {@link IMutableNode} if the current {@link IMutableNode} has a header. Sets
    * the given prefix as the header of the current {@link IMutableNode} if the
-   * current {@link IMutableNode} does not have a header.
+   * current {@link IMutableNode} does not have a header
    * 
    * @param prefix
-   * @return the current {@link IMutableNode}.
-   * @throws RuntimeException if the given prefix is null
-   * @throws RuntimeException if the given prefix is blank.
+   * @return the current {@link IMutableNode}
+   * @throws RuntimeException if the given prefix is null or blank
    */
   N addPrefixToHeader(String prefix);
 
@@ -102,9 +100,9 @@ Resettable {
    * 
    * @param selector
    * @return the first child {@link INode} the given selector selects from the
-   *         current {@link IMutableNode}.
+   *         current {@link IMutableNode}
    * @throws RuntimeException if the current {@link IMutableNode} does not contain
-   *                          a child {@link INode} the given selector selects.
+   *                          a child {@link INode} the given selector selects
    */
   N removeAndGetStoredFirstChildNodeThat(Predicate<INode<?>> selector);
 
@@ -119,7 +117,7 @@ Resettable {
    * 
    * @param selector
    * @throws RuntimeException if the current {@link IMutableNode} does not contain
-   *                          a child {@link INode} the given selector selects.
+   *                          a child {@link INode} the given selector selects
    */
   void removeFirstChildNodeThat(Predicate<INode<?>> selector);
 
@@ -129,7 +127,7 @@ Resettable {
    * 
    * @param header
    * @throws RuntimeException if the current {@link IMutableNode} does not contain
-   *                          a child {@link INode} with the given header.
+   *                          a child {@link INode} with the given header
    */
   void removeFirstChildNodeWithHeader(String header);
 
@@ -140,7 +138,7 @@ Resettable {
    * @param header
    * @param node
    * @throws RuntimeException if the current {@link IMutableNode} does not contain
-   *                          a child {@link INode} with the given header.
+   *                          a child {@link INode} with the given header
    */
   void replaceFirstChildNodeWithGivenHeaderByGivenNode(String header, INode<?> node);
 
@@ -156,7 +154,7 @@ Resettable {
    * Resets the current {@link IMutableNode} from the given node.
    * 
    * @param node
-   * @throws RuntimeException if the given node is null.
+   * @throws RuntimeException if the given node is null
    */
   void resetFromNode(INode<?> node);
 
@@ -165,7 +163,7 @@ Resettable {
    * 
    * @param string
    * @throws RuntimeException if the given string does not represent a
-   *                          {@link IMutableNode}.
+   *                          {@link IMutableNode}
    */
   void resetFromString(String string);
 
@@ -174,7 +172,7 @@ Resettable {
    * given childNodes.
    * 
    * @param childNodes
-   * @return the current {@link IMutableNode}.
+   * @return the current {@link IMutableNode}
    * @throws RuntimeException if one of the given childNodes is null
    */
   N setChildNodes(Iterable<? extends INode<?>> childNodes);

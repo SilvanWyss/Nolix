@@ -78,7 +78,7 @@ public final class ColumnMutationExaminer implements IColumnMutationExaminer {
   /**
    * @param name
    * @return true if the given name can be set to a {@link IColumn}, false
-   *         otherwise.
+   *         otherwise
    */
   private boolean canSetName(final String name) { //NOSONAR: This method is an instance method.
     return //

@@ -11,7 +11,7 @@ import ch.nolix.baseapi.net.netcatalog.PortCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <S> the type of the next thing of a {@link AndPortCaptor}.
+ * @param <S> the type of the next thing of a {@link AndPortCaptor}
  */
 public class AndPortCaptor<S> extends AbstractArgumentCaptor<Integer, S> implements IAndPortCaptor<S> {
   public AndPortCaptor() {

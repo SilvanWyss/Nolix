@@ -11,7 +11,7 @@ package ch.nolix.baseapi.state.staterequest;
 public interface VoidnessRequestable {
   /**
    * @return true if the current {@link VoidnessRequestable} is not void, false
-   *         otherwise.
+   *         otherwise
    */
   default boolean isEffectual() {
     return !isVoid();
@@ -19,7 +19,7 @@ public interface VoidnessRequestable {
 
   /**
    * @return true if the current {@link VoidnessRequestable} is void, false
-   *         otherwise.
+   *         otherwise
    */
   boolean isVoid();
 }

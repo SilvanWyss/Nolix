@@ -17,7 +17,7 @@ public interface SingleSearchable<E> {
    *         {@link SingleSearchable} if the current {@link SingleSearchable} is
    *         not empty and if the first element of the current
    *         {@link SingleSearchable} is not null, an empty {@link Optional}
-   *         otherwise.
+   *         otherwise
    */
   Optional<E> getOptionalStoredFirst();
 
@@ -26,8 +26,8 @@ public interface SingleSearchable<E> {
    * @return a new {@link Optional} with the first element the given selector
    *         selects from the current {@link SingleSearchable} if the current
    *         {@link SingleSearchable} contains an element the given selector
-   *         selects, an empty {@link Optional} otherwise. Ignores null elements.
-   * @throws RuntimeException if the given selector is null.
+   *         selects, an empty {@link Optional} otherwise, ignoring null elements
+   * @throws RuntimeException if the given selector is null
    */
   Optional<E> getOptionalStoredFirst(Predicate<? super E> selector);
 
@@ -46,7 +46,7 @@ public interface SingleSearchable<E> {
    *                         current {@link SingleSearchable}.
    * @return the element with the biggest {@link Comparable} the given
    *         comparableMapper maps from the elements of the current
-   *         {@link SingleSearchable}. Ignores null elements.
+   *         {@link SingleSearchable}, ignoring null elements
    * @throws RuntimeException if the given comparableMapper is null
    * @throws RuntimeException if the current {@link SingleSearchable} does not
    *                          contain a non-null element.
@@ -60,7 +60,7 @@ public interface SingleSearchable<E> {
    *                         current {@link SingleSearchable}.
    * @return the element with the smallest {@link Comparable} the given
    *         comparableMapper maps from the elements of the current
-   *         {@link SingleSearchable}. Ignores null elements.
+   *         {@link SingleSearchable}, ignoring null elements
    * @throws RuntimeException if the given comparableMapper is null
    * @throws RuntimeException if the current {@link SingleSearchable} does not
    *                          contain a non-null element.
@@ -77,7 +77,7 @@ public interface SingleSearchable<E> {
   /**
    * @param selector
    * @return the first element the given selector selects from the current
-   *         {@link SingleSearchable}. Ignores null elements.
+   *         {@link SingleSearchable}, ignoring null elements
    * @throws RuntimeException if the current {@link SingleSearchable} does not
    *                          contain an element the given selector selects.
    */
@@ -116,7 +116,7 @@ public interface SingleSearchable<E> {
   /**
    * @param selector
    * @return the one element the given selector selects from the current
-   *         {@link SingleSearchable}. Ignores null elements.
+   *         {@link SingleSearchable}, ignoring null elements
    * @throws RuntimeException if the given selector is null
    * @throws RuntimeException if the given selector selects none or several
    *                          elements from the current {@link SingleSearchable}.

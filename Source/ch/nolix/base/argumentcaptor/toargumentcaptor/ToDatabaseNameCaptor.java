@@ -10,7 +10,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 
 /**
  * @author Silvan Wyss
- * @param <S> the type of the successor of a {@link ToDatabaseNameCaptor}.
+ * @param <S> the type of the successor of a {@link ToDatabaseNameCaptor}
  */
 public class ToDatabaseNameCaptor<S> extends AbstractArgumentCaptor<String, S> implements IToDatabaseNameCaptor<S> {
   public ToDatabaseNameCaptor() {
