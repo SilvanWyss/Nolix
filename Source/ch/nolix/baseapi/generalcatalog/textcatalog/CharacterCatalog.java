@@ -27,6 +27,8 @@ public final class CharacterCatalog {
 
   public static final char COMMA = ',';
 
+  public static final char COLON = ':';
+
   public static final char DOLLAR = '$';
 
   public static final char DOT = '.';
