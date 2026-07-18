@@ -6,13 +6,13 @@ package ch.nolix.systemapi.control.accordion;
 import java.util.function.Consumer;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.systemapi.control.container.Container;
 import ch.nolix.systemapi.control.linearcontainer.ILinearContainerStyle;
 
 /**
  * @author Silvan Wyss
  */
-public interface IAccordion
-extends ch.nolix.systemapi.control.container.Container<IAccordion, IAccordionStyle> {
+public interface IAccordion extends Container<IAccordion, IAccordionStyle> {
   IAccordion addTab(IAccordionTab tab);
 
   IAccordion addTabs(IAccordionTab... tabs);
