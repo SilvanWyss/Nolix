@@ -46,7 +46,7 @@ implements ILinkedList<E> {
   }
 
   /**
-   * @param <T> the type of the elements of the created {@link LinkedList}.
+   * @param <T> the type of the elements of the created {@link LinkedList}
    * @return a new empty {@link LinkedList}.
    */
   public static <T> LinkedList<T> createEmpty() {
@@ -55,8 +55,8 @@ implements ILinkedList<E> {
 
   /**
    * @param array
-   * @param <T>   is the type of the elements of the given array.
-   * @return a new {@link LinkedList} with the elements in the given array.
+   * @param <T>   is the type of the elements of the given array
+   * @return a new {@link LinkedList} with the elements in the given array
    * @throws RuntimeException if the given array is null
    * @throws RuntimeException if one of the elements in the given array is null.
    */
@@ -71,8 +71,8 @@ implements ILinkedList<E> {
 
   /**
    * @param container
-   * @param <T>       is the type of the elements of the given container.
-   * @return a new {@link LinkedList} with the elements in the given container.
+   * @param <T>       is the type of the elements of the given container
+   * @return a new {@link LinkedList} with the elements in the given container
    * @throws RuntimeException if the given container is null
    * @throws RuntimeException if one of the elements in the given container is
    *                          null.
@@ -86,8 +86,8 @@ implements ILinkedList<E> {
 
   /**
    * @param element
-   * @param <T>     is the type of the given element.
-   * @return a new {@link LinkedList} with the given element.
+   * @param <T>     is the type of the given element
+   * @return a new {@link LinkedList} with the given element
    * @throws RuntimeException if one of the given element is null.
    */
   @SuppressWarnings("unchecked")
@@ -101,8 +101,8 @@ implements ILinkedList<E> {
 
   /**
    * @param elements
-   * @param <T>      is the type of the given elements.
-   * @return a new {@link LinkedList} with the given elements.
+   * @param <T>      is the type of the given elements
+   * @return a new {@link LinkedList} with the given elements
    * @throws RuntimeException if one of the given elements is null
    */
   @SuppressWarnings("unchecked")
@@ -301,9 +301,9 @@ implements ILinkedList<E> {
    * {@link AbstractExtendedIterable} contains n elements.
    * 
    * @param oneBasedIndex
-   * @return the element at the given index.
+   * @return the element at the given index
    * @throws RuntimeException                      if the given index is not
-   *                                               positive.
+   *                                               positive
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractExtendedIterable}
    *                                               does not contain an element at

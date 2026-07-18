@@ -48,9 +48,9 @@ public final class ExtendedIterableFilterView<E> extends AbstractExtendedIterabl
   /**
    * @param container
    * @param selector
-   * @param <T>       is the type of the elements of the given container.
+   * @param <T>       is the type of the elements of the given container
    * @return a new {@link ExtendedIterableFilterView} for the given container and
-   *         selector.
+   *         selector
    * @throws RuntimeException if the given container is null
    * @throws RuntimeException if the given selector is null
    */
@@ -64,9 +64,9 @@ public final class ExtendedIterableFilterView<E> extends AbstractExtendedIterabl
    * @param array
    * @param selector
    * @param <T>      is the type of the given element and elements of the given
-   *                 array.
+   *                 array
    * @return a new {@link ExtendedIterableFilterView} for the given element and
-   *         array.
+   *         array
    * @throws RuntimeException if the given array is null
    * @throws RuntimeException if the given selector is null
    */

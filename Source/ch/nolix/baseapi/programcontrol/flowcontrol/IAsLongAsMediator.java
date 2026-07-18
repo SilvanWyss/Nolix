@@ -12,7 +12,7 @@ public interface IAsLongAsMediator {
   /**
    * @param timeIntervalInMilliseconds
    * @return a new {@link IAfterEveryMediator} with the given
-   *         timeIntervalInMilliseconds.
+   *         timeIntervalInMilliseconds
    * @throws RuntimeException if the given time timeIntervalInMilliseconds is
    *                          negative.
    */
@@ -35,7 +35,7 @@ public interface IAsLongAsMediator {
    * in background.
    * 
    * @param step
-   * @return a new {@link IFuture}.
+   * @return a new {@link IFuture}
    * @throws RuntimeException if the given step is null.
    */
   IFuture runInBackground(Runnable step);

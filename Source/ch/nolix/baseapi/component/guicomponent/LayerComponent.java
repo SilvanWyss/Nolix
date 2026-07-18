@@ -17,7 +17,7 @@ public interface LayerComponent<L> {
   boolean belongsToLayer();
 
   /**
-   * @return the parent layer of the current {@link LayerComponent}.
+   * @return the parent layer of the current {@link LayerComponent}
    * @throws RuntimeException if the current {@link LayerComponent} does not
    *                          belong to a layer
    */

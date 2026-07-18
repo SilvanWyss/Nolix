@@ -34,7 +34,7 @@ public final class DatabaseInfoSearcherForDatabaseView implements IDatabaseInfoS
   /**
    * @param databaseView
    * @return a new {@link DatabaseInfoSearcherForDatabaseView} for the given
-   *         databaseView.
+   *         databaseView
    * @throws RuntimeException if the given databaseView is null.
    */
   public static DatabaseInfoSearcherForDatabaseView forDatabaseView(final DatabaseInfoDto databaseView) {

@@ -17,7 +17,7 @@ public interface ICloseController {
    * 
    * @param element
    * @throws RuntimeException if the current {@link ICloseController} is already
-   *                          closed.
+   *                          closed
    * @throws RuntimeException if the current {@link ICloseController} contains
    *                          already the given element.
    */

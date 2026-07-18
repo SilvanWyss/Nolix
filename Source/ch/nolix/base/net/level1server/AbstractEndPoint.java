@@ -74,7 +74,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
   }
 
   /**
-   * @return the receiver of the current {@link AbstractEndPoint}.
+   * @return the receiver of the current {@link AbstractEndPoint}
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractEndPoint} does
    *                                               not have a receiver.
@@ -96,7 +96,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    * 
    * @param customTargetSlot
    * @throws RuntimeException if the given customTargetSlot is null
-   * @throws RuntimeException if the given customTargetSlot is blank.
+   * @throws RuntimeException if the given customTargetSlot is blank
    * @throws RuntimeException if the current {@link AbstractEndPoint} is closed.
    */
   protected final void setCustomTargetSlot(final String customTargetSlot) {

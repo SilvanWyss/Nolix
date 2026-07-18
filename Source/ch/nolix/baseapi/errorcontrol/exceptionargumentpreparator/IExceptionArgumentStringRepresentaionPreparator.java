@@ -11,20 +11,20 @@ package ch.nolix.baseapi.errorcontrol.exceptionargumentpreparator;
  */
 public interface IExceptionArgumentStringRepresentaionPreparator {
   /**
-   * @param argument - Can be null.
+   * @param argument - Can be null
    * @return a space enclosed and quoted {@link String} representation of the
    *         given argument with a certain max length.
    */
   String getSmartSpaceEnclosedQuotedStringRepresentationWithMaxLengthOfArgument(Object argument);
 
   /**
-   * @param argument - Can be null.
+   * @param argument - Can be null
    * @return a {@link String} representation of the given argument.
    */
   String getStringRepresentationOfArgument(Object argument);
 
   /**
-   * @param argument - Can be null.
+   * @param argument - Can be null
    * @return a {@link String} representation of the given argument with a certain
    *         max length.
    */

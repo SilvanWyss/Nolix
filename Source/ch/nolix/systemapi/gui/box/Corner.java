@@ -16,7 +16,7 @@ public enum Corner {
 
   /**
    * @param specification
-   * @return a {@link Corner} from the given specification.
+   * @return a {@link Corner} from the given specification
    * @throws RuntimeException if the given specification does not represent a
    *                          {@link Corner}.
    */

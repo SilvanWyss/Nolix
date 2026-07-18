@@ -12,7 +12,7 @@ import ch.nolix.systemapi.midschema.model.ColumnDto;
 public interface IColumnDtoMapper {
   /**
    * @param columnNode
-   * @return a new {@link ColumnDto} from the given columnNode.
+   * @return a new {@link ColumnDto} from the given columnNode
    * @throws RuntimeException if the given columnNode is not valid.
    */
   ColumnDto mapColumnNodeToColumnDto(IMutableNode<?> columnNode);

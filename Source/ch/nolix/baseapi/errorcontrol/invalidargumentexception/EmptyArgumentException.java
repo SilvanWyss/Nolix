@@ -30,7 +30,7 @@ public final class EmptyArgumentException extends AbstractInvalidArgumentExcepti
    * Creates a new {@link EmptyArgumentException} for the given argument and
    * argumentName.
    * 
-   * @param argument     - Can be null.
+   * @param argument     - Can be null
    * @param argumentName
    * @throws RuntimeException if the given argumentName is null or blank.
    */
@@ -39,7 +39,7 @@ public final class EmptyArgumentException extends AbstractInvalidArgumentExcepti
   }
 
   /**
-   * @param argument - Can be null.
+   * @param argument - Can be null
    * @return a new {@link EmptyArgumentException} for the given argument.
    */
   public static EmptyArgumentException forArgument(final Object argument) {
@@ -47,10 +47,10 @@ public final class EmptyArgumentException extends AbstractInvalidArgumentExcepti
   }
 
   /**
-   * @param argument     - Can be null.
+   * @param argument     - Can be null
    * @param argumentName
    * @return a new {@link EmptyArgumentException} for the given argumente and
-   *         argumentName.
+   *         argumentName
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static EmptyArgumentException forArgumentAndArgumentName(final Object argument, final String argumentName) {

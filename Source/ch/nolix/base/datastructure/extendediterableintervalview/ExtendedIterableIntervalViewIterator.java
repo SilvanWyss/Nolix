@@ -33,8 +33,8 @@ final class ExtendedIterableIntervalViewIterator<E> implements CopyableIterator<
    * @param startIndex
    * @param endIndex
    * @throws RuntimeException if the given parentContainer is null
-   * @throws RuntimeException if the given startIndex is not positive.
-   * @throws RuntimeException if the given endIndex is not positive.
+   * @throws RuntimeException if the given startIndex is not positive
+   * @throws RuntimeException if the given endIndex is not positive
    * @throws RuntimeException if the given endIndex is not bigger than the given
    *                          startIndex or does not equal the given startIndex.
    */
@@ -62,12 +62,12 @@ final class ExtendedIterableIntervalViewIterator<E> implements CopyableIterator<
    * @param startIndex
    * @param endIndex
    * @param <T>             is the type of the elements of the created
-   *                        {@link ExtendedIterableIntervalViewIterator}.
+   *                        {@link ExtendedIterableIntervalViewIterator}
    * @return a new {@link ExtendedIterableIntervalViewIterator} for the given
-   *         parentContainer, startIndex and endIndex.
+   *         parentContainer, startIndex and endIndex
    * @throws RuntimeException if the given parentContainer is null
-   * @throws RuntimeException if the given startIndex is not positive.
-   * @throws RuntimeException if the given endIndex is not positive.
+   * @throws RuntimeException if the given startIndex is not positive
+   * @throws RuntimeException if the given endIndex is not positive
    * @throws RuntimeException if the given endIndex is not bigger than the given
    *                          startIndex or does not equal the given startIndex.
    */

@@ -21,7 +21,7 @@ public enum ContentAlignment {
 
   /**
    * @param specification
-   * @return a {@link ContentAlignment} from the given specification.
+   * @return a {@link ContentAlignment} from the given specification
    * @throws RuntimeException if the given specification does not represent a
    *                          {@link ContentAlignment}.
    */

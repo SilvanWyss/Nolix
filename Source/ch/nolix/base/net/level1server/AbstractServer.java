@@ -99,12 +99,12 @@ public abstract class AbstractServer implements IServer {
    * 
    * @param endPoint
    * @throws RuntimeException                      if the given endPoint is
-   *                                               closed.
+   *                                               closed
    * @throws ArgumentDoesNotHaveAttributeException if the given endPoint does not
    *                                               have a target and the current
    *                                               {@link AbstractServer} does not
    *                                               contain a default
-   *                                               {@link ISlot}.
+   *                                               {@link ISlot}
    * @throws ArgumentDoesNotHaveAttributeException if the given endPoint has a
    *                                               target and the current
    *                                               {@link AbstractServer} does not
@@ -152,7 +152,7 @@ public abstract class AbstractServer implements IServer {
   }
 
   /**
-   * @return the default {@link ISlot} of the current {@link AbstractServer}.
+   * @return the default {@link ISlot} of the current {@link AbstractServer}
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractServer} does not
    *                                               contain a default
@@ -168,7 +168,7 @@ public abstract class AbstractServer implements IServer {
    * 
    * @param name
    * @return the {@link ISlot} with the given name from the current
-   *         {@link AbstractServer}.
+   *         {@link AbstractServer}
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractServer} does not
    *                                               contain a {@link ISlot} with

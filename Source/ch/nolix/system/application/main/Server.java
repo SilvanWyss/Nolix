@@ -50,7 +50,7 @@ public final class Server extends AbstractServer<Server> implements SinglePortSe
   /**
    * @param port
    * @return a new {@link Server} that will listen to net {@link AbstractClient}s
-   *         on the given port.
+   *         on the given port
    * @throws RuntimeException if the given port is not in [0, 65535].
    */
   public static Server forPort(final int port) {

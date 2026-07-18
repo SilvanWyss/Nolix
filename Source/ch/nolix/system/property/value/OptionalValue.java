@@ -52,7 +52,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
    * @param name
    * @param setter
    * @return a new {@link OptionalValue} with the given name and setter and that
-   *         can store a {@link Boolean}.
+   *         can store a {@link Boolean}
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given setter is null.
    */
@@ -64,7 +64,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
    * @param name
    * @param setter
    * @return a new {@link OptionalValue} with the given name and setter and that
-   *         can store a {@link Double}.
+   *         can store a {@link Double}
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given setter is null.
    */
@@ -76,9 +76,9 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
    * @param name
    * @param setter
    * @param valueMapper
-   * @param <E>         is the type of the value of a {@link OptionalValue}.
+   * @param <E>         is the type of the value of a {@link OptionalValue}
    * @return a new {@link OptionalValue} with the given name, setter and
-   *         valueMapperand and that can store a {@link IElement}.
+   *         valueMapperand and that can store a {@link IElement}
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given setter is null
    * @throws RuntimeException if the given valueMapper is null.
@@ -120,7 +120,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
    * @param name
    * @param setter
    * @return a new {@link OptionalValue} with the given name and setter and that
-   *         can store a {@link Integer}.
+   *         can store a {@link Integer}
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given setter is null.
    */
@@ -132,7 +132,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
    * @param name
    * @param setter
    * @return a new {@link OptionalValue} with the given name and setter and that
-   *         can store a {@link String}.
+   *         can store a {@link String}
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given setter is null.
    */
@@ -150,9 +150,9 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
    * @param valueMapper
    * @param specificationMapper
    * @param <T>                 is the type of the value of a
-   *                            {@link OptionalValue}.
+   *                            {@link OptionalValue}
    * @return a new {@link OptionalValue} with the given name, setter, valueMapper
-   *         and specificationMapper.
+   *         and specificationMapper
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given valueMapper is null
    * @throws RuntimeException if the given specificationMapper is null.

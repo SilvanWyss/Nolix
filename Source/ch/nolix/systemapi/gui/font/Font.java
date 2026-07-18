@@ -31,7 +31,7 @@ public enum Font {
 
   /**
    * @param specification
-   * @return a new {@link Font} from the given specification.
+   * @return a new {@link Font} from the given specification
    * @throws RuntimeException if the given specification does not represent a
    *                          {@link Font}.
    */

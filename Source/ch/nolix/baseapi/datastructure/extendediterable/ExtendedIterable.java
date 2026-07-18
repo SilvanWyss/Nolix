@@ -43,12 +43,12 @@ StringMappable {
   /**
    * @param comparableMapper
    * @param <C>              is the type of the {@link Comparable}s the given
-   *                         comparableMapper returns.
+   *                         comparableMapper returns
    * @return a new {@link ExtendedIterable} with the elements of the current
    *         {@link ExtendedIterable} ordered from the smallest to the biggest
    *         element according to the {@link Comparable}s the given
    *         comparableMapper maps from the elements of the current
-   *         {@link ExtendedIterable}.
+   *         {@link ExtendedIterable}
    * @throws RuntimeException if the given comparableMapper is null
    * @throws RuntimeException if one of the elements of the current
    *                          {@link ExtendedIterable} is null

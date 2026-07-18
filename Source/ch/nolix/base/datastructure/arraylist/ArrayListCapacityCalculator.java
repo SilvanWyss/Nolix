@@ -33,7 +33,7 @@ public final class ArrayListCapacityCalculator {
    * @param actualCapacity
    * @param requiredCapacity
    * @return the target capacity for an array list with the given actualCapacity
-   *         and the given requiredCapacity.
+   *         and the given requiredCapacity
    * @throws RuntimeException if the given requiredCapacity is not bigger or does
    *                          not equal the given actualCapacity.
    */

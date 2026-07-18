@@ -26,7 +26,7 @@ public final class DeletedArgumentException extends AbstractInvalidArgumentExcep
   }
 
   /**
-   * @param argument - Can be null.
+   * @param argument - Can be null
    * @return a new {@link DeletedArgumentException} for the given argument.
    */
   public static DeletedArgumentException forArgument(final Object argument) {

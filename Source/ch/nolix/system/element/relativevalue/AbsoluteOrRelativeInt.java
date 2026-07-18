@@ -57,7 +57,7 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
 
   /**
    * @param specification
-   * @return a new {@link AbsoluteOrRelativeInt} from the given specification.
+   * @return a new {@link AbsoluteOrRelativeInt} from the given specification
    * @throws RuntimeException if the given specification is not valid.
    */
   public static AbsoluteOrRelativeInt fromSpecification(final INode<?> specification) {
@@ -80,7 +80,7 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
 
   /**
    * @param percentage
-   * @return a new {@link AbsoluteOrRelativeInt} with the given percentage.
+   * @return a new {@link AbsoluteOrRelativeInt} with the given percentage
    * @throws RuntimeException if the given percentage is negative.
    */
   public static AbsoluteOrRelativeInt withPercentage(final double percentage) {

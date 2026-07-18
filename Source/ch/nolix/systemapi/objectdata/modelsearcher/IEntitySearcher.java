@@ -41,7 +41,7 @@ public interface IEntitySearcher {
   /**
    * @param entity
    * @param name
-   * @return the {@link IField} with the given name from the given entity.
+   * @return the {@link IField} with the given name from the given entity
    * @throws RuntimeException if the given entity does not have a field with the
    *                          given name.
    */

@@ -32,7 +32,7 @@ public final class ClosureMediator {
 
   /**
    * @param closure
-   * @return a new {@link ClosureMediator} for the given closure.
+   * @return a new {@link ClosureMediator} for the given closure
    * @throws RuntimeException if the given closure is null.
    */
   public static ClosureMediator forClosure(final Runnable closure) {

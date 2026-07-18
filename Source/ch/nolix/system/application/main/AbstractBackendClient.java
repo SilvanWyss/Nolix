@@ -71,7 +71,7 @@ implements IBackendClient<S> {
 
   /**
    * @return the current {@link AbstractSession} of the current
-   *         {@link AbstractBackendClient}.
+   *         {@link AbstractBackendClient}
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractBackendClient}
    *                                               does not have a current
@@ -137,8 +137,8 @@ implements IBackendClient<S> {
    * Pushes the given session to the current {@link AbstractBackendClient}.
    * 
    * @param session
-   * @param <R>     is the type of the returned result.
-   * @return the result from the given session.
+   * @param <R>     is the type of the returned result
+   * @return the result from the given session
    * @throws RuntimeException if the given session is null.
    */
   final <R> R internalPushAndGetResult(final AbstractSession<C, S> session) {
@@ -201,7 +201,7 @@ implements IBackendClient<S> {
 
   /**
    * @return the parent {@link Application} of the current
-   *         {@link AbstractBackendClient}.
+   *         {@link AbstractBackendClient}
    * @throws RuntimeException if the current {@link AbstractBackendClient} does
    *                          not have a parent {@link Application}.
    */

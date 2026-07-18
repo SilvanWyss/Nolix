@@ -41,7 +41,7 @@ public final class UnsupportedCaseException extends AbstractInvalidArgumentExcep
 
   /**
    * @param paramCase
-   * @return a new {@link UnsupportedCaseException} for the given paramCase.
+   * @return a new {@link UnsupportedCaseException} for the given paramCase
    * @throws RuntimeException if the given paramCase is null.
    */
   public static UnsupportedCaseException forCase(final Enum<?> paramCase) {
@@ -50,7 +50,7 @@ public final class UnsupportedCaseException extends AbstractInvalidArgumentExcep
 
   /**
    * @param paramCase
-   * @return a new {@link UnsupportedCaseException} for the given paramCase.
+   * @return a new {@link UnsupportedCaseException} for the given paramCase
    * @throws RuntimeException if the given pCase is null or blank.
    */
   public static UnsupportedCaseException forCase(final String paramCase) {
@@ -59,7 +59,7 @@ public final class UnsupportedCaseException extends AbstractInvalidArgumentExcep
 
   /**
    * @param paramCase
-   * @return the name of the given paramCase.
+   * @return the name of the given paramCase
    * @throws RuntimeException if the given paramCase is null.
    */
   private static String getNameOfCase(final Enum<?> paramCase) {
@@ -72,7 +72,7 @@ public final class UnsupportedCaseException extends AbstractInvalidArgumentExcep
 
   /**
    * @param paramCase
-   * @return the name of the given paramCase.
+   * @return the name of the given paramCase
    * @throws RuntimeException if the given paramCase is null or blank.
    */
   private static String getNameOfCase(String paramCase) {

@@ -76,7 +76,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
 
   /**
    * @param argument
-   * @param <E>      is the type of the elements of the given argument.
+   * @param <E>      is the type of the elements of the given argument
    * @return a new {@link NamableIterableMediator} for the given argument.
    */
   protected static final <E> NamableIterableMediator<E> expect(final Iterable<E> argument) {
@@ -104,7 +104,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
   /**
    * @param argument
    * @param <T>      is the type of the element of the given {@link Optional}
-   *                 argument.
+   *                 argument
    * @return a new {@link IOptionalMediator} for the given argument.
    */
   protected static final <T> IOptionalMediator expect(
@@ -115,7 +115,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
 
   /**
    * @param argument
-   * @param <A>      is the type of the given argument.
+   * @param <A>      is the type of the given argument
    * @return a new {@link NamableObjectMediator} for the given argument.
    */
   protected static final <A> NamableObjectMediator<A> expect(final A argument) {
@@ -159,7 +159,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
 
   /**
    * @param ints
-   * @return a new {@link MultiLongMediator} for the given ints.
+   * @return a new {@link MultiLongMediator} for the given ints
    * @throws RuntimeException if the given ints is null.
    */
   protected static final MultiLongMediator expectTheInts(final int... ints) {
@@ -168,7 +168,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
 
   /**
    * @param longs
-   * @return a new {@link MultiLongMediator} for the given longs.
+   * @return a new {@link MultiLongMediator} for the given longs
    * @throws RuntimeException if the given longs is null.
    */
   protected static final MultiLongMediator expectTheLongs(final Iterable<Long> longs) {

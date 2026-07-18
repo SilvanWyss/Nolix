@@ -19,7 +19,7 @@ public final class EqualArgumentException extends AbstractInvalidArgumentExcepti
    * Creates a new {@link EqualArgumentException} for the given argument and
    * equalValue.
    * 
-   * @param argument   - Can be null.
+   * @param argument   - Can be null
    * @param equalValue - Can be null.
    */
   private EqualArgumentException(final Object argument, final Object equalValue) {
@@ -30,9 +30,9 @@ public final class EqualArgumentException extends AbstractInvalidArgumentExcepti
    * Creates a new {@link EqualArgumentException} for the given argument,
    * argumentName and equalValue.
    * 
-   * @param argument     - Can be null.
+   * @param argument     - Can be null
    * @param argumentName
-   * @param equalValue   - Can be null.
+   * @param equalValue   - Can be null
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   private EqualArgumentException(final double argument, final String argumentName, final double equalValue) {
@@ -43,9 +43,9 @@ public final class EqualArgumentException extends AbstractInvalidArgumentExcepti
    * Creates a new {@link EqualArgumentException} for the given argument,
    * argumentName and equalValue.
    * 
-   * @param argument     - Can be null.
+   * @param argument     - Can be null
    * @param argumentName
-   * @param equalValue   - Can be null.
+   * @param equalValue   - Can be null
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   private EqualArgumentException(final long argument, final String argumentName, final long equalValue) {
@@ -53,11 +53,11 @@ public final class EqualArgumentException extends AbstractInvalidArgumentExcepti
   }
 
   /**
-   * @param argument     - Can be null.
+   * @param argument     - Can be null
    * @param argumentName
-   * @param equalValue   - Can be null.
+   * @param equalValue   - Can be null
    * @return a new {@link EqualArgumentException} for the given argument,
-   *         argumentName and equalValue.
+   *         argumentName and equalValue
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static EqualArgumentException forArgumentAndArgumentNameAndEqualValue(
@@ -68,11 +68,11 @@ public final class EqualArgumentException extends AbstractInvalidArgumentExcepti
   }
 
   /**
-   * @param argument     - Can be null.
+   * @param argument     - Can be null
    * @param argumentName
-   * @param equalValue   - Can be null.
+   * @param equalValue   - Can be null
    * @return a new {@link EqualArgumentException} for the given argument,
-   *         argumentName and equalValue.
+   *         argumentName and equalValue
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static EqualArgumentException forArgumentAndArgumentNameAndEqualValue(
@@ -83,8 +83,8 @@ public final class EqualArgumentException extends AbstractInvalidArgumentExcepti
   }
 
   /**
-   * @param argument   - Can be null.
-   * @param equalValue - Can be null.
+   * @param argument   - Can be null
+   * @param equalValue - Can be null
    * @return a new {@link EqualArgumentException} for the given argument and
    *         equalValue.
    */

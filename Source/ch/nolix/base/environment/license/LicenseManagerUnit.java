@@ -33,14 +33,14 @@ public final class LicenseManagerUnit {
    * current {@link LicenseManagerUnit}
    * 
    * @param licenseType
-   * @param <L>         is the given licenseType.
-   * @return the current {@link LicenseManagerUnit}.
+   * @param <L>         is the given licenseType
+   * @return the current {@link LicenseManagerUnit}
    * @throws RuntimeException if the given licenseType is null
    * @throws RuntimeException if if there was not found a file with the key for a
-   *                          License of the given licenseType.
+   *                          License of the given licenseType
    * @throws RuntimeException if the given licenseType does not contain a
-   *                          constructor with 1 {@link String} parameter.
-   * @throws RuntimeException if the found key is not valid.
+   *                          constructor with 1 {@link String} parameter
+   * @throws RuntimeException if the found key is not valid
    * @throws RuntimeException if the current {@link LicenseManagerUnit} does
    *                          contain already a {@link AbstractLicense} of the given
    *                          licenseType.
@@ -60,9 +60,9 @@ public final class LicenseManagerUnit {
    * Adds the given license to the current {@link LicenseManagerUnit}.
    * 
    * @param abstractLicense
-   * @return the current {@link LicenseManagerUnit}.
+   * @return the current {@link LicenseManagerUnit}
    * @throws RuntimeException if the given license is null
-   * @throws RuntimeException if the given license is not activated.
+   * @throws RuntimeException if the given license is not activated
    * @throws RuntimeException if the current {@link LicenseManagerUnit} contains
    *                          already a {@link AbstractLicense} of the type the given
    *                          license is.
@@ -85,7 +85,7 @@ public final class LicenseManagerUnit {
 
   /**
    * @param featureType
-   * @param <F>         is the given featureType.
+   * @param <F>         is the given featureType
    * @return true if the current {@link LicenseManagerUnit} contains a
    *         {@link AbstractFeature} of the given featureType, false otherwise
    */
@@ -106,7 +106,7 @@ public final class LicenseManagerUnit {
 
   /**
    * @param licenseType
-   * @param <L>         is the given licenseType.
+   * @param <L>         is the given licenseType
    * @return true if the current {@link LicenseManagerUnit} contains a
    *         {@link AbstractLicense} of the given licenseType, false otherwise
    */
@@ -139,8 +139,8 @@ public final class LicenseManagerUnit {
    * {@link AbstractFeature} of the given featureType.
    * 
    * @param featureType
-   * @param <F>         is the given featureType.
-   * @return the current {@link LicenseManagerUnit}.
+   * @param <F>         is the given featureType
+   * @return the current {@link LicenseManagerUnit}
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link LicenseManagerUnit} does
    *                                               not contain a
@@ -167,9 +167,9 @@ public final class LicenseManagerUnit {
 
   /**
    * @param licenseType
-   * @param <L>         is the given licenseType.
+   * @param <L>         is the given licenseType
    * @return the key of the license of the given licenseType from the license
-   *         file. The license file is on the local computer.
+   *         file. The license file is on the local computer
    * @throws RuntimeException if the given licenseType is null.
    */
   private <L extends AbstractLicense> String readKeyFromLicenseFile(final Class<L> licenseType) {
@@ -182,7 +182,7 @@ public final class LicenseManagerUnit {
   /**
    * @param licenseName
    * @return the key of the license with the given licenseName from the license
-   *         file. The license file is on the local computer.
+   *         file. The license file is on the local computer
    * @throws RuntimeException if there does not exist a license file with the key
    *                          for the license with the given licenseName.
    */

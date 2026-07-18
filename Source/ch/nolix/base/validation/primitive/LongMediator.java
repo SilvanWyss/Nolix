@@ -40,7 +40,7 @@ public final class LongMediator extends AbstractLongMediator {
   /**
    * @param argumentName
    * @param argument
-   * @return a new {@link LongMediator} for the given argumentName and argument.
+   * @return a new {@link LongMediator} for the given argumentName and argument
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static LongMediator forArgumentNameAndArgument(final String argumentName, final long argument) {

@@ -13,7 +13,7 @@ public interface IEntityNodeSearcher {
    * @param entityNode
    * @param oneBasedColumnIndex
    * @return the field node of the given entityNode at the given
-   *         oneBasedColumnIndex.
+   *         oneBasedColumnIndex
    * @throws RuntimeException if given entityNode does not contain a field node
    *                          with the given oneBasedColumnIndex.
    */

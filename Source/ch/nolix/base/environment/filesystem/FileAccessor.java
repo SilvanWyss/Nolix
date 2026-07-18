@@ -44,7 +44,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 
   /**
    * @param filePath
-   * @return a new {@link FileAccessor} for the file with the given filePath.
+   * @return a new {@link FileAccessor} for the file with the given filePath
    * @throws RuntimeException if there does not exist a file with the given
    *                          filePath in the file system on the local machine.
    */
@@ -93,7 +93,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
   /**
    * Reads the content of the file of this file accessor.
    * 
-   * @return the content of the file of this file accessor.
+   * @return the content of the file of this file accessor
    * @throws RuntimeException if an error occurs.
    */
   public String readFile() {
@@ -103,7 +103,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
   /**
    * Reads the content of the file of this file accessor to bytes.
    * 
-   * @return the bytes of the file of this file accessor.
+   * @return the bytes of the file of this file accessor
    * @throws RuntimeException if an error occurs.
    */
   public byte[] readFileToBytes() {
@@ -117,7 +117,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
   /**
    * Reads the content of the file of this file accessor to lines.
    * 
-   * @return the lines of the file of this file accessor.
+   * @return the lines of the file of this file accessor
    * @throws RuntimeException if an error occurs.
    */
   public ILinkedList<String> readFileToLines() {

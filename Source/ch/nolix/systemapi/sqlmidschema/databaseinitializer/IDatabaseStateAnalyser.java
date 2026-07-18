@@ -14,7 +14,7 @@ public interface IDatabaseStateAnalyser {
    * @param databaseName
    * @param sqlConnection
    * @return the state of the database with the given databaseName using the given
-   *         sqlConnection.
+   *         sqlConnection
    * @throws RuntimeException if the given sqlConnection is null or closed.
    */
   DatabaseState getDatabasState(String databaseName, ISqlConnection sqlConnection);

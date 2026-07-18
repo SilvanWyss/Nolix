@@ -46,7 +46,7 @@ public final class BiggerArgumentException extends AbstractInvalidArgumentExcept
    * @param argumentName
    * @param max
    * @return a new {@link BiggerArgumentException} for the given argument,
-   *         argumentName and max.
+   *         argumentName and max
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static BiggerArgumentException forArgumentAndArgumentNameAndMax(
@@ -61,7 +61,7 @@ public final class BiggerArgumentException extends AbstractInvalidArgumentExcept
    * @param argumentName
    * @param max
    * @return a new {@link BiggerArgumentException} for the given argument,
-   *         argumentName and max.
+   *         argumentName and max
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static BiggerArgumentException forArgumentAndArgumentNameAndMax(

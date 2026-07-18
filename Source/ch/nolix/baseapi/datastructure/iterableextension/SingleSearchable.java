@@ -33,7 +33,7 @@ public interface SingleSearchable<E> {
 
   /**
    * @param oneBasedIndex
-   * @return the element at the given oneBasedIndex. The element can be null.
+   * @return the element at the given oneBasedIndex. The element can be null
    * @throws RuntimeException if the current {@link SingleSearchable} does not
    *                          contain an element at the given oneBasedIndex.
    */
@@ -43,7 +43,7 @@ public interface SingleSearchable<E> {
    * @param comparableMapper
    * @param <C>              is the type of the {@link Comparable}s the given
    *                         comparableMapper maps from the elements of the
-   *                         current {@link SingleSearchable}.
+   *                         current {@link SingleSearchable}
    * @return the element with the biggest {@link Comparable} the given
    *         comparableMapper maps from the elements of the current
    *         {@link SingleSearchable}, ignoring null elements
@@ -57,7 +57,7 @@ public interface SingleSearchable<E> {
    * @param comparableMapper
    * @param <C>              is the type of the {@link Comparable}s the given
    *                         comparableMapper maps from the elements of the
-   *                         current {@link SingleSearchable}.
+   *                         current {@link SingleSearchable}
    * @return the element with the smallest {@link Comparable} the given
    *         comparableMapper maps from the elements of the current
    *         {@link SingleSearchable}, ignoring null elements
@@ -90,7 +90,7 @@ public interface SingleSearchable<E> {
    * @param type
    * @param <T>  the modeled type of the given type
    * @return the first element from the current {@link SingleSearchable} that is
-   *         of the given type.
+   *         of the given type
    * @throws RuntimeException if the given type is null
    * @throws RuntimeException if the current {@link SingleSearchable} does not
    *                          contain an element of the given type.
@@ -99,15 +99,15 @@ public interface SingleSearchable<E> {
 
   /**
    * @return the last element of the current {@link SingleSearchable}. The element
-   *         can be null.
+   *         can be null
    * @throws RuntimeException if the current {@link SingleSearchable} is empty.
    */
   E getStoredLast();
 
   /**
    * @return the one element of the current {@link SingleSearchable}. The element
-   *         can be null.
-   * @throws RuntimeException if the current {@link SingleSearchable} is empty.
+   *         can be null
+   * @throws RuntimeException if the current {@link SingleSearchable} is empty
    * @throws RuntimeException if the current {@link SingleSearchable} contains
    *                          several elements.
    */

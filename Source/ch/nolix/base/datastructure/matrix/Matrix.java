@@ -41,7 +41,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   }
 
   /**
-   * @return a new empty {@link Matrix}.
+   * @return a new empty {@link Matrix}
    * @param <T> the type of the elements of the created {@link Matrix}.
    */
   public static <T> Matrix<T> createEmpty() {
@@ -50,7 +50,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
 
   /**
    * @param matrix
-   * @param <T>    is the type of the elements of the given matrix.
+   * @param <T>    is the type of the elements of the given matrix
    * @return a new {@link Matrix} with the size and elements of the given matrix.
    */
   public static <T> Matrix<T> fromMatrix(final IMatrix<T> matrix) {
@@ -72,7 +72,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    * -n elements are given.
    * 
    * @param elements
-   * @return the current {@link Matrix}.
+   * @return the current {@link Matrix}
    * @throws RuntimeException         if the given elements is null
    * @throws RuntimeException         if one of the given elements is null
    * @throws UnequalArgumentException if the current {@link Matrix} is not empty
@@ -95,7 +95,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    * contains m elements. -n elements are given.
    * 
    * @param elements
-   * @return the current {@link Matrix}.
+   * @return the current {@link Matrix}
    * @throws RuntimeException         if the given elements is null
    * @throws RuntimeException         if one of the given elements is null
    * @throws UnequalArgumentException if the current {@link Matrix} is not empty
@@ -155,7 +155,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    * contains m rows. -n elements are given.
    * 
    * @param elements
-   * @return the current {@link Matrix}.
+   * @return the current {@link Matrix}
    * @throws RuntimeException         if the given elements is null
    * @throws RuntimeException         if one of the given elements is null
    * @throws UnequalArgumentException the current {@link Matrix} is not empty and
@@ -178,7 +178,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    * contains m rows. -n elements are given.
    * 
    * @param elements
-   * @return the current {@link Matrix}.
+   * @return the current {@link Matrix}
    * @throws RuntimeException         if the given elements is null
    * @throws RuntimeException         if one of the given elements is null
    * @throws UnequalArgumentException the current {@link Matrix} is not empty and
@@ -245,7 +245,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   /**
    * @param oneBasedColumnIndex
    * @return the column of the current {@link Matrix} at the given
-   *         oneBasedColumnIndex.
+   *         oneBasedColumnIndex
    * @throws RuntimeException if the given oneBasedColumnIndex is not positive or
    *                          bigger than the number of the columns of the current
    *                          {@link Matrix}.
@@ -273,8 +273,8 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   /**
    * @param index
    * @return the index of the column of the element of the current {@link Matrix}
-   *         at the given index.
-   * @throws RuntimeException if the given index is not positive.
+   *         at the given index
+   * @throws RuntimeException if the given index is not positive
    * @throws RuntimeException if the given index is bigger than the number of
    *                          elements of the current {@link Matrix}.
    */
@@ -340,11 +340,11 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    * @param rowIndex
    * @param columnIndex
    * @return the index of the element of the current {@link Matrix} at the given
-   *         row index and column index.
-   * @throws RuntimeException if the given row index is not positive.
+   *         row index and column index
+   * @throws RuntimeException if the given row index is not positive
    * @throws RuntimeException if the given row index is bigger than the number of
-   *                          rows of the current {@link Matrix}.
-   * @throws RuntimeException if the given column index is not positive.
+   *                          rows of the current {@link Matrix}
+   * @throws RuntimeException if the given column index is not positive
    * @throws RuntimeException if the given column index is bigger than the number
    *                          of columns of the current {@link Matrix}.
    */
@@ -357,8 +357,8 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   }
 
   /**
-   * @return the element of the current {@link Matrix} at the given index .
-   * @throws RuntimeException if the given index is not positive.
+   * @return the element of the current {@link Matrix} at the given index 
+   * @throws RuntimeException if the given index is not positive
    * @throws RuntimeException if the given index is bigger than the number of
    *                          elements of the current {@link Matrix}.
    */
@@ -373,11 +373,11 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    * @param oneBasedRowIndex
    * @param oneBasedColumnIndex
    * @return the element of the current {@link Matrix} at the given row index and
-   *         column index.
-   * @throws RuntimeException if the given row index is not positive.
+   *         column index
+   * @throws RuntimeException if the given row index is not positive
    * @throws RuntimeException if the given row index is bigger than the number of
-   *                          rows of the current {@link Matrix}.
-   * @throws RuntimeException if the given column index is not positive.
+   *                          rows of the current {@link Matrix}
+   * @throws RuntimeException if the given column index is not positive
    * @throws RuntimeException if the given column index is bigger than the number
    *                          of columns of the current {@link Matrix}.
    */
@@ -393,7 +393,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
 
   /**
    * @param oneBasedRowIndex
-   * @return the row of the current {@link Matrix} at the given oneBasedRowIndex.
+   * @return the row of the current {@link Matrix} at the given oneBasedRowIndex
    * @throws RuntimeException if the given oneBasedRowIndex is not positive or
    *                          bigger than the number of rows of the current
    *                          {@link Matrix}.
@@ -405,8 +405,8 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   /**
    * @param index
    * @return the index of the row of the element of the current {@link Matrix} at
-   *         the given index.
-   * @throws RuntimeException if the given index is not positive.
+   *         the given index
+   * @throws RuntimeException if the given index is not positive
    * @throws RuntimeException if the given index is bigger than the number of
    *                          elements of the current {@link Matrix}.
    */
@@ -477,9 +477,9 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    * 
    * @param index
    * @param element
-   * @throws RuntimeException if the given index is not positive.
+   * @throws RuntimeException if the given index is not positive
    * @throws RuntimeException if the given index is bigger than the number of
-   *                          elements of the current {@link Matrix}.
+   *                          elements of the current {@link Matrix}
    * @throws RuntimeException if the given element is null.
    */
   public void setAt(final int index, final E element) {
@@ -502,12 +502,12 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    * @param oneBasedRowIndex
    * @param oneBasedColumnIndex
    * @param element
-   * @throws RuntimeException if the given row index is not positive.
+   * @throws RuntimeException if the given row index is not positive
    * @throws RuntimeException if the given row index is bigger than the number of
-   *                          rows of the current {@link Matrix}.
-   * @throws RuntimeException if the given column index is not positive.
+   *                          rows of the current {@link Matrix}
+   * @throws RuntimeException if the given column index is not positive
    * @throws RuntimeException if the given column index is bigger than the number
-   *                          of columns of the current {@link Matrix}.
+   *                          of columns of the current {@link Matrix}
    * @throws RuntimeException if the given element is null.
    */
   @Override
@@ -533,7 +533,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    * n elements. -The given transformer has a complexity of O(1).
    * 
    * @param transformer
-   * @param <O>         is the type of the elements the given transformer returns.
+   * @param <O>         is the type of the elements the given transformer returns
    * @return a new matrix with the elements the given transformer transforms of
    *         the elements of the current {@link Matrix}.
    */
@@ -650,7 +650,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
 
   /**
    * @param index
-   * @throws RuntimeException if the given index is not positive.
+   * @throws RuntimeException if the given index is not positive
    * @throws RuntimeException if the given index is bigger than the number of
    *                          elements of the current {@link Matrix}.
    */
@@ -669,10 +669,10 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   /**
    * @param rowIndex
    * @param columnIndex
-   * @throws RuntimeException if the given row index is not positive.
+   * @throws RuntimeException if the given row index is not positive
    * @throws RuntimeException if the given row index is bigger than the number of
-   *                          rows of the current {@link Matrix}.
-   * @throws RuntimeException if the given column index is not positive.
+   *                          rows of the current {@link Matrix}
+   * @throws RuntimeException if the given column index is not positive
    * @throws RuntimeException if the given column index is bigger than the number
    *                          of columns of the current {@link Matrix}.
    */

@@ -15,7 +15,7 @@ public interface IDatabaseInfoSearcherForDatabaseInfo {
    * @param columnId
    * @return the {@link ColumnInfoDto} with the given columnId from the table with
    *         the given tableName from the database view of the current
-   *         {@link IDatabaseInfoSearcherForDatabaseInfo}.
+   *         {@link IDatabaseInfoSearcherForDatabaseInfo}
    * @throws RuntimeException if the database view of the current
    *                          {@link IDatabaseInfoSearcherForDatabaseInfo} does
    *                          not contain a table with the given tableName, that
@@ -29,7 +29,7 @@ public interface IDatabaseInfoSearcherForDatabaseInfo {
    * @param columnName
    * @return the {@link ColumnInfoDto} with the given columnName from the table
    *         with the given tableName from the database view of the current
-   *         {@link IDatabaseInfoSearcherForDatabaseInfo}.
+   *         {@link IDatabaseInfoSearcherForDatabaseInfo}
    * @throws RuntimeException if the database view of the current
    *                          {@link IDatabaseInfoSearcherForDatabaseInfo} does
    *                          not contain a table with the given tableName, that
@@ -41,7 +41,7 @@ public interface IDatabaseInfoSearcherForDatabaseInfo {
   /**
    * @param tableId
    * @return the {@link TableInfoDto} with the given tableId from database view of
-   *         the current {@link IDatabaseInfoSearcherForDatabaseInfo}.
+   *         the current {@link IDatabaseInfoSearcherForDatabaseInfo}
    * @throws RuntimeException if the database view of the current
    *                          {@link IDatabaseInfoSearcherForDatabaseInfo} does
    *                          not contain a {@link TableInfoDto} with the given
@@ -52,7 +52,7 @@ public interface IDatabaseInfoSearcherForDatabaseInfo {
   /**
    * @param tableName
    * @return the {@link TableInfoDto} with the given tableName from the database
-   *         view of the current {@link IDatabaseInfoSearcherForDatabaseInfo}.
+   *         view of the current {@link IDatabaseInfoSearcherForDatabaseInfo}
    * @throws RuntimeException if the database view of the current
    *                          {@link IDatabaseInfoSearcherForDatabaseInfo} does
    *                          not contain a {@link TableInfoDto} with the given

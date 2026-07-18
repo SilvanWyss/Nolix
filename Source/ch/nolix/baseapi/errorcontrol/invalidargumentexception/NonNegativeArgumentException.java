@@ -45,7 +45,7 @@ public final class NonNegativeArgumentException extends AbstractInvalidArgumentE
    * @param argument
    * @param argumentName
    * @return a new {@link NonNegativeArgumentException} for the given argument and
-   *         argumentName.
+   *         argumentName
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static NonNegativeArgumentException forArgumentAndArgumentName(
@@ -58,7 +58,7 @@ public final class NonNegativeArgumentException extends AbstractInvalidArgumentE
    * @param argument
    * @param argumentName
    * @return a new {@link NonNegativeArgumentException} for the given argument and
-   *         argumentName.
+   *         argumentName
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static NonNegativeArgumentException forArgumentAndArgumentName(

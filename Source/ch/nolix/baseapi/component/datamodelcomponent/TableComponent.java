@@ -17,7 +17,7 @@ public interface TableComponent<T> {
   boolean belongsToTable();
 
   /**
-   * @return the table of the current {@link TableComponent}.
+   * @return the table of the current {@link TableComponent}
    * @throws RuntimeException if the current {@link TableComponent} does not
    *                          belong to a table
    */

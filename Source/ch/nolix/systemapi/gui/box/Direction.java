@@ -19,7 +19,7 @@ public enum Direction {
 
   /**
    * @param specification
-   * @return a {@link Direction} from the given specification.
+   * @return a {@link Direction} from the given specification
    * @throws RuntimeException if the given specification does not represent a
    *                          {@link Direction}.
    */

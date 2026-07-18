@@ -25,7 +25,7 @@ public final class JobPool {
    * Enqueues the given job to the current {@link JobPool}.
    * 
    * @param job
-   * @return a {@link IFuture} for the given job.
+   * @return a {@link IFuture} for the given job
    * @throws RuntimeException if the given job is null.
    */
   public IFuture enqueue(final Runnable job) {

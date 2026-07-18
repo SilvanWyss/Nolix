@@ -24,8 +24,8 @@ public final class ObjectMediator<A> extends AbstractObjectMediator<A> {
   /**
    * @param argument
    * @param argumentName
-   * @param <T>          is the type of the given argument.
-   * @return a new {@link ObjectMediator} for the given argument and argumentName.
+   * @param <T>          is the type of the given argument
+   * @return a new {@link ObjectMediator} for the given argument and argumentName
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static <T> ObjectMediator<T> forArgumentAndArgumentName(final T argument, final String argumentName) {

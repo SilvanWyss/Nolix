@@ -89,7 +89,7 @@ public final class ClosedInterval implements IClosedInterval {
    * @param min
    * @param max
    * @return a new {@link ClosedInterval} with the given min, max and their max
-   *         decimal place count.
+   *         decimal place count
    * @throws RuntimeException if the given min is null
    * @throws RuntimeException if the given max is null.
    */
@@ -102,7 +102,7 @@ public final class ClosedInterval implements IClosedInterval {
    * @param max
    * @param decimalPlaceCount
    * @return a new {@link ClosedInterval} with the given min, max and
-   *         decimalPlaceCount.
+   *         decimalPlaceCount
    * @throws RuntimeException if the given min is null
    * @throws RuntimeException if the given max is null
    * @throws RuntimeException if the given decimalPlaceCount is not positive.
@@ -129,7 +129,7 @@ public final class ClosedInterval implements IClosedInterval {
    * @param max
    * @param decimalPlaceCount
    * @return a new {@link ClosedInterval} with the given min, max and
-   *         decimalPlaceCount.
+   *         decimalPlaceCount
    * @throws RuntimeException if the given decimalPlaceCount is not positive.
    */
   public static ClosedInterval withMinAndMaxAndDecimalPlaceCount(

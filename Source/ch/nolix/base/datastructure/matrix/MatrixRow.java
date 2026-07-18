@@ -44,9 +44,9 @@ public final class MatrixRow<E> extends AbstractExtendedIterable<E> implements I
    * @param parentMatrix
    * @param oneBasedRowIndex
    * @param <T>              is the type of the elements of the parent
-   *                         {@link Matrix} of the created {@link MatrixRow}.
+   *                         {@link Matrix} of the created {@link MatrixRow}
    * @return a new {@link MatrixRow} for the given parentMatrix and
-   *         oneBasedRowIndex.
+   *         oneBasedRowIndex
    * @throws RuntimeException if the given oneBasedRowIndex is not positive or
    *                          bigger than the number of rows of the given
    *                          parentMatrix.

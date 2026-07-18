@@ -14,7 +14,7 @@ public interface IEntityLoadingDtoMapper {
   /**
    * @param entityNode
    * @param tableView
-   * @return a new {@link EntityLoadingDto} from the given entityNode.
+   * @return a new {@link EntityLoadingDto} from the given entityNode
    * @throws RuntimeException if the given entityNode is null.
    */
   EntityLoadingDto mapEntityNodeToEntityLoadingDto(IMutableNode<?> entityNode, TableInfoDto tableView);

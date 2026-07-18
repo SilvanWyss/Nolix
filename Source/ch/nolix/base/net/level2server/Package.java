@@ -49,7 +49,7 @@ final class Package extends ch.nolix.base.net.messaging.IndexedPackage<String> {
    * @param messageRole
    * @param message
    * @return a new {@link Package} with the given index and messageRole and
-   *         message.
+   *         message
    * @throws RuntimeException if the given message role is null
    * @throws RuntimeException if the given message is null.
    */

@@ -32,7 +32,7 @@ public final class ForCountMediator implements IForCountMediator {
 
   /**
    * @param maxRunCount
-   * @return a new {@link ForCountMediator} with the given maxRunCount.
+   * @return a new {@link ForCountMediator} with the given maxRunCount
    * @throws RuntimeException if the given maxRunCount is negative.
    */
   public static ForCountMediator forMaxRunCount(final int maxRunCount) {

@@ -8,7 +8,7 @@ import ch.nolix.baseapi.state.statemutation.Clearable;
  */
 public interface IOptionalValue<V> extends Clearable, IBaseValue {
   /**
-   * @return the value of the current {@link IOptionalValue}.
+   * @return the value of the current {@link IOptionalValue}
    * @throws RuntimeException if the current {@link IOptionalValue} does not
    *                          contain a value.
    */

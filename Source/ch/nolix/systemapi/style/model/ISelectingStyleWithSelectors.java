@@ -13,7 +13,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
  */
 public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelectingStyleWithSelectors> {
   /**
-   * @return the selector id of the current {@link ISelectingStyleWithSelectors}.
+   * @return the selector id of the current {@link ISelectingStyleWithSelectors}
    * @throws RuntimeException if the current {@link ISelectingStyleWithSelectors}
    *                          does not have a selector id.
    */
@@ -33,7 +33,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
 
   /**
    * @return the selector type of the current
-   *         {@link ISelectingStyleWithSelectors}.
+   *         {@link ISelectingStyleWithSelectors}
    * @throws RuntimeException if the current {@link ISelectingStyleWithSelectors}
    *                          does not have a selector type.
    */
@@ -55,7 +55,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @param additionalSelectorRole
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given
-   *         additionalSelectorRole .
+   *         additionalSelectorRole 
    * @throws RuntimeException if the given additionalSelectorRole is null or
    *                          blank.
    */
@@ -65,7 +65,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @param additionalSelectorRole
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given
-   *         additionalSelectorRole .
+   *         additionalSelectorRole 
    * @throws RuntimeException if the given additionalSelectorRole is null or
    *                          blank.
    */
@@ -75,7 +75,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @param additionalSelectorRoles
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given
-   *         additionalSelectorRoles.
+   *         additionalSelectorRoles
    * @throws RuntimeException if the given additionalSelectorRoles is null
    * @throws RuntimeException if one of the given additionalSelectorRoles is null.
    */
@@ -85,7 +85,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @param additionalSelectorRoles
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given
-   *         additionalSelectorRoles.
+   *         additionalSelectorRoles
    * @throws RuntimeException if the given additionalSelectorRoles is null
    * @throws RuntimeException if one of the given additionalSelectorRoles is null
    *                          or blank.
@@ -96,7 +96,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @param additionalSelectorRoles
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given
-   *         additionalSelectorRoles .
+   *         additionalSelectorRoles 
    * @throws RuntimeException if the given additionalSelectorRoles is null
    * @throws RuntimeException if one of the given additionalSelectorRoles is null
    *                          or blank.
@@ -107,7 +107,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @param additionalSelectorToken
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given
-   *         additionalSelectorToken.
+   *         additionalSelectorToken
    * @throws RuntimeException if the given additionalSelectorToken is null or
    *                          blank.
    */
@@ -117,7 +117,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @param additionalSelectorTokens
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given
-   *         additionalSelectorTokens.
+   *         additionalSelectorTokens
    * @throws RuntimeException if the given additionalSelectorTokens is null
    * @throws RuntimeException if one of the given additionalSelectorTokens is null
    *                          or blank.
@@ -128,7 +128,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @param additionalSelectorTokens
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given
-   *         additionalSelectorTokens.
+   *         additionalSelectorTokens
    * @throws RuntimeException if the given additionalSelectorTokens is null
    * @throws RuntimeException if one of the given additionalSelectorTokens is null
    *                          or blank.
@@ -138,7 +138,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
   /**
    * @param selectorId
    * @return a new {@link ISelectingStyleWithSelectors} from the current
-   *         {@link ISelectingStyleWithSelectors} with the given selectorId set.
+   *         {@link ISelectingStyleWithSelectors} with the given selectorId set
    * @throws RuntimeException if the given selectorId is null or blank.
    */
   ISelectingStyleWithSelectors withSelectorId(String selectorId);
@@ -146,7 +146,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
   /**
    * @param selectorType
    * @return a new {@link ISelectingStyleWithSelectors} from the current
-   *         {@link ISelectingStyleWithSelectors} with the given selectorType set.
+   *         {@link ISelectingStyleWithSelectors} with the given selectorType set
    * @throws RuntimeException if the given selectorType is null.
    */
   ISelectingStyleWithSelectors withSelectorType(final Class<?> selectorType);
@@ -154,7 +154,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
   /**
    * @param selectorType
    * @return a new {@link ISelectingStyleWithSelectors} from the current
-   *         {@link ISelectingStyleWithSelectors} with the given selectorType set.
+   *         {@link ISelectingStyleWithSelectors} with the given selectorType set
    * @throws RuntimeException if the given selectorType is null or blank.
    */
   ISelectingStyleWithSelectors withSelectorType(String selectorType);

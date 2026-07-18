@@ -58,9 +58,9 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @param defaultValue
    * @param setter
    * @return a new {@link Value} with the given name, defaultValue and setter and
-   *         that will store a {@link Boolean}.
+   *         that will store a {@link Boolean}
    * @throws RuntimeException if the given name is null
-   * @throws RuntimeException if the given name is blank.
+   * @throws RuntimeException if the given name is blank
    * @throws RuntimeException if the given setter is null.
    */
   public static Value<Boolean> forBooleanWithNameAndDefaultValueAndSetter(
@@ -76,9 +76,9 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @param defaultValue
    * @param setter
    * @return a new {@link Value} with the given name, defaultValue and setter and
-   *         that will store a {@link Double}.
+   *         that will store a {@link Double}
    * @throws RuntimeException if the given name is null
-   * @throws RuntimeException if the given name is blank.
+   * @throws RuntimeException if the given name is blank
    * @throws RuntimeException if the given setter is null.
    */
   public static Value<Double> forDoubleWithNameAndDefaultValueAndSetter(
@@ -93,9 +93,9 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @param defaultValue
    * @param setter
    * @param valueMapper
-   * @param <E>          is the type of the value of a {@link Value}.
+   * @param <E>          is the type of the value of a {@link Value}
    * @return a new {@link Value} with the given name, defaultValue, setter and
-   *         valueMapper and and that can store a {@link IElement}.
+   *         valueMapper and and that can store a {@link IElement}
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given defaultValue is null
    * @throws RuntimeException if the given setter is null
@@ -114,9 +114,9 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @param defaultValue
    * @param setter
    * @return a new {@link Value} with the given name, defaultValue and setter and
-   *         that will store a {@link Integer}.
+   *         that will store a {@link Integer}
    * @throws RuntimeException if the given name is null
-   * @throws RuntimeException if the given name is blank.
+   * @throws RuntimeException if the given name is blank
    * @throws RuntimeException if the given setter is null.
    */
   public static Value<Integer> forIntWithNameAndDefaultValueAndSetter(
@@ -131,9 +131,9 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @param defaultValue
    * @param setter
    * @return a new {@link Value} with the given name, defaultValue and setter and
-   *         that will store a {@link String}.
+   *         that will store a {@link String}
    * @throws RuntimeException if the given name is null
-   * @throws RuntimeException if the given name is blank.
+   * @throws RuntimeException if the given name is blank
    * @throws RuntimeException if the given setter is null.
    */
   public static Value<String> forStringWithNameAndDefaultValueAndSetter(
@@ -155,9 +155,9 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @param valueMapper
    * @param specificationMapper
    * @param <T>                 is the type of the value of the created
-   *                            {@link Value}.
+   *                            {@link Value}
    * @return a new {@link Value} with the given name, defaultValue, setter,
-   *         valueMapper and specificationMapper.
+   *         valueMapper and specificationMapper
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given defaultValue is null
    * @throws RuntimeException if the given setter is null

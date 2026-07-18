@@ -71,9 +71,9 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
    * @param color
    * @throws RuntimeException if the given corner is null
    * @throws RuntimeException if the given location is null
-   * @throws RuntimeException if the given side1Thickness is negative.
-   * @throws RuntimeException if the given side2Thickness is negative.
-   * @throws RuntimeException if the given blurRadius is negative.
+   * @throws RuntimeException if the given side1Thickness is negative
+   * @throws RuntimeException if the given side2Thickness is negative
+   * @throws RuntimeException if the given blurRadius is negative
    * @throws RuntimeException if the given color is null.
    */
   private CornerShadow(
@@ -99,7 +99,7 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
 
   /**
    * @param cornerShadow
-   * @return a {@link CornerShadow} from the given cornerShadow.
+   * @return a {@link CornerShadow} from the given cornerShadow
    * @throws RuntimeException if the given cornerShadow is null.
    */
   public static CornerShadow fromCornerShadow(final ICornerShadow cornerShadow) {
@@ -126,7 +126,7 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
 
   /**
    * @param specification
-   * @return a {@link CornerShadow} from the given specification.
+   * @return a {@link CornerShadow} from the given specification
    * @throws RuntimeException if the given specification is not valid.
    */
   public static CornerShadow fromSpecification(final INode<?> specification) {
@@ -183,12 +183,12 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
    * @param blurRadius
    * @param color
    * @return a new {@link CornerShadow} with the given corner, location,
-   *         side1Thickness, side2Thickness, blurRadius and color.
+   *         side1Thickness, side2Thickness, blurRadius and color
    * @throws RuntimeException if the given corner is null
    * @throws RuntimeException if the given location is null
-   * @throws RuntimeException if the given side1Thickness is negative.
-   * @throws RuntimeException if the given side2Thickness is negative.
-   * @throws RuntimeException if the given blurRadius is negative.
+   * @throws RuntimeException if the given side1Thickness is negative
+   * @throws RuntimeException if the given side2Thickness is negative
+   * @throws RuntimeException if the given blurRadius is negative
    * @throws RuntimeException if the given color is null.
    */
   public static CornerShadow withCornerAndLocationAndSide1ThicknessAnsSide2ThicknessAndBlurRadiusAndColor(

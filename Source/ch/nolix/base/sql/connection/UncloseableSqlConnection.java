@@ -39,7 +39,7 @@ public final class UncloseableSqlConnection implements ISqlConnection {
    * @param sqlConnection
    * @return either a new {@link UncloseableSqlConnection} for the given
    *         sqlConnection or the given sqlConnection if the given sqlConnection
-   *         is a {@link UncloseableSqlConnection}.
+   *         is a {@link UncloseableSqlConnection}
    * @throws RuntimeException if the given sqlConnection is null or not open.
    */
   public static UncloseableSqlConnection forSqlConnection(final ISqlConnection sqlConnection) {

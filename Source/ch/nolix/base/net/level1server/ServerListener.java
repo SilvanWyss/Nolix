@@ -46,7 +46,7 @@ public final class ServerListener extends AbstractWorker implements CloseStateRe
   /**
    * @param server
    * @return a new {@link ServerListener} for the given server. The
-   *         {@link ServerListener} will start automatically.
+   *         {@link ServerListener} will start automatically
    * @throws RuntimeException if the given server is null.
    */
   public static ServerListener forServer(final Server server) {

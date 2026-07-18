@@ -81,7 +81,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
 
   /**
    * @param slot
-   * @return a new {@link LocalEndPoint} that will connect to the given slot.
+   * @return a new {@link LocalEndPoint} that will connect to the given slot
    * @throws NullPointerException if the given slot is null.
    */
   public static LocalEndPoint toSlot(final ISlot slot) {
@@ -92,7 +92,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @param server
    * @param slot
    * @return a new {@link LocalEndPoint} that will connect to the given slot on
-   *         the given server.
+   *         the given server
    * @throws NullPointerException if the given server is null
    * @throws RuntimeException     if the given slot is null
    * @throws RuntimeException     if the given slot is null.
@@ -121,7 +121,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * Lets this local end point send the given message.
    * 
    * @param message
-   * @return the reply to the given message.
+   * @return the reply to the given message
    * @throws RuntimeException if this local end point is closed.
    */
   public String sendAndWaitToReply(final String message) {
@@ -139,7 +139,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
   }
 
   /**
-   * @return the target of this local end point.
+   * @return the target of this local end point
    * @throws ArgumentDoesNotHaveAttributeException if this local end point does
    *                                               not have a target.
    */

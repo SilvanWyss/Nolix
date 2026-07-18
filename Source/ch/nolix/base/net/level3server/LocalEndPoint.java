@@ -102,7 +102,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
 
   /**
    * @param slot
-   * @return a new {@link LocalEndPoint} that will connect to the given slot.
+   * @return a new {@link LocalEndPoint} that will connect to the given slot
    * @throws RuntimeException if the given slot is null.
    */
   public static LocalEndPoint toSlot(final ISlot slot) {
@@ -119,7 +119,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
 
   /**
    * @return the data the given request requests from this local duplex
-   *         controller.
+   *         controller
    * @throws ArgumentDoesNotHaveAttributeException if this {@link LocalEndPoint}
    *                                               does not have a receiver
    *                                               controller.

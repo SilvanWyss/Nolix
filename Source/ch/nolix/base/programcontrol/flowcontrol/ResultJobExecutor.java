@@ -41,10 +41,10 @@ final class ResultJobExecutor<R> extends Thread {
 
   /**
    * @param resultJob
-   * @param <R>       is the type of the result of the given resulltJob.
+   * @param <R>       is the type of the result of the given resulltJob
    * @return a new {@link ResultJobExecutor} for the given resultJob. The
    *         {@link ResultJobExecutor} will start automatically to execute the
-   *         given resultJob.
+   *         given resultJob
    * @throws RuntimeException if the given resultJob is null.
    */
   public static <R> ResultJobExecutor<R> forResultJob(final Supplier<R> resultJob) {
@@ -61,7 +61,7 @@ final class ResultJobExecutor<R> extends Thread {
 
   // For a better performance, this implementation does not use all available comfort methods.
   /**
-   * @return the error of the current {@link ResultJobExecutor}.
+   * @return the error of the current {@link ResultJobExecutor}
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link ResultJobExecutor} does
    *                                               not have an error.

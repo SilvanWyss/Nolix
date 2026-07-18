@@ -13,7 +13,7 @@ public interface ISqlSchemaColumnDtoMapper {
   /**
    * @param columnDto
    * @return new {@link ch.nolix.systemapi.sqlschema.model.ColumnDto}s from the
-   *         given columnDto.
+   *         given columnDto
    * @throws RuntimeException if the given columnDto is null.
    */
   ExtendedIterable<ch.nolix.systemapi.sqlschema.model.ColumnDto> mapColumnDtoToSqlSchemaColumnDtos(ColumnDto columnDto);

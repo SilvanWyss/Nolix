@@ -30,7 +30,7 @@ public final class DatabaseInitializer extends AbstractDatabaseInitializer {
    * 
    * @param databaseName
    * @param nodeDatabase
-   * @throws RuntimeException if the given databaseName is null or blank.
+   * @throws RuntimeException if the given databaseName is null or blank
    * @throws RuntimeException if the given nodeDatabase is null.
    */
   private DatabaseInitializer(final String databaseName, final IMutableNode<?> nodeDatabase) {
@@ -44,8 +44,8 @@ public final class DatabaseInitializer extends AbstractDatabaseInitializer {
   /**
    * @param databaseName
    * @param nodeDatabase
-   * @return a new {@link DatabaseInitializer} for the given nodeDatabase.
-   * @throws RuntimeException if the given databaseName is null or blank.
+   * @return a new {@link DatabaseInitializer} for the given nodeDatabase
+   * @throws RuntimeException if the given databaseName is null or blank
    * @throws RuntimeException if the given nodeDatabase is null.
    */
   public static DatabaseInitializer forDatabaseNameAndNodeDatabase(

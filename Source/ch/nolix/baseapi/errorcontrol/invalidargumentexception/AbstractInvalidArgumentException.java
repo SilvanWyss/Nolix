@@ -72,7 +72,7 @@ public abstract class AbstractInvalidArgumentException extends RuntimeException 
    * Creates a new {@link AbstractInvalidArgumentException} for the given argument
    * and argumentName of the given argumentNameDto
    * 
-   * @param argument        - Can be null.
+   * @param argument        - Can be null
    * @param argumentNameDto
    * @throws RuntimeException if the given argumentNameDto is null
    * @throws RuntimeException if the argumentName of the given argumentNameDto is
@@ -97,12 +97,12 @@ public abstract class AbstractInvalidArgumentException extends RuntimeException 
    * argument, argumentName of the given argumentNameDto and errorPredicate of the
    * given errorPredicateDto.
    * 
-   * @param argument          - Can be null.
+   * @param argument          - Can be null
    * @param argumentNameDto
    * @param errorPredicateDto
    * @throws RuntimeException if the given argumentNameDto is null
    * @throws RuntimeException if the argumentName of the given argumentNameDto is
-   *                          null or blank.
+   *                          null or blank
    * @throws RuntimeException if the given errorPredicateDto is null
    * @throws RuntimeException if the errorPredicate of the given errorPredicateDto
    *                          is null or blank.
@@ -129,16 +129,16 @@ public abstract class AbstractInvalidArgumentException extends RuntimeException 
    * argument, argumentName of the given argumentNameDto, errorPredicate of the
    * given errorPredicateDto and cause of the given causeDto.
    * 
-   * @param argument          - Can be null.
+   * @param argument          - Can be null
    * @param argumentNameDto
    * @param errorPredicateDto
    * @param causeDto
    * @throws RuntimeException if the given argumentNameDto is null
    * @throws RuntimeException if the argumentName of the given argumentNameDto is
-   *                          null or blank.
+   *                          null or blank
    * @throws RuntimeException if the given errorPredicateDto is null
    * @throws RuntimeException if the errorPredicate of the given errorPredicateDto
-   *                          is null or blank.
+   *                          is null or blank
    * @throws RuntimeException if the given causeDto is null
    * @throws RuntimeException if the cause of the given causeDto is null.
    */
@@ -165,7 +165,7 @@ public abstract class AbstractInvalidArgumentException extends RuntimeException 
    * Creates a new {@link AbstractInvalidArgumentException} for the given argument
    * and the errorPredicate of the given errorPredicateDto.
    * 
-   * @param argument          - Can be null.
+   * @param argument          - Can be null
    * @param errorPredicateDto
    * @throws RuntimeException if the given errorPredicateDto is null
    * @throws RuntimeException if the errorPredicate of the given errorPredicateDto

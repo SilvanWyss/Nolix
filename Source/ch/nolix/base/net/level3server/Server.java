@@ -40,7 +40,7 @@ public final class Server extends AbstractServer {
    * 
    * @param port
    * @param httpMessage
-   * @throws RuntimeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535]
    * @throws RuntimeException if the given httpMessage is null
    * @throws RuntimeException if the given httpMessage is blank.
    */
@@ -56,7 +56,7 @@ public final class Server extends AbstractServer {
   /**
    * @param port
    * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the
-   *         given port.
+   *         given port
    * @throws RuntimeException if the given port is not in [0, 65535].
    */
   public static Server forPort(final int port) {
@@ -69,8 +69,8 @@ public final class Server extends AbstractServer {
    * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the
    *         given port. When a web browser connects to the {@link Server}, the
    *         {@link Server} will send the given httpMessage and close the
-   *         connection.
-   * @throws RuntimeException if the given port is not in [0, 65535].
+   *         connection
+   * @throws RuntimeException if the given port is not in [0, 65535]
    * @throws RuntimeException if the given httpMessage is null
    * @throws RuntimeException if the given httpMessage is blank.
    */

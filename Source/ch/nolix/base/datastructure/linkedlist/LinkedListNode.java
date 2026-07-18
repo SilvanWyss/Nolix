@@ -32,8 +32,8 @@ public final class LinkedListNode<E> {
 
   /**
    * @param element
-   * @param <T>     is the type of the given element.
-   * @return a new {@link LinkedListNode} with the given element.
+   * @param <T>     is the type of the given element
+   * @return a new {@link LinkedListNode} with the given element
    * @throws RuntimeException if the given element is null.
    */
   public static <T> LinkedListNode<T> withElement(final T element) {
@@ -69,7 +69,7 @@ public final class LinkedListNode<E> {
 
   // For a better performance, this implementation does not use all available comfort methods.
   /**
-   * @return the next node of the current {@link LinkedListNode}.
+   * @return the next node of the current {@link LinkedListNode}
    * @throws RuntimeException if the current {@link LinkedListNode} does not have
    *                          a next node.
    */

@@ -83,8 +83,8 @@ extends BlanknessRequestable, FormattedStringRepresentable, OptionalHeaderHolder
   /**
    * @param oneBasedIndex
    * @return the child {@link INode} at the given oneBasedIndex from the current
-   *         {@link INode}.
-   * @throws RuntimeException if the given index is not positive.
+   *         {@link INode}
+   * @throws RuntimeException if the given index is not positive
    * @throws RuntimeException if the current {@link INode} does not contain a
    *                          child {@link INode} at the given oneBasedIndex
    */
@@ -110,7 +110,7 @@ extends BlanknessRequestable, FormattedStringRepresentable, OptionalHeaderHolder
   ExtendedIterable<N> getStoredChildNodesWithHeader(String header);
 
   /**
-   * @return the first child {@link INode} from the current {@link INode}.
+   * @return the first child {@link INode} from the current {@link INode}
    * @throws RuntimeException if the current {@link INode} does not contain child
    *                          {@link INode}s
    */
@@ -187,7 +187,7 @@ extends BlanknessRequestable, FormattedStringRepresentable, OptionalHeaderHolder
   String getSingleChildNodeHeader();
 
   /**
-   * @return the boolean the current {@link INode} represents.
+   * @return the boolean the current {@link INode} represents
    * @throws RuntimeException if the current {@link INode} does not represent a
    *                          boolean
    */
@@ -201,7 +201,7 @@ extends BlanknessRequestable, FormattedStringRepresentable, OptionalHeaderHolder
   double toDouble();
 
   /**
-   * @return the int the current {@link INode} represents.
+   * @return the int the current {@link INode} represents
    * @throws RuntimeException if the current {@link INode} does not represent an
    *                          int
    */

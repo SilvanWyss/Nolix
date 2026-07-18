@@ -42,11 +42,11 @@ public final class ExtendedIterableMapperViewIterator<E, T> implements CopyableI
    * @param iterator
    * @param mapper
    * @param <T>      is the type of the elements of the created
-   *                 {@link ExtendedIterableMapperViewIterator}.
+   *                 {@link ExtendedIterableMapperViewIterator}
    * @param <T2>     is the type of the elements the created
-   *                 {@link ExtendedIterableMapperViewIterator} maps from its elements.
+   *                 {@link ExtendedIterableMapperViewIterator} maps from its elements
    * @return a new {@link ExtendedIterableMapperViewIterator} with the given iterator
-   *         and mapper.
+   *         and mapper
    * @throws RuntimeException if the given container is null
    * @throws RuntimeException if the given mapper is null.
    */

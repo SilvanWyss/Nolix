@@ -231,7 +231,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
 
   /**
    * @param elementCount
-   * @throws RuntimeException if the given element count is negative.
+   * @throws RuntimeException if the given element count is negative
    * @throws RuntimeException if the argument of this container mediator contains
    *                          less or more elements than the given element count
    *                          says.

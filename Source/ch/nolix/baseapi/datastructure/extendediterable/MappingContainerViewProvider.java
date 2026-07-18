@@ -13,7 +13,7 @@ public interface MappingContainerViewProvider<E> {
   /**
    * @param mapper
    * @param <T>    the type of the elements the given mapper maps from the
-   *               elements of the current {@link MappingContainerViewProvider}.
+   *               elements of the current {@link MappingContainerViewProvider}
    * @return a new {@link ExtendedIterable} with the elements the given mapper
    *         maps from the elements of the current
    *         {@link MappingContainerViewProvider}

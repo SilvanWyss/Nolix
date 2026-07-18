@@ -17,7 +17,7 @@ public interface AggregationRequestable<E> {
    * @param valueMapper
    * @return the average of the values the given valueMapper maps from the
    *         elements of the current {@link AggregationRequestable}. Maps null
-   *         elements to 0.0.
+   *         elements to 0.0
    * @throws RuntimeException if the given valueMapper is null
    * @throws RuntimeException if the current {@link AggregationRequestable} is
    *                          empty
@@ -104,7 +104,7 @@ public interface AggregationRequestable<E> {
   /**
    * @param numberMapper
    * @return the standard deviation of the numbers the given numberMapper maps
-   *         from the elements of the current {@link AggregationRequestable}.
+   *         from the elements of the current {@link AggregationRequestable}
    * @throws RuntimeException if the given numberMapper is null
    * @throws RuntimeException if the current {@link AggregationRequestable} is
    *                          empty
@@ -115,7 +115,7 @@ public interface AggregationRequestable<E> {
    * @param valueMapper
    * @return the sum of the values the given valueMapper maps from the elements of
    *         the current {@link AggregationRequestable}. Maps null elements to
-   *         0.0.
+   *         0.0
    * @throws RuntimeException if the given valueMapper is null.
    */
   BigDecimal getSum(Function<E, Number> valueMapper);
@@ -123,7 +123,7 @@ public interface AggregationRequestable<E> {
   /**
    * @param intMapper
    * @return the sum of the ints the given intMapper maps from the elements of the
-   *         current {@link AggregationRequestable}. Maps null elements to 0.0.
+   *         current {@link AggregationRequestable}. Maps null elements to 0.0
    * @throws RuntimeException if the given intMapper is null
    */
   BigInteger getSumOfInts(ToIntFunction<E> intMapper);
@@ -132,7 +132,7 @@ public interface AggregationRequestable<E> {
    * @param numberMapper
    * @return the variance of the numbers the given numberMapper maps from the
    *         elements of the current {@link AggregationRequestable}. Maps null
-   *         elements to 0.0.
+   *         elements to 0.0
    * @throws RuntimeException if the given numberMapper is null
    * @throws RuntimeException if the current {@link AggregationRequestable} is
    *                          empty

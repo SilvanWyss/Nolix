@@ -12,7 +12,7 @@ import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 public interface IColumnDtoMapper {
   /**
    * @param sqlRecordWithNameAndDataType
-   * @return a new {@link ColumnDto} from the given sqlRecordWithNameAndDataType.
+   * @return a new {@link ColumnDto} from the given sqlRecordWithNameAndDataType
    * @throws RuntimeException if the given sqlRecordWithNameAndDataType is null.
    */
   ColumnDto mapSqlRecordWithNameAndDataTypeToColumnDto(ISqlRecord sqlRecordWithNameAndDataType);
@@ -20,7 +20,7 @@ public interface IColumnDtoMapper {
   /**
    * @param sqlRecordWithTableNameAndNameAndDataType
    * @return a new {@link ColumnDto} from the given
-   *         sqlRecordWithTableNameAndNameAndDataType.
+   *         sqlRecordWithTableNameAndNameAndDataType
    * @throws RuntimeException if the given
    *                          sqlRecordWithTableNameAndNameAndDataType is null.
    */

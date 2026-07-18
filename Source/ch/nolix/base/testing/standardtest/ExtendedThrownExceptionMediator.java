@@ -28,7 +28,7 @@ public final class ExtendedThrownExceptionMediator extends AbstractThrownExcepti
   /**
    * @param exception
    * @return a new {@link ExtendedThrownExceptionMediator} for the given
-   *         exception.
+   *         exception
    * @throws RuntimeException if the given exception is null.
    */
   public static ExtendedThrownExceptionMediator forExcetpion(final Throwable exception) {
@@ -40,10 +40,10 @@ public final class ExtendedThrownExceptionMediator extends AbstractThrownExcepti
    * {@link ThrownExceptionMediator} is not of the given type.
    * 
    * @param type
-   * @param <E>  is the given {@link Exception} type.
+   * @param <E>  is the given {@link Exception} type
    * @return a new {@link ThrownExceptionMediator} that belongs to the test of the
    *         current {@link ThrownExceptionMediator} and is for the exception of
-   *         the current {@link ThrownExceptionMediator}.
+   *         the current {@link ThrownExceptionMediator}
    * @throws RuntimeException if the given type is null
    */
   public <E extends Exception> ThrownExceptionMediator ofType(final Class<E> type) {

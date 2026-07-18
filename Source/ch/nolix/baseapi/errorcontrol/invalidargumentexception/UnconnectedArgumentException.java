@@ -26,7 +26,7 @@ public final class UnconnectedArgumentException extends AbstractInvalidArgumentE
   }
 
   /**
-   * @param argument - Can be null.
+   * @param argument - Can be null
    * @return a new {@link UnconnectedArgumentException} for the given argument.
    */
   public static UnconnectedArgumentException forArgument(final Object argument) {

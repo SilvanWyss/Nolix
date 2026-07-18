@@ -12,7 +12,7 @@ public interface IValueMapper {
   /**
    * @param string
    * @param dataType
-   * @return a new value from the given string according to the given dataType.
+   * @return a new value from the given string according to the given dataType
    * @throws RuntimeException if the given string does not represent a value of
    *                          the given dataType.
    */

@@ -23,7 +23,7 @@ public interface IndexRequestable<E> {
   /**
    * @param object
    * @return the 1-based index of the first element of the current
-   *         {@link IndexRequestable} that equals the given object.
+   *         {@link IndexRequestable} that equals the given object
    * @throws RuntimeException if the current {@link IndexRequestable} does not
    *                          contain an element that equals the given object.
    */
@@ -32,7 +32,7 @@ public interface IndexRequestable<E> {
   /**
    * @param object
    * @return the 1-based index of the first occurrence of the given object in the
-   *         current {@link IndexRequestable}.
+   *         current {@link IndexRequestable}
    * @throws RuntimeException if the current {@link IndexRequestable} does not
    *                          contain the given object.
    */

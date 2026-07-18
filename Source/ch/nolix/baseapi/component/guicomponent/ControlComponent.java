@@ -17,7 +17,7 @@ public interface ControlComponent<C> {
   boolean belongsToControl();
 
   /**
-   * @return the control of the current {@link ControlComponent}.
+   * @return the control of the current {@link ControlComponent}
    * @throws RuntimeException if the current {@link ControlComponent} does not
    *                          belong to a control
    */

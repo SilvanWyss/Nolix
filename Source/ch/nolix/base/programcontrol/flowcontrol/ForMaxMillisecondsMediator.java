@@ -35,7 +35,7 @@ public final class ForMaxMillisecondsMediator implements IForMaxMillisecondsMedi
   /**
    * @param maxDurationInMilliseconds
    * @return a new {@link ForMaxMillisecondsMediator} for the given
-   *         maxDurationInMilliseconds.
+   *         maxDurationInMilliseconds
    * @throws RuntimeException if the given maxDurationInMilliseconds is negative.
    */
   public static ForMaxMillisecondsMediator forMaxMilliseconds(final int maxDurationInMilliseconds) {
@@ -46,7 +46,7 @@ public final class ForMaxMillisecondsMediator implements IForMaxMillisecondsMedi
   /**
    * @param maxDurationInSeconds
    * @return a new {@link ForMaxMillisecondsMediator} for the given
-   *         maxDurationInSeconds.
+   *         maxDurationInSeconds
    * @throws RuntimeException if the given maxDurationInSeconds is negative.
    */
   public static ForMaxMillisecondsMediator forMaxSeconds(final int maxDurationInSeconds) {

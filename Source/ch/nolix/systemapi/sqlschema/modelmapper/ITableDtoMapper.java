@@ -14,7 +14,7 @@ public interface ITableDtoMapper {
   /**
    * @param tableName
    * @param sqlRecordsWithNameAndDataType
-   * @return a new {@link TableDto} from the given sqlRecordsWithNameAndDataType.
+   * @return a new {@link TableDto} from the given sqlRecordsWithNameAndDataType
    * @throws RuntimeException if the given sqlRecordsWithNameAndDataType is null
    * @throws RuntimeException if the given one of the given
    *                          sqlRecordsWithNameAndDataType is null.
@@ -26,7 +26,7 @@ public interface ITableDtoMapper {
   /**
    * @param sqlRecordsWithTableNameAndNameAndDataType
    * @return new {@link TableDto}s from the given
-   *         sqlRecordsWithTableNameAndNameAndDataType.
+   *         sqlRecordsWithTableNameAndNameAndDataType
    * @throws RuntimeException if the given
    *                          sqlRecordsWithTableNameAndNameAndDataType is null
    * @throws RuntimeException if the given one of the given

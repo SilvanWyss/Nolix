@@ -18,7 +18,7 @@ public interface ApplicationComponent<A> {
   boolean belongsToApplication();
 
   /**
-   * @return the application of the current {@link ApplicationComponent}.
+   * @return the application of the current {@link ApplicationComponent}
    * @throws RuntimeException if the current {@link ApplicationComponent} does
    *                          not belong to an application.
    */

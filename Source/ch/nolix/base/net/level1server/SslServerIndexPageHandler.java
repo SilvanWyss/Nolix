@@ -40,7 +40,7 @@ public final class SslServerIndexPageHandler extends SimpleChannelInboundHandler
 
   /**
    * @param htmlPage
-   * @return a new {@link SslServerIndexPageHandler} with the givne htmlPage.
+   * @return a new {@link SslServerIndexPageHandler} with the givne htmlPage
    * @throws RuntimeException if the given htmlPage is null.
    */
   public static SslServerIndexPageHandler withHtmlPage(String htmlPage) {

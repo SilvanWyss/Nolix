@@ -90,7 +90,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
    * @param name
    * @param adder
    * @return a new {@link MultiValue} with the given name and adder and that can
-   *         store {@link Integer}s.
+   *         store {@link Integer}s
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given adder is null.
    */
@@ -102,7 +102,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
    * @param name
    * @param adder
    * @return a new {@link MultiValue} with the given name and adder and that can
-   *         store {@link String}s.
+   *         store {@link String}s
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given adder is null.
    */

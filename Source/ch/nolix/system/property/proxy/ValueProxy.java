@@ -51,7 +51,7 @@ public final class ValueProxy implements IValueProxy {
    * @param valueSpecificationConsumer
    * @param valueSpecificationSupplier
    * @return a new {@link ValueProxy} with the given name,
-   *         valueSpecificationConsumer and valueSpecificationSupplier.
+   *         valueSpecificationConsumer and valueSpecificationSupplier
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given valueSpecificationConsumer is null
    * @throws RuntimeException if the given valueSpecificationSupplier is null.

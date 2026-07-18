@@ -19,7 +19,7 @@ public enum ContainerRole {
 
   /**
    * @param specification
-   * @return a new {@link ContainerRole} from the given specification.
+   * @return a new {@link ContainerRole} from the given specification
    * @throws RuntimeException if the given specification does not represent a
    *                          {@link ContainerRole}.
    */

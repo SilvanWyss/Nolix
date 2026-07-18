@@ -318,7 +318,7 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
   }
 
   /**
-   * @return the first tab of the current {@link TabContainer}.
+   * @return the first tab of the current {@link TabContainer}
    * @throws RuntimeException if the current {@link TabContainer} is empty.
    */
   private ITabContainerTab getStoredFirstTab() {

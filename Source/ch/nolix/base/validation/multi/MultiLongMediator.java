@@ -26,7 +26,7 @@ public final class MultiLongMediator extends AbstractMultiArgumentMediator<Long>
 
   /**
    * @param arguments
-   * @return a new {@link MultiLongMediator} for the given arguments.
+   * @return a new {@link MultiLongMediator} for the given arguments
    * @throws RuntimeException if the given arguments is null.
    */
   public static MultiLongMediator forArguments(final int[] arguments) {
@@ -41,7 +41,7 @@ public final class MultiLongMediator extends AbstractMultiArgumentMediator<Long>
 
   /**
    * @param arguments
-   * @return a new {@link MultiLongMediator} for the given arguments.
+   * @return a new {@link MultiLongMediator} for the given arguments
    * @throws RuntimeException if the given arguments is null.
    */
   public static MultiLongMediator forArguments(final Iterable<Long> arguments) {
@@ -50,7 +50,7 @@ public final class MultiLongMediator extends AbstractMultiArgumentMediator<Long>
 
   /**
    * @param arguments
-   * @return a new {@link MultiLongMediator} for the given arguments.
+   * @return a new {@link MultiLongMediator} for the given arguments
    * @throws RuntimeException if the given arguments is null.
    */
   public static MultiLongMediator forArguments(final long[] arguments) {

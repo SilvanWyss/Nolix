@@ -35,7 +35,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 
   /**
    * @param folderPath
-   * @return a new {@link FolderAccessor} for the folder for the given folderPath.
+   * @return a new {@link FolderAccessor} for the folder for the given folderPath
    * @throws RuntimeException if there does not exist a folder with the given
    *                          folderPath in the file system on the local machine.
    */
@@ -57,7 +57,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    * current {@link FolderAccessor}.
    * 
    * @param relativePath
-   * @return a new {@link FileAccessor} for the created file.
+   * @return a new {@link FileAccessor} for the created file
    * @throws RuntimeException if there exists already a file system item with the
    *                          given relative path in the folder of the current
    *                          {@link FolderAccessor}.
@@ -71,7 +71,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    * current {@link FolderAccessor}.
    * 
    * @param relativePath
-   * @return a new {@link FolderAccessor} for the created folder.
+   * @return a new {@link FolderAccessor} for the created folder
    * @throws RuntimeException if there exists alreay a file system item with the
    *                          given relative path in the folder of the current
    *                          {@link FolderAccessor}.
@@ -153,10 +153,10 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    * Reads the content of the file with the given relative path.
    * 
    * @param relativePath
-   * @return the content of the file with the given relative path.
+   * @return the content of the file with the given relative path
    * @throws RuntimeException if there does not exist a file with the given
    *                          relative path in the folder of the current
-   *                          {@link FolderAccessor}.
+   *                          {@link FolderAccessor}
    * @throws RuntimeException if an error occurs.
    */
   public String readFile(final String relativePath) {

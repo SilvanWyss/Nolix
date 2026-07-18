@@ -17,7 +17,7 @@ public interface GuiComponent<G> {
   boolean belongsToGui();
 
   /**
-   * @return the GUI of the current {@link GuiComponent}.
+   * @return the GUI of the current {@link GuiComponent}
    * @throws RuntimeException if the current {@link GuiComponent} does not belong
    *                          to a GUI
    */

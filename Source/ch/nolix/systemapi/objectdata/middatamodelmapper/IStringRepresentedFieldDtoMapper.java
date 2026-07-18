@@ -13,7 +13,7 @@ import ch.nolix.systemapi.objectdata.model.IField;
 public interface IStringRepresentedFieldDtoMapper {
   /**
    * @param fields
-   * @return new {@link ValueStringFieldDto} from the given fields.
+   * @return new {@link ValueStringFieldDto} from the given fields
    * @throws RuntimeException if the given fields is null or one of the given
    *                          fields is null.
    */
@@ -22,7 +22,7 @@ public interface IStringRepresentedFieldDtoMapper {
 
   /**
    * @param field
-   * @return a new {@link ValueStringFieldDto} from the given field.
+   * @return a new {@link ValueStringFieldDto} from the given field
    * @throws RuntimeException if the given field is null.
    */
   ValueStringFieldDto mapFieldToStringRepresentedFieldDto(IField field);

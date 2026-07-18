@@ -21,7 +21,7 @@ public final class KeyRefinder {
 
   /**
    * @param key
-   * @return a refined key from the given key.
+   * @return a refined key from the given key
    * @throws RuntimeException if the given key is null.
    */
   public static String getRefinedKeyFromKey(final String key) {

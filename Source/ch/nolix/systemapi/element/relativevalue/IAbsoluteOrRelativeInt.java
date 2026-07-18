@@ -12,14 +12,14 @@ import ch.nolix.systemapi.element.base.IElement;
  */
 public interface IAbsoluteOrRelativeInt extends IElement {
   /**
-   * @return the absolute value of the current {@link IAbsoluteOrRelativeInt}.
+   * @return the absolute value of the current {@link IAbsoluteOrRelativeInt}
    * @throws RuntimeException if the current {@link IAbsoluteOrRelativeInt} is not
    *                          absolute.
    */
   int getAbsoluteValue();
 
   /**
-   * @return the percentage of the current {@link IAbsoluteOrRelativeInt}.
+   * @return the percentage of the current {@link IAbsoluteOrRelativeInt}
    * @throws RuntimeException if the current {@link IAbsoluteOrRelativeInt} is not
    *                          relative.
    */

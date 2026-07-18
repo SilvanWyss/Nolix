@@ -18,7 +18,7 @@ public interface DatabaseComponent<D> {
   boolean belongsToDatabase();
 
   /**
-   * @return the database of the current {@link DatabaseComponent}.
+   * @return the database of the current {@link DatabaseComponent}
    * @throws RuntimeException if the current {@link DatabaseComponent} does not
    *                          belong to a database
    */

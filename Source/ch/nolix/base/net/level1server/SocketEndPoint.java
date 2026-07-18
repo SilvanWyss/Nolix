@@ -66,7 +66,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @param host
    * @param port
    * @param slot
-   * @throws RuntimeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535]
    * @throws RuntimeException if the given slot is null
    * @throws RuntimeException if the given slot is blank.
    */
@@ -157,7 +157,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @param host
    * @param port
    * @return a new {@link SocketEndPoint} that will connect to the default slot on
-   *         the given port on the given host.
+   *         the given port on the given host
    * @throws RuntimeException if the given port is not in [0, 65535].
    */
   public static SocketEndPoint toGivenHostAndGivenPortAndDefaultSlot(final String host, final int port) {
@@ -169,8 +169,8 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @param port
    * @param slot
    * @return a new {@link SocketEndPoint} that will connect to the given slot on
-   *         the given port on the given host.
-   * @throws RuntimeException if the given port is not in [0, 65535].
+   *         the given port on the given host
+   * @throws RuntimeException if the given port is not in [0, 65535]
    * @throws RuntimeException if the given slot is null
    * @throws RuntimeException if the given slot is blank.
    */
@@ -193,7 +193,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
   /**
    * @param port
    * @return a new {@link SocketEndPoint} that will connect to the default slot on
-   *         the given port on the locale machine.
+   *         the given port on the locale machine
    * @throws RuntimeException if the given port is not in [0, 65535].
    */
   public static SocketEndPoint toLocaleMachineAndGivenPortAndDefaultSlot(final int port) {
@@ -203,10 +203,10 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
   /**
    * @param port
    * @return a new {@link SocketEndPoint} that will connect to the given slot on
-   *         the given port on the local machine.
+   *         the given port on the local machine
    * @param slot
-   * @throws RuntimeException if the given port is not in [0, 65535].
-   * @throws RuntimeException if the given target slot null.
+   * @throws RuntimeException if the given port is not in [0, 65535]
+   * @throws RuntimeException if the given target slot null
    * @throws RuntimeException if the given target slot blank.
    */
   public static SocketEndPoint toLocalMachineAndGivenPortAndGivenSlot(final int port, final String slot) {
@@ -219,7 +219,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @param socketOutputStream
    * @return a new {@link AbstractNetEndPoint} with the given socket. The given
    *         socketInputStream and the given socketOutputStream belong to the
-   *         given socket.
+   *         given socket
    * @throws RuntimeException if the given socket is null
    * @throws RuntimeException if the given socketInputStream is null
    * @throws RuntimeException if the given socketOutputStream is null.
@@ -238,7 +238,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @param target
    * @return a new {@link AbstractNetEndPoint} with the given socket and target.
    *         The given socketInputStream and the given socketOutputStream belong
-   *         to the given socket.
+   *         to the given socket
    * @throws RuntimeException if the given socket is null
    * @throws RuntimeException if the given socketInputStream is null
    * @throws RuntimeException if the given socketOutputStream is null

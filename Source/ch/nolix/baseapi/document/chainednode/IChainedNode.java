@@ -30,7 +30,7 @@ public interface IChainedNode extends BlanknessRequestable, OptionalHeaderHolder
   /**
    * @param oneBasedIndex
    * @return the child node of the current {@link IChainedNode} at the given
-   *         oneBasedIndex .
+   *         oneBasedIndex 
    * @throws RuntimeException if the current {@link IChainedNode} does not contain
    *                          a child node at the given oneBasedIndex.
    */
@@ -49,21 +49,21 @@ public interface IChainedNode extends BlanknessRequestable, OptionalHeaderHolder
   /**
    * @param header
    * @return the first child node with the given header from the current
-   *         {@link IChainedNode}.
+   *         {@link IChainedNode}
    * @throws RuntimeException if the current {@link IChainedNode} does not contain
    *                          a child node with the given header.
    */
   IChainedNode getFirstChildNodeWithHeader(String header);
 
   /**
-   * @return the next node of the current {@link IChainedNode}.
+   * @return the next node of the current {@link IChainedNode}
    * @throws RuntimeException if the current {@link IChainedNode} does not have a
    *                          next node.
    */
   IChainedNode getNextNode();
 
   /**
-   * @return the single child node of the current {@link IChainedNode}.
+   * @return the single child node of the current {@link IChainedNode}
    * @throws RuntimeException if the current {@link IChainedNode} does not contain
    *                          a child node or contains multiple child nodes.
    */
@@ -72,9 +72,9 @@ public interface IChainedNode extends BlanknessRequestable, OptionalHeaderHolder
   /**
    * 
    * @return the header of the single child node of the current
-   *         {@link IChainedNode}.
+   *         {@link IChainedNode}
    * @throws RuntimeException if the current {@link IChainedNode} does not contain
-   *                          a child node or contains multiple child nodes.
+   *                          a child node or contains multiple child nodes
    * @throws RuntimeException if the single child node of the current
    *                          {@link IChainedNode} does not have a header.
    */
@@ -82,11 +82,11 @@ public interface IChainedNode extends BlanknessRequestable, OptionalHeaderHolder
 
   /**
    * @return a double representation of the single child node of the current
-   *         {@link IChainedNode}.
+   *         {@link IChainedNode}
    * @throws RuntimeException if the current {@link IChainedNode} does not contain
-   *                          a child nodes or contains multiple child nodes.
+   *                          a child nodes or contains multiple child nodes
    * @throws RuntimeException if the single child node of the current
-   *                          {@link IChainedNode} does not have a header.
+   *                          {@link IChainedNode} does not have a header
    * @throws RuntimeException if the header of the single child node of the
    *                          current {@link IChainedNode} does not represent a
    *                          double.
@@ -95,11 +95,11 @@ public interface IChainedNode extends BlanknessRequestable, OptionalHeaderHolder
 
   /**
    * @return a int representation of the single child node of the current
-   *         {@link IChainedNode}.
+   *         {@link IChainedNode}
    * @throws RuntimeException if the current {@link IChainedNode} does not contain
-   *                          a child node or contains multiple child nodes.
+   *                          a child node or contains multiple child nodes
    * @throws RuntimeException if the single child node of the current
-   *                          {@link IChainedNode} does not have a header.
+   *                          {@link IChainedNode} does not have a header
    * @throws RuntimeException if the header of the single child node of the
    *                          current {@link IChainedNode} does not represent an
    *                          int.
@@ -108,7 +108,7 @@ public interface IChainedNode extends BlanknessRequestable, OptionalHeaderHolder
 
   /**
    * @return a {@link String} representation of the single child node of the
-   *         current {@link IChainedNode}.
+   *         current {@link IChainedNode}
    * @throws RuntimeException if the current {@link IChainedNode} does not contain
    *                          a child node or contains multiple child nodes.
    */
@@ -121,14 +121,14 @@ public interface IChainedNode extends BlanknessRequestable, OptionalHeaderHolder
   boolean hasNextNode();
 
   /**
-   * @return the double the current {@link IChainedNode} represents.
+   * @return the double the current {@link IChainedNode} represents
    * @throws RuntimeException if the current {@link IChainedNode} does not
    *                          represent a double.
    */
   double toDouble();
 
   /**
-   * @return the int the current {@link IChainedNode} represents.
+   * @return the int the current {@link IChainedNode} represents
    * @throws RuntimeException if the current {@link IChainedNode} does not
    *                          represent an int.
    */
@@ -139,7 +139,7 @@ public interface IChainedNode extends BlanknessRequestable, OptionalHeaderHolder
    * {@link IChainedNode} does not have a next node. -Each child nodes of the
    * {@link IChainedNode} represents a {@link INode}.
    * 
-   * @return a {@link INode} representation of the current {@link IChainedNode}.
+   * @return a {@link INode} representation of the current {@link IChainedNode}
    * @throws RuntimeException if the current {@link IChainedNode} does not
    *                          represent a {@link INode}.
    */

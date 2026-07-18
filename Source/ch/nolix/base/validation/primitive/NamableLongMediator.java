@@ -29,7 +29,7 @@ public final class NamableLongMediator extends AbstractLongMediator {
   /**
    * @param argumentName
    * @return a new {@link LongMediator} for the given argumentName and the
-   *         argument of the current {@link NamableLongMediator}.
+   *         argument of the current {@link NamableLongMediator}
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public LongMediator thatIsNamed(final String argumentName) {

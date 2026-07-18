@@ -12,7 +12,7 @@ import ch.nolix.systemapi.midschema.model.TableDto;
 public interface ITableNodeMapper {
   /**
    * @param tableDto
-   * @return a new {@link INode} from the given tableDto.
+   * @return a new {@link INode} from the given tableDto
    * @throws RuntimeException if the given tableDto is null.
    */
   INode<?> mapTableDtoToNode(TableDto tableDto);

@@ -12,7 +12,7 @@ import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
 public interface ITableInfoDtoMapper {
   /**
    * @param tableDto
-   * @return a new {@link TableInfoDto} from the given tableDto.
+   * @return a new {@link TableInfoDto} from the given tableDto
    * @throws RuntimeException if the given tableDto is null.
    */
   TableInfoDto mapMidSchemaTableDtoToTableViewDto(TableDto tableDto);

@@ -18,7 +18,7 @@ public interface ClientComponent<C> {
   boolean belongsToClient();
 
   /**
-   * @return the client of the current {@link ClientComponent}.
+   * @return the client of the current {@link ClientComponent}
    * @throws RuntimeException if the current {@link ClientComponent} does not
    *                          belong to a client.
    */

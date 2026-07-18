@@ -49,7 +49,7 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
    * @param count
    * @param <T>             is the type of the elements of the sequences of the
    *                        {@link ISequencePattern} of the
-   *                        {@link ISequencePatternNextMediator}.
+   *                        {@link ISequencePatternNextMediator}
    * @throws RuntimeException if the sequencePattern is null
    * @throws RuntimeException if the given count is negative.
    */
@@ -86,7 +86,7 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
   /**
    * @param paramCount
    * @return a new {@link ExtendedIterable} with as many blank conditions as the given
-   *         paramCount says.
+   *         paramCount says
    * @throws RuntimeException if the given paramCount is negative.
    */
   private ExtendedIterable<Predicate<E>> createBlanks(final int paramCount) {

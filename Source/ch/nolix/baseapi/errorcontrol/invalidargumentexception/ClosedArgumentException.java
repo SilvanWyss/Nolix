@@ -50,7 +50,7 @@ public final class ClosedArgumentException extends AbstractInvalidArgumentExcept
    * @param argument
    * @param argumentName
    * @return a new {@link ClosedArgumentException} for the given argument and
-   *         argumentName.
+   *         argumentName
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static ClosedArgumentException forArgumentAndArgumentName(final Object argument, final String argumentName) {

@@ -13,7 +13,7 @@ public interface Filterable<E> {
   /**
    * @param type
    * @param <T>  is the type of the elements of the returned
-   *             {@link ExtendedIterable}.
+   *             {@link ExtendedIterable}
    * @return a new {@link ExtendedIterable} with the elements from the current
    *         {@link Filterable} that are of the given type, ignoring null elements
    * @throws RuntimeException if the given type is null

@@ -14,7 +14,7 @@ public interface IMultiReferenceEntryDtoMapper {
   /**
    * @param multiReferenceEntry
    * @return a new {@link MultiReferenceEntryDto} from the given
-   *         multiReferenceEntry.
+   *         multiReferenceEntry
    * @throws RuntimeException if the given multiReferenceEntry is null.
    */
   MultiReferenceEntryDto mapMultiReferenceEntryToMultiReferenceEntryDto(

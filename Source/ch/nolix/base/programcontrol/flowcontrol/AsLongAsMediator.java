@@ -34,7 +34,7 @@ public final class AsLongAsMediator implements IAsLongAsMediator {
 
   /**
    * @param condition
-   * @return a new {@link AsLongAsMediator} with the given condition.
+   * @return a new {@link AsLongAsMediator} with the given condition
    * @throws RuntimeException if the given condition is null
    */
   public static AsLongAsMediator withCondition(final BooleanSupplier condition) {

@@ -12,7 +12,7 @@ import ch.nolix.systemapi.midschema.model.ColumnDto;
 public interface IColumnDtoMapper {
   /**
    * @param joinedColumnSqlRecord
-   * @return a new {@link ColumnDto} from the given joinedColumnSqlRecord.
+   * @return a new {@link ColumnDto} from the given joinedColumnSqlRecord
    * @throws RuntimeException if the given joinedColumnSqlRecord is null.
    */
   ColumnDto mapJoinedColumnSqlRecordToColumnDto(ISqlRecord joinedColumnSqlRecord);

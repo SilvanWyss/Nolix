@@ -23,7 +23,7 @@ public final class NegativeArgumentException extends AbstractInvalidArgumentExce
    * Creates a new {@link NegativeArgumentException} for the given argument and
    * argumentName.
    * 
-   * @param argument     - Can be null.
+   * @param argument     - Can be null
    * @param argumentName
    * @throws RuntimeException if the given argumentName is null or blank.
    */
@@ -35,7 +35,7 @@ public final class NegativeArgumentException extends AbstractInvalidArgumentExce
    * Creates a new {@link NegativeArgumentException} for the given argument and
    * argumentName.
    * 
-   * @param argument     - Can be null.
+   * @param argument     - Can be null
    * @param argumentName
    * @throws RuntimeException if the given argumentName is null or blank.
    */
@@ -47,7 +47,7 @@ public final class NegativeArgumentException extends AbstractInvalidArgumentExce
    * Creates a new {@link NegativeArgumentException} for the given argument and
    * argumentName.
    * 
-   * @param argument     - Can be null.
+   * @param argument     - Can be null
    * @param argumentName
    * @throws RuntimeException if the given argumentName is null or blank.
    */
@@ -57,9 +57,9 @@ public final class NegativeArgumentException extends AbstractInvalidArgumentExce
 
   /**
    * @param argument
-   * @param argumentName - Can be null.
+   * @param argumentName - Can be null
    * @return a new {@link NegativeArgumentException} for the given argument and
-   *         argumentName.
+   *         argumentName
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static NegativeArgumentException forArgumentAndArgumentName(
@@ -70,9 +70,9 @@ public final class NegativeArgumentException extends AbstractInvalidArgumentExce
 
   /**
    * @param argument
-   * @param argumentName - Can be null.
+   * @param argumentName - Can be null
    * @return a new {@link NegativeArgumentException} for the given argument and
-   *         argumentName.
+   *         argumentName
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static NegativeArgumentException forArgumentAndArgumentName(
@@ -83,9 +83,9 @@ public final class NegativeArgumentException extends AbstractInvalidArgumentExce
 
   /**
    * @param argument
-   * @param argumentName - Can be null.
+   * @param argumentName - Can be null
    * @return a new {@link NegativeArgumentException} for the given argument and
-   *         argumentName.
+   *         argumentName
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static NegativeArgumentException forArgumentAndArgumentName(

@@ -45,7 +45,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * 
    * @param slot
    * @param port
-   * @throws RuntimeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535]
    * @throws RuntimeException if the given slot is null or blank.
    */
   private NetEndPoint(final int port, final String slot) {
@@ -81,7 +81,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param host
    * @param port
    * @param slot
-   * @throws RuntimeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535]
    * @throws RuntimeException if the given slot is null
    * @throws RuntimeException if the given slot is blank.
    */
@@ -107,7 +107,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param host
    * @param port
    * @return a new {@link NetEndPoint} that will connect to the default slot on
-   *         the given port on the given host.
+   *         the given port on the given host
    * @throws RuntimeException if the given port is not in [0, 65535].
    */
   public static NetEndPoint toGivenHostAndGivenPortAndDefaultSlot(final String host, final int port) {
@@ -119,8 +119,8 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param port
    * @param slot
    * @return a new {@link NetEndPoint} that will connect to the given slot on the
-   *         given port on the given host.
-   * @throws RuntimeException if the given port is not in [0, 65535].
+   *         given port on the given host
+   * @throws RuntimeException if the given port is not in [0, 65535]
    * @throws RuntimeException if the given slot is null
    * @throws RuntimeException if the given slot is blank.
    */
@@ -140,7 +140,7 @@ public final class NetEndPoint extends AbstractEndPoint {
   /**
    * @param port
    * @return a new {@link NetEndPoint} that will connect to the default slot on
-   *         the given port on the local machine.
+   *         the given port on the local machine
    * @throws RuntimeException if the given port is not in [0, 65535].
    */
   public static NetEndPoint toLocalMachineAndGivenPortAndDefaultSlot(final int port) {
@@ -151,8 +151,8 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param port
    * @param slot
    * @return a new {@link NetEndPoint} that will connect to the given slot on the
-   *         given port on the local machine.
-   * @throws RuntimeException if the given port is not in [0, 65535].
+   *         given port on the local machine
+   * @throws RuntimeException if the given port is not in [0, 65535]
    * @throws RuntimeException if the given slot is null or blank.
    */
   public static NetEndPoint toLocalMachineAndGivenPortAndGivenSlot(int port, String slot) {
@@ -161,7 +161,7 @@ public final class NetEndPoint extends AbstractEndPoint {
 
   /**
    * @param internalEndPoint
-   * @return a new {@link NetEndPoint} with the given internalEndPoint.
+   * @return a new {@link NetEndPoint} with the given internalEndPoint
    * @throws RuntimeException if the given internalEndPoint is null.
    */
   static NetEndPoint withInternalEndPoint(final IEndPoint internalEndPoint) {
@@ -177,7 +177,7 @@ public final class NetEndPoint extends AbstractEndPoint {
   }
 
   /**
-   * @return the target of the current {@link NetEndPoint}.
+   * @return the target of the current {@link NetEndPoint}
    * @throws ArgumentDoesNotHaveAttributeException if this net end point does not
    *                                               have a target.
    */
@@ -362,7 +362,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * received package with the given index.
    * 
    * @param index
-   * @return the received package with the given index.
+   * @return the received package with the given index
    * @throws RuntimeException if the current {@link NetEndPoint} reaches its
    *                          timeout before it receives a package with the given
    *                          index.

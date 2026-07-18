@@ -60,7 +60,7 @@ public interface IFuture extends FinishRequestable {
    * within the given timeoutInMilliseconds.
    * 
    * @param timeoutInMilliseconds
-   * @throws RuntimeException if the current {@link IFuture} catches an error.
+   * @throws RuntimeException if the current {@link IFuture} catches an error
    * @throws RuntimeException if the current {@link IFuture} reached the given
    *                          timeoutInMilliseconds before having finished.
    */

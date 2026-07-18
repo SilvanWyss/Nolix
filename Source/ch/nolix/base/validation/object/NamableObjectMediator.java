@@ -19,7 +19,7 @@ public final class NamableObjectMediator<A> extends AbstractObjectMediator<A> {
 
   /**
    * @param argument
-   * @param <T>      is the type of the given argument.
+   * @param <T>      is the type of the given argument
    * @return a new {@link NamableObjectMediator} for the given argument.
    */
   public static <T> NamableObjectMediator<T> forArgument(final T argument) {
@@ -29,7 +29,7 @@ public final class NamableObjectMediator<A> extends AbstractObjectMediator<A> {
   /**
    * @param type
    * @return a new {@link ObjectMediator} for the argument of the current @link
-   *         NamableObjectMediator} and the argument name from the given type.
+   *         NamableObjectMediator} and the argument name from the given type
    * @throws RuntimeException if the given type is null
    */
   public ObjectMediator<A> thatIsNamed(final Class<?> type) {
@@ -39,7 +39,7 @@ public final class NamableObjectMediator<A> extends AbstractObjectMediator<A> {
   /**
    * @param argumentName
    * @return a new {@link ObjectMediator} for the argument of the current
-   *         {@link NamableObjectMediator} and the given argumentName.
+   *         {@link NamableObjectMediator} and the given argumentName
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public ObjectMediator<A> thatIsNamed(final String argumentName) {

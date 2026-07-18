@@ -63,7 +63,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
 
   /**
    * @param escapeString
-   * @return the origin {@link String} from the given escapeString.
+   * @return the origin {@link String} from the given escapeString
    * @throws NullPointerException if the given escapeString is null.
    */
   public static String getOriginStringFromEscapeString(final String escapeString) {
@@ -260,7 +260,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    * 
    * @param path
    * @throws RuntimeException if the given path is null
-   * @throws RuntimeException if the given path is blank.
+   * @throws RuntimeException if the given path is blank
    * @throws RuntimeException if there exists already a file system item with the
    *                          given path.
    */
@@ -275,7 +275,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    * @param path
    * @param writeMode
    * @throws RuntimeException if the given path is null
-   * @throws RuntimeException if the given path is blank.
+   * @throws RuntimeException if the given path is blank
    * @throws RuntimeException if the given writeMode
    *                          flag={@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}
    *                          and there exists already a file system item with the

@@ -92,7 +92,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
 
   /**
    * @param slot
-   * @return a new {@link LocalEndPoint} that will connect to the given slot.
+   * @return a new {@link LocalEndPoint} that will connect to the given slot
    * @throws RuntimeException if the given target is null.
    */
   public static LocalEndPoint toSlot(final ISlot slot) {
@@ -103,7 +103,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @param server
    * @param targetSlot
    * @return a new {@link LocalEndPoint} that will connect to the given slot on
-   *         the given server.
+   *         the given server
    * @throws NullPointerException if the given server is null
    * @throws RuntimeException     if the given targetSlot is null
    * @throws RuntimeException     if the given targetSlot is blank.

@@ -19,7 +19,7 @@ public final class ArgumentIsOutOfRangeException extends AbstractInvalidArgument
    * Creates a new {@link ArgumentIsOutOfRangeException} for the given argument
    * and range defined by the given min and max.
    * 
-   * @param argument - Can be null.
+   * @param argument - Can be null
    * @param min
    * @param max
    */
@@ -49,7 +49,7 @@ public final class ArgumentIsOutOfRangeException extends AbstractInvalidArgument
    * Creates a new {@link ArgumentIsOutOfRangeException} for the given argument
    * and range defined by the given min and max.
    * 
-   * @param argument - Can be null.
+   * @param argument - Can be null
    * @param min
    * @param max
    */
@@ -79,7 +79,7 @@ public final class ArgumentIsOutOfRangeException extends AbstractInvalidArgument
    * @param argument
    * @param argumentName
    * @return a new {@link ArgumentIsOutOfRangeException} for the given argument,
-   *         argumentName and range defined by the given min and max.
+   *         argumentName and range defined by the given min and max
    * @param min
    * @param max
    * @throws RuntimeException if the given argumentName is null or blank.
@@ -96,7 +96,7 @@ public final class ArgumentIsOutOfRangeException extends AbstractInvalidArgument
    * @param argument
    * @param argumentName
    * @return a new {@link ArgumentIsOutOfRangeException} for the given argument,
-   *         argumentName and range defined by the given min and max.
+   *         argumentName and range defined by the given min and max
    * @param min
    * @param max
    * @throws RuntimeException if the given argumentName is null or blank.
@@ -112,7 +112,7 @@ public final class ArgumentIsOutOfRangeException extends AbstractInvalidArgument
   /**
    * @param argument
    * @return a new {@link ArgumentIsOutOfRangeException} for the given argument
-   *         and range defined by the given min and max.
+   *         and range defined by the given min and max
    * @param min
    * @param max
    */
@@ -126,7 +126,7 @@ public final class ArgumentIsOutOfRangeException extends AbstractInvalidArgument
   /**
    * @param argument
    * @return a new {@link ArgumentIsOutOfRangeException} for the given argument
-   *         and range defined by the given min and max.
+   *         and range defined by the given min and max
    * @param min
    * @param max
    */

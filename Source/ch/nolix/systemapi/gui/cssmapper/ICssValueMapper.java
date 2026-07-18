@@ -11,7 +11,7 @@ import ch.nolix.systemapi.graphic.color.IColor;
 public interface ICssValueMapper {
   /**
    * @param color
-   * @return the CSS value from the given color.
+   * @return the CSS value from the given color
    * @throws RuntimeException if the given color is null.
    */
   String mapColorToCssValue(IColor color);

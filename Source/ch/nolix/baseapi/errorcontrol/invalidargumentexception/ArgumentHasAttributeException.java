@@ -30,7 +30,7 @@ public final class ArgumentHasAttributeException extends AbstractInvalidArgument
    * @param argument
    * @param attributeName
    * @return a new {@link ArgumentHasAttributeException} for the given argument
-   *         and attributeName.
+   *         and attributeName
    * @throws RuntimeException if the given attributeName is null or blank.
    */
   public static ArgumentHasAttributeException forArgumentAndAttributeName(
@@ -41,7 +41,7 @@ public final class ArgumentHasAttributeException extends AbstractInvalidArgument
 
   /**
    * @param attributeName
-   * @return a validated attribute name from the given attribtueName.
+   * @return a validated attribute name from the given attribtueName
    * @throws RuntimeException if the given attributeName is null or blank.
    */
   private static String getValidatedAttributeNameFromAttributeName(final String attributeName) {

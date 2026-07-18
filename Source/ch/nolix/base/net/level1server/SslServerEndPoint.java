@@ -33,7 +33,7 @@ public final class SslServerEndPoint extends AbstractNetEndPoint {
 
   /**
    * @param channelHandlerContext
-   * @return a new {@link SslServerEndPoint} with the given channelHandlerContext.
+   * @return a new {@link SslServerEndPoint} with the given channelHandlerContext
    * @throws RuntimeException if the given channelHandlerContext is null.
    */
   public static SslServerEndPoint withChannelHandlerContext(final ChannelHandlerContext channelHandlerContext) {

@@ -21,10 +21,10 @@ public final class SmallerArgumentException extends AbstractInvalidArgumentExcep
    * Creates a new {@link SmallerArgumentException} for the given argument,
    * argumentName and min.
    * 
-   * @param argument     - Can be null.
+   * @param argument     - Can be null
    * @param argumentName
    * @param min
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    * @throws RuntimeException if the given min is null.
    */
   private SmallerArgumentException(final BigDecimal argument, final String argumentName, final BigDecimal min) {
@@ -52,8 +52,8 @@ public final class SmallerArgumentException extends AbstractInvalidArgumentExcep
    * @param argumentName
    * @param limit
    * @return a new {@link SmallerArgumentException} for the given argument,
-   *         argumentName and limit.
-   * @throws RuntimeException if the given argumentName is null or blank.
+   *         argumentName and limit
+   * @throws RuntimeException if the given argumentName is null or blank
    * @throws RuntimeException if the given limit is null.
    */
   public static SmallerArgumentException forArgumentAndArgumentNameAndLimit(
@@ -68,7 +68,7 @@ public final class SmallerArgumentException extends AbstractInvalidArgumentExcep
    * @param argumentName
    * @param min
    * @return a new {@link SmallerArgumentException} for the given argument,
-   *         argumentName and min.
+   *         argumentName and min
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static SmallerArgumentException forArgumentAndArgumentNameAndMin(
@@ -80,7 +80,7 @@ public final class SmallerArgumentException extends AbstractInvalidArgumentExcep
 
   /**
    * @param min
-   * @return a validated min from the given min.
+   * @return a validated min from the given min
    * @throws RuntimeException if the given min is null.
    */
   private static BigDecimal getValidatedMinFromMin(final BigDecimal min) {

@@ -36,13 +36,13 @@ public final class LicenseManager {
    * {@link LicenseManager}.
    * 
    * @param licenseType
-   * @param <L>         is the given licenseType.
+   * @param <L>         is the given licenseType
    * @throws RuntimeException if the given licenseType is null
    * @throws RuntimeException if if there was not found a file with the key for a
-   *                          License of the given licenseType.
+   *                          License of the given licenseType
    * @throws RuntimeException if the given licenseType does not contain a
-   *                          constructor with 1 {@link String} parameter.
-   * @throws RuntimeException if the found key is not valid.
+   *                          constructor with 1 {@link String} parameter
+   * @throws RuntimeException if the found key is not valid
    * @throws RuntimeException if the {@link LicenseManager} contains already a
    *                          {@link AbstractLicense} of the given licenseType.
    */
@@ -55,7 +55,7 @@ public final class LicenseManager {
    * the given featureType.
    * 
    * @param featureType
-   * @param <F>         is the given featureType.
+   * @param <F>         is the given featureType
    * @throws ArgumentDoesNotHaveAttributeException if the {@link LicenseManager}
    *                                               does not contain a
    *                                               {@link AbstractFeature} of the

@@ -46,7 +46,7 @@ public final class Vector {
 
   /**
    * @param values
-   * @return a new {@link Vector} with the given values.
+   * @return a new {@link Vector} with the given values
    * @throws RuntimeException if the given values is null.
    */
   public static Vector withValues(final double... values) {
@@ -137,7 +137,7 @@ public final class Vector {
 
   /**
    * @param oneBasedIndex
-   * @return the value of the current {@link Vector} at the given oneBasedIndex.
+   * @return the value of the current {@link Vector} at the given oneBasedIndex
    * @throws RuntimeException if the given oneBasedIndex is not positive or the
    *                          given oneBasedIndex is bigger than the size of the
    *                          current {@link Vector}.

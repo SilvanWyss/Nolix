@@ -13,7 +13,7 @@ public interface IDatabaseSchemaViewDtoMapper {
   /**
    * @param nodeDatabase
    * @return a new {@link DatabaseInfoDto} with the given databaseName from the
-   *         given nodeDatabase.
+   *         given nodeDatabase
    * @throws RuntimeException if the given nodeDatabase is null.
    */
   DatabaseInfoDto mapTableNodeToTableViewDto(IMutableNode<?> nodeDatabase);

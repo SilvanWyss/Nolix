@@ -42,7 +42,7 @@ public class FileSystemItemAccessor {
   /**
    * @param path
    * @return a new {@link FileSystemItemAccessor }for the file system item
-   *         with the given path.
+   *         with the given path
    * @throws RuntimeException if there does not exist a file system item with the
    *                          given path in the file system on the local machine.
    */

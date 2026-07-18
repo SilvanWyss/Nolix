@@ -20,7 +20,7 @@ public final class ArgumentContainsElementException extends AbstractInvalidArgum
    * Creates a new {@link ArgumentContainsElementException} for the given argument
    * and element.
    * 
-   * @param argument - Can be null.
+   * @param argument - Can be null
    * @param element  - Can be null.
    */
   private ArgumentContainsElementException(final Object argument, final Object element) {
@@ -28,8 +28,8 @@ public final class ArgumentContainsElementException extends AbstractInvalidArgum
   }
 
   /**
-   * @param argument - Can be null.
-   * @param element  - Can be null.
+   * @param argument - Can be null
+   * @param element  - Can be null
    * @return a new {@link ArgumentContainsElementException} for the given argument
    *         and element.
    */
@@ -38,7 +38,7 @@ public final class ArgumentContainsElementException extends AbstractInvalidArgum
   }
 
   /**
-   * @param element - Can be null.
+   * @param element - Can be null
    * @return the name of the given element.
    */
   private static String getNameOfElement(final Object element) {
@@ -52,7 +52,7 @@ public final class ArgumentContainsElementException extends AbstractInvalidArgum
   /**
    * @param element
    * @return the name of the given element for the case that the given element is
-   *         not null.
+   *         not null
    * @throws RuntimeException if the given element is null.
    */
   private static String getNameOfElementWhenIsNotNull(final Object element) {

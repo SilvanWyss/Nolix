@@ -17,7 +17,7 @@ public interface EntityComponent<E> {
   boolean belongsToEntity();
 
   /**
-   * @return the entity of the current {@link EntityComponent}.
+   * @return the entity of the current {@link EntityComponent}
    * @throws RuntimeException if the current {@link EntityComponent} does not
    *                          belong to an entity
    */

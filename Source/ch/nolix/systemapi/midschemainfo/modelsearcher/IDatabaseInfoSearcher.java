@@ -16,7 +16,7 @@ public interface IDatabaseInfoSearcher {
    * @param tableName
    * @param columnId
    * @return the {@link ColumnInfoDto} with the given columnId from the table with
-   *         the given tableName from the given databaseView.
+   *         the given tableName from the given databaseView
    * @throws RuntimeException if the given databaseView does not contain a table
    *                          with the given tableName, that contains a
    *                          {@link ColumnInfoDto} with the given columnId.
@@ -28,7 +28,7 @@ public interface IDatabaseInfoSearcher {
    * @param tableName
    * @param columnName
    * @return the {@link ColumnInfoDto} with the given columnName from the table
-   *         with the given tableName from the given databaseView.
+   *         with the given tableName from the given databaseView
    * @throws RuntimeException if the given databaseView does not contain a table
    *                          with the given tableName, that contains a
    *                          {@link ColumnInfoDto} with the given columnName.
@@ -42,7 +42,7 @@ public interface IDatabaseInfoSearcher {
    * @param databaseView
    * @param tableId
    * @return the {@link TableInfoDto} with the given tableId from the given
-   *         databaseView.
+   *         databaseView
    * @throws RuntimeException if the given databaseView does not contain a
    *                          {@link TableInfoDto} with the given tableId.
    */
@@ -52,7 +52,7 @@ public interface IDatabaseInfoSearcher {
    * @param databaseView
    * @param tableName
    * @return the {@link TableInfoDto} with the given tableName from the given
-   *         databaseView.
+   *         databaseView
    * @throws RuntimeException if the given databaseView does not contain a
    *                          {@link TableInfoDto} with the given tableName.
    */

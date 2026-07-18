@@ -31,7 +31,7 @@ public final class SqlRecord extends AbstractExtendedIterable<String> implements
    * 
    * @param oneBasedIndex
    * @param values
-   * @throws RuntimeException if the given oneBasedIndex is not positive.
+   * @throws RuntimeException if the given oneBasedIndex is not positive
    * @throws RuntimeException if the given values is null.
    */
   private SqlRecord(final int oneBasedIndex, final ImmutableList<String> values) {
@@ -53,8 +53,8 @@ public final class SqlRecord extends AbstractExtendedIterable<String> implements
   /**
    * @param oneBasedIndex
    * @param value
-   * @return a new {@link SqlRecord} with the given oneBasedIndex and value.
-   * @throws RuntimeException if the given oneBasedIndex is not positive.
+   * @return a new {@link SqlRecord} with the given oneBasedIndex and value
+   * @throws RuntimeException if the given oneBasedIndex is not positive
    * @throws RuntimeException if the given value is null
    */
   public static SqlRecord withOneBasedIndexAndValue(final int oneBasedIndex, final String value) {
@@ -66,8 +66,8 @@ public final class SqlRecord extends AbstractExtendedIterable<String> implements
   /**
    * @param oneBasedIndex
    * @param values
-   * @return a new {@link SqlRecord} with the oneBasedIndex and given values.
-   * @throws RuntimeException if the given oneBasedIndex is not positive.
+   * @return a new {@link SqlRecord} with the oneBasedIndex and given values
+   * @throws RuntimeException if the given oneBasedIndex is not positive
    * @throws RuntimeException if the given values is null
    * @throws RuntimeException if one of the given values is null.
    */

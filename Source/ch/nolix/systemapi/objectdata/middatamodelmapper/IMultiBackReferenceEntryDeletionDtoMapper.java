@@ -14,7 +14,7 @@ public interface IMultiBackReferenceEntryDeletionDtoMapper {
   /**
    * @param multiBackReferenceEntry
    * @return a new {@link MultiBackReferenceEntryDeletionDto} from the given
-   *         multiBackReferenceEntry.
+   *         multiBackReferenceEntry
    * @throws RuntimeException if the given multiBackReferenceEntry is null.
    */
   MultiBackReferenceEntryDeletionDto mapMultiBackReferenceEntryToMultiBackReferenceEntryDeletionDto(

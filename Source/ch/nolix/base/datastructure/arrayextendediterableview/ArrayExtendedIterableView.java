@@ -47,8 +47,8 @@ public final class ArrayExtendedIterableView<E> extends AbstractExtendedIterable
 
   /**
    * @param array
-   * @param <T>   is the type of the elements of the given array.
-   * @return a new {@link ArrayExtendedIterableView} for the given array.
+   * @param <T>   is the type of the elements of the given array
+   * @return a new {@link ArrayExtendedIterableView} for the given array
    * @throws RuntimeException if the given array is null.
    */
   public static <T> ArrayExtendedIterableView<T> forArray(final T[] array) {

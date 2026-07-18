@@ -126,7 +126,7 @@ public final class JobExecutor extends Thread {
    * @param maxStepRunCount
    * @param nextStepRunCondition
    * @throws RuntimeException if the given step is null
-   * @throws RuntimeException if the given maxStepRunCount is negative.
+   * @throws RuntimeException if the given maxStepRunCount is negative
    * @throws RuntimeException if the given nextStepRunCondition is null.
    */
   private JobExecutor(final Runnable step, final int maxStepRunCount, final BooleanSupplier nextStepRunCondition) {
@@ -149,7 +149,7 @@ public final class JobExecutor extends Thread {
    * @param nextStepRunCondition
    * @param delayBetweenStepRunsInMilliseconds
    * @throws RuntimeException if the given job is null
-   * @throws RuntimeException if the given maxRunCount is negative.
+   * @throws RuntimeException if the given maxRunCount is negative
    * @throws RuntimeException if the given condition is null
    * @throws RuntimeException if the given delayBetweenStepRunsInMilliseconds is
    *                          negative.
@@ -182,7 +182,7 @@ public final class JobExecutor extends Thread {
    * @param maxStepRunCount
    * @param delayBetweenStepRunsInMilliseconds
    * @throws RuntimeException if the given job is null
-   * @throws RuntimeException if the given maxRunCount is negative.
+   * @throws RuntimeException if the given maxRunCount is negative
    * @throws RuntimeException if the given timeIntervalInMilliseconds is negative.
    */
   private JobExecutor(
@@ -205,7 +205,7 @@ public final class JobExecutor extends Thread {
 
   /**
    * @param step
-   * @return a new {@link JobExecutor} with the given step.
+   * @return a new {@link JobExecutor} with the given step
    * @throws RuntimeException if the given step is null.
    */
   public static JobExecutor forStep(final Runnable step) {
@@ -215,7 +215,7 @@ public final class JobExecutor extends Thread {
   /**
    * @param step
    * @param maxStepRunCount
-   * @return a new {@link JobExecutor} with the given step and maxStepRunCount.
+   * @return a new {@link JobExecutor} with the given step and maxStepRunCount
    * @throws RuntimeException if the given step is null
    * @throws RuntimeException if the given maxStepRunCount is negative.
    */
@@ -228,9 +228,9 @@ public final class JobExecutor extends Thread {
    * @param maxStepRunCount
    * @param delayBetweenStepRunsInMilliseconds
    * @return a new {@link JobExecutor} with the given step, maxStepRunCount and
-   *         delayBetweenStepRunsInMilliseconds.
+   *         delayBetweenStepRunsInMilliseconds
    * @throws RuntimeException if the given step is null
-   * @throws RuntimeException if the given maxStepRunCount is negative.
+   * @throws RuntimeException if the given maxStepRunCount is negative
    * @throws RuntimeException if the given delayBetweenStepRunsInMilliseconds is
    *                          negative.
    */
@@ -246,9 +246,9 @@ public final class JobExecutor extends Thread {
    * @param maxStepRunCount
    * @param nextStepRunCondition
    * @return a new {@link JobExecutor} with the given step, maxStepRunCount and
-   *         nextStepRunCondition.
+   *         nextStepRunCondition
    * @throws RuntimeException if the given step is null
-   * @throws RuntimeException if the given maxStepRunCount is negative.
+   * @throws RuntimeException if the given maxStepRunCount is negative
    * @throws RuntimeException if the given nextStepRunCondition is null.
    */
   public static JobExecutor forStepAndMaxStepRunCountAndNextStepRunCondition(
@@ -264,9 +264,9 @@ public final class JobExecutor extends Thread {
    * @param nextStepRunCondition
    * @param delayBetweenStepRunsInMilliseconds
    * @return a new {@link JobExecutor} with the given step, maxStepRunCount,
-   *         nextStepRunCondition and delayBetweenStepRunsInMilliseconds.
+   *         nextStepRunCondition and delayBetweenStepRunsInMilliseconds
    * @throws RuntimeException if the given job is null
-   * @throws RuntimeException if the given maxRunCount is negative.
+   * @throws RuntimeException if the given maxRunCount is negative
    * @throws RuntimeException if the given condition is null
    * @throws RuntimeException if the given delayBetweenStepRunsInMilliseconds is
    *                          negative.
@@ -283,7 +283,7 @@ public final class JobExecutor extends Thread {
    * @param step
    * @param nextStepRunCondition
    * @return a new {@link JobExecutor} with the given step and
-   *         nextStepRunCondition.
+   *         nextStepRunCondition
    * @throws RuntimeException if the given step is null
    * @throws RuntimeException if the given nextStepRunCondition is null.
    */
@@ -298,7 +298,7 @@ public final class JobExecutor extends Thread {
    * @param nextStepRunCondition
    * @param delayBetweenStepRunsInMilliseconds
    * @return a new {@link JobExecutor} with the given step, nextStepRunCondition
-   *         and delayBetweenStepRunsInMilliseconds.
+   *         and delayBetweenStepRunsInMilliseconds
    * @throws RuntimeException if the given job is null
    * @throws RuntimeException if the given condition is null
    * @throws RuntimeException if the given delayBetweenStepRunsInMilliseconds is
@@ -336,7 +336,7 @@ public final class JobExecutor extends Thread {
 
   // For a better performance, this implementation does not use all available comfort methods.
   /**
-   * @return the error of the current {@link JobExecutor}.
+   * @return the error of the current {@link JobExecutor}
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link JobExecutor} does not
    *                                               have an error.

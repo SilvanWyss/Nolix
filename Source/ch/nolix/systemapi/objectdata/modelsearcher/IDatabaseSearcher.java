@@ -21,7 +21,7 @@ public interface IDatabaseSearcher {
   /**
    * @param database
    * @param tableId
-   * @return the {@link ITable} with the given tableId from the given database.
+   * @return the {@link ITable} with the given tableId from the given database
    * @throws RuntimeException if the given database does not contain a table with
    *                          the given tableId.
    */

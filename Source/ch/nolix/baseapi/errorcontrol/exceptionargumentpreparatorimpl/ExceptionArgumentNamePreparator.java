@@ -41,7 +41,7 @@ public final class ExceptionArgumentNamePreparator implements IExceptionArgument
 
   /**
    * @param paramClass
-   * @return a name of an argument that is an instance of the given paramClass.
+   * @return a name of an argument that is an instance of the given paramClass
    * @throws IllegalArgumentException if the given paramClass is null.
    */
   private static String getNameOfArgumentThatIsInstanceOfClass(final Class<?> paramClass) {

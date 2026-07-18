@@ -22,7 +22,7 @@ public final class DoubleDeviationMediator extends AbstractMediator {
    * @param argument
    * @param argumentName
    * @param maxDeviation
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    * @throws RuntimeException if the given maxDeviation is negative.
    */
   private DoubleDeviationMediator(final double argument, final String argumentName, final double maxDeviation) {
@@ -41,8 +41,8 @@ public final class DoubleDeviationMediator extends AbstractMediator {
    * @param argumentName
    * @param maxDeviation
    * @return a {@link DoubleDeviationMediator} with the given argument,
-   *         argumentName and maxDeviation.
-   * @throws RuntimeException if the given argumentName is null or blank.
+   *         argumentName and maxDeviation
+   * @throws RuntimeException if the given argumentName is null or blank
    * @throws RuntimeException if the given maxDeviation is negative.
    */
   public static DoubleDeviationMediator forArgumentAndArgumentNameAndMaxDeviation(

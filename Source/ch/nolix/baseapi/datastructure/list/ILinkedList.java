@@ -64,7 +64,7 @@ extends Clearable, Copyable<ILinkedList<E>>, IAppendableList<E>, ExtendedIterabl
   /**
    * Removes and returns the first element of the current {@link ILinkedList}.
    * 
-   * @return the first element of the current {@link ILinkedList}.
+   * @return the first element of the current {@link ILinkedList}
    * @throws RuntimeException if the current {@link ILinkedList} is empty
    */
   E removeAndGetStoredFirst();
@@ -75,7 +75,7 @@ extends Clearable, Copyable<ILinkedList<E>>, IAppendableList<E>, ExtendedIterabl
    * 
    * @param selector
    * @return the first element the given selector selects from the current
-   *         {@link ILinkedList}.
+   *         {@link ILinkedList}
    * @throws RuntimeException if the current {@link ILinkedList} does not contain
    *                          an element the given selector selects
    */

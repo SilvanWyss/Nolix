@@ -68,9 +68,9 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    * @param elementConditions
    * @param sequenceConditions
    * @param <T>                is the type of the elements of the new
-   *                           {@link SequencePattern}.
+   *                           {@link SequencePattern}
    * @return a new {@link SequencePattern} with the given elementConditions and
-   *         sequenceConditions.
+   *         sequenceConditions
    * @throws RuntimeException if the given elementConditions is null
    * @throws RuntimeException if one of the given sequenceConditions is null
    * @throws RuntimeException if the given elementConditions is null

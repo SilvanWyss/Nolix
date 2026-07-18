@@ -30,7 +30,7 @@ public final class NonEmptyArgumentException extends AbstractInvalidArgumentExce
    * Creates a new {@link NonEmptyArgumentException} for the given argument and
    * argumentName.
    * 
-   * @param argument     - Can be null.
+   * @param argument     - Can be null
    * @param argumentName
    * @throws RuntimeException if the given argumentName is null or blank.
    */
@@ -39,7 +39,7 @@ public final class NonEmptyArgumentException extends AbstractInvalidArgumentExce
   }
 
   /**
-   * @param argument - Can be null.
+   * @param argument - Can be null
    * @return a new {@link NonEmptyArgumentException} for the given argument.
    */
   public static NonEmptyArgumentException forArgument(final Object argument) {
@@ -47,10 +47,10 @@ public final class NonEmptyArgumentException extends AbstractInvalidArgumentExce
   }
 
   /**
-   * @param argument     - Can be null.
+   * @param argument     - Can be null
    * @param argumentName
    * @return a new {@link NonEmptyArgumentException} for the given argument and
-   *         argumentName.
+   *         argumentName
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static NonEmptyArgumentException forArgumentAndArgumentName(

@@ -33,7 +33,7 @@ public final class PositiveArgumentException extends AbstractInvalidArgumentExce
    * @param argument
    * @param argumentName
    * @return a new {@link PositiveArgumentException} for the given argument and
-   *         argumentName.
+   *         argumentName
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static PositiveArgumentException forArgumentAndArgumentName(final long argument, final String argumentName) {

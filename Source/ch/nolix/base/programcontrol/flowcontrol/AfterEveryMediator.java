@@ -45,7 +45,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * @param condition
    * @param timeIntervalInMilliseconds
    * @return a new {@link AfterEveryMediator} with the given condition and
-   *         timeIntervalInMilliseconds.
+   *         timeIntervalInMilliseconds
    * @throws RuntimeException if the given condition is null
    * @throws RuntimeException if the given timeIntervalInMilliseconds is negative.
    */
@@ -118,7 +118,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * run count.
    * 
    * @param step
-   * @return a new {@link Future}.
+   * @return a new {@link Future}
    * @throws RuntimeException if the given job is null.
    */
   private IFuture runInBackgroundWhenDoesNotHaveMaxRunConunt(final Runnable step) {
@@ -150,7 +150,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * {@link AfterEveryMediator} has a max step run count.
    * 
    * @param step
-   * @return a new {@link Future}.
+   * @return a new {@link Future}
    * @throws RuntimeException if the given job is null.
    */
   private IFuture runInBackgroundWhenHasMaxRunConunt(final Runnable step) {

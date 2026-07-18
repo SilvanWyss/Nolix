@@ -18,7 +18,7 @@ public final class ArgumentDoesNotSupportMethodException extends AbstractInvalid
    * Creates a new {@link ArgumentDoesNotSupportMethodException} for the given
    * argument and methodName.
    * 
-   * @param argument   - Can be null.
+   * @param argument   - Can be null
    * @param methodName
    * @throws RuntimeException if the given methodName is null or blank.
    */
@@ -29,10 +29,10 @@ public final class ArgumentDoesNotSupportMethodException extends AbstractInvalid
   }
 
   /**
-   * @param argument   - Can be null.
+   * @param argument   - Can be null
    * @param methodName
    * @return new {@link ArgumentDoesNotSupportMethodException} for the given
-   *         argument and methodName.
+   *         argument and methodName
    * @throws RuntimeException if the given methodName is null or blank.
    */
   public static ArgumentDoesNotSupportMethodException forArgumentAndMethodName(
@@ -43,7 +43,7 @@ public final class ArgumentDoesNotSupportMethodException extends AbstractInvalid
 
   /**
    * @param methodName
-   * @return a validated method name from the given methodName.
+   * @return a validated method name from the given methodName
    * @throws RuntimeException if the given methodName is null or blank.
    */
   private static String getValidatedMethodNameFromMethodName(final String methodName) {

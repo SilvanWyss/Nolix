@@ -14,7 +14,7 @@ public interface Mappable<E> {
   /**
    * @param mapper
    * @param <T>    the type of the elements the given mapper maps from the
-   *               elements of the current {@link Mappable}.
+   *               elements of the current {@link Mappable}
    * @return a new {@link ExtendedIterable} with the elements the given mapper
    *         maps from the elements of the current {@link Mappable}
    * @throws RuntimeException if the given mapper is null
@@ -27,7 +27,7 @@ public interface Mappable<E> {
    * @param multipleMapper
    * @param <T>            the type of the elements of the
    *                       {@link ExtendedIterable}s the given multipleMapper maps
-   *                       from the elements of the current {@link Mappable}.
+   *                       from the elements of the current {@link Mappable}
    * @return a new {@link ExtendedIterable} with the elements of the
    *         {@link ExtendedIterable}s the given multipleMapper maps from the
    *         elements of the current {@link Mappable}
@@ -40,7 +40,7 @@ public interface Mappable<E> {
   /**
    * @param numberMapper
    * @param <N>          the type of the {@link Number}s the given numberMapper
-   *                     maps from the elements of the current {@link Mappable}.
+   *                     maps from the elements of the current {@link Mappable}
    * @return a new {@link ExtendedIterable} with the {@link Number}s the given
    *         numberMapper maps from the elements of the current {@link Mappable}.
    *         Maps null elements to 0.0

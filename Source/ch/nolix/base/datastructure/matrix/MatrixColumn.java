@@ -49,9 +49,9 @@ public final class MatrixColumn<E> extends AbstractExtendedIterable<E> implement
    * @param oneBasedColumnIndex
    * @param <T>                 is the type of the elements of the parent
    *                            {@link Matrix} of the created
-   *                            {@link MatrixColumn}.
+   *                            {@link MatrixColumn}
    * @return a new {@link MatrixColumn} for the given parentMatrix and
-   *         oneBasedColumnIndex.
+   *         oneBasedColumnIndex
    * @throws RuntimeException if the given oneBasedColumnIndex is not positive or
    *                          bigger than the number of columns of the given
    *                          parentMatrix.

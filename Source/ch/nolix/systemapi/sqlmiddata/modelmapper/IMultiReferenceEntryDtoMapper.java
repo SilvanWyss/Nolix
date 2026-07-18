@@ -15,7 +15,7 @@ public interface IMultiReferenceEntryDtoMapper {
    * @param multiReferenceSqlRecord
    * @param databaseView
    * @return a new {@link MultiReferenceEntryDto} from the given
-   *         multiReferenceSqlRecord using the given databaseView.
+   *         multiReferenceSqlRecord using the given databaseView
    * @throws RuntimeException if the given multiReferenceSqlRecord is null.
    */
   MultiReferenceEntryDto mapMultiReferenceEntrySqlRecordToMultiReferenceEntryDto(

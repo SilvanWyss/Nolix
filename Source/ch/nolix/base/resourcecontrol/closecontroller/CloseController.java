@@ -27,7 +27,7 @@ public final class CloseController implements ICloseController {
 
   /**
    * @param element
-   * @return a new {@link CloseController} for the given element.
+   * @return a new {@link CloseController} for the given element
    * @throws RuntimeException if the given element is null.
    */
   public static CloseController forElement(final GroupCloseable element) {

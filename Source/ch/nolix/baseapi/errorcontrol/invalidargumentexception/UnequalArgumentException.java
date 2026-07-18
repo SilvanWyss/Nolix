@@ -21,7 +21,7 @@ public final class UnequalArgumentException extends AbstractInvalidArgumentExcep
    * Creates a new {@link UnequalArgumentException} for the given argument and
    * value.
    * 
-   * @param argument - Can be null.
+   * @param argument - Can be null
    * @param value
    * @throws RuntimeException if the given value is null
    */
@@ -36,7 +36,7 @@ public final class UnequalArgumentException extends AbstractInvalidArgumentExcep
    * @param argument
    * @param argumentName
    * @param value
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    * @throws RuntimeException if the given value is null
    */
   private UnequalArgumentException(final Object argument, final String argumentName, final Object value) {
@@ -51,8 +51,8 @@ public final class UnequalArgumentException extends AbstractInvalidArgumentExcep
    * @param argumentName
    * @param value
    * @return a new {@link UnequalArgumentException} for the given argument,
-   *         argumentName and value.
-   * @throws RuntimeException if the given argumentName is null or blank.
+   *         argumentName and value
+   * @throws RuntimeException if the given argumentName is null or blank
    * @throws RuntimeException if the given value is null
    */
   public static UnequalArgumentException forArgumentAndArgumentNameAndValue(
@@ -66,7 +66,7 @@ public final class UnequalArgumentException extends AbstractInvalidArgumentExcep
    * @param argument
    * @param value
    * @return a new {@link UnequalArgumentException} for the given argument and
-   *         value.
+   *         value
    * @throws RuntimeException if the given value is null
    */
   public static UnequalArgumentException forArgumentAndValue(final Object argument, final Object value) {
@@ -75,7 +75,7 @@ public final class UnequalArgumentException extends AbstractInvalidArgumentExcep
 
   /**
    * @param value
-   * @return the name of the given value.
+   * @return the name of the given value
    * @throws RuntimeException if the given value is null
    */
   private static String getNameOfValue(final Object value) {

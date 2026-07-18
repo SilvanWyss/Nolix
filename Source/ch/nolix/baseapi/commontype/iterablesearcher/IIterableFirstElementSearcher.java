@@ -44,7 +44,7 @@ public interface IIterableFirstElementSearcher {
    * @param <E>      the type of the elements of the given iterable
    * @param <T>      the modeled type of the given type
    * @return the first element of the current {@link SingleSearchable} that is of
-   *         the given type.
+   *         the given type
    * @throws RuntimeException if the given type is null
    * @throws RuntimeException if the given iterable does not contain an element of
    *                          the given type.

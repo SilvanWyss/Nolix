@@ -25,7 +25,7 @@ public final class NewArgumentException extends AbstractInvalidArgumentException
   }
 
   /**
-   * @param argument - Can be null.
+   * @param argument - Can be null
    * @return a new {@link NewArgumentException} for the given argument.
    */
   public static NewArgumentException forArgument(final Object argument) {

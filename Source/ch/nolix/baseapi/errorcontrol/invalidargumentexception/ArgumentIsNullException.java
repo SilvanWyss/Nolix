@@ -42,7 +42,7 @@ public final class ArgumentIsNullException extends AbstractInvalidArgumentExcept
 
   /**
    * @param argumentName
-   * @return a new {@link ArgumentIsNullException} for the given argumentName.
+   * @return a new {@link ArgumentIsNullException} for the given argumentName
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static ArgumentIsNullException forArgumentName(final String argumentName) {
@@ -51,7 +51,7 @@ public final class ArgumentIsNullException extends AbstractInvalidArgumentExcept
 
   /**
    * @param argumentType
-   * @return a new {@link ArgumentIsNullException} for the given argumentType.
+   * @return a new {@link ArgumentIsNullException} for the given argumentType
    * @throws RuntimeException if the given argumentType is null.
    */
   public static ArgumentIsNullException forArgumentType(final Class<?> argumentType) {
@@ -60,7 +60,7 @@ public final class ArgumentIsNullException extends AbstractInvalidArgumentExcept
 
   /**
    * @param argumentType
-   * @return the name of the given argumentType.
+   * @return the name of the given argumentType
    * @throws RuntimeException if the given argumentType is null.
    */
   private static String getNameOfArgumentType(final Class<?> argumentType) {

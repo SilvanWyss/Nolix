@@ -48,11 +48,11 @@ public final class ExtendedIterableMapperView<E, T> extends AbstractExtendedIter
    * @param container
    * @param mapper
    * @param <T>       is the type of the elements of the created
-   *                  {@link ExtendedIterableMapperView}.
+   *                  {@link ExtendedIterableMapperView}
    * @param <T2>      is the type of the elements the created
-   *                  {@link ExtendedIterableMapperView} maps from its elements.
+   *                  {@link ExtendedIterableMapperView} maps from its elements
    * @return a new {@link ExtendedIterableMapperView} with the given container and
-   *         mapper.
+   *         mapper
    * @throws RuntimeException if the given container is null
    * @throws RuntimeException if the given mapper is null.
    */

@@ -72,7 +72,7 @@ public final class Polynom {
   /**
    * @param degree
    * @return the coefficient for the given degree from the current
-   *         {@link Polynom}.
+   *         {@link Polynom}
    * @throws RuntimeException if the given degree is not between 0 and the degree
    *                          of the current {@link Polynom}.
    */
@@ -95,7 +95,7 @@ public final class Polynom {
   /**
    * @param deriveCount
    * @return a new {@link Polynom} that is derived from the current
-   *         {@link Polynom} as many times as the given deriveCount says.
+   *         {@link Polynom} as many times as the given deriveCount says
    * @throws RuntimeException if the given deriveCount is negative.
    */
   public Polynom getDerived(final int deriveCount) {
@@ -128,7 +128,7 @@ public final class Polynom {
   /**
    * @param integrationCount
    * @return a new {@link Polynom} that is the integration from the current
-   *         {@link Polynom} as many times as the given integrationCount says.
+   *         {@link Polynom} as many times as the given integrationCount says
    * @throws RuntimeException if the given integrationCount is negative.
    */
   public Polynom getIntegrated(final int integrationCount) {

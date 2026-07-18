@@ -25,7 +25,7 @@ public interface GroupCloseable extends Closeable {
    * 
    * @param element
    * @throws RuntimeException if the current {@link GroupCloseable} is already
-   *                          closed.
+   *                          closed
    * @throws RuntimeException if the current {@link GroupCloseable} has already a
    *                          close dependency to the given element.
    */

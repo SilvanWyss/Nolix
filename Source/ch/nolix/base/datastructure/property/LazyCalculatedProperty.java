@@ -41,9 +41,9 @@ public final class LazyCalculatedProperty<V> implements ILazyCalculatedProperty<
    * @param valueCreator
    * @param needToUpdateSupplier
    * @param <V2>                 is the type of the value of the created
-   *                             {@link LazyCalculatedProperty}.
+   *                             {@link LazyCalculatedProperty}
    * @return a new {@link LazyCalculatedProperty} with the given valueCreator and
-   *         needToUpdateSupplier.
+   *         needToUpdateSupplier
    * @throws RuntimeException if the given valueCreator is null
    * @throws RuntimeException if the given needToUpdateSupplier is null.
    */
@@ -56,8 +56,8 @@ public final class LazyCalculatedProperty<V> implements ILazyCalculatedProperty<
   /**
    * @param valueCreator
    * @param <V2>         is the type of the value of the created
-   *                     {@link LazyCalculatedProperty}.
-   * @return a new {@link LazyCalculatedProperty} with the given valueCreator.
+   *                     {@link LazyCalculatedProperty}
+   * @return a new {@link LazyCalculatedProperty} with the given valueCreator
    * @throws RuntimeException if the given valueCreator is null.
    */
   public static <V2> LazyCalculatedProperty<V2> forValueCreater(final Supplier<V2> valueCreator) {

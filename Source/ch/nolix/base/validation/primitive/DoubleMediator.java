@@ -24,7 +24,7 @@ public final class DoubleMediator extends AbstractDoubleMediator {
    * 
    * @param argument
    * @param argumentName
-   * @return a new {@link DoubleMediator} for the given argument and argumentName.
+   * @return a new {@link DoubleMediator} for the given argument and argumentName
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static DoubleMediator forArgumentAndArgumentName(final double argument, final String argumentName) {

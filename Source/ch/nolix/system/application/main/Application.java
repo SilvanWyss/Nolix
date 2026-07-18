@@ -175,7 +175,7 @@ implements IApplication<C, S> {
    * 
    * @param nameAddendix
    * @throws RuntimeException if the given nameAddendix is null
-   * @throws RuntimeException if the given nameAddendix is blank.
+   * @throws RuntimeException if the given nameAddendix is blank
    * @throws RuntimeException if the current {@link Application} has already an
    *                          instance name.
    */
@@ -278,7 +278,7 @@ implements IApplication<C, S> {
   }
 
   /**
-   * @return the parent {@link AbstractServer} of the current {@link Application}.
+   * @return the parent {@link AbstractServer} of the current {@link Application}
    * @throws RuntimeException if the current {@link Application} does not belong
    *                          to a {@link AbstractServer}.
    */

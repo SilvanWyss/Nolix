@@ -52,7 +52,7 @@ implements ClientComponent<C>, IRefreshableSubscriber {
   }
 
   /**
-   * @return the parent client of the current {@link AbstractSession}.
+   * @return the parent client of the current {@link AbstractSession}
    * @throws RuntimeException if the current {@link AbstractSession} does not
    *                          belong to a client.
    */
@@ -113,8 +113,8 @@ implements ClientComponent<C>, IRefreshableSubscriber {
    * {@link AbstractSession}.
    * 
    * @param session
-   * @param <R>     is the type of the returned result.
-   * @return the result from the given session.
+   * @param <R>     is the type of the returned result
+   * @return the result from the given session
    * @throws RuntimeException if the given session is null.
    */
   public final <R> R pushAndGetResult(final AbstractSession<C, S> session) {

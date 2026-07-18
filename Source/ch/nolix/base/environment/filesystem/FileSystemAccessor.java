@@ -74,9 +74,9 @@ public final class FileSystemAccessor {
    * Creates a new empty file with the given path.
    * 
    * @param path
-   * @return a new {@link FileAccessor} to the created file.
+   * @return a new {@link FileAccessor} to the created file
    * @throws RuntimeException if the given path is null
-   * @throws RuntimeException if the given path is empty.
+   * @throws RuntimeException if the given path is empty
    * @throws RuntimeException if there exists already a file system item with the
    *                          given path.
    */
@@ -90,9 +90,9 @@ public final class FileSystemAccessor {
    * 
    * @param path
    * @param writeMode
-   * @return a new {@link FileAccessor} to the created file.
+   * @return a new {@link FileAccessor} to the created file
    * @throws RuntimeException if the given path is null
-   * @throws RuntimeException if the given path is blank.
+   * @throws RuntimeException if the given path is blank
    * @throws RuntimeException if the given writeMode flag =
    *                          {@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}
    *                          and there exists already a file system item with the
@@ -133,13 +133,13 @@ public final class FileSystemAccessor {
    * @param path
    * @param writeMode
    * @param content
-   * @return a new {@link FileAccessor} to the created file.
+   * @return a new {@link FileAccessor} to the created file
    * @throws RuntimeException if the given path is null
-   * @throws RuntimeException if the given path is blank.
+   * @throws RuntimeException if the given path is blank
    * @throws RuntimeException if the given writeMode =
    *                          {@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}
    *                          and there exists already a file system item with the
-   *                          given path.
+   *                          given path
    * @throws RuntimeException if the given content is null.
    */
   public static FileAccessor createFile(final String path, final WriteMode writeMode, final byte[] content) {
@@ -156,13 +156,13 @@ public final class FileSystemAccessor {
    * @param path
    * @param writeMode
    * @param content
-   * @return a new {@link FileAccessor} to the created file.
+   * @return a new {@link FileAccessor} to the created file
    * @throws RuntimeException if the given path is null
-   * @throws RuntimeException if the given path is blank.
+   * @throws RuntimeException if the given path is blank
    * @throws RuntimeException if the given writeMode =
    *                          {@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}
    *                          and there exists already a file system item with the
-   *                          given path.
+   *                          given path
    * @throws RuntimeException if the given content is null.
    */
   public static FileAccessor createFile(final String path, final WriteMode writeMode, final String content) {
@@ -178,9 +178,9 @@ public final class FileSystemAccessor {
    * 
    * @param path
    * @param content
-   * @return a new {@link FileAccessor} to the created file.
+   * @return a new {@link FileAccessor} to the created file
    * @throws RuntimeException if the given path is null
-   * @throws RuntimeException if the given path is empty.
+   * @throws RuntimeException if the given path is empty
    * @throws RuntimeException if there exists already a file system item with the
    *                          given path.
    */
@@ -197,9 +197,9 @@ public final class FileSystemAccessor {
    * 
    * @param path
    * @param content
-   * @return a new {@link FileAccessor} to the created file.
+   * @return a new {@link FileAccessor} to the created file
    * @throws RuntimeException if the given path is null
-   * @throws RuntimeException if the given path is blank.
+   * @throws RuntimeException if the given path is blank
    * @throws RuntimeException if there exists already a file system item with the
    *                          given path.
    */
@@ -212,7 +212,7 @@ public final class FileSystemAccessor {
    * Creates a new empty folder with the given path.
    * 
    * @param path
-   * @return a new {@link FileAccessor} to the created folder.
+   * @return a new {@link FileAccessor} to the created folder
    * @throws RuntimeException if there exists already a file system item with the
    *                          given path.
    */
@@ -365,7 +365,7 @@ public final class FileSystemAccessor {
    * Reads the content of the file with the given filePath to bytes.
    * 
    * @param filePath
-   * @return the bytes of the file with the given filePath.
+   * @return the bytes of the file with the given filePath
    * @throws RuntimeException if there does not exist a file with the given
    *                          filePath in the file system on the local machine.
    */
@@ -377,7 +377,7 @@ public final class FileSystemAccessor {
    * Reads the content of the file with the given path to lines.
    * 
    * @param path
-   * @return the lines of the file with the given path.
+   * @return the lines of the file with the given path
    * @throws RuntimeException if there does not exist a file with the given path.
    */
   public static ILinkedList<String> readFileToLines(final String path) {

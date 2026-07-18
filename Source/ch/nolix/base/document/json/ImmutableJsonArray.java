@@ -40,7 +40,7 @@ public final class ImmutableJsonArray implements JsonArray {
 
   /**
    * @param objects
-   * @return a new {@link ImmutableJsonArray} with the given objects.
+   * @return a new {@link ImmutableJsonArray} with the given objects
    * @throws RuntimeException if the given objects is null
    * @throws RuntimeException if one of the given objects is null.
    */

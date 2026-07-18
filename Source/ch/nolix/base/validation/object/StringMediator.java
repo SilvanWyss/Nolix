@@ -51,7 +51,7 @@ public class StringMediator extends AbstractObjectMediator<String> {
 
   /**
    * @param length
-   * @throws RuntimeException if the given length is negative.
+   * @throws RuntimeException if the given length is negative
    * @throws RuntimeException if the argument of the current
    *                          {@link StringMediator} is null
    * @throws RuntimeException if the argument of the current

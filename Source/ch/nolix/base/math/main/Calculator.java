@@ -83,7 +83,7 @@ public final class Calculator {
 
   /**
    * @param values
-   * @return the average of the given values.
+   * @return the average of the given values
    * @throws RuntimeException if the given values is null or empty.
    */
   public static double getAverage(final double... values) {
@@ -92,7 +92,7 @@ public final class Calculator {
 
   /**
    * @param values
-   * @return the average of the given values.
+   * @return the average of the given values
    * @throws RuntimeException if the given values is empty.
    */
   public static double getAverage(final Iterable<Double> values) {
@@ -101,7 +101,7 @@ public final class Calculator {
 
   /**
    * @param values
-   * @return the average of the given values.
+   * @return the average of the given values
    * @throws RuntimeException if the given values is null or empty.
    */
   public static int getAverage(final int... values) {
@@ -110,8 +110,8 @@ public final class Calculator {
 
   /**
    * @param values
-   * @return the average of the given values.
-   * @throws RuntimeException if the given values is empty.
+   * @return the average of the given values
+   * @throws RuntimeException if the given values is empty
    * @throws RuntimeException if the given values is null or empty.
    */
   public static long getAverage(final long... values) {
@@ -121,7 +121,7 @@ public final class Calculator {
   /**
    * @param pOrder
    * @param inputValues
-   * @return a new {@link ARModel} with the given pOrder and inputValues.
+   * @return a new {@link ARModel} with the given pOrder and inputValues
    * @throws RuntimeException if the given pOrder is negative.
    */
   public static ARModel getARModell(final int pOrder, final double[] inputValues) {
@@ -134,9 +134,9 @@ public final class Calculator {
    * @param yValues
    * @return a new {@link Polynom} that has the given degree and fits the given
    *         values
-   * @throws RuntimeException if the given degree is negative.
+   * @throws RuntimeException if the given degree is negative
    * @throws RuntimeException if the given degree is bigger than the count of the
-   *                          given xValues.
+   *                          given xValues
    * @throws RuntimeException if the count of the given yValues does not equal the
    *                          count of the given xValues.
    */
@@ -170,7 +170,7 @@ public final class Calculator {
 
   /**
    * @param values
-   * @return the biggest value of the given values.
+   * @return the biggest value of the given values
    * @throws RuntimeException if the given values is null or empty.
    */
   public static double getMax(final double... values) {
@@ -179,7 +179,7 @@ public final class Calculator {
 
   /**
    * @param values
-   * @return the biggest value of the given values.
+   * @return the biggest value of the given values
    * @throws RuntimeException if the given values is null or empty.
    */
   public static int getMax(final int... values) {
@@ -188,7 +188,7 @@ public final class Calculator {
 
   /**
    * @param values
-   * @return the biggest value of the given values.
+   * @return the biggest value of the given values
    * @throws RuntimeException if the given values is null or empty.
    */
   public static long getMax(final long... values) {
@@ -197,7 +197,7 @@ public final class Calculator {
 
   /**
    * @param values
-   * @return the smallest value of the given values.
+   * @return the smallest value of the given values
    * @throws RuntimeException if the given values is null or empty.
    */
   public static double getMin(final double... values) {
@@ -206,7 +206,7 @@ public final class Calculator {
 
   /**
    * @param values
-   * @return the smallest value of the given values.
+   * @return the smallest value of the given values
    * @throws RuntimeException if the given values is null or empty.
    */
   public static int getMin(final int... values) {
@@ -215,7 +215,7 @@ public final class Calculator {
 
   /**
    * @param values
-   * @return the smallest value of the given values.
+   * @return the smallest value of the given values
    * @throws RuntimeException if the given values is null or empty.
    */
   public static long getMin(final long... values) {
@@ -248,7 +248,7 @@ public final class Calculator {
 
   /**
    * @param values
-   * @return the sum of the given values.
+   * @return the sum of the given values
    * @throws RuntimeException if the given values is null.
    */
   public static double getSum(final double... values) {
@@ -257,7 +257,7 @@ public final class Calculator {
 
   /**
    * @param values
-   * @return the sum of the given values.
+   * @return the sum of the given values
    * @throws RuntimeException if the given values is null.
    */
   public static int getSum(final int... values) {
@@ -266,7 +266,7 @@ public final class Calculator {
 
   /**
    * @param values
-   * @return the sum of the given values.
+   * @return the sum of the given values
    * @throws RuntimeException if the given values is null.
    */
   public static double getSum(final Iterable<Double> values) {
@@ -275,7 +275,7 @@ public final class Calculator {
 
   /**
    * @param values
-   * @return the sum of the given values.
+   * @return the sum of the given values
    * @throws RuntimeException if the given values is null.
    */
   public static long getSum(final long... values) {

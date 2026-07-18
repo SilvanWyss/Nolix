@@ -20,13 +20,13 @@ public interface IDataReader extends GroupCloseable, DatabaseNameHolder {
   /**
    * @param tableName
    * @return the number of the entities of the table with the given tableName from
-   *         the database.
+   *         the database
    * @throws RuntimeException if the current {@link IDataReader} is closed.
    */
   int getEntityCount(String tableName);
 
   /**
-   * @return the schema timestamp from the database.
+   * @return the schema timestamp from the database
    * @throws RuntimeException if the current {@link IDataReader} is closed.
    */
   ITime getSchemaTimestamp();
@@ -34,7 +34,7 @@ public interface IDataReader extends GroupCloseable, DatabaseNameHolder {
   /**
    * @param tableName
    * @return the entities, that are in the table with the given tableName, from
-   *         the database.
+   *         the database
    * @throws RuntimeException if the current {@link IDataReader} is closed.
    */
   ExtendedIterable<EntityLoadingDto> loadEntities(String tableName);
@@ -43,7 +43,7 @@ public interface IDataReader extends GroupCloseable, DatabaseNameHolder {
    * @param tableName
    * @param entityId
    * @return the entity, that is in the table with the given tableName and has the
-   *         given entityId, from the database.
+   *         given entityId, from the database
    * @throws RuntimeException if the current {@link IDataReader} is closed.
    */
   EntityLoadingDto loadEntity(String tableName, String entityId);
@@ -55,7 +55,7 @@ public interface IDataReader extends GroupCloseable, DatabaseNameHolder {
    * @return the entity ids of the multi back reference, that is in the multi back
    *         reference column with the given multiBackReferenceColumnName and
    *         belongs to the entity, that has the given entityId and is in the
-   *         table with the given tableName, from the database.
+   *         table with the given tableName, from the database
    * @throws RuntimeException if the current {@link IDataReader} is closed.
    */
   ExtendedIterable<String> loadMultiBackReferenceBackReferencedEntityIds(
@@ -81,7 +81,7 @@ public interface IDataReader extends GroupCloseable, DatabaseNameHolder {
    * @return the multi reference entries of the the multi reference field, that is
    *         in the multi reference column with the given multiReferenceColumnName
    *         and belongs to the entity, that has the given entityId and is in the
-   *         table with the given tableName, from the database.
+   *         table with the given tableName, from the database
    * @throws RuntimeException if the current {@link IDataReader} is closed.
    */
   ExtendedIterable<MultiReferenceEntryDto> loadMultiReferenceEntries(
@@ -96,7 +96,7 @@ public interface IDataReader extends GroupCloseable, DatabaseNameHolder {
    * @return the values of the multi value, that is in the multi value column with
    *         the given multiValueColumnName and belongs to the entity, that has
    *         the given entityId and is in the table with the given tableName, from
-   *         the database.
+   *         the database
    * @throws RuntimeException if the current {@link IDataReader} is closed.
    */
   ExtendedIterable<Object> loadMultiValueValues(String tableName, String entityId, String multiValueColumnName);

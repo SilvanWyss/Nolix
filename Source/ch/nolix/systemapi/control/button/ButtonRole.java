@@ -19,7 +19,7 @@ public enum ButtonRole {
 
   /**
    * @param specification
-   * @return a new {@link ButtonRole} from the given specification.
+   * @return a new {@link ButtonRole} from the given specification
    * @throws RuntimeException if the given specification does nor represent
    *                          {@link ButtonRole}.
    */

@@ -79,7 +79,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements ICl
   /**
    * @param request
    * @return the data the given request requests from the counterpart of the
-   *         current {@link AbstractClient}.
+   *         current {@link AbstractClient}
    * @throws RuntimeException if the current {@link AbstractClient} is not
    *                          connected.
    */
@@ -180,7 +180,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements ICl
   }
 
   /**
-   * @return the {@link AbstractEndPoint} of the current {@link AbstractClient}.
+   * @return the {@link AbstractEndPoint} of the current {@link AbstractClient}
    * @throws RuntimeException if the current {@link AbstractClient} is not
    *                          connected.
    */

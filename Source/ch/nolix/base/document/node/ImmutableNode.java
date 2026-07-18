@@ -86,8 +86,8 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
 
   /**
    * @param filePath
-   * @return a new {@link ImmutableNode} from the file with the given filePath.
-   * @throws RuntimeException if the given filePath is not valid.
+   * @return a new {@link ImmutableNode} from the file with the given filePath
+   * @throws RuntimeException if the given filePath is not valid
    * @throws RuntimeException if the file with the given filePath does not
    *                          represent a {@link ImmutableNode}.
    */
@@ -99,7 +99,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
 
   /**
    * @param node
-   * @return a new {@link ImmutableNode} from the given {@link INode}.
+   * @return a new {@link ImmutableNode} from the given {@link INode}
    * @throws RuntimeException if the given node is null.
    */
   public static ImmutableNode fromNode(final INode<?> node) {
@@ -120,7 +120,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
 
   /**
    * @param string
-   * @return a new {@link ImmutableNode} from the given string.
+   * @return a new {@link ImmutableNode} from the given string
    * @throws RuntimeException if the given string does not represent a
    *                          {@link ImmutableNode}.
    */
@@ -154,7 +154,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
 
   /**
    * @param childNode
-   * @return a new {@link ImmutableNode} with the given childNode.
+   * @return a new {@link ImmutableNode} with the given childNode
    * @throws RuntimeException if the given childNode is null.
    */
   public static ImmutableNode withChildNode(final INode<?> childNode) {
@@ -177,7 +177,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
 
   /**
    * @param childNodes
-   * @return a new {@link ImmutableNode} with the given childNodes.
+   * @return a new {@link ImmutableNode} with the given childNodes
    * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes is null
    */
@@ -189,7 +189,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
 
   /**
    * @param childNodes
-   * @return a new {@link ImmutableNode} with the given childNodes.
+   * @return a new {@link ImmutableNode} with the given childNodes
    * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes is null
    */
@@ -201,7 +201,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
 
   /**
    * @param childNodes
-   * @return a new {@link ImmutableNode} with the given childNodes.
+   * @return a new {@link ImmutableNode} with the given childNodes
    * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes does not represent a
    *                          {@link ImmutableNode}.
@@ -244,7 +244,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
 
   /**
    * @param header
-   * @return a new {@link ImmutableNode} with the given header.
+   * @return a new {@link ImmutableNode} with the given header
    * @throws RuntimeException if the given header is null or blank
    */
   public static ImmutableNode withHeader(final String header) {
@@ -254,7 +254,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
   /**
    * @param header
    * @param childNode
-   * @return a new {@link ImmutableNode} with the given childNode.
+   * @return a new {@link ImmutableNode} with the given childNode
    * @throws RuntimeException if the given header is null or blank
    */
   public static ImmutableNode withHeaderAndChildNode(final String header, final boolean childNode) {
@@ -280,7 +280,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
   /**
    * @param header
    * @param childNode
-   * @return a new {@link ImmutableNode} with the given header and childNode.
+   * @return a new {@link ImmutableNode} with the given header and childNode
    * @throws RuntimeException if the given header is null or blank
    * @throws RuntimeException if the given childNode is null.
    */
@@ -307,7 +307,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
   /**
    * @param header
    * @param childNode
-   * @return a new {@link ImmutableNode} with the given header and childNode.
+   * @return a new {@link ImmutableNode} with the given header and childNode
    * @throws RuntimeException if the given header is null or blank
    * @throws RuntimeException if the given childNode does not represent a
    *                          {@link ImmutableNode}.
@@ -322,7 +322,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
   /**
    * @param header
    * @param childNodes
-   * @return a new {@link ImmutableNode} with the given header and childNodes.
+   * @return a new {@link ImmutableNode} with the given header and childNodes
    * @throws RuntimeException if the given header is null or blank
    * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes is null
@@ -336,7 +336,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
   /**
    * @param header
    * @param childNodes
-   * @return a new {@link ImmutableNode} with the given header and childNodes.
+   * @return a new {@link ImmutableNode} with the given header and childNodes
    * @throws RuntimeException if the given header is null or blank
    * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes is null
@@ -351,7 +351,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
   /**
    * @param header
    * @param childNodes
-   * @return a new {@link ImmutableNode} with the given header and childNodes.
+   * @return a new {@link ImmutableNode} with the given header and childNodes
    * @throws RuntimeException if the given header is null or blank
    * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes does not represent a

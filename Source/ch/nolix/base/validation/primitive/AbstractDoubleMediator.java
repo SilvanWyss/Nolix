@@ -187,7 +187,7 @@ public abstract class AbstractDoubleMediator extends AbstractMediator {
    * @param maxDeviation
    * @return a new {@link DoubleDeviationMediator} for the argument and
    *         argumentName of the current {@link AbstractDoubleMediator} and the
-   *         given maxDeviation.
+   *         given maxDeviation
    * @throws RuntimeException if the given maxDeviation is negative.
    */
   public final DoubleDeviationMediator withMaxDeviation(final double maxDeviation) {

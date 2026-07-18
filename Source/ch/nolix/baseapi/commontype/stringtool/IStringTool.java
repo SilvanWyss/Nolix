@@ -62,7 +62,7 @@ public interface IStringTool {
 
   /**
    * @param string
-   * @return the double the given string represents.
+   * @return the double the given string represents
    * @throws RuntimeException if the given string does not represent a double
    */
   double toDouble(String string);
@@ -75,7 +75,7 @@ public interface IStringTool {
 
   /**
    * @param string
-   * @return a proportion in [0, 1] from the given string.
+   * @return a proportion in [0, 1] from the given string
    * @throws RuntimeException if the given string does not represent a proportion
    * 
    */

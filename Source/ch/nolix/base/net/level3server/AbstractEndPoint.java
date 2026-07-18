@@ -72,7 +72,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
   }
 
   /**
-   * @return the receiver controller of the current {@link AbstractEndPoint}.
+   * @return the receiver controller of the current {@link AbstractEndPoint}
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractEndPoint} does
    *                                               not have a receiver controller.

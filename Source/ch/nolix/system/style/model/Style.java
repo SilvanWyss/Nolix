@@ -44,8 +44,8 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
 
   /**
    * @param filePath
-   * @return a new standard specification from the file with the given file path.
-   * @throws RuntimeException if the given file path is not valid.
+   * @return a new standard specification from the file with the given file path
+   * @throws RuntimeException if the given file path is not valid
    * @throws RuntimeException if the file with the given file path does not
    *                          represent a standard configuration.
    */
@@ -57,7 +57,7 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
 
   /**
    * @param specification
-   * @return a new {@link Style} from the given specification.
+   * @return a new {@link Style} from the given specification
    * @throws RuntimeException if the given specification is not valid.
    */
   public static Style fromSpecification(final INode<?> specification) {

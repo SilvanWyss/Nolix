@@ -57,7 +57,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
 
   /**
    * @param specification
-   * @return a new {@link ColorGradient} from the given specification.
+   * @return a new {@link ColorGradient} from the given specification
    * @throws RuntimeException if the given specification is not valid.
    */
   public static ColorGradient fromSpecification(final INode<?> specification) {
@@ -78,7 +78,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
   /**
    * @param color1
    * @param color2
-   * @return a new {@link ColorGradient} with the given color1 and color2.
+   * @return a new {@link ColorGradient} with the given color1 and color2
    * @throws RuntimeException if the given color1 is null
    * @throws RuntimeException if the given color2 is null.
    */
@@ -91,7 +91,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @param color1
    * @param color2
    * @return a new {@link ColorGradient} with the given direction, color1 and
-   *         color2.
+   *         color2
    * @throws RuntimeException if the given direction is null
    * @throws RuntimeException if the given color 1 is null
    * @throws RuntimeException if the given color 2 is null.
@@ -105,7 +105,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
 
   /**
    * @param attributes
-   * @return a new {@link ColorGradient} from the given attributes.
+   * @return a new {@link ColorGradient} from the given attributes
    * @throws RuntimeException if the given attributes are not valid.
    */
   private static ColorGradient from2Attributes(ExtendedIterable<? extends INode<?>> attributes) {
@@ -120,7 +120,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
 
   /**
    * @param attributes
-   * @return a new {@link ColorGradient} from the given attributes.
+   * @return a new {@link ColorGradient} from the given attributes
    * @throws RuntimeException if the given attributes are not valid.
    */
   private static ColorGradient from3Attributes(ExtendedIterable<? extends INode<?>> attributes) {

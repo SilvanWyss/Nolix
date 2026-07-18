@@ -12,7 +12,7 @@ import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
 public interface IContentFieldNodeMapper {
   /**
    * @param valueStringFieldDto
-   * @return a new content field node from the given valueStringFieldDto.
+   * @return a new content field node from the given valueStringFieldDto
    * @throws RuntimeException if the given valueStringFieldDto is null.
    */
   INode<?> mapValueStringFieldDtoToContentFieldNode(ValueStringFieldDto valueStringFieldDto);

@@ -35,8 +35,8 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
 
   /**
    * @param filePath
-   * @return a new {@link MutableNode} from the file with the given filePath.
-   * @throws RuntimeException if the given filePath is not valid.
+   * @return a new {@link MutableNode} from the file with the given filePath
+   * @throws RuntimeException if the given filePath is not valid
    * @throws RuntimeException if the file with the given filePath does not
    *                          represent a {@link MutableNode}.
    */
@@ -65,7 +65,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
 
   /**
    * @param string
-   * @return a new {@link MutableNode} from the given string.
+   * @return a new {@link MutableNode} from the given string
    * @throws RuntimeException if the given string does not represent a
    *                          {@link MutableNode}.
    */

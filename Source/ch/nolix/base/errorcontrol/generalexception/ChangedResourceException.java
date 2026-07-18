@@ -26,7 +26,7 @@ public final class ChangedResourceException extends RuntimeException {
 
   /**
    * @param resource
-   * @return a new {@link ChangedResourceException} for the given resource.
+   * @return a new {@link ChangedResourceException} for the given resource
    * @throws IllegalArgumentException if the given resource is null
    * @throws IllegalArgumentException if the given resource is blank.
    */
@@ -36,7 +36,7 @@ public final class ChangedResourceException extends RuntimeException {
 
   /**
    * @param resource
-   * @return a valid resource for the given resource.
+   * @return a valid resource for the given resource
    * @throws IllegalArgumentException if the given resource is null
    * @throws IllegalArgumentException if the given resource is blank.
    */

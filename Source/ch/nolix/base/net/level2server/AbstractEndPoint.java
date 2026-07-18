@@ -58,7 +58,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
   }
 
   /**
-   * @return the replier of this end point.
+   * @return the replier of this end point
    * @throws ArgumentDoesNotHaveAttributeException if this end point does not have
    *                                               a replier.
    */

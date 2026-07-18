@@ -13,7 +13,7 @@ public interface IForMaxMillisecondsMediator {
    * @param condition
    * @return a new {@link IAsLongAsMediator} for the maxDurationInMilliseconds of
    *         the current {@link IForMaxMillisecondsMediator} and for the given
-   *         condition.
+   *         condition
    * @throws RuntimeException if the given condition is null
    */
   IAsLongAsMediator asLongAs(BooleanSupplier condition);
@@ -22,7 +22,7 @@ public interface IForMaxMillisecondsMediator {
    * @param condition
    * @return a new {@link IAsLongAsMediator} for the maxDurationInMilliseconds of
    *         the current {@link IForMaxMillisecondsMediator} and for the given
-   *         condition.
+   *         condition
    * @throws RuntimeException if the given condition is null
    */
   IAsLongAsMediator until(BooleanSupplier condition);

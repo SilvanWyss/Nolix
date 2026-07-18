@@ -25,7 +25,7 @@ public interface StringMappable {
    * @param delimiter
    * @return a concatenation of the {@link String} representations of the elements
    *         of the current {@link StringMappable} with the given separator in
-   *         between.
+   *         between
    * @throws RuntimeException if the given separator is null.
    */
   String toStringWithDelimiter(String delimiter);

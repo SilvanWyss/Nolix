@@ -42,8 +42,8 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
   /**
    * @param additionalSubStyle
    * @return a new {@link IStyle} from the current {@link IStyle} with the given
-   *         additionalSubStyle.
-   * @throws RuntimeException if the given additionalSubStyle is not valid.
+   *         additionalSubStyle
+   * @throws RuntimeException if the given additionalSubStyle is not valid
    * @throws RuntimeException if one of the given additionalSubStyles is null.
    */
   S withAdditionalSubStyle(ISelectingStyleWithSelectors additionalSubStyle);
@@ -51,7 +51,7 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
   /**
    * @param additionalSubStyles
    * @return a new {@link IStyle} from the current {@link IStyle} with the given
-   *         additionalSubStyles.
+   *         additionalSubStyles
    * @throws RuntimeException if the given additionalSubStyles is null
    * @throws RuntimeException if one of the given additionalSubStyles is null.
    */
@@ -60,7 +60,7 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
   /**
    * @param attachingAttributes
    * @return a new {@link IStyle} from the current {@link IStyle} with the given
-   *         attachingAttributes added.
+   *         attachingAttributes added
    * @throws RuntimeException if the given attachingAttributes is null
    * @throws RuntimeException if one of the given attachingAttributes is not
    *                          valid.
@@ -70,7 +70,7 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
   /**
    * @param attachingAttributes
    * @return a new {@link IStyle} from the current {@link IStyle} with the given
-   *         attachingAttributes added.
+   *         attachingAttributes added
    * @throws RuntimeException if the given attachingAttributes is null
    * @throws RuntimeException if one of the given attachingAttributes is not
    *                          valid.
@@ -80,7 +80,7 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
   /**
    * @param subStyles
    * @return a new {@link IStyle} from the current {@link IStyle} with the given
-   *         subStyles added.
+   *         subStyles added
    * @throws RuntimeException if the given subStyles is null
    * @throws RuntimeException if one of the given subStyles is not valid.
    */

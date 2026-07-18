@@ -36,7 +36,7 @@ final class ClientDataProviderController implements IDataProviderController {
 
   /**
    * @param client
-   * @return a new {@link ClientDataProviderController} for the given client.
+   * @return a new {@link ClientDataProviderController} for the given client
    * @throws RuntimeException if the given client is null.
    */
   public static ClientDataProviderController forClient(final AbstractClient<?> client) {

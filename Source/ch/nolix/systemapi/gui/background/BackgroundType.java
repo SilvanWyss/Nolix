@@ -16,7 +16,7 @@ public enum BackgroundType {
 
   /**
    * @param specification
-   * @return a new {@link BackgroundType} from the given specification.
+   * @return a new {@link BackgroundType} from the given specification
    * @throws RuntimeException if the given specification does not represent a
    *                          {@link BackgroundType}.
    */

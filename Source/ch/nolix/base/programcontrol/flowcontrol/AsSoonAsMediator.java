@@ -30,7 +30,7 @@ public final class AsSoonAsMediator implements IAsSoonAsMediator {
 
   /**
    * @param condition
-   * @return a new {@link AsSoonAsMediator} with the given condition.
+   * @return a new {@link AsSoonAsMediator} with the given condition
    * @throws RuntimeException if the given condition is null
    */
   public static AsSoonAsMediator withCondition(final BooleanSupplier condition) {

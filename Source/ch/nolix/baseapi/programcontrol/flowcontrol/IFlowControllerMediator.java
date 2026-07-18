@@ -15,14 +15,14 @@ import ch.nolix.baseapi.programcontrol.future.IResultFuture;
 public interface IFlowControllerMediator {
   /**
    * @param condition
-   * @return a new {@link IAsLongAsMediator} with the given condition.
+   * @return a new {@link IAsLongAsMediator} with the given condition
    * @throws RuntimeException if the given condition is null
    */
   IAsLongAsMediator asLongAs(BooleanSupplier condition);
 
   /**
    * @param condition
-   * @return a new {@link IAsSoonAsMediator} with the given condition.
+   * @return a new {@link IAsSoonAsMediator} with the given condition
    * @throws RuntimeException if the given condition is null
    */
   IAsSoonAsMediator asSoonAs(BooleanSupplier condition);
@@ -30,7 +30,7 @@ public interface IFlowControllerMediator {
   /**
    * @param condition
    * @return a new {@link IAsSoonAsMediator} with the negation of the given
-   *         condition.
+   *         condition
    * @throws RuntimeException if the given condition is null
    */
   IAsSoonAsMediator asSoonAsNoMore(BooleanSupplier condition);
@@ -39,14 +39,14 @@ public interface IFlowControllerMediator {
    * Enqueues the given job.
    * 
    * @param job
-   * @return a {@link IFuture} for the given job.
+   * @return a {@link IFuture} for the given job
    * @throws RuntimeException if the given job is null.
    */
   IFuture enqueue(Runnable job);
 
   /**
    * @param maxRunCount
-   * @return a new {@link IForCountMediator} with the given maxRunCount.
+   * @return a new {@link IForCountMediator} with the given maxRunCount
    * @throws RuntimeException if the given maxRunCount is negative.
    */
   IForCountMediator forCount(int maxRunCount);
@@ -54,7 +54,7 @@ public interface IFlowControllerMediator {
   /**
    * @param maxDurationInMilliseconds
    * @return a new {@link IForMaxMillisecondsMediator} for the given
-   *         maxDurationInMilliseconds.
+   *         maxDurationInMilliseconds
    * @throws RuntimeException if the given maxDurationInMilliseconds is negative.
    */
   IForMaxMillisecondsMediator forMaxMilliseconds(int maxDurationInMilliseconds);
@@ -62,7 +62,7 @@ public interface IFlowControllerMediator {
   /**
    * @param maxDurationInSeconds
    * @return a new {@link IForMaxMillisecondsMediator} for the given
-   *         maxDurationInSeconds.
+   *         maxDurationInSeconds
    * @throws RuntimeException if the given maxDurationInSeconds is negative.
    */
   IForMaxMillisecondsMediator forMaxSeconds(int maxDurationInSeconds);
@@ -71,7 +71,7 @@ public interface IFlowControllerMediator {
    * Runs the given job in background.
    * 
    * @param job
-   * @return a new {@link IFuture} for the execution of the given job.
+   * @return a new {@link IFuture} for the execution of the given job
    * @throws RuntimeException if the given job is null.
    */
   IFuture runInBackground(Runnable job);
@@ -81,8 +81,8 @@ public interface IFlowControllerMediator {
    * result.
    * 
    * @param resultJob
-   * @param <R>       is the type of the result the given resultJob returns.
-   * @return a new {@link IResultFuture} for the execution of the given resultJob.
+   * @param <R>       is the type of the result the given resultJob returns
+   * @return a new {@link IResultFuture} for the execution of the given resultJob
    * @throws RuntimeException if the given resultJob is null.
    */
   <R> IResultFuture<R> runInBackground(Supplier<R> resultJob);
@@ -90,7 +90,7 @@ public interface IFlowControllerMediator {
   /**
    * @param condition
    * @return a new {@link IAsLongAsMediator} for the negation of the given
-   *         condition.
+   *         condition
    * @throws RuntimeException if the given condition is null
    */
   IAsLongAsMediator until(BooleanSupplier condition);

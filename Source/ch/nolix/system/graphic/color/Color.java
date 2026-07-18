@@ -50,11 +50,11 @@ public final class Color extends AbstractElement implements IColor {
    * @param greenValue
    * @param blueValue
    * @throws RuntimeException if the given blueValue is not a true color component
-   *                          (in [0, 255]).
+   *                          (in [0, 255])
    * @throws RuntimeException if the given greenValue is not a true color
-   *                          component (in [0, 255]).
+   *                          component (in [0, 255])
    * @throws RuntimeException if the given blueValue is not a true color component
-   *                          (in [0, 255]).
+   *                          (in [0, 255])
    * @throws RuntimeException if the given alphaValue is not a true color
    *                          component (in [0, 255]).
    */
@@ -71,11 +71,11 @@ public final class Color extends AbstractElement implements IColor {
    * @param blueValue
    * @param alphaValue
    * @throws RuntimeException if the given blueValue is not a true color component
-   *                          (in [0, 255]).
+   *                          (in [0, 255])
    * @throws RuntimeException if the given greenValue is not a true color
-   *                          component (in [0, 255]).
+   *                          component (in [0, 255])
    * @throws RuntimeException if the given blueValue is not a true color component
-   *                          (in [0, 255]).
+   *                          (in [0, 255])
    * @throws RuntimeException if the given alphaValue is not a true color
    *                          component (in [0, 255]).
    */
@@ -136,7 +136,7 @@ public final class Color extends AbstractElement implements IColor {
 
   /**
    * @param color
-   * @return a new {@link Color} from the given color.
+   * @return a new {@link Color} from the given color
    * @throws NullPointerException if the given color is null.
    */
   public static Color fromColor(final IColor color) {
@@ -154,7 +154,7 @@ public final class Color extends AbstractElement implements IColor {
 
   /**
    * @param pLong
-   * @return a new {@link Color} from the given pLong.
+   * @return a new {@link Color} from the given pLong
    * @throws RuntimeException if the given pLong does not represent a
    *                          {@link Color}.
    */
@@ -194,7 +194,7 @@ public final class Color extends AbstractElement implements IColor {
 
   /**
    * @param string
-   * @return a new {@link Color} from the given string.
+   * @return a new {@link Color} from the given string
    * @throws RuntimeException if the given string does not represent a
    *                          {@link Color}.
    */
@@ -232,11 +232,11 @@ public final class Color extends AbstractElement implements IColor {
    * @param greenValue
    * @param blueValue
    * @return a new {@link Color} with the given redValue, greenValue and
-   *         blueValue.
+   *         blueValue
    * @throws RuntimeException if the given blueValue is not a true color component
-   *                          (in [0, 255]).
+   *                          (in [0, 255])
    * @throws RuntimeException if the given greenValue is not a true color
-   *                          component (in [0, 255]).
+   *                          component (in [0, 255])
    * @throws RuntimeException if the given blueValue is not a true color component
    *                          (in [0, 255]).
    */
@@ -253,13 +253,13 @@ public final class Color extends AbstractElement implements IColor {
    * @param blueValue
    * @param alphaValue
    * @return a new {@link Color} with the given redValue, greenValue, blueValue
-   *         and alphaValue.
+   *         and alphaValue
    * @throws RuntimeException if the given blueValue is not a true color component
-   *                          (in [0, 255]).
+   *                          (in [0, 255])
    * @throws RuntimeException if the given greenValue is not a true color
-   *                          component (in [0, 255]).
+   *                          component (in [0, 255])
    * @throws RuntimeException if the given blueValue is not a true color component
-   *                          (in [0, 255]).
+   *                          (in [0, 255])
    * @throws RuntimeException if the given alphaValue is not a true color
    *                          component (in [0, 255]).
    */
@@ -273,7 +273,7 @@ public final class Color extends AbstractElement implements IColor {
 
   /**
    * @param string
-   * @return the color component the given string represents.
+   * @return the color component the given string represents
    * @throws RuntimeException if the given string does not represent a color
    *                          component.
    */
@@ -308,7 +308,7 @@ public final class Color extends AbstractElement implements IColor {
    * @param hexadecimalDigit
    * @param string
    * @return the int the given hexadecimalDigit, that is from the given string,
-   *         represents.
+   *         represents
    * @InvalidArgumentException if the given hexadecimalDigit is not valid.
    */
   private static int mapHexadecimalDigitFromStringToInt( //NOSONAR: This method is uniform.

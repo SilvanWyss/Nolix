@@ -43,7 +43,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
 
   /**
    * @param argument
-   * @param <A>      is the type of the given argument.
+   * @param <A>      is the type of the given argument
    * @return a new {@link NamableObjectMediator} for given argument.
    */
   public static <A> NamableObjectMediator<A> assertThat(final A argument) {
@@ -135,7 +135,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
 
   /**
    * @param argument
-   * @param <A>      is the type of the elements of the given argument.
+   * @param <A>      is the type of the elements of the given argument
    * @return a new {@link NamableIterableMediator} for the given argument.
    */
   public static <A> NamableIterableMediator<A> assertThat(final Iterable<A> argument) {
@@ -175,7 +175,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
   /**
    * @param argument
    * @param <T>      is the type of the element of the given {@link Optional}
-   *                 argument.
+   *                 argument
    * @return a new {@link ExtendedOptionalMediator} for the given argument.
    */
   public static <T> ExtendedOptionalMediator<T> assertThat(
@@ -202,7 +202,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
 
   /**
    * @param arguments
-   * @return a new {@link MultiDoubleMediator} for the given arguments.
+   * @return a new {@link MultiDoubleMediator} for the given arguments
    * @throws RuntimeException if the given arguments is null.
    */
   public static MultiDoubleMediator assertThatTheDoubles(final Iterable<Double> arguments) {
@@ -211,8 +211,8 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
 
   /**
    * @param arguments
-   * @param <E>       is the type of the given arguments.
-   * @return a new {@link MultiArgumentMediator} for the given arguments.
+   * @param <E>       is the type of the given arguments
+   * @return a new {@link MultiArgumentMediator} for the given arguments
    * @throws RuntimeException if the given arguments is null.
    */
   public static <E> MultiArgumentMediator<E> assertThatTheElements(final E[] arguments) {
@@ -221,8 +221,8 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
 
   /**
    * @param arguments
-   * @param <E>       is the type of the given arguments.
-   * @return a new {@link MultiArgumentMediator} for the given arguments.
+   * @param <E>       is the type of the given arguments
+   * @return a new {@link MultiArgumentMediator} for the given arguments
    * @throws RuntimeException if the given arguments is null.
    */
   public static <E> MultiArgumentMediator<E> assertThatTheElements(final Iterable<E> arguments) {
@@ -231,7 +231,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
 
   /**
    * @param longs
-   * @return a new {@link MultiLongMediator} for the given longs.
+   * @return a new {@link MultiLongMediator} for the given longs
    * @throws RuntimeException if the given longs is null.
    */
   public static MultiLongMediator assertThatTheLongs(final Iterable<Long> longs) {
@@ -240,7 +240,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
 
   /**
    * @param arguments
-   * @return a new {@link MultiStringMediator} for the given arguments.
+   * @return a new {@link MultiStringMediator} for the given arguments
    * @throws RuntimeException if the given arguments is null.
    */
   public static MultiStringMediator assertThatTheStrings(final Iterable<String> arguments) {

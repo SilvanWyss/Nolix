@@ -28,7 +28,7 @@ public final class Future extends AbstractFuture {
 
   /**
    * @param jobExecutor
-   * @return a new {@link Future} with the given jobExecutor.
+   * @return a new {@link Future} with the given jobExecutor
    * @throws RuntimeException if the given jobExecutor is null.
    */
   public static Future forJobExecutor(final JobExecutor jobExecutor) {

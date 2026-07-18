@@ -22,7 +22,7 @@ public interface IAfterEveryMediator {
    * in the background.
    * 
    * @param job
-   * @return a new {@link IFuture}.
+   * @return a new {@link IFuture}
    * @throws RuntimeException if the given job is null.
    */
   IFuture runInBackground(Runnable job);

@@ -23,7 +23,7 @@ public final class Future extends AbstractFuture {
 
   /**
    * @param jobWrapper
-   * @return a new {@link Future} for the given jobWrapper.
+   * @return a new {@link Future} for the given jobWrapper
    * @throws RuntimeException if the given jobWrapper is null.
    */
   public static Future forJobWrapper(final JobWrapper jobWrapper) {

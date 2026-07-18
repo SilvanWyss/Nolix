@@ -12,7 +12,7 @@ package ch.nolix.baseapi.errorcontrol.exceptionargumentpreparator;
 public interface IExceptionErrorPredicatePreparator {
   /**
    * @param errorPredicate
-   * @return a validated error predicate from the given errorPredicate.
+   * @return a validated error predicate from the given errorPredicate
    * @throws IllegalArgumentException if the given errorPredicate is null, blank
    *                                  or ends with a dot.
    */

@@ -23,7 +23,7 @@ public final class NonPositiveArgumentException extends AbstractInvalidArgumentE
    * Creates a new {@link NonPositiveArgumentException} for the given argument and
    * argumentName.
    * 
-   * @param argument     - Can be null.
+   * @param argument     - Can be null
    * @param argumentName
    * @throws RuntimeException if the given argumentName is null or blank.
    */
@@ -56,10 +56,10 @@ public final class NonPositiveArgumentException extends AbstractInvalidArgumentE
   }
 
   /**
-   * @param argument     - Can be null.
+   * @param argument     - Can be null
    * @param argumentName
    * @return a new {@link NonPositiveArgumentException} for the given argument and
-   *         argumentName.
+   *         argumentName
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static NonPositiveArgumentException forArgumentAndArgumentName(
@@ -72,7 +72,7 @@ public final class NonPositiveArgumentException extends AbstractInvalidArgumentE
    * @param argument
    * @param argumentName
    * @return a new {@link NonPositiveArgumentException} for the given argument and
-   *         argumentName.
+   *         argumentName
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static NonPositiveArgumentException forArgumentAndArgumentName(
@@ -85,7 +85,7 @@ public final class NonPositiveArgumentException extends AbstractInvalidArgumentE
    * @param argument
    * @param argumentName
    * @return a new {@link NonPositiveArgumentException} for the given argument and
-   *         argumentName.
+   *         argumentName
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static NonPositiveArgumentException forArgumentAndArgumentName(

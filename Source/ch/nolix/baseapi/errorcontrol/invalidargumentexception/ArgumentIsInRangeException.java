@@ -109,7 +109,7 @@ public final class ArgumentIsInRangeException extends AbstractInvalidArgumentExc
    * @param min
    * @param max
    * @return a new {@link ArgumentIsInRangeException} for the given argument,
-   *         argumentName and range defined by the given min and max.
+   *         argumentName and range defined by the given min and max
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static ArgumentIsInRangeException forArgumentNameAndArgumentAndRangeWithMinAndMax(
@@ -126,7 +126,7 @@ public final class ArgumentIsInRangeException extends AbstractInvalidArgumentExc
    * @param min
    * @param max
    * @return a new {@link ArgumentIsInRangeException} for the given argument,
-   *         argumentName and range defined by the given min and max.
+   *         argumentName and range defined by the given min and max
    * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static ArgumentIsInRangeException forArgumentNameAndArgumentAndRangeWithMinAndMax(
