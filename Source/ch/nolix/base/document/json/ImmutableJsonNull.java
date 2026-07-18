@@ -3,7 +3,6 @@
  */
 package ch.nolix.base.document.json;
 
-import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.document.json.JsonNull;
 import ch.nolix.baseapi.document.json.JsonValueType;
@@ -32,8 +31,10 @@ implements JsonNull {
    * {@inheritDoc}
    */
   @Override
-  public String toFormattedStringWithIndentationLevel(final int indentationLevel) {
-    final var indentation = StringTool.createTabs(indentationLevel);
+  public String toFormattedStringWithIndentationLevelAndIndentationSymbol(
+    final int indentationLevel,
+    final String indentationSymbol) {
+    final var indentation = indentationSymbol.repeat(indentationLevel);
 
     return indentation + StringCatalog.LOWER_CASE_NULL;
   }

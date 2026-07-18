@@ -3,7 +3,6 @@
  */
 package ch.nolix.base.document.json;
 
-import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
@@ -70,12 +69,14 @@ public final class ImmutableJsonArray implements JsonArray {
    * {@inheritDoc}
    */
   @Override
-  public String toFormattedStringWithIndentationLevel(int indentationLevel) {
+  public String toFormattedStringWithIndentationLevelAndIndentationSymbol(
+    final int indentationLevel,
+    final String indentationSymbol) {
+    final var indentation = indentationSymbol.repeat(indentationLevel);
     if (objects.isEmpty()) {
-      return JsonStringPartCatalog.EMPTY_ARRAY_FLAT_STRING;
+      return indentation + JsonStringPartCatalog.EMPTY_ARRAY_FLAT_STRING;
     }
 
-    final var indentation = StringTool.createTabs(indentationLevel);
     final var incrementedIndentationLevel = indentationLevel + 1;
     final var incrementedIndentation = indentation + StringCatalog.TABULATOR;
 

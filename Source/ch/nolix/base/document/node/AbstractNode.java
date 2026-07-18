@@ -305,19 +305,24 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    * {@inheritDoc}
    */
   @Override
-  public final String toFormattedStringWithIndentationLevel(final int indentationLevel) {
+  public final String toFormattedStringWithIndentationLevelAndIndentationSymbol(
+    final int indentationLevel,
+    final String indentationSymbol) {
     final var stringBuilder = new StringBuilder();
-
-    stringBuilder.append(StringTool.createTabs(indentationLevel));
 
     // Handles the case that the current specification has a header.
     if (hasHeader()) {
-      stringBuilder.append(getReproducingHeader());
+      final var indentation = indentationSymbol.repeat(indentationLevel);
+
+      stringBuilder.append(indentation + getReproducingHeader());
     }
 
     // Handles the case that the current BaseNode contains child nodes.
     if (containsChildNodes()) {
-      appendFormattedStringRepresentationOfChildNodesToStringBuilder(indentationLevel, stringBuilder);
+      appendFormattedStringRepresentationOfChildNodesToStringBuilder(
+        indentationLevel,
+        indentationSymbol,
+        stringBuilder);
     }
 
     return stringBuilder.toString();
@@ -387,6 +392,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
 
   private void appendFormattedStringRepresentationOfChildNodesToStringBuilder(
     final int leadingTabulators,
+    final String indentationSymbol,
     final StringBuilder stringBuilder) {
     // Handles the case that all child nodes of the current BaseNode themselves do
     // not contain child nodes.
@@ -407,7 +413,8 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
       final var attributeCount = getChildNodeCount();
       var index = 1;
       for (final AbstractNode<?> cn : getStoredChildNodes()) {
-        stringBuilder.append(cn.toFormattedStringWithIndentationLevel(leadingTabulators + 1));
+        stringBuilder.append(
+          cn.toFormattedStringWithIndentationLevelAndIndentationSymbol(leadingTabulators + 1, indentationSymbol));
 
         if (index < attributeCount) {
           stringBuilder.append(CharacterCatalog.COMMA);
@@ -419,7 +426,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
       }
 
       stringBuilder
-        .append(StringTool.createTabs(leadingTabulators))
+        .append(indentationSymbol.repeat(leadingTabulators))
         .append(CharacterCatalog.CLOSED_BRACKET);
     }
   }
