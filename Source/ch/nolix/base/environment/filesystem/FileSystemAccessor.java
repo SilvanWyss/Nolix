@@ -362,12 +362,24 @@ public final class FileSystemAccessor {
   }
 
   /**
+   * Reads the content of the file with the given filePath to a text.
+   * 
+   * @param filePath
+   * @return the content of the file with the filePath as text
+   * @throws RuntimeException if there does not exist a file with the given
+   *                          filePath
+   */
+  public static String readFile(final String filePath) {
+    return FileAccessor.withFilePath(filePath).readFile();
+  }
+
+  /**
    * Reads the content of the file with the given filePath to bytes.
    * 
    * @param filePath
    * @return the bytes of the file with the given filePath
    * @throws RuntimeException if there does not exist a file with the given
-   *                          filePath in the file system on the local machine.
+   *                          filePath in the file system on the local machine
    */
   public static byte[] readFileToBytes(final String filePath) {
     return FileAccessor.withFilePath(filePath).readFileToBytes();
