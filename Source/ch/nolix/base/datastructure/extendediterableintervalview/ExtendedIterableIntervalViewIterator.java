@@ -61,7 +61,7 @@ final class ExtendedIterableIntervalViewIterator<E> implements CopyableIterator<
    * @param parentContainer
    * @param startIndex
    * @param endIndex
-   * @param <T>             is the type of the elements of the created
+   * @param <T> the type of the elements of the created
    *                        {@link ExtendedIterableIntervalViewIterator}
    * @return a new {@link ExtendedIterableIntervalViewIterator} for the given
    *         parentContainer, startIndex and endIndex

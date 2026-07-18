@@ -44,7 +44,7 @@ public final class ArrayList<E> extends AbstractExtendedIterable<E> implements I
    * The time complexity of this implementation is O(n) when n elements are given.
    * 
    * @param elements
-   * @param <T>      is the type of the given elements
+   * @param <T> the type of the given elements
    * @return a new {@link ArrayList} with the given elements
    * @throws RuntimeException if the given elements is null
    * @throws RuntimeException if one of the given elements is null
@@ -62,7 +62,7 @@ public final class ArrayList<E> extends AbstractExtendedIterable<E> implements I
    * The time complexity of this implementation is O(1).
    * 
    * @param initialCapacity
-   * @param <T>             is the type of the elements of the created
+   * @param <T> the type of the elements of the created
    *                        {@link ArrayList}
    * @return a new {@link ArrayList} with the given initialCapacity
    * @throws RuntimeException if the given initialCapacity is negative
@@ -83,7 +83,7 @@ public final class ArrayList<E> extends AbstractExtendedIterable<E> implements I
    * The time complexity of this implementation is O(1).
    * 
    * @param container
-   * @param <T>       is the type of the elements of the created {@link ArrayList}
+   * @param <T> the type of the elements of the created {@link ArrayList}
    * @return a new {@link ArrayList} with a initialCapacity that is the size of
    *         the given container
    * @throws NullPointerException if the given container is null.

@@ -93,7 +93,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @param defaultValue
    * @param setter
    * @param valueMapper
-   * @param <E>          is the type of the value of a {@link Value}
+   * @param <E> the type of the value of a {@link Value}
    * @return a new {@link Value} with the given name, defaultValue, setter and
    *         valueMapper and and that can store a {@link IElement}
    * @throws RuntimeException if the given name is null or blank
@@ -154,7 +154,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @param setter
    * @param valueMapper
    * @param specificationMapper
-   * @param <T>                 is the type of the value of the created
+   * @param <T> the type of the value of the created
    *                            {@link Value}
    * @return a new {@link Value} with the given name, defaultValue, setter,
    *         valueMapper and specificationMapper

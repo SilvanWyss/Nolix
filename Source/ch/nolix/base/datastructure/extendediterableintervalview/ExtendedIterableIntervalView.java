@@ -69,7 +69,7 @@ public final class ExtendedIterableIntervalView<E> extends AbstractExtendedItera
    * @param extendedIterable
    * @param startIndex
    * @param endIndex
-   * @param <T>              is the type of the elements of the created
+   * @param <T> the type of the elements of the created
    *                         {@link ExtendedIterableIntervalView}
    * @return a new {@link ExtendedIterableIntervalView} with the given
    *         extendedIterable, startIndex and endIndex

@@ -26,7 +26,7 @@ public final class MultiArgumentMediator<A> extends AbstractMultiArgumentMediato
 
   /**
    * @param arguments
-   * @param <T>       is the type of the arguments of the created
+   * @param <T> the type of the arguments of the created
    *                  {@link MultiArgumentMediator}
    * @return a new {@link MultiArgumentMediator} for the given arguments
    * @throws RuntimeException if the given arguments is null.
@@ -39,7 +39,7 @@ public final class MultiArgumentMediator<A> extends AbstractMultiArgumentMediato
 
   /**
    * @param arguments
-   * @param <T>       is the type of the arguments of the created
+   * @param <T> the type of the arguments of the created
    *                  {@link MultiArgumentMediator}
    * @return a new {@link MultiArgumentMediator} for the given arguments
    * @throws RuntimeException if the given arguments is null.

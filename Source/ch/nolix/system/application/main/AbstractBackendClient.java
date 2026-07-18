@@ -137,7 +137,7 @@ implements IBackendClient<S> {
    * Pushes the given session to the current {@link AbstractBackendClient}.
    * 
    * @param session
-   * @param <R>     is the type of the returned result
+   * @param <R> the type of the returned result
    * @return the result from the given session
    * @throws RuntimeException if the given session is null.
    */

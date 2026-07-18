@@ -41,7 +41,7 @@ public interface SingleSearchable<E> {
 
   /**
    * @param comparableMapper
-   * @param <C>              is the type of the {@link Comparable}s the given
+   * @param <C> the type of the {@link Comparable}s the given
    *                         comparableMapper maps from the elements of the
    *                         current {@link SingleSearchable}
    * @return the element with the biggest {@link Comparable} the given
@@ -55,7 +55,7 @@ public interface SingleSearchable<E> {
 
   /**
    * @param comparableMapper
-   * @param <C>              is the type of the {@link Comparable}s the given
+   * @param <C> the type of the {@link Comparable}s the given
    *                         comparableMapper maps from the elements of the
    *                         current {@link SingleSearchable}
    * @return the element with the smallest {@link Comparable} the given

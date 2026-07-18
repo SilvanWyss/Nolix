@@ -133,7 +133,7 @@ public final class FlowController {
    * result.
    * 
    * @param resultJob
-   * @param <R>       is the type of the result of the given resultJob
+   * @param <R> the type of the result of the given resultJob
    * @return a new {@link IResultFuture} for the execution of the given resultJob
    * @throws RuntimeException if the given resultJob is null.
    */

@@ -81,7 +81,7 @@ public interface IFlowControllerMediator {
    * result.
    * 
    * @param resultJob
-   * @param <R>       is the type of the result the given resultJob returns
+   * @param <R> the type of the result the given resultJob returns
    * @return a new {@link IResultFuture} for the execution of the given resultJob
    * @throws RuntimeException if the given resultJob is null.
    */

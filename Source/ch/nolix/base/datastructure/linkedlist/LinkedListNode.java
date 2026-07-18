@@ -32,7 +32,7 @@ public final class LinkedListNode<E> {
 
   /**
    * @param element
-   * @param <T>     is the type of the given element
+   * @param <T> the type of the given element
    * @return a new {@link LinkedListNode} with the given element
    * @throws RuntimeException if the given element is null.
    */

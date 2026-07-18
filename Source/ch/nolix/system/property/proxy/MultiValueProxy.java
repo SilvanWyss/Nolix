@@ -70,7 +70,7 @@ public final class MultiValueProxy<V> implements IMultiValueProxy {
    * @param getter
    * @param valueMapper
    * @param specificationMapper
-   * @param <T>                 is the type of the values the created
+   * @param <T> the type of the values the created
    *                            {@link MultiValueProxy} forwards
    * @return a new {@link MultiValueProxy} with the given name, adder, getter,
    *         valueMapper and specificationMapper

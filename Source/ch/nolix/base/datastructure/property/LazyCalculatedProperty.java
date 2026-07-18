@@ -40,7 +40,7 @@ public final class LazyCalculatedProperty<V> implements ILazyCalculatedProperty<
   /**
    * @param valueCreator
    * @param needToUpdateSupplier
-   * @param <V2>                 is the type of the value of the created
+   * @param <V2> the type of the value of the created
    *                             {@link LazyCalculatedProperty}
    * @return a new {@link LazyCalculatedProperty} with the given valueCreator and
    *         needToUpdateSupplier
@@ -55,7 +55,7 @@ public final class LazyCalculatedProperty<V> implements ILazyCalculatedProperty<
 
   /**
    * @param valueCreator
-   * @param <V2>         is the type of the value of the created
+   * @param <V2> the type of the value of the created
    *                     {@link LazyCalculatedProperty}
    * @return a new {@link LazyCalculatedProperty} with the given valueCreator
    * @throws RuntimeException if the given valueCreator is null.

@@ -19,7 +19,7 @@ public final class NamableObjectMediator<A> extends AbstractObjectMediator<A> {
 
   /**
    * @param argument
-   * @param <T>      is the type of the given argument
+   * @param <T> the type of the given argument
    * @return a new {@link NamableObjectMediator} for the given argument.
    */
   public static <T> NamableObjectMediator<T> forArgument(final T argument) {
