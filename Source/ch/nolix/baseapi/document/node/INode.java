@@ -35,14 +35,14 @@ extends BlanknessRequestable, FormattedStringRepresentable, OptionalHeaderHolder
   /**
    * @param selector
    * @return true if the current {@link INode} contains a child {@link INode} the
-   *         given selector selects, false otherwise.
+   *         given selector selects, false otherwise
    */
   boolean containsChildNodeThat(Predicate<INode<?>> selector);
 
   /**
    * @param header
    * @return true if the current {@link INode} contains a child {@link INode} with
-   *         the given header, false otherwise.
+   *         the given header, false otherwise
    */
   boolean containsChildNodeWithHeader(String header);
 

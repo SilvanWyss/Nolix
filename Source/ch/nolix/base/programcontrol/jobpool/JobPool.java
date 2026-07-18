@@ -46,7 +46,7 @@ public final class JobPool {
   }
 
   /**
-   * @return true if the current {@link JobPool} is idle, false otherwise.
+   * @return true if the current {@link JobPool} is idle, false otherwise
    */
   public boolean isIdle() {
     return jobWrappers.containsAny();

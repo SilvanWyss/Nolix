@@ -160,7 +160,7 @@ public abstract class AbstractThrownExceptionMediator { //NOSONAR: A AbstractThr
 
   /**
    * @return true if the current {@link AbstractThrownExceptionMediator} has an
-   *         exception, false otherwise.
+   *         exception, false otherwise
    */
   protected final boolean hasException() {
     return nullableException != null;

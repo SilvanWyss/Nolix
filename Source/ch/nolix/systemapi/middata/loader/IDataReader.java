@@ -105,7 +105,7 @@ public interface IDataReader extends GroupCloseable, DatabaseNameHolder {
    * @param tableName
    * @param entityId
    * @return true if the table with the given tableName contains an entity with
-   *         the given entityId on the database, false otherwise.
+   *         the given entityId on the database, false otherwise
    * @throws RuntimeException if the current {@link IDataReader} is closed.
    */
   boolean tableContainsEntity(String tableName, String entityId);
@@ -128,7 +128,7 @@ public interface IDataReader extends GroupCloseable, DatabaseNameHolder {
    * @param entitiesToIgnoreIds
    * @return true if the table with the given tableName contains in the column
    *         with the given columnName the given value ignoring the entities with
-   *         the given entitiesToIgnoreIds on the database, false otherwise.
+   *         the given entitiesToIgnoreIds on the database, false otherwise
    * @throws RuntimeException if the current {@link IDataReader} is closed.
    */
   boolean tableContainsEntityWithValueAtColumnIgnoringEntities(

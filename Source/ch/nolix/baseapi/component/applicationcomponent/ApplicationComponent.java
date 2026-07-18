@@ -13,7 +13,7 @@ package ch.nolix.baseapi.component.applicationcomponent;
 public interface ApplicationComponent<A> {
   /**
    * @return true if the current {@link ApplicationComponent} belongs to an
-   *         application, false otherwise.
+   *         application, false otherwise
    */
   boolean belongsToApplication();
 

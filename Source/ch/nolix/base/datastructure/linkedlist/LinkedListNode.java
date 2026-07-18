@@ -44,7 +44,7 @@ public final class LinkedListNode<E> {
   /**
    * @param selector
    * @return true if the current {@link LinkedListNode} contains an element the
-   *         given selector selects, false otherwise.
+   *         given selector selects, false otherwise
    */
   public boolean contains(final Predicate<E> selector) {
     return selector.test(memberElement);
@@ -54,7 +54,7 @@ public final class LinkedListNode<E> {
   /**
    * @param element
    * @return true if the current {@link LinkedListNode} contains the given
-   *         element, false otherwise.
+   *         element, false otherwise
    */
   public boolean contains(final Object element) {
     return (memberElement == element);

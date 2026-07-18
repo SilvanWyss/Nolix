@@ -10,7 +10,7 @@ public interface IItemMenuExaminer {
   /**
    * @param itemMenu
    * @param item
-   * @return true if the given itemMenu can add the given item, false otherwise.
+   * @return true if the given itemMenu can add the given item, false otherwise
    */
   boolean canAddItem(IItemMenu<?, ?> itemMenu, IItemMenuItem<?> item);
 }

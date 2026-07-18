@@ -87,7 +87,7 @@ public final class LicenseManagerUnit {
    * @param featureType
    * @param <F>         is the given featureType.
    * @return true if the current {@link LicenseManagerUnit} contains a
-   *         {@link AbstractFeature} of the given featureType, false otherwise.
+   *         {@link AbstractFeature} of the given featureType, false otherwise
    */
   public <F extends AbstractFeature> boolean containsFeature(final Class<F> featureType) {
     try {
@@ -108,7 +108,7 @@ public final class LicenseManagerUnit {
    * @param licenseType
    * @param <L>         is the given licenseType.
    * @return true if the current {@link LicenseManagerUnit} contains a
-   *         {@link AbstractLicense} of the given licenseType, false otherwise.
+   *         {@link AbstractLicense} of the given licenseType, false otherwise
    */
   public <L extends AbstractLicense> boolean containsLicense(final Class<L> licenseType) {
     return abstractLicenses.containsMatching(l -> l.getClass() == licenseType);

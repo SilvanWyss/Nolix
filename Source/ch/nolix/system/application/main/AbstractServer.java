@@ -241,7 +241,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
 
   /**
    * @return true if the current {@link AbstractServer} contains a default
-   *         {@link Application}, false otherwise.
+   *         {@link Application}, false otherwise
    */
   public final boolean containsDefaultApplication() {
     return (memberDefaultApplication != null);
@@ -250,7 +250,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
   /**
    * @param name
    * @return true if the current {@link AbstractServer} contains a
-   *         {@link Application} with the given name, false otherwise.
+   *         {@link Application} with the given name, false otherwise
    */
   public final boolean containsApplicationWithName(final String name) {
     return applications.containsMatching(a -> a.getInstanceName().equals(name));
@@ -323,7 +323,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
 
   /**
    * @return true if the current {@link AbstractServer} has a
-   *         {@link AbstractClient} connected, false otherwise.
+   *         {@link AbstractClient} connected, false otherwise
    */
   public final boolean hasClientConnected() {
     return applications.containsMatching(Application::hasClientConnected);

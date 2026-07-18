@@ -160,7 +160,7 @@ public final class FlowController {
    * job will not run properly.
    * 
    * @param job
-   * @return true if the given job runs successfully, false otherwise.
+   * @return true if the given job runs successfully, false otherwise
    */
   public static boolean runInEnclosedModeAndGetSuccessFlag(final Runnable job) {
     try {

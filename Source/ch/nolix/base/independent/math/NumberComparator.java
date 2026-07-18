@@ -18,7 +18,7 @@ public final class NumberComparator {
   /**
    * @param value1
    * @param value2
-   * @return true if the given value1 and value2 are equal, false otherwise.
+   * @return true if the given value1 and value2 are equal, false otherwise
    */
   public static boolean areEqual(final double value1, final double value2) {
     if (value1 < value2) {
@@ -30,7 +30,7 @@ public final class NumberComparator {
 
   /**
    * @param value
-   * @return true if the given value is 1.0, false otherwise.
+   * @return true if the given value is 1.0, false otherwise
    */
   public static boolean isOne(final double value) {
     return //
@@ -40,7 +40,7 @@ public final class NumberComparator {
 
   /**
    * @param value
-   * @return true if the given value is 0.0, false otherwise.
+   * @return true if the given value is 0.0, false otherwise
    */
   public static boolean isZero(final double value) {
     return //

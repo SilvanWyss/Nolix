@@ -188,7 +188,7 @@ public final class Polynom {
   /**
    * @param polynom
    * @return true if the current {@link Polynom} has the same degree as the given
-   *         polynom, false otherwise.
+   *         polynom, false otherwise
    */
   public boolean hasSameDegreeAs(final Polynom polynom) {
     return (polynom != null && getDegree() == polynom.getDegree());

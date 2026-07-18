@@ -11,19 +11,19 @@ import java.lang.reflect.Member;
 public interface IMemberExaminer {
   /**
    * @param member
-   * @return true if the given member is private, false otherwise.
+   * @return true if the given member is private, false otherwise
    */
   boolean isPrivate(Member member);
 
   /**
    * @param member
-   * @return true if the given member is protected, false otherwise.
+   * @return true if the given member is protected, false otherwise
    */
   boolean isProtected(Member member);
 
   /**
    * @param member
-   * @return true if the given member is public, false otherwise.
+   * @return true if the given member is public, false otherwise
    */
   boolean isPublic(Member member);
 }

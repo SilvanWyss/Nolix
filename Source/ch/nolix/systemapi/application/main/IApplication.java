@@ -60,7 +60,7 @@ public interface IApplication<C extends IBackendClient<S>, S> extends ClientMana
 
   /**
    * @return true if the current {@link IApplication} has a {@link IBackendClient}
-   *         connected, false otherwise.
+   *         connected, false otherwise
    */
   boolean hasClientConnected();
 

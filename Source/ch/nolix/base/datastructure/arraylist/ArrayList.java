@@ -343,7 +343,7 @@ public final class ArrayList<E> extends AbstractExtendedIterable<E> implements I
   /**
    * @param requiredCapacity
    * @return true if the current {@ink ArrayList} needs to grow to reach the
-   *         capacity the given requiredCapacity says, false otherwise.
+   *         capacity the given requiredCapacity says, false otherwise
    */
   private boolean needsToGrowForRequiredCapacity(final int requiredCapacity) {
     return ArrayListCapacityCalculator.arrayListNeedsToGrowForRequiredCapacity(getCapacity(), requiredCapacity);

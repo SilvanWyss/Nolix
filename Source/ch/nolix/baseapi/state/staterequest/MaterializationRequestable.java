@@ -23,7 +23,7 @@ package ch.nolix.baseapi.state.staterequest;
 public interface MaterializationRequestable {
   /**
    * @return true if the current {@link MaterializationRequestable} is
-   *         materialized, false otherwise.
+   *         materialized, false otherwise
    */
   boolean isMaterialized();
 

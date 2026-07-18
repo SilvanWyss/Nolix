@@ -35,13 +35,13 @@ public interface IIterableExaminer {
    * @param iterable
    * @param stringRepresentation
    * @return true if the given iterable contains exactly 1 element with the given
-   *         stringRepresentation, false otherwise.
+   *         stringRepresentation, false otherwise
    */
   boolean containsExactlyOneWithStringRepresentation(Iterable<?> iterable, String stringRepresentation);
 
   /**
    * @param iterable
-   * @return true if the given iterable is empty, false otherwise.
+   * @return true if the given iterable is empty, false otherwise
    * @throws RuntimeException if the given iterable is null
    */
   boolean isEmpty(Iterable<?> iterable);

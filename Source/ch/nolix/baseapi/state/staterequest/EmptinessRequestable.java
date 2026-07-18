@@ -12,7 +12,7 @@ package ch.nolix.baseapi.state.staterequest;
 public interface EmptinessRequestable {
   /**
    * @return true if the current {@link EmptinessRequestable} contains one or
-   *         several elements, false otherwise.
+   *         several elements, false otherwise
    */
   default boolean containsAny() {
     return !isEmpty();

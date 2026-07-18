@@ -17,7 +17,7 @@ public interface ChangeRequestable {
 
   /**
    * @return true if the current {@link ChangeRequestable} does not have
-   *         uncommitted changes, false otherwise.
+   *         uncommitted changes, false otherwise
    */
   default boolean isChangeFree() {
     return !hasChanges();

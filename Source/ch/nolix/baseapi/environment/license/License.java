@@ -22,7 +22,7 @@ public interface License {
   String getName();
 
   /**
-   * @return true if the current {@link License} is activated, false otherwise.
+   * @return true if the current {@link License} is activated, false otherwise
    */
   boolean isActivated();
 }

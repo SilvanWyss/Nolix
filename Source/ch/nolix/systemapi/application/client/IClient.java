@@ -27,7 +27,7 @@ public interface IClient extends ConnectionSideRequestable, GroupCloseable, ISec
 
   /**
    * @return true if the current {@link IClient} has the URL instance name of its
-   *         target application, false otherwise.
+   *         target application, false otherwise
    */
   boolean hasUrlInstanceNameOfTargetApplication();
 }

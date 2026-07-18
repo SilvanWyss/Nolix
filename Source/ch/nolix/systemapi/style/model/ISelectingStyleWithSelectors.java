@@ -41,13 +41,13 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
 
   /**
    * @return true if the current {@link ISelectingStyleWithSelectors} has a
-   *         selector id, false otherwise.
+   *         selector id, false otherwise
    */
   boolean hasSelectorId();
 
   /**
    * @return true if the current {@link ISelectingStyleWithSelectors} has a
-   *         selector type, false otherwise.
+   *         selector type, false otherwise
    */
   boolean hasSelectorType();
 

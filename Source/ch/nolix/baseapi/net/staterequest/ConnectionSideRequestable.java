@@ -12,13 +12,13 @@ package ch.nolix.baseapi.net.staterequest;
 public interface ConnectionSideRequestable {
   /**
    * @return true if the current {@link ConnectionSideRequestable} is on the
-   *         back-end, false otherwise.
+   *         back-end, false otherwise
    */
   boolean isOnBackend();
 
   /**
    * @return true if the current {@link ConnectionSideRequestable} is on the
-   *         front-end, false otherwise.
+   *         front-end, false otherwise
    */
   default boolean isOnFrontend() {
     return !isOnBackend();

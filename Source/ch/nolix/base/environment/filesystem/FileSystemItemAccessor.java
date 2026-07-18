@@ -105,7 +105,7 @@ public class FileSystemItemAccessor {
 
   /**
    * @return true if the file system item is a file in the file system on the
-   *         local machine, false otherwise.
+   *         local machine, false otherwise
    */
   public final boolean isFile() {
     return getInternalAccessor().isFile();
@@ -113,7 +113,7 @@ public class FileSystemItemAccessor {
 
   /**
    * @return true if this path is a folder in the file system on the local
-   *         machine, false otherwise.
+   *         machine, false otherwise
    */
   public final boolean isFolder() {
     return getInternalAccessor().isDirectory();

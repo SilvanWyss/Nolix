@@ -20,7 +20,7 @@ public interface IEntityExaminer extends IDatabaseObjectExaminer {
 
   /**
    * @param entity
-   * @return true if the given entity can be deleted, false otherwise.
+   * @return true if the given entity can be deleted, false otherwise
    */
   boolean canBeDeleted(IEntity entity);
 
@@ -43,28 +43,28 @@ public interface IEntityExaminer extends IDatabaseObjectExaminer {
    * @param entity
    * @param table
    * @return true if the given table can be set as parent table to the given
-   *         entity, false otherwise.
+   *         entity, false otherwise
    */
   boolean canSetParentTable(IEntity entity, ITable<? extends IEntity> table);
 
   /**
    * @param entity
    * @return true if the given entity is referenced ignoring the locally deleted
-   *         {@link IEntity}s, false otherwise.
+   *         {@link IEntity}s, false otherwise
    */
   boolean isReferencedIgnoringLocallyDeletedEntities(IEntity entity);
 
   /**
    * @param entity
    * @return true if the given entity is referenced in the local data ignoring the
-   *         locally deleted {@link IEntity}s, false otherwise.
+   *         locally deleted {@link IEntity}s, false otherwise
    */
   boolean isReferencedInLocalDataIgnoringLocallyDeletedEntities(IEntity entity);
 
   /**
    * @param entity
    * @return true if the given entity is referenced in the persisted data ignoring
-   *         the locally deleted {@link IEntity}s, false otherwise.
+   *         the locally deleted {@link IEntity}s, false otherwise
    */
   boolean isReferencedInPersistedDataIgnoringLocallyDeletedEntities(IEntity entity);
 

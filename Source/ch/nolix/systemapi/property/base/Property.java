@@ -17,7 +17,7 @@ public interface Property extends MaterializationRequestable {
    * 
    * @param attribute
    * @return true if the given attribute was added or changed to the current
-   *         {@link Property}, false otherwise.
+   *         {@link Property}, false otherwise
    * @throws RuntimeException if the given attribute is for the current
    *                          {@link Property}, but is not valid.
    */

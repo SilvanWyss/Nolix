@@ -13,7 +13,7 @@ public interface ITableExaminer {
   /**
    * @param table
    * @param column
-   * @return true if the given table contains the given column, false otherwise.
+   * @return true if the given table contains the given column, false otherwise
    */
   boolean containsColumn(ITable table, IColumn column);
 
@@ -21,7 +21,7 @@ public interface ITableExaminer {
    * @param table
    * @param column
    * @return true if the given table contains a {@link IColumn} that is back
-   *         referenced by the given column, false otherwise.
+   *         referenced by the given column, false otherwise
    */
   boolean containsColumnThatIsBackReferencedByColumn(ITable table, IColumn column);
 
@@ -29,7 +29,7 @@ public interface ITableExaminer {
    * @param table
    * @param column
    * @return true if the given table contains a {@link IColumn} that referenced
-   *         back the given column, false otherwise.
+   *         back the given column, false otherwise
    */
   boolean containsColumnThatReferencesBackColumn(ITable table, IColumn column);
 
@@ -37,7 +37,7 @@ public interface ITableExaminer {
    * @param table
    * @param otherTable
    * @return true if the given table contains a {@link IColumn} that references
-   *         the given otherTable, false otherwise.
+   *         the given otherTable, false otherwise
    */
   boolean containsColumnThatReferencesTable(ITable table, ITable otherTable);
 
@@ -51,7 +51,7 @@ public interface ITableExaminer {
 
   /**
    * @param table
-   * @return true if the given table is referenced, false otherwise.
+   * @return true if the given table is referenced, false otherwise
    */
   boolean isReferenced(ITable table);
 }

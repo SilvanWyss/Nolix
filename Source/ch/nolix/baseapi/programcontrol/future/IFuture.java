@@ -14,7 +14,7 @@ import ch.nolix.baseapi.programcontrol.process.FinishRequestable;
  */
 public interface IFuture extends FinishRequestable {
   /**
-   * @return true if the current {@link IFuture} caught an error, false otherwise.
+   * @return true if the current {@link IFuture} caught an error, false otherwise
    */
   boolean caughtError();
 

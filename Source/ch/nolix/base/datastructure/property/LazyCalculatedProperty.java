@@ -95,7 +95,7 @@ public final class LazyCalculatedProperty<V> implements ILazyCalculatedProperty<
 
   /**
    * @return true if the current {@link LazyCalculatedProperty} is required to
-   *         update, false otherwise.
+   *         update, false otherwise
    */
   private boolean updateIsRequired() {
     return //

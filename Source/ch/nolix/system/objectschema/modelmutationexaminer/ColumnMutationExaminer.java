@@ -64,7 +64,7 @@ public final class ColumnMutationExaminer implements IColumnMutationExaminer {
    * @param column
    * @param name
    * @return true if the given name can be set to the given column because of the
-   *         optional parent {@link ITable} of the given column, false otherwise.
+   *         optional parent {@link ITable} of the given column, false otherwise
    */
   private boolean canSetNameBecauseOfOptionalParentTable( //NOSONAR: This method is an instance method.
     final IColumn column,

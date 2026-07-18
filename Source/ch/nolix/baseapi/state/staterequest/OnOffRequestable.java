@@ -10,12 +10,12 @@ package ch.nolix.baseapi.state.staterequest;
  */
 public interface OnOffRequestable {
   /**
-   * @return true if the current {@link OnOffRequestable} is off, false otherwise.
+   * @return true if the current {@link OnOffRequestable} is off, false otherwise
    */
   boolean isOff();
 
   /**
-   * @return true if the current {@link OnOffRequestable} is on, false otherwise.
+   * @return true if the current {@link OnOffRequestable} is on, false otherwise
    */
   boolean isOn();
 

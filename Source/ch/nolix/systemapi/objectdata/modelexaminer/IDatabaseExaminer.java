@@ -13,13 +13,13 @@ public interface IDatabaseExaminer extends IDatabaseObjectExaminer {
   /**
    * @param database
    * @return true if all new and edited mandatory fields of the given database are
-   *         set, false otherwise.
+   *         set, false otherwise
    */
   boolean allNewAndEditedMandatoryFieldsAreSet(IDatabase database);
 
   /**
    * @param database
-   * @return true if the given database can save its chances, false otherwise.
+   * @return true if the given database can save its chances, false otherwise
    */
   boolean canSaveChanges(IDatabase database);
 }

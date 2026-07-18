@@ -23,7 +23,7 @@ public final class ArrayListCapacityCalculator {
    * @param capacity
    * @param requiredCapacity
    * @return true if an array list with the given capacity needs to grow to reach
-   *         the given requiredCapacity, false otherwise.
+   *         the given requiredCapacity, false otherwise
    */
   public static boolean arrayListNeedsToGrowForRequiredCapacity(final int capacity, final int requiredCapacity) {
     return (requiredCapacity > capacity);

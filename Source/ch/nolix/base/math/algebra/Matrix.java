@@ -588,7 +588,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   /**
    * @param matrix
    * @return true if the current {@link Matrix} has the same size as the given
-   *         matrix, false otherwise.
+   *         matrix, false otherwise
    */
   public boolean hasSameSize(Matrix matrix) {
     return (getRowCount() == matrix.getRowCount() && getColumnCount() == matrix.getColumnCount());
@@ -623,7 +623,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   }
 
   /**
-   * @return true if the current {@link Matrix} is regular, false otherwise.
+   * @return true if the current {@link Matrix} is regular, false otherwise
    */
   public boolean isRegular() {
     return (isQuadratic() && getRank() == getRowCount());

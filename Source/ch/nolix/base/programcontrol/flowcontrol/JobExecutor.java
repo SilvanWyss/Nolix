@@ -382,7 +382,7 @@ public final class JobExecutor extends Thread {
   }
 
   /**
-   * @return true if the current {@link JobExecutor} is finished, false otherwise.
+   * @return true if the current {@link JobExecutor} is finished, false otherwise
    */
   public boolean isFinished() {
     return hasStarted() && !isRunning();
@@ -397,7 +397,7 @@ public final class JobExecutor extends Thread {
   }
 
   /**
-   * @return true if the current {@link JobExecutor} is running, false otherwise.
+   * @return true if the current {@link JobExecutor} is running, false otherwise
    */
   public boolean isRunning() {
     return running;
@@ -426,7 +426,7 @@ public final class JobExecutor extends Thread {
 
   /**
    * @return true if the current {@link JobExecutor} has a max run count and has
-   *         reached it, false otherwise.
+   *         reached it, false otherwise
    */
   private boolean reachedProbableMaxRunCount() {
     return (hasMaxRunCount() && finishedStepRunCount >= optionalMaxStepRunCount);
@@ -459,7 +459,7 @@ public final class JobExecutor extends Thread {
 
   /**
    * @return true if the current {@link JobExecutor} has a condition and violates
-   *         it, false otherwise.
+   *         it, false otherwise
    */
   private boolean violatesProbableCondition() {
     return (hasCondition() && !optionalNextStepRunCondition.getAsBoolean());

@@ -36,25 +36,25 @@ public interface IFieldExaminer extends IDatabaseObjectExaminer {
 
   /**
    * @param field
-   * @return true if the given field is for multi content, false otherwise.
+   * @return true if the given field is for multi content, false otherwise
    */
   boolean isForMultiContent(IField field);
 
   /**
    * @param field
-   * @return true if the given field is for single content, false otherwise.
+   * @return true if the given field is for single content, false otherwise
    */
   boolean isForSingleContent(IField field);
 
   /**
    * @param field
-   * @return true if the given field is mandatory but empty, false otherwise.
+   * @return true if the given field is mandatory but empty, false otherwise
    */
   boolean isMandatoryButEmpty(IField field);
 
   /**
    * @param field
-   * @return true if the given field is new or edited but set, false otherwise.
+   * @return true if the given field is new or edited but set, false otherwise
    */
   boolean isSetForCaseWhenIsMandatoryAndNewOrEdited(IField field);
 }

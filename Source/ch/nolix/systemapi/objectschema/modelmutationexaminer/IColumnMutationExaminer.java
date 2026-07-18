@@ -15,7 +15,7 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 public interface IColumnMutationExaminer {
   /**
    * @param column
-   * @return true if the given column can be deleted, false otherwise.
+   * @return true if the given column can be deleted, false otherwise
    */
   boolean canBeDeleted(IColumn column);
 
