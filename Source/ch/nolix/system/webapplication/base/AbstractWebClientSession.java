@@ -12,8 +12,8 @@ import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
  * @author Silvan Wyss
  * @param <C> the type of the {@link AbstractWebClient} of a
  *            {@link AbstractWebClientSession}.
- * @param <S> the type of the application service of the {@link IApplication}
- *            of the {@link AbstractWebClient} of a
+ * @param <S> the type of the application service of the {@link IApplication} of
+ *            the {@link AbstractWebClient} of a
  *            {@link AbstractWebClientSession}.
  */
 public abstract class AbstractWebClientSession<C extends AbstractWebClient<C, S>, S> extends AbstractSession<C, S> {

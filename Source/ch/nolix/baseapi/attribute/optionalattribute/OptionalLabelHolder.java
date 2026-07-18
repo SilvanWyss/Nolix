@@ -19,8 +19,7 @@ public interface OptionalLabelHolder {
   String getLabel();
 
   /**
-   * @return the label of the current {@link OptionalLabelHolder} in single
-   *         quotes
+   * @return the label of the current {@link OptionalLabelHolder} in single quotes
    * @throws RuntimeException if the current {@link OptionalLabelHolder} does not
    *                          have a label
    */

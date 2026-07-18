@@ -12,8 +12,7 @@ import java.util.function.Predicate;
 public interface Filterable<E> {
   /**
    * @param type
-   * @param <T> the type of the elements of the returned
-   *             {@link ExtendedIterable}
+   * @param <T>  the type of the elements of the returned {@link ExtendedIterable}
    * @return a new {@link ExtendedIterable} with the elements from the current
    *         {@link Filterable} that are of the given type, ignoring null elements
    * @throws RuntimeException if the given type is null

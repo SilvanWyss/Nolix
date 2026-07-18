@@ -41,7 +41,7 @@ final class ResultJobExecutor<R> extends Thread {
 
   /**
    * @param resultJob
-   * @param <R> the type of the result of the given resulltJob
+   * @param <R>       the type of the result of the given resulltJob
    * @return a new {@link ResultJobExecutor} for the given resultJob. The
    *         {@link ResultJobExecutor} will start automatically to execute the
    *         given resultJob

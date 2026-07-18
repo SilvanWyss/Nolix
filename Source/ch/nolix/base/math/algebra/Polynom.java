@@ -71,8 +71,7 @@ public final class Polynom {
 
   /**
    * @param degree
-   * @return the coefficient for the given degree from the current
-   *         {@link Polynom}
+   * @return the coefficient for the given degree from the current {@link Polynom}
    * @throws RuntimeException if the given degree is not between 0 and the degree
    *                          of the current {@link Polynom}.
    */

@@ -134,7 +134,7 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
   public FileNode addChildNodesFromStrings(final String... strings) {
     internalSpecification.addChildNodesFromStrings(strings);
     save();
-  
+
     return this;
   }
 

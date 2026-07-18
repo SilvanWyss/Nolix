@@ -79,10 +79,10 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @param applicationName
    * @param initialSessionClass
    * @param applicationService
-   * @param <T> the type of the given initialSessionClass
-   * @param <C> the type of the {@link AbstractBackendClient}
-   *                            of the given initialSessionClass
-   * @param <U> the type of the given applicationService
+   * @param <T>                 the type of the given initialSessionClass
+   * @param <C>                 the type of the {@link AbstractBackendClient} of
+   *                            the given initialSessionClass
+   * @param <U>                 the type of the given applicationService
    * @return the current {@link AbstractServer}
    * @throws RuntimeException if the given instanceName is null
    * @throws RuntimeException if the given instanceName is blank
@@ -112,9 +112,9 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * 
    * @param name
    * @param initialSessionClass
-   * @param <T> the type of the given initialSessionClass
-   * @param <C> the type of the {@link AbstractBackendClient}
-   *                            of the given initialSessionClass
+   * @param <T>                 the type of the given initialSessionClass
+   * @param <C>                 the type of the {@link AbstractBackendClient} of
+   *                            the given initialSessionClass
    * @return the current {@link AbstractServer}
    * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank
@@ -143,9 +143,9 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * have a target.
    * 
    * @param defaultApplication
-   * @param <C> the type of the {@link AbstractBackendClient} of
+   * @param <C>                the type of the {@link AbstractBackendClient} of
    *                           the given defaultApplication
-   * @param <U> the type of the context of the given
+   * @param <U>                the type of the context of the given
    *                           defaultApplication
    * @return the current {@link AbstractServer}
    * @throws RuntimeException if the given defaultApplication is null.
@@ -170,10 +170,10 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @param applicationName
    * @param initialSessionClass
    * @param applicationService
-   * @param <T> the type of the given initialSessionClass
-   * @param <C> the type of the {@link AbstractBackendClient}
-   *                            of the given initialSessionClass
-   * @param <U> the type of the given applicationService
+   * @param <T>                 the type of the given initialSessionClass
+   * @param <C>                 the type of the {@link AbstractBackendClient} of
+   *                            the given initialSessionClass
+   * @param <U>                 the type of the given applicationService
    * @return the current {@link AbstractServer}
    * @throws RuntimeException if the given instanceName is null
    * @throws RuntimeException if the given instanceName is blank
@@ -206,9 +206,9 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * 
    * @param name
    * @param initialSessionClass
-   * @param <T> the type of the given initialSessionClass
-   * @param <C> the type of the {@link AbstractBackendClient}
-   *                            of the given initialSessionClass
+   * @param <T>                 the type of the given initialSessionClass
+   * @param <C>                 the type of the {@link AbstractBackendClient} of
+   *                            the given initialSessionClass
    * @return the current {@link AbstractServer}
    * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank
@@ -299,8 +299,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
   }
 
   /**
-   * @return the default {@link Application} of the current
-   *         {@link AbstractServer}
+   * @return the default {@link Application} of the current {@link AbstractServer}
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractServer} does not
    *                                               contain a default

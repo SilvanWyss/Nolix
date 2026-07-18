@@ -52,8 +52,7 @@ public final class StringTool {
 
   /**
    * @param objects
-   * @return the {@link String} representation of the given objects in
-   *         parentheses
+   * @return the {@link String} representation of the given objects in parentheses
    * @throws RuntimeException if the given objects is null
    * @throws RuntimeException if one of the given objects is null.
    */

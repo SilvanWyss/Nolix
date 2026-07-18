@@ -85,7 +85,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
   }
 
   /**
-   * @param <T> the type of the element of the given iterable
+   * @param <T>      the type of the element of the given iterable
    * @param iterable
    * @return the number of element of the given iterable.
    */
@@ -132,7 +132,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
 
   /**
    * @param stream
-   * @param <T> the type of the elements of the given stream
+   * @param <T>    the type of the elements of the given stream
    * @return a new {@link ImmutableList} with the elements from the given stream
    * @throws RuntimeException if the given stream is null
    * @throws RuntimeException if one of the elements of the given stream is null.
@@ -145,7 +145,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
 
   /**
    * @param element
-   * @param <T> the type of the given element
+   * @param <T>     the type of the given element
    * @return a new {@link ImmutableList} with the given element
    * @throws RuntimeException if the given element is null.
    */
@@ -155,7 +155,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
 
   /**
    * @param elements
-   * @param <T> the type of the given elements
+   * @param <T>      the type of the given elements
    * @return a new {@link ImmutableList} with the given elements
    * @throws RuntimeException if the given elements is null
    * @throws RuntimeException if one of the given elements is null

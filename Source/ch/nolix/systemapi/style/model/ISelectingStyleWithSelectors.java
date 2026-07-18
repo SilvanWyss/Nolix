@@ -32,8 +32,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
   ExtendedIterable<String> getSelectorTokens();
 
   /**
-   * @return the selector type of the current
-   *         {@link ISelectingStyleWithSelectors}
+   * @return the selector type of the current {@link ISelectingStyleWithSelectors}
    * @throws RuntimeException if the current {@link ISelectingStyleWithSelectors}
    *                          does not have a selector type.
    */
@@ -55,7 +54,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @param additionalSelectorRole
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given
-   *         additionalSelectorRole 
+   *         additionalSelectorRole
    * @throws RuntimeException if the given additionalSelectorRole is null or
    *                          blank.
    */
@@ -65,7 +64,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @param additionalSelectorRole
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given
-   *         additionalSelectorRole 
+   *         additionalSelectorRole
    * @throws RuntimeException if the given additionalSelectorRole is null or
    *                          blank.
    */
@@ -96,7 +95,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @param additionalSelectorRoles
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given
-   *         additionalSelectorRoles 
+   *         additionalSelectorRoles
    * @throws RuntimeException if the given additionalSelectorRoles is null
    * @throws RuntimeException if one of the given additionalSelectorRoles is null
    *                          or blank.

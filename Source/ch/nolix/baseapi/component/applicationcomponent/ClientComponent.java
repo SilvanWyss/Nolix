@@ -7,8 +7,7 @@ package ch.nolix.baseapi.component.applicationcomponent;
  * A {@link ClientComponent} can belong to a client.
  * 
  * @author Silvan Wyss
- * @param <C> the type of the client a {@link ClientComponent} can belong
- *            to.
+ * @param <C> the type of the client a {@link ClientComponent} can belong to.
  */
 public interface ClientComponent<C> {
   /**

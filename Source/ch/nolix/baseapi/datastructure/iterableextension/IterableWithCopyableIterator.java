@@ -10,8 +10,7 @@ import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
  * {@link CopyableIterator}s.
  * 
  * @author Silvan Wyss
- * @param <E> the type of the elements a
- *            {@link IterableWithCopyableIterator}.
+ * @param <E> the type of the elements a {@link IterableWithCopyableIterator}.
  */
 public interface IterableWithCopyableIterator<E> extends Iterable<E> {
   /**

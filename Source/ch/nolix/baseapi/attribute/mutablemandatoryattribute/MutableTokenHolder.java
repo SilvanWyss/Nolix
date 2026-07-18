@@ -6,8 +6,8 @@ package ch.nolix.baseapi.attribute.mutablemandatoryattribute;
 import ch.nolix.baseapi.attribute.mandatoryattribute.TokenHolder;
 
 /**
- * A {@link MutableTokenHolder} is a {@link TokenHolder} whose token can be
- * set programmatically.
+ * A {@link MutableTokenHolder} is a {@link TokenHolder} whose token can be set
+ * programmatically.
  * 
  * @author Silvan Wyss
  */

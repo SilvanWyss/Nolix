@@ -9,8 +9,8 @@ import ch.nolix.systemapi.objectdata.model.IField;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the {@link IEntity}s a
- *            {@link IEntityFieldExtractor} can extract {@link IField}s from.
+ * @param <E> the type of the {@link IEntity}s a {@link IEntityFieldExtractor}
+ *            can extract {@link IField}s from.
  * @param <F> the type of the {@link IField}s of the {@link IEntity}s a
  *            {@link IEntityFieldExtractor} can extract.
  */

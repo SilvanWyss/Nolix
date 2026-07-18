@@ -29,7 +29,7 @@ public final class ResultFuture<R> extends AbstractFuture implements IResultFutu
 
   /**
    * @param resultJobExecutor
-   * @param <T> the type of the result of created
+   * @param <T>               the type of the result of created
    *                          {@link ResultFuture}
    * @return a new {@link ResultFuture} with the given resultJobExecutor
    * @throws RuntimeException if the given resultJobExecutor is null.

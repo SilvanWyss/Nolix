@@ -80,7 +80,7 @@ public interface AggregationRequestable<E> {
 
   /**
    * @param comparableMapper
-   * @param <C> the type of the {@link Comparable}s the given
+   * @param <C>              the type of the {@link Comparable}s the given
    *                         comparableMapper maps from the elements of the
    *                         current {@link AggregationRequestable}
    * @return the smallest {@link Comparable} the given comparableMapper maps from
@@ -114,8 +114,7 @@ public interface AggregationRequestable<E> {
   /**
    * @param valueMapper
    * @return the sum of the values the given valueMapper maps from the elements of
-   *         the current {@link AggregationRequestable}. Maps null elements to
-   *         0.0
+   *         the current {@link AggregationRequestable}. Maps null elements to 0.0
    * @throws RuntimeException if the given valueMapper is null.
    */
   BigDecimal getSum(Function<E, Number> valueMapper);

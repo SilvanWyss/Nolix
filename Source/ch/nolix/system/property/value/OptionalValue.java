@@ -76,7 +76,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
    * @param name
    * @param setter
    * @param valueMapper
-   * @param <E> the type of the value of a {@link OptionalValue}
+   * @param <E>         the type of the value of a {@link OptionalValue}
    * @return a new {@link OptionalValue} with the given name, setter and
    *         valueMapperand and that can store a {@link IElement}
    * @throws RuntimeException if the given name is null or blank
@@ -149,8 +149,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
    * @param setter
    * @param valueMapper
    * @param specificationMapper
-   * @param <T> the type of the value of a
-   *                            {@link OptionalValue}
+   * @param <T>                 the type of the value of a {@link OptionalValue}
    * @return a new {@link OptionalValue} with the given name, setter, valueMapper
    *         and specificationMapper
    * @throws RuntimeException if the given name is null or blank

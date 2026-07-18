@@ -6,8 +6,8 @@ package ch.nolix.baseapi.attribute.mutablemultiattribute;
 import ch.nolix.baseapi.attribute.multiattribute.MultiTextHolder;
 
 /**
- * A {@link MutableMultiTextHolder} is a {@link MultiTextHolder} whose texts
- * can be added and removed programmatically.
+ * A {@link MutableMultiTextHolder} is a {@link MultiTextHolder} whose texts can
+ * be added and removed programmatically.
  * 
  * @author Silvan Wyss
  */
@@ -23,8 +23,8 @@ public interface MutableMultiTextHolder extends MultiTextHolder {
   void addText(String text);
 
   /**
-   * Removes the given text from the current {@link MutableMultiTextHolder} if
-   * the current {@link MutableMultiTextHolder} contains the given text.
+   * Removes the given text from the current {@link MutableMultiTextHolder} if the
+   * current {@link MutableMultiTextHolder} contains the given text.
    * 
    * @param text
    */

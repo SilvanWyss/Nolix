@@ -17,8 +17,7 @@ import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements of a
- *            {@link MultiExtendedIterableView}.
+ * @param <E> the type of the elements of a {@link MultiExtendedIterableView}.
  */
 public final class MultiExtendedIterableView<E> extends AbstractExtendedIterable<E> {
   private final ExtendedIterable<ExtendedIterable<E>> wellOrderContainers;

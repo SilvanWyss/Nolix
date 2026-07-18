@@ -43,7 +43,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
 
   /**
    * @param argument
-   * @param <A> the type of the given argument
+   * @param <A>      the type of the given argument
    * @return a new {@link NamableObjectMediator} for given argument.
    */
   public static <A> NamableObjectMediator<A> assertThat(final A argument) {
@@ -82,7 +82,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
 
   /**
    * @param argument
-   * @param <T> the type of the given argument
+   * @param <T>      the type of the given argument
    * @return a new {@link ExtendedTypeMediator} for the given argument.
    */
   public static <T> ExtendedTypeMediator<T> assertThat(final Class<T> argument) {
@@ -135,7 +135,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
 
   /**
    * @param argument
-   * @param <A> the type of the elements of the given argument
+   * @param <A>      the type of the elements of the given argument
    * @return a new {@link NamableIterableMediator} for the given argument.
    */
   public static <A> NamableIterableMediator<A> assertThat(final Iterable<A> argument) {
@@ -174,7 +174,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
 
   /**
    * @param argument
-   * @param <T> the type of the element of the given {@link Optional}
+   * @param <T>      the type of the element of the given {@link Optional}
    *                 argument
    * @return a new {@link ExtendedOptionalMediator} for the given argument.
    */
@@ -211,7 +211,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
 
   /**
    * @param arguments
-   * @param <E> the type of the given arguments
+   * @param <E>       the type of the given arguments
    * @return a new {@link MultiArgumentMediator} for the given arguments
    * @throws RuntimeException if the given arguments is null.
    */
@@ -221,7 +221,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
 
   /**
    * @param arguments
-   * @param <E> the type of the given arguments
+   * @param <E>       the type of the given arguments
    * @return a new {@link MultiArgumentMediator} for the given arguments
    * @throws RuntimeException if the given arguments is null.
    */

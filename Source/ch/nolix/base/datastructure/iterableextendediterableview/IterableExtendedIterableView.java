@@ -33,7 +33,7 @@ public final class IterableExtendedIterableView<E> extends AbstractExtendedItera
    * Creates a new {@link IterableExtendedIterableView} for the given container.
    * 
    * @param container
-   * @param <T> the type of the elements of the given container
+   * @param <T>       the type of the elements of the given container
    * @throws RuntimeException if the given container is null.
    */
   @SuppressWarnings("unchecked")
@@ -50,7 +50,7 @@ public final class IterableExtendedIterableView<E> extends AbstractExtendedItera
 
   /**
    * @param iterable
-   * @param <T> the type of the elements of the given iterable
+   * @param <T>      the type of the elements of the given iterable
    * @return a new {@link IterableExtendedIterableView} for the given iterable
    * @throws RuntimeException if the given iterable is null
    */

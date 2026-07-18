@@ -42,7 +42,7 @@ SingleSearchable<E>,
 StringMappable {
   /**
    * @param comparableMapper
-   * @param <C> the type of the {@link Comparable}s the given
+   * @param <C>              the type of the {@link Comparable}s the given
    *                         comparableMapper returns
    * @return a new {@link ExtendedIterable} with the elements of the current
    *         {@link ExtendedIterable} ordered from the smallest to the biggest

@@ -20,8 +20,7 @@ public interface ITableExaminer extends IDatabaseObjectExaminer {
 
   /**
    * @param table
-   * @return true if the given table can insert a {@link IEntity}, false
-   *         otherwise
+   * @return true if the given table can insert a {@link IEntity}, false otherwise
    */
   boolean canInsertEntity(ITable<?> table);
 

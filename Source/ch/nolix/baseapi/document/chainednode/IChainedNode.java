@@ -30,7 +30,7 @@ public interface IChainedNode extends BlanknessRequestable, OptionalHeaderHolder
   /**
    * @param oneBasedIndex
    * @return the child node of the current {@link IChainedNode} at the given
-   *         oneBasedIndex 
+   *         oneBasedIndex
    * @throws RuntimeException if the current {@link IChainedNode} does not contain
    *                          a child node at the given oneBasedIndex.
    */

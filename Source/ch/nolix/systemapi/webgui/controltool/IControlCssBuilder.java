@@ -10,10 +10,10 @@ import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
- * @param <C> the type of the {@link Control}s a {@link IControlCssBuilder}
- *            is for.
- * @param <S> the type of the {@link IControlStyle} of the {@link Control}s
- *            a {@link IControlCssBuilder} is for.
+ * @param <C> the type of the {@link Control}s a {@link IControlCssBuilder} is
+ *            for.
+ * @param <S> the type of the {@link IControlStyle} of the {@link Control}s a
+ *            {@link IControlCssBuilder} is for.
  */
 public interface IControlCssBuilder<C extends Control<C, S>, S extends IControlStyle<S>> {
   ExtendedIterable<ICssRule> createCssRulesForControl(C control);

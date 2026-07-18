@@ -7,7 +7,8 @@ import java.util.function.Predicate;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements a {@link IterableContainMatchingRequestable}
+ * @param <E> the type of the elements a
+ *            {@link IterableContainMatchingRequestable}
  */
 public interface IterableContainMatchingRequestable<E> {
   /**
@@ -16,9 +17,9 @@ public interface IterableContainMatchingRequestable<E> {
    * 
    * @param selector can select elements, is considered not to select any element
    *                 when is null
-   * @return true if the current {@link IterableContainMatchingRequestable} contains an
-   *         element the given selector selects, false otherwise, ignoring null
-   *         elements
+   * @return true if the current {@link IterableContainMatchingRequestable}
+   *         contains an element the given selector selects, false otherwise,
+   *         ignoring null elements
    */
   boolean containsMatching(Predicate<E> selector);
 
@@ -28,9 +29,9 @@ public interface IterableContainMatchingRequestable<E> {
    * 
    * @param selector can select elements, is considered not to select any element
    *                 when is null
-   * @return true if the current {@link IterableContainMatchingRequestable} contains only
-   *         elements the given selector selects, but at least 1 time, false
-   *         otherwise, ignoring null elements
+   * @return true if the current {@link IterableContainMatchingRequestable}
+   *         contains only elements the given selector selects, but at least 1
+   *         time, false otherwise, ignoring null elements
    */
   boolean containsMatchingOnly(Predicate<E> selector);
 
@@ -40,8 +41,8 @@ public interface IterableContainMatchingRequestable<E> {
    * 
    * @param selector can select elements, is considered not to select any element
    *                 when is null
-   * @return true if the current {@link IterableContainMatchingRequestable} does not
-   *         contain an element the given selector selects, false otherwise,
+   * @return true if the current {@link IterableContainMatchingRequestable} does
+   *         not contain an element the given selector selects, false otherwise,
    *         ignoring null elements
    * @throws RuntimeException if the given selector is null
    */
@@ -53,9 +54,9 @@ public interface IterableContainMatchingRequestable<E> {
    * 
    * @param selector can select elements, is considered not to select any element
    *                 when is null
-   * @return true if the current {@link IterableContainMatchingRequestable} contains
-   *         exactly 1 element the given selector selects, false otherwise,
-   *         ignoring null elements
+   * @return true if the current {@link IterableContainMatchingRequestable}
+   *         contains exactly 1 element the given selector selects, false
+   *         otherwise, ignoring null elements
    * @throws RuntimeException if the given selector is null
    */
   boolean containsOneMatching(Predicate<E> selector);

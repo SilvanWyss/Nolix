@@ -76,7 +76,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
 
   /**
    * @param argument
-   * @param <E> the type of the elements of the given argument
+   * @param <E>      the type of the elements of the given argument
    * @return a new {@link NamableIterableMediator} for the given argument.
    */
   protected static final <E> NamableIterableMediator<E> expect(final Iterable<E> argument) {
@@ -103,7 +103,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
 
   /**
    * @param argument
-   * @param <T> the type of the element of the given {@link Optional}
+   * @param <T>      the type of the element of the given {@link Optional}
    *                 argument
    * @return a new {@link IOptionalMediator} for the given argument.
    */
@@ -115,7 +115,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
 
   /**
    * @param argument
-   * @param <A> the type of the given argument
+   * @param <A>      the type of the given argument
    * @return a new {@link NamableObjectMediator} for the given argument.
    */
   protected static final <A> NamableObjectMediator<A> expect(final A argument) {

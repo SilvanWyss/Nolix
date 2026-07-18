@@ -231,8 +231,7 @@ public final class Color extends AbstractElement implements IColor {
    * @param redValue
    * @param greenValue
    * @param blueValue
-   * @return a new {@link Color} with the given redValue, greenValue and
-   *         blueValue
+   * @return a new {@link Color} with the given redValue, greenValue and blueValue
    * @throws RuntimeException if the given blueValue is not a true color component
    *                          (in [0, 255])
    * @throws RuntimeException if the given greenValue is not a true color

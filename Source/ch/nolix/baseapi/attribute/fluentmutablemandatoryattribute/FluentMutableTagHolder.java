@@ -6,8 +6,8 @@ package ch.nolix.baseapi.attribute.fluentmutablemandatoryattribute;
 import ch.nolix.baseapi.attribute.mandatoryattribute.TagHolder;
 
 /**
- * A {@link FluentMutableTagHolder} is a {@link TagHolder} whose tag can be
- * set programmatically and fluently.
+ * A {@link FluentMutableTagHolder} is a {@link TagHolder} whose tag can be set
+ * programmatically and fluently.
  * 
  * @author Silvan Wyss
  * @param <H> the type of a {@link FluentMutableTagHolder}

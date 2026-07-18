@@ -6,8 +6,8 @@ package ch.nolix.baseapi.attribute.mutablemandatoryattribute;
 import ch.nolix.baseapi.attribute.mandatoryattribute.LabelHolder;
 
 /**
- * A {@link MutableLabelHolder} is a {@link LabelHolder} whose label can be
- * set programmatically.
+ * A {@link MutableLabelHolder} is a {@link LabelHolder} whose label can be set
+ * programmatically.
  * 
  * @author Silvan Wyss
  */

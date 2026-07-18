@@ -50,7 +50,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
 
   /**
    * @param matrix
-   * @param <T> the type of the elements of the given matrix
+   * @param <T>    the type of the elements of the given matrix
    * @return a new {@link Matrix} with the size and elements of the given matrix.
    */
   public static <T> Matrix<T> fromMatrix(final IMatrix<T> matrix) {
@@ -357,7 +357,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   }
 
   /**
-   * @return the element of the current {@link Matrix} at the given index 
+   * @return the element of the current {@link Matrix} at the given index
    * @throws RuntimeException if the given index is not positive
    * @throws RuntimeException if the given index is bigger than the number of
    *                          elements of the current {@link Matrix}.
@@ -533,7 +533,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    * n elements. -The given transformer has a complexity of O(1).
    * 
    * @param transformer
-   * @param <O> the type of the elements the given transformer returns
+   * @param <O>         the type of the elements the given transformer returns
    * @return a new matrix with the elements the given transformer transforms of
    *         the elements of the current {@link Matrix}.
    */

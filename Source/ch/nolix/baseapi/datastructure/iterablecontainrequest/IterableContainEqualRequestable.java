@@ -13,8 +13,8 @@ public interface IterableContainEqualRequestable<E> {
    * {@link IterableContainEqualRequestable} contains n elements.
    * 
    * @param object
-   * @return true if the current {@link IterableContainEqualRequestable} contains an
-   *         element that equals the given object, false otherwise
+   * @return true if the current {@link IterableContainEqualRequestable} contains
+   *         an element that equals the given object, false otherwise
    */
   boolean containsEqual(Object object);
 
@@ -23,8 +23,8 @@ public interface IterableContainEqualRequestable<E> {
    * {@link IterableContainEqualRequestable} contains n elements.
    * 
    * @param object
-   * @return true if the current {@link IterableContainEqualRequestable} does not contain
-   *         an element that equals the given object, false otherwise
+   * @return true if the current {@link IterableContainEqualRequestable} does not
+   *         contain an element that equals the given object, false otherwise
    */
   boolean containsNoEqual(E object);
 
@@ -33,8 +33,8 @@ public interface IterableContainEqualRequestable<E> {
    * {@link IterableContainEqualRequestable} contains n elements.
    * 
    * @param object
-   * @return true if the current {@link IterableContainEqualRequestable} contains exactly
-   *         1 element that equals the given object, false otherwise
+   * @return true if the current {@link IterableContainEqualRequestable} contains
+   *         exactly 1 element that equals the given object, false otherwise
    */
   boolean containsOneEqual(E object);
 }

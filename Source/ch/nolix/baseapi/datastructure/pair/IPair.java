@@ -8,7 +8,7 @@ package ch.nolix.baseapi.datastructure.pair;
  * 
  * @author Silvan Wyss
  * @param <E1> the type of the element1 of a {@link IPair}
- * @param <T> the type of the element2 of a {@link IPair}
+ * @param <T>  the type of the element2 of a {@link IPair}
  */
 public interface IPair<E1, T> {
   /**

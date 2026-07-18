@@ -16,8 +16,8 @@ import ch.nolix.baseapi.attribute.multiattribute.MultiTextHolder;
 public interface FluentMutableMultiTextHolder<H extends FluentMutableMultiTextHolder<H>> extends MultiTextHolder {
   /**
    * Adds the given text to the current {@link FluentMutableMultiTextHolder} if
-   * the current {@link FluentMutableMultiTextHolder} does not contain already
-   * the given text.
+   * the current {@link FluentMutableMultiTextHolder} does not contain already the
+   * given text.
    * 
    * @param text
    * @return the current {@link FluentMutableMultiTextHolder}

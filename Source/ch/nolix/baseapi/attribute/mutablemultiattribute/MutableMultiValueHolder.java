@@ -6,8 +6,8 @@ package ch.nolix.baseapi.attribute.mutablemultiattribute;
 import ch.nolix.baseapi.attribute.multiattribute.MultiValueHolder;
 
 /**
- * A {@link MutableMultiValueHolder} is a {@link MultiValueHolder} whose
- * values can be added and removed programmatically.
+ * A {@link MutableMultiValueHolder} is a {@link MultiValueHolder} whose values
+ * can be added and removed programmatically.
  * 
  * @author Silvan Wyss
  * @param <V> the type of the values of a {@link MutableMultiValueHolder}

@@ -6,8 +6,8 @@ package ch.nolix.baseapi.attribute.mutablemandatoryattribute;
 import ch.nolix.baseapi.attribute.mandatoryattribute.TitleHolder;
 
 /**
- * A {@link MutableTitleHolder} is a {@link TitleHolder} whose title can be
- * set programmatically.
+ * A {@link MutableTitleHolder} is a {@link TitleHolder} whose title can be set
+ * programmatically.
  * 
  * @author Silvan Wyss
  */

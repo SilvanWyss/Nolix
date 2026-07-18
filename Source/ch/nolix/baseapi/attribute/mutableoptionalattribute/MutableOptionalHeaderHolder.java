@@ -6,8 +6,8 @@ package ch.nolix.baseapi.attribute.mutableoptionalattribute;
 import ch.nolix.baseapi.attribute.optionalattribute.OptionalHeaderHolder;
 
 /**
- * A {@link MutableOptionalHeaderHolder} is a {@link OptionalHeaderHolder}
- * whose header can be set and removed programmatically.
+ * A {@link MutableOptionalHeaderHolder} is a {@link OptionalHeaderHolder} whose
+ * header can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  */

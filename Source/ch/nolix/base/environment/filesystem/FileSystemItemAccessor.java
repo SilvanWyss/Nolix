@@ -19,8 +19,8 @@ public class FileSystemItemAccessor {
   private final File internalAccessor;
 
   /**
-   * Creates a new {@link FileSystemItemAccessor }for the file system item
-   * with the given path.
+   * Creates a new {@link FileSystemItemAccessor }for the file system item with
+   * the given path.
    * 
    * @param path
    * @throws RuntimeException if there does not exist a file system item with the
@@ -41,8 +41,8 @@ public class FileSystemItemAccessor {
 
   /**
    * @param path
-   * @return a new {@link FileSystemItemAccessor }for the file system item
-   *         with the given path
+   * @return a new {@link FileSystemItemAccessor }for the file system item with
+   *         the given path
    * @throws RuntimeException if there does not exist a file system item with the
    *                          given path in the file system on the local machine.
    */

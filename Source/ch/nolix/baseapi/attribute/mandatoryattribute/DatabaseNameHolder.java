@@ -17,8 +17,8 @@ public interface DatabaseNameHolder {
   String getDatabaseName();
 
   /**
-   * @return the database name of the current {@link DatabaseNameHolder} in
-   *         single quotes
+   * @return the database name of the current {@link DatabaseNameHolder} in single
+   *         quotes
    */
   default String getDatabaseNameInSingleQuotes() {
     return StringCatalog.SINGLE_QUOTE + getDatabaseName() + StringCatalog.SINGLE_QUOTE;

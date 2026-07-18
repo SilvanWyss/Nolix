@@ -10,8 +10,7 @@ import ch.nolix.systemapi.application.client.IBackendClient;
 /**
  * @author Silvan Wyss
  * @param <S> the type of the application service of a {@link IApplication}.
- * @param <C> the type of the {@link IBackendClient}s of a
- *            {@link IApplication}.
+ * @param <C> the type of the {@link IBackendClient}s of a {@link IApplication}.
  */
 public interface IApplication<C extends IBackendClient<S>, S> extends ClientManager<C> {
   /**

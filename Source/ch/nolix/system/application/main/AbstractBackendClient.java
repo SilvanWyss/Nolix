@@ -13,8 +13,8 @@ import ch.nolix.systemapi.application.main.IApplication;
 /**
  * @author Silvan Wyss
  * @param <C> the type of a {@link AbstractBackendClient}.
- * @param <S> the type of the application service of the {@link IApplication}
- *            of a {@link AbstractBackendClient}.
+ * @param <S> the type of the application service of the {@link IApplication} of
+ *            a {@link AbstractBackendClient}.
  */
 public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S>, S>
 extends AbstractClient<C>
@@ -137,7 +137,7 @@ implements IBackendClient<S> {
    * Pushes the given session to the current {@link AbstractBackendClient}.
    * 
    * @param session
-   * @param <R> the type of the returned result
+   * @param <R>     the type of the returned result
    * @return the result from the given session
    * @throws RuntimeException if the given session is null.
    */

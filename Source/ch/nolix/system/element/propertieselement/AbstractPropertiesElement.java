@@ -119,9 +119,8 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
   }
 
   /**
-   * Adds the {@link Property}s from the current
-   * {@link AbstractPropertiesElement} to the current
-   * {@link AbstractPropertiesElement} if the current
+   * Adds the {@link Property}s from the current {@link AbstractPropertiesElement}
+   * to the current {@link AbstractPropertiesElement} if the current
    * {@link AbstractPropertiesElement} has not added its {@link Property}s.
    */
   private void addPropertiesIfNotAdded() {
@@ -139,9 +138,8 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
   }
 
   /**
-   * Adds the {@link Property}s from the current
-   * {@link AbstractPropertiesElement} to the current
-   * {@link AbstractPropertiesElement}.
+   * Adds the {@link Property}s from the current {@link AbstractPropertiesElement}
+   * to the current {@link AbstractPropertiesElement}.
    */
   private void addProperties() {
     properties = ArrayList.createEmpty();

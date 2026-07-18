@@ -20,8 +20,7 @@ public interface MutableOptionalCardinalityHolder extends OptionalCardinalityHol
   void removeCardinality();
 
   /**
-   * Sets the cardinality of the current
-   * {@link MutableOptionalCardinalityHolder}.
+   * Sets the cardinality of the current {@link MutableOptionalCardinalityHolder}.
    * 
    * @param cardinality
    * @throws RuntimeException if the given cardinality is null

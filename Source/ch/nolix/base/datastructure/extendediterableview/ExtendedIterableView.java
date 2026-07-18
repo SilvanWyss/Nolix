@@ -57,7 +57,7 @@ public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
 
   /**
    * @param array
-   * @param <T> the type of the elements of the given array
+   * @param <T>   the type of the elements of the given array
    * @return a new {@link ExtendedIterableView} for the given array
    * @throws RuntimeException if the given array is null.
    */
@@ -69,7 +69,7 @@ public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
 
   /**
    * @param arrays
-   * @param <T> the type of the elements of the given arrays
+   * @param <T>    the type of the elements of the given arrays
    * @return a new {@link ExtendedIterableView} for the given arrays
    * @throws RuntimeException if the given arrays is null
    * @throws RuntimeException if one of the given arrays is null.
@@ -83,7 +83,7 @@ public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
 
   /**
    * @param iterable
-   * @param <T> the type of the elements of the given iterable
+   * @param <T>      the type of the elements of the given iterable
    * @return a new {@link ExtendedIterableView} for the given iterable
    * @throws RuntimeException if the given iterable is null
    */
@@ -96,10 +96,8 @@ public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
   /**
    * @param iterable
    * @param element
-   * @param <T> the type of the elements of the given iterable and
-   *                 element
-   * @return a new {@link ExtendedIterableView} for the given iterable and
-   *         element
+   * @param <T>      the type of the elements of the given iterable and element
+   * @return a new {@link ExtendedIterableView} for the given iterable and element
    * @throws RuntimeException if the given iterable is null
    */
   public static <T> ExtendedIterableView<T> forIterableAndElement(final Iterable<T> iterable, final T element) {
@@ -111,7 +109,7 @@ public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
 
   /**
    * @param iterables
-   * @param <T> the type of the elements of the given iterables
+   * @param <T>       the type of the elements of the given iterables
    * @return a new {@link ExtendedIterableView} for the given iterables
    * @throws RuntimeException if the given iterables is null
    * @throws RuntimeException if one of the given iterables is null.

@@ -17,8 +17,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 
 /**
  * @author Silvan Wyss
- * @param <O> the type of the {@link Object}s a {@link ActionMediator} is
- *            for.
+ * @param <O> the type of the {@link Object}s a {@link ActionMediator} is for.
  */
 public final class ActionMediator<O> implements IActionMediator {
   private static final IPerformanceAnalyzer PERFORMANCE_ANALYZER = new PerformanceAnalyzer();

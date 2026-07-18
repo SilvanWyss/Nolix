@@ -7,8 +7,8 @@ import ch.nolix.baseapi.attribute.optionalattribute.OptionalDatabaseNameHolder;
 
 /**
  * A {@link MutableOptionalDatabaseNameHolder} is a
- * {@link OptionalDatabaseNameHolder} whose database name can be set and
- * removed programmatically.
+ * {@link OptionalDatabaseNameHolder} whose database name can be set and removed
+ * programmatically.
  * 
  * @author Silvan Wyss
  */

@@ -6,9 +6,9 @@ package ch.nolix.baseapi.attribute.fluentmutableoptionalattribute;
 import ch.nolix.baseapi.attribute.optionalattribute.OptionalHeaderHolder;
 
 /**
- * A {@link FluentMutableOptionalHeaderHolder} is a
- * {@link OptionalHeaderHolder} whose header can be set programmatically and
- * fluently and removed programmatically.
+ * A {@link FluentMutableOptionalHeaderHolder} is a {@link OptionalHeaderHolder}
+ * whose header can be set programmatically and fluently and removed
+ * programmatically.
  * 
  * @author Silvan Wyss
  * @param <H> the type of a {@link FluentMutableOptionalHeaderHolder}

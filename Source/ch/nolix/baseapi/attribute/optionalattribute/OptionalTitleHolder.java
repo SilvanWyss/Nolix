@@ -19,8 +19,7 @@ public interface OptionalTitleHolder {
   String getTitle();
 
   /**
-   * @return the title of the current {@link OptionalTitleHolder} in single
-   *         quotes
+   * @return the title of the current {@link OptionalTitleHolder} in single quotes
    * @throws RuntimeException if the current {@link OptionalTitleHolder} does not
    *                          have a title
    */

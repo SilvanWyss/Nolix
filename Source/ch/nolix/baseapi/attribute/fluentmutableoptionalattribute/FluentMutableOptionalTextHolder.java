@@ -6,8 +6,8 @@ package ch.nolix.baseapi.attribute.fluentmutableoptionalattribute;
 import ch.nolix.baseapi.attribute.mandatoryattribute.TextHolder;
 
 /**
- * A {@link FluentMutableOptionalTextHolder} is a {@link TextHolder} whose
- * text can be set programmatically and fluently and removed programmatically.
+ * A {@link FluentMutableOptionalTextHolder} is a {@link TextHolder} whose text
+ * can be set programmatically and fluently and removed programmatically.
  * 
  * @author Silvan Wyss
  * @param <H> the type of a {@link FluentMutableOptionalTextHolder}

@@ -724,7 +724,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   public Matrix setValues(final double... values) {
     // Asserts that as many values are given as the current Matrix contains.
     Validator.assertThat(values).hasElementCount(getSize());
-  
+
     // Iterates the rows of the current Matrix.
     for (var i = 0; i < getRowCount(); i++) {
       // Iterates the cells of the current row.
@@ -732,7 +732,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
         this.values[i][j] = values[i * getColumnCount() + j];
       }
     }
-  
+
     return this;
   }
 

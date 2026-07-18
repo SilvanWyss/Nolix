@@ -104,13 +104,11 @@ public abstract class AbstractServer implements IServer {
    * Lets the current {@link AbstractServer} take the given endPoint.
    * 
    * @param abstractEndPoint
-   * @throws RuntimeException                      if the given endPoint is
-   *                                               closed
+   * @throws RuntimeException                      if the given endPoint is closed
    * @throws ArgumentDoesNotHaveAttributeException if the given endPoint does not
    *                                               have a target and the current
    *                                               {@link AbstractServer} does not
-   *                                               contain a default
-   *                                               {@link ISlot}
+   *                                               contain a default {@link ISlot}
    * @throws ArgumentDoesNotHaveAttributeException if the given endPoint has a
    *                                               target and the current
    *                                               {@link AbstractServer} does not

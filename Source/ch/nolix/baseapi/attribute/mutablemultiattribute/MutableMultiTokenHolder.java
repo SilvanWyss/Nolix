@@ -6,8 +6,8 @@ package ch.nolix.baseapi.attribute.mutablemultiattribute;
 import ch.nolix.baseapi.attribute.multiattribute.MultiTokenHolder;
 
 /**
- * A {@link MutableMultiTokenHolder} is a {@link MultiTokenHolder} whose
- * tokens can be added and removed programmatically.
+ * A {@link MutableMultiTokenHolder} is a {@link MultiTokenHolder} whose tokens
+ * can be added and removed programmatically.
  * 
  * @author Silvan Wyss
  */

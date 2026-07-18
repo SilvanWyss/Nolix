@@ -37,8 +37,8 @@ public final class Pair<E1, E2> implements IPair<E1, E2> {
   /**
    * @param element1
    * @param element2
-   * @param <T1> the type of the given element1
-   * @param <T2> the type of the given element2
+   * @param <T1>     the type of the given element1
+   * @param <T2>     the type of the given element2
    * @return a new {@link Pair} with the given element1 and element2
    * @throws RuntimeException if the given element 1 is null
    * @throws RuntimeException if the given element 2 is null.

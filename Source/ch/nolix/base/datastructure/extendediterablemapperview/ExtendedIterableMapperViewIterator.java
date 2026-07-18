@@ -13,8 +13,8 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
  * @author Silvan Wyss
  * @param <E> the type of the elements of a
  *            {@link ExtendedIterableMapperViewIterator}.
- * @param <T> the type of the elements a {@link ExtendedIterableMapperViewIterator}
- *            maps from its elements.
+ * @param <T> the type of the elements a
+ *            {@link ExtendedIterableMapperViewIterator} maps from its elements.
  */
 public final class ExtendedIterableMapperViewIterator<E, T> implements CopyableIterator<T> {
   private final CopyableIterator<E> iterator;
@@ -22,8 +22,8 @@ public final class ExtendedIterableMapperViewIterator<E, T> implements CopyableI
   private final Function<E, T> mapper;
 
   /**
-   * Creates a new {@link ExtendedIterableMapperViewIterator} with the given iterator
-   * and mapper.
+   * Creates a new {@link ExtendedIterableMapperViewIterator} with the given
+   * iterator and mapper.
    * 
    * @param iterator
    * @param mapper
@@ -41,12 +41,13 @@ public final class ExtendedIterableMapperViewIterator<E, T> implements CopyableI
   /**
    * @param iterator
    * @param mapper
-   * @param <T> the type of the elements of the created
+   * @param <T>      the type of the elements of the created
    *                 {@link ExtendedIterableMapperViewIterator}
-   * @param <T2> the type of the elements the created
-   *                 {@link ExtendedIterableMapperViewIterator} maps from its elements
-   * @return a new {@link ExtendedIterableMapperViewIterator} with the given iterator
-   *         and mapper
+   * @param <T2>     the type of the elements the created
+   *                 {@link ExtendedIterableMapperViewIterator} maps from its
+   *                 elements
+   * @return a new {@link ExtendedIterableMapperViewIterator} with the given
+   *         iterator and mapper
    * @throws RuntimeException if the given container is null
    * @throws RuntimeException if the given mapper is null.
    */

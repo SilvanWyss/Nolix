@@ -7,8 +7,8 @@ import ch.nolix.baseapi.state.staterequest.MaterializationRequestable;
 
 /**
  * @author Silvan Wyss
- * @param <M> the type of the objects a {@link Materiazable} can be
- *            materialized to.
+ * @param <M> the type of the objects a {@link Materiazable} can be materialized
+ *            to.
  */
 public interface Materiazable<M> extends MaterializationRequestable {
   M toMaterialized();

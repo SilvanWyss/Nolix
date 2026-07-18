@@ -15,15 +15,15 @@ import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 public interface OptionalHeaderHolder {
   /**
    * @return the header of the current {@link OptionalHeaderHolder}
-   * @throws RuntimeException if the current {@link OptionalHeaderHolder} does
-   *                          not have a header
+   * @throws RuntimeException if the current {@link OptionalHeaderHolder} does not
+   *                          have a header
    */
   String getHeader();
 
   /**
-   * @return the header of the current {@link OptionalHeaderHolder} if the
-   *         current {@link OptionalHeaderHolder} has a header, an empty
-   *         {@link String} otherwise
+   * @return the header of the current {@link OptionalHeaderHolder} if the current
+   *         {@link OptionalHeaderHolder} has a header, an empty {@link String}
+   *         otherwise
    */
   default String getHeaderOrEmptyString() {
     if (hasHeader()) {

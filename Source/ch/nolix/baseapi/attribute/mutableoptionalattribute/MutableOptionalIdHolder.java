@@ -6,8 +6,8 @@ package ch.nolix.baseapi.attribute.mutableoptionalattribute;
 import ch.nolix.baseapi.attribute.optionalattribute.OptionalIdHolder;
 
 /**
- * A {@link MutableOptionalIdHolder} is a {@link OptionalIdHolder} whose id
- * can be set and removed programmatically.
+ * A {@link MutableOptionalIdHolder} is a {@link OptionalIdHolder} whose id can
+ * be set and removed programmatically.
  * 
  * @author Silvan Wyss
  */

@@ -6,8 +6,8 @@ package ch.nolix.baseapi.attribute.fluentmutablemultiattribute;
 import ch.nolix.baseapi.attribute.multiattribute.MultiTagHolder;
 
 /**
- * A {@link FluentMutableMultiTagHolder} is a {@link MultiTagHolder} whose
- * tags can be added programmatically and fluently and removed programmatically.
+ * A {@link FluentMutableMultiTagHolder} is a {@link MultiTagHolder} whose tags
+ * can be added programmatically and fluently and removed programmatically.
  * 
  * @author Silvan Wyss
  * @param <H> the type of a {@link FluentMutableMultiTagHolder}
@@ -25,8 +25,8 @@ public interface FluentMutableMultiTagHolder<H extends FluentMutableMultiTagHold
   H addTag(String tag);
 
   /**
-   * Removes the given tag from the current {@link FluentMutableMultiTagHolder}
-   * if the current {@link FluentMutableMultiTagHolder} contains the given tag.
+   * Removes the given tag from the current {@link FluentMutableMultiTagHolder} if
+   * the current {@link FluentMutableMultiTagHolder} contains the given tag.
    * 
    * @param tag
    */

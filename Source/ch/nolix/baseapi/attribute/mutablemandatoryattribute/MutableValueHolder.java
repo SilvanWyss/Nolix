@@ -6,8 +6,8 @@ package ch.nolix.baseapi.attribute.mutablemandatoryattribute;
 import ch.nolix.baseapi.attribute.mandatoryattribute.ValueHolder;
 
 /**
- * A {@link MutableValueHolder} is a {@link ValueHolder} whose value can be
- * set programmatically.
+ * A {@link MutableValueHolder} is a {@link ValueHolder} whose value can be set
+ * programmatically.
  * 
  * @author Silvan Wyss
  * @param <V> the type of the value of a {@link MutableValueHolder}

@@ -17,8 +17,8 @@ public interface OptionalDatabaseNameHolder {
   String getDatabaseName();
 
   /**
-   * @return true if the current {@link OptionalDatabaseNameHolder} has a
-   *         database name, false otherwise
+   * @return true if the current {@link OptionalDatabaseNameHolder} has a database
+   *         name, false otherwise
    */
   boolean hasDatabaseName();
 }

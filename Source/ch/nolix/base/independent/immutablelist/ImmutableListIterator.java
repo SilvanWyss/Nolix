@@ -8,8 +8,8 @@ import java.util.NoSuchElementException;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements of the parent {@link ImmutableList} of
- *            a {@link ImmutableListIterator}.
+ * @param <E> the type of the elements of the parent {@link ImmutableList} of a
+ *            {@link ImmutableListIterator}.
  */
 public final class ImmutableListIterator<E> implements Iterator<E> {
   private final E[] parentArray;

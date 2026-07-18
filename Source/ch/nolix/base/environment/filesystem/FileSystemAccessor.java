@@ -300,8 +300,8 @@ public final class FileSystemAccessor {
 
   /**
    * @param path
-   * @return new {@link FileSystemItemAccessor}s for the file system items in
-   *         the folder with the given path.
+   * @return new {@link FileSystemItemAccessor}s for the file system items in the
+   *         folder with the given path.
    */
   public static ExtendedIterable<FileSystemItemAccessor> getFileSystemItemAccessors(final String path) {
     return ExtendedIterableView.forArray(new File(path).listFiles())

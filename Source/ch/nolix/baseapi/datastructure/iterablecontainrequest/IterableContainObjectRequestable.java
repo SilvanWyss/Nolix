@@ -12,8 +12,8 @@ public interface IterableContainObjectRequestable {
    * {@link IterableContainObjectRequestable} contains n elements.
    * 
    * @param object
-   * @return true if the current {@link IterableContainObjectRequestable} contains the
-   *         given object, false otherwise
+   * @return true if the current {@link IterableContainObjectRequestable} contains
+   *         the given object, false otherwise
    */
   boolean contains(Object object);
 
@@ -22,8 +22,8 @@ public interface IterableContainObjectRequestable {
    * {@link IterableContainObjectRequestable} contains n elements.
    * 
    * @param object
-   * @return true if the current {@link IterableContainObjectRequestable} contains the
-   *         given object exactly 1 time, false otherwise
+   * @return true if the current {@link IterableContainObjectRequestable} contains
+   *         the given object exactly 1 time, false otherwise
    */
   boolean containsOnce(Object object);
 
@@ -32,8 +32,8 @@ public interface IterableContainObjectRequestable {
    * {@link IterableContainObjectRequestable} contains n elements.
    * 
    * @param object
-   * @return true if the current {@link IterableContainObjectRequestable} contains only
-   *         the given object, but at least 1 time, false otherwise
+   * @return true if the current {@link IterableContainObjectRequestable} contains
+   *         only the given object, but at least 1 time, false otherwise
    */
   boolean containsOnly(Object object);
 }

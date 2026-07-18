@@ -25,15 +25,16 @@ public final class LicenseManager {
    * @param abstractLicense
    * @throws RuntimeException if the given license is null
    * @throws RuntimeException if the {@link LicenseManager} contains already a
-   *                          {@link AbstractLicense} of the type the given license is.
+   *                          {@link AbstractLicense} of the type the given
+   *                          license is.
    */
   public static void addLicense(final AbstractLicense abstractLicense) {
     LICENSE_MANAGER.addLicense(abstractLicense);
   }
 
   /**
-   * Creates and adds a new {@link AbstractLicense} of the given licenseType to the
-   * {@link LicenseManager}.
+   * Creates and adds a new {@link AbstractLicense} of the given licenseType to
+   * the {@link LicenseManager}.
    * 
    * @param licenseType
    * @param <L>         is the given licenseType

@@ -29,8 +29,8 @@ public final class LicenseManagerUnit {
   private final LinkedList<AbstractLicense> abstractLicenses = LinkedList.createEmpty();
 
   /**
-   * Creates and adds a new {@link AbstractLicense} of the given licenseType to the
-   * current {@link LicenseManagerUnit}
+   * Creates and adds a new {@link AbstractLicense} of the given licenseType to
+   * the current {@link LicenseManagerUnit}
    * 
    * @param licenseType
    * @param <L>         is the given licenseType
@@ -42,8 +42,8 @@ public final class LicenseManagerUnit {
    *                          constructor with 1 {@link String} parameter
    * @throws RuntimeException if the found key is not valid
    * @throws RuntimeException if the current {@link LicenseManagerUnit} does
-   *                          contain already a {@link AbstractLicense} of the given
-   *                          licenseType.
+   *                          contain already a {@link AbstractLicense} of the
+   *                          given licenseType.
    */
   public <L extends AbstractLicense> LicenseManagerUnit addLicense(final Class<L> licenseType) {
     final var key = readKeyFromLicenseFile(licenseType);
@@ -64,8 +64,8 @@ public final class LicenseManagerUnit {
    * @throws RuntimeException if the given license is null
    * @throws RuntimeException if the given license is not activated
    * @throws RuntimeException if the current {@link LicenseManagerUnit} contains
-   *                          already a {@link AbstractLicense} of the type the given
-   *                          license is.
+   *                          already a {@link AbstractLicense} of the type the
+   *                          given license is.
    */
   public LicenseManagerUnit addLicense(final AbstractLicense abstractLicense) {
     // Asserts that the given license is not null.

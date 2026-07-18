@@ -34,8 +34,8 @@ public interface NameHolder {
 
   /**
    * @param nameHolder
-   * @return true if the current {@link NameHolder} has the same name as the
-   *         given nameHolder, false otherwise
+   * @return true if the current {@link NameHolder} has the same name as the given
+   *         nameHolder, false otherwise
    */
   default boolean hasSameNameAs(final NameHolder nameHolder) {
     return nameHolder != null && getName().equals(nameHolder.getName());

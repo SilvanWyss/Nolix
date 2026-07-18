@@ -14,8 +14,7 @@ import ch.nolix.systemapi.objectdata.model.IField;
 public interface IFieldExaminer extends IDatabaseObjectExaminer {
   /**
    * @param field
-   * @return true if the given field belongs to a {@link IEntity}, false
-   *         otherwise
+   * @return true if the given field belongs to a {@link IEntity}, false otherwise
    */
   boolean belongsToEntity(IField field);
 

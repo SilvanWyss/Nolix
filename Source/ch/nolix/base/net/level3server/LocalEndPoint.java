@@ -118,8 +118,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
   }
 
   /**
-   * @return the data the given request requests from this local duplex
-   *         controller
+   * @return the data the given request requests from this local duplex controller
    * @throws ArgumentDoesNotHaveAttributeException if this {@link LocalEndPoint}
    *                                               does not have a receiver
    *                                               controller.

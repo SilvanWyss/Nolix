@@ -38,7 +38,7 @@ public class IndexedPackage<C> {
   /**
    * @param index
    * @param content
-   * @param <C2> the type of the given content
+   * @param <C2>    the type of the given content
    * @return a new {@link IndexedPackage} with the given index and content
    * @throws RuntimeException if the given content is null.
    */

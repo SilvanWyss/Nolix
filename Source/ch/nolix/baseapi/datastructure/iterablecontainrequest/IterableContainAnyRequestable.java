@@ -19,16 +19,16 @@ public interface IterableContainAnyRequestable extends EmptinessRequestable {
    * The time complexity of this method is O(n) if the current
    * {@link IterableContainAnyRequestable} contains n elements.
    * 
-   * @return true if the current {@link IterableContainAnyRequestable} contains a non-null
-   *         element, false otherwise
+   * @return true if the current {@link IterableContainAnyRequestable} contains a
+   *         non-null element, false otherwise
    */
   boolean containsNonNull();
 
   /**
    * The time complexity of this method is O(1).
    * 
-   * @return true if the current {@link IterableContainAnyRequestable} contains exactly 1
-   *         element, false otherwise
+   * @return true if the current {@link IterableContainAnyRequestable} contains
+   *         exactly 1 element, false otherwise
    */
   boolean containsOne();
 
@@ -36,8 +36,8 @@ public interface IterableContainAnyRequestable extends EmptinessRequestable {
    * The time complexity of this method is O(n) if the current current
    * {@link IterableContainAnyRequestable} contains n elements.
    * 
-   * @return true if the current {@link IterableContainAnyRequestable} contains exactly 1
-   *         non-null element, false otherwise
+   * @return true if the current {@link IterableContainAnyRequestable} contains
+   *         exactly 1 non-null element, false otherwise
    */
   boolean containsOneNoneNull();
 

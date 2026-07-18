@@ -12,8 +12,8 @@ import ch.nolix.baseapi.errorcontrol.performancevalidation.IObjectSupplierMediat
 
 /**
  * @author Silvan Wyss
- * @param <O> the type of the {@link Object}s a
- *            {@link ObjectSupplierMediator} is for.
+ * @param <O> the type of the {@link Object}s a {@link ObjectSupplierMediator}
+ *            is for.
  */
 public final class ObjectSupplierMediator<O> implements IObjectSupplierMediator<O> {
   private final IntFunction<O> objectSupplier;

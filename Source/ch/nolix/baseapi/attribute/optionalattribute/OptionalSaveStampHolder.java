@@ -17,8 +17,8 @@ public interface OptionalSaveStampHolder {
   String getSaveStamp();
 
   /**
-   * @return true if the current {@link OptionalSaveStampHolder} has a save
-   *         stamp, false otherwise
+   * @return true if the current {@link OptionalSaveStampHolder} has a save stamp,
+   *         false otherwise
    */
   boolean hasSaveStamp();
 }

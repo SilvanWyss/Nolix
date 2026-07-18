@@ -11,9 +11,9 @@ import ch.nolix.systemapi.application.main.IApplication;
 
 /**
  * @author Silvan Wyss
- * @param <S> the type of the application service of the {@link IApplication}
- *            of the {@link AbstractBackendClient} of the
- *            {@link WebClientSession} of a {@link Controller}.
+ * @param <S> the type of the application service of the {@link IApplication} of
+ *            the {@link AbstractBackendClient} of the {@link WebClientSession}
+ *            of a {@link Controller}.
  */
 public abstract class Controller<S> { //NOSONAR: A Controller is a base class without abstract methods.
 

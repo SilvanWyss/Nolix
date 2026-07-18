@@ -7,8 +7,8 @@ import ch.nolix.baseapi.datamodel.cardinality.Cardinality;
 import ch.nolix.baseapi.datamodel.cardinality.CardinalityHolder;
 
 /**
- * A {@link FluentMutableCardinalityHolder} is a {@link CardinalityHolder}
- * whose cardinality can be set programmatically and fluently.
+ * A {@link FluentMutableCardinalityHolder} is a {@link CardinalityHolder} whose
+ * cardinality can be set programmatically and fluently.
  * 
  * @author Silvan Wyss
  * @param <H> the type of a {@link FluentMutableCardinalityHolder}

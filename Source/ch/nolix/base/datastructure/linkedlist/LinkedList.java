@@ -55,7 +55,7 @@ implements ILinkedList<E> {
 
   /**
    * @param array
-   * @param <T> the type of the elements of the given array
+   * @param <T>   the type of the elements of the given array
    * @return a new {@link LinkedList} with the elements in the given array
    * @throws RuntimeException if the given array is null
    * @throws RuntimeException if one of the elements in the given array is null.
@@ -71,7 +71,7 @@ implements ILinkedList<E> {
 
   /**
    * @param container
-   * @param <T> the type of the elements of the given container
+   * @param <T>       the type of the elements of the given container
    * @return a new {@link LinkedList} with the elements in the given container
    * @throws RuntimeException if the given container is null
    * @throws RuntimeException if one of the elements in the given container is
@@ -86,7 +86,7 @@ implements ILinkedList<E> {
 
   /**
    * @param element
-   * @param <T> the type of the given element
+   * @param <T>     the type of the given element
    * @return a new {@link LinkedList} with the given element
    * @throws RuntimeException if one of the given element is null.
    */
@@ -101,7 +101,7 @@ implements ILinkedList<E> {
 
   /**
    * @param elements
-   * @param <T> the type of the given elements
+   * @param <T>      the type of the given elements
    * @return a new {@link LinkedList} with the given elements
    * @throws RuntimeException if one of the given elements is null
    */

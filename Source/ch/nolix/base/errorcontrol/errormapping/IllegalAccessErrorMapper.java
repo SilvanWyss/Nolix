@@ -19,8 +19,7 @@ public final class IllegalAccessErrorMapper {
 
   /**
    * @param illegalAccessException
-   * @return a new {@link IllegalAccessError} for the given
-   *         illegalAccessException
+   * @return a new {@link IllegalAccessError} for the given illegalAccessException
    * @throws RuntimeException if the given illegalAccessException is null.
    */
   public static IllegalAccessError mapIllegalAccessExceptionToIllegalAccessError(
