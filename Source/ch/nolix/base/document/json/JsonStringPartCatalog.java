@@ -9,6 +9,9 @@ import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
  * @author Silvan Wyss
  */
 public final class JsonStringPartCatalog {
+  public static final String EMPTY_OBJECT_FLAT_STRING = //
+  StringCatalog.OPEN_BRACE + StringCatalog.SPACE + StringCatalog.CLOSED_BRACE;
+
   public static final String OBJECT_BEGIN_FLAT_STRING = StringCatalog.OPEN_BRACE + StringCatalog.SPACE;
 
   public static final String OBJECT_END_FLAT_STRING = StringCatalog.SPACE + StringCatalog.CLOSED_BRACE;

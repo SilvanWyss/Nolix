@@ -1,0 +1,183 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.base.document.json;
+
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
+import ch.nolix.base.document.node.ImmutableNode;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.document.json.JsonNameValuePair;
+import ch.nolix.baseapi.document.json.JsonObject;
+import ch.nolix.baseapi.document.json.JsonValueType;
+import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
+
+/**
+ * @author Silvan Wyss
+ */
+public final class ImmutableJsonObject implements JsonObject {
+  public static final ImmutableJsonObject EMPTY = new ImmutableJsonObject();
+
+  private final ImmutableList<JsonNameValuePair> nameValuePairs;
+
+  private final boolean alphabeticallyOrdered;
+
+  /**
+   * Creates a new empty {@link ImmutableJsonObject}.
+   */
+  private ImmutableJsonObject() {
+    nameValuePairs = ImmutableList.createEmpty();
+    alphabeticallyOrdered = true;
+  }
+
+  /**
+   * Creates a new {@link ImmutableJsonObject} with the given nameValuePairs and
+   * alphabeticallyOrderedTag.
+   * 
+   * @param nameValuePairs
+   * @param alphabeticallyOrderedFlag
+   * @throws RuntimeException if the given nameValuePairs is null
+   * @throws RuntimeException if one of the given nameValuePairs is null
+   * @throws RuntimeException if several of the given nameValuePairs have the same
+   *                          name
+   */
+  private ImmutableJsonObject(final Iterable<JsonNameValuePair> nameValuePairs, boolean alphabeticallyOrderedFlag) {
+    this.nameValuePairs = ImmutableList.fromIterable(nameValuePairs);
+    this.alphabeticallyOrdered = alphabeticallyOrderedFlag;
+
+    // TODO: Assert that not several of the given nameValuePairs have the same name.
+  }
+
+  /**
+   * @param nameValuePairs
+   * @return a new {@link ImmutableJsonObject} with the given nameValuePairs
+   * @throws RuntimeException if the given nameValuePairs is null
+   * @throws RuntimeException if one of the given nameValuePairs is null
+   * @throws RuntimeException if several of the given nameValuePairs have the same
+   *                          name
+   */
+  public static ImmutableJsonObject withNameValuePairs(final Iterable<JsonNameValuePair> nameValuePairs) {
+    return new ImmutableJsonObject(nameValuePairs, false);
+  }
+
+  //For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean formattedStringWillHaveMultipleLines() {
+    return nameValuePairs.containsAny();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ExtendedIterable<JsonNameValuePair> getStoredNameValuePairs() {
+    return nameValuePairs;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public JsonValueType getType() {
+    return JsonValueType.OBJECT;
+  }
+
+  //For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean isEmpty() {
+    return nameValuePairs.isEmpty();
+  }
+
+  //For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public JsonObject toAlphabeticallyOrdered() {
+    if (alphabeticallyOrdered) {
+      return this;
+    }
+
+    final var alphabeticallyOrderedNameValuePairs = nameValuePairs.toOrderedList(p -> p.getName());
+
+    return new ImmutableJsonObject(alphabeticallyOrderedNameValuePairs, true);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String toFormattedStringWithIndentationLevelAndIndentationSymbol(
+    final int indentationLevel,
+    final String indentationSymbol,
+    final boolean startMultiLinerWithIndentation) {
+    final var indentation = indentationSymbol.repeat(indentationLevel);
+
+    if (nameValuePairs.isEmpty()) {
+      return indentation + JsonStringPartCatalog.EMPTY_OBJECT_FLAT_STRING;
+    }
+
+    final var incrementedIndentationLevel = indentationLevel + 1;
+    final var incrementedIndentation = indentation + indentationSymbol;
+
+    final var nameValuePairsFormattedStrings = //
+    nameValuePairs.getViewOf(
+      p -> p.toFormattedStringWithIndentationLevelAndIndentationSymbol(
+        incrementedIndentationLevel,
+        indentationSymbol,
+        startMultiLinerWithIndentation));
+
+    final var formattedDelimiter = StringCatalog.COMMA + StringCatalog.NEW_LINE + incrementedIndentation;
+    final var nameValuePairsFormattedString = nameValuePairsFormattedStrings.toStringWithDelimiter(formattedDelimiter);
+
+    if (startMultiLinerWithIndentation) {
+      return //
+      indentation + StringCatalog.OPEN_BRACE + StringCatalog.NEW_LINE // first line
+      + incrementedIndentation + nameValuePairsFormattedString + StringCatalog.NEW_LINE // middle lines
+      + indentation + StringCatalog.CLOSED_BRACE; // last line
+    }
+
+    return //
+    StringCatalog.OPEN_BRACE + StringCatalog.NEW_LINE // first line
+    + incrementedIndentation + nameValuePairsFormattedString + StringCatalog.NEW_LINE // middle lines
+    + indentation + StringCatalog.CLOSED_BRACE; // last line
+  }
+
+  //For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public INode<?> toNode() {
+    final var childNodes = nameValuePairs.getViewOf(JsonNameValuePair::toNode);
+
+    return ImmutableNode.withChildNodes(childNodes);
+  }
+
+  // For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String toString() {
+    if (nameValuePairs.isEmpty()) {
+      return JsonStringPartCatalog.EMPTY_OBJECT_FLAT_STRING;
+    }
+
+    final var nameValuePairsStrings = getStoredNameValuePairs().getViewOf(JsonNameValuePair::toString);
+
+    final var nameValuePairsFlatString = //
+    nameValuePairsStrings.toStringWithDelimiter(JsonStringPartCatalog.NAME_VALUE_PAIR_FLAT_DELIMITER);
+
+    return //
+    JsonStringPartCatalog.OBJECT_BEGIN_FLAT_STRING
+    + nameValuePairsFlatString
+    + JsonStringPartCatalog.OBJECT_END_FLAT_STRING;
+  }
+}
