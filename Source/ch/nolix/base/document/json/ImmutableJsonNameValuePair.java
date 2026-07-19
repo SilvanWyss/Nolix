@@ -8,6 +8,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.json.JsonNameValuePair;
 import ch.nolix.baseapi.document.json.JsonValue;
 import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
@@ -47,6 +48,15 @@ public final class ImmutableJsonNameValuePair implements JsonNameValuePair {
     return new ImmutableJsonNameValuePair(name, value);
   }
 
+  //For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean formattedStringWillHaveMultipleLines() {
+    return value.formattedStringWillHaveMultipleLines();
+  }
+
   /**
    * {@inheritDoc}
    */
@@ -70,14 +80,37 @@ public final class ImmutableJsonNameValuePair implements JsonNameValuePair {
   @Override
   public String toFormattedStringWithIndentationLevelAndIndentationSymbol(
     final int indentationLevel,
-    final String indentationSymbol) {
+    final String indentationSymbol,
+    final boolean startMultiLinerWithIndentation) {
     final var indentation = indentationSymbol.repeat(indentationLevel);
     final var incrementedIndentationLevel = indentationLevel + 1;
 
     final var formattedValueString = //
-    value.toFormattedStringWithIndentationLevelAndIndentationSymbol(incrementedIndentationLevel, indentationSymbol);
+    value.toFormattedStringWithIndentationLevelAndIndentationSymbol(
+      incrementedIndentationLevel,
+      indentationSymbol,
+      startMultiLinerWithIndentation);
 
-    return indentation + name + JsonStringPartCatalog.NAME_VALUE_PAIR_MIDDLE + formattedValueString;
+    // Handle the case that the formatted String of the current ImmutableJsonNameValuePair has multiple lines.
+    if (value.formattedStringWillHaveMultipleLines()) {
+      return //
+      indentation
+      + StringCatalog.DOUBLE_QUOTE
+      + name
+      + StringCatalog.DOUBLE_QUOTE
+      + StringCatalog.COLON
+      + StringCatalog.NEW_LINE
+      + formattedValueString;
+    }
+
+    // Handle the case that the formatted String of the current ImmutableJsonNameValuePair is a single line.
+    return //
+    indentation
+    + StringCatalog.DOUBLE_QUOTE
+    + name
+    + StringCatalog.DOUBLE_QUOTE
+    + JsonStringPartCatalog.NAME_VALUE_PAIR_FLAT_MIDDLE
+    + formattedValueString;
   }
 
   //For a better performance, this implementation does not use all available comfort methods.
@@ -95,6 +128,11 @@ public final class ImmutableJsonNameValuePair implements JsonNameValuePair {
    */
   @Override
   public String toString() {
-    return name + JsonStringPartCatalog.NAME_VALUE_PAIR_MIDDLE + value;
+    return //
+    StringCatalog.DOUBLE_QUOTE
+    + name
+    + StringCatalog.DOUBLE_QUOTE
+    + JsonStringPartCatalog.NAME_VALUE_PAIR_FLAT_MIDDLE
+    + value;
   }
 }

@@ -20,7 +20,7 @@ public final class JsonStringPartCatalog {
 
   public static final String NAME_VALUE_PAIR_FLAT_DELIMITER = StringCatalog.COMMA + StringCatalog.SPACE;
 
-  public static final String NAME_VALUE_PAIR_MIDDLE = StringCatalog.COLON + StringCatalog.SPACE;
+  public static final String NAME_VALUE_PAIR_FLAT_MIDDLE = StringCatalog.COLON + StringCatalog.SPACE;
 
   private JsonStringPartCatalog() {
   }

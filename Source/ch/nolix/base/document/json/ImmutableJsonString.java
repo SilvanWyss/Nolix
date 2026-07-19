@@ -44,6 +44,14 @@ public final class ImmutableJsonString implements JsonString {
    * {@inheritDoc}
    */
   @Override
+  public boolean formattedStringWillHaveMultipleLines() {
+    return false;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public String getString() {
     return string;
   }
@@ -63,7 +71,8 @@ public final class ImmutableJsonString implements JsonString {
   @Override
   public String toFormattedStringWithIndentationLevelAndIndentationSymbol(
     final int indentationLevel,
-    final String indentationSymbol) {
+    final String indentationSymbol,
+    final boolean startMultiLinerWithIndentation) {
     final var indentation = indentationSymbol.repeat(indentationLevel);
 
     return indentation + StringCatalog.DOUBLE_QUOTE + string + StringCatalog.DOUBLE_QUOTE;

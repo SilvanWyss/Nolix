@@ -123,6 +123,24 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    * {@inheritDoc}
    */
   @Override
+  public final boolean formattedStringWillHaveMultipleLines() {
+    final var childNodeCount = getChildNodeCount();
+
+    return //
+    switch (childNodeCount) {
+      case 0 ->
+        false;
+      case 1 ->
+        getStoredFirstChildNode().containsChildNodes();
+      default ->
+        true;
+    };
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final int getChildNodeCount() {
     return getStoredChildNodes().getCount();
   }
@@ -307,7 +325,8 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
   @Override
   public final String toFormattedStringWithIndentationLevelAndIndentationSymbol(
     final int indentationLevel,
-    final String indentationSymbol) {
+    final String indentationSymbol,
+    final boolean startMultiLinerWithIndentation) {
     final var stringBuilder = new StringBuilder();
 
     // Handles the case that the current specification has a header.

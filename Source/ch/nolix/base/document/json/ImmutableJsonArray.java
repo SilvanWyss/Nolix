@@ -48,6 +48,15 @@ public final class ImmutableJsonArray implements JsonArray {
     return new ImmutableJsonArray(objects);
   }
 
+  //For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean formattedStringWillHaveMultipleLines() {
+    return objects.containsAny();
+  }
+
   /**
    * {@inheritDoc}
    */
@@ -71,24 +80,33 @@ public final class ImmutableJsonArray implements JsonArray {
   @Override
   public String toFormattedStringWithIndentationLevelAndIndentationSymbol(
     final int indentationLevel,
-    final String indentationSymbol) {
+    final String indentationSymbol,
+    final boolean startMultiLinerWithIndentation) {
     final var indentation = indentationSymbol.repeat(indentationLevel);
+
     if (objects.isEmpty()) {
       return indentation + JsonStringPartCatalog.EMPTY_ARRAY_FLAT_STRING;
     }
 
     final var incrementedIndentationLevel = indentationLevel + 1;
-    final var incrementedIndentation = indentation + StringCatalog.TABULATOR;
+    final var incrementedIndentation = indentation + indentationSymbol;
 
     final var objectsFormattedStrings = //
     objects.getViewOf(o -> o.toFormattedStringWithIndentationLevel(incrementedIndentationLevel));
 
-    final var formattedDelimiter = StringCatalog.COMMA + incrementedIndentation;
+    final var formattedDelimiter = StringCatalog.COMMA + StringCatalog.NEW_LINE + incrementedIndentation;
     final var objectsFormattedString = objectsFormattedStrings.toStringWithDelimiter(formattedDelimiter);
 
+    if (startMultiLinerWithIndentation) {
+      return //
+      indentation + StringCatalog.OPEN_SQUARE_BRACKET + StringCatalog.NEW_LINE // first line
+      + incrementedIndentation + objectsFormattedString + StringCatalog.NEW_LINE // middle lines
+      + indentation + StringCatalog.CLOSED_SQUARE_BRACKET; // last line
+    }
+
     return //
-    indentation + StringCatalog.OPEN_SQUARE_BRACKET + StringCatalog.NEW_LINE // first line
-    + objectsFormattedString + StringCatalog.NEW_LINE // middle lines
+    StringCatalog.OPEN_SQUARE_BRACKET + StringCatalog.NEW_LINE // first line
+    + incrementedIndentation + objectsFormattedString + StringCatalog.NEW_LINE // middle lines
     + indentation + StringCatalog.CLOSED_SQUARE_BRACKET; // last line
   }
 

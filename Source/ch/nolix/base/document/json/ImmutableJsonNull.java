@@ -23,6 +23,14 @@ implements JsonNull {
    * {@inheritDoc}
    */
   @Override
+  public boolean formattedStringWillHaveMultipleLines() {
+    return false;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public JsonValueType getType() {
     return JsonValueType.NULL;
   }
@@ -33,7 +41,8 @@ implements JsonNull {
   @Override
   public String toFormattedStringWithIndentationLevelAndIndentationSymbol(
     final int indentationLevel,
-    final String indentationSymbol) {
+    final String indentationSymbol,
+    final boolean startMultiLinerWithIndentation) {
     final var indentation = indentationSymbol.repeat(indentationLevel);
 
     return indentation + StringCatalog.LOWER_CASE_NULL;

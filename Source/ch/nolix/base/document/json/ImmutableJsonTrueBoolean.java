@@ -23,6 +23,14 @@ implements JsonBoolean {
    * {@inheritDoc}
    */
   @Override
+  public boolean formattedStringWillHaveMultipleLines() {
+    return false;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean getBoolean() {
     return true;
   }
@@ -41,7 +49,8 @@ implements JsonBoolean {
   @Override
   public String toFormattedStringWithIndentationLevelAndIndentationSymbol(
     final int indentationLevel,
-    final String indentationSymbol) {
+    final String indentationSymbol,
+    final boolean startMultiLinerWithIndentation) {
     final var indentation = indentationSymbol.repeat(indentationLevel);
 
     return indentation + StringCatalog.LOWER_CASE_TRUE;
