@@ -10,7 +10,9 @@ import ch.nolix.baseapi.document.json.JsonNameValuePair;
 import ch.nolix.baseapi.document.json.JsonObject;
 import ch.nolix.baseapi.document.json.JsonValueType;
 import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
+import ch.nolix.baseapi.programcontrol.function.FunctionService;
 
 /**
  * @author Silvan Wyss
@@ -45,7 +47,24 @@ public final class ImmutableJsonObject implements JsonObject {
     this.nameValuePairs = ImmutableList.fromIterable(nameValuePairs);
     this.alphabeticallyOrdered = alphabeticallyOrderedFlag;
 
-    // TODO: Assert that not several of the given nameValuePairs have the same name.
+    if (this.nameValuePairs.containsAny() && !alphabeticallyOrderedFlag) {
+      final var orderedNames = //
+      this.nameValuePairs.to(JsonNameValuePair::getName).toOrderedList(FunctionService::getSelf);
+
+      var previousName = orderedNames.getStoredFirst();
+
+      for (final var n : orderedNames.getViewWithoutFirst()) {
+        if (n.equals(previousName)) {
+          throw //
+          InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
+            nameValuePairs,
+            "name value paires",
+            "contains at least 2 name value pairs with the same name");
+        }
+
+        previousName = n;
+      }
+    }
   }
 
   /**
