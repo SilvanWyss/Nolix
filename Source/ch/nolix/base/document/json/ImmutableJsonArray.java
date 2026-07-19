@@ -11,12 +11,15 @@ import ch.nolix.baseapi.document.json.JsonObject;
 import ch.nolix.baseapi.document.json.JsonValueType;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
  */
 public final class ImmutableJsonArray implements JsonArray {
   public static final ImmutableJsonArray EMPTY = new ImmutableJsonArray();
+
+  private static final String NODE_HEADER = PascalCaseVariableNameCatalog.ARRAY;
 
   private final ImmutableList<JsonObject> objects;
 
@@ -118,7 +121,7 @@ public final class ImmutableJsonArray implements JsonArray {
   public INode<?> toNode() {
     final var childNodes = objects.getViewOf(JsonObject::toNode);
 
-    return ImmutableNode.withChildNodes(childNodes);
+    return ImmutableNode.withHeaderAndChildNodes(NODE_HEADER, childNodes);
   }
 
   // For a better performance, this implementation does not use all available comfort methods.
