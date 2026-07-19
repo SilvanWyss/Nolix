@@ -10,6 +10,7 @@ import ch.nolix.baseapi.datastructure.general.CountRequestable;
 import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainRequestable;
 import ch.nolix.baseapi.datastructure.iterableextension.ArrayMappable;
 import ch.nolix.baseapi.datastructure.iterableextension.IndexRequestable;
+import ch.nolix.baseapi.datastructure.iterableextension.IterableFirstRequestable;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableWithCopyableIterator;
 import ch.nolix.baseapi.datastructure.iterableextension.SingleSearchable;
 import ch.nolix.baseapi.datastructure.iterableextension.StringMappable;
@@ -35,6 +36,7 @@ IntervallContainerViewProvider<E>,
 IterableContainRequestable<E>,
 MappingContainerViewProvider<E>,
 IndexRequestable<E>,
+IterableFirstRequestable<E>,
 IterableWithCopyableIterator<E>,
 Mappable<E>,
 MaterializationRequestable,

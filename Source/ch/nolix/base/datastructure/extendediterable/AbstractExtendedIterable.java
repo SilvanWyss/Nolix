@@ -588,24 +588,17 @@ implements ExtendedIterable<E> {
     return min;
   }
 
-  // For a better performance, this implementation does not use all available comfort methods.
   /**
-   * The time complexity of this implementation is O(1).
-   * 
    * {@inheritDoc}
    */
   @Override
   public final Optional<E> getOptionalStoredFirst() {
-    // Creates iterator.
     final var iterator = iterator();
 
-    // Handles the case that the iterator has a next element.
     if (iterator.hasNext()) {
-      // Creates and returns a new Optional with the next element of the iterator.
       return Optional.ofNullable(iterator.next());
     }
 
-    // Handles the case that the iterator does not have a next element.
     return Optional.empty();
   }
 
@@ -617,15 +610,11 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final Optional<E> getOptionalStoredFirst(final Predicate<? super E> selector) {
-    // Asserts that the given selector is not null.
-    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableNameCatalog.SELECTOR).isNotNull();
-
-    // Iterates the current Container.
-    for (final var e : this) {
-      // Handles the case that the current element is not null and the given selector selects the current element.
-      if (e != null && selector.test(e)) {
-        // Creates an returns a new Optional with the current element.
-        return Optional.of(e);
+    if (selector != null) {
+      for (final var e : this) {
+        if (e != null && selector.test(e)) {
+          return Optional.of(e);
+        }
       }
     }
 
