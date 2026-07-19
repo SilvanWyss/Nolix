@@ -37,15 +37,24 @@ public interface IterableFirstRequestable<E> {
   Optional<E> getOptionalStoredFirst(Predicate<? super E> selector);
 
   /**
+   * The time complexity of this method is O(1).
+   * 
+   * @return the first element of the current {@link IterableFirstRequestable}
+   * @throws RuntimeException if the current {@link IterableFirstRequestable} is
+   *                          empty
+   */
+  E getStoredFirst();
+
+  /**
    * The time complexity of this method is O(n) if the current
    * {@link IterableFirstRequestable} contains n elements.
    * 
    * @param selector can select elements, is considered not to select any element
    *                 when is null
    * @return the first element the given selector selects from the current
-   *         {@link SingleSearchable}, ignoring null elements
-   * @throws RuntimeException if the current {@link SingleSearchable} does not
-   *                          contain an element the given selector selects
+   *         {@link IterableFirstRequestable}, ignoring null elements
+   * @throws RuntimeException if the current {@link IterableFirstRequestable} does
+   *                          not contain an element the given selector selects
    */
   E getStoredFirst(Predicate<? super E> selector);
 

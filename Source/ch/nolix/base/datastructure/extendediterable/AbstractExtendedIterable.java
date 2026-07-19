@@ -603,9 +603,6 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
@@ -725,10 +722,15 @@ implements ExtendedIterable<E> {
     return min;
   }
 
-  // For a better performance, this implementation does not use all available comfort methods.
   /**
-   * The time complexity of this implementation is O(1).
-   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final E getStoredFirst() {
+    return iterator().next();
+  }
+
+  /**
    * {@inheritDoc}
    */
   @Override
@@ -737,9 +739,6 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
@@ -748,9 +747,6 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
