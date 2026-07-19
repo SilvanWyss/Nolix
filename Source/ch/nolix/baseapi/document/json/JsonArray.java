@@ -4,10 +4,11 @@
 package ch.nolix.baseapi.document.json;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.state.staterequest.EmptinessRequestable;
 
 /**
  * @author Silvan Wyss
  */
-public interface JsonArray extends JsonValue {
+public interface JsonArray extends EmptinessRequestable, JsonValue {
   ExtendedIterable<JsonObject> getStoredObjects();
 }

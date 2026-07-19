@@ -76,6 +76,15 @@ public final class ImmutableJsonArray implements JsonArray {
     return JsonValueType.ARRAY;
   }
 
+  //For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean isEmpty() {
+    return objects.isEmpty();
+  }
+
   // For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
