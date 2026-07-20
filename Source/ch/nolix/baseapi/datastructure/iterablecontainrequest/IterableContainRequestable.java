@@ -14,5 +14,5 @@ IterableContainEqualRequestable<E>,
 IterableContainMatchingRequestable<E>,
 IterableContainMultipleRequestable,
 IterableContainObjectRequestable {
-  //This interface is a dedicated union of other interfaces.
+  // This interface is a dedicated union of other interfaces.
 }
