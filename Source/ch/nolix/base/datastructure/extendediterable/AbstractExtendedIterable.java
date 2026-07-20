@@ -17,6 +17,7 @@ import java.util.function.ToLongFunction;
 
 import ch.nolix.base.commontype.arraytool.ArraySorter;
 import ch.nolix.base.commontype.iterableexaminer.IterableExaminer;
+import ch.nolix.base.commontype.iterablemapper.IterableMapper;
 import ch.nolix.base.commontype.iterablesearcher.IterableSearcher;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterablefilterview.ExtendedIterableFilterView;
@@ -42,6 +43,8 @@ implements ExtendedIterable<E> {
   private static final IterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
 
   private static final IterableSearcher ITERABLE_SEARCHER = new IterableSearcher();
+
+  private static final IterableMapper ITERABLE_MAPPER = new IterableMapper();
 
   /**
    * {@inheritDoc}
@@ -1368,30 +1371,7 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final int[] toIntArray(final ToIntFunction<E> intMapper) {
-    // Asserts that the given intMapper is not null.
-    Validator.assertThat(intMapper).thatIsNamed("int mapper").isNotNull();
-
-    // Creates array.
-    final var array = new int[getCount()];
-
-    // Fills up the array.
-    var index = 0;
-    for (final var e : this) {
-      // Handles the case that the current element is null.
-      if (e == null) {
-        array[index] = 0;
-
-        // Handles the case that the current element is not null.
-      } else {
-        array[index] = intMapper.applyAsInt(e);
-
-      }
-
-      // Increments the index.
-      index++;
-    }
-
-    return array;
+    return ITERABLE_MAPPER.toIntArray(this, getCount(), intMapper);
   }
 
   /**
