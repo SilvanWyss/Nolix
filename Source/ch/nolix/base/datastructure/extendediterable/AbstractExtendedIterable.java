@@ -466,7 +466,7 @@ implements ExtendedIterable<E> {
     final var numbers = toNumbers(numberMapper);
 
     // Orders the numbers by an ascending order.
-    final var orderedValues = numbers.toOrderedList(Number::doubleValue);
+    final var orderedValues = numbers.toOrdered(Number::doubleValue);
 
     // Gets the number of numbers.
     final var valueCount = numbers.getCount();
@@ -1504,7 +1504,7 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final <C extends Comparable<C>> ExtendedIterable<E> toOrderedList(final Function<E, C> norm) {
+  public final <C extends Comparable<C>> ExtendedIterable<E> toOrdered(final Function<E, C> norm) {
     @SuppressWarnings("unchecked")
     final var array = (E[]) toArray();
 
@@ -1520,7 +1520,7 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final ExtendedIterable<E> toReversedList() {
+  public final ExtendedIterable<E> toReversed() {
     final var reversedList = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<E>(), getCount());
 
     @SuppressWarnings("unchecked")

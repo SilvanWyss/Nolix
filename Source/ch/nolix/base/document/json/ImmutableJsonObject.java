@@ -49,7 +49,7 @@ public final class ImmutableJsonObject implements JsonObject {
 
     if (this.nameValuePairs.containsAny() && !alphabeticallyOrderedFlag) {
       final var orderedNames = //
-      this.nameValuePairs.to(JsonNameValuePair::getName).toOrderedList(FunctionService::getSelf);
+      this.nameValuePairs.to(JsonNameValuePair::getName).toOrdered(FunctionService::getSelf);
 
       var previousName = orderedNames.getStoredFirst();
 
@@ -123,7 +123,7 @@ public final class ImmutableJsonObject implements JsonObject {
       return this;
     }
 
-    final var alphabeticallyOrderedNameValuePairs = nameValuePairs.toOrderedList(p -> p.getName());
+    final var alphabeticallyOrderedNameValuePairs = nameValuePairs.toOrdered(p -> p.getName());
 
     return new ImmutableJsonObject(alphabeticallyOrderedNameValuePairs, true);
   }

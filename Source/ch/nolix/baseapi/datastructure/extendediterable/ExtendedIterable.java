@@ -55,11 +55,11 @@ StringMappable {
    * @throws RuntimeException if one of the elements of the current
    *                          {@link ExtendedIterable} is null
    */
-  <C extends Comparable<C>> ExtendedIterable<E> toOrderedList(Function<E, C> comparableMapper);
+  <C extends Comparable<C>> ExtendedIterable<E> toOrdered(Function<E, C> comparableMapper);
 
   /**
    * @return a new {@link ExtendedIterable} with the elements of the current
    *         {@link ExtendedIterable} in reversed order
    */
-  ExtendedIterable<E> toReversedList();
+  ExtendedIterable<E> toReversed();
 }

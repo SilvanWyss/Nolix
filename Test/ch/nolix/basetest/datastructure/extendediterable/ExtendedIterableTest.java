@@ -1099,7 +1099,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createContainerWithElements("xxxxxx", "xxxxx", "xxxx", "xxx", "xx", "x");
 
     // execution
-    final var result = testUnit.toOrderedList(String::length);
+    final var result = testUnit.toOrdered(String::length);
 
     // verification
     expect(result.getCount()).isEqualTo(6);
@@ -1117,7 +1117,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createContainerWithElements("python", "elephant", "zebra", "lion", "shark", "jaguar");
 
     // execution
-    final var result = testUnit.toOrderedList(FunctionService::getSelf);
+    final var result = testUnit.toOrdered(FunctionService::getSelf);
 
     // verification
     expect(result.getCount()).isEqualTo(6);
