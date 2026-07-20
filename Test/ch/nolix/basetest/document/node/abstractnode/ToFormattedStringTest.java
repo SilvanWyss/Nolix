@@ -24,10 +24,6 @@ final class ToFormattedStringTest extends StandardTest {
 
     // verify
     final var expectedResult = FileSystemAccessor.readFile("./././././TestResource/sample_node/garfield.node");
-
-    System.out.println(result);
-    System.out.println(expectedResult);
-
     expect(result).isEqualTo(expectedResult);
   }
 }
