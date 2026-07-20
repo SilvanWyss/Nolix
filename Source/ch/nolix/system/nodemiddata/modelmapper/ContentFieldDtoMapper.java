@@ -35,20 +35,17 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
 
     switch (fieldType) {
       case VALUE_FIELD:
-
         final var valueAsString = contentFieldNode.getHeader();
         final var value = VALUE_MAPPER.mapStringToValue(valueAsString, dataType);
 
         return new FieldDto(columnName, value, null);
       case REFERENCE, BACK_REFERENCE:
-
         final var valueAsString2 = contentFieldNode.getStoredChildNodeAtOneBasedIndex(1).getHeader();
         final var value2 = VALUE_MAPPER.mapStringToValue(valueAsString2, dataType);
         final var additionalValue2 = contentFieldNode.getStoredChildNodeAtOneBasedIndex(2).getHeader();
 
         return new FieldDto(columnName, value2, additionalValue2);
       case OPTIONAL_VALUE_FIELD:
-
         if (contentFieldNode.hasHeader()) {
           final var valueAsString3 = contentFieldNode.getHeader();
           final var value3 = VALUE_MAPPER.mapStringToValue(valueAsString3, dataType);
@@ -58,7 +55,6 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
 
         return new FieldDto(columnName, null, null);
       case OPTIONAL_REFERENCE, OPTIONAL_BACK_REFERENCE:
-
         if (contentFieldNode.containsChildNodes()) {
           final var valueAsString4 = contentFieldNode.getStoredChildNodeAtOneBasedIndex(1).getHeader();
           final var value4 = VALUE_MAPPER.mapStringToValue(valueAsString4, dataType);
