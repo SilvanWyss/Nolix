@@ -3,13 +3,15 @@
  */
 package ch.nolix.baseapi.datastructure.list;
 
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+
 /**
  * A {@link IAppendableList} is a list that can add elements at its end.
  * 
  * @author Silvan Wyss
  * @param <E> the type of the elements of a {@link IAppendableList}
  */
-public interface IAppendableList<E> {
+public interface IAppendableList<E> extends ExtendedIterable<E> {
   /**
    * Adds the given element at the end of the current {@link IAppendableList}.
    * 
