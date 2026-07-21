@@ -5,7 +5,11 @@ package ch.nolix.baseapi.datastructure.extendediterable;
 
 import java.util.function.Function;
 
-import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainRequestable;
+import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainAnyRequestable;
+import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainEqualRequestable;
+import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainMatchingRequestable;
+import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainMultipleRequestable;
+import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainObjectRequestable;
 import ch.nolix.baseapi.datastructure.iterableextension.IndexRequestable;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableArrayMappable;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableFirstRequestable;
@@ -30,7 +34,11 @@ AggregationRequestable<E>,
 CountRequestable<E>,
 IndexRequestable<E>,
 IterableArrayMappable<E>,
-IterableContainRequestable<E>,
+IterableContainAnyRequestable,
+IterableContainEqualRequestable<E>,
+IterableContainMatchingRequestable<E>,
+IterableContainMultipleRequestable,
+IterableContainObjectRequestable,
 IterableFilterProvider<E>,
 IterableFilterViewProvider<E>,
 IterableFirstRequestable<E>,
