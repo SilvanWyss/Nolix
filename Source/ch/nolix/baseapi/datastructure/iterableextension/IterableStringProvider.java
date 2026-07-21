@@ -6,17 +6,17 @@ package ch.nolix.baseapi.datastructure.iterableextension;
 /**
  * @author Silvan Wyss
  */
-public interface StringMappable {
+public interface IterableStringProvider {
   /**
    * @return a concatenation of the {@link String} representations of the elements
-   *         of the current {@link StringMappable}.
+   *         of the current {@link IterableStringProvider}.
    */
   String toConcatenatedString();
 
   /**
    * @param delimiter
    * @return a concatenation of the {@link String} representations of the elements
-   *         of the current {@link StringMappable} with the given separator in
+   *         of the current {@link IterableStringProvider} with the given separator in
    *         between.
    */
   String toStringWithDelimiter(char delimiter);
@@ -24,7 +24,7 @@ public interface StringMappable {
   /**
    * @param delimiter
    * @return a concatenation of the {@link String} representations of the elements
-   *         of the current {@link StringMappable} with the given separator in
+   *         of the current {@link IterableStringProvider} with the given separator in
    *         between
    * @throws RuntimeException if the given separator is null
    */

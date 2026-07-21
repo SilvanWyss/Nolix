@@ -13,9 +13,9 @@ import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainObje
 import ch.nolix.baseapi.datastructure.iterableextension.IndexRequestable;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableArrayMappable;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableFirstProvider;
+import ch.nolix.baseapi.datastructure.iterableextension.IterableStringProvider;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableWithCopyableIterator;
 import ch.nolix.baseapi.datastructure.iterableextension.SingleSearchable;
-import ch.nolix.baseapi.datastructure.iterableextension.StringMappable;
 import ch.nolix.baseapi.datastructure.set.AggregationRequestable;
 import ch.nolix.baseapi.datastructure.set.CountRequestable;
 import ch.nolix.baseapi.state.staterequest.MaterializationRequestable;
@@ -46,10 +46,10 @@ IterableGroupProvider<E>,
 IterableIntervalViewProvider<E>,
 IterableMappedProvider<E>,
 IterableMappedViewProvider<E>,
+IterableStringProvider,
 IterableWithCopyableIterator<E>,
 MaterializationRequestable,
-SingleSearchable<E>,
-StringMappable {
+SingleSearchable<E> {
   /**
    * @param comparableMapper
    * @param <C>              the type of the {@link Comparable}s the given
