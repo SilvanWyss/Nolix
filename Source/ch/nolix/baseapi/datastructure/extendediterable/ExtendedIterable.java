@@ -11,7 +11,7 @@ import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainMatc
 import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainMultipleRequestable;
 import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainObjectRequestable;
 import ch.nolix.baseapi.datastructure.iterableextension.IndexRequestable;
-import ch.nolix.baseapi.datastructure.iterableextension.IterableArrayMappable;
+import ch.nolix.baseapi.datastructure.iterableextension.IterableArrayProvider;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableFirstProvider;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableStringProvider;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableWithCopyableIterator;
@@ -33,7 +33,7 @@ extends
 AggregationRequestable<E>,
 CountRequestable<E>,
 IndexRequestable<E>,
-IterableArrayMappable<E>,
+IterableArrayProvider<E>,
 IterableContainAnyRequestable,
 IterableContainEqualRequestable<E>,
 IterableContainMatchingRequestable<E>,
