@@ -38,7 +38,7 @@ IterableMappedViewProvider<E>,
 IndexRequestable<E>,
 IterableFirstRequestable<E>,
 IterableWithCopyableIterator<E>,
-Mappable<E>,
+IterableMappedProvider<E>,
 MaterializationRequestable,
 SingleSearchable<E>,
 StringMappable {
