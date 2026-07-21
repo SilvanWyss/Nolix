@@ -29,7 +29,7 @@ extends
 AggregationRequestable<E>,
 ArrayMappable<E>,
 CountRequestable<E>,
-Filterable<E>,
+IterableFilterProvider<E>,
 Groupable<E>,
 FilteringContainerViewProvider<E>,
 IntervallContainerViewProvider<E>,
