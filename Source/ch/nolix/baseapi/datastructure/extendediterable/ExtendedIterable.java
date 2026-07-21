@@ -10,9 +10,9 @@ import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainEqua
 import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainMatchingRequestable;
 import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainMultipleRequestable;
 import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainObjectRequestable;
-import ch.nolix.baseapi.datastructure.iterableextension.IndexRequestable;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableArrayProvider;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableFirstProvider;
+import ch.nolix.baseapi.datastructure.iterableextension.IterableOneBasedIndexRequestable;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableStringProvider;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableWithCopyableIterator;
 import ch.nolix.baseapi.datastructure.iterableextension.SingleSearchable;
@@ -32,7 +32,6 @@ public interface ExtendedIterable<E>
 extends
 AggregationRequestable<E>,
 CountRequestable<E>,
-IndexRequestable<E>,
 IterableArrayProvider<E>,
 IterableContainAnyRequestable,
 IterableContainEqualRequestable<E>,
@@ -46,6 +45,7 @@ IterableGroupProvider<E>,
 IterableIntervalViewProvider<E>,
 IterableMappedProvider<E>,
 IterableMappedViewProvider<E>,
+IterableOneBasedIndexRequestable<E>,
 IterableStringProvider,
 IterableWithCopyableIterator<E>,
 MaterializationRequestable,
