@@ -12,7 +12,7 @@ import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainMult
 import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainObjectRequestable;
 import ch.nolix.baseapi.datastructure.iterableextension.IndexRequestable;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableArrayMappable;
-import ch.nolix.baseapi.datastructure.iterableextension.IterableFirstRequestable;
+import ch.nolix.baseapi.datastructure.iterableextension.IterableFirstProvider;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableWithCopyableIterator;
 import ch.nolix.baseapi.datastructure.iterableextension.SingleSearchable;
 import ch.nolix.baseapi.datastructure.iterableextension.StringMappable;
@@ -41,7 +41,7 @@ IterableContainMultipleRequestable,
 IterableContainObjectRequestable,
 IterableFilterProvider<E>,
 IterableFilterViewProvider<E>,
-IterableFirstRequestable<E>,
+IterableFirstProvider<E>,
 IterableGroupProvider<E>,
 IterableIntervalViewProvider<E>,
 IterableMappedProvider<E>,
