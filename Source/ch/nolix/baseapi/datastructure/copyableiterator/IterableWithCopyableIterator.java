@@ -1,9 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.datastructure.iterableextension;
-
-import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
+package ch.nolix.baseapi.datastructure.copyableiterator;
 
 /**
  * A {@link IterableWithCopyableIterator} is a {@link Iterable} that provide

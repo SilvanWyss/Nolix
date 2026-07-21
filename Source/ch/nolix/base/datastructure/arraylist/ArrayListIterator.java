@@ -5,7 +5,7 @@ package ch.nolix.base.datastructure.arraylist;
 
 import ch.nolix.base.commontype.iteratorvalidator.IteratorValidator;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
+import ch.nolix.baseapi.datastructure.copyableiterator.CopyableIterator;
 
 /**
  * @author Silvan Wyss

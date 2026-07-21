@@ -6,7 +6,7 @@ package ch.nolix.base.datastructure.iterableextendediterableview;
 import java.util.Iterator;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
+import ch.nolix.baseapi.datastructure.copyableiterator.CopyableIterator;
 
 /**
  * @author Silvan Wyss

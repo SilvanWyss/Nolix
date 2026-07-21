@@ -6,7 +6,7 @@ package ch.nolix.base.datastructure.extendediterablemapperview;
 import java.util.function.Function;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
+import ch.nolix.baseapi.datastructure.copyableiterator.CopyableIterator;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**

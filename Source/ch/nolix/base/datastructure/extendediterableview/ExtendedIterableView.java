@@ -11,8 +11,8 @@ import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.datastructure.iterableextendediterableview.IterableExtendedIterableView;
 import ch.nolix.base.datastructure.multiextendediterableview.MultiExtendedIterableView;
 import ch.nolix.base.validation.validator.Validator;
+import ch.nolix.baseapi.datastructure.copyableiterator.CopyableIterator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
