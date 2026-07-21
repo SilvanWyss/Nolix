@@ -5,8 +5,6 @@ package ch.nolix.baseapi.datastructure.extendediterable;
 
 import java.util.function.Function;
 
-import ch.nolix.baseapi.datastructure.general.AggregationRequestable;
-import ch.nolix.baseapi.datastructure.general.CountRequestable;
 import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainRequestable;
 import ch.nolix.baseapi.datastructure.iterableextension.IndexRequestable;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableArrayMappable;
@@ -14,6 +12,8 @@ import ch.nolix.baseapi.datastructure.iterableextension.IterableFirstRequestable
 import ch.nolix.baseapi.datastructure.iterableextension.IterableWithCopyableIterator;
 import ch.nolix.baseapi.datastructure.iterableextension.SingleSearchable;
 import ch.nolix.baseapi.datastructure.iterableextension.StringMappable;
+import ch.nolix.baseapi.datastructure.set.AggregationRequestable;
+import ch.nolix.baseapi.datastructure.set.CountRequestable;
 import ch.nolix.baseapi.state.staterequest.MaterializationRequestable;
 
 /**

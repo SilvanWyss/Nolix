@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.datastructure.general;
+package ch.nolix.baseapi.datastructure.set;
 
 /**
  * @author Silvan Wyss
