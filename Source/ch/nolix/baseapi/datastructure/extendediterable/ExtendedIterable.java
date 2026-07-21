@@ -8,8 +8,8 @@ import java.util.function.Function;
 import ch.nolix.baseapi.datastructure.general.AggregationRequestable;
 import ch.nolix.baseapi.datastructure.general.CountRequestable;
 import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainRequestable;
-import ch.nolix.baseapi.datastructure.iterableextension.ArrayMappable;
 import ch.nolix.baseapi.datastructure.iterableextension.IndexRequestable;
+import ch.nolix.baseapi.datastructure.iterableextension.IterableArrayMappable;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableFirstRequestable;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableWithCopyableIterator;
 import ch.nolix.baseapi.datastructure.iterableextension.SingleSearchable;
@@ -27,9 +27,9 @@ import ch.nolix.baseapi.state.staterequest.MaterializationRequestable;
 public interface ExtendedIterable<E>
 extends
 AggregationRequestable<E>,
-ArrayMappable<E>,
 CountRequestable<E>,
 IndexRequestable<E>,
+IterableArrayMappable<E>,
 IterableContainRequestable<E>,
 IterableFilterProvider<E>,
 IterableFilterViewProvider<E>,

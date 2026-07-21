@@ -10,18 +10,18 @@ import java.util.function.ToLongFunction;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements a {@link ArrayMappable}.
+ * @param <E> the type of the elements a {@link IterableArrayMappable}.
  */
-public interface ArrayMappable<E> {
+public interface IterableArrayMappable<E> {
   /**
-   * @return a new array with the elements of the current {@link ArrayMappable}.
+   * @return a new array with the elements of the current {@link IterableArrayMappable}.
    */
   Object[] toArray();
 
   /**
    * @param byteMapper
    * @return a new array with the bytes the given byteMapper maps from the
-   *         elements of the current {@link ArrayMappable}. Maps null elements to
+   *         elements of the current {@link IterableArrayMappable}. Maps null elements to
    *         0
    * @throws RuntimeException if the given byteMapper is null
    */
@@ -30,7 +30,7 @@ public interface ArrayMappable<E> {
   /**
    * @param charMapper
    * @return a new array with the chars the given charMapper maps from the
-   *         elements of the current {@link ArrayMappable}. Maps null elements to
+   *         elements of the current {@link IterableArrayMappable}. Maps null elements to
    *         a space
    * @throws RuntimeException if the given charMapper is null
    */
@@ -39,7 +39,7 @@ public interface ArrayMappable<E> {
   /**
    * @param doubleMapper
    * @return a new array with the doubles the given doubleMapper maps from the
-   *         elements of the current {@link ArrayMappable}. Maps null elements to
+   *         elements of the current {@link IterableArrayMappable}. Maps null elements to
    *         0.0
    * @throws RuntimeException if the given doubleMapper is null
    */
@@ -48,7 +48,7 @@ public interface ArrayMappable<E> {
   /**
    * @param intMapper
    * @return a new array with the ints the given intMapper maps from the elements
-   *         of the current {@link ArrayMappable}. Maps null elements to 0. Maps
+   *         of the current {@link IterableArrayMappable}. Maps null elements to 0. Maps
    *         null elements to 0
    * @throws RuntimeException if the given intMapper is null
    */
@@ -57,7 +57,7 @@ public interface ArrayMappable<E> {
   /**
    * @param longMapper
    * @return a new array with the longs the given longMapper maps from the
-   *         elements of the current {@link ArrayMappable}. Maps null elements to
+   *         elements of the current {@link IterableArrayMappable}. Maps null elements to
    *         0
    * @throws RuntimeException if the given longMapper is null
    */
@@ -65,7 +65,7 @@ public interface ArrayMappable<E> {
 
   /**
    * @return a new array with the {@link String} representations of the elements
-   *         of the current {@link ArrayMappable}.
+   *         of the current {@link IterableArrayMappable}.
    */
   String[] toStringArray();
 }
