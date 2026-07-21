@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.datastructure.iterableextension;
+package ch.nolix.baseapi.datastructure.iterablerequest;
 
 import java.util.function.Predicate;
 

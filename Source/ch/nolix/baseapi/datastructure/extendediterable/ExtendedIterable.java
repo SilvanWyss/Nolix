@@ -5,17 +5,17 @@ package ch.nolix.baseapi.datastructure.extendediterable;
 
 import java.util.function.Function;
 
-import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainAnyRequestable;
-import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainEqualRequestable;
-import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainMatchingRequestable;
-import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainMultipleRequestable;
-import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainObjectRequestable;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableArrayProvider;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableFirstProvider;
-import ch.nolix.baseapi.datastructure.iterableextension.IterableOneBasedIndexRequestable;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableStringProvider;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableWithCopyableIterator;
 import ch.nolix.baseapi.datastructure.iterableextension.SingleSearchable;
+import ch.nolix.baseapi.datastructure.iterablerequest.IterableContainAnyRequestable;
+import ch.nolix.baseapi.datastructure.iterablerequest.IterableContainEqualRequestable;
+import ch.nolix.baseapi.datastructure.iterablerequest.IterableContainMatchingRequestable;
+import ch.nolix.baseapi.datastructure.iterablerequest.IterableContainMultipleRequestable;
+import ch.nolix.baseapi.datastructure.iterablerequest.IterableContainObjectRequestable;
+import ch.nolix.baseapi.datastructure.iterablerequest.IterableOneBasedIndexRequestable;
 import ch.nolix.baseapi.datastructure.set.AggregationRequestable;
 import ch.nolix.baseapi.datastructure.set.CountRequestable;
 import ch.nolix.baseapi.state.staterequest.MaterializationRequestable;
