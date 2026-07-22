@@ -46,11 +46,4 @@ public interface SingleSearchable<E> {
    */
   <C extends Comparable<C>> E getStoredByMin(Function<E, C> comparableMapper);
 
-  /**
-   * @return the last element of the current {@link SingleSearchable}. The element
-   *         can be null
-   * @throws RuntimeException if the current {@link SingleSearchable} is empty
-   */
-  E getStoredLast();
-
 }

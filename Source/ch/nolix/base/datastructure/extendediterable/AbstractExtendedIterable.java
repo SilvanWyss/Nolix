@@ -811,14 +811,10 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(1) or O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
   public final E getStoredLast() {
-    // Calls other method.
     return getStoredAtOneBasedIndex(getCount());
   }
 
@@ -1589,9 +1585,9 @@ implements ExtendedIterable<E> {
    * @param selector can select elements, is considered not to be null
    * @return the one element the given selector selects from the current
    *         {@link SingleProvider}, ignoring null elements
-   * @throws RuntimeException if the given the current
-   *                          {@link SingleProvider} contains none or
-   *                          several elements the given selector selects
+   * @throws RuntimeException if the given the current {@link SingleProvider}
+   *                          contains none or several elements the given selector
+   *                          selects
    */
   private E getStoredSingleWhenSelectorIsNotNull(final Predicate<? super E> selector) {
     E selectedElement = null;
