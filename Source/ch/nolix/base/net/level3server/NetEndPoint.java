@@ -198,7 +198,7 @@ public final class NetEndPoint extends AbstractEndPoint {
   public INode<?> getDataForRequest(final IChainedNode request) {
     final var requests = ImmutableList.withElements(request);
 
-    return getDataForRequests(requests).getStoredOne();
+    return getDataForRequests(requests).getStoredSingle();
   }
 
   /**

@@ -143,7 +143,7 @@ public abstract class AbstractSqlConnection implements ISqlConnection {
    */
   @Override
   public final ISqlRecord getSingleRecordFromQuery(final String query) {
-    return getRecordsFromQuery(query).getStoredOne();
+    return getRecordsFromQuery(query).getStoredSingle();
   }
 
   /**

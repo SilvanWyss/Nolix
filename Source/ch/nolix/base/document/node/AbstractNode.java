@@ -206,7 +206,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    */
   @Override
   public final N getStoredSingleChildNode() {
-    return getStoredChildNodes().getStoredOne();
+    return getStoredChildNodes().getStoredSingle();
   }
 
   /**

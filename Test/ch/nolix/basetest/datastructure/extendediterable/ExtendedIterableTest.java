@@ -807,7 +807,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
     // verification
     expect(result.getCount()).isEqualTo(1);
-    expect(result.getStoredOne()).containsExactlyEqualing("x", "y", "x", "y", "x", "y");
+    expect(result.getStoredSingle()).containsExactlyEqualing("x", "y", "x", "y", "x", "y");
   }
 
   @Test
@@ -856,7 +856,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
     // execution & verification
-    expectRunning(() -> testUnit.getStoredOne(e -> e.length() == 7))
+    expectRunning(() -> testUnit.getStoredSingle(e -> e.length() == 7))
       .throwsException()
       .ofType(InvalidArgumentException.class)
       .withMessage(
@@ -871,7 +871,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
     // execution
-    final var result = testUnit.getStoredOne(e -> e.length() == 3);
+    final var result = testUnit.getStoredSingle(e -> e.length() == 3);
 
     // verification
     expect(result).isEqualTo("xxx");
@@ -883,7 +883,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createContainerWithElements("x", "y", "xx", "yy", "xxx", "yyy");
 
     // execution & verification
-    expectRunning(() -> testUnit.getStoredOne(e -> e.length() == 3))
+    expectRunning(() -> testUnit.getStoredSingle(e -> e.length() == 3))
       .throwsException()
       .ofType(InvalidArgumentException.class)
       .withMessage(

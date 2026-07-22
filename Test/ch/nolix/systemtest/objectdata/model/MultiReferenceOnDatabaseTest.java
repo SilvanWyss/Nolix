@@ -163,6 +163,6 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
     final var loadedGarfield = //
     nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
-    expect(loadedJohn.pets.getAllStoredReferencedEntities().getStoredOne()).is(loadedGarfield);
+    expect(loadedJohn.pets.getAllStoredReferencedEntities().getStoredSingle()).is(loadedGarfield);
   }
 }

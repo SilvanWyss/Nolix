@@ -406,7 +406,7 @@ implements IChainedNode {
    */
   @Override
   public ChainedNode getSingleChildNode() {
-    return memberChildNodes.getStoredOne();
+    return memberChildNodes.getStoredSingle();
   }
 
   /**

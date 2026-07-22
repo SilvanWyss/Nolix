@@ -71,7 +71,7 @@ public final class InternalDataReader {
     final var query = ENTITY_QUERY_CREATOR.createQueryToCountEntities(tableName);
     final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
 
-    return Integer.valueOf(sqlRecord.getStoredOne());
+    return Integer.valueOf(sqlRecord.getStoredSingle());
   }
 
   public Time getSchemaTimestamp() {

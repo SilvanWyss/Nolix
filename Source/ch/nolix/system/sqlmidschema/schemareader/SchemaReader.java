@@ -67,7 +67,7 @@ public final class SchemaReader implements ISchemaReader {
   public int getTableCount() {
     final var query = QUERY_CREATOR.createQueryToGetTableCount();
     final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
-    final var value = sqlRecord.getStoredOne();
+    final var value = sqlRecord.getStoredSingle();
 
     return Integer.valueOf(value);
   }
@@ -79,7 +79,7 @@ public final class SchemaReader implements ISchemaReader {
   public Time getSchemaTimestamp() {
     final var query = QUERY_CREATOR.createQueryToLoadSchemaTimestamp();
     final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
-    final var value = sqlRecord.getStoredOne();
+    final var value = sqlRecord.getStoredSingle();
 
     return Time.fromString(value);
   }

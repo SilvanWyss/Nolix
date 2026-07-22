@@ -4,14 +4,12 @@
 package ch.nolix.baseapi.datastructure.iterableextension;
 
 import java.util.function.Function;
-import java.util.function.Predicate;
 
 /**
  * @author Silvan Wyss
  * @param <E> the type of the elements a {@link SingleSearchable}
  */
 public interface SingleSearchable<E> {
-
   /**
    * @param oneBasedIndex
    * @return the element at the given oneBasedIndex. The element can be null
@@ -55,22 +53,4 @@ public interface SingleSearchable<E> {
    */
   E getStoredLast();
 
-  /**
-   * @return the one element of the current {@link SingleSearchable}. The element
-   *         can be null
-   * @throws RuntimeException if the current {@link SingleSearchable} is empty
-   * @throws RuntimeException if the current {@link SingleSearchable} contains
-   *                          several elements.
-   */
-  E getStoredOne();
-
-  /**
-   * @param selector
-   * @return the one element the given selector selects from the current
-   *         {@link SingleSearchable}, ignoring null elements
-   * @throws RuntimeException if the given selector is null
-   * @throws RuntimeException if the given selector selects none or several
-   *                          elements from the current {@link SingleSearchable}.
-   */
-  E getStoredOne(Predicate<? super E> selector);
 }

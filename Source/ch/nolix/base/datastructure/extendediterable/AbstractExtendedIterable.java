@@ -25,6 +25,7 @@ import ch.nolix.base.datastructure.extendediterableintervalview.ExtendedIterable
 import ch.nolix.base.datastructure.extendediterablemapperview.ExtendedIterableMapperView;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.datastructure.iterableextension.IterableSingleProvider;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -837,66 +838,39 @@ implements ExtendedIterable<E> {
     return (ExtendedIterable<T>) getStoredSelected(e -> type.isAssignableFrom(e.getClass()));
   }
 
-  // For a better performance, this implementation does not use all available comfort methods.
   /**
-   * The time complexity of this implementation is O(1).
-   * 
    * {@inheritDoc}
    */
   @Override
-  public final E getStoredOne() {
-    // Enumerates the element count of the current Container.
-    return switch (getCount()) {
-      case 0 ->
-        throw EmptyArgumentException.forArgument(this);
-      case 1 ->
-        iterator().next();
-      default ->
-        throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains several elements");
-    };
+  public final E getStoredSingle() {
+    final var iterator = iterator();
+
+    if (!iterator.hasNext()) {
+      throw EmptyArgumentException.forArgument(this);
+    }
+
+    final var element = iterator.next(); //NOSONAR: The next method has to be called before the hasNext method.
+
+    if (iterator.hasNext()) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains several elements");
+    }
+
+    return element;
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
-  public final E getStoredOne(final Predicate<? super E> selector) {
-    // Asserts that the given selector is not null.
-    Validator.assertThat(LowerCaseVariableNameCatalog.SELECTOR).isNotNull();
-
-    // Initializes selectedElement.
-    E selectedElement = null;
-
-    // Iterates the current Container.
-    for (final var e : this) {
-      // Handles the case that the current element is not null and the given selector selects the current element.
-      if (e != null && selector.test(e)) {
-        // Handles the case that the given selector selected already an element.
-        if (selectedElement != null) {
-          throw //
-          InvalidArgumentException.forArgumentAndErrorPredicate(
-            this,
-            "contains several elements the given selector selects");
-        }
-
-        // Handles the case that the given selector did not select already an element.
-        selectedElement = e;
-      }
+  public final E getStoredSingle(final Predicate<? super E> selector) {
+    if (selector != null) {
+      return getStoredSingleWhenSelectorIsNotNull(selector);
     }
 
-    // Handles the case that the given selector did not select an element.
-    if (selectedElement == null) {
-      throw //
-      InvalidArgumentException.forArgumentAndErrorPredicate(
-        this,
-        "does not contain an element the given selector selects");
-    }
-
-    // Handles the case that the given selector selected an element.
-    return selectedElement;
+    throw //
+    InvalidArgumentException.forArgumentAndErrorPredicate(
+      this,
+      "does not contain an element the given selector selects");
   }
 
   /**
@@ -1628,7 +1602,47 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the current
+   * The time complexity of this method is O(n) if the current
+   * {@link AbstractExtendedIterable} contains n elements.
+   * 
+   * The time complexity of this method is O(n) if the current
+   * {@link IterableSingleProvider} contains n elements.
+   * 
+   * @param selector can select elements, is considered not to be null
+   * @return the one element the given selector selects from the current
+   *         {@link IterableSingleProvider}, ignoring null elements
+   * @throws RuntimeException if the given the current
+   *                          {@link IterableSingleProvider} contains none or
+   *                          several elements the given selector selects
+   */
+  private E getStoredSingleWhenSelectorIsNotNull(final Predicate<? super E> selector) {
+    E selectedElement = null;
+
+    for (final var e : this) {
+      if (e != null && selector.test(e)) {
+        if (selectedElement != null) {
+          throw //
+          InvalidArgumentException.forArgumentAndErrorPredicate(
+            this,
+            "contains several elements the given selector selects");
+        }
+
+        selectedElement = e;
+      }
+    }
+
+    if (selectedElement == null) {
+      throw //
+      InvalidArgumentException.forArgumentAndErrorPredicate(
+        this,
+        "does not contain an element the given selector selects");
+    }
+
+    return selectedElement;
+  }
+
+  /**
+   * The time complexity of this method is O(n) if the current
    * {@link AbstractExtendedIterable} contains n elements.
    * 
    * @param separator
