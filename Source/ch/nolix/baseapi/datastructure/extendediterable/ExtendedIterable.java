@@ -6,7 +6,6 @@ package ch.nolix.baseapi.datastructure.extendediterable;
 import ch.nolix.baseapi.datastructure.copyableiterator.IterableWithCopyableIterator;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableArrayProvider;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableFirstProvider;
-import ch.nolix.baseapi.datastructure.iterableextension.IterableSingleProvider;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableStringProvider;
 import ch.nolix.baseapi.datastructure.iterableextension.SingleSearchable;
 import ch.nolix.baseapi.datastructure.iterablerequest.IterableContainAnyRequestable;
@@ -17,6 +16,7 @@ import ch.nolix.baseapi.datastructure.iterablerequest.IterableContainObjectReque
 import ch.nolix.baseapi.datastructure.iterablerequest.IterableOneBasedIndexRequestable;
 import ch.nolix.baseapi.datastructure.set.AggregationRequestable;
 import ch.nolix.baseapi.datastructure.set.CountRequestable;
+import ch.nolix.baseapi.datastructure.set.SingleProvider;
 import ch.nolix.baseapi.state.staterequest.MaterializationRequestable;
 
 /**
@@ -46,7 +46,7 @@ IterableMappedProvider<E>,
 IterableMappedViewProvider<E>,
 IterableOneBasedIndexRequestable<E>,
 IterableOrderProvider<E>,
-IterableSingleProvider<E>,
+SingleProvider<E>,
 IterableStringProvider,
 IterableWithCopyableIterator<E>,
 MaterializationRequestable,

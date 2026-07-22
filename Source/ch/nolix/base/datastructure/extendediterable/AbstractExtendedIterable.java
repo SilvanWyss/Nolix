@@ -25,8 +25,8 @@ import ch.nolix.base.datastructure.extendediterableintervalview.ExtendedIterable
 import ch.nolix.base.datastructure.extendediterablemapperview.ExtendedIterableMapperView;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.datastructure.iterableextension.IterableSingleProvider;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
+import ch.nolix.baseapi.datastructure.set.SingleProvider;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -1584,13 +1584,13 @@ implements ExtendedIterable<E> {
    * {@link AbstractExtendedIterable} contains n elements.
    * 
    * The time complexity of this method is O(n) if the current
-   * {@link IterableSingleProvider} contains n elements.
+   * {@link SingleProvider} contains n elements.
    * 
    * @param selector can select elements, is considered not to be null
    * @return the one element the given selector selects from the current
-   *         {@link IterableSingleProvider}, ignoring null elements
+   *         {@link SingleProvider}, ignoring null elements
    * @throws RuntimeException if the given the current
-   *                          {@link IterableSingleProvider} contains none or
+   *                          {@link SingleProvider} contains none or
    *                          several elements the given selector selects
    */
   private E getStoredSingleWhenSelectorIsNotNull(final Predicate<? super E> selector) {
