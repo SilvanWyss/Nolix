@@ -10,7 +10,6 @@ import ch.nolix.baseapi.datastructure.iterableextension.IterableByIndexProvider;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableFirstProvider;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableLastProvider;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableStringProvider;
-import ch.nolix.baseapi.datastructure.iterableextension.SingleSearchable;
 import ch.nolix.baseapi.datastructure.iterablerequest.IterableContainAnyRequestable;
 import ch.nolix.baseapi.datastructure.iterablerequest.IterableContainEqualRequestable;
 import ch.nolix.baseapi.datastructure.iterablerequest.IterableContainMatchingRequestable;
@@ -55,7 +54,6 @@ IterableOrderProvider<E>,
 SingleProvider<E>,
 IterableStringProvider,
 IterableWithCopyableIterator<E>,
-MaterializationRequestable,
-SingleSearchable<E> {
+MaterializationRequestable {
   //This interface is a dedicated union of other interfaces.
 }
