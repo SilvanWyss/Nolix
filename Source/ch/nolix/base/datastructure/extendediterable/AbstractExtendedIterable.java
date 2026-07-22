@@ -1478,25 +1478,19 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n * log(n)) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
-  public final <C extends Comparable<C>> ExtendedIterable<E> toOrdered(final Function<E, C> norm) {
+  public final <C extends Comparable<C>> ExtendedIterable<E> toOrdered(final Function<E, C> comparableMapper) {
     @SuppressWarnings("unchecked")
     final var array = (E[]) toArray();
 
-    ArraySorter.sortArray(array, getCount(), norm);
+    ArraySorter.sortArray(array, getCount(), comparableMapper);
 
     return ArrayList.withElements(array);
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override

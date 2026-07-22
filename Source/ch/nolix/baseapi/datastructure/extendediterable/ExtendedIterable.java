@@ -3,8 +3,6 @@
  */
 package ch.nolix.baseapi.datastructure.extendediterable;
 
-import java.util.function.Function;
-
 import ch.nolix.baseapi.datastructure.copyableiterator.IterableWithCopyableIterator;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableArrayProvider;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableFirstProvider;
@@ -46,28 +44,10 @@ IterableIntervalViewProvider<E>,
 IterableMappedProvider<E>,
 IterableMappedViewProvider<E>,
 IterableOneBasedIndexRequestable<E>,
+IterableOrderProvider<E>,
 IterableStringProvider,
 IterableWithCopyableIterator<E>,
 MaterializationRequestable,
 SingleSearchable<E> {
-  /**
-   * @param comparableMapper
-   * @param <C>              the type of the {@link Comparable}s the given
-   *                         comparableMapper returns
-   * @return a new {@link ExtendedIterable} with the elements of the current
-   *         {@link ExtendedIterable} ordered from the smallest to the biggest
-   *         element according to the {@link Comparable}s the given
-   *         comparableMapper maps from the elements of the current
-   *         {@link ExtendedIterable}
-   * @throws RuntimeException if the given comparableMapper is null
-   * @throws RuntimeException if one of the elements of the current
-   *                          {@link ExtendedIterable} is null
-   */
-  <C extends Comparable<C>> ExtendedIterable<E> toOrdered(Function<E, C> comparableMapper);
-
-  /**
-   * @return a new {@link ExtendedIterable} with the elements of the current
-   *         {@link ExtendedIterable} in reversed order
-   */
-  ExtendedIterable<E> toReversed();
+  //This interface is a dedicated union of other interfaces.
 }
