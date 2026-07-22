@@ -1303,29 +1303,7 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final double[] toDoubleArray(final ToDoubleFunction<E> doubleMapper) {
-    // Asserts that the given doubleMapper is not null.
-    Validator.assertThat(doubleMapper).thatIsNamed("double mapper").isNotNull();
-
-    // Creates array.
-    final var array = new double[getCount()];
-
-    // Fills up the array.
-    var index = 0;
-    for (final var e : this) {
-      // Handles the case that the current element is null.
-      if (e == null) {
-        array[index] = 0.0;
-
-        // Handles the case that the current element is not null.
-      } else {
-        array[index] = doubleMapper.applyAsDouble(e);
-      }
-
-      // Increments the index.
-      index++;
-    }
-
-    return array;
+    return ITERABLE_MAPPER.toDoubleArray(this, getCount(), doubleMapper);
   }
 
   /**

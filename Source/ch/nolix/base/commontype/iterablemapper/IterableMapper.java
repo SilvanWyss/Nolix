@@ -3,6 +3,7 @@
  */
 package ch.nolix.base.commontype.iterablemapper;
 
+import java.util.function.ToDoubleFunction;
 import java.util.function.ToIntFunction;
 
 import ch.nolix.base.validation.validator.Validator;
@@ -39,5 +40,34 @@ public final class IterableMapper implements IIterableMapper {
     Validator.assertThat(n).thatIsNamed("n").isEqualTo(0);
 
     return new int[0];
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public <E> double[] toDoubleArray(final Iterable<E> iterable, final int n, final ToDoubleFunction<E> doubleMapper) {
+    Validator.assertThat(doubleMapper).thatIsNamed("double mapper").isNotNull();
+
+    if (iterable != null) {
+      final var array = new double[n];
+      final var iterator = iterable.iterator();
+
+      for (var i = 0; i < n; i++) {
+        final var element = iterator.next();
+
+        if (element == null) {
+          array[i] = 0;
+        } else {
+          array[i] = doubleMapper.applyAsDouble(element);
+        }
+      }
+
+      return array;
+    }
+
+    Validator.assertThat(n).thatIsNamed("n").isEqualTo(0);
+
+    return new double[0];
   }
 }

@@ -3,6 +3,7 @@
  */
 package ch.nolix.baseapi.commontype.iterablemapper;
 
+import java.util.function.ToDoubleFunction;
 import java.util.function.ToIntFunction;
 
 /**
@@ -24,4 +25,21 @@ public interface IIterableArrayMapper {
    * @throws RuntimeException if the given intMapper is null
    */
   <E> int[] toIntArray(Iterable<E> iterable, int n, ToIntFunction<E> intMapper);
+
+  /**
+   * The time complexity of this method is O(n) if the given iterable contains n
+   * elements.
+   * 
+   * @param iterable     the mapped iterable, is considered to be empty when is
+   *                     null
+   * @param n
+   * @param doubleMapper
+   * @param <E>          the type of the elements of the given iterable
+   * @return a new array with the first n doubles the given doubleMapper maps from
+   *         the elements of the given iterable, mapping null elements to 0.0
+   * @throws RuntimeException if the given n is negative or bigger than the size
+   *                          of the given iterable
+   * @throws RuntimeException if the given doubleMapper is null
+   */
+  <E> double[] toDoubleArray(Iterable<E> iterable, int n, ToDoubleFunction<E> doubleMapper);
 }
