@@ -4,12 +4,12 @@
 package ch.nolix.baseapi.datastructure.extendediterable;
 
 import ch.nolix.baseapi.datastructure.copyableiterator.IterableWithCopyableIterator;
-import ch.nolix.baseapi.datastructure.iterableextension.IterableArrayProvider;
-import ch.nolix.baseapi.datastructure.iterableextension.IterableByExtremumProvider;
-import ch.nolix.baseapi.datastructure.iterableextension.IterableByIndexProvider;
-import ch.nolix.baseapi.datastructure.iterableextension.IterableFirstProvider;
-import ch.nolix.baseapi.datastructure.iterableextension.IterableLastProvider;
-import ch.nolix.baseapi.datastructure.iterableextension.IterableStringProvider;
+import ch.nolix.baseapi.datastructure.iterableprovider.IterableArrayProvider;
+import ch.nolix.baseapi.datastructure.iterableprovider.IterableByExtremumProvider;
+import ch.nolix.baseapi.datastructure.iterableprovider.IterableByIndexProvider;
+import ch.nolix.baseapi.datastructure.iterableprovider.IterableFirstProvider;
+import ch.nolix.baseapi.datastructure.iterableprovider.IterableLastProvider;
+import ch.nolix.baseapi.datastructure.iterableprovider.IterableStringProvider;
 import ch.nolix.baseapi.datastructure.iterablerequest.IterableContainAnyRequestable;
 import ch.nolix.baseapi.datastructure.iterablerequest.IterableContainEqualRequestable;
 import ch.nolix.baseapi.datastructure.iterablerequest.IterableContainMatchingRequestable;
