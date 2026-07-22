@@ -24,10 +24,10 @@ final class ChainedNodeCreationTest extends StandardTest {
     // setup verification
     expect(node.isBlank()).isTrue();
 
-    // execution
+   // execute
     final var result = ChainedNode.fromNode(node);
 
-    // verification
+   // verify
     expect(result).hasStringRepresentation("");
   }
 
@@ -36,10 +36,10 @@ final class ChainedNodeCreationTest extends StandardTest {
     // setup
     final var node = ImmutableNode.withHeader("a");
 
-    // execution
+   // execute
     final var result = ChainedNode.fromNode(node);
 
-    // verification
+   // verify
     expect(result).hasStringRepresentation("a");
   }
 
@@ -61,16 +61,16 @@ final class ChainedNodeCreationTest extends StandardTest {
   "a(b).c(d).e(f).g(h)"
   })
   void testCase_fromString(final String string) {
-    // execution
+   // execute
     final var result = ChainedNode.fromString(string);
 
-    // verification
+   // verify
     expect(result).hasStringRepresentation(string);
   }
 
   @Test
   void testCase_withHeader_whenNullHeaderIsGiven() {
-    // execution & verification
+   // execute & verification
     expectRunning(() -> ChainedNode.withHeader(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -79,10 +79,10 @@ final class ChainedNodeCreationTest extends StandardTest {
 
   @Test
   void testCase_withHeader_whenHeaderIsGiven() {
-    // execution
+   // execute
     final var result = ChainedNode.withHeader("a");
 
-    // verification
+   // verify
     expect(result).hasStringRepresentation("a");
   }
 }

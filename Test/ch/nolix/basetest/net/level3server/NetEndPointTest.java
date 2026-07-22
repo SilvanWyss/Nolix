@@ -25,7 +25,7 @@ final class NetEndPointTest extends StandardTest {
       // setup
       server.addDefaultSlot(new TestSlot());
 
-      // execution & verification
+     // execute & verification
       expectRunning(
         () -> {
           try (final var _ = NetEndPoint.toLocalMachineAndGivenPortAndDefaultSlot(port)) {
@@ -47,10 +47,10 @@ final class NetEndPointTest extends StandardTest {
       server.addDefaultSlot(slot);
 
       try (final var testUnit = NetEndPoint.toLocalMachineAndGivenPortAndDefaultSlot(port)) {
-        // execution
+       // execute
         testUnit.runCommand(ChainedNode.fromString("test_command"));
 
-        // verification
+       // verify
         expect(slot.getLatestCreatedReceivingDataProviderController().getLatestReceivedCommand())
           .hasStringRepresentation("test_command");
       }
@@ -68,10 +68,10 @@ final class NetEndPointTest extends StandardTest {
       server.addDefaultSlot(slot);
 
       try (final var testUnit = NetEndPoint.toLocalMachineAndGivenPortAndDefaultSlot(port)) {
-        // execution
+       // execute
         final var result = testUnit.getDataForRequest(ChainedNode.fromString("test_request"));
 
-        // verification
+       // verify
         expect(slot.getLatestCreatedReceivingDataProviderController().getLatestReceivedRequest())
           .hasStringRepresentation("test_request");
         expect(result).isEqualTo(ImmutableNode.withHeader("test_data"));

@@ -21,10 +21,10 @@ final class WebSocketHandShakeResponseTest extends StandardTest {
     // setup
     final var webSocketHandShakeResponse = WebSocketHandShakeResponse.withSecWebSocketKey(secWebSocketKey);
 
-    // execution
+   // execute
     final var secWebSocketAccept = webSocketHandShakeResponse.getSecWebSocketAccept();
 
-    // verification
+   // verify
     expect(secWebSocketAccept).isEqualTo(expcetedSecWebSocketAccept);
   }
 
@@ -37,10 +37,10 @@ final class WebSocketHandShakeResponseTest extends StandardTest {
     // setup
     final var webSocketHandShakeResponse = WebSocketHandShakeResponse.withSecWebSocketKey(secWebSocketKey);
 
-    // execution
+   // execute
     final var secWebSocketAccept = webSocketHandShakeResponse.getSecWebSocketAccept();
 
-    // verification
+   // verify
     expect(secWebSocketAccept).isEqualTo(expcetedSecWebSocketAccept);
   }
 }

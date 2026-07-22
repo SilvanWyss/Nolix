@@ -22,10 +22,10 @@ final class ClosedIntervalTest extends StandardTest {
     // setup
     final var testUnit = ClosedInterval.withMinAndMax(0.0, 1.0);
 
-    // execution
+   // execute
     final var result = testUnit.containsValue(null);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -40,10 +40,10 @@ final class ClosedIntervalTest extends StandardTest {
     final var testUnit = ClosedInterval.withMinAndMax(min, max);
     final var valueAsBigDecimal = BigDecimal.valueOf(value);
 
-    // execution
+   // execute
     final var result = testUnit.containsValue(valueAsBigDecimal);
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -57,16 +57,16 @@ final class ClosedIntervalTest extends StandardTest {
     final var testUnit = ClosedInterval.withMinAndMax(min, max);
     final var valueAsBigDecimal = BigDecimal.valueOf(value);
 
-    // execution
+   // execute
     final var result = testUnit.containsValue(valueAsBigDecimal);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
   @Test
   void testCase_withMinAndMax_whenTheGivenMinIsNull() {
-    // execution & verification
+   // execute & verification
     expectRunning(() -> ClosedInterval.withMinAndMax(null, BigDecimal.valueOf(1.0)))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -75,7 +75,7 @@ final class ClosedIntervalTest extends StandardTest {
 
   @Test
   void testCase_withMinAndMax_whenTheGivenMaxIsNull() {
-    // execution & verification
+   // execute & verification
     expectRunning(() -> ClosedInterval.withMinAndMax(BigDecimal.valueOf(1.0), null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -88,10 +88,10 @@ final class ClosedIntervalTest extends StandardTest {
     final ClosedInterval nullCloedInterval = null;
     final var testUnit = ClosedInterval.withMinAndMax(0.0, 1.0);
 
-    // execution
+   // execute
     final var result = testUnit.equals(nullCloedInterval);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -100,10 +100,10 @@ final class ClosedIntervalTest extends StandardTest {
     // setup
     final var testUnit = ClosedInterval.withMinAndMax(0.0, 1.0);
 
-    // execution
+   // execute
     final var result = testUnit.equals(ClosedInterval.withMinAndMax(-1.0, 0.0));
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -112,10 +112,10 @@ final class ClosedIntervalTest extends StandardTest {
     // setup
     final var testUnit = ClosedInterval.withMinAndMax(0.0, 1.0);
 
-    // execution
+   // execute
     final var result = testUnit.equals(ClosedInterval.withMinAndMax(0.0, 1.0));
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -127,10 +127,10 @@ final class ClosedIntervalTest extends StandardTest {
     // setup
     final var testUnit = ClosedInterval.withMinAndMaxAndDecimalPlaceCount(-1.0, 1.0, scale);
 
-    // execution
+   // execute
     final var result = testUnit.getHalfs();
 
-    // verification
+   // verify
     expect(result.getStoredElement1().getMin()).isEqualTo(BigDecimal.valueOf(-1.0).setScale(scale));
     expect(result.getStoredElement1().getMax()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
     expect(result.getStoredElement2().getMin()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
@@ -145,10 +145,10 @@ final class ClosedIntervalTest extends StandardTest {
     // setup
     final var testUnit = ClosedInterval.withMinAndMaxAndDecimalPlaceCount(0.0, 1.0, scale);
 
-    // execution
+   // execute
     final var result = testUnit.getHalfs();
 
-    // verification
+   // verify
     expect(result.getStoredElement1().getMin()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
     expect(result.getStoredElement1().getMax()).isEqualTo(BigDecimal.valueOf(0.5).setScale(scale));
     expect(result.getStoredElement2().getMin()).isEqualTo(BigDecimal.valueOf(0.5).setScale(scale));
@@ -163,10 +163,10 @@ final class ClosedIntervalTest extends StandardTest {
     // setup
     final var testUnit = ClosedInterval.withMinAndMaxAndDecimalPlaceCount(0.0, 0.0, scale);
 
-    // execution
+   // execute
     final var result = testUnit.getHalfs();
 
-    // verification
+   // verify
     expect(result.getStoredElement1().getMin()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
     expect(result.getStoredElement1().getMax()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
     expect(result.getStoredElement2().getMin()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
@@ -181,10 +181,10 @@ final class ClosedIntervalTest extends StandardTest {
     // setup
     final var testUnit = ClosedInterval.withMinAndMaxAndDecimalPlaceCount(-1.0, -1.0, scale);
 
-    // execution
+   // execute
     final var result = testUnit.getLength();
 
-    // verification
+   // verify
     expect(result).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
   }
 
@@ -196,10 +196,10 @@ final class ClosedIntervalTest extends StandardTest {
     // setup
     final var testUnit = ClosedInterval.withMinAndMaxAndDecimalPlaceCount(-1.0, 0.0, scale);
 
-    // execution
+   // execute
     final var result = testUnit.getLength();
 
-    // verification
+   // verify
     expect(result).isEqualTo(BigDecimal.valueOf(1.0).setScale(scale));
   }
 
@@ -211,10 +211,10 @@ final class ClosedIntervalTest extends StandardTest {
     // setup
     final var testUnit = ClosedInterval.withMinAndMaxAndDecimalPlaceCount(-1.0, 1.0, scale);
 
-    // execution
+   // execute
     final var result = testUnit.getLength();
 
-    // verification
+   // verify
     expect(result).isEqualTo(BigDecimal.valueOf(2.0).setScale(scale));
   }
 
@@ -226,10 +226,10 @@ final class ClosedIntervalTest extends StandardTest {
     // setup
     final var testUnit = ClosedInterval.withMinAndMaxAndDecimalPlaceCount(0.0, 0.0, scale);
 
-    // execution
+   // execute
     final var result = testUnit.getLength();
 
-    // verification
+   // verify
     expect(result).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
   }
 
@@ -241,10 +241,10 @@ final class ClosedIntervalTest extends StandardTest {
     // setup
     final var testUnit = ClosedInterval.withMinAndMaxAndDecimalPlaceCount(-1.0, 1.0, scale);
 
-    // execution
+   // execute
     final var result = testUnit.getMidPoint();
 
-    // verification
+   // verify
     expect(result).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
   }
 
@@ -256,10 +256,10 @@ final class ClosedIntervalTest extends StandardTest {
     // setup
     final var testUnit = ClosedInterval.withMinAndMaxAndDecimalPlaceCount(0.0, 1.0, scale);
 
-    // execution
+   // execute
     final var result = testUnit.getMidPoint();
 
-    // verification
+   // verify
     expect(result).isEqualTo(BigDecimal.valueOf(0.5).setScale(scale));
   }
 
@@ -271,10 +271,10 @@ final class ClosedIntervalTest extends StandardTest {
     // setup
     final var testUnit = ClosedInterval.withMinAndMaxAndDecimalPlaceCount(0.0, 0.0, scale);
 
-    // execution
+   // execute
     final var result = testUnit.getMidPoint();
 
-    // verification
+   // verify
     expect(result).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
   }
 
@@ -293,10 +293,10 @@ final class ClosedIntervalTest extends StandardTest {
     final var closedInterval = ClosedInterval.withMinAndMax(0.0, 1.0);
     final var testUnit = ClosedInterval.withMinAndMax(min, max);
 
-    // execution
+   // execute
     final var result = testUnit.intersectsWithClosedInterval(closedInterval);
 
-    // verification
+   // verify
     expect(result).is(expectedResult);
   }
 
@@ -305,10 +305,10 @@ final class ClosedIntervalTest extends StandardTest {
     // setup
     final var testUnit = ClosedInterval.withMinAndMaxAndDecimalPlaceCount(-1.0, 1.0, 5);
 
-    // execution
+   // execute
     final var result = testUnit.toString();
 
-    // verification
+   // verify
     expect(result).isEqualTo("[-1.00000, 1.00000]");
   }
 }

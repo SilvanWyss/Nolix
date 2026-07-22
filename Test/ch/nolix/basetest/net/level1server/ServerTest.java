@@ -25,10 +25,10 @@ final class ServerTest extends StandardTest {
     final var mockSlot = new MockSlot();
 
     try (final var testUnit = Server.forPort(port)) {
-      // execution
+     // execute
       testUnit.addDefaultSlot(mockSlot);
 
-      // verification
+     // verify
       expect(testUnit.containsAny()).isTrue();
       expect(testUnit.containsDefaultSlot());
     }
@@ -43,10 +43,10 @@ final class ServerTest extends StandardTest {
       // setup verification
       expect(testUnit.isEmpty()).isTrue();
 
-      // execution
+     // execute
       testUnit.clear();
 
-      // verification
+     // verify
       expect(testUnit.isEmpty()).isTrue();
     }
   }
@@ -63,10 +63,10 @@ final class ServerTest extends StandardTest {
       // setup verification
       expect(testUnit.containsAny()).isTrue();
 
-      // execution
+     // execute
       testUnit.clear();
 
-      // verification
+     // verify
       expect(testUnit.isEmpty()).isTrue();
     }
   }
@@ -78,10 +78,10 @@ final class ServerTest extends StandardTest {
 
     // setup
     try (final var testUnit = Server.forPort(port)) {
-      // execution
+     // execute
       testUnit.close(); //NOSONAR: This test case tests the close method.
 
-      // verification
+     // verify
       expect(testUnit.isClosed()).isTrue();
     }
   }
@@ -89,7 +89,7 @@ final class ServerTest extends StandardTest {
   @Test
   void testCase_forHttpPort() {
     try (final var result = Server.forHttpPort()) {
-      // verification
+     // verify
       expect(result.getPort()).isEqualTo(80);
       expect(result.getSecurityMode()).is(SecurityMode.NONE);
       expect(result.getInitialHttpMessage()).is(Server.DEFAULT_INITIAL_HTTP_MESSAGE);
@@ -105,7 +105,7 @@ final class ServerTest extends StandardTest {
     final var port = 50000;
 
     try (final var result = Server.forPort(port)) {
-      // verification
+     // verify
       expect(result.getPort()).isEqualTo(port);
       expect(result.getSecurityMode()).is(SecurityMode.NONE);
       expect(result.getInitialHttpMessage()).is(Server.DEFAULT_INITIAL_HTTP_MESSAGE);

@@ -32,10 +32,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var lion = "lion";
     final var testUnit = createContainerWithElements(antelope, baboon, elephant, lion);
 
-    // execution
+   // execute
     final var result = testUnit.contains(lion);
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -48,10 +48,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var lion = "lion";
     final var testUnit = createContainerWithElements(antelope, baboon, elephant);
 
-    // execution
+   // execute
     final var result = testUnit.contains(lion);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -65,10 +65,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createContainerWithElements(antelope);
     final var list = ImmutableList.withElements(baboon, elephant, lion);
 
-    // execution
+   // execute
     final var result = testUnit.containsAll(list);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -81,10 +81,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var lion = "lion";
     final var testUnit = createContainerWithElements(antelope);
 
-    // execution
+   // execute
     final var result = testUnit.containsAll(baboon, elephant, lion);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -98,10 +98,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createContainerWithElements(antelope, baboon, elephant);
     final var list = ImmutableList.withElements(antelope, baboon, elephant, lion);
 
-    // execution
+   // execute
     final var result = testUnit.containsAll(list);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -114,10 +114,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var lion = "lion";
     final var testUnit = createContainerWithElements(antelope, baboon, elephant);
 
-    // execution
+   // execute
     final var result = testUnit.containsAll(antelope, baboon, elephant, lion);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -131,10 +131,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createContainerWithElements(antelope, baboon, elephant, lion);
     final var list = ImmutableList.withElements(antelope, baboon, elephant);
 
-    // execution
+   // execute
     final var result = testUnit.containsAll(list);
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -147,10 +147,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var lion = "lion";
     final var testUnit = createContainerWithElements(antelope, baboon, elephant, lion);
 
-    // execution
+   // execute
     final var result = testUnit.containsAll(antelope, baboon, elephant);
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -161,10 +161,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var element2 = "xx";
     final var testUnit = createEmptyContainerForType(String.class);
 
-    // execution
+   // execute
     final var result = testUnit.containsAny(element1, element2);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -177,10 +177,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var element4 = "xxxx";
     final var testUnit = createContainerWithElements(element1, element2, element3, element4);
 
-    // execution
+   // execute
     final var result = testUnit.containsAny(element1, element2, element3, element4);
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -193,10 +193,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var element4 = "xxxx";
     final var testUnit = createContainerWithElements(element1, element2);
 
-    // execution
+   // execute
     final var result = testUnit.containsAny(element3, element4);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -206,10 +206,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createEmptyContainerForType(String.class);
     final var container = createEmptyContainerForType(String.class);
 
-    // execution
+   // execute
     final var result = testUnit.containsExactlyInSameOrder(container);
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -220,10 +220,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
     final var container = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    // execution
+   // execute
     final var result = testUnit.containsExactlyInSameOrder(container);
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -234,10 +234,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
     final var container = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxxx", "xxxxx");
 
-    // execution
+   // execute
     final var result = testUnit.containsExactlyInSameOrder(container);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -250,10 +250,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var lion = "lion";
     final var testUnit = createContainerWithElements(antelope, baboon, elephant);
 
-    // execution
+   // execute
     final var result = testUnit.containsOnce(lion);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -266,10 +266,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var lion = "lion";
     final var testUnit = createContainerWithElements(antelope, baboon, elephant, lion);
 
-    // execution
+   // execute
     final var result = testUnit.containsOnce(lion);
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -282,10 +282,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var lion = "lion";
     final var testUnit = createContainerWithElements(antelope, baboon, elephant, lion, lion);
 
-    // execution
+   // execute
     final var result = testUnit.containsOnce(lion);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -294,10 +294,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    // execution
+   // execute
     final var result = testUnit.containsOne();
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -306,10 +306,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x");
 
-    // execution
+   // execute
     final var result = testUnit.containsOne();
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -318,10 +318,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "xx");
 
-    // execution
+   // execute
     final var result = testUnit.containsOne();
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -330,10 +330,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "xx", "xx", "xx", "xx", "xx");
 
-    // execution
+   // execute
     final var result = testUnit.containsOneMatching(e -> e.equals("x"));
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -342,10 +342,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "x", "xx", "xx", "xx", "xx");
 
-    // execution
+   // execute
     final var result = testUnit.containsOneMatching(e -> e.equals("x"));
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -355,10 +355,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
     final var list = ArrayList.createEmpty();
 
-    // execution
+   // execute
     testUnit.forEach(list::addAtEnd);
 
-    // verification
+   // verify
     expect(list.getCount()).isEqualTo(6);
     for (var i = 1; i <= 6; i++) {
       expect(testUnit.getStoredAtOneBasedIndex(i)).isEqualTo(list.getStoredAtOneBasedIndex(i));
@@ -370,10 +370,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    // execution
+   // execute
     final var result = testUnit.getViewFromOneBasedStartIndex(4);
 
-    // verification
+   // verify
     expect(result.getCount()).isEqualTo(3);
     expect(result.getStoredAtOneBasedIndex(1)).isEqualTo("xxxx");
     expect(result.getStoredAtOneBasedIndex(2)).isEqualTo("xxxxx");
@@ -385,7 +385,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(Double.class);
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.getAverage(FunctionService::getSelf))
       .throwsException()
       .ofType(EmptyArgumentException.class)
@@ -397,10 +397,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements(5.0, 10.0, 15.0, 20.0, 25.0, 30.0);
 
-    // execution
+   // execute
     final var result = testUnit.getAverage(FunctionService::getSelf);
 
-    // verification
+   // verify
     expect(result).isEqualTo(17.5);
   }
 
@@ -409,10 +409,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(Double.class);
 
-    // execution
+   // execute
     final var result = testUnit.getAverageOrZero(FunctionService::getSelf);
 
-    // verification
+   // verify
     expect(result).isEqualTo(0.0);
   }
 
@@ -421,10 +421,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements(5.0, 10.0, 15.0, 20.0, 25.0, 30.0);
 
-    // execution
+   // execute
     final var result = testUnit.getAverageOrZero(FunctionService::getSelf);
 
-    // verification
+   // verify
     expect(result).isEqualTo(17.5);
   }
 
@@ -444,10 +444,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("", "", "x", "x", "xx", "xx", "xxx", "xxx", "xxxx", "xxxx");
 
-    // execution
+   // execute
     final var result = testUnit.getCount(e -> e.length() >= minLength);
 
-    // verification
+   // verify
     expect(result).isEqualTo(expectedCount);
   }
 
@@ -456,7 +456,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "x", "x", "x", "x", "x");
 
-    // execution & verification
+   // execute & verification
     expect(testUnit.getCount()).isEqualTo(6);
   }
 
@@ -465,7 +465,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    // execution & verification
+   // execute & verification
     expect(testUnit.getCount()).isEqualTo(0);
   }
 
@@ -474,7 +474,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.getOneBasedIndexOfFirst(e -> e.startsWith("x")))
       .throwsException()
       .ofType(ArgumentDoesNotContainElementException.class);
@@ -485,10 +485,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("wx", "xx", "yx", "zx");
 
-    // execution
+   // execute
     final var result = testUnit.getOneBasedIndexOfFirst(e -> e.startsWith("y"));
 
-    // verification
+   // verify
     expect(result).isEqualTo(3);
   }
 
@@ -497,7 +497,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    // execution
+   // execute
     expectRunning(() -> testUnit.getMax(String::length))
       .throwsException()
       .ofType(InvalidArgumentException.class);
@@ -508,10 +508,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    // execution
+   // execute
     final var result = testUnit.getMax(e -> 1.0 / e.length());
 
-    // verification
+   // verify
     expect(result).isEqualTo(1.0);
   }
 
@@ -520,10 +520,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    // execution
+   // execute
     final var result = testUnit.getMax(String::length);
 
-    // verification
+   // verify
     expect(result).isEqualTo(6);
   }
 
@@ -532,10 +532,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(BigDecimal.class);
 
-    // execution
+   // execute
     final var result = testUnit.getMaxOrZero(FunctionService::getSelf);
 
-    // verification
+   // verify
     expect(result).isEqualTo(0.0);
   }
 
@@ -548,10 +548,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
       BigDecimal.valueOf(11.5),
       BigDecimal.valueOf(9.5));
 
-    // execution
+   // execute
     final var result = testUnit.getMaxOrZero(FunctionService::getSelf);
 
-    // verification
+   // verify
     expect(result).isEqualTo(11.5);
   }
 
@@ -560,7 +560,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(Integer.class);
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.getMedian(FunctionService::getSelf))
       .throwsException()
       .ofType(EmptyArgumentException.class);
@@ -571,10 +571,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements(10, 1, 9, 2, 8, 3, 4);
 
-    // execution
+   // execute
     final var result = testUnit.getMedian(FunctionService::getSelf);
 
-    // verification
+   // verify
     expect(result).isEqualTo(4.0);
   }
 
@@ -583,10 +583,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(Integer.class);
 
-    // execution
+   // execute
     final var result = testUnit.getMedianOrZero(FunctionService::getSelf);
 
-    // verification
+   // verify
     expect(result).isEqualTo(0.0);
   }
 
@@ -595,10 +595,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements(10, 1, 9, 2, 8, 3, 4);
 
-    // execution
+   // execute
     final var result = testUnit.getMedianOrZero(FunctionService::getSelf);
 
-    // verification
+   // verify
     expect(result).isEqualTo(4.0);
   }
 
@@ -607,7 +607,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    // execution
+   // execute
     expectRunning(() -> testUnit.getMin(String::length)).throwsException().ofType(InvalidArgumentException.class);
   }
 
@@ -616,10 +616,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx");
 
-    // execution
+   // execute
     final var result = testUnit.getMin(e -> 1.0 / e.length());
 
-    // verification
+   // verify
     expect(result).isEqualTo(0.2);
   }
 
@@ -628,10 +628,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    // execution
+   // execute
     final var result = testUnit.getMin(String::length);
 
-    // verification
+   // verify
     expect(result).isEqualTo(1);
   }
 
@@ -640,10 +640,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(BigDecimal.class);
 
-    // execution
+   // execute
     final var result = testUnit.getMinOrZero(FunctionService::getSelf);
 
-    // verification
+   // verify
     expect(result).isEqualTo(0.0);
   }
 
@@ -656,10 +656,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
       BigDecimal.valueOf(11.5),
       BigDecimal.valueOf(9.5));
 
-    // execution
+   // execute
     final var result = testUnit.getMinOrZero(FunctionService::getSelf);
 
-    // verification
+   // verify
     expect(result).isEqualTo(9.5);
   }
 
@@ -668,10 +668,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    // execution
+   // execute
     final var result = testUnit.getOptionalStoredFirst();
 
-    // verification
+   // verify
     expect(result.isEmpty()).isTrue();
   }
 
@@ -684,10 +684,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var zebra = "zebra";
     final var testUnit = createContainerWithElements(elephant, lion, rhino, zebra);
 
-    // execution
+   // execute
     final var result = testUnit.getOptionalStoredFirst();
 
-    // verification
+   // verify
     expect(result.orElseThrow()).is(elephant);
   }
 
@@ -696,7 +696,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    // execution
+   // execute
     expectRunning(() -> testUnit.getStoredByMax(String::length))
       .throwsException()
       .ofType(InvalidArgumentException.class);
@@ -707,10 +707,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    // execution
+   // execute
     final var result = testUnit.getStoredByMax(e -> 1.0 / e.length());
 
-    // verification
+   // verify
     expect(result).isEqualTo("x");
   }
 
@@ -719,10 +719,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    // execution
+   // execute
     final var result = testUnit.getStoredByMax(String::length);
 
-    // verification
+   // verify
     expect(result).isEqualTo("xxxxxx");
   }
 
@@ -731,7 +731,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    // execution
+   // execute
     expectRunning(() -> testUnit.getStoredByMin(String::length))
       .throwsException()
       .ofType(InvalidArgumentException.class);
@@ -742,10 +742,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    // execution
+   // execute
     final var result = testUnit.getStoredByMin(e -> 1.0 / e.length());
 
-    // verification
+   // verify
     expect(result).isEqualTo("xxxxxx");
   }
 
@@ -754,10 +754,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    // execution
+   // execute
     final var result = testUnit.getStoredByMin(String::length);
 
-    // verification
+   // verify
     expect(result).isEqualTo("x");
   }
 
@@ -766,10 +766,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    // execution
+   // execute
     final var result = testUnit.getStoredFirstNonNull();
 
-    // verification
+   // verify
     expect(result).isEqualTo("x");
   }
 
@@ -778,7 +778,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    // execution & verification
+   // execute & verification
     expectRunning(testUnit::getStoredFirstNonNull)
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -790,10 +790,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    // execution
+   // execute
     final var result = testUnit.getStoredInGroups(String::length);
 
-    // verification
+   // verify
     expect(result).isEmpty();
   }
 
@@ -802,10 +802,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "y", "x", "y", "x", "y");
 
-    // execution
+   // execute
     final var result = testUnit.getStoredInGroups(String::length);
 
-    // verification
+   // verify
     expect(result.getCount()).isEqualTo(1);
     expect(result.getStoredSingle()).containsExactlyEqualing("x", "y", "x", "y", "x", "y");
   }
@@ -815,10 +815,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "y", "xx", "yy", "xxx", "yyy");
 
-    // execution
+   // execute
     final var result = testUnit.getStoredInGroups(String::length);
 
-    // verification
+   // verify
     expect(result.getCount()).isEqualTo(3);
     expect(result.getStoredAtOneBasedIndex(1)).containsExactlyEqualing("x", "y");
     expect(result.getStoredAtOneBasedIndex(2)).containsExactlyEqualing("xx", "yy");
@@ -830,7 +830,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    // execution & verification
+   // execute & verification
     expectRunning(testUnit::getStoredLast).throwsException();
   }
 
@@ -843,10 +843,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var zebra = "zebra";
     final var testUnit = createContainerWithElements(elephant, lion, rhino, zebra);
 
-    // execution
+   // execute
     final var result = testUnit.getStoredLast();
 
-    // verification
+   // verify
     expect(result).is(zebra);
   }
 
@@ -855,7 +855,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.getStoredSingle(e -> e.length() == 7))
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -870,10 +870,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    // execution
+   // execute
     final var result = testUnit.getStoredSingle(e -> e.length() == 3);
 
-    // verification
+   // verify
     expect(result).isEqualTo("xxx");
   }
 
@@ -882,7 +882,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "y", "xx", "yy", "xxx", "yyy");
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.getStoredSingle(e -> e.length() == 3))
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -897,10 +897,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    // execution
+   // execute
     final var result = testUnit.getStoredSelected(e -> e.length() < 4);
 
-    // verification
+   // verify
     expect(result.getCount()).isEqualTo(3);
     expect(result.getStoredAtOneBasedIndex(1)).isEqualTo("x");
     expect(result.getStoredAtOneBasedIndex(2)).isEqualTo("xx");
@@ -912,10 +912,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    // execution
+   // execute
     final var result = testUnit.getStoredSelected(e -> e.length() > 6);
 
-    // verification
+   // verify
     expect(result.isEmpty()).isTrue();
   }
 
@@ -924,10 +924,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    // execution
+   // execute
     final var result = testUnit.getSum(String::length);
 
-    // verification
+   // verify
     expect(result.intValue()).isEqualTo(0);
   }
 
@@ -936,10 +936,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    // execution
+   // execute
     final var result = testUnit.getSum(String::length);
 
-    // verification
+   // verify
     expect(result.intValue()).isEqualTo(21);
   }
 
@@ -948,10 +948,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements(0.0, 0.0, 0.5, 1.0, 1.0);
 
-    // execution
+   // execute
     final var result = testUnit.getVariance(FunctionService::getSelf);
 
-    // verification
+   // verify
     expect(result).isEqualTo(0.2);
   }
 
@@ -960,7 +960,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    // execution & verification
+   // execute & verification
     expectRunning(testUnit::getViewWithoutFirst).throwsException();
   }
 
@@ -975,10 +975,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var zebra = "zebra";
     final var testUnit = createContainerWithElements(antelope, baboon, elephant, lion, rhino, zebra);
 
-    // execution
+   // execute
     final var result = testUnit.getViewWithoutFirst();
 
-    // verification
+   // verify
     expect(result).containsExactlyInSameOrder(baboon, elephant, lion, rhino, zebra);
   }
 
@@ -987,7 +987,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    // execution & verification
+   // execute & verification
     expectRunning(testUnit::getViewWithoutLast).throwsException();
   }
 
@@ -1002,10 +1002,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var zebra = "zebra";
     final var testUnit = createContainerWithElements(antelope, baboon, elephant, lion, rhino, zebra);
 
-    // execution
+   // execute
     final var result = testUnit.getViewWithoutLast();
 
-    // verification
+   // verify
     expect(result).containsExactlyInSameOrder(antelope, baboon, elephant, lion, rhino);
   }
 
@@ -1014,10 +1014,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(VoidObject.class);
 
-    // execution
+   // execute
     final var result = testUnit.isView();
 
-    // verification
+   // verify
     expect(result).is(!testUnit.isMaterialized());
   }
 
@@ -1026,10 +1026,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    // execution
+   // execute
     final var result = testUnit.toArray();
 
-    // verification
+   // verify
     expect(result.length).isEqualTo(6);
     expect(result[0]).isEqualTo("x");
     expect(result[1]).isEqualTo("xx");
@@ -1044,10 +1044,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    // execution
+   // execute
     final var result = testUnit.toConcatenatedString();
 
-    // verification
+   // verify
     expect(result).isEmpty();
   }
 
@@ -1056,10 +1056,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "yy", "zzz", "pppp");
 
-    // execution
+   // execute
     final var result = testUnit.toConcatenatedString();
 
-    // verification
+   // verify
     expect(result).isEqualTo("xyyzzzpppp");
   }
 
@@ -1068,10 +1068,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    // execution
+   // execute
     final var result = testUnit.toDoubleArray(String::length);
 
-    // verification
+   // verify
     expect(result.length).isEqualTo(0);
   }
 
@@ -1080,10 +1080,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "x", "xx", "xx", "xxx", "xxx");
 
-    // execution
+   // execute
     final var result = testUnit.toDoubleArray(String::length);
 
-    // verification
+   // verify
     expect(result.length).isEqualTo(6);
     expect(result[0]).isEqualTo(1.0);
     expect(result[1]).isEqualTo(1.0);
@@ -1098,10 +1098,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("xxxxxx", "xxxxx", "xxxx", "xxx", "xx", "x");
 
-    // execution
+   // execute
     final var result = testUnit.toOrdered(String::length);
 
-    // verification
+   // verify
     expect(result.getCount()).isEqualTo(6);
     expect(result.getStoredAtOneBasedIndex(1)).isEqualTo("x");
     expect(result.getStoredAtOneBasedIndex(2)).isEqualTo("xx");
@@ -1116,10 +1116,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("python", "elephant", "zebra", "lion", "shark", "jaguar");
 
-    // execution
+   // execute
     final var result = testUnit.toOrdered(FunctionService::getSelf);
 
-    // verification
+   // verify
     expect(result.getCount()).isEqualTo(6);
     expect(result.getStoredAtOneBasedIndex(1)).isEqualTo("elephant");
     expect(result.getStoredAtOneBasedIndex(2)).isEqualTo("jaguar");
@@ -1134,10 +1134,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    // execution
+   // execute
     final var result = testUnit.toIntArray(String::length);
 
-    // verification
+   // verify
     expect(result.length).isEqualTo(6);
     expect(result[0]).isEqualTo(1);
     expect(result[1]).isEqualTo(2);
@@ -1152,10 +1152,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(Integer.class);
 
-    // execution
+   // execute
     final var result = testUnit.toStringArray();
 
-    // verification
+   // verify
     expect(result.length).isEqualTo(0);
   }
 
@@ -1164,10 +1164,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements(10, 20, 30, 40);
 
-    // execution
+   // execute
     final var result = testUnit.toStringArray();
 
-    // verification
+   // verify
     expect(result.length).isEqualTo(4);
     expect(result[0]).isEqualTo("10");
     expect(result[1]).isEqualTo("20");
@@ -1180,10 +1180,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements(10, 20, 30, 40, 50, 60);
 
-    // execution
+   // execute
     final var result = testUnit.toStrings();
 
-    // verification
+   // verify
     expect(result.getCount()).isEqualTo(6);
     expect(result.getStoredAtOneBasedIndex(1)).isEqualTo("10");
     expect(result.getStoredAtOneBasedIndex(2)).isEqualTo("20");
@@ -1198,10 +1198,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createEmptyContainerForType(Integer.class);
 
-    // execution
+   // execute
     final var result = testUnit.toStrings();
 
-    // verifications
+   // verifys
     expect(result).isEmpty();
   }
 
@@ -1210,10 +1210,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    // execution
+   // execute
     final var result = testUnit.getViewToOneBasedEndIndex(5);
 
-    // verification
+   // verify
     expect(result.getCount()).isEqualTo(5);
     expect(result.getStoredAtOneBasedIndex(1)).isEqualTo("x");
     expect(result.getStoredAtOneBasedIndex(2)).isEqualTo("xx");
@@ -1224,10 +1224,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
   @Test
   final void testCase_withElements() {
-    // execution
+   // execute
     final var result = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    // verification
+   // verify
     expect(result).contains(s -> s.equals("x"));
     expect(result).contains(s -> s.equals("xx"));
     expect(result).contains(s -> s.equals("xxx"));
@@ -1241,10 +1241,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
     // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    // execution
+   // execute
     final var result = testUnit.getViewWithoutFirst();
 
-    // verification
+   // verify
     expect(result.getCount()).isEqualTo(5);
     expect(result.getStoredAtOneBasedIndex(1)).isEqualTo("xx");
     expect(result.getStoredAtOneBasedIndex(2)).isEqualTo("xxx");

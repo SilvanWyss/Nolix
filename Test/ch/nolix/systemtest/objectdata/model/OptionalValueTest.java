@@ -18,19 +18,19 @@ final class OptionalValueTest extends StandardTest {
     // setup
     final var testUnit = OptionalValueField.withInitialValue("LoremIpsum");
 
-    // execution
+   // execute
     testUnit.clear();
 
-    // verification
+   // verify
     expect(testUnit.isEmpty()).isTrue();
   }
 
   @Test
   void testCase_constructor() {
-    // execution
+   // execute
     final var result = OptionalValueField.withValueType(String.class);
 
-    // verification
+   // verify
     expect(result.getState()).isEqualTo(DatabaseObjectState.NEW);
     expect(result.isOpen()).isTrue();
     expect(result.isDeleted()).isFalse();
@@ -44,10 +44,10 @@ final class OptionalValueTest extends StandardTest {
     // setup
     final var testUnit = OptionalValueField.withValueType(String.class);
 
-    // execution
+   // execute
     testUnit.setValue("LoremIpsum");
 
-    // verification
+   // verify
     expect(testUnit.containsAny()).isTrue();
     expect(testUnit.getStoredValue()).isEqualTo("LoremIpsum");
   }

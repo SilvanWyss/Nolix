@@ -24,10 +24,10 @@ final class ControlAnalyserTest extends StandardTest {
     // setup
     final var testUnit = new ControlAnalyser();
 
-    // execution
+   // execute
     final var result = testUnit.firstControlContainsSecondControl(null, new Label());
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -36,10 +36,10 @@ final class ControlAnalyserTest extends StandardTest {
     // setup
     final var testUnit = new ControlAnalyser();
 
-    // execution
+   // execute
     final var result = testUnit.firstControlContainsSecondControl(new Label(), null);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -50,10 +50,10 @@ final class ControlAnalyserTest extends StandardTest {
     final var verticalStack = new VerticalStack().addControls(new Button(), new Link(), label);
     final var testUnit = new ControlAnalyser();
 
-    // execution
+   // execute
     final var result = testUnit.firstControlContainsSecondControl(verticalStack, label);
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -73,10 +73,10 @@ final class ControlAnalyserTest extends StandardTest {
             label));
     final var testUnit = new ControlAnalyser();
 
-    // execution
+   // execute
     final var result = testUnit.firstControlContainsSecondControl(verticalStack, label);
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 }

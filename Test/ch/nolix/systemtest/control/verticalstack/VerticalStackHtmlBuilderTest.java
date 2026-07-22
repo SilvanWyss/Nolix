@@ -24,10 +24,10 @@ final class VerticalStackHtmlBuilderTest extends ControlHtmlBuilderTest<Vertical
     // setup testUnit
     final var testUnit = createTestUnit();
 
-    // execution
+   // execute
     final var result = testUnit.createHtmlElementForControl(control);
 
-    // verification
+   // verify
     expect(result.getInnerText().isEmpty()).isTrue();
     final var childElements = result.getChildElements();
     expect(childElements).hasElementCount(3);

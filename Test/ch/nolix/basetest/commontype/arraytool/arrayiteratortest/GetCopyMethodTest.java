@@ -28,10 +28,10 @@ final class GetCopyMethodTest extends StandardTest {
     // setup part 2: Creates testUnit.
     final var testUnit = ArrayIterator.forArray(array);
 
-    // execution
+   // execute
     final var result = testUnit.getCopy();
 
-    // verification part 1: Verifies testUnit.
+   // verify part 1: Verifies testUnit.
     expect(testUnit.next()).is(element1);
     expect(testUnit.next()).is(element2);
     expect(testUnit.next()).is(element3);
@@ -40,7 +40,7 @@ final class GetCopyMethodTest extends StandardTest {
     expect(testUnit.next()).is(element6);
     expect(testUnit.hasNext()).isFalse();
 
-    // verification part 2: Verifies result.
+   // verify part 2: Verifies result.
     expect(result.next()).is(element1);
     expect(result.next()).is(element2);
     expect(result.next()).is(element3);
@@ -65,16 +65,16 @@ final class GetCopyMethodTest extends StandardTest {
     final var testUnit = ArrayIterator.forArray(array);
     FlowController.forCount(3).run(testUnit::next);
 
-    // execution
+   // execute
     final var result = testUnit.getCopy();
 
-    // verification part 1: Verifies testUnit.
+   // verify part 1: Verifies testUnit.
     expect(testUnit.next()).is(element4);
     expect(testUnit.next()).is(element5);
     expect(testUnit.next()).is(element6);
     expect(testUnit.hasNext()).isFalse();
 
-    // verification part 2: Verifies result.
+   // verify part 2: Verifies result.
     expect(result.next()).is(element4);
     expect(result.next()).is(element5);
     expect(result.next()).is(element6);
@@ -96,13 +96,13 @@ final class GetCopyMethodTest extends StandardTest {
     final var testUnit = ArrayIterator.forArray(array);
     FlowController.forCount(6).run(testUnit::next);
 
-    // execution
+   // execute
     final var result = testUnit.getCopy();
 
-    // verification part 1: Verifies testUnit.
+   // verify part 1: Verifies testUnit.
     expect(testUnit.hasNext()).isFalse();
 
-    // verification part 2: Verifies result.
+   // verify part 2: Verifies result.
     expect(result.hasNext()).isFalse();
   }
 }

@@ -20,10 +20,10 @@ final class ExtendedIterableViewTest extends ExtendedIterableTest {
     final String[] array2 = { "antelope", "baboon", "lion" };
     final String[] array3 = { "flower", "tree", "palm" };
 
-    // execution
+   // execute
     final var testUnit = ExtendedIterableView.forArrays(array1, array2, array3);
 
-    // execution
+   // execute
     expect(testUnit.containsEqual("apple")).isTrue();
     expect(testUnit.containsEqual("banana")).isTrue();
     expect(testUnit.containsEqual("cerish")).isTrue();
@@ -45,10 +45,10 @@ final class ExtendedIterableViewTest extends ExtendedIterableTest {
     final String[] array2 = { "antelope", "baboon", "elephant" };
     final String[] array3 = { "flower", "tree", "palm" };
 
-    // execution
+   // execute
     final var testUnit = ExtendedIterableView.forArrays(array1, array2, array3);
 
-    // verification
+   // verify
     expect(testUnit.getStoredAtOneBasedIndex(1)).isEqualTo("apple");
     expect(testUnit.getStoredAtOneBasedIndex(2)).isEqualTo("banana");
     expect(testUnit.getStoredAtOneBasedIndex(3)).isEqualTo("cerish");
@@ -67,10 +67,10 @@ final class ExtendedIterableViewTest extends ExtendedIterableTest {
     final String[] array2 = { "B", "BB", "BBB" };
     final String[] array3 = { "C", "CC", "CCC" };
 
-    // execution
+   // execute
     final var testUnit = ExtendedIterableView.forArrays(array1, array2, array3);
 
-    // verification
+   // verify
     expect(testUnit.getStoredSelected(s -> s.length() == 1).toString()).isEqualTo("A,B,C");
     expect(testUnit.getStoredSelected(s -> s.length() == 2).toString()).isEqualTo("AA,BB,CC");
     expect(testUnit.getStoredSelected(s -> s.length() == 3).toString()).isEqualTo("AAA,BBB,CCC");

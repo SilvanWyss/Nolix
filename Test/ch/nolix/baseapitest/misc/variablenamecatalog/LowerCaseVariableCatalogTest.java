@@ -23,7 +23,7 @@ final class LowerCaseVariableCatalogTest extends StandardTest {
     // setup
     final var exceptions = LinkedList.withElement(LowerCaseVariableNameCatalog.GUI, LowerCaseVariableNameCatalog.URL);
 
-    // verification
+   // verify
     for (final var c : ReflectionTool.getStoredPublicStaticFieldValuesOfClass(LowerCaseVariableNameCatalog.class)) {
       expect(c).isOfType(String.class);
 

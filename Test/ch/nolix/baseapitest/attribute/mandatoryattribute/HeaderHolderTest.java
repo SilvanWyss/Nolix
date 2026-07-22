@@ -21,10 +21,10 @@ final class HeaderHolderTest extends StandardTest {
     Mockito.when(testUnit.getHeaderInSingleQuotes()).thenCallRealMethod();
     Mockito.when(testUnit.getHeader()).thenReturn("header");
 
-    // execution
+   // execute
     final var result = testUnit.getHeaderInSingleQuotes();
 
-    // verification
+   // verify
     expect(result).isEqualTo("'header'");
   }
 
@@ -35,10 +35,10 @@ final class HeaderHolderTest extends StandardTest {
     Mockito.when(testUnit.hasHeader(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getHeader()).thenReturn("header");
 
-    // execution
+   // execute
     final var result = testUnit.hasHeader("header");
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -49,10 +49,10 @@ final class HeaderHolderTest extends StandardTest {
     Mockito.when(testUnit.hasHeader(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getHeader()).thenReturn("header");
 
-    // execution
+   // execute
     final var result = testUnit.hasHeader("Header");
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -67,10 +67,10 @@ final class HeaderHolderTest extends StandardTest {
     Mockito.when(testUnit.hasSameHeaderAs(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getHeader()).thenReturn("header");
 
-    // execution
+   // execute
     final var result = testUnit.hasSameHeaderAs(headerHolderMock);
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -85,10 +85,10 @@ final class HeaderHolderTest extends StandardTest {
     Mockito.when(testUnit.hasSameHeaderAs(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getHeader()).thenReturn("header");
 
-    // execution
+   // execute
     final var result = testUnit.hasSameHeaderAs(headerHolderMock);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 }

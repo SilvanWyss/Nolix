@@ -25,10 +25,10 @@ final class ToStringMethodTest extends StandardTest {
     // setup
     final var testUnit = Matrix.createIdendityMatrixWithLength(size);
 
-    // execution
+   // execute
     final var result = testUnit.toString();
 
-    // execution
+   // execute
     expect(result).isEqualTo(expectedResult);
   }
 
@@ -37,10 +37,10 @@ final class ToStringMethodTest extends StandardTest {
     // setup
     final var testUnit = Matrix.withRowCountAndColumnCount(1, 1);
 
-    // execution
+   // execute
     final var result = testUnit.toString();
 
-    // execution
+   // execute
     expect(result).isEqualTo("[0.0]");
   }
 
@@ -49,10 +49,10 @@ final class ToStringMethodTest extends StandardTest {
     // setup
     final var testUnit = Matrix.withRowCountAndColumnCount(2, 2);
 
-    // execution
+   // execute
     final var result = testUnit.toString();
 
-    // execution
+   // execute
     expect(result).isEqualTo("[0.0,0.0;0.0,0.0]");
   }
 
@@ -61,10 +61,10 @@ final class ToStringMethodTest extends StandardTest {
     // setup
     final var testUnit = Matrix.withRowCountAndColumnCount(3, 3);
 
-    // execution
+   // execute
     final var result = testUnit.toString();
 
-    // execution
+   // execute
     expect(result).isEqualTo("[0.0,0.0,0.0;0.0,0.0,0.0;0.0,0.0,0.0]");
   }
 
@@ -73,10 +73,10 @@ final class ToStringMethodTest extends StandardTest {
     // setup
     final var testUnit = Matrix.withRowCountAndColumnCount(4, 4);
 
-    // execution
+   // execute
     final var result = testUnit.toString();
 
-    // execution
+   // execute
     expect(result).isEqualTo("[0.0,0.0,0.0,0.0;0.0,0.0,0.0,0.0;0.0,0.0,0.0,0.0;0.0,0.0,0.0,0.0]");
   }
 }

@@ -19,10 +19,10 @@ final class ExtensionPropertyTest extends StandardTest {
     // setup
     final var testUnit = ExtensionProperty.withExtension(mock());
 
-    // execution
+   // execute
     final var result = testUnit.isMaterialized();
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 }

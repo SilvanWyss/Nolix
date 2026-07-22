@@ -23,10 +23,10 @@ final class SequencePatternTest extends StandardTest {
       .withConditionForNext(e -> e.equals("A"))
       .withConditionForNext(e -> e.equals("B"));
 
-    // execution
+   // execute
     final var result = testUnit.getMatchingSequencesFrom(letters);
 
-    // verification
+   // verify
     expect(result).hasElementCount(4);
     expect(result.getStoredAtOneBasedIndex(1)).containsExactlyEqualing("A", "B");
     expect(result.getStoredAtOneBasedIndex(2)).containsExactlyEqualing("A", "B");
@@ -44,10 +44,10 @@ final class SequencePatternTest extends StandardTest {
       .withConditionForNext(e -> e.equals("A"))
       .withBlankForNext();
 
-    // execution
+   // execute
     final var result = testUnit.getMatchingSequencesFrom(letters);
 
-    // verification
+   // verify
     expect(result).hasElementCount(4);
     expect(result.getStoredAtOneBasedIndex(1)).containsExactlyEqualing("A", "B");
     expect(result.getStoredAtOneBasedIndex(2)).containsExactlyEqualing("A", "B");
@@ -66,10 +66,10 @@ final class SequencePatternTest extends StandardTest {
       .withConditionForNext(e -> e.equals("B"))
       .withSequenceCondition(s -> s.getSum(String::length).intValue() == 2);
 
-    // execution
+   // execute
     final var result = testUnit.getMatchingSequencesFrom(letters);
 
-    // verification
+   // verify
     expect(result).hasElementCount(4);
     expect(result.getStoredAtOneBasedIndex(1)).containsExactlyEqualing("A", "B");
     expect(result.getStoredAtOneBasedIndex(2)).containsExactlyEqualing("A", "B");
@@ -88,10 +88,10 @@ final class SequencePatternTest extends StandardTest {
       .withBlankForNext()
       .withSequenceCondition(s -> s.getSum(String::length).intValue() == 2);
 
-    // execution
+   // execute
     final var result = testUnit.getMatchingSequencesFrom(letters);
 
-    // verification
+   // verify
     expect(result).hasElementCount(4);
     expect(result.getStoredAtOneBasedIndex(1)).containsExactlyEqualing("A", "B");
     expect(result.getStoredAtOneBasedIndex(2)).containsExactlyEqualing("A", "B");
@@ -109,10 +109,10 @@ final class SequencePatternTest extends StandardTest {
       .withConditionForNext(e -> e.equals("A"))
       .withConditionForNext(e -> e.equals("B"));
 
-    // execution
+   // execute
     final var result = testUnit.getMatchingSequencesFrom(letters);
 
-    // verification
+   // verify
     expect(result).isEmpty();
   }
 
@@ -126,10 +126,10 @@ final class SequencePatternTest extends StandardTest {
       .withConditionForNext(e -> e.equals("B"))
       .withBlankForNext();
 
-    // execution
+   // execute
     final var result = testUnit.getMatchingSequencesFrom(letters);
 
-    // verification
+   // verify
     expect(result).isEmpty();
   }
 
@@ -144,10 +144,10 @@ final class SequencePatternTest extends StandardTest {
       .withConditionForNext(e -> e.equals("B"))
       .withSequenceCondition(s -> s.getSum(String::length).intValue() > 2);
 
-    // execution
+   // execute
     final var result = testUnit.getMatchingSequencesFrom(letters);
 
-    // verification
+   // verify
     expect(result).isEmpty();
   }
 
@@ -162,10 +162,10 @@ final class SequencePatternTest extends StandardTest {
       .withBlankForNext()
       .withSequenceCondition(s -> s.getSum(String::length).intValue() > 2);
 
-    // execution
+   // execute
     final var result = testUnit.getMatchingSequencesFrom(letters);
 
-    // verification
+   // verify
     expect(result).isEmpty();
   }
 }

@@ -20,10 +20,10 @@ final class LabelHolderTest extends StandardTest {
     Mockito.when(testUnit.getLabelInSingleQuotes()).thenCallRealMethod();
     Mockito.when(testUnit.getLabel()).thenReturn("label");
 
-    // execution
+   // execute
     final var result = testUnit.getLabelInSingleQuotes();
 
-    // verification
+   // verify
     expect(result).isEqualTo("'label'");
   }
 }

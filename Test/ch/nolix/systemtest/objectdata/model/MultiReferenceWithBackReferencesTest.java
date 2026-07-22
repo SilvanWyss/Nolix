@@ -53,10 +53,10 @@ final class MultiReferenceWithBackReferencesTest extends StandardTest {
     nodeDataAdapter.insertEntity(john);
     nodeDataAdapter.saveChanges();
 
-    // execution
+   // execute
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
 
-    // verification
+   // verify
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
       .getStoredEntityById(garfield.getId());
     final var loadedSimba = nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(simba.getId());
@@ -91,15 +91,15 @@ final class MultiReferenceWithBackReferencesTest extends StandardTest {
     final var loadedJohn1 = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
     final var loadedOdie1 = nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(odie.getId());
 
-    // execution
+   // execute
     loadedJohn1.pets.removeEntity(loadedOdie1);
     loadedOdie1.delete();
     nodeDataAdapter.saveChanges();
 
-    // verification part 1
+   // verify part 1
     expect(loadedJohn1.pets.referencesEntity(loadedOdie1)).isFalse();
 
-    // verification part 2
+   // verify part 2
     final var loadedJohn2 = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
     final var loadedGarfield2 = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
       .getStoredEntityById(garfield.getId());

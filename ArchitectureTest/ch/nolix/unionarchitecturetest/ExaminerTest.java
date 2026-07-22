@@ -29,7 +29,7 @@ final class ExaminerTest {
           }
         });
 
-    // execution & verification
+   // execute & verification
     ArchUnitRuleCatalog.PUBLIC_NON_STATIC_METHODS_RETURN_A_PRIMITIVE_BOOLEAN.check(testUnit);
   }
 }

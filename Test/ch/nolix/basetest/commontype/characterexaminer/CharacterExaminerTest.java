@@ -19,10 +19,10 @@ final class CharacterExaminerTest extends StandardTest {
     // setup   
     final var testUnit = new CharacterExaminer();
 
-    // execution
+   // execute
     final var result = testUnit.isDigit(character);
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -32,10 +32,10 @@ final class CharacterExaminerTest extends StandardTest {
     // setup   
     final var testUnit = new CharacterExaminer();
 
-    // execution
+   // execute
     final var result = testUnit.isDigit(character);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -45,10 +45,10 @@ final class CharacterExaminerTest extends StandardTest {
     // setup   
     final var testUnit = new CharacterExaminer();
 
-    // execution
+   // execute
     final var result = testUnit.isHexadecimalDigit(character);
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -58,10 +58,10 @@ final class CharacterExaminerTest extends StandardTest {
     // setup   
     final var testUnit = new CharacterExaminer();
 
-    // execution
+   // execute
     final var result = testUnit.isHexadecimalDigit(character);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 }

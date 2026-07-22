@@ -18,10 +18,10 @@ final class ConnectionTypeTest extends StandardTest {
     // setup
     final var testUnit = ConnectionType.LOCAL;
 
-    // execution
+   // execute
     final var result = testUnit.getBaseType();
 
-    // verification
+   // verify
     expect(result).is(BaseConnectionType.LOCAL);
   }
 
@@ -30,10 +30,10 @@ final class ConnectionTypeTest extends StandardTest {
     // setup
     final var testUnit = ConnectionType.SOCKET;
 
-    // execution
+   // execute
     final var result = testUnit.getBaseType();
 
-    // verification
+   // verify
     expect(result).is(BaseConnectionType.NET);
   }
 
@@ -42,10 +42,10 @@ final class ConnectionTypeTest extends StandardTest {
     // setup
     final var testUnit = ConnectionType.WEB_SOCKET;
 
-    // execution
+   // execute
     final var result = testUnit.getBaseType();
 
-    // verification
+   // verify
     expect(result).is(BaseConnectionType.NET);
   }
 }

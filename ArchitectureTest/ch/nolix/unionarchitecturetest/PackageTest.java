@@ -29,7 +29,7 @@ final class PackageTest {
       .haveNameMatching("ch[.]nolix([.][0-9a-zA-Z[-]]*){0," + (maxPackageHierarchyDepth - 1) + "}");
     final var testUnit = new ClassFileImporter().importPackages("ch.nolix...");
 
-    // execution & verification
+   // execute & verification
     rule.check(testUnit);
   }
 }

@@ -27,11 +27,11 @@ final class SqlCollectorTest extends StandardTest {
     final var sqlStatement2 = "CREATE TABLE Pet (Name nvarchar(100),WeightInKilogram Float);";
     final var testUnit = new SqlCollector();
 
-    // execution
+   // execute
     testUnit.addSqlStatement(sqlStatement1);
     testUnit.addSqlStatement(sqlStatement2);
 
-    // verification
+   // verify
     final var actualSqlStatements = testUnit.getSqlStatements();
     expect(actualSqlStatements).containsExactlyInSameOrder(sqlStatement1, sqlStatement2);
   }
@@ -42,7 +42,7 @@ final class SqlCollectorTest extends StandardTest {
     final String sqlStatement = null;
     final var testUnit = new SqlCollector();
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.addSqlStatement(sqlStatement))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -55,7 +55,7 @@ final class SqlCollectorTest extends StandardTest {
     // setup
     final var testUnit = new SqlCollector();
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.addSqlStatement(sqlStatement))
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -70,20 +70,20 @@ final class SqlCollectorTest extends StandardTest {
     final var sqlStatements = ImmutableList.withElements(sqlStatement1, sqlStatement2);
     final var testUnit = new SqlCollector();
 
-    // execution
+   // execute
     testUnit.addSqlStatements(sqlStatements);
 
-    // verification
+   // verify
     final var actualSqlStatements = testUnit.getSqlStatements();
     expect(actualSqlStatements).containsExactlyInSameOrder(sqlStatement1, sqlStatement2);
   }
 
   @Test
   void testCase_constructor() {
-    // execution
+   // execute
     final var result = new SqlCollector();
 
-    // verification
+   // verify
     expect(result.isEmpty()).isTrue();
     expect(result.getSqlStatements()).isEmpty();
   }
@@ -96,10 +96,10 @@ final class SqlCollectorTest extends StandardTest {
     testUnit.addSqlStatement("CREATE TABLE Person (Name nvarchar(100),WeightInKilogram Float);");
     testUnit.addSqlStatement("CREATE TABLE Pet (Name nvarchar(100),WeightInKilogram Float);");
 
-    // execution
+   // execute
     testUnit.executeAndClearUsingConnection(sqlConnectionMock);
 
-    // verification
+   // verify
     expect(testUnit.isEmpty()).isTrue();
     Mockito.verify(sqlConnectionMock).executeStatements(testUnit.getSqlStatements());
   }

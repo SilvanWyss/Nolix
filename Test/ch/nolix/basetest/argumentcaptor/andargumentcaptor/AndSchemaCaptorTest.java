@@ -24,10 +24,10 @@ final class AndSchemaCaptorTest extends StandardTest {
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new AndSchemaCaptor<>(andNameCaptor);
 
-    // execution
+   // execute
     final var result = testUnit.andSchema(schema);
 
-    // verification
+   // verify
     expect(testUnit.getStoredSchema()).is(schema);
     expect(result).is(andNameCaptor);
   }
@@ -37,7 +37,7 @@ final class AndSchemaCaptorTest extends StandardTest {
     // setup
     final var testUnit = new AndSchemaCaptor<>();
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.andSchema(new VoidObject()))
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);
@@ -48,7 +48,7 @@ final class AndSchemaCaptorTest extends StandardTest {
     // setup
     final var testUnit = new AndSchemaCaptor<>();
 
-    // execution & verification
+   // execute & verification
     expectRunning(testUnit::getStoredSchema).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }

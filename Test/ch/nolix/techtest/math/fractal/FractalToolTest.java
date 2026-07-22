@@ -22,10 +22,10 @@ final class FractalToolTest extends StandardTest {
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalTool();
 
-    // execution
+   // execute
     final var result = testUnit.getMaxX(fractal);
 
-    // verification
+   // verify
     final var expectedResult = BigDecimal.valueOf(2.5).setScale(12);
     expect(result).isEqualTo(expectedResult);
   }
@@ -37,10 +37,10 @@ final class FractalToolTest extends StandardTest {
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalTool();
 
-    // execution
+   // execute
     final var result = testUnit.getMaxY(fractal);
 
-    // verification
+   // verify
     final var expectedResult = BigDecimal.valueOf(2.5).setScale(12);
     expect(result).isEqualTo(expectedResult);
   }
@@ -52,10 +52,10 @@ final class FractalToolTest extends StandardTest {
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalTool();
 
-    // execution
+   // execute
     final var result = testUnit.getMinX(fractal);
 
-    // verification
+   // verify
     final var expectedResult = BigDecimal.valueOf(-1.5).setScale(12);
     expect(result).isEqualTo(expectedResult);
   }
@@ -67,10 +67,10 @@ final class FractalToolTest extends StandardTest {
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalTool();
 
-    // execution
+   // execute
     final var result = testUnit.getMinY(fractal);
 
-    // verification
+   // verify
     final var expectedResult = BigDecimal.valueOf(-1.5).setScale(12);
     expect(result).isEqualTo(expectedResult);
   }
@@ -83,10 +83,10 @@ final class FractalToolTest extends StandardTest {
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalTool();
 
-    // execution
+   // execute
     final var result = testUnit.getPixelCountPerHorizontalUnit(fractal);
 
-    // verification
+   // verify
     final var expectedResult = BigDecimal.valueOf(250).setScale(12);
     expect(result).isEqualTo(expectedResult);
   }
@@ -99,10 +99,10 @@ final class FractalToolTest extends StandardTest {
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalTool();
 
-    // execution
+   // execute
     final var result = testUnit.getPixelCountPerVerticalUnit(fractal);
 
-    // verification
+   // verify
     final var expectedResult = BigDecimal.valueOf(250).setScale(12);
     expect(result).isEqualTo(expectedResult);
   }
@@ -114,10 +114,10 @@ final class FractalToolTest extends StandardTest {
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalTool();
 
-    // execution
+   // execute
     final var result = testUnit.getSquaredMinMagnitudeForDivergence(fractal);
 
-    // verification
+   // verify
     final var expectedResult = BigDecimal.valueOf(1.0).setScale(12);
     expect(result).isEqualTo(expectedResult);
   }
@@ -129,10 +129,10 @@ final class FractalToolTest extends StandardTest {
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalTool();
 
-    // execution
+   // execute
     final var result = testUnit.getSquaredMinMagnitudeForDivergence(fractal);
 
-    // verification
+   // verify
     final var expectedResult = BigDecimal.valueOf(4.0).setScale(12);
     expect(result).isEqualTo(expectedResult);
   }
@@ -145,10 +145,10 @@ final class FractalToolTest extends StandardTest {
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalTool();
 
-    // execution
+   // execute
     final var result = testUnit.getUnitsPerHorizontalPixel(fractal);
 
-    // verification
+   // verify
     final var expectedResult = BigDecimal.valueOf(0.005).setScale(12);
     expect(result).isEqualTo(expectedResult);
   }
@@ -161,10 +161,10 @@ final class FractalToolTest extends StandardTest {
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalTool();
 
-    // execution
+   // execute
     final var result = testUnit.getUnitsPerVerticalPixel(fractal);
 
-    // verification
+   // verify
     final var expectedResult = BigDecimal.valueOf(0.005).setScale(12);
     expect(result).isEqualTo(expectedResult);
   }

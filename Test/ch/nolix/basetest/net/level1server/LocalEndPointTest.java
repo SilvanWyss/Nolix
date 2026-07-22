@@ -25,10 +25,10 @@ final class LocalEndPointTest extends StandardTest {
     final var slot = new MockSlot();
     final var testUnit = LocalEndPoint.toSlot(slot);
 
-    // execution 
+   // execute 
     testUnit.sendMessage("my_message");
 
-    // verification
+   // verify
     expect(slot.getLatestReceivedMessage()).is("my_message");
   }
 
@@ -38,12 +38,12 @@ final class LocalEndPointTest extends StandardTest {
     final var slot = new MockSlot();
     final var testUnit = LocalEndPoint.toSlot(slot);
 
-    // execution 
+   // execute 
     testUnit.sendMessage("my_message1");
     testUnit.sendMessage("my_message2");
     testUnit.sendMessage("my_message3");
 
-    // verification
+   // verify
     expect(slot.getLatestReceivedMessage()).is("my_message3");
   }
 
@@ -56,7 +56,7 @@ final class LocalEndPointTest extends StandardTest {
     // setup verification
     expect(slot.getLatestReceivedMessage()).isNull();
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.sendMessage(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -77,14 +77,14 @@ final class LocalEndPointTest extends StandardTest {
       expect(testUnit.isClosed()).isTrue();
       expect(slot.getLatestReceivedMessage()).isNull();
 
-      // execution & verification
+     // execute & verification
       expectRunning(() -> testUnit.sendMessage("my_message"))
         .throwsException()
         .ofType(ClosedArgumentException.class)
         .withMessageThatMatches("The given LocalEndPoint .* is closed.");
     }
 
-    // verification
+   // verify
     expect(slot.getLatestReceivedMessage()).isNull();
   }
 
@@ -93,10 +93,10 @@ final class LocalEndPointTest extends StandardTest {
     // setup
     final var slot = new MockSlot();
 
-    // execution
+   // execute
     final var result = LocalEndPoint.toSlot(slot);
 
-    // verification
+   // verify
     expect(result.getConnectionType()).is(ConnectionType.LOCAL);
     expect(result.getPeerType()).is(PeerType.FRONTEND);
     expect(result.getSecurityMode()).is(SecurityMode.NONE);
@@ -104,7 +104,7 @@ final class LocalEndPointTest extends StandardTest {
 
   @Test
   void testCase_toSlot_whenTheGivenSlotIsNull() {
-    // execution & verification
+   // execute & verification
     expectRunning(() -> LocalEndPoint.toSlot(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -121,10 +121,10 @@ final class LocalEndPointTest extends StandardTest {
       // setup verification
       expect(server.containsDefaultSlot()).isFalse();
 
-      // execution
+     // execute
       final var result = LocalEndPoint.toTargetSlotOnServer(server, slot.getName());
 
-      // verification
+     // verify
       expect(result.getCustomTargetSlot()).is(slot.getName());
       expect(result.getConnectionType()).is(ConnectionType.LOCAL);
       expect(result.getPeerType()).is(PeerType.FRONTEND);
@@ -135,7 +135,7 @@ final class LocalEndPointTest extends StandardTest {
   @Test
   void testCase_toTargetSlotOnServer_whenTheGivenTargetSlotIsBlank() {
     try (final var server = new LocalServer()) {
-      // execution & verification
+     // execute & verification
       expectRunning(() -> LocalEndPoint.toTargetSlotOnServer(server, " "))
         .throwsException()
         .ofType(InvalidArgumentException.class)

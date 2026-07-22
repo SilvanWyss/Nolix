@@ -16,7 +16,7 @@ import ch.nolix.basetest.datastructure.extendediterable.ExtendedIterableTest;
 final class ArrayExtendedIterableViewTest extends ExtendedIterableTest {
   @Test
   void testCase_forArray_whenTheGivenArrayIsNull() {
-    // execution & verification
+   // execute & verification
     expectRunning(() -> ArrayExtendedIterableView
       .forArray(null)).throwsException()
       .ofType(ArgumentIsNullException.class)

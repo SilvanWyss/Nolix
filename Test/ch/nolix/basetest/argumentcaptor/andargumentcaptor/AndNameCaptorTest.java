@@ -22,10 +22,10 @@ final class AndNameCaptorTest extends StandardTest {
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new AndNameCaptor<>(andNameCaptor);
 
-    // execution
+   // execute
     final var result = testUnit.andName(name);
 
-    // verification
+   // verify
     expect(testUnit.getName()).isEqualTo(name);
     expect(result).is(andNameCaptor);
   }
@@ -35,7 +35,7 @@ final class AndNameCaptorTest extends StandardTest {
     // setup
     final var testUnit = new AndNameCaptor<>();
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.andName("my_name"))
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);
@@ -46,7 +46,7 @@ final class AndNameCaptorTest extends StandardTest {
     // setup
     final var testUnit = new AndNameCaptor<>();
 
-    // execution & verification
+   // execute & verification
     expectRunning(testUnit::getName).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }

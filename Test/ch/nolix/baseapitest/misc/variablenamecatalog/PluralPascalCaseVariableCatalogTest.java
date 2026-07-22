@@ -21,7 +21,7 @@ final class PluralPascalCaseVariableCatalogTest extends StandardTest {
     final var exceptions = //
     LinkedList.withElement(PluralPascalCaseVariableNameCatalog.GUIS, PluralPascalCaseVariableNameCatalog.URLS);
 
-    // verification
+   // verify
     for (final var c : ReflectionTool
       .getStoredPublicStaticFieldValuesOfClass(PluralPascalCaseVariableNameCatalog.class)) {
       expect(c).isOfType(String.class);

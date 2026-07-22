@@ -21,10 +21,10 @@ final class WaitDialogBuilderTest extends StandardTest {
     // setup
     final var testUnit = new WaitDialogBuilder();
 
-    // execution
+   // execute
     final var result = testUnit.build();
 
-    // verification
+   // verify
     expect(result.getRole()).is(LayerRole.DIALOG_LAYER);
     final var controls = result.getStoredControls();
     expect(controls).contains(this::isMainLabel);

@@ -16,34 +16,34 @@ import ch.nolix.baseapi.programcontrol.function.FunctionService;
 final class FlowControllerTest extends StandardTest {
   @Test
   void testCase_runInBackground_whenFailingProcessIsGiven() {
-    // execution
+   // execute
     final var result = FlowController.runInBackground(() -> {
       throw GeneralException.withErrorMessage("test error");
     });
     result.waitUntilIsFinished();
 
-    // verification
+   // verify
     expect(result.isFinishedWithError()).isTrue();
     expect(result.getError()).isOfType(GeneralException.class);
   }
 
   @Test
   void testCase_runInBackground_whenPassingProcessIsGiven() {
-    // execution
+   // execute
     final var result = FlowController.runInBackground(FunctionService::doNothing);
     result.waitUntilIsFinished();
 
-    // verification
+   // verify
     expect(result.isFinishedSuccessfully()).isTrue();
   }
 
   @Test
   void testCase_runInBackground_whenFunctionIsGiven() {
-    // execution
+   // execute
     final var result = FlowController.runInBackground(() -> 3 + 4);
     result.waitUntilIsFinished();
 
-    // verification
+   // verify
     expect(result.isFinishedSuccessfully()).isTrue();
     expect(result.getResult()).isEqualTo(7);
   }

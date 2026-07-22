@@ -19,10 +19,10 @@ final class IsEmptyMethodTest extends StandardTest {
     final Iterable<Object> iterable = null;
     final var testUnit = new IterableExaminer();
 
-    // execution
+   // execute
     final var result = testUnit.isEmpty(iterable);
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -32,10 +32,10 @@ final class IsEmptyMethodTest extends StandardTest {
     final Iterable<Object> iterable = List.createEmpty();
     final var testUnit = new IterableExaminer();
 
-    // execution
+   // execute
     final var result = testUnit.isEmpty(iterable);
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -45,10 +45,10 @@ final class IsEmptyMethodTest extends StandardTest {
     final Iterable<Object> iterable = List.fromArray(new String[] { "antelope" });
     final var testUnit = new IterableExaminer();
 
-    // execution
+   // execute
     final var result = testUnit.isEmpty(iterable);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -58,10 +58,10 @@ final class IsEmptyMethodTest extends StandardTest {
     final Iterable<Object> iterable = List.fromArray(new String[] { "antelope", "elephant" });
     final var testUnit = new IterableExaminer();
 
-    // execution
+   // execute
     final var result = testUnit.isEmpty(iterable);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 }

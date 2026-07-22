@@ -21,7 +21,7 @@ final class BaseArchitectureTest {
     // setup
     final var rule = SlicesRuleDefinition.slices().matching("ch.nolix.base.(*)..").should().beFreeOfCycles();
 
-    // execution & verification
+   // execute & verification
     rule.check(TEST_UNIT);
   }
 
@@ -41,7 +41,7 @@ final class BaseArchitectureTest {
         "java..",
         "javax..");
 
-    // execution & verification
+   // execute & verification
     rule.check(TEST_UNIT);
   }
 }

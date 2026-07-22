@@ -40,10 +40,10 @@ final class StringToolTest extends StandardTest {
     // setup
     final var testUnit = new StringToolUnit();
 
-    // execution
+   // execute
     final var result = testUnit.createStringWithoutLastCharacters(string, lastCharacterCount);
 
-    // verification
+   // verify
     expect(result).isEqualTo(expectedResult);
   }
 
@@ -65,10 +65,10 @@ final class StringToolTest extends StandardTest {
     // setup
     final var testUnit = new StringToolUnit();
 
-    // execution
+   // execute
     final var result = testUnit.createTabs(tabCount);
 
-    // verification
+   // verify
     expect(result).isEqualTo(expectedResult);
   }
 
@@ -77,7 +77,7 @@ final class StringToolTest extends StandardTest {
     // setup
     final var testUnit = new StringToolUnit();
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.createTabs(-1)).throwsException().ofType(RuntimeException.class);
   }
 
@@ -90,10 +90,10 @@ final class StringToolTest extends StandardTest {
     // setup
     final var testUnit = new StringToolUnit();
 
-    // execution
+   // execute
     final var result = testUnit.getInBraces(string);
 
-    // verification
+   // verify
     expect(result).isEqualTo(expectedResult);
   }
 
@@ -102,10 +102,10 @@ final class StringToolTest extends StandardTest {
     // setup
     final var testUnit = new StringToolUnit();
 
-    // execution
+   // execute
     final var result = testUnit.getInBraces(null);
 
-    // verification
+   // verify
     expect(result).isEqualTo("{null}");
   }
 
@@ -114,10 +114,10 @@ final class StringToolTest extends StandardTest {
     // setup
     final var testUnit = new StringToolUnit();
 
-    // execution
+   // execute
     final var result = testUnit.getInSingleQuotes(null);
 
-    // verification
+   // verify
     expect(result).isEqualTo("'null'");
   }
 
@@ -128,10 +128,10 @@ final class StringToolTest extends StandardTest {
   "CursorIcon" //
   })
   void testCase_isPascalCase_whenTheGivenStringIsPascalCase(final String string) {
-    // execution
+   // execute
     final var result = StringTool.isPascalCase(string);
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -142,10 +142,10 @@ final class StringToolTest extends StandardTest {
   "cursorIcon" //
   })
   void testCase_isPascalCase_whenTheGivenStringIsNotPascalCase(final String string) {
-    // execution
+   // execute
     final var result = StringTool.isPascalCase(string);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -161,10 +161,10 @@ final class StringToolTest extends StandardTest {
     // setup
     final var testUnit = new StringToolUnit();
 
-    // execution
+   // execute
     final var result = testUnit.toBoolean(string);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -180,10 +180,10 @@ final class StringToolTest extends StandardTest {
     // setup
     final var testUnit = new StringToolUnit();
 
-    // execution
+   // execute
     final var result = testUnit.toBoolean(string);
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -202,7 +202,7 @@ final class StringToolTest extends StandardTest {
     // setup
     final var testUnit = new StringToolUnit();
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.toBoolean(string))
       .throwsException()
       .ofType(UnrepresentingArgumentException.class)
@@ -222,7 +222,7 @@ final class StringToolTest extends StandardTest {
     // setup
     final var testUnit = new StringToolUnit();
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.toDouble(string))
       .throwsException()
       .ofType(UnrepresentingArgumentException.class)
@@ -260,10 +260,10 @@ final class StringToolTest extends StandardTest {
     // setup
     final var testUnit = new StringToolUnit();
 
-    // execution
+   // execute
     final var result = testUnit.toCapitalSnakeCase(string);
 
-    // verification
+   // verify
     expect(result).isEqualTo(expectedResult);
   }
 
@@ -298,10 +298,10 @@ final class StringToolTest extends StandardTest {
     // setup
     final var testUnit = new StringToolUnit();
 
-    // execution
+   // execute
     final var result = testUnit.toPascalCase(string);
 
-    // verification
+   // verify
     expect(result).isEqualTo(expectedResult);
   }
 }

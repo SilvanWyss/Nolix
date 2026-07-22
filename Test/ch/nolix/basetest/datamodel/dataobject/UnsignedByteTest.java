@@ -17,7 +17,7 @@ final class UnsignedByteTest extends StandardTest {
     // setup
     final var testUnit = UnsignedByte.withBits(0, 0, 0, 0, 0, 0, 0, 0);
 
-    // execution
+   // execute
     final var resultBit1 = testUnit.getBitAtAsInt(1);
     final var resultBit2 = testUnit.getBitAtAsInt(2);
     final var resultBit3 = testUnit.getBitAtAsInt(3);
@@ -27,7 +27,7 @@ final class UnsignedByteTest extends StandardTest {
     final var resultBit7 = testUnit.getBitAtAsInt(7);
     final var resultBit8 = testUnit.getBitAtAsInt(8);
 
-    // verification
+   // verify
     expect(resultBit1).isEqualTo(0);
     expect(resultBit2).isEqualTo(0);
     expect(resultBit3).isEqualTo(0);
@@ -43,7 +43,7 @@ final class UnsignedByteTest extends StandardTest {
     // setup
     final var testUnit = UnsignedByte.withBits(0, 0, 0, 0, 0, 1, 1, 1);
 
-    // execution
+   // execute
     final var resultBit1 = testUnit.getBitAtAsInt(1);
     final var resultBit2 = testUnit.getBitAtAsInt(2);
     final var resultBit3 = testUnit.getBitAtAsInt(3);
@@ -53,7 +53,7 @@ final class UnsignedByteTest extends StandardTest {
     final var resultBit7 = testUnit.getBitAtAsInt(7);
     final var resultBit8 = testUnit.getBitAtAsInt(8);
 
-    // verification
+   // verify
     expect(resultBit1).isEqualTo(0);
     expect(resultBit2).isEqualTo(0);
     expect(resultBit3).isEqualTo(0);
@@ -69,7 +69,7 @@ final class UnsignedByteTest extends StandardTest {
     // setup
     final var testUnit = UnsignedByte.withBits(1, 1, 1, 0, 0, 0, 0, 0);
 
-    // execution
+   // execute
     final var resultBit1 = testUnit.getBitAtAsInt(1);
     final var resultBit2 = testUnit.getBitAtAsInt(2);
     final var resultBit3 = testUnit.getBitAtAsInt(3);
@@ -79,7 +79,7 @@ final class UnsignedByteTest extends StandardTest {
     final var resultBit7 = testUnit.getBitAtAsInt(7);
     final var resultBit8 = testUnit.getBitAtAsInt(8);
 
-    // verification
+   // verify
     expect(resultBit1).isEqualTo(1);
     expect(resultBit2).isEqualTo(1);
     expect(resultBit3).isEqualTo(1);
@@ -95,7 +95,7 @@ final class UnsignedByteTest extends StandardTest {
     // setup
     final var testUnit = UnsignedByte.withBits(1, 1, 1, 1, 1, 1, 1, 1);
 
-    // execution
+   // execute
     final var resultBit1 = testUnit.getBitAtAsInt(1);
     final var resultBit2 = testUnit.getBitAtAsInt(2);
     final var resultBit3 = testUnit.getBitAtAsInt(3);
@@ -105,7 +105,7 @@ final class UnsignedByteTest extends StandardTest {
     final var resultBit7 = testUnit.getBitAtAsInt(7);
     final var resultBit8 = testUnit.getBitAtAsInt(8);
 
-    // verification
+   // verify
     expect(resultBit1).isEqualTo(1);
     expect(resultBit2).isEqualTo(1);
     expect(resultBit3).isEqualTo(1);
@@ -121,10 +121,10 @@ final class UnsignedByteTest extends StandardTest {
     // setup
     final var testUnit = UnsignedByte.withBits(0, 0, 0, 0, 0, 0, 0, 0);
 
-    // execution
+   // execute
     final var result = testUnit.toBitString();
 
-    // verification
+   // verify
     expect(result).isEqualTo("00000000");
   }
 
@@ -133,10 +133,10 @@ final class UnsignedByteTest extends StandardTest {
     // setup
     final var testUnit = UnsignedByte.withBits(0, 0, 0, 0, 0, 1, 1, 1);
 
-    // execution
+   // execute
     final var result = testUnit.toBitString();
 
-    // verification
+   // verify
     expect(result).isEqualTo("00000111");
   }
 
@@ -145,10 +145,10 @@ final class UnsignedByteTest extends StandardTest {
     // setup
     final var testUnit = UnsignedByte.withBits(1, 1, 1, 0, 0, 0, 0, 0);
 
-    // execution
+   // execute
     final var result = testUnit.toBitString();
 
-    // verification
+   // verify
     expect(result).isEqualTo("11100000");
   }
 
@@ -157,10 +157,10 @@ final class UnsignedByteTest extends StandardTest {
     // setup
     final var testUnit = UnsignedByte.withBits(1, 1, 1, 1, 1, 1, 1, 1);
 
-    // execution
+   // execute
     final var result = testUnit.toBitString();
 
-    // verification
+   // verify
     expect(result).isEqualTo("11111111");
   }
 
@@ -170,10 +170,10 @@ final class UnsignedByteTest extends StandardTest {
       // setup
       final var testUnit = UnsignedByte.fromNumber(i);
 
-      // execution
+     // execute
       final var resullt = testUnit.toByte();
 
-      // verification
+     // verify
       expect(resullt).isEqualTo(i - 128);
     }
   }
@@ -183,10 +183,10 @@ final class UnsignedByteTest extends StandardTest {
     // setup
     final var testUnit = UnsignedByte.withBits(0, 0, 0, 0, 0, 0, 0, 0);
 
-    // execution
+   // execute
     final var result = testUnit.toInt();
 
-    // verification
+   // verify
     expect(result).isEqualTo(0);
   }
 
@@ -195,10 +195,10 @@ final class UnsignedByteTest extends StandardTest {
     // setup
     final var testUnit = UnsignedByte.withBits(0, 0, 0, 0, 0, 1, 1, 1);
 
-    // execution
+   // execute
     final var result = testUnit.toInt();
 
-    // verification
+   // verify
     expect(result).isEqualTo(7);
   }
 
@@ -207,10 +207,10 @@ final class UnsignedByteTest extends StandardTest {
     // setup
     final var testUnit = UnsignedByte.withBits(1, 1, 1, 0, 0, 0, 0, 0);
 
-    // execution
+   // execute
     final var result = testUnit.toInt();
 
-    // verification
+   // verify
     expect(result).isEqualTo(224);
   }
 
@@ -219,10 +219,10 @@ final class UnsignedByteTest extends StandardTest {
     // setup
     final var testUnit = UnsignedByte.withBits(1, 1, 1, 1, 1, 1, 1, 1);
 
-    // execution
+   // execute
     final var result = testUnit.toInt();
 
-    // verification
+   // verify
     expect(result).isEqualTo(255);
   }
 }

@@ -21,10 +21,10 @@ final class UpdateCommandCreatorTest extends StandardTest {
     final var webGui = new WebGui();
     final var testUnit = new UpdateCommandCreator();
 
-    // execution
+   // execute
     final var result = testUnit.createSetCssCommandForWebGui(webGui);
 
-    // verification
+   // verify
     expect(result.toString()).matches("GUI.SetCSS(.*)");
   }
 
@@ -33,10 +33,10 @@ final class UpdateCommandCreatorTest extends StandardTest {
     // setup
     final var testUnit = new UpdateCommandCreator();
 
-    // execution
+   // execute
     final var result = testUnit.createSetTitleCommandForTitle("my_title");
 
-    // verification
+   // verify
     expect(result).hasStringRepresentation("GUI.SetTitle(my_title)");
   }
 
@@ -46,10 +46,10 @@ final class UpdateCommandCreatorTest extends StandardTest {
     final var webGui = new WebGui().setTitle("my_title");
     final var testUnit = new UpdateCommandCreator();
 
-    // execution
+   // execute
     final var result = testUnit.createSetTitleCommandForWebGui(webGui);
 
-    // verification
+   // verify
     expect(result).hasStringRepresentation("GUI.SetTitle(my_title)");
   }
 
@@ -59,10 +59,10 @@ final class UpdateCommandCreatorTest extends StandardTest {
     final var webGui = new WebGui();
     final var testUnit = new UpdateCommandCreator();
 
-    // execution
+   // execute
     final var result = testUnit.createSetUserInputFunctionsCommandForWebGui(webGui);
 
-    // verification
+   // verify
     expect(result).hasStringRepresentation("GUI.SetUserInputFunctions");
   }
 
@@ -73,10 +73,10 @@ final class UpdateCommandCreatorTest extends StandardTest {
     final var webGui = new WebGui().pushLayerWithRootControl(button);
     final var testUnit = new UpdateCommandCreator();
 
-    // execution
+   // execute
     final var result = testUnit.createSetUserInputFunctionsCommandForWebGui(webGui);
 
-    // verification
+   // verify
     expect(result).hasStringRepresentation("GUI.SetUserInputFunctions");
   }
 
@@ -87,10 +87,10 @@ final class UpdateCommandCreatorTest extends StandardTest {
     final var webGui = new WebGui().pushLayerWithRootControl(textbox);
     final var testUnit = new UpdateCommandCreator();
 
-    // execution
+   // execute
     final var result = testUnit.createSetUserInputFunctionsCommandForWebGui(webGui);
 
-    // verification
+   // verify
     expect(result).hasStringRepresentation(
       "GUI.SetUserInputFunctions((" + textbox.getInternalId() + ",return x$Dvalue;))");
   }

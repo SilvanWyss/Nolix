@@ -19,10 +19,10 @@ final class TextboxTest extends ControlTest<ITextbox> {
     final var testUnit = new Textbox();
     testUnit.setText("Lorem ipsum");
 
-    // execution
+   // execute
     testUnit.emptyText();
 
-    // verification
+   // verify
     expect(testUnit.getText()).isEmpty();
   }
 

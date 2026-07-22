@@ -18,7 +18,7 @@ final class WithNameCaptorTest extends StandardTest {
     // setup
     final var testUnit = new WithNameCaptor<>();
 
-    // execution & verification
+   // execute & verification
     expectRunning(testUnit::getName).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
@@ -31,10 +31,10 @@ final class WithNameCaptorTest extends StandardTest {
     final var andNameCaptor = new WithNameCaptor<>();
     final var testUnit = new WithNameCaptor<>(andNameCaptor);
 
-    // execution
+   // execute
     final var result = testUnit.withName(name);
 
-    // verification
+   // verify
     expect(testUnit.getName()).isEqualTo(name);
     expect(result).is(andNameCaptor);
   }
@@ -44,7 +44,7 @@ final class WithNameCaptorTest extends StandardTest {
     // setup
     final var testUnit = new WithNameCaptor<>();
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.withName("my_name"))
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);

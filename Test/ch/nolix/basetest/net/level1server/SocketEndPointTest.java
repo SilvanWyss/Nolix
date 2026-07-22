@@ -26,7 +26,7 @@ final class SocketEndPointTest extends StandardTest {
       // setup
       server.addDefaultSlot(new MockSlot());
 
-      // execution & verification
+     // execute & verification
       expectRunning(
         () -> {
           try (final var _ = SocketEndPoint.toLocaleMachineAndGivenPortAndDefaultSlot(port)) {
@@ -48,11 +48,11 @@ final class SocketEndPointTest extends StandardTest {
       server.addDefaultSlot(slot);
 
       try (final var testUnit = SocketEndPoint.toLocaleMachineAndGivenPortAndDefaultSlot(port)) {
-        // execution
+       // execute
         testUnit.sendMessage("MESSAGE");
         FlowController.waitForMilliseconds(WAITING_TIME_IN_MILLISECONDS);
 
-        // verification
+       // verify
         expect(slot.getLatestReceivedMessage()).isEqualTo("MESSAGE");
       }
     }

@@ -21,10 +21,10 @@ final class OptionalTitleHolderTest extends StandardTest {
     Mockito.when(testUnit.hasTitle()).thenReturn(true);
     Mockito.when(testUnit.getTitle()).thenReturn("title");
 
-    // execution
+   // execute
     final var result = testUnit.getTitleInSingleQuotes();
 
-    // verification
+   // verify
     expect(result).isEqualTo("'title'");
   }
 }

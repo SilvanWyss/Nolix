@@ -25,7 +25,7 @@ final class LayerValidatorTest extends StandardTest {
     // setup verification
     expect(layer.belongsToGui()).isFalse();
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.assertBelongsToGui(layer))
       .throwsException()
       .ofType(ArgumentDoesNotBelongToParentException.class);
@@ -41,7 +41,7 @@ final class LayerValidatorTest extends StandardTest {
     // setup verification
     expect(layer.belongsToGui()).isTrue();
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.assertBelongsToGui(layer)).doesNotThrowException();
   }
 
@@ -54,7 +54,7 @@ final class LayerValidatorTest extends StandardTest {
     // setup verification
     expect(layer.belongsToGui()).isFalse();
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.assertDoesNotBelongToGui(layer)).doesNotThrowException();
   }
 
@@ -68,7 +68,7 @@ final class LayerValidatorTest extends StandardTest {
     // setup verification
     expect(layer.belongsToGui()).isTrue();
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.assertDoesNotBelongToGui(layer))
       .throwsException()
       .ofType(ArgumentBelongsToParentException.class);

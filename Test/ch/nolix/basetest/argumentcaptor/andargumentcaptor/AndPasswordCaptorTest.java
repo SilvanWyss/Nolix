@@ -23,10 +23,10 @@ final class AndPasswordCaptorTest extends StandardTest {
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new AndPasswordCaptor<>(andNameCaptor);
 
-    // execution
+   // execute
     final var result = testUnit.andPassword(password);
 
-    // verification
+   // verify
     expect(testUnit.getPassword()).isEqualTo(password);
     expect(result).is(andNameCaptor);
   }
@@ -36,7 +36,7 @@ final class AndPasswordCaptorTest extends StandardTest {
     // setup
     final var testUnit = new AndPasswordCaptor<>();
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.andPassword("my_password"))
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);
@@ -47,7 +47,7 @@ final class AndPasswordCaptorTest extends StandardTest {
     // setup
     final var testUnit = new AndPasswordCaptor<>();
 
-    // execution & verification
+   // execute & verification
     expectRunning(testUnit::getPassword).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }

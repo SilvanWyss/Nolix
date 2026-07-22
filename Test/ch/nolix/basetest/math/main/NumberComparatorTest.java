@@ -68,10 +68,10 @@ final class NumberComparatorTest extends StandardTest {
   "1.0, 1.1, false",
   })
   void testCase_areEqual(final double value1, final double value2, final boolean expectedResult) {
-    // execution
+   // execute
     final var result = NumberComparator.areEqual(value1, value2);
 
-    // verification
+   // verify
     expect(result).is(expectedResult);
   }
 
@@ -96,10 +96,10 @@ final class NumberComparatorTest extends StandardTest {
   "1.1, false",
   })
   void testCase_isOne(final double value, final boolean expectedResult) {
-    // execution
+   // execute
     final var result = NumberComparator.isOne(value);
 
-    // verification
+   // verify
     expect(result).is(expectedResult);
   }
 
@@ -124,10 +124,10 @@ final class NumberComparatorTest extends StandardTest {
   "0.1, false",
   })
   void testCase_isZero(final double value, final boolean expectedResult) {
-    // execution
+   // execute
     final var result = NumberComparator.isZero(value);
 
-    // verification
+   // verify
     expect(result).is(expectedResult);
   }
 }

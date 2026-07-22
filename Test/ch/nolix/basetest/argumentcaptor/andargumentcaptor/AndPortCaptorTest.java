@@ -23,10 +23,10 @@ final class AndPortCaptorTest extends StandardTest {
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new AndPortCaptor<>(andNameCaptor);
 
-    // execution
+   // execute
     final var result = testUnit.andPort(port);
 
-    // verification
+   // verify
     expect(testUnit.getPort()).isEqualTo(port);
     expect(result).is(andNameCaptor);
   }
@@ -36,7 +36,7 @@ final class AndPortCaptorTest extends StandardTest {
     // setup
     final var testUnit = new AndPortCaptor<>();
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.andPort(8000))
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);
@@ -48,10 +48,10 @@ final class AndPortCaptorTest extends StandardTest {
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new AndPortCaptor<>(andNameCaptor);
 
-    // execution
+   // execute
     final var result = testUnit.andHttpPort();
 
-    // verification
+   // verify
     expect(testUnit.getPort()).isEqualTo(80);
     expect(result).is(andNameCaptor);
   }
@@ -62,10 +62,10 @@ final class AndPortCaptorTest extends StandardTest {
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new AndPortCaptor<>(andNameCaptor);
 
-    // execution
+   // execute
     final var result = testUnit.andHttpsPort();
 
-    // verification
+   // verify
     expect(testUnit.getPort()).isEqualTo(443);
     expect(result).is(andNameCaptor);
   }
@@ -76,10 +76,10 @@ final class AndPortCaptorTest extends StandardTest {
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new AndPortCaptor<>(andNameCaptor);
 
-    // execution
+   // execute
     final var result = testUnit.andMsSqlPort();
 
-    // verification
+   // verify
     expect(testUnit.getPort()).isEqualTo(1433);
     expect(result).is(andNameCaptor);
   }
@@ -89,7 +89,7 @@ final class AndPortCaptorTest extends StandardTest {
     // setup
     final var testUnit = new AndPortCaptor<>();
 
-    // execution & verification
+   // execute & verification
     expectRunning(testUnit::getPort).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }

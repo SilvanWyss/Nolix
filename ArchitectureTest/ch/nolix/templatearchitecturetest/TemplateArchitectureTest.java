@@ -21,7 +21,7 @@ final class TemplateArchitectureTest {
     // setup
     final var rule = SlicesRuleDefinition.slices().matching("ch.nolix.template.(*)..").should().beFreeOfCycles();
 
-    // execution & verification
+   // execute & verification
     rule.check(TEST_UNIT);
   }
 
@@ -43,7 +43,7 @@ final class TemplateArchitectureTest {
         "ch.nolix.template..",
         "java..");
 
-    // execution & verification
+   // execute & verification
     rule.check(TEST_UNIT);
   }
 }

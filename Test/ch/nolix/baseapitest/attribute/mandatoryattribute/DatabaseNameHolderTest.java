@@ -20,10 +20,10 @@ final class DatabaseNameHolderTest extends StandardTest {
     Mockito.when(testUnit.getDatabaseNameInSingleQuotes()).thenCallRealMethod();
     Mockito.when(testUnit.getDatabaseName()).thenReturn("database");
 
-    // execution
+   // execute
     final var result = testUnit.getDatabaseNameInSingleQuotes();
 
-    // verification
+   // verify
     expect(result).isEqualTo("'database'");
   }
 }

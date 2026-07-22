@@ -22,10 +22,10 @@ final class ColorTest extends StandardTest {
     final var testUnit = Color.fromString("0x102030");
     final var color = Color.fromString("0x102030");
 
-    // execution
+   // execute
     final var result = testUnit.equals(color);
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -35,28 +35,28 @@ final class ColorTest extends StandardTest {
     final var testUnit = Color.fromString("0x102030");
     final var color = Color.fromString("0x101010");
 
-    // execution
+   // execute
     final var result = testUnit.equals(color);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
   @Test
   void testCase_fromString_1A() {
-    // execution
+   // execute
     final var result = Color.fromString("0x000000");
 
-    // verification
+   // verify
     expect(result.toHexadecimalString()).isEqualTo("0x000000");
   }
 
   @Test
   void testCase_fromString_1B() {
-    // execution
+   // execute
     final var result = Color.fromString("0xFFFFFF");
 
-    // verification
+   // verify
     expect(result.toHexadecimalString()).isEqualTo("0xFFFFFF");
   }
 
@@ -65,10 +65,10 @@ final class ColorTest extends StandardTest {
     // setup
     final var testUnit = Color.fromString("0x102030A0");
 
-    // execution
+   // execute
     final var result = testUnit.getAlphaValue();
 
-    // verification
+   // verify
     expect(result).isEqualTo(0xA0);
   }
 
@@ -77,10 +77,10 @@ final class ColorTest extends StandardTest {
     // setup
     final var testUnit = Color.fromString("0x102030A0");
 
-    // execution
+   // execute
     final var result = testUnit.getBlueValue();
 
-    // verification
+   // verify
     expect(result).isEqualTo(0x30);
   }
 
@@ -89,10 +89,10 @@ final class ColorTest extends StandardTest {
     // setup
     final var testUnit = Color.fromString("0x102030A0");
 
-    // execution
+   // execute
     final var result = testUnit.getGreenValue();
 
-    // verification
+   // verify
     expect(result).isEqualTo(0x20);
   }
 
@@ -101,10 +101,10 @@ final class ColorTest extends StandardTest {
     // setup
     final var testUnit = X11ColorCatalog.ALICE_BLUE;
 
-    // execution
+   // execute
     final var result = testUnit.getColorNameOrHexadecimalString();
 
-    // verification
+   // verify
     expect(result).isEqualTo("AliceBlue");
   }
 
@@ -113,10 +113,10 @@ final class ColorTest extends StandardTest {
     // setup
     final var testUnit = X11ColorCatalog.YELLOW_GREEN;
 
-    // execution
+   // execute
     final var result = testUnit.getColorNameOrHexadecimalString();
 
-    // verification
+   // verify
     expect(result).isEqualTo("YellowGreen");
   }
 
@@ -125,10 +125,10 @@ final class ColorTest extends StandardTest {
     // setup
     final var testUnit = Color.fromLong(0x000000);
 
-    // execution
+   // execute
     final var result = testUnit.getInvertedColor();
 
-    // verification
+   // verify
     expect(result.toHexadecimalString()).isEqualTo("0xFFFFFF");
   }
 
@@ -137,10 +137,10 @@ final class ColorTest extends StandardTest {
     // setup
     final var testUnit = Color.fromLong(0xFFFFFF);
 
-    // execution
+   // execute
     final var result = testUnit.getInvertedColor();
 
-    // verification
+   // verify
     expect(result.toHexadecimalString()).isEqualTo("0x000000");
   }
 
@@ -149,10 +149,10 @@ final class ColorTest extends StandardTest {
     // setup
     final var testUnit = Color.fromString("0x102030A0");
 
-    // execution
+   // execute
     final var result = testUnit.getRedValue();
 
-    // verification
+   // verify
     expect(result).isEqualTo(0x10);
   }
 
@@ -161,10 +161,10 @@ final class ColorTest extends StandardTest {
     // setup
     final var testUnit = Color.fromString("0x102030");
 
-    // execution
+   // execute
     final var result = testUnit.getSpecification();
 
-    // verification
+   // verify
     expect(result).hasStringRepresentation("Color(0x102030)");
   }
 
@@ -195,10 +195,10 @@ final class ColorTest extends StandardTest {
     // setup
     final var testUnit = Color.fromString(string);
 
-    // execution
+   // execute
     final var result = testUnit.toHexadecimalStringWithAlphaValue();
 
-    // verification
+   // verify
     expect(result).isEqualTo(string);
   }
 
@@ -207,10 +207,10 @@ final class ColorTest extends StandardTest {
     // setup
     final var testUnit = Color.fromString("0x10203000");
 
-    // execution
+   // execute
     final var result = testUnit.withAlphaValue(0);
 
-    // verification
+   // verify
     expect(result.toHexadecimalString()).isEqualTo("0x10203000");
   }
 
@@ -219,10 +219,10 @@ final class ColorTest extends StandardTest {
     // setup
     final var testUnit = Color.fromString("0x10203000");
 
-    // execution
+   // execute
     final var result = testUnit.withAlphaValue(160);
 
-    // verification
+   // verify
     expect(result.toHexadecimalString()).isEqualTo("0x102030A0");
   }
 
@@ -241,10 +241,10 @@ final class ColorTest extends StandardTest {
     // setup
     final var testUnit = Color.fromString(colorAsHexadecimalString);
 
-    // execution
+   // execute
     final var result = testUnit.withFloatingPointAlphaValue(floatingPointAlphaValue);
 
-    // verification
+   // verify
     expect(result.toHexadecimalString()).isEqualTo(expectedHexadecimaString);
   }
 
@@ -263,10 +263,10 @@ final class ColorTest extends StandardTest {
     // setup
     final var testUnit = Color.fromString(colorString);
 
-    // execution
+   // execute
     final var result = testUnit.withFullAlphaValue();
 
-    // verification
+   // verify
     expect(result.toHexadecimalString()).isEqualTo(expectedResult);
   }
 }

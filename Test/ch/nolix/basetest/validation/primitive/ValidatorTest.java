@@ -24,10 +24,10 @@ final class ValidatorTest extends StandardTest {
     // setup
     final var argument = (byte) 127;
 
-    // execution
+   // execute
     final var result = Validator.assertThat(argument);
 
-    // verification
+   // verify
     expect(result).isOfType(NamableByteMediator.class);
   }
 
@@ -36,10 +36,10 @@ final class ValidatorTest extends StandardTest {
     // setup
     final var argument = new byte[100];
 
-    // execution
+   // execute
     final var result = Validator.assertThat(argument);
 
-    // verification
+   // verify
     expect(result).isOfType(NamableIterableMediator.class);
   }
 
@@ -48,10 +48,10 @@ final class ValidatorTest extends StandardTest {
     // setup
     final var argument = 1.0;
 
-    // execution
+   // execute
     final var result = Validator.assertThat(argument);
 
-    // verification
+   // verify
     expect(result).isOfType(NamableDoubleMediator.class);
   }
 
@@ -60,10 +60,10 @@ final class ValidatorTest extends StandardTest {
     // setup
     final var argument = new double[100];
 
-    // execution
+   // execute
     final var result = Validator.assertThat(argument);
 
-    // verification
+   // verify
     expect(result).isOfType(NamableIterableMediator.class);
   }
 
@@ -72,10 +72,10 @@ final class ValidatorTest extends StandardTest {
     // setup
     final var argument = 50;
 
-    // execution
+   // execute
     final var result = Validator.assertThat(argument);
 
-    // verification
+   // verify
     expect(result).isOfType(AbstractLongMediator.class);
   }
 
@@ -84,10 +84,10 @@ final class ValidatorTest extends StandardTest {
     // setup
     final var argument = new int[100];
 
-    // execution
+   // execute
     final var result = Validator.assertThat(argument);
 
-    // verification
+   // verify
     expect(result).isOfType(NamableIterableMediator.class);
   }
 
@@ -96,10 +96,10 @@ final class ValidatorTest extends StandardTest {
     // setup
     final var argument = 50L;
 
-    // execution
+   // execute
     final var result = Validator.assertThat(argument);
 
-    // verification
+   // verify
     expect(result).isOfType(AbstractLongMediator.class);
   }
 
@@ -108,10 +108,10 @@ final class ValidatorTest extends StandardTest {
     // setup
     final var argument = new long[100];
 
-    // execution
+   // execute
     final var result = Validator.assertThat(argument);
 
-    // verification
+   // verify
     expect(result).isOfType(NamableIterableMediator.class);
   }
 
@@ -120,10 +120,10 @@ final class ValidatorTest extends StandardTest {
     // setup
     final var argument = FunctionService.class.getMethod("doNothing");
 
-    // execution
+   // execute
     final var result = Validator.assertThat(argument);
 
-    // verification
+   // verify
     expect(result).isOfType(MethodMediator.class);
   }
 
@@ -132,10 +132,10 @@ final class ValidatorTest extends StandardTest {
     // setup
     final var argument = "lorem ipsum";
 
-    // execution
+   // execute
     final var result = Validator.assertThat(argument);
 
-    // verification
+   // verify
     expect(result).isOfType(StringMediator.class);
   }
 }

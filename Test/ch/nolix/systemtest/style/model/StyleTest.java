@@ -23,10 +23,10 @@ final class StyleTest extends StandardTest {
     // setup
     final var specification = ImmutableNode.withHeader("Style");
 
-    // execution
+   // execute
     final var result = Style.fromSpecification(specification);
 
-    // verification
+   // verify
     expect(result.getAttachingAttributes()).isEmpty();
     expect(result.getSubStyles()).isEmpty();
   }
@@ -43,10 +43,10 @@ final class StyleTest extends StandardTest {
         + "DeepSelectingStyle"
         + ")");
 
-    // execution
+   // execute
     final var result = Style.fromSpecification(specification);
 
-    // verification
+   // verify
     expect(result.getAttachingAttributes().toStrings()).containsExactlyEqualing(
       "test_attaching_attribute_1",
       "test_attaching_attribute_2");
@@ -66,10 +66,10 @@ final class StyleTest extends StandardTest {
       ImmutableList.withElements("Title(my_title)", "Background(Color(Blue))"),
       ImmutableList.createEmpty());
 
-    // execution
+   // execute
     testUnit.applyToElement(webGui);
 
-    // verification
+   // verify
     expect(webGui.getTitle()).isEqualTo("my_title");
     expect(webGui.getBackgroundColor()).isEqualTo(X11ColorCatalog.BLUE);
   }
@@ -79,10 +79,10 @@ final class StyleTest extends StandardTest {
     // setup
     final var testUnit = Style.EMPTY;
 
-    // execution
+   // execute
     final var result = testUnit.withAttachingAttributes("p1(v1)", "p2(v2)");
 
-    // verification
+   // verify
     expect(result.getAttachingAttributes()
       .toStrings())
       .containsExactlyEqualing("p1(v1)", "p2(v2)");
@@ -96,10 +96,10 @@ final class StyleTest extends StandardTest {
     final var subStyle2 = SelectingStyle.EMPTY;
     final var testUnit = Style.EMPTY;
 
-    // execution
+   // execute
     final var result = testUnit.withAdditionalSubStyles(subStyle1, subStyle2);
 
-    // verification
+   // verify
     expect(result.getAttachingAttributes()).isEmpty();
     final var subStyles = result.getSubStyles();
     expect(subStyles).hasElementCount(2);
@@ -112,10 +112,10 @@ final class StyleTest extends StandardTest {
     // setup
     final var testUnit = Style.EMPTY.withAttachingAttributes("p1(v1)", "p2(v2)");
 
-    // execution
+   // execute
     final var result = testUnit.withAttachingAttributes("p3(v3)", "p4(v4)");
 
-    // verification
+   // verify
     expect(result.getAttachingAttributes().toStrings())
       .containsExactlyEqualing(
         "p1(v1)",
@@ -134,10 +134,10 @@ final class StyleTest extends StandardTest {
     final var subStyle4 = SelectingStyle.EMPTY;
     final var testUnit = Style.EMPTY.withAdditionalSubStyles(subStyle1, subStyle2);
 
-    // execution
+   // execute
     final var result = testUnit.withAdditionalSubStyles(subStyle3, subStyle4);
 
-    // verification
+   // verify
     expect(result.getAttachingAttributes()).isEmpty();
     final var subStyles = result.getSubStyles();
     expect(subStyles).hasElementCount(4);

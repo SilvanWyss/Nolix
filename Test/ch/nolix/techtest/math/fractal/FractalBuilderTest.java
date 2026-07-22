@@ -25,10 +25,10 @@ final class FractalBuilderTest extends StandardTest {
       .setMaxIterationCount(150)
       .setDecimalPlaces(30);
 
-    // execution
+   // execute
     final var result = testUnit.build();
 
-    // verification
+   // verify
     expect(result.getWidthInPixel()).isEqualTo(1_200);
     expect(result.getHeightInPixel()).isEqualTo(800);
     expect(result.getRealComponentInterval())

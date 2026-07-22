@@ -36,10 +36,10 @@ final class TimeComplexityFunctionCatalogTest extends StandardTest {
   "300, 1.0", //
   })
   void testCase_constantFunction(final long input, final double expectedResult) {
-    // execution
+   // execute
     final var result = TimeComplexityFunctionCatalog.CONSTANT.applyAsDouble(input);
 
-    // verification
+   // verify
     expect(result).isEqualTo(expectedResult);
   }
 
@@ -66,10 +66,10 @@ final class TimeComplexityFunctionCatalogTest extends StandardTest {
   "300, 300.0", //
   })
   void testCase_linearFunction(final long input, final double expectedResult) {
-    // execution
+   // execute
     final var result = TimeComplexityFunctionCatalog.LINEAR.applyAsDouble(input);
 
-    // verification
+   // verify
     expect(result).isEqualTo(expectedResult);
   }
 
@@ -96,10 +96,10 @@ final class TimeComplexityFunctionCatalogTest extends StandardTest {
   "300, 90000.0", //
   })
   void testCase_quadraticFunction(final long input, final double expectedResult) {
-    // execution
+   // execute
     final var result = TimeComplexityFunctionCatalog.QUADRATIC.applyAsDouble(input);
 
-    // verification
+   // verify
     expect(result).isEqualTo(expectedResult);
   }
 }

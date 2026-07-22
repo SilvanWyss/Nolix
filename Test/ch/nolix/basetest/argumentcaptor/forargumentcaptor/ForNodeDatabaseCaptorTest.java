@@ -22,7 +22,7 @@ final class ForNodeDatabaseCaptorTest extends StandardTest {
     final var database = MutableNode.createEmpty();
     final var testUnit = new ForNodeDatabaseCaptor<>();
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.forNodeDatabase(database))
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);
@@ -35,10 +35,10 @@ final class ForNodeDatabaseCaptorTest extends StandardTest {
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new ForNodeDatabaseCaptor<>(andNameCaptor);
 
-    // execution
+   // execute
     final var result = testUnit.forNodeDatabase(database);
 
-    // verification
+   // verify
     expect(testUnit.getStoredNodeDatabase()).isEqualTo(database);
     expect(result).is(andNameCaptor);
   }
@@ -49,10 +49,10 @@ final class ForNodeDatabaseCaptorTest extends StandardTest {
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new ForNodeDatabaseCaptor<>(andNameCaptor);
 
-    // execution
+   // execute
     final var result = testUnit.forTemporaryInMemoryNodeDatabase();
 
-    // verification
+   // verify
     expect(testUnit.getStoredNodeDatabase()).isOfType(IMutableNode.class);
     expect(result).is(andNameCaptor);
   }
@@ -62,7 +62,7 @@ final class ForNodeDatabaseCaptorTest extends StandardTest {
     // setup
     final var testUnit = new ForNodeDatabaseCaptor<>();
 
-    // execution & verification
+   // execute & verification
     expectRunning(testUnit::getStoredNodeDatabase)
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);

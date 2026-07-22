@@ -30,16 +30,16 @@ final class BackgroundTest extends StandardTest {
     // execute
     final var result = Background.fromSpecification(backgroundSpecification);
 
-    // verification
+   // verify
     expect(result.getSpecification()).isEqualTo(backgroundSpecification);
   }
 
   @Test
   void testCase_withColor() {
-    // execution
+   // execute
     final var result = Background.withColor(X11ColorCatalog.BLUE);
 
-    // verification
+   // verify
     expect(result.getType()).is(BackgroundType.COLOR);
     expect(result.getColor()).is(X11ColorCatalog.BLUE);
   }

@@ -24,10 +24,10 @@ final class LayerStackTest extends StandardTest {
     // setup verification
     expect(testUnit.isEmpty()).isTrue();
 
-    // execution
+   // execute
     final var result = testUnit.getOptionalStoredControlByInternalId(control.getInternalId());
 
-    // verification
+   // verify
     expect(result.isEmpty()).isTrue();
   }
 
@@ -38,10 +38,10 @@ final class LayerStackTest extends StandardTest {
     final var testUnit = LayerStack.forWebGui(new WebGui());
     testUnit.pushLayerWithRootControl(control);
 
-    // execution
+   // execute
     final var result = testUnit.getOptionalStoredControlByInternalId(control.getInternalId());
 
-    // verification
+   // verify
     expect(result.get()).is(control); //NOSONAR: The current test case expects a non-empty result.
   }
 
@@ -53,10 +53,10 @@ final class LayerStackTest extends StandardTest {
     // setup verification
     expect(testUnit.isEmpty()).isTrue();
 
-    // execution
+   // execute
     final var result = testUnit.getStoredControls();
 
-    // verification
+   // verify
     expect(result).isEmpty();
   }
 
@@ -67,10 +67,10 @@ final class LayerStackTest extends StandardTest {
     final var label = new Label();
     testUnit.pushLayerWithRootControl(label);
 
-    // execution
+   // execute
     final var result = testUnit.getStoredControls();
 
-    // verification
+   // verify
     expect(result).containsExactlyInSameOrder(label);
   }
 
@@ -85,10 +85,10 @@ final class LayerStackTest extends StandardTest {
     verticalStack.addControls(label1, label2, label3);
     testUnit.pushLayerWithRootControl(verticalStack);
 
-    // execution
+   // execute
     final var result = testUnit.getStoredControls();
 
-    // verification
+   // verify
     expect(result).containsExactlyInSameOrder(verticalStack, label1, label2, label3);
   }
 }

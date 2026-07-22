@@ -20,10 +20,10 @@ final class ShortDescriptionHolderTest extends StandardTest {
     Mockito.when(testUnit.getShortDescriptionInSingleQuotes()).thenCallRealMethod();
     Mockito.when(testUnit.getShortDescription()).thenReturn("short_description");
 
-    // execution
+   // execute
     final var result = testUnit.getShortDescriptionInSingleQuotes();
 
-    // verification
+   // verify
     expect(result).isEqualTo("'short_description'");
   }
 }

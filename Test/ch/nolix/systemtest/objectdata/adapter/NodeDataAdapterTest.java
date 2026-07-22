@@ -40,10 +40,10 @@ final class NodeDataAdapterTest extends StandardTest {
       // setup verification
       expect(testUnit.isOpen()).isTrue();
 
-      // execution
+     // execute
       testUnit.close();
 
-      // verification
+     // verify
       expect(testUnit.isClosed()).isTrue();
     }
   }
@@ -63,10 +63,10 @@ final class NodeDataAdapterTest extends StandardTest {
       // setup verification
       expect(testUnit.isClosed()).isTrue();
 
-      // execution
+     // execute
       testUnit.close();
 
-      // verification
+     // verify
       expect(testUnit.isClosed()).isTrue();
     }
   }
@@ -76,11 +76,11 @@ final class NodeDataAdapterTest extends StandardTest {
     // setup
     final var nodeDatabase = MutableNode.createEmpty();
 
-    // execution
+   // execute
     final var result = //
     NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(EntityTypeSet.EMPTY_SCHEMA);
 
-    // verification
+   // verify
     expect(result.getSaveCount()).isEqualTo(0);
     expect(result.isChangeFree()).isTrue();
   }
@@ -90,7 +90,7 @@ final class NodeDataAdapterTest extends StandardTest {
     // setup
     final var nodeDatabase = MutableNode.fromString("x(y,z)");
 
-    // execution & verification
+   // execute & verification
     expectRunning(
       () -> NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(EntityTypeSet.EMPTY_SCHEMA) //
     )
@@ -109,10 +109,10 @@ final class NodeDataAdapterTest extends StandardTest {
     // setup verification
     expect(testUnit.hasChanges()).isTrue();
 
-    // execution
+   // execute
     final var result = testUnit.createEmptyCopy();
 
-    // verification
+   // verify
     expect(testUnit.hasChanges()).isTrue();
     expect(result.isChangeFree()).isTrue();
   }
@@ -124,10 +124,10 @@ final class NodeDataAdapterTest extends StandardTest {
     final var schema = EntityTypeSet.withEntityType(Pet.class);
     final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
 
-    // execution
+   // execute
     testUnit.saveChanges();
 
-    // verification
+   // verify
     expect(testUnit.getSaveCount()).isEqualTo(1);
     expect(testUnit.isChangeFree()).isTrue();
   }
@@ -140,10 +140,10 @@ final class NodeDataAdapterTest extends StandardTest {
     final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     testUnit.insertEntity(new Pet());
 
-    // execution
+   // execute
     testUnit.saveChanges();
 
-    // verification
+   // verify
     expect(testUnit.getSaveCount()).isEqualTo(1);
     expect(testUnit.isChangeFree()).isTrue();
   }
@@ -176,7 +176,7 @@ final class NodeDataAdapterTest extends StandardTest {
           ImmutableList.createEmpty()));
     schemaAdapter.saveChanges();
 
-    // execution & verification: Try to save the the changes to the database.
+   // execute & verification: Try to save the the changes to the database.
     expectRunning(testUnit::saveChanges)
       .throwsException()
       .ofType(ChangedResourceException.class)

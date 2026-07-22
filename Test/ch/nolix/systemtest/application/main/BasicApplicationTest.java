@@ -20,14 +20,14 @@ final class BasicApplicationTest extends StandardTest {
     // setup
     final var applicationService = new VoidObject();
 
-    // execution
+   // execute
     @SuppressWarnings("unchecked")
     final var result = BasicApplication.withNameAndInitialSessionClassAndContext(
       "My application",
       TestSession.withClientClass(WebClient.class).getClass(),
       applicationService);
 
-    // verification
+   // verify
     expect(result.getApplicationName()).isEqualTo("My application");
     expect(result.hasInstanceAppendix()).isFalse();
     expect(result.getStoredApplicationService()).is(applicationService);

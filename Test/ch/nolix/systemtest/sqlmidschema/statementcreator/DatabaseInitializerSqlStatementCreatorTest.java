@@ -19,14 +19,14 @@ final class DatabaseInitializerSqlStatementCreatorTest extends StandardTest {
     final var time = Time.withYear(2025);
     final var testUnit = new DatabaseInitializationStatementCreator();
 
-    // execution
+   // execute
     final var result = testUnit.createStatementToCreateSchemaTimestampEntry(time);
 
-    // verification setup
+   // verify setup
     final var expectedResult = //
     "INSERT INTO DatabaseProperty (Key_, Value_) VALUES ('SchemaTimestamp', '2025-01-01-00-00-00-000-000');";
 
-    // verification
+   // verify
     expect(result).isEqualTo(expectedResult);
   }
 }

@@ -23,7 +23,7 @@ final class DoubleMediatorTest extends StandardTest {
     // setup
     final var testUnit = DoubleMediator.forArgumentAndArgumentName(argument, "argument");
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.isBiggerThan(-1001.0)).doesNotThrowException();
   }
 
@@ -33,7 +33,7 @@ final class DoubleMediatorTest extends StandardTest {
     // setup
     final var testUnit = DoubleMediator.forArgumentAndArgumentName(argument, "argument");
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.isBiggerThan(1000.0))
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -46,7 +46,7 @@ final class DoubleMediatorTest extends StandardTest {
     // setup
     final var testUnit = DoubleMediator.forArgumentAndArgumentName(argument, "argument");
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.isBiggerThan(-10_000)).doesNotThrowException();
   }
 
@@ -56,7 +56,7 @@ final class DoubleMediatorTest extends StandardTest {
     // setup
     final var testUnit = DoubleMediator.forArgumentAndArgumentName(argument, "argument");
 
-    // execution & verification
+   // execute & verification
     expectRunning(testUnit::isNotNegative)
       .throwsException()
       .ofType(NegativeArgumentException.class)
@@ -69,7 +69,7 @@ final class DoubleMediatorTest extends StandardTest {
     // setup
     final var testUnit = DoubleMediator.forArgumentAndArgumentName(argument, "argument");
 
-    // execution & verification
+   // execute & verification
     expectRunning(testUnit::isNotNegative).doesNotThrowException();
   }
 
@@ -79,7 +79,7 @@ final class DoubleMediatorTest extends StandardTest {
     // setup
     final var testUnit = DoubleMediator.forArgumentAndArgumentName(argument, "argument");
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.isNotSmallerThan(1001.0))
       .throwsException()
       .ofType(SmallerArgumentException.class)
@@ -92,7 +92,7 @@ final class DoubleMediatorTest extends StandardTest {
     // setup
     final var testUnit = DoubleMediator.forArgumentAndArgumentName(argument, "argument");
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.isNotSmallerThan(-1000.0)).doesNotThrowException();
   }
 
@@ -102,7 +102,7 @@ final class DoubleMediatorTest extends StandardTest {
     // setup
     final var testUnit = DoubleMediator.forArgumentAndArgumentName(argument, "argument");
 
-    // execution & verification
+   // execute & verification
     expectRunning(testUnit::isPositive).doesNotThrowException();
   }
 
@@ -112,7 +112,7 @@ final class DoubleMediatorTest extends StandardTest {
     // setup
     final var testUnit = DoubleMediator.forArgumentAndArgumentName(argument, "argument");
 
-    // execution & verification
+   // execute & verification
     expectRunning(testUnit::isPositive)
       .throwsException()
       .ofType(NonPositiveArgumentException.class)

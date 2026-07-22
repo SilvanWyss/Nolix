@@ -17,10 +17,10 @@ final class MutableXmlNodeTest extends StandardTest {
     // setup
     final var testUnit = MutableXmlNode.createBlankMutableXmlNode().setName("Node");
 
-    // execution
+   // execute
     final var result = testUnit.toString();
 
-    // verification
+   // verify
     expect(result).isEqualTo("<Node></Node>");
   }
 
@@ -30,10 +30,10 @@ final class MutableXmlNodeTest extends StandardTest {
     final var testUnit = MutableXmlNode.createBlankMutableXmlNode().setName("Node").addAttributeWithNameAndValue("key",
       "value");
 
-    // execution
+   // execute
     final var result = testUnit.toString();
 
-    // verification
+   // verify
     expect(result).isEqualTo("<Node key='value'></Node>");
   }
 
@@ -43,10 +43,10 @@ final class MutableXmlNodeTest extends StandardTest {
     final var testUnit = MutableXmlNode.createBlankMutableXmlNode().setName("Node")
       .addChildNode(MutableXmlNode.createBlankMutableXmlNode().setName("ChildNode"));
 
-    // execution
+   // execute
     final var result = testUnit.toString();
 
-    // verification
+   // verify
     expect(result).isEqualTo("<Node><ChildNode></ChildNode></Node>");
   }
 
@@ -58,10 +58,10 @@ final class MutableXmlNodeTest extends StandardTest {
       .addAttributeWithNameAndValue("key1", "value1")
       .addAttributeWithNameAndValue("key2", "value2");
 
-    // execution
+   // execute
     final var result = testUnit.toString();
 
-    // verification
+   // verify
     expect(result).isEqualTo("<Node key1='value1' key2='value2'></Node>");
   }
 
@@ -73,10 +73,10 @@ final class MutableXmlNodeTest extends StandardTest {
       .addChildNode(MutableXmlNode.createBlankMutableXmlNode().setName("ChildNode1"))
       .addChildNode(MutableXmlNode.createBlankMutableXmlNode().setName("ChildNode2"));
 
-    // execution
+   // execute
     final var result = testUnit.toString();
 
-    // verification
+   // verify
     expect(result).isEqualTo("<Node><ChildNode1></ChildNode1><ChildNode2></ChildNode2></Node>");
   }
 }

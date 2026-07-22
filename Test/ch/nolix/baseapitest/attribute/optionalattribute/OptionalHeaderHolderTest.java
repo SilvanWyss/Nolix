@@ -22,10 +22,10 @@ final class OptionalHeaderHolderTest extends StandardTest {
     Mockito.when(testUnit.hasHeader()).thenReturn(true);
     Mockito.when(testUnit.getHeader()).thenReturn("header");
 
-    // execution
+   // execute
     final var result = testUnit.getHeaderOrEmptyString();
 
-    // verification
+   // verify
     expect(result).isEqualTo("header");
   }
 
@@ -36,10 +36,10 @@ final class OptionalHeaderHolderTest extends StandardTest {
     Mockito.when(testUnit.getHeaderOrEmptyString()).thenCallRealMethod();
     Mockito.when(testUnit.hasHeader()).thenReturn(false);
 
-    // execution
+   // execute
     final var result = testUnit.getHeaderOrEmptyString();
 
-    // verification
+   // verify
     expect(result).isEmpty();
   }
 
@@ -51,10 +51,10 @@ final class OptionalHeaderHolderTest extends StandardTest {
     Mockito.when(testUnit.hasHeader()).thenReturn(true);
     Mockito.when(testUnit.getHeader()).thenReturn("header");
 
-    // execution
+   // execute
     final var result = testUnit.getOptionalHeader();
 
-    // verification
+   // verify
     expect(result).containsEqualObject("header");
   }
 
@@ -65,10 +65,10 @@ final class OptionalHeaderHolderTest extends StandardTest {
     Mockito.when(testUnit.getOptionalHeader()).thenCallRealMethod();
     Mockito.when(testUnit.hasHeader()).thenReturn(false);
 
-    // execution
+   // execute
     final var result = testUnit.getOptionalHeader();
 
-    // verification
+   // verify
     expect(result).isEmpty();
   }
 
@@ -80,10 +80,10 @@ final class OptionalHeaderHolderTest extends StandardTest {
     Mockito.when(testUnit.hasHeader()).thenReturn(true);
     Mockito.when(testUnit.getHeader()).thenReturn("header");
 
-    // execution
+   // execute
     final var result = testUnit.hasHeader("header");
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -95,10 +95,10 @@ final class OptionalHeaderHolderTest extends StandardTest {
     Mockito.when(testUnit.hasHeader()).thenReturn(true);
     Mockito.when(testUnit.getHeader()).thenReturn("header");
 
-    // execution
+   // execute
     final var result = testUnit.hasHeader("Header");
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -109,10 +109,10 @@ final class OptionalHeaderHolderTest extends StandardTest {
     Mockito.when(testUnit.hasHeader(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.hasHeader()).thenReturn(false);
 
-    // execution
+   // execute
     final var result = testUnit.hasHeader("header");
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 }

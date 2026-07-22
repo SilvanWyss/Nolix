@@ -34,10 +34,10 @@ final class MultiValueOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(round);
     nodeDataAdapter.saveChanges();
 
-    // execution
+   // execute
     final var loadedRound = nodeDataAdapter.getStoredTableByEntityType(Round.class).getStoredEntityById(round.getId());
 
-    // verification
+   // verify
     expect(loadedRound.amounts.isEmpty()).isTrue();
   }
 
@@ -55,10 +55,10 @@ final class MultiValueOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(round);
     nodeDataAdapter.saveChanges();
 
-    // execution
+   // execute
     final var loadedRound = nodeDataAdapter.getStoredTableByEntityType(Round.class).getStoredEntityById(round.getId());
 
-    // verification
+   // verify
     final var loadedValues = loadedRound.amounts.getAllStoredValues();
     expect(loadedValues.getCount()).isEqualTo(4);
     expect(loadedValues.containsAll(10, 20, 30, 40)).isTrue();
@@ -81,10 +81,10 @@ final class MultiValueOnDatabaseTest extends StandardTest {
     // setup part 2
     final var loadedRound = nodeDataAdapter.getStoredTableByEntityType(Round.class).getStoredEntityById(round.getId());
 
-    // execution
+   // execute
     loadedRound.amounts.removeValue(40);
 
-    // verification
+   // verify
     final var loadedValues = loadedRound.amounts.getAllStoredValues();
     expect(loadedValues.getCount()).isEqualTo(3);
     expect(loadedValues.containsAll(10, 20, 30)).isTrue();

@@ -21,7 +21,7 @@ final class TechArchitectureTest {
     // setup
     final var rule = SlicesRuleDefinition.slices().matching("ch.nolix.tech.(*)..").should().beFreeOfCycles();
 
-    // execution & verification
+   // execute & verification
     rule.check(TEST_UNIT);
   }
 
@@ -42,7 +42,7 @@ final class TechArchitectureTest {
         "ch.nolix.techapi..",
         "java..");
 
-    // execution & verification
+   // execute & verification
     rule.check(TEST_UNIT);
   }
 }

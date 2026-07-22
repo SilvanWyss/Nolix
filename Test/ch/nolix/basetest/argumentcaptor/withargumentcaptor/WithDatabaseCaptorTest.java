@@ -21,7 +21,7 @@ final class WithDatabaseCaptorTest extends StandardTest {
     // setup
     final var testUnit = new WithDatabaseCaptor<>();
 
-    // execution & verification
+   // execute & verification
     expectRunning(testUnit::getStoredDatabase).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
@@ -34,10 +34,10 @@ final class WithDatabaseCaptorTest extends StandardTest {
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new WithDatabaseCaptor<IMutableNode<?>, AndNameCaptor<?>>(andNameCaptor);
 
-    // execution
+   // execute
     final var result = testUnit.withDatabase(database);
 
-    // verification
+   // verify
     expect(testUnit.getStoredDatabase()).is(database);
     expect(result).is(andNameCaptor);
   }
@@ -47,7 +47,7 @@ final class WithDatabaseCaptorTest extends StandardTest {
     // setup
     final var testUnit = new WithDatabaseCaptor<>();
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.withDatabase(MutableNode.createEmpty()))
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);

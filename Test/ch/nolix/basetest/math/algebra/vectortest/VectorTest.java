@@ -22,10 +22,10 @@ final class VectorTest extends StandardTest {
     final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
     final var vector = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
 
-    // execution
+   // execute
     final var result = testUnit.equals(vector);
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -35,10 +35,10 @@ final class VectorTest extends StandardTest {
     final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
     final var vector = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 1.0);
 
-    // execution
+   // execute
     final var result = testUnit.equals(vector);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -48,10 +48,10 @@ final class VectorTest extends StandardTest {
     final var testUnit = Vector.EMPTY_VECTOR;
     final var vector = Vector.EMPTY_VECTOR;
 
-    // execution
+   // execute
     final var result = testUnit.equals(vector);
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -61,10 +61,10 @@ final class VectorTest extends StandardTest {
     final var testUnit = Vector.EMPTY_VECTOR;
     final var vector = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 1.0);
 
-    // execution
+   // execute
     final var result = testUnit.equals(vector);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -73,10 +73,10 @@ final class VectorTest extends StandardTest {
     // setup
     final var testUnit = Vector.withValues(6.0, 8.0);
 
-    // execution
+   // execute
     final var result = testUnit.getEuclidNorm();
 
-    // verification
+   // verify
     expect(result).isEqualTo(10.0);
   }
 
@@ -95,10 +95,10 @@ final class VectorTest extends StandardTest {
     // setup
     final var testUnit = Vector.withValues(values);
 
-    // execution
+   // execute
     final var result = testUnit.getManhattanNorm();
 
-    // verification
+   // verify
     expect(result).isEqualTo(expectedManhattanNorm);
   }
 
@@ -107,10 +107,10 @@ final class VectorTest extends StandardTest {
     // setup
     final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
 
-    // execution
+   // execute
     final var result = testUnit.getProduct(2.5);
 
-    // verification
+   // verify
     expect(result).hasStringRepresentation("(5.0,12.5,25.0,-7.5,-20.0,0.0)");
   }
 
@@ -119,10 +119,10 @@ final class VectorTest extends StandardTest {
     // setup
     final var testUnit = Vector.EMPTY_VECTOR;
 
-    // execution
+   // execute
     final var result = testUnit.getProduct(2.5);
 
-    // verification
+   // verify
     expect(result).hasStringRepresentation("()");
   }
 
@@ -131,10 +131,10 @@ final class VectorTest extends StandardTest {
     // setup
     final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
 
-    // execution
+   // execute
     final var result = testUnit.getSize();
 
-    // verification
+   // verify
     expect(result).isEqualTo(6);
   }
 
@@ -143,10 +143,10 @@ final class VectorTest extends StandardTest {
     // setup
     final var testUnit = Vector.EMPTY_VECTOR;
 
-    // execution
+   // execute
     final var result = testUnit.getSize();
 
-    // verification
+   // verify
     expect(result).isEqualTo(0);
   }
 
@@ -156,10 +156,10 @@ final class VectorTest extends StandardTest {
     final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
     final var addend = Vector.withValues(0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 
-    // execution
+   // execute
     final var result = testUnit.getSum(addend);
 
-    // verification
+   // verify
     expect(result).hasStringRepresentation("(2.0,5.0,10.0,-3.0,-8.0,0.0)");
   }
 
@@ -169,10 +169,10 @@ final class VectorTest extends StandardTest {
     final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
     final var addend = Vector.withValues(1.0, 1.0, 1.0, 1.0, 1.0, 1.0);
 
-    // execution
+   // execute
     final var result = testUnit.getSum(addend);
 
-    // verification
+   // verify
     expect(result).hasStringRepresentation("(3.0,6.0,11.0,-2.0,-7.0,1.0)");
   }
 
@@ -182,7 +182,7 @@ final class VectorTest extends StandardTest {
     final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
     final var addend = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0);
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.getSum(addend))
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -197,10 +197,10 @@ final class VectorTest extends StandardTest {
     final var testUnit = Vector.EMPTY_VECTOR;
     final var addend = Vector.EMPTY_VECTOR;
 
-    // execution
+   // execute
     final var result = testUnit.getSum(addend);
 
-    // verification
+   // verify
     expect(result).hasStringRepresentation("()");
   }
 
@@ -209,10 +209,10 @@ final class VectorTest extends StandardTest {
     // setup
     final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
 
-    // execution
+   // execute
     final var result = testUnit.toArray();
 
-    // verification
+   // verify
     expect(result.length).isEqualTo(6);
     expect(result[0]).isEqualTo(2.0);
     expect(result[1]).isEqualTo(5.0);
@@ -227,10 +227,10 @@ final class VectorTest extends StandardTest {
     // setup
     final var testUnit = Vector.EMPTY_VECTOR;
 
-    // execution
+   // execute
     final var result = testUnit.toArray();
 
-    // verification
+   // verify
     expect(result.length).isEqualTo(0);
   }
 
@@ -239,10 +239,10 @@ final class VectorTest extends StandardTest {
     // setup
     final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
 
-    // execution
+   // execute
     final var result = testUnit.toString();
 
-    // verification
+   // verify
     expect(result).isEqualTo("(2.0,5.0,10.0,-3.0,-8.0,0.0)");
   }
 
@@ -251,10 +251,10 @@ final class VectorTest extends StandardTest {
     // setup
     final var testUnit = Vector.EMPTY_VECTOR;
 
-    // execution
+   // execute
     final var result = testUnit.toString();
 
-    // verification
+   // verify
     expect(result).isEqualTo("()");
   }
 }

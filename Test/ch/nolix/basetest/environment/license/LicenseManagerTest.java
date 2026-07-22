@@ -35,7 +35,7 @@ final class LicenseManagerTest extends StandardTest {
 
   @Test
   void testCase_requireFeature_whenLicenseIsNotThere() {
-    // execution & verification
+   // execute & verification
     expectRunning(() -> LicenseManager.requireFeature(TestFeature.class)).throwsException();
   }
 
@@ -46,7 +46,7 @@ final class LicenseManagerTest extends StandardTest {
     testLicense.activateWithKey("0000-0000");
     LicenseManager.addLicense(testLicense);
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> LicenseManager.requireFeature(TestFeature.class)).doesNotThrowException();
 
     // cleanup

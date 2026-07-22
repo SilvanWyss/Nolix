@@ -24,10 +24,10 @@ final class LabelTest extends ControlTest<ILabel> {
     // setup verification
     expect(testUnit.hasRole()).isTrue();
 
-    // execution
+   // execute
     testUnit.removeRole();
 
-    // verification
+   // verify
     expect(testUnit.hasRole()).isFalse();
   }
 
@@ -39,10 +39,10 @@ final class LabelTest extends ControlTest<ILabel> {
     // setup verification
     expect(testUnit.hasRole()).isFalse();
 
-    // execution
+   // execute
     final var result = testUnit.setRole(LabelRole.TITLE);
 
-    // verification
+   // verify
     expect(result).is(testUnit);
     expect(testUnit.getRole()).is(LabelRole.TITLE);
   }
@@ -55,10 +55,10 @@ final class LabelTest extends ControlTest<ILabel> {
     // setup verification
     expect(testUnit.getText()).isEqualTo("-");
 
-    // execution
+   // execute
     testUnit.setText("Lorem Ipsum");
 
-    // verification
+   // verify
     expect(testUnit.getText()).isEqualTo("Lorem Ipsum");
   }
 
@@ -67,10 +67,10 @@ final class LabelTest extends ControlTest<ILabel> {
     // setup
     final var testUnit = new Label();
 
-    // execution
+   // execute
     testUnit.setText("");
 
-    // verification
+   // verify
     expect(testUnit.getText()).isEqualTo("");
   }
 
@@ -80,13 +80,13 @@ final class LabelTest extends ControlTest<ILabel> {
     final var testUnit = new Label();
     testUnit.setText("Lorem Ipsum");
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.setText(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given text is null.");
 
-    // verification
+   // verify
     expect(testUnit.getText()).isEqualTo("Lorem Ipsum");
   }
 

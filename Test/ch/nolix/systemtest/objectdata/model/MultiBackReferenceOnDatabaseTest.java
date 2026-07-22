@@ -45,10 +45,10 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
     final var a320 = new Plane();
     nodeDataAdapter.insertEntity(a320);
 
-    // execution
+   // execute
     final var result = a320.flights.getAllStoredBackReferencedEntities();
 
-    // verification
+   // verify
     expect(result).isEmpty();
   }
 
@@ -69,10 +69,10 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
     fx2651.plane.setEntity(a320);
     nodeDataAdapter.insertEntity(fx2651);
 
-    // execution
+   // execute
     final var result = a320.flights.getAllStoredBackReferencedEntities();
 
-    // verification
+   // verify
     expect(result).containsExactly(fx2650, fx2651);
   }
 
@@ -94,11 +94,11 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(fx2651);
     nodeDataAdapter.saveChanges();
 
-    // execution
+   // execute
     final var loaded320 = nodeDataAdapter.getStoredTableByEntityType(Plane.class).getStoredEntityById(a320.getId());
     final var result = loaded320.flights.getAllBackReferencedEntityIds();
 
-    // verification
+   // verify
     expect(result).containsExactlyEqualing(fx2650.getId(), fx2651.getId());
   }
 
@@ -116,7 +116,7 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
     // setup verification
     expect(a320.flights.isEmpty()).isTrue();
 
-    // execution & verification
+   // execute & verification
     expectRunning(nodeDataAdapter::saveChanges).doesNotThrowException();
   }
 
@@ -140,7 +140,7 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
       .getStoredEntityById(fx2650.getId());
     loadedFx2650.delete();
 
-    // verification
+   // verify
     expectRunning(nodeDataAdapter::saveChanges).doesNotThrowException();
   }
 }

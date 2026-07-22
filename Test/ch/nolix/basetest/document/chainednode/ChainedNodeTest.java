@@ -20,10 +20,10 @@ final class ChainedNodeTest extends StandardTest {
     // setup
     final var testUnit = ChainedNode.fromString("");
 
-    // execution
+   // execute
     final var result = testUnit.equals(ChainedNode.fromString("a"));
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -32,10 +32,10 @@ final class ChainedNodeTest extends StandardTest {
     // setup
     final var testUnit = ChainedNode.fromString("");
 
-    // execution
+   // execute
     final var result = testUnit.equals(ChainedNode.fromString(""));
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -47,7 +47,7 @@ final class ChainedNodeTest extends StandardTest {
     // setup verification
     expect(testUnit.containsChildNodes()).isFalse();
 
-    // execution & verification
+   // execute & verification
     expectRunning(testUnit::getSingleChildNodeAsInt)
       .throwsException()
       .ofType(EmptyArgumentException.class);
@@ -61,7 +61,7 @@ final class ChainedNodeTest extends StandardTest {
     // setup verification
     expect(testUnit.getChildNodeCount()).isEqualTo(1);
 
-    // execution & verification
+   // execute & verification
     expectRunning(testUnit::getSingleChildNodeAsInt)
       .throwsException()
       .ofType(UnrepresentingArgumentException.class);
@@ -75,10 +75,10 @@ final class ChainedNodeTest extends StandardTest {
     // setup verification
     expect(testUnit.getChildNodeCount()).isEqualTo(1);
 
-    // execution
+   // execute
     final var result = testUnit.getSingleChildNodeAsInt();
 
-    // verification
+   // verify
     expect(result).isEqualTo(10);
   }
 
@@ -90,7 +90,7 @@ final class ChainedNodeTest extends StandardTest {
     // setup verification
     expect(testUnit.getChildNodeCount()).isEqualTo(2);
 
-    // execution & verification
+   // execute & verification
     expectRunning(testUnit::getSingleChildNodeAsInt)
       .throwsException()
       .ofType(InvalidArgumentException.class);
@@ -101,10 +101,10 @@ final class ChainedNodeTest extends StandardTest {
     // setup
     final var testUnit = ChainedNode.fromString("");
 
-    // execution
+   // execute
     final var result = testUnit.isBlank();
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -113,10 +113,10 @@ final class ChainedNodeTest extends StandardTest {
     // setup
     final var testUnit = ChainedNode.withHeader("a");
 
-    // execution
+   // execute
     final var result = testUnit.isBlank();
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -125,7 +125,7 @@ final class ChainedNodeTest extends StandardTest {
     // setup
     final var testUnit = ChainedNode.EMPTY_CHAINED_NODE;
 
-    // execution & verification
+   // execute & verification
     expectRunning(testUnit::toInt)
       .throwsException()
       .ofType(UnrepresentingArgumentException.class)
@@ -137,7 +137,7 @@ final class ChainedNodeTest extends StandardTest {
     // setup
     final var testUnit = ChainedNode.fromString("100(x)");
 
-    // execution & verification
+   // execute & verification
     expectRunning(testUnit::toInt)
       .throwsException()
       .ofType(UnrepresentingArgumentException.class)
@@ -149,10 +149,10 @@ final class ChainedNodeTest extends StandardTest {
     // setup
     final var testUnit = ChainedNode.withHeader("-100");
 
-    // execution
+   // execute
     final var result = testUnit.toInt();
 
-    // verification
+   // verify
     expect(result).isEqualTo(-100);
   }
 
@@ -161,10 +161,10 @@ final class ChainedNodeTest extends StandardTest {
     // setup
     final var testUnit = ChainedNode.withHeader("100");
 
-    // execution
+   // execute
     final var result = testUnit.toInt();
 
-    // verification
+   // verify
     expect(result).isEqualTo(100);
   }
 
@@ -173,10 +173,10 @@ final class ChainedNodeTest extends StandardTest {
     // setup
     final var testUnit = ChainedNode.withHeader("0");
 
-    // execution
+   // execute
     final var result = testUnit.toInt();
 
-    // verification
+   // verify
     expect(result).isEqualTo(0);
   }
 
@@ -185,10 +185,10 @@ final class ChainedNodeTest extends StandardTest {
     // setup
     final var testUnit = ChainedNode.fromString("");
 
-    // execution
+   // execute
     final var result = testUnit.toNode();
 
-    // verification
+   // verify
     expect(result).hasStringRepresentation("");
   }
 
@@ -197,10 +197,10 @@ final class ChainedNodeTest extends StandardTest {
     // setup
     final var testUnit = ChainedNode.withHeader("a");
 
-    // execution
+   // execute
     final var result = testUnit.toNode();
 
-    // verification
+   // verify
     expect(result).hasStringRepresentation("a");
   }
 
@@ -209,7 +209,7 @@ final class ChainedNodeTest extends StandardTest {
     // setup
     final var testUnit = ChainedNode.fromString("a.b");
 
-    // execution & verification
+   // execute & verification
     expectRunning(testUnit::toNode)
       .throwsException()
       .ofType(UnrepresentingArgumentException.class)

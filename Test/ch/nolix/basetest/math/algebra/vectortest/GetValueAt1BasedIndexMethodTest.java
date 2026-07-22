@@ -29,10 +29,10 @@ final class GetValueAtOneBasedIndexMethodTest extends StandardTest {
     // setup
     final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
 
-    // execution
+   // execute
     final var result = testUnit.getValueAtOneBasedIndex(oneBasedIndex);
 
-    // verification
+   // verify
     expect(result).isEqualTo(expectedValue);
   }
 
@@ -43,7 +43,7 @@ final class GetValueAtOneBasedIndexMethodTest extends StandardTest {
     // setup
     final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.getValueAtOneBasedIndex(oneBasedIndex))
       .throwsException()
       .ofType(ArgumentIsOutOfRangeException.class)

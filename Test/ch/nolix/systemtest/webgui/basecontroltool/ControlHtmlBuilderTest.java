@@ -23,10 +23,10 @@ extends StandardTest {
     // setup
     final B testUnit = createTestUnit();
 
-    // execution
+   // execute
     final var result = testUnit.createHtmlElementForControl(createControl());
 
-    // verification
+   // verify
     expect(result).hasStringRepresentation(getExpectedStringRepresentationOfCreatedHtmlElementForNewControl());
   }
 

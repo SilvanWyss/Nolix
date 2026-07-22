@@ -22,13 +22,13 @@ final class NodeSchemaAdapterTest extends StandardTest {
     // setup verification
     expect(database.isBlank()).isTrue();
 
-    // execution
+   // execute
     final var testUnit = NodeSchemaAdapter.forNodeDatabase("MyDatabase", database);
 
-    // verification part 1
+   // verify part 1
     expect(testUnit.isChangeFree());
 
-    // verification part 2
+   // verify part 2
     expect(database.getHeader()).isEqualTo("Database");
     expect(database.getChildNodeCount()).isEqualTo(2);
     expect(database.getStoredChildNodeAtOneBasedIndex(1).getHeader()).isEqualTo("DatabaseProperties");
@@ -41,15 +41,15 @@ final class NodeSchemaAdapterTest extends StandardTest {
     final var database = MutableNode.createEmpty();
     final var testUnit = NodeSchemaAdapter.forNodeDatabase("MyDatabase", database);
 
-    // execution
+   // execute
     testUnit.addTable(Table.withName("MyTable")).saveChanges();
 
-    // verification part 1
+   // verify part 1
     expect(testUnit.isChangeFree()).isTrue();
     expect(testUnit.getStoredTables().getCount()).isEqualTo(1);
     expect(testUnit.getStoredTables().containsOneMatching(t -> t.hasName("MyTable")));
 
-    // verification part 2
+   // verify part 2
     final var tableNodes = database.getStoredChildNodesWithHeader("Table");
     expect(tableNodes.containsOne()).isTrue();
     final var tableNode = tableNodes.getStoredFirstNonNull();
@@ -62,10 +62,10 @@ final class NodeSchemaAdapterTest extends StandardTest {
     // setup
     final var testUnit = NodeSchemaAdapter.forNodeDatabase("MyDatabase", MutableNode.createEmpty());
 
-    // execution
+   // execute
     final var result = testUnit.getSaveCount();
 
-    // verification
+   // verify
     expect(result).isEqualTo(0);
   }
 
@@ -76,10 +76,10 @@ final class NodeSchemaAdapterTest extends StandardTest {
     testUnit.addTable(Table.withName("MyTable1"));
     testUnit.saveChanges();
 
-    // execution
+   // execute
     final var result = testUnit.getSaveCount();
 
-    // verification
+   // verify
     expect(result).isEqualTo(1);
   }
 
@@ -92,10 +92,10 @@ final class NodeSchemaAdapterTest extends StandardTest {
     testUnit.addTable(Table.withName("MyTable2"));
     testUnit.saveChanges();
 
-    // execution
+   // execute
     final var result = testUnit.getSaveCount();
 
-    // verification
+   // verify
     expect(result).isEqualTo(2);
   }
 }

@@ -28,10 +28,10 @@ final class EnterValueDialogBuilderTest extends StandardTest {
     // setup
     final var testUnit = new EnterValueDialogBuilder();
 
-    // execution
+   // execute
     final var result = testUnit.build();
 
-    // verification
+   // verify
     expect(result.getRole()).is(LayerRole.DIALOG_LAYER);
     final var controls = result.getStoredControls();
     expect(controls).contains(this::isConfirmButton);
@@ -46,14 +46,14 @@ final class EnterValueDialogBuilderTest extends StandardTest {
     final var valueTakerMock = Mockito.mock(Consumer.class);
     testUnit.setValueTaker(valueTakerMock);
 
-    // execution part 1
+   // execute part 1
     final var result = testUnit.build();
 
-    // execution part 2
+   // execute part 2
     final var cancelButton = (IButton) result.getStoredControls().getStoredFirst(this::isCancelButton);
     cancelButton.pressLeftMouseButton();
 
-    // verification
+   // verify
     Mockito.verify(valueTakerMock, Mockito.never()).accept(ArgumentMatchers.any());
   }
 
@@ -65,14 +65,14 @@ final class EnterValueDialogBuilderTest extends StandardTest {
     final var valueTakerMock = Mockito.mock(Consumer.class);
     testUnit.setValueTaker(valueTakerMock);
 
-    // execution part 1
+   // execute part 1
     final var result = testUnit.build();
 
-    // execution part 2
+   // execute part 2
     final var confirmButton = (IButton) result.getStoredControls().getStoredFirst(this::isConfirmButton);
     confirmButton.pressLeftMouseButton();
 
-    // verification
+   // verify
     Mockito.verify(valueTakerMock).accept(StringCatalog.EMPTY_STRING);
   }
 
@@ -88,19 +88,19 @@ final class EnterValueDialogBuilderTest extends StandardTest {
     final var valueTakerMock = Mockito.mock(Consumer.class);
     testUnit.setValueTaker(valueTakerMock);
 
-    // execution part 1
+   // execute part 1
     final var result = testUnit.build();
     webGui.pushLayer(result);
 
-    // execution part 2
+   // execute part 2
     final var valueTextbox = result.getStoredControls().getStoredFirstOfType(ITextbox.class);
     valueTextbox.setText(value);
 
-    // execution part 3
+   // execute part 3
     final var cancelButton = (IButton) result.getStoredControls().getStoredFirst(this::isCancelButton);
     cancelButton.pressLeftMouseButton();
 
-    // verification
+   // verify
     expect(result.belongsToGui()).isFalse();
     Mockito.verify(valueTakerMock, Mockito.never()).accept(ArgumentMatchers.any());
   }
@@ -117,19 +117,19 @@ final class EnterValueDialogBuilderTest extends StandardTest {
     final var valueTakerMock = Mockito.mock(Consumer.class);
     testUnit.setValueTaker(valueTakerMock);
 
-    // execution part 1
+   // execute part 1
     final var result = testUnit.build();
     webGui.pushLayer(result);
 
-    // execution part 2
+   // execute part 2
     final var valueTextbox = result.getStoredControls().getStoredFirstOfType(ITextbox.class);
     valueTextbox.setText(value);
 
-    // execution part 3
+   // execute part 3
     final var confirmButton = (IButton) result.getStoredControls().getStoredFirst(this::isConfirmButton);
     confirmButton.pressLeftMouseButton();
 
-    // verification
+   // verify
     expect(result.belongsToGui()).isFalse();
     Mockito.verify(valueTakerMock).accept(value);
   }

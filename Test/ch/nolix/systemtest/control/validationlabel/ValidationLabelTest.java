@@ -28,10 +28,10 @@ final class ValidationLabelTest extends ControlTest<IValidationLabel> {
     // setup part 2: Prepares an action that does not produce an error.
     actionButton.setLeftMouseButtonPressAction(FunctionService::doNothing);
 
-    // execution: Runs the action that does not produce an error.
+   // execute: Runs the action that does not produce an error.
     actionButton.pressLeftMouseButton();
 
-    // verification
+   // verify
     expect(testUnit.isEmpty()).isTrue();
   }
 
@@ -45,10 +45,10 @@ final class ValidationLabelTest extends ControlTest<IValidationLabel> {
     // setup verification
     expect(testUnit.isEmpty()).isTrue();
 
-    // execution
+   // execute
     actionButton.pressLeftMouseButton();
 
-    // verification
+   // verify
     expect(testUnit.containsAny()).isTrue();
   }
 

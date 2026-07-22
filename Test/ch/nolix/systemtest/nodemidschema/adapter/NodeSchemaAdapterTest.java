@@ -46,11 +46,11 @@ final class NodeSchemaAdapterTest extends StandardTest {
     final var testUnit = NodeSchemaAdapter.forNodeDatabase(nodeDatabase);
     testUnit.addTable(tableDto);
 
-    // execution
+   // execute
     testUnit.addColumn(new TableIdentification(tableId, tableName), columnDto);
     testUnit.saveChanges();
 
-    // verification
+   // verify
     expect(testUnit.isChangeFree()).isTrue();
     expect(testUnit.loadTable(tableName).columns()).contains(c -> c.name().equals(columnName));
   }
@@ -72,11 +72,11 @@ final class NodeSchemaAdapterTest extends StandardTest {
     // setup verification
     expect(testUnit.isChangeFree()).isTrue();
 
-    // execution
+   // execute
     testUnit.addTable(tableDto);
     testUnit.saveChanges();
 
-    // verification
+   // verify
     expect(testUnit.isChangeFree());
     expect(testUnit.loadTables()).contains(t -> t.name().equals(tableName));
   }
@@ -110,11 +110,11 @@ final class NodeSchemaAdapterTest extends StandardTest {
     testUnit.addColumn(new TableIdentification(tableId, tableName), columnDto);
     testUnit.saveChanges();
 
-    // execution
+   // execute
     testUnit.deleteColumn(new TableIdentification(tableId, tableName), columnName);
     testUnit.saveChanges();
 
-    // verification
+   // verify
     expect(testUnit.isChangeFree()).isTrue();
     expect(testUnit.loadTable(tableName).columns()).isEmpty();
   }
@@ -135,11 +135,11 @@ final class NodeSchemaAdapterTest extends StandardTest {
     testUnit.addTable(tableDto);
     testUnit.saveChanges();
 
-    // execution
+   // execute
     testUnit.deleteTable(tableName);
     testUnit.saveChanges();
 
-    // verification
+   // verify
     expect(testUnit.isChangeFree()).isTrue();
     expect(testUnit.loadTables()).isEmpty();
   }

@@ -24,7 +24,7 @@ final class ContainerMediatorTest extends StandardTest {
     final Predicate<String> condition = null;
     final var testUnit = NamableIterableMediator.forArgument(list);
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.contains(condition))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -37,7 +37,7 @@ final class ContainerMediatorTest extends StandardTest {
     final var list = ImmutableList.withElements("ax", "ax", "bx", "bx", "cx", "cx", "dx", "dx");
     final var testUnit = NamableIterableMediator.forArgument(list);
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.contains(e -> e.startsWith("e")))
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -52,7 +52,7 @@ final class ContainerMediatorTest extends StandardTest {
     final var list = ImmutableList.withElements("ax", "ax", "bx", "bx", "cx", "cx", "dx", "dx");
     final var testUnit = NamableIterableMediator.forArgument(list);
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.contains(e -> e.startsWith("c"))).doesNotThrowException();
   }
 }

@@ -22,7 +22,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 final class ArgumentCaptorTest extends StandardTest {
   @Test
   void testCase_constructor_whenTheGivenNextArgumentCaptorIsNull() {
-    // execution & verification
+   // execute & verification
     expectRunning(() -> //
     new AbstractArgumentCaptor<String, VoidObject>(null) {
       // This class is just a sub class without additional methods.
@@ -33,7 +33,7 @@ final class ArgumentCaptorTest extends StandardTest {
 
   @Test
   void testCase_constructor_whenTheGivenNextArgumentCaptorIsNotValid() {
-    // execution & verification
+   // execute & verification
     expectRunning(() -> //
     new AbstractArgumentCaptor<String, VoidObject>(new VoidObject()) {
       // This class is just a sub class without additional methods.
@@ -44,7 +44,7 @@ final class ArgumentCaptorTest extends StandardTest {
 
   @Test
   void testCase_defaultConstructor() {
-    // execution & verification
+   // execute & verification
     expectRunning(() -> //
     new AbstractArgumentCaptor<String, VoidObject>() {
       // This class is just a sub class without additional methods.
@@ -60,7 +60,7 @@ final class ArgumentCaptorTest extends StandardTest {
       // This class is just a sub class without additional methods.
     };
 
-    // execution & verification
+   // execute & verification
     expectRunning(testUnit::scsArgCpt)
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);
@@ -75,7 +75,7 @@ final class ArgumentCaptorTest extends StandardTest {
       }
     };
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.publicSetBuilder(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -92,7 +92,7 @@ final class ArgumentCaptorTest extends StandardTest {
     };
     testUnit.publicSetBuilder(VoidObject::new);
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.publicSetBuilder(VoidObject::new))
       .throwsException()
       .ofType(ArgumentHasAttributeException.class);

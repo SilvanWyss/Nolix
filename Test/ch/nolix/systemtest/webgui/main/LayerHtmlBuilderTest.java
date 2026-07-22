@@ -18,10 +18,10 @@ final class LayerHtmlBuilderTest extends StandardTest {
     // setup
     final var layer = new Layer();
 
-    // execution
+   // execute
     final var result = LayerHtmlBuilder.createIdHtmlAttributeForLayer(layer);
 
-    // verification
+   // verify
     expect(result.hasName("id")).isTrue();
     expect(result.getValue().startsWith("i")).isTrue();
   }

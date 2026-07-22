@@ -18,10 +18,10 @@ final class TimeTest extends StandardTest {
     // setup
     final var testUnit = Time.withYearAndMonthOfYearAndDayOfMonth(2020, 1, 1);
 
-    // execution
+   // execute
     final var result = testUnit.getWeekday();
 
-    // verification
+   // verify
     expect(result).isEqualTo(Weekday.WEDNESDAY);
   }
 
@@ -30,10 +30,10 @@ final class TimeTest extends StandardTest {
     // setup
     final var testUnit = Time.withYearAndMonthOfYearAndDayOfMonth(2020, 1, 2);
 
-    // execution
+   // execute
     final var result = testUnit.getWeekday();
 
-    // verification
+   // verify
     expect(result).isEqualTo(Weekday.THURSDAY);
   }
 
@@ -42,10 +42,10 @@ final class TimeTest extends StandardTest {
     // setup
     final var testUnit = Time.withYearAndMonthOfYearAndDayOfMonth(2020, 1, 3);
 
-    // execution
+   // execute
     final var result = testUnit.getWeekday();
 
-    // verification
+   // verify
     expect(result).isEqualTo(Weekday.FRIDAY);
   }
 
@@ -71,10 +71,10 @@ final class TimeTest extends StandardTest {
       00,
       000);
 
-    // execution
+   // execute
     final var result = testUnit.isAfter(time);
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -100,10 +100,10 @@ final class TimeTest extends StandardTest {
       00,
       000);
 
-    // execution
+   // execute
     final var result = testUnit.isAfter(time);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -129,10 +129,10 @@ final class TimeTest extends StandardTest {
       00,
       000);
 
-    // execution
+   // execute
     final var result = testUnit.isAfter(time);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -158,10 +158,10 @@ final class TimeTest extends StandardTest {
       00,
       000);
 
-    // execution
+   // execute
     final var result = testUnit.isBefore(time);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -187,10 +187,10 @@ final class TimeTest extends StandardTest {
       00,
       000);
 
-    // execution
+   // execute
     final var result = testUnit.isBefore(time);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -216,10 +216,10 @@ final class TimeTest extends StandardTest {
       00,
       000);
 
-    // execution
+   // execute
     final var result = testUnit.isBefore(time);
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -228,10 +228,10 @@ final class TimeTest extends StandardTest {
     for (var y = 1999; y <= 2099; y++) {
       for (var m = 1; m <= 12; m++) {
         for (var d = 1; d <= 25; d++) {
-          // execution
+         // execute
           final var result = Time.withYearAndMonthOfYearAndDayOfMonth(y, m, d);
 
-          // verification
+         // verify
           expect(result.getYear()).isEqualTo(y);
           expect(result.getMonthOfYearAsInt()).isEqualTo(m);
           expect(result.getDayOfMonth()).isEqualTo(d);
@@ -245,10 +245,10 @@ final class TimeTest extends StandardTest {
     // main loop
     for (var h = 0; h <= 23; h++) {
       for (var m = 0; m <= 59; m++) {
-        // execution
+       // execute
         final var result = Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHour(2000, 1, 1, h, m);
 
-        // verification
+       // verify
         expect(result.getYear()).isEqualTo(2000);
         expect(result.getMonthOfYearAsInt()).isEqualTo(1);
         expect(result.getDayOfMonth()).isEqualTo(1);

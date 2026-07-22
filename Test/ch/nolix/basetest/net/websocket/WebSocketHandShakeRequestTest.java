@@ -19,10 +19,10 @@ final class WebSocketHandShakeRequestTest extends StandardTest {
     final var lines = LinkedList.withElement("Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==");
     final var testUnit = WebSocketHandShakeRequest.fromLines(lines);
 
-    // execution
+   // execute
     final var result = testUnit.getSecWebSocketKey();
 
-    // verification
+   // verify
     expect(result).isEqualTo("dGhlIHNhbXBsZSBub25jZQ==");
   }
 }

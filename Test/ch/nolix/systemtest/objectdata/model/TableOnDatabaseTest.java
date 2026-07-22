@@ -32,10 +32,10 @@ final class TableOnDatabaseTest extends StandardTest {
     // setup part 2: Gains test unit.
     final var testUnit = nodeDataAdapter.getStoredTableByEntityType(Thing.class);
 
-    // execution
+   // execute
     final var result = testUnit.containsEntityWithId(thing.getId());
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -52,10 +52,10 @@ final class TableOnDatabaseTest extends StandardTest {
     // setup part 2: Gains test unit.
     final var testUnit = nodeDataAdapter.getStoredTableByEntityType(Thing.class);
 
-    // execution
+   // execute
     final var result = testUnit.containsEntityWithId(thing.getId());
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 }

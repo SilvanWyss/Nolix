@@ -23,7 +23,7 @@ final class IteratorValidatorTest extends StandardTest {
     // setup
     final var testUnit = new IteratorValidator();
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.assertHasNext(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -47,7 +47,7 @@ final class IteratorValidatorTest extends StandardTest {
     };
     final var testUnit = new IteratorValidator();
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.assertHasNext(iterator))
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);
@@ -70,7 +70,7 @@ final class IteratorValidatorTest extends StandardTest {
     };
     final var testUnit = new IteratorValidator();
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.assertHasNext(iterator)).doesNotThrowException();
   }
 }

@@ -19,7 +19,7 @@ final class GetCountTest extends StandardTest {
     final Iterable<Object> iterable = null;
     final var testUnit = new IterableSearcher();
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.getCount(iterable)).throwsException();
   }
 
@@ -29,10 +29,10 @@ final class GetCountTest extends StandardTest {
     final Iterable<Object> iterable = List.createEmpty();
     final var testUnit = new IterableSearcher();
 
-    // execution
+   // execute
     final var result = testUnit.getCount(iterable);
 
-    // verification
+   // verify
     expect(result).isEqualTo(0);
   }
 
@@ -42,10 +42,10 @@ final class GetCountTest extends StandardTest {
     final Iterable<Object> iterable = List.fromArray(new String[] { "antelope" });
     final var testUnit = new IterableSearcher();
 
-    // execution
+   // execute
     final var result = testUnit.getCount(iterable);
 
-    // verification
+   // verify
     expect(result).isEqualTo(1);
   }
 
@@ -55,10 +55,10 @@ final class GetCountTest extends StandardTest {
     final Iterable<Object> iterable = List.fromArray(new String[] { "antelope", "elephant" });
     final var testUnit = new IterableSearcher();
 
-    // execution
+   // execute
     final var result = testUnit.getCount(iterable);
 
-    // verification
+   // verify
     expect(result).isEqualTo(2);
   }
 }

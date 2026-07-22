@@ -22,10 +22,10 @@ final class OptionalTokenHolderTest extends StandardTest {
     Mockito.when(testUnit.hasToken()).thenReturn(true);
     Mockito.when(testUnit.getToken()).thenReturn("token");
 
-    // execution
+   // execute
     final var result = testUnit.hasToken("token");
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -37,10 +37,10 @@ final class OptionalTokenHolderTest extends StandardTest {
     Mockito.when(testUnit.hasToken()).thenReturn(true);
     Mockito.when(testUnit.getToken()).thenReturn("token");
 
-    // execution
+   // execute
     final var result = testUnit.hasToken("Token");
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -51,10 +51,10 @@ final class OptionalTokenHolderTest extends StandardTest {
     Mockito.when(testUnit.hasToken(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.hasToken()).thenReturn(false);
 
-    // execution
+   // execute
     final var result = testUnit.hasToken("token");
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 }

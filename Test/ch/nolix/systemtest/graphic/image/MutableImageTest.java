@@ -20,14 +20,14 @@ final class MutableImageTest extends StandardTest {
     final var height = 50;
     final var color = X11ColorCatalog.BLUE;
 
-    // execution
+   // execute
     final var testUnit = MutableImage.withWidthAndHeightAndColor(width, height, color);
 
-    // verification part 1
+   // verify part 1
     expect(testUnit.getWidth()).isEqualTo(width);
     expect(testUnit.getHeight()).isEqualTo(height);
 
-    // verification part 2
+   // verify part 2
     for (var i = 1; i <= width; i++) {
       for (var j = 1; j <= height; j++) {
         expect(testUnit.getPixel(i, j)).isEqualTo(color);
@@ -41,10 +41,10 @@ final class MutableImageTest extends StandardTest {
     final var testUnit = MutableImage.withWidthAndHeightAndColor(100, 50, X11ColorCatalog.WHITE);
     testUnit.setPixel(1, 50, X11ColorCatalog.RED);
 
-    // execution
+   // execute
     final var result = testUnit.getBottomLeftPixel();
 
-    // verification
+   // verify
     expect(result).isEqualTo(X11ColorCatalog.RED);
   }
 
@@ -54,10 +54,10 @@ final class MutableImageTest extends StandardTest {
     final var testUnit = MutableImage.withWidthAndHeightAndColor(100, 50, X11ColorCatalog.WHITE);
     testUnit.setPixel(100, 50, X11ColorCatalog.RED);
 
-    // execution
+   // execute
     final var result = testUnit.getBottomRightPixel();
 
-    // verification
+   // verify
     expect(result).isEqualTo(X11ColorCatalog.RED);
   }
 
@@ -71,7 +71,7 @@ final class MutableImageTest extends StandardTest {
       .setPixel(2, 1, X11ColorCatalog.GREEN)
       .setPixel(2, 2, X11ColorCatalog.BLUE);
 
-    // execution
+   // execute
     final var result = testUnit.getCopy();
     testUnit
       .setPixel(1, 1, X11ColorCatalog.BLACK)
@@ -79,7 +79,7 @@ final class MutableImageTest extends StandardTest {
       .setPixel(2, 1, X11ColorCatalog.BLACK)
       .setPixel(2, 2, X11ColorCatalog.BLACK);
 
-    // verification
+   // verify
     expect(result.getWidth()).isEqualTo(2);
     expect(result.getHeight()).isEqualTo(2);
     expect(result.getPixel(1, 1)).isEqualTo(X11ColorCatalog.YELLOW);
@@ -111,10 +111,10 @@ final class MutableImageTest extends StandardTest {
       .setPixel(4, 3, X11ColorCatalog.BEIGE)
       .setPixel(4, 4, X11ColorCatalog.YELLOW_GREEN);
 
-    // execution
+   // execute
     final var result = testUnit.getSection(2, 2, 2, 2);
 
-    // verification
+   // verify
     expect(result.getWidth()).isEqualTo(2);
     expect(result.getHeight()).isEqualTo(2);
     expect(result.getPixel(1, 1)).isEqualTo(X11ColorCatalog.CYAN);
@@ -129,10 +129,10 @@ final class MutableImageTest extends StandardTest {
     final var testUnit = MutableImage.withWidthAndHeightAndColor(100, 50, X11ColorCatalog.WHITE);
     testUnit.setPixel(1, 1, X11ColorCatalog.RED);
 
-    // execution
+   // execute
     final var result = testUnit.getTopLeftPixel();
 
-    // verification
+   // verify
     expect(result).isEqualTo(X11ColorCatalog.RED);
   }
 
@@ -142,10 +142,10 @@ final class MutableImageTest extends StandardTest {
     final var testUnit = MutableImage.withWidthAndHeightAndColor(100, 50, X11ColorCatalog.WHITE);
     testUnit.setPixel(100, 1, X11ColorCatalog.RED);
 
-    // execution
+   // execute
     final var result = testUnit.getTopRightPixel();
 
-    // verification
+   // verify
     expect(result).isEqualTo(X11ColorCatalog.RED);
   }
 
@@ -161,14 +161,14 @@ final class MutableImageTest extends StandardTest {
       testUnit.setPixel(i, 1, X11ColorCatalog.RED);
     }
 
-    // execution
+   // execute
     testUnit.reset();
 
-    // verification part 1
+   // verify part 1
     expect(testUnit.getWidth()).isEqualTo(width);
     expect(testUnit.getHeight()).isEqualTo(height);
 
-    // verification part 2
+   // verify part 2
     for (var i = 1; i <= width; i++) {
       for (var j = 1; j <= height; j++) {
         expect(testUnit.getPixel(i, j)).isEqualTo(X11ColorCatalog.WHITE);
@@ -186,10 +186,10 @@ final class MutableImageTest extends StandardTest {
       .setPixel(2, 1, X11ColorCatalog.GREEN)
       .setPixel(2, 2, X11ColorCatalog.BLUE);
 
-    // execution
+   // execute
     final var result = testUnit.toLeftRotatedImage();
 
-    // verification
+   // verify
     expect(result.getWidth()).isEqualTo(2);
     expect(result.getHeight()).isEqualTo(2);
     expect(result.getPixel(1, 1)).isEqualTo(X11ColorCatalog.GREEN);
@@ -208,10 +208,10 @@ final class MutableImageTest extends StandardTest {
       .setPixel(2, 1, X11ColorCatalog.GREEN)
       .setPixel(2, 2, X11ColorCatalog.BLUE);
 
-    // execution
+   // execute
     final var result = testUnit.toRepeatedImage(4, 4);
 
-    // verification
+   // verify
     expect(result.getWidth()).isEqualTo(4);
     expect(result.getHeight()).isEqualTo(4);
     expect(result.getPixel(1, 1)).isEqualTo(X11ColorCatalog.YELLOW);
@@ -242,10 +242,10 @@ final class MutableImageTest extends StandardTest {
       .setPixel(2, 1, X11ColorCatalog.GREEN)
       .setPixel(2, 2, X11ColorCatalog.BLUE);
 
-    // execution
+   // execute
     final var result = testUnit.toRightRotatedImage();
 
-    // verification
+   // verify
     expect(result.getWidth()).isEqualTo(2);
     expect(result.getHeight()).isEqualTo(2);
     expect(result.getPixel(1, 1)).isEqualTo(X11ColorCatalog.RED);
@@ -264,10 +264,10 @@ final class MutableImageTest extends StandardTest {
       .setPixel(2, 1, X11ColorCatalog.GREEN)
       .setPixel(2, 2, X11ColorCatalog.BLUE);
 
-    // execution
+   // execute
     final var result = testUnit.toScaledImage(2.0);
 
-    // verification
+   // verify
     expect(result.getWidth()).isEqualTo(4);
     expect(result.getHeight()).isEqualTo(4);
     expect(result.getPixel(1, 1)).isEqualTo(X11ColorCatalog.YELLOW);
@@ -301,10 +301,10 @@ final class MutableImageTest extends StandardTest {
       .setPixel(3, 1, X11ColorCatalog.ORANGE)
       .setPixel(3, 2, X11ColorCatalog.VIOLET);
 
-    // execution
+   // execute
     final var result = testUnit.withAlphaValue(0.25);
 
-    // verification part 1: Verifies testUnit.
+   // verify part 1: Verifies testUnit.
     expect(testUnit.getPixel(1, 1)).isEqualTo(X11ColorCatalog.YELLOW);
     expect(testUnit.getPixel(1, 2)).isEqualTo(X11ColorCatalog.RED);
     expect(testUnit.getPixel(2, 1)).isEqualTo(X11ColorCatalog.GREEN);
@@ -312,7 +312,7 @@ final class MutableImageTest extends StandardTest {
     expect(testUnit.getPixel(3, 1)).isEqualTo(X11ColorCatalog.ORANGE);
     expect(testUnit.getPixel(3, 2)).isEqualTo(X11ColorCatalog.VIOLET);
 
-    // verification part 2: Verifies result.
+   // verify part 2: Verifies result.
     expect(result.getWidth()).isEqualTo(3);
     expect(result.getHeight()).isEqualTo(2);
     expect(result.getPixel(1, 1)).isEqualTo(X11ColorCatalog.YELLOW.withAlphaValue(63));

@@ -23,10 +23,10 @@ final class AndDatabaseNameCaptorTest extends StandardTest {
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new AndDatabaseNameCaptor<>(andNameCaptor);
 
-    // execution
+   // execute
     final var result = testUnit.andDatabase(databaseName);
 
-    // verification
+   // verify
     expect(testUnit.getDatabaseName()).isEqualTo(databaseName);
     expect(result).is(andNameCaptor);
   }
@@ -36,7 +36,7 @@ final class AndDatabaseNameCaptorTest extends StandardTest {
     // setup
     final var testUnit = new AndDatabaseNameCaptor<>();
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.andDatabase("my_database"))
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);
@@ -47,7 +47,7 @@ final class AndDatabaseNameCaptorTest extends StandardTest {
     // setup
     final var testUnit = new AndDatabaseNameCaptor<>();
 
-    // execution & verification
+   // execute & verification
     expectRunning(testUnit::getDatabaseName).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }

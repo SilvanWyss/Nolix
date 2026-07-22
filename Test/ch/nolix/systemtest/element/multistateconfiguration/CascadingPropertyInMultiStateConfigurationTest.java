@@ -47,10 +47,10 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
     final var multiStateConfiguration = new CustomMultiStateConfiguration();
     multiStateConfiguration.testUnit.setUndefinedForState(CustomState.C);
 
-    // execution
+   // execute
     final var result = multiStateConfiguration.testUnit.getValueWhenHasState(CustomState.C);
 
-    // verification
+   // verify
     expect(result).is(X11ColorCatalog.WHITE);
   }
 
@@ -61,10 +61,10 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
     multiStateConfiguration.testUnit.setValueForState(CustomState.A, X11ColorCatalog.RED);
     multiStateConfiguration.testUnit.setUndefinedForState(CustomState.C);
 
-    // execution
+   // execute
     final var result = multiStateConfiguration.testUnit.getValueWhenHasState(CustomState.C);
 
-    // verification
+   // verify
     expect(result).is(X11ColorCatalog.RED);
   }
 
@@ -77,10 +77,10 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
     parentMultiStateConfiguration.addChild(multiStateConfiguration);
     multiStateConfiguration.testUnit.setUndefinedForState(CustomState.C);
 
-    // execution
+   // execute
     final var result = multiStateConfiguration.testUnit.getValueWhenHasState(CustomState.C);
 
-    // verification
+   // verify
     expect(result).is(X11ColorCatalog.RED);
   }
 
@@ -90,10 +90,10 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
     final var multiStateConfiguration = new CustomMultiStateConfiguration();
     multiStateConfiguration.testUnit.setValueForState(CustomState.C, X11ColorCatalog.RED);
 
-    // execution
+   // execute
     final var result = multiStateConfiguration.testUnit.getValueWhenHasState(CustomState.C);
 
-    // verification
+   // verify
     expect(result).is(X11ColorCatalog.RED);
   }
 }

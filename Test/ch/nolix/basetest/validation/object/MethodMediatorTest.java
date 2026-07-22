@@ -18,7 +18,7 @@ final class MethodMediatorTest extends StandardTest {
     // setup
     final var testUnit = MethodMediator.forArgument(null);
 
-    // execution & verification
+   // execute & verification
     expectRunning(() -> testUnit.hasReturnType(String.class))
       .throwsException()
       .ofType(InvalidArgumentException.class)

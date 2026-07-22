@@ -16,7 +16,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentEx
 final class ForCountMediatorTest extends StandardTest {
   @Test
   void testCase_forMaxRunCount_whenTheGivenMaxRunCountIsNegative() {
-    // execution & verification
+   // execute & verification
     expectRunning(() -> ForCountMediator.forMaxRunCount(-1))
       .throwsException()
       .ofType(NegativeArgumentException.class)
@@ -29,10 +29,10 @@ final class ForCountMediatorTest extends StandardTest {
     final var mockRunnable = Mockito.mock(Runnable.class);
     final var testUnit = ForCountMediator.forMaxRunCount(0);
 
-    // execution
+   // execute
     testUnit.run(mockRunnable);
 
-    // verification
+   // verify
     Mockito.verify(mockRunnable, Mockito.never()).run();
   }
 
@@ -42,10 +42,10 @@ final class ForCountMediatorTest extends StandardTest {
     final var mockRunnable = Mockito.mock(Runnable.class);
     final var testUnit = ForCountMediator.forMaxRunCount(1);
 
-    // execution
+   // execute
     testUnit.run(mockRunnable);
 
-    // verification
+   // verify
     Mockito.verify(mockRunnable).run();
   }
 
@@ -55,10 +55,10 @@ final class ForCountMediatorTest extends StandardTest {
     final var mockRunnable = Mockito.mock(Runnable.class);
     final var testUnit = ForCountMediator.forMaxRunCount(5);
 
-    // execution
+   // execute
     testUnit.run(mockRunnable);
 
-    // verification
+   // verify
     Mockito.verify(mockRunnable, Mockito.times(5)).run();
   }
 
@@ -68,11 +68,11 @@ final class ForCountMediatorTest extends StandardTest {
     final var mockRunnable = Mockito.mock(Runnable.class);
     final var testUnit = ForCountMediator.forMaxRunCount(0);
 
-    // execution
+   // execute
     final var result = testUnit.runInBackground(mockRunnable);
     result.waitUntilIsFinished();
 
-    // verification
+   // verify
     expect(result.isFinishedSuccessfully()).isTrue();
     Mockito.verify(mockRunnable, Mockito.never()).run();
   }
@@ -83,11 +83,11 @@ final class ForCountMediatorTest extends StandardTest {
     final var mockRunnable = Mockito.mock(Runnable.class);
     final var testUnit = ForCountMediator.forMaxRunCount(1);
 
-    // execution
+   // execute
     final var result = testUnit.runInBackground(mockRunnable);
     result.waitUntilIsFinished();
 
-    // verification
+   // verify
     expect(result.isFinishedSuccessfully()).isTrue();
     Mockito.verify(mockRunnable).run();
   }
@@ -98,11 +98,11 @@ final class ForCountMediatorTest extends StandardTest {
     final var mockRunnable = Mockito.mock(Runnable.class);
     final var testUnit = ForCountMediator.forMaxRunCount(5);
 
-    // execution
+   // execute
     final var result = testUnit.runInBackground(mockRunnable);
     result.waitUntilIsFinished();
 
-    // verification
+   // verify
     expect(result.isFinishedSuccessfully()).isTrue();
     Mockito.verify(mockRunnable, Mockito.times(5)).run();
   }

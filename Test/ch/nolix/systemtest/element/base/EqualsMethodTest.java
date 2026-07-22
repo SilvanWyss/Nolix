@@ -27,10 +27,10 @@ final class EqualsMethodTest extends StandardTest {
       }
     };
 
-    // execution
+   // execute
     final var result = testUnit.equals(null);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -45,10 +45,10 @@ final class EqualsMethodTest extends StandardTest {
       }
     };
 
-    // execution
+   // execute
     final var result = testUnit.equals(object);
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -62,10 +62,10 @@ final class EqualsMethodTest extends StandardTest {
       }
     };
 
-    // execution
+   // execute
     final var result = testUnit.equals(testUnit);
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 }

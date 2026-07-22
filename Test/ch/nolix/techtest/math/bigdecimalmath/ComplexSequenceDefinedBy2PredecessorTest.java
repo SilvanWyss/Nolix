@@ -23,7 +23,7 @@ final class ComplexSequenceDefinedBy2PredecessorTest extends StandardTest {
       ComplexNumber.withRealComponentAndImaginaryComponentAndDecimalPlaceCount(0.0, 2.0, 20),
       IComplexNumber::getSum);
 
-    // execution & verification
+   // execute & verification
     expect(testUnit.getValueAtOneBasedIndex(1))
       .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponentAndDecimalPlaceCount(1.0, 0.0, 20));
     expect(testUnit.getValueAtOneBasedIndex(2))

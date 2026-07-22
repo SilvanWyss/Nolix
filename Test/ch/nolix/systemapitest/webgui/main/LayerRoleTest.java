@@ -30,10 +30,10 @@ final class LayerRoleTest extends StandardTest {
   @ParameterizedTest
   @MethodSource("getSpecificationsAndTheirLayerRole")
   void testCase_fromSpecification(final INode<?> specification, final LayerRole expectedLayerRole) {
-    // execution
+   // execute
     final var result = LayerRole.fromSpecification(specification);
 
-    // verification
+   // verify
     expect(result).is(expectedLayerRole);
   }
 }

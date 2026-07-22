@@ -21,10 +21,10 @@ final class ColorGradientTest extends StandardTest {
     final var testUnit = ColorGradient.withDirectionAndColors(Direction.HORIZONTAL, X11ColorCatalog.BLACK,
       X11ColorCatalog.WHITE);
 
-    // execution
+   // execute
     final var result = testUnit.getSpecification();
 
-    // verification
+   // verify
     expect(result).hasStringRepresentation("ColorGradient(HORIZONTAL,0x000000,0xFFFFFF)");
   }
 
@@ -33,10 +33,10 @@ final class ColorGradientTest extends StandardTest {
     // setup
     final var specification = ImmutableNode.fromString("ColorGradient(0x000000,0xFFFFFF)");
 
-    // execution
+   // execute
     final var result = ColorGradient.fromSpecification(specification);
 
-    // verification
+   // verify
     expect(result.getDirection()).is(Direction.VERTICAL);
     expect(result.getColor1()).isEqualTo(X11ColorCatalog.BLACK);
     expect(result.getColor2()).isEqualTo(X11ColorCatalog.WHITE);
@@ -47,10 +47,10 @@ final class ColorGradientTest extends StandardTest {
     // setup
     final var specification = ImmutableNode.fromString("ColorGradient(HORIZONTAL,0x000000,0xFFFFFF)");
 
-    // execution
+   // execute
     final var result = ColorGradient.fromSpecification(specification);
 
-    // verification
+   // verify
     expect(result.getDirection()).is(Direction.HORIZONTAL);
     expect(result.getColor1()).isEqualTo(X11ColorCatalog.BLACK);
     expect(result.getColor2()).isEqualTo(X11ColorCatalog.WHITE);
@@ -58,10 +58,10 @@ final class ColorGradientTest extends StandardTest {
 
   @Test
   void testCase_withColors() {
-    // execution
+   // execute
     final var result = ColorGradient.withColors(X11ColorCatalog.BLACK, X11ColorCatalog.WHITE);
 
-    // verification
+   // verify
     expect(result.getDirection()).is(Direction.VERTICAL);
     expect(result.getColor1()).is(X11ColorCatalog.BLACK);
     expect(result.getColor2()).is(X11ColorCatalog.WHITE);
@@ -69,11 +69,11 @@ final class ColorGradientTest extends StandardTest {
 
   @Test
   void testCase_withDirectionAndColors() {
-    // execution
+   // execute
     final var result = ColorGradient.withDirectionAndColors(Direction.HORIZONTAL, X11ColorCatalog.BLACK,
       X11ColorCatalog.WHITE);
 
-    // verification
+   // verify
     expect(result.getDirection()).is(Direction.HORIZONTAL);
     expect(result.getColor1()).is(X11ColorCatalog.BLACK);
     expect(result.getColor2()).is(X11ColorCatalog.WHITE);

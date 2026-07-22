@@ -23,10 +23,10 @@ final class DeepSelectingStyleTest extends StandardTest {
       .withSelectorId("selector_id")
       .withAttachingAttributes("BaseBorderThickness(1)", "BaseBackgroundColor(Anthrazit)");
 
-    // execution
+   // execute
     final var specification = testUnit.getSpecification();
 
-    // verification
+   // verify
     final var expectedStringRepresentation = //
     "DeepSelectingStyle(SelectorId(selector_id),AttachingAttribute(BaseBorderThickness(1)),AttachingAttribute(BaseBackgroundColor(Anthrazit)))";
     expect(specification).hasStringRepresentation(expectedStringRepresentation);
@@ -40,10 +40,10 @@ final class DeepSelectingStyleTest extends StandardTest {
       .withAdditionalSelectorRoles(LabelRole.TITLE)
       .withAttachingAttributes("BaseTextSize(50)", "BaseTextColor(Black)");
 
-    // execution
+   // execute
     final var specification = testUnit.getSpecification();
 
-    // verification
+   // verify
     final var expectedStringRepresentation = //
     "DeepSelectingStyle(SelectorRole(TITLE),AttachingAttribute(BaseTextSize(50)),AttachingAttribute(BaseTextColor(Black)))";
     expect(specification).hasStringRepresentation(expectedStringRepresentation);
@@ -54,10 +54,10 @@ final class DeepSelectingStyleTest extends StandardTest {
     // setup
     final var testUnit = DeepSelectingStyle.EMPTY;
 
-    // execution
+   // execute
     final var result = testUnit.selectsChildElements();
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -66,10 +66,10 @@ final class DeepSelectingStyleTest extends StandardTest {
     // setup
     final var testUnit = DeepSelectingStyle.EMPTY;
 
-    // execution
+   // execute
     final var result = testUnit.skipsChildElements();
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 
@@ -84,10 +84,10 @@ final class DeepSelectingStyleTest extends StandardTest {
       .withAdditionalSelectorTokens("token1", "token2")
       .withAttachingAttributes("BaseTextSize(20)", "BaseTextColor(Black)");
 
-    // execution
+   // execute
     final var result = testUnit.withAdditionalSelectorTokens("token3", "token4");
 
-    // verification
+   // verify
     expect(result.getSelectorId()).isEqualTo("id");
     expect(result.getSelectorType()).isEqualTo("Button");
     expect(result.getSelectorRoles()).containsExactly("CREATE_BUTTON", "DELETE_BUTTON");

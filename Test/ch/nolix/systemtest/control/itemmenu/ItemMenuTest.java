@@ -36,13 +36,13 @@ public abstract class ItemMenuTest<M extends IItemMenu<M, S>, S extends IItemMen
     // setup verification
     expect(testUnit.isEmpty()).isTrue();
 
-    // execution
+   // execute
     testUnit
       .addItemWithIdAndText("my_id1", "my_text1")
       .addItemWithIdAndText("my_id2", "my_text2")
       .addItemWithIdAndText("my_id3", "my_text3");
 
-    // verification
+   // verify
     expect(testUnit.getStoredItems()).containsExactlyEqualing(
       ItemMenuItem.withIdAndText("my_id1", "my_text1"),
       ItemMenuItem.withIdAndText("my_id2", "my_text2"),
@@ -57,10 +57,10 @@ public abstract class ItemMenuTest<M extends IItemMenu<M, S>, S extends IItemMen
     // setup verification
     expect(testUnit.isEmpty()).isTrue();
 
-    // execution
+   // execute
     testUnit.addItems("my_text1", "my_text2", "my_text3", "my_text4");
 
-    // verification
+   // verify
     expect(testUnit.getStoredItems().getViewOf(IItemMenuItem::getText))
       .containsExactlyEqualing("my_text1", "my_text2", "my_text3", "my_text4");
   }
@@ -78,10 +78,10 @@ public abstract class ItemMenuTest<M extends IItemMenu<M, S>, S extends IItemMen
     // setup verification
     expect(item.isSelected()).isFalse();
 
-    // execution
+   // execute
     testUnit.selectItemById("my_id2");
 
-    // verification
+   // verify
     expect(item.isSelected());
   }
 }

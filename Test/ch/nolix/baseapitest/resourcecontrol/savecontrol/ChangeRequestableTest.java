@@ -16,10 +16,10 @@ final class ChangeRequestableTest extends StandardTest {
     // setup
     final var testUnit = ChangeRequestableMock.withHasChangesFlag(false);
 
-    // execution
+   // execute
     final var result = testUnit.isChangeFree();
 
-    // verification
+   // verify
     expect(result).isTrue();
   }
 
@@ -28,10 +28,10 @@ final class ChangeRequestableTest extends StandardTest {
     // setup
     final var testUnit = ChangeRequestableMock.withHasChangesFlag(true);
 
-    // execution
+   // execute
     final var result = testUnit.isChangeFree();
 
-    // verification
+   // verify
     expect(result).isFalse();
   }
 }

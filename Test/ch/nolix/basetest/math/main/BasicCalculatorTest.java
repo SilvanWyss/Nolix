@@ -41,7 +41,7 @@ final class BasicCalculatorTest extends StandardTest {
     // setup
     final var testUnit = new BasicCalculator();
 
-    // execution
+   // execute
     final var result = testUnit.getAbsoluteDifference(value1, value2);
 
     // validation
@@ -64,7 +64,7 @@ final class BasicCalculatorTest extends StandardTest {
     // setup
     final var testUnit = new BasicCalculator();
 
-    // execution
+   // execute
     final var result = testUnit.getAbsoluteDifference(value1, value2);
 
     // validation
@@ -87,7 +87,7 @@ final class BasicCalculatorTest extends StandardTest {
     // setup
     final var testUnit = new BasicCalculator();
 
-    // execution
+   // execute
     final var result = testUnit.getAbsoluteDifference(value1, value2);
 
     // validation
@@ -106,7 +106,7 @@ final class BasicCalculatorTest extends StandardTest {
     // setup
     final var testUnit = new BasicCalculator();
 
-    // execution
+   // execute
     final var result = testUnit.getAbsoluteValue(value);
 
     // validation
@@ -123,7 +123,7 @@ final class BasicCalculatorTest extends StandardTest {
     // setup
     final var testUnit = new BasicCalculator();
 
-    // execution
+   // execute
     final var result = testUnit.getAbsoluteValue(value);
 
     // validation
@@ -140,7 +140,7 @@ final class BasicCalculatorTest extends StandardTest {
     // setup
     final var testUnit = new BasicCalculator();
 
-    // execution
+   // execute
     final var result = testUnit.getAbsoluteValue(value);
 
     // validation
@@ -153,10 +153,10 @@ final class BasicCalculatorTest extends StandardTest {
     final var values = ImmutableList.withElements(80.0, 90.0, 100.0, 110.0, 120.0);
     final var testUnit = new BasicCalculator();
 
-    // execution
+   // execute
     final var result = testUnit.getAverage(values);
 
-    // verification
+   // verify
     expect(result).isEqualTo(100.0);
   }
 
@@ -166,7 +166,7 @@ final class BasicCalculatorTest extends StandardTest {
     final ImmutableList<Double> values = ImmutableList.createEmpty();
     final var testUnit = new BasicCalculator();
 
-    // execution
+   // execute
     expectRunning(() -> testUnit.getAverage(values))
       .throwsException()
       .ofType(EmptyArgumentException.class)
@@ -178,7 +178,7 @@ final class BasicCalculatorTest extends StandardTest {
     // setup
     final var testUnit = new BasicCalculator();
 
-    // execution
+   // execute
     final var result = testUnit.getMax(-2.0, -1.0, 0.0, 1.0, 2.0);
 
     // validation
@@ -190,7 +190,7 @@ final class BasicCalculatorTest extends StandardTest {
     // setup
     final var testUnit = new BasicCalculator();
 
-    // execution
+   // execute
     final var result = testUnit.getMin(-2.0, -1.0, 0.0, 1.0, 2.0);
 
     // validation

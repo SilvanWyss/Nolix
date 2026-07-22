@@ -20,10 +20,10 @@ final class ServerTargetTest extends StandardTest {
     final var port = 443;
     final var securiyMode = SecurityMode.SSL;
 
-    // execution
+   // execute
     final var result = ServerTarget.forIpOrDomainAndPortAndSecurityModeForConnections(domain, port, securiyMode);
 
-    // verification
+   // verify
     expect(result.getIpOrDomain()).isEqualTo(domain);
     expect(result.getPort()).isEqualTo(port);
     expect(result.getSecurityModeForConnection()).isEqualTo(securiyMode);

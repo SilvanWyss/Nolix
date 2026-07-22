@@ -23,7 +23,7 @@ final class NetEndPointTest extends StandardTest {
       // setup
       server.addDefaultSlot(new MockSlot());
 
-      // execution & verification
+     // execute & verification
       expectRunning(
         () -> {
           try (final var _ = NetEndPoint.toLocalMachineAndGivenPortAndDefaultSlot(port)) {
@@ -45,10 +45,10 @@ final class NetEndPointTest extends StandardTest {
       server.addDefaultSlot(slot);
 
       try (final var testUnit = NetEndPoint.toLocalMachineAndGivenPortAndDefaultSlot(port)) {
-        // execution
+       // execute
         final var result = testUnit.getReplyForRequest("message");
 
-        // verification
+       // verify
         expect(slot.getLatestReceivedMessage()).isEqualTo("message");
         expect(result).isEqualTo(MockSlot.REPLY);
       }
