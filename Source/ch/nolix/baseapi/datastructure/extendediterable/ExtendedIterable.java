@@ -5,6 +5,7 @@ package ch.nolix.baseapi.datastructure.extendediterable;
 
 import ch.nolix.baseapi.datastructure.copyableiterator.IterableWithCopyableIterator;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableArrayProvider;
+import ch.nolix.baseapi.datastructure.iterableextension.IterableAtIndexProvider;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableFirstProvider;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableLastProvider;
 import ch.nolix.baseapi.datastructure.iterableextension.IterableStringProvider;
@@ -33,6 +34,7 @@ extends
 AggregationRequestable<E>,
 CountRequestable<E>,
 IterableArrayProvider<E>,
+IterableAtIndexProvider<E>,
 IterableContainAnyRequestable,
 IterableContainEqualRequestable<E>,
 IterableContainMatchingRequestable<E>,

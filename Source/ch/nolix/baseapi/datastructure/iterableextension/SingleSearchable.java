@@ -11,14 +11,6 @@ import java.util.function.Function;
  */
 public interface SingleSearchable<E> {
   /**
-   * @param oneBasedIndex
-   * @return the element at the given oneBasedIndex. The element can be null
-   * @throws RuntimeException if the current {@link SingleSearchable} does not
-   *                          contain an element at the given oneBasedIndex.
-   */
-  E getStoredAtOneBasedIndex(int oneBasedIndex);
-
-  /**
    * @param comparableMapper
    * @param <C>              the type of the {@link Comparable}s the given
    *                         comparableMapper maps from the elements of the
