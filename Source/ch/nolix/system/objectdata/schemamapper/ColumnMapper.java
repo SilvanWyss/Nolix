@@ -35,7 +35,6 @@ public final class ColumnMapper implements IColumnMapper {
     }
 
     if (field instanceof final AbstractBaseReference<?> baseReference) {
-
       final var referenceableTableNames = baseReference.getReferenceableTableNames();
       final var referenceableTables = tables.getStoredSelected(t -> referenceableTableNames.containsAny(t.getName()));
 
@@ -50,7 +49,6 @@ public final class ColumnMapper implements IColumnMapper {
     }
 
     if (field instanceof final AbstractBaseBackReference baseBackReference) {
-
       final var backReferencedFieldName = baseBackReference.getBackReferencedFieldName();
       final var backReferenceableTableNames = baseBackReference.getBackReferenceableTableNames();
 
