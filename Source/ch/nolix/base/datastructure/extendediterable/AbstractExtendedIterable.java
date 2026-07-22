@@ -1248,9 +1248,6 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
@@ -1281,9 +1278,6 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
@@ -1331,9 +1325,6 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
@@ -1364,9 +1355,6 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
@@ -1375,9 +1363,6 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
@@ -1513,9 +1498,6 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
