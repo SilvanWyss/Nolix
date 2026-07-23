@@ -24,4 +24,12 @@ public final class CharacterExaminer implements ICharacterExaminer {
   public boolean isHexadecimalDigit(final char character) {
     return isDigit(character) || (character >= 65 && character <= 70);
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean isVisible(final char character) {
+    return character > 32 && !Character.isWhitespace(character);
+  }
 }

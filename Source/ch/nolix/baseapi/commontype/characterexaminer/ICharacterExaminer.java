@@ -20,4 +20,10 @@ public interface ICharacterExaminer {
    * @return true if the given character is a hexadecimal digit, false otherwise
    */
   boolean isHexadecimalDigit(char character);
+
+  /**
+   * @param character
+   * @return true if the given character is visible, false otherwise
+   */
+  boolean isVisible(char character);
 }
