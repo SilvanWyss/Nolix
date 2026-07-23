@@ -27,7 +27,8 @@ public interface IterableMappedProvider<E> {
    * @param multipleMapper
    * @param <T>            the type of the elements of the
    *                       {@link ExtendedIterable}s the given multipleMapper maps
-   *                       from the elements of the current {@link IterableMappedProvider}
+   *                       from the elements of the current
+   *                       {@link IterableMappedProvider}
    * @return a new {@link ExtendedIterable} with the elements of the
    *         {@link ExtendedIterable}s the given multipleMapper maps from the
    *         elements of the current {@link IterableMappedProvider}
@@ -40,10 +41,11 @@ public interface IterableMappedProvider<E> {
   /**
    * @param numberMapper
    * @param <N>          the type of the {@link Number}s the given numberMapper
-   *                     maps from the elements of the current {@link IterableMappedProvider}
+   *                     maps from the elements of the current
+   *                     {@link IterableMappedProvider}
    * @return a new {@link ExtendedIterable} with the {@link Number}s the given
-   *         numberMapper maps from the elements of the current {@link IterableMappedProvider}.
-   *         Maps null elements to 0.0
+   *         numberMapper maps from the elements of the current
+   *         {@link IterableMappedProvider}. Maps null elements to 0.0
    * @throws RuntimeException if the given numberMapper is null
    */
   <N extends Number> ExtendedIterable<N> toNumbers(Function<E, N> numberMapper);
@@ -58,11 +60,11 @@ public interface IterableMappedProvider<E> {
   /**
    * @param mapper
    * @param <T>    the type of the elements the given mapper maps from the
-   *               elements of the current {@link IterableMappedProvider} and from the one-based
-   *               index of these elements
+   *               elements of the current {@link IterableMappedProvider} and from
+   *               the one-based index of these elements
    * @return a new {@link ExtendedIterable} with the elements the given mapper
-   *         maps from the elements of the current {@link IterableMappedProvider} and from the
-   *         one-based index of these elements
+   *         maps from the elements of the current {@link IterableMappedProvider}
+   *         and from the one-based index of these elements
    * @throws RuntimeException if the given mapper is null
    * @throws RuntimeException if one of the elements of the current
    *                          {@link IterableMappedProvider} is null

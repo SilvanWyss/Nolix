@@ -36,7 +36,8 @@ extends StandardTest {
 
     // verify
     final var controlInternalId = control.getInternalId();
-    final var hoverCssRule = result.getStoredSingle(r -> r.getSelector().startsWith("#" + controlInternalId + ":hover"));
+    final var hoverCssRule = result
+      .getStoredSingle(r -> r.getSelector().startsWith("#" + controlInternalId + ":hover"));
     expect(hoverCssRule.getProperties()).containsExactlyOneWithStringRepresentation("background: #102030;");
   }
 

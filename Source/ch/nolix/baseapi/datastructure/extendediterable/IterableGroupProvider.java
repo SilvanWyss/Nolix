@@ -13,7 +13,8 @@ public interface IterableGroupProvider<E> {
   /**
    * @param norm
    * @return a new {@link ExtendedIterable} with the elements of the current
-   *         {@link IterableGroupProvider} grouped by the given norm, ignoring null elements
+   *         {@link IterableGroupProvider} grouped by the given norm, ignoring
+   *         null elements
    * @throws RuntimeException if the given norm is null
    */
   ExtendedIterable<? extends ExtendedIterable<E>> getStoredInGroups(Function<E, ?> norm);

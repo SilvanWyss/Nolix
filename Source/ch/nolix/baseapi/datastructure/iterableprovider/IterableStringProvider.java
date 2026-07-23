@@ -16,16 +16,16 @@ public interface IterableStringProvider {
   /**
    * @param delimiter
    * @return a concatenation of the {@link String} representations of the elements
-   *         of the current {@link IterableStringProvider} with the given separator in
-   *         between.
+   *         of the current {@link IterableStringProvider} with the given
+   *         separator in between.
    */
   String toStringWithDelimiter(char delimiter);
 
   /**
    * @param delimiter
    * @return a concatenation of the {@link String} representations of the elements
-   *         of the current {@link IterableStringProvider} with the given separator in
-   *         between
+   *         of the current {@link IterableStringProvider} with the given
+   *         separator in between
    * @throws RuntimeException if the given separator is null
    */
   String toStringWithDelimiter(String delimiter);

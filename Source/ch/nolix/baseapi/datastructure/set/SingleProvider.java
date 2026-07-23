@@ -14,8 +14,8 @@ public interface SingleProvider<E> {
    * The time complexity of this method is O(1).
    * 
    * @return the single element of the current {@link SingleProvider}
-   * @throws RuntimeException if the current {@link SingleProvider} is
-   *                          empty or contains several elements
+   * @throws RuntimeException if the current {@link SingleProvider} is empty or
+   *                          contains several elements
    */
   E getStoredSingle();
 
@@ -27,9 +27,9 @@ public interface SingleProvider<E> {
    *                 when is null
    * @return the one element the given selector selects from the current
    *         {@link SingleProvider}, ignoring null elements
-   * @throws RuntimeException if the given the current
-   *                          {@link SingleProvider} contains none or
-   *                          several elements the given selector selects
+   * @throws RuntimeException if the given the current {@link SingleProvider}
+   *                          contains none or several elements the given selector
+   *                          selects
    */
   E getStoredSingle(Predicate<? super E> selector);
 }

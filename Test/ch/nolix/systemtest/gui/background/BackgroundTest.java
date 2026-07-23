@@ -27,7 +27,7 @@ final class BackgroundTest extends StandardTest {
     // setup
     final var backgroundSpecification = ImmutableNode.fromString(backgroundSpecificationAsString);
 
-     // execute
+    // execute
     final var result = Background.fromSpecification(backgroundSpecification);
 
     // verify

@@ -5,8 +5,7 @@ package ch.nolix.baseapi.datastructure.extendediterable;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements of a
- *            {@link IterableIntervalViewProvider}
+ * @param <E> the type of the elements of a {@link IterableIntervalViewProvider}
  */
 public interface IterableIntervalViewProvider<E> {
   /**
@@ -47,8 +46,8 @@ public interface IterableIntervalViewProvider<E> {
   /**
    * @return a new view {@link ExtendedIterable} view of the current
    *         {@link IterableIntervalViewProvider} without the first element
-   * @throws RuntimeException if the current
-   *                          {@link IterableIntervalViewProvider} is empty
+   * @throws RuntimeException if the current {@link IterableIntervalViewProvider}
+   *                          is empty
    */
   ExtendedIterable<E> getViewWithoutFirst();
 
@@ -63,8 +62,8 @@ public interface IterableIntervalViewProvider<E> {
   /**
    * @return a new view {@link ExtendedIterable} view of the current
    *         {@link IterableIntervalViewProvider} without the last element
-   * @throws RuntimeException if the current
-   *                          {@link IterableIntervalViewProvider} is empty
+   * @throws RuntimeException if the current {@link IterableIntervalViewProvider}
+   *                          is empty
    */
   ExtendedIterable<E> getViewWithoutLast();
 

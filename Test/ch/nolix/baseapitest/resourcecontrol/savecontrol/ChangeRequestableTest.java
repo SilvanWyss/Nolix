@@ -22,10 +22,10 @@ final class ChangeRequestableTest extends StandardTest {
     when(testUnit.isChangeFree()).thenCallRealMethod();
     when(testUnit.hasChanges()).thenReturn(false);
 
-     // execute
+    // execute
     final var result = testUnit.isChangeFree();
 
-     // verify
+    // verify
     expect(result).isTrue();
   }
 
@@ -36,10 +36,10 @@ final class ChangeRequestableTest extends StandardTest {
     when(testUnit.isChangeFree()).thenCallRealMethod();
     when(testUnit.hasChanges()).thenReturn(true);
 
-     // execute
+    // execute
     final var result = testUnit.isChangeFree();
 
-     // verify
+    // verify
     expect(result).isFalse();
   }
 }

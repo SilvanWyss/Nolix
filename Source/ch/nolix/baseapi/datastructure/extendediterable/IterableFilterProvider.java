@@ -14,7 +14,8 @@ public interface IterableFilterProvider<E> {
    * @param type
    * @param <T>  the type of the elements of the returned {@link ExtendedIterable}
    * @return a new {@link ExtendedIterable} with the elements from the current
-   *         {@link IterableFilterProvider} that are of the given type, ignoring null elements
+   *         {@link IterableFilterProvider} that are of the given type, ignoring
+   *         null elements
    * @throws RuntimeException if the given type is null
    */
   <T extends E> ExtendedIterable<T> getStoredOfType(Class<T> type);
@@ -22,7 +23,8 @@ public interface IterableFilterProvider<E> {
   /**
    * @param selector
    * @return a new {@link ExtendedIterable} with the elements from the current
-   *         {@link IterableFilterProvider} the given selector skips, ignoring null elements
+   *         {@link IterableFilterProvider} the given selector skips, ignoring
+   *         null elements
    * @throws RuntimeException if the given selector is null
    */
   ExtendedIterable<E> getStoredOthers(Predicate<E> selector);
@@ -30,7 +32,8 @@ public interface IterableFilterProvider<E> {
   /**
    * @param selector
    * @return a new {@link ExtendedIterable} with the elements the given selector
-   *         selects from the current {@link IterableFilterProvider}, ignoring null elements
+   *         selects from the current {@link IterableFilterProvider}, ignoring
+   *         null elements
    * @throws RuntimeException if the given selector is null
    */
   ExtendedIterable<E> getStoredSelected(Predicate<? super E> selector);

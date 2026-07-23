@@ -19,10 +19,10 @@ final class ToFormattedStringTest extends StandardTest {
     // setup
     final var testUnit = ImmutableNode.fromString("Cat(Name(Garfield),Sex(Male),AgeInYears(5),WeightInGrams(6500))");
 
-     // execute
+    // execute
     final var result = testUnit.toFormattedString();
 
-     // verify
+    // verify
     final var expectedResult = FileSystemAccessor.readFile("./././././TestResource/sample_node/garfield.node");
     expect(result).isEqualTo(expectedResult);
   }

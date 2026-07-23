@@ -16,9 +16,9 @@ public interface IterableFirstProvider<E> {
    * 
    * @return a {@link Optional} with the first element of the current
    *         {@link IterableFirstProvider} if the current
-   *         {@link IterableFirstProvider} is not empty and if the first
-   *         element of the current {@link IterableFirstProvider} is not null,
-   *         an empty {@link Optional} otherwise
+   *         {@link IterableFirstProvider} is not empty and if the first element
+   *         of the current {@link IterableFirstProvider} is not null, an empty
+   *         {@link Optional} otherwise
    */
   Optional<E> getOptionalStoredFirst();
 
@@ -29,10 +29,9 @@ public interface IterableFirstProvider<E> {
    * @param selector can select elements, is considered not to select any element
    *                 when is null
    * @return a new {@link Optional} with the first element the given selector
-   *         selects from the current {@link IterableFirstProvider} if the
-   *         current {@link IterableFirstProvider} contains an element the
-   *         given selector selects, an empty {@link Optional} otherwise, ignoring
-   *         null elements
+   *         selects from the current {@link IterableFirstProvider} if the current
+   *         {@link IterableFirstProvider} contains an element the given selector
+   *         selects, an empty {@link Optional} otherwise, ignoring null elements
    */
   Optional<E> getOptionalStoredFirst(Predicate<? super E> selector);
 
@@ -75,8 +74,8 @@ public interface IterableFirstProvider<E> {
    * 
    * @param type
    * @param <T>  the modeled type of the given type
-   * @return the first element from the current {@link IterableFirstProvider}
-   *         that is of the given type
+   * @return the first element from the current {@link IterableFirstProvider} that
+   *         is of the given type
    * @throws RuntimeException if the given type is null
    * @throws RuntimeException if the current {@link IterableFirstProvider} does
    *                          not contain an element of the given type

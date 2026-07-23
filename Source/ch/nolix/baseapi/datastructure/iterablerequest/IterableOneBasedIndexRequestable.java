@@ -7,15 +7,18 @@ import java.util.function.Predicate;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements a {@link IterableOneBasedIndexRequestable}.
+ * @param <E> the type of the elements a
+ *            {@link IterableOneBasedIndexRequestable}.
  */
 public interface IterableOneBasedIndexRequestable<E> {
   /**
    * @param selector
    * @return the 1-based index of the first element the given selector selects
-   *         from the current {@link IterableOneBasedIndexRequestable}, ignoring null elements
+   *         from the current {@link IterableOneBasedIndexRequestable}, ignoring
+   *         null elements
    * @throws RuntimeException if the given selector is null
-   * @throws RuntimeException if the current {@link IterableOneBasedIndexRequestable} does not
+   * @throws RuntimeException if the current
+   *                          {@link IterableOneBasedIndexRequestable} does not
    *                          contain an element the given selector selects.
    */
   int getOneBasedIndexOfFirst(Predicate<E> selector);
@@ -24,7 +27,8 @@ public interface IterableOneBasedIndexRequestable<E> {
    * @param object
    * @return the 1-based index of the first element of the current
    *         {@link IterableOneBasedIndexRequestable} that equals the given object
-   * @throws RuntimeException if the current {@link IterableOneBasedIndexRequestable} does not
+   * @throws RuntimeException if the current
+   *                          {@link IterableOneBasedIndexRequestable} does not
    *                          contain an element that equals the given object.
    */
   int getOneBasedIndexOfFirstEqualElement(Object object);
@@ -33,7 +37,8 @@ public interface IterableOneBasedIndexRequestable<E> {
    * @param object
    * @return the 1-based index of the first occurrence of the given object in the
    *         current {@link IterableOneBasedIndexRequestable}
-   * @throws RuntimeException if the current {@link IterableOneBasedIndexRequestable} does not
+   * @throws RuntimeException if the current
+   *                          {@link IterableOneBasedIndexRequestable} does not
    *                          contain the given object.
    */
   int getOneBasedIndexOfFirstOccurrenceOf(Object object);
