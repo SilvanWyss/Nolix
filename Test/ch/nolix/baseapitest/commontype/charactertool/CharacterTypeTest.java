@@ -28,7 +28,6 @@ final class CharacterTypeTest extends StandardTest {
 
   @Test
   void testCase_ofCharacter_whenTheGivenCharacterIsALowerCaseLetter() { //NOSONAR: The number of assertions makes sense.
-
     expect(CharacterType.ofCharacter('a')).is(CharacterType.LOWER_CASE_LETTER);
     expect(CharacterType.ofCharacter('b')).is(CharacterType.LOWER_CASE_LETTER);
     expect(CharacterType.ofCharacter('c')).is(CharacterType.LOWER_CASE_LETTER);
@@ -63,7 +62,6 @@ final class CharacterTypeTest extends StandardTest {
 
   @Test
   void testCase_ofCharacter_whenTheGivenCharacterIsAnUpperCaseLetter() { //NOSONAR: The number of assertions makes sense.
-
     expect(CharacterType.ofCharacter('A')).is(CharacterType.UPPER_CASE_LETTER);
     expect(CharacterType.ofCharacter('B')).is(CharacterType.UPPER_CASE_LETTER);
     expect(CharacterType.ofCharacter('C')).is(CharacterType.UPPER_CASE_LETTER);
