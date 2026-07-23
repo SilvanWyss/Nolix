@@ -3,6 +3,7 @@
  */
 package ch.nolix.base.commontype.stringtool;
 
+import ch.nolix.base.commontype.characterexaminer.CharacterExaminer;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.stringtool.IStringTool;
 import ch.nolix.baseapi.commontype.stringtool.RegularExpressionPatternCatalog;
@@ -13,6 +14,8 @@ import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
  * @author Silvan Wyss
  */
 public final class StringToolUnit implements IStringTool {
+  private static final CharacterExaminer CHARACTER_EXAMINER = new CharacterExaminer();
+
   /**
    * {@inheritDoc}
    */
@@ -27,6 +30,22 @@ public final class StringToolUnit implements IStringTool {
   @Override
   public String getInBraces(final Object object) {
     return StringCatalog.OPEN_BRACE + object + StringCatalog.CLOSED_BRACE;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public int getIndexOfNextVisibleCharacterOrMinusOne(String string, int startIndex) {
+    for (var i = startIndex; i < string.length(); i++) {
+      final var character = string.charAt(i);
+
+      if (CHARACTER_EXAMINER.isVisible(character)) {
+        return i;
+      }
+    }
+
+    return -1;
   }
 
   /**
@@ -68,7 +87,7 @@ public final class StringToolUnit implements IStringTool {
   public String getWithoutLastCharacters(final String string, final int n) {
     Validator.assertThat(string).thatIsNamed(String.class).isNotNull();
     Validator.assertThat(n).thatIsNamed("n").isBetween(0, string.length());
-  
+
     return string.substring(0, string.length() - n);
   }
 

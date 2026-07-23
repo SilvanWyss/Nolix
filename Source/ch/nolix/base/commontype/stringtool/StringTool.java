@@ -3,8 +3,6 @@
  */
 package ch.nolix.base.commontype.stringtool;
 
-import ch.nolix.baseapi.commontype.stringtool.IStringTool;
-
 /**
  * The {@link StringTool} provides methods to handle {@link String}s.
  * 
@@ -13,7 +11,7 @@ import ch.nolix.baseapi.commontype.stringtool.IStringTool;
  * @author Silvan Wyss
  */
 public final class StringTool {
-  private static final IStringTool STRING_TOOL_UNIT = new StringToolUnit();
+  private static final StringToolUnit STRING_TOOL_UNIT = new StringToolUnit();
 
   /**
    * Prevents that an instance of the {@link StringTool} can be created.
@@ -38,6 +36,16 @@ public final class StringTool {
    */
   public static String getInBraces(final Object object) {
     return STRING_TOOL_UNIT.getInBraces(object);
+  }
+
+  /**
+   * @param string
+   * @param startIndex
+   * @return the index of the next visible character of the given string from the
+   *         given startIndex if exists, -1 otherwise
+   */
+  public static int getIndexOfNextVisibleCharacterOrMinusOne(final String string, final int startIndex) {
+    return STRING_TOOL_UNIT.getIndexOfNextVisibleCharacterOrMinusOne(string, startIndex);
   }
 
   /**

@@ -24,6 +24,14 @@ public interface IStringTool {
   String getInBraces(Object object);
 
   /**
+   * @param string
+   * @param startIndex
+   * @return the index of the next visible character of the given string from the
+   *         given startIndex if exists, -1 otherwise
+   */
+  int getIndexOfNextVisibleCharacterOrMinusOne(String string, int startIndex);
+
+  /**
    * @param objects an array of objects, is considered to be empty when is null
    * @return the {@link String} representation of the given objects in parentheses
    */
