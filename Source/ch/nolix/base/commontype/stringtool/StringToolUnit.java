@@ -10,22 +10,9 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgu
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 
 /**
- * The {@link StringToolUnit} provides methods to handle {@link String}s.
- * 
  * @author Silvan Wyss
  */
 public final class StringToolUnit implements IStringTool {
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public String createStringWithoutLastCharacters(final String string, final int n) {
-    Validator.assertThat(string).thatIsNamed(String.class).isNotNull();
-    Validator.assertThat(n).thatIsNamed("n").isBetween(0, string.length());
-
-    return string.substring(0, string.length() - n);
-  }
-
   /**
    * {@inheritDoc}
    */
@@ -72,6 +59,17 @@ public final class StringToolUnit implements IStringTool {
   @Override
   public String getInSingleQuotes(final Object object) {
     return StringCatalog.SINGLE_QUOTE + object + StringCatalog.SINGLE_QUOTE;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String getWithoutLastCharacters(final String string, final int n) {
+    Validator.assertThat(string).thatIsNamed(String.class).isNotNull();
+    Validator.assertThat(n).thatIsNamed("n").isBetween(0, string.length());
+  
+    return string.substring(0, string.length() - n);
   }
 
   /**

@@ -10,17 +10,6 @@ package ch.nolix.baseapi.commontype.stringtool;
  */
 public interface IStringTool {
   /**
-   * @param string
-   * @param n
-   * @return a new {@link String} that is the given string without the last n
-   *         characters
-   * @throws RuntimeException if the given string is null
-   * @throws RuntimeException if the given n is negative or bigger than the length
-   *                          of the given string
-   */
-  String createStringWithoutLastCharacters(String string, int n);
-
-  /**
    * @param tabCount
    * @return a new {@link String} consisting of as many tabulators as the given
    *         tabCount says
@@ -46,6 +35,17 @@ public interface IStringTool {
    *         quotes
    */
   String getInSingleQuotes(Object object);
+
+  /**
+   * @param string
+   * @param n
+   * @return a new {@link String} that is the given string without the last n
+   *         characters
+   * @throws RuntimeException if the given string is null
+   * @throws RuntimeException if the given n is negative or bigger than the length
+   *                          of the given string
+   */
+  String getWithoutLastCharacters(String string, int n);
 
   /**
    * @param string

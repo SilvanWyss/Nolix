@@ -22,16 +22,6 @@ public final class StringTool {
   }
 
   /**
-   * @param string
-   * @param n
-   * @return a new {@link String} that is like the given string without the last n
-   *         characters.
-   */
-  public static String createStringWithoutLastCharacters(final String string, final int n) {
-    return STRING_TOOL_UNIT.createStringWithoutLastCharacters(string, n);
-  }
-
-  /**
    * @param tabCount
    * @return a new {@link String} consisting of as many tabulators as the given
    *         tabCount says
@@ -68,6 +58,16 @@ public final class StringTool {
    */
   public static String getInSingleQuotes(final Object object) {
     return STRING_TOOL_UNIT.getInSingleQuotes(object);
+  }
+
+  /**
+   * @param string
+   * @param n
+   * @return a new {@link String} that is like the given string without the last n
+   *         characters.
+   */
+  public static String getWithoutLastCharacters(final String string, final int n) {
+    return STRING_TOOL_UNIT.getWithoutLastCharacters(string, n);
   }
 
   /**
@@ -116,7 +116,6 @@ public final class StringTool {
    * @param string
    * @return a proportion in [0, 1] from the given string
    * @throws RuntimeException if the given string does not represent a proportion
-   * 
    */
   public static double toProportion(String string) {
     return STRING_TOOL_UNIT.toProportion(string);

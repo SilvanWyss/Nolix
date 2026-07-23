@@ -41,7 +41,7 @@ final class StringToolTest extends StandardTest {
     final var testUnit = new StringToolUnit();
 
     // execute
-    final var result = testUnit.createStringWithoutLastCharacters(string, lastCharacterCount);
+    final var result = testUnit.getWithoutLastCharacters(string, lastCharacterCount);
 
     // verify
     expect(result).isEqualTo(expectedResult);
