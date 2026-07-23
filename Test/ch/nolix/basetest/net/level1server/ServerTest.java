@@ -18,17 +18,17 @@ import ch.nolix.baseapi.net.securityproperty.SecurityMode;
 final class ServerTest extends StandardTest {
   @Test
   void testCase_addDefaultSlot() {
-    // parameter definition
+    // define test parameters
     final var port = 50000;
 
     // setup
     final var mockSlot = new MockSlot();
 
     try (final var testUnit = Server.forPort(port)) {
-     // execute
+      // execute
       testUnit.addDefaultSlot(mockSlot);
 
-     // verify
+      // verify
       expect(testUnit.containsAny()).isTrue();
       expect(testUnit.containsDefaultSlot());
     }
@@ -36,24 +36,24 @@ final class ServerTest extends StandardTest {
 
   @Test
   void testCase_clear_whenIsEmpty() {
-    // parameter definition
+    // define test parameters
     final var port = 50000;
 
     try (final var testUnit = Server.forPort(port)) {
       // setup verification
       expect(testUnit.isEmpty()).isTrue();
 
-     // execute
+      // execute
       testUnit.clear();
 
-     // verify
+      // verify
       expect(testUnit.isEmpty()).isTrue();
     }
   }
 
   @Test
   void testCase_clear_whenContainsAny() {
-    // parameter definition
+    // define test parameters
     final var port = 50000;
 
     try (final var testUnit = Server.forPort(port)) {
@@ -63,25 +63,25 @@ final class ServerTest extends StandardTest {
       // setup verification
       expect(testUnit.containsAny()).isTrue();
 
-     // execute
+      // execute
       testUnit.clear();
 
-     // verify
+      // verify
       expect(testUnit.isEmpty()).isTrue();
     }
   }
 
   @Test
   void testCase_close() {
-    // parameter definition
+    // define test parameters
     final var port = 50000;
 
     // setup
     try (final var testUnit = Server.forPort(port)) {
-     // execute
+      // execute
       testUnit.close(); //NOSONAR: This test case tests the close method.
 
-     // verify
+      // verify
       expect(testUnit.isClosed()).isTrue();
     }
   }
@@ -89,7 +89,7 @@ final class ServerTest extends StandardTest {
   @Test
   void testCase_forHttpPort() {
     try (final var result = Server.forHttpPort()) {
-     // verify
+      // verify
       expect(result.getPort()).isEqualTo(80);
       expect(result.getSecurityMode()).is(SecurityMode.NONE);
       expect(result.getInitialHttpMessage()).is(Server.DEFAULT_INITIAL_HTTP_MESSAGE);
@@ -101,11 +101,11 @@ final class ServerTest extends StandardTest {
 
   @Test
   void testCase_forPort() {
-    // parameter definition
+    // define test parameters
     final var port = 50000;
 
     try (final var result = Server.forPort(port)) {
-     // verify
+      // verify
       expect(result.getPort()).isEqualTo(port);
       expect(result.getSecurityMode()).is(SecurityMode.NONE);
       expect(result.getInitialHttpMessage()).is(Server.DEFAULT_INITIAL_HTTP_MESSAGE);

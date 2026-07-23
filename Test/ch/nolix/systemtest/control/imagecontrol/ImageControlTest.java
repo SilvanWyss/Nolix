@@ -32,7 +32,7 @@ final class ImageControlTest extends ControlTest<IImageControl> {
     // setup verification
     expect(testUnit.isEmpty()).isTrue();
 
-   // execute & verification
+    // execute & verify
     expectRunning(testUnit::getStoredImage).throwsException().ofType(ArgumentDoesNotContainElementException.class);
   }
 
@@ -43,10 +43,10 @@ final class ImageControlTest extends ControlTest<IImageControl> {
     final var testUnit = new ImageControl();
     testUnit.setImage(mutableImage);
 
-   // execute
+    // execute
     final var result = testUnit.getStoredImage();
 
-   // verify
+    // verify
     expect(result).is(mutableImage);
   }
 }

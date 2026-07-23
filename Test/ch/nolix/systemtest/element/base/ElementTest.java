@@ -26,13 +26,13 @@ final class ElementTest extends StandardTest {
       }
     };
 
-   // verify setup
+    // verify setup
     final var expectedResult = testUnit.getSpecification().hashCode();
 
-   // execute
+    // execute
     final var result = testUnit.hashCode();
 
-   // verify
+    // verify
     expect(result).isEqualTo(expectedResult);
   }
 }

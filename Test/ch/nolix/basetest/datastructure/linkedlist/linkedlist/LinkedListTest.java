@@ -23,10 +23,10 @@ final class LinkedListTest extends ExtendedIterableTest {
     final var elephant = "elephant";
     final var testUnit = LinkedList.createEmpty();
 
-   // execute
+    // execute
     testUnit.addAtBegin(elephant);
 
-   // verify
+    // verify
     expect(testUnit).containsExactlyInSameOrder(elephant);
   }
 
@@ -39,10 +39,10 @@ final class LinkedListTest extends ExtendedIterableTest {
     final var zebra = "zebra";
     final var testUnit = LinkedList.withElement(lion, rhino, zebra);
 
-   // execute
+    // execute
     testUnit.addAtBegin(elephant);
 
-   // verify
+    // verify
     expect(testUnit).containsExactlyInSameOrder(elephant, lion, rhino, zebra);
   }
 
@@ -57,10 +57,10 @@ final class LinkedListTest extends ExtendedIterableTest {
     final var zebra = "zebra";
     final var testUnit = LinkedList.withElement(lion, rhino, zebra);
 
-   // execute
+    // execute
     testUnit.addAtBegin(antelope, baboon, elephant);
 
-   // verify
+    // verify
     expect(testUnit).containsExactlyInSameOrder(antelope, baboon, elephant, lion, rhino, zebra);
   }
 
@@ -70,7 +70,7 @@ final class LinkedListTest extends ExtendedIterableTest {
     final String element = null;
     final var testUnit = LinkedList.createEmpty();
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> testUnit.addAtBegin(element))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -83,7 +83,7 @@ final class LinkedListTest extends ExtendedIterableTest {
     final String[] array = null;
     final LinkedList<String> testUnit = LinkedList.createEmpty();
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> testUnit.addAtBegin(array)).throwsException();
   }
 
@@ -99,10 +99,10 @@ final class LinkedListTest extends ExtendedIterableTest {
     final var array = new String[] { antelope, baboon, elephant };
     final var testUnit = LinkedList.withElement(lion, rhino, zebra);
 
-   // execute
+    // execute
     testUnit.addAtBegin(array);
 
-   // verify
+    // verify
     expect(testUnit).containsExactlyInSameOrder(antelope, baboon, elephant, lion, rhino, zebra);
   }
 
@@ -118,10 +118,10 @@ final class LinkedListTest extends ExtendedIterableTest {
     final var testUnit = LinkedList.withElement(lion, rhino, zebra);
     final var list = LinkedList.withElement(antelope, baboon, elephant);
 
-   // execute
+    // execute
     testUnit.addAtBegin(list);
 
-   // verify
+    // verify
     expect(testUnit).containsExactlyInSameOrder(antelope, baboon, elephant, lion, rhino, zebra);
   }
 
@@ -133,10 +133,10 @@ final class LinkedListTest extends ExtendedIterableTest {
     final ILinkedList<String> testUnit = LinkedList.createEmpty();
     final var list = LinkedList.withElement(elephant, lion);
 
-   // execute
+    // execute
     testUnit.addAtBegin(list);
 
-   // verify
+    // verify
     expect(testUnit).containsExactlyInSameOrder(elephant, lion);
   }
 
@@ -148,10 +148,10 @@ final class LinkedListTest extends ExtendedIterableTest {
     final var testUnit = LinkedList.withElement(rhino, zebra);
     final ILinkedList<String> list = LinkedList.createEmpty();
 
-   // execute
+    // execute
     testUnit.addAtBegin(list);
 
-   // verify
+    // verify
     expect(testUnit).containsExactlyInSameOrder(rhino, zebra);
   }
 
@@ -161,7 +161,7 @@ final class LinkedListTest extends ExtendedIterableTest {
     final var testUnit = LinkedList.createEmpty();
     final Iterable<String> element = null;
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> testUnit.addAtBegin(element))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -174,7 +174,7 @@ final class LinkedListTest extends ExtendedIterableTest {
     final var testUnit = LinkedList.createEmpty();
     final String element = null;
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> testUnit.addAtEnd(element))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -186,10 +186,10 @@ final class LinkedListTest extends ExtendedIterableTest {
     // setup
     final var testUnit = LinkedList.createEmpty();
 
-   // execute
+    // execute
     testUnit.clear();
 
-   // verify
+    // verify
     expect(testUnit.isEmpty()).isTrue();
   }
 
@@ -198,16 +198,16 @@ final class LinkedListTest extends ExtendedIterableTest {
     // setup
     final var testUnit = LinkedList.withElement("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-   // execute
+    // execute
     testUnit.clear();
 
-   // verify
+    // verify
     expect(testUnit.isEmpty()).isTrue();
   }
 
   @Test
   void testCase_fromArray_whenTheGivenArrayIsNull() {
-   // execute & verification
+    // execute & verify
     expectRunning(() -> LinkedList.fromArray(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -219,10 +219,10 @@ final class LinkedListTest extends ExtendedIterableTest {
     // setup
     final var array = new String[0];
 
-   // execute
+    // execute
     final var result = LinkedList.fromArray(array);
 
-   // verify
+    // verify
     expect(result.isEmpty()).isTrue();
   }
 
@@ -232,10 +232,10 @@ final class LinkedListTest extends ExtendedIterableTest {
     final var elephant = "elephant";
     final var array = new String[] { elephant };
 
-   // execute
+    // execute
     final var result = LinkedList.fromArray(array);
 
-   // verify
+    // verify
     expect(result).containsExactlyInSameOrder(elephant);
   }
 
@@ -250,10 +250,10 @@ final class LinkedListTest extends ExtendedIterableTest {
     final var zebra = "zebra";
     final var array = new String[] { antelope, baboon, elephant, lion, rhino, zebra };
 
-   // execute
+    // execute
     final var result = LinkedList.fromArray(array);
 
-   // verify
+    // verify
     expect(result).containsExactlyInSameOrder(antelope, baboon, elephant, lion, rhino, zebra);
   }
 
@@ -262,7 +262,7 @@ final class LinkedListTest extends ExtendedIterableTest {
     // setup
     final var array = new String[] { "lephant", "lion", null, "zebra" };
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> LinkedList.fromArray(array))
       .throwsException()
       .ofType(ArgumentIsNullException.class);
@@ -278,10 +278,10 @@ final class LinkedListTest extends ExtendedIterableTest {
     final var element5 = new VoidObject();
     final var testUnit = LinkedList.withElement(element1, element2, element3, element4);
 
-   // execute
+    // execute
     testUnit.removeFirstOccurrenceOf(element5);
 
-   // verify
+    // verify
     expect(testUnit).containsExactly(element1, element2, element3, element4);
   }
 
@@ -294,10 +294,10 @@ final class LinkedListTest extends ExtendedIterableTest {
     final var element4 = new VoidObject();
     final var testUnit = LinkedList.withElement(element1, element2, element3, element4);
 
-   // execute
+    // execute
     testUnit.removeFirstOccurrenceOf(element3);
 
-   // verify
+    // verify
     expect(testUnit).containsExactly(element1, element2, element4);
   }
 
@@ -311,7 +311,7 @@ final class LinkedListTest extends ExtendedIterableTest {
     final var element5 = new VoidObject();
     final var testUnit = LinkedList.withElement(element1, element2, element3, element4);
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> testUnit.removeStrictlyFirstOccurrenceOf(element5))
       .throwsException()
       .ofType(ArgumentDoesNotContainElementException.class);
@@ -326,10 +326,10 @@ final class LinkedListTest extends ExtendedIterableTest {
     final var element4 = new VoidObject();
     final var testUnit = LinkedList.withElement(element1, element2, element3, element4);
 
-   // execute
+    // execute
     testUnit.removeStrictlyFirstOccurrenceOf(element3);
 
-   // verify
+    // verify
     expect(testUnit).containsExactly(element1, element2, element4);
   }
 
@@ -338,10 +338,10 @@ final class LinkedListTest extends ExtendedIterableTest {
     // setup
     final var testUnit = LinkedList.withElement("elephant", "jaguar", "lion", "python", "shark", "zebra");
 
-   // execute
+    // execute
     final var result = testUnit.toString();
 
-   // verify
+    // verify
     expect(result).isEqualTo("elephant,jaguar,lion,python,shark,zebra");
   }
 
@@ -350,10 +350,10 @@ final class LinkedListTest extends ExtendedIterableTest {
     // setup
     final var testUnit = LinkedList.createEmpty();
 
-   // execute
+    // execute
     final var result = testUnit.toString();
 
-   // verify
+    // verify
     expect(result).isEqualTo("");
   }
 

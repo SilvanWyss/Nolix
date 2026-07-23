@@ -44,7 +44,7 @@ final class StyleCatalogTest extends StandardTest {
     // setup
     final var webGuiWithVariousContent = createWebGuiWithVariousContent();
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> testUnit.applyToElement(webGuiWithVariousContent)).doesNotThrowException();
   }
 

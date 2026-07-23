@@ -24,7 +24,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(String.class);
 
-   // execute & verify
+    // execute & verify
     expectRunning(testUnit::isAbstract)
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -36,7 +36,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(List.class);
 
-   // execute & verify
+    // execute & verify
     expectRunning(testUnit::isAbstract).doesNotThrowException();
   }
 
@@ -45,7 +45,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(null);
 
-   // execute & verify
+    // execute & verify
     expectRunning(testUnit::isAbstract)
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -57,7 +57,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(ArrayList.class);
 
-   // execute & verify
+    // execute & verify
     expectRunning(testUnit::isClass).doesNotThrowException();
   }
 
@@ -66,7 +66,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(Iterable.class);
 
-   // execute & verify
+    // execute & verify
     expectRunning(testUnit::isClass)
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -78,7 +78,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(WriteMode.class);
 
-   // execute & verify
+    // execute & verify
     expectRunning(testUnit::isClass)
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -91,7 +91,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(null);
 
-   // execute & verify
+    // execute & verify
     expectRunning(testUnit::isClass)
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -103,7 +103,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(AbstractList.class);
 
-   // execute & verify
+    // execute & verify
     expectRunning(testUnit::isConcrete)
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -115,7 +115,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(ArrayList.class);
 
-   // execute & verify
+    // execute & verify
     expectRunning(testUnit::isConcrete).doesNotThrowException();
   }
 
@@ -124,7 +124,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(null);
 
-   // execute & verify
+    // execute & verify
     expectRunning(testUnit::isConcrete)
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -136,7 +136,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(ArrayList.class);
 
-   // execute & verify
+    // execute & verify
     expectRunning(testUnit::isEnum)
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -148,7 +148,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(Iterable.class);
 
-   // execute & verify
+    // execute & verify
     expectRunning(testUnit::isEnum)
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -160,7 +160,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(WriteMode.class);
 
-   // execute & verify
+    // execute & verify
     expectRunning(testUnit::isEnum).doesNotThrowException();
   }
 
@@ -169,7 +169,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(null);
 
-   // execute & verify
+    // execute & verify
     expectRunning(testUnit::isEnum)
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -181,7 +181,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(String.class);
 
-   // execute & verify
+    // execute & verify
     expectRunning(() -> testUnit.isImplementing(Iterable.class))
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -193,7 +193,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(ArrayList.class);
 
-   // execute & verify
+    // execute & verify
     expectRunning(() -> testUnit.isImplementing(Iterable.class)).doesNotThrowException();
   }
 
@@ -202,7 +202,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(null);
 
-   // execute & verify
+    // execute & verify
     expectRunning(() -> testUnit.isImplementing(Iterable.class))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -214,7 +214,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(Iterable.class);
 
-   // execute & verify
+    // execute & verify
     expectRunning(testUnit::isInterface).doesNotThrowException();
   }
 
@@ -223,7 +223,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(ArrayList.class);
 
-   // execute & verify
+    // execute & verify
     expectRunning(testUnit::isInterface)
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -235,7 +235,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(WriteMode.class);
 
-   // execute & verify
+    // execute & verify
     expectRunning(testUnit::isInterface)
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -248,7 +248,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(null);
 
-   // execute & verify
+    // execute & verify
     expectRunning(testUnit::isInterface)
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -260,7 +260,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(List.class);
 
-   // execute & verify
+    // execute & verify
     expectRunning(() -> testUnit.isSubTypeOf(ArrayList.class))
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -272,7 +272,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(List.class);
 
-   // execute & verify
+    // execute & verify
     expectRunning(() -> testUnit.isSubTypeOf(Iterable.class)).doesNotThrowException();
   }
 
@@ -281,7 +281,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(List.class);
 
-   // execute & verify
+    // execute & verify
     expectRunning(() -> testUnit.isSuperTypeOf(Iterable.class))
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -293,7 +293,7 @@ final class TypeMediatorTest extends StandardTest {
     // setup
     final var testUnit = TypeMediator.forArgument(List.class);
 
-   // execute & verify
+    // execute & verify
     expectRunning(() -> testUnit.isSuperTypeOf(ArrayList.class)).doesNotThrowException();
   }
 }

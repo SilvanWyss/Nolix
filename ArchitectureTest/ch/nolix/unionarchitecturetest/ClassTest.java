@@ -18,7 +18,7 @@ final class ClassTest {
     // setup
     final var testUnit = new ClassFileImporter().importPackages("ch.nolix..");
 
-   // execute & verification
+    // execute & verify
     ArchUnitRuleCatalog.PUBLIC_CLASSES_DO_NOT_CONTAIN_NESTED_CLASSES.check(testUnit);
   }
 }

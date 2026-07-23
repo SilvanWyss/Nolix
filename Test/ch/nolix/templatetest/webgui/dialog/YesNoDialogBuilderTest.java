@@ -23,10 +23,10 @@ final class YesNoDialogBuilderTest extends StandardTest {
     // setup
     final var testUnit = new YesNoDialogBuilder();
 
-   // execute
+    // execute
     final var result = testUnit.build();
 
-   // verify 
+    // verify 
     expect(result.getRole()).is(LayerRole.DIALOG_LAYER);
     final var controls = result.getStoredControls();
     expect(controls).contains(this::isConfirmButton);
@@ -40,14 +40,14 @@ final class YesNoDialogBuilderTest extends StandardTest {
     final var confirmActionMock = Mockito.mock(Runnable.class);
     testUnit.setConfirmAction(confirmActionMock);
 
-   // execute part 1
+    // execute part 1
     final var result = testUnit.build();
 
-   // execute part 2
+    // execute part 2
     final var cancelButton = (IButton) result.getStoredControls().getStoredFirst(this::isCancelButton);
     cancelButton.pressLeftMouseButton();
 
-   // verify
+    // verify
     Mockito.verify(confirmActionMock, Mockito.never()).run();
   }
 
@@ -58,14 +58,14 @@ final class YesNoDialogBuilderTest extends StandardTest {
     final var confirmActionMock = Mockito.mock(Runnable.class);
     testUnit.setConfirmAction(confirmActionMock);
 
-   // execute part 1
+    // execute part 1
     final var result = testUnit.build();
 
-   // execute part 2
+    // execute part 2
     final var confirmButton = (IButton) result.getStoredControls().getStoredFirst(this::isConfirmButton);
     confirmButton.pressLeftMouseButton();
 
-   // verify
+    // verify
     Mockito.verify(confirmActionMock).run();
   }
 
@@ -77,15 +77,15 @@ final class YesNoDialogBuilderTest extends StandardTest {
     final var confirmActionMock = Mockito.mock(Runnable.class);
     testUnit.setConfirmAction(confirmActionMock);
 
-   // execute part 1
+    // execute part 1
     final var result = testUnit.build();
     webGui.pushLayer(result);
 
-   // execute part 2
+    // execute part 2
     final var cancelButton = (IButton) result.getStoredControls().getStoredFirst(this::isCancelButton);
     cancelButton.pressLeftMouseButton();
 
-   // verify
+    // verify
     expect(result.belongsToGui()).isFalse();
     Mockito.verify(confirmActionMock, Mockito.never()).run();
   }
@@ -98,15 +98,15 @@ final class YesNoDialogBuilderTest extends StandardTest {
     final var confirmActionMock = Mockito.mock(Runnable.class);
     testUnit.setConfirmAction(confirmActionMock);
 
-   // execute part 1
+    // execute part 1
     final var result = testUnit.build();
     webGui.pushLayer(result);
 
-   // execute part 2
+    // execute part 2
     final var confirmButton = (IButton) result.getStoredControls().getStoredFirst(this::isConfirmButton);
     confirmButton.pressLeftMouseButton();
 
-   // verify
+    // verify
     Mockito.verify(confirmActionMock).run();
     expect(result.belongsToGui()).isFalse();
   }

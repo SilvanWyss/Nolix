@@ -25,10 +25,10 @@ extends ControlHtmlBuilderTest<HorizontalStackHtmlBuilder, IHorizontalStack> {
     // setup testUnit
     final var testUnit = createTestUnit();
 
-   // execute
+    // execute
     final var result = testUnit.createHtmlElementForControl(control);
 
-   // verify
+    // verify
     expect(result.getInnerText().isEmpty()).isTrue();
     final var childElements = result.getChildElements();
     expect(childElements).hasElementCount(3);

@@ -22,10 +22,10 @@ final class ShowValueDialogBuilderTest extends StandardTest {
     // setup
     final var testUnit = new ShowValueDialogBuilder();
 
-   // execute
+    // execute
     final var result = testUnit.build();
 
-   // verify
+    // verify
     expect(result.getRole()).is(LayerRole.DIALOG_LAYER);
   }
 
@@ -35,15 +35,15 @@ final class ShowValueDialogBuilderTest extends StandardTest {
     final var webGui = new WebGui();
     final var testUnit = new ShowValueDialogBuilder();
 
-   // execute part 1
+    // execute part 1
     final var result = testUnit.build();
     webGui.pushLayer(result);
 
-   // execute part 2
+    // execute part 2
     final var confirmButton = (IButton) result.getStoredControls().getStoredFirst(this::isConfirmButton);
     confirmButton.pressLeftMouseButton();
 
-   // verify
+    // verify
     expect(result.belongsToGui()).isFalse();
   }
 

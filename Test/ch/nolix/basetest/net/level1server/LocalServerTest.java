@@ -16,7 +16,7 @@ final class LocalServerTest extends StandardTest {
   @Test
   void testCase_constructor() {
     try (final var server = new LocalServer()) {
-     // verify
+      // verify
       expect(server.getSecurityMode()).is(SecurityMode.NONE);
       expect(server.isOpen());
       expect(server.isEmpty());

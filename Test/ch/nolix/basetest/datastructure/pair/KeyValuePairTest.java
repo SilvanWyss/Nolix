@@ -19,10 +19,10 @@ final class KeyValuePairTest extends StandardTest {
     final var key = "France";
     final var value = "Paris";
 
-   // execute
+    // execute
     final var result = KeyValuePair.withKeyAndValue(key, value);
 
-   // verify
+    // verify
     expect(result).hasStringRepresentation("(France;Paris)");
   }
 
@@ -32,10 +32,10 @@ final class KeyValuePairTest extends StandardTest {
     final var key = "France";
     final var value = "Paris";
 
-   // execute
+    // execute
     final var result = KeyValuePair.withKeyAndValue(key, value);
 
-   // verify
+    // verify
     expect(result.getKey()).is(key);
     expect(result.getStoredValue()).is(value);
   }
@@ -46,7 +46,7 @@ final class KeyValuePairTest extends StandardTest {
     final String key = null;
     final String value = "Paris";
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> KeyValuePair.withKeyAndValue(key, value))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -59,7 +59,7 @@ final class KeyValuePairTest extends StandardTest {
     final String key = "France";
     final String value = null;
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> KeyValuePair.withKeyAndValue(key, value))
       .throwsException()
       .ofType(ArgumentIsNullException.class)

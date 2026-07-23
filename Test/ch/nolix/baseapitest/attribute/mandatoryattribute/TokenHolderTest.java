@@ -21,10 +21,10 @@ final class TokenHolderTest extends StandardTest {
     Mockito.when(testUnit.hasToken(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getToken()).thenReturn("token");
 
-   // execute
+    // execute
     final var result = testUnit.hasToken("token");
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 
@@ -35,10 +35,10 @@ final class TokenHolderTest extends StandardTest {
     Mockito.when(testUnit.hasToken(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getToken()).thenReturn("token");
 
-   // execute
+    // execute
     final var result = testUnit.hasToken("Token");
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 }

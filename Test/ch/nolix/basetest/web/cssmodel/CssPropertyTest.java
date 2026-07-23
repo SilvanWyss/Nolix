@@ -18,26 +18,26 @@ final class CssPropertyTest extends StandardTest {
     // setup
     final var testUnit = CssProperty.withNameAndValue("width", "200px");
 
-   // execute
+    // execute
     final var result = testUnit.toString();
 
-   // verify
+    // verify
     expect(result).isEqualTo("width: 200px;");
   }
 
   @Test
   void testCase_withNameAndValue() {
-   // execute
+    // execute
     final var result = CssProperty.withNameAndValue("width", "200px");
 
-   // verify
+    // verify
     expect(result.getName()).isEqualTo("width");
     expect(result.getValue()).isEqualTo("200px");
   }
 
   @Test
   void testCase_withNameAndValue_whenTheGivenNameIsNull() {
-   // execute & verification
+    // execute & verify
     expectRunning(() -> CssProperty.withNameAndValue(null, "200px"))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -49,7 +49,7 @@ final class CssPropertyTest extends StandardTest {
     // setup
     final String value = null;
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> CssProperty.withNameAndValue("width", value))
       .throwsException()
       .ofType(ArgumentIsNullException.class)

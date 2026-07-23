@@ -17,7 +17,7 @@ import ch.nolix.template.graphic.texture.TextureCatalog;
 final class TextureCatalogTest extends StandardTest {
   @Test
   void testCase_constantsOfTextureCatalog() {
-   // verify
+    // verify
     final var textures = ReflectionTool.getStoredPublicStaticFieldValuesOfClass(TextureCatalog.class);
 
     for (final var t : textures) {

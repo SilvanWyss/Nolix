@@ -16,7 +16,7 @@ import ch.nolix.baseapi.net.securityproperty.SecurityMode;
 final class ApplicationInstanceTargetTest extends StandardTest {
   @Test
   void testCase_forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections() {
-   // execute
+    // execute
     final var result = ApplicationInstanceTarget
       .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
         "nolix.tech",
@@ -25,7 +25,7 @@ final class ApplicationInstanceTargetTest extends StandardTest {
         "demo_application",
         SecurityMode.SSL);
 
-   // verify
+    // verify
     expect(result.getIpOrDomain()).isEqualTo("nolix.tech");
     expect(result.getPort()).isEqualTo(PortCatalog.HTTPS);
     expect(result.getApplicationInstanceName()).isEqualTo("Demo Application");
@@ -44,10 +44,10 @@ final class ApplicationInstanceTargetTest extends StandardTest {
         "demo_application",
         SecurityMode.NONE);
 
-   // execute
+    // execute
     final var result = testUnit.toUrl();
 
-   // verify
+    // verify
     expect(result).isEqualTo("http://nolix.tech?app=demo_application");
   }
 
@@ -62,10 +62,10 @@ final class ApplicationInstanceTargetTest extends StandardTest {
         "demo_application",
         SecurityMode.SSL);
 
-   // execute
+    // execute
     final var result = testUnit.toUrl();
 
-   // verify
+    // verify
     expect(result).isEqualTo("https://nolix.tech?app=demo_application");
   }
 
@@ -80,10 +80,10 @@ final class ApplicationInstanceTargetTest extends StandardTest {
         "demo_application",
         SecurityMode.NONE);
 
-   // execute
+    // execute
     final var result = testUnit.toUrl();
 
-   // verify
+    // verify
     expect(result).isEqualTo("http://nolix.tech:50000?app=demo_application");
   }
 
@@ -98,10 +98,10 @@ final class ApplicationInstanceTargetTest extends StandardTest {
         "demo_application",
         SecurityMode.SSL);
 
-   // execute
+    // execute
     final var result = testUnit.toUrl();
 
-   // verify
+    // verify
     expect(result).isEqualTo("https://nolix.tech:50000?app=demo_application");
   }
 }

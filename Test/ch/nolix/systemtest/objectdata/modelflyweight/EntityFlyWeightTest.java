@@ -20,10 +20,10 @@ final class EntityFlyWeightTest extends StandardTest {
     final var insertAction = Mockito.mock(Runnable.class);
     final var testUnit = EntityFlyWeight.withInsertAction(insertAction);
 
-   // execute
+    // execute
     testUnit.noteInsertIntoDatabase();
 
-   // verify
+    // verify
     Mockito.verify(insertAction).run();
   }
 
@@ -32,16 +32,16 @@ final class EntityFlyWeightTest extends StandardTest {
     // setup
     final var insertAction = Mockito.mock(Runnable.class);
 
-   // execute
+    // execute
     final var testUnit = EntityFlyWeight.withInsertAction(insertAction);
 
-   // verify
+    // verify
     expect(testUnit.isEffectual()).isTrue();
   }
 
   @Test
   void testCase_withInsertAction_whenTheGivenInsertActionIsNull() {
-   // execute & verification
+    // execute & verify
     expectRunning(() -> EntityFlyWeight.withInsertAction(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)

@@ -20,10 +20,10 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
     // setup
     final var specification = ImmutableNode.fromString("Width(500)");
 
-   // execute
+    // execute
     final var result = AbsoluteOrRelativeInt.fromSpecification(specification);
 
-   // verify
+    // verify
     expect(result.isAbsolute()).isTrue();
     expect(result.getAbsoluteValue()).isEqualTo(500);
   }
@@ -33,10 +33,10 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
     // setup
     final var specification = ImmutableNode.fromString("Width(20%)");
 
-   // execute
+    // execute
     final var result = AbsoluteOrRelativeInt.fromSpecification(specification);
 
-   // verify
+    // verify
     expect(result.isRelative()).isTrue();
     expect(result.getPercentage()).isEqualTo(0.2);
   }
@@ -46,7 +46,7 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
     // setup
     final var testUnit = AbsoluteOrRelativeInt.withPercentage(0.2);
 
-   // execute & verification
+    // execute & verify
     expectRunning(testUnit::getAbsoluteValue)
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class)
@@ -58,7 +58,7 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
     // setup
     final var testUnit = AbsoluteOrRelativeInt.withIntValue(500);
 
-   // execute & verification
+    // execute & verify
     expectRunning(testUnit::getPercentage)
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class)
@@ -70,10 +70,10 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
     // setup
     final var testUnit = AbsoluteOrRelativeInt.withIntValue(500);
 
-   // execute
+    // execute
     final var result = testUnit.getValueRelativeToHundredPercentValue(200);
 
-   // verify
+    // verify
     expect(result).isEqualTo(500);
   }
 
@@ -82,10 +82,10 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
     // setup
     final var testUnit = AbsoluteOrRelativeInt.withIntValue(500);
 
-   // execute
+    // execute
     final var result = testUnit.getValueRelativeToHundredPercentValue(0);
 
-   // verify
+    // verify
     expect(result).isEqualTo(500);
   }
 
@@ -94,10 +94,10 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
     // setup
     final var testUnit = AbsoluteOrRelativeInt.withPercentage(0.2);
 
-   // execute
+    // execute
     final var result = testUnit.getValueRelativeToHundredPercentValue(200);
 
-   // verify
+    // verify
     expect(result).isEqualTo(40);
   }
 
@@ -106,36 +106,36 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
     // setup
     final var testUnit = AbsoluteOrRelativeInt.withPercentage(0.2);
 
-   // execute
+    // execute
     final var result = testUnit.getValueRelativeToHundredPercentValue(0);
 
-   // verify
+    // verify
     expect(result).isEqualTo(0);
   }
 
   @Test
   void testCase_withIntValue() {
-   // execute
+    // execute
     final var result = AbsoluteOrRelativeInt.withIntValue(500);
 
-   // verify
+    // verify
     expect(result.isAbsolute()).isTrue();
     expect(result.getAbsoluteValue()).isEqualTo(500);
   }
 
   @Test
   void testCase_withPercentage() {
-   // execute
+    // execute
     final var result = AbsoluteOrRelativeInt.withPercentage(0.2);
 
-   // verify
+    // verify
     expect(result.isRelative()).isTrue();
     expect(result.getPercentage()).isEqualTo(0.2);
   }
 
   @Test
   void testCase_withPercentage_whenTheGivenPercentageIsNegative() {
-   // execute & verification
+    // execute & verify
     expectRunning(() -> AbsoluteOrRelativeInt.withPercentage(-0.2))
       .throwsException()
       .ofType(NegativeArgumentException.class)

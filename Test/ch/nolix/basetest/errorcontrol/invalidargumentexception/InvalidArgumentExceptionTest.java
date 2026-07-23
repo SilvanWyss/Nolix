@@ -17,10 +17,10 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 final class InvalidArgumentExceptionTest extends StandardTest {
   @Test
   void testCase_forArgument_whenArgumentIsNull() {
-   // execute
+    // execute
     final var result = InvalidArgumentException.forArgument(null);
 
-   // verify
+    // verify
     expect(result.getArgumentName()).isEqualTo("argument");
     expect(result.getStoredArgument()).isNull();
     expect(result.getErrorPredicate()).isEqualTo("is not valid");
@@ -32,10 +32,10 @@ final class InvalidArgumentExceptionTest extends StandardTest {
     // setup
     final var node = ImmutableNode.fromString("Parking(Slot(Id(A)), Slot(Id(B)))");
 
-   // execute
+    // execute
     final var result = InvalidArgumentException.forArgument(node);
 
-   // verify
+    // verify
     expect(result.getArgumentName()).isEqualTo("ImmutableNode");
     expect(result.getStoredArgument()).is(node);
     expect(result.getErrorPredicate()).isEqualTo("is not valid");
@@ -47,10 +47,10 @@ final class InvalidArgumentExceptionTest extends StandardTest {
     // setup
     final var amount = BigDecimal.valueOf(10.5);
 
-   // execute
+    // execute
     final var result = InvalidArgumentException.forArgumentAndErrorPredicate(amount, "is not a whole number");
 
-   // verify
+    // verify
     expect(result.getArgumentName()).isEqualTo("BigDecimal");
     expect(result.getStoredArgument()).is(amount);
     expect(result.getErrorPredicate()).isEqualTo("is not a whole number");
@@ -62,13 +62,13 @@ final class InvalidArgumentExceptionTest extends StandardTest {
     // setup
     final var amount = BigDecimal.valueOf(10.5);
 
-   // execute
+    // execute
     final var result = InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
       amount,
       "amount",
       "is not a whole number");
 
-   // verify
+    // verify
     expect(result.getArgumentName()).isEqualTo("amount");
     expect(result.getStoredArgument()).is(amount);
     expect(result.getErrorPredicate()).isEqualTo("is not a whole number");

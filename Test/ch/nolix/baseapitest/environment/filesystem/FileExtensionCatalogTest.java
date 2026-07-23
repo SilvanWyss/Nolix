@@ -15,7 +15,7 @@ import ch.nolix.baseapi.environment.filesystem.FileExtensionCatalog;
 final class FileExtensionCatalogTest extends StandardTest {
   @Test
   void testCase_constants() {
-   // verify
+    // verify
     for (final var c : ReflectionTool.getStoredPublicStaticFieldValuesOfClass(FileExtensionCatalog.class)) {
       expect(c).isOfType(String.class);
     }

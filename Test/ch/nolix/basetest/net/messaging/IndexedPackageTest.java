@@ -18,10 +18,10 @@ final class IndexedPackageTest extends StandardTest {
     // setup
     final var testUnit = IndexedPackage.withIndexAndContent(105, new VoidObject());
 
-   // execute
+    // execute
     final var result = testUnit.hasIndex(105);
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 
@@ -30,10 +30,10 @@ final class IndexedPackageTest extends StandardTest {
     // setup
     final var testUnit = IndexedPackage.withIndexAndContent(105, new VoidObject());
 
-   // execute
+    // execute
     final var result = testUnit.hasIndex(106);
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 }

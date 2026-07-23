@@ -45,10 +45,10 @@ final class OptionalValueOnDatabaseTest extends StandardTest {
     final var garfield = new Pet();
     nodeDataAdapter.insertEntity(garfield);
 
-   // execute
+    // execute
     nodeDataAdapter.saveChanges();
 
-   // verify
+    // verify
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
       .getStoredEntityById(garfield.getId());
     expect(loadedGarfield.hasName()).isFalse();
@@ -64,10 +64,10 @@ final class OptionalValueOnDatabaseTest extends StandardTest {
     garfield.setName("Garfield");
     nodeDataAdapter.insertEntity(garfield);
 
-   // execute
+    // execute
     final var result = garfield.getName();
 
-   // verify
+    // verify
     expect(result).isEqualTo("Garfield");
   }
 
@@ -86,10 +86,10 @@ final class OptionalValueOnDatabaseTest extends StandardTest {
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
       .getStoredEntityById(garfield.getId());
 
-   // execute
+    // execute
     final var result = loadedGarfield.getName();
 
-   // verify
+    // verify
     expect(result).isEqualTo("Garfield");
   }
 }

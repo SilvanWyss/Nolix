@@ -21,7 +21,7 @@ final class BaseApiArchitectureTest {
     // setup
     final var rule = SlicesRuleDefinition.slices().matching("ch.nolix.baseapi.(*)..").should().beFreeOfCycles();
 
-   // execute & verification
+    // execute & verify
     rule.check(TEST_UNIT);
   }
 
@@ -37,7 +37,7 @@ final class BaseApiArchitectureTest {
         "ch.nolix.baseapi..",
         "java..");
 
-   // execute & verification
+    // execute & verify
     rule.check(TEST_UNIT);
   }
 }

@@ -21,10 +21,10 @@ final class IdHolderTest extends StandardTest {
     Mockito.when(testUnit.getIdInSingleQuotes()).thenCallRealMethod();
     Mockito.when(testUnit.getId()).thenReturn("id");
 
-   // execute
+    // execute
     final var result = testUnit.getIdInSingleQuotes();
 
-   // verify
+    // verify
     expect(result).isEqualTo("'id'");
   }
 
@@ -35,10 +35,10 @@ final class IdHolderTest extends StandardTest {
     Mockito.when(testUnit.hasId(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getId()).thenReturn("id");
 
-   // execute
+    // execute
     final var result = testUnit.hasId("id");
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 
@@ -49,10 +49,10 @@ final class IdHolderTest extends StandardTest {
     Mockito.when(testUnit.hasId(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getId()).thenReturn("id");
 
-   // execute
+    // execute
     final var result = testUnit.hasId("Id");
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 }

@@ -19,10 +19,10 @@ final class ContainsAnyMethodTest extends StandardTest {
     final Iterable<Object> iterable = null;
     final var testUnit = new IterableExaminer();
 
-   // execute
+    // execute
     final var result = testUnit.containsAny(iterable);
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 
@@ -32,10 +32,10 @@ final class ContainsAnyMethodTest extends StandardTest {
     final Iterable<Object> iterable = List.createEmpty();
     final var testUnit = new IterableExaminer();
 
-   // execute
+    // execute
     final var result = testUnit.containsAny(iterable);
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 
@@ -45,10 +45,10 @@ final class ContainsAnyMethodTest extends StandardTest {
     final Iterable<Object> iterable = List.fromArray(new String[] { "antelope" });
     final var testUnit = new IterableExaminer();
 
-   // execute
+    // execute
     final var result = testUnit.containsAny(iterable);
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 
@@ -58,10 +58,10 @@ final class ContainsAnyMethodTest extends StandardTest {
     final Iterable<Object> iterable = List.fromArray(new String[] { "antelope", "elephant" });
     final var testUnit = new IterableExaminer();
 
-   // execute
+    // execute
     final var result = testUnit.containsAny(iterable);
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 }

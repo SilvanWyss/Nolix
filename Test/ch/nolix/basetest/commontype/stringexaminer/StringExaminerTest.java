@@ -25,10 +25,10 @@ final class StringExaminerTest extends StandardTest {
     // setup
     final var testUnit = new StringExaminer();
 
-   // execute
+    // execute
     final var result = testUnit.isLowerCase(string);
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 
@@ -44,10 +44,10 @@ final class StringExaminerTest extends StandardTest {
     // setup
     final var testUnit = new StringExaminer();
 
-   // execute
+    // execute
     final var result = testUnit.isLowerCase(string);
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 
@@ -85,10 +85,10 @@ final class StringExaminerTest extends StandardTest {
     // setup
     final var testUnit = new StringExaminer();
 
-   // execute
+    // execute
     final var result = testUnit.startsWithIgnoringCase(string, prefix);
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 
@@ -150,10 +150,10 @@ final class StringExaminerTest extends StandardTest {
     // setup
     final var testUnit = new StringExaminer();
 
-   // execute
+    // execute
     final var result = testUnit.startsWithIgnoringCase(string, prefix);
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 }

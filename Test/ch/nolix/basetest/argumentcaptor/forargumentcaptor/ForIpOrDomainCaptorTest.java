@@ -19,7 +19,7 @@ final class ForIpOrDomainCaptorTest extends StandardTest {
     // setup
     final var testUnit = new ForHostCaptor<>();
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> testUnit.forHost("nolix.ch"))
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);
@@ -27,17 +27,17 @@ final class ForIpOrDomainCaptorTest extends StandardTest {
 
   @Test
   void testCase_forIpOrDomain_whenHasNext() {
-    // parameter definition
+    // define test parameters
     final var domain = "nolix.ch";
 
     // setup
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new ForHostCaptor<>(andNameCaptor);
 
-   // execute
+    // execute
     final var result = testUnit.forHost(domain);
 
-   // verify
+    // verify
     expect(testUnit.getHost()).isEqualTo(domain);
     expect(result).is(andNameCaptor);
   }
@@ -48,10 +48,10 @@ final class ForIpOrDomainCaptorTest extends StandardTest {
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new ForHostCaptor<>(andNameCaptor);
 
-   // execute
+    // execute
     final var result = testUnit.forLocalHost();
 
-   // verify
+    // verify
     expect(testUnit.getHost()).isEqualTo("127.0.0.1");
     expect(result).is(andNameCaptor);
   }
@@ -61,7 +61,7 @@ final class ForIpOrDomainCaptorTest extends StandardTest {
     // setup
     final var testUnit = new ForHostCaptor<>();
 
-   // execute & verification
+    // execute & verify
     expectRunning(testUnit::getHost).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }

@@ -19,10 +19,10 @@ final class GetInParenthesesMethodTest extends StandardTest {
     // setup
     final var testUnit = new StringToolUnit();
 
-   // execute
+    // execute
     final var result = testUnit.getInParentheses(null, null, null);
 
-   // verify
+    // verify
     expect(result).isEqualTo("(null,null,null)");
   }
 
@@ -36,10 +36,10 @@ final class GetInParenthesesMethodTest extends StandardTest {
     // setup
     final var testUnit = new StringToolUnit();
 
-   // execute
+    // execute
     final var result = testUnit.getInParentheses(string);
 
-   // verify
+    // verify
     expect(result).isEqualTo(expectedResult);
   }
 
@@ -48,10 +48,10 @@ final class GetInParenthesesMethodTest extends StandardTest {
     // setup
     final var testUnit = new StringToolUnit();
 
-   // execute
+    // execute
     final var result = testUnit.getInParentheses("antelope", "baboon", "elephant");
 
-   // verify
+    // verify
     expect(result).isEqualTo("(antelope,baboon,elephant)");
   }
 
@@ -60,10 +60,10 @@ final class GetInParenthesesMethodTest extends StandardTest {
     // setup
     final var testUnit = new StringToolUnit();
 
-   // execute
+    // execute
     final var result = testUnit.getInParentheses("antelope", null, "elephant");
 
-   // verify
+    // verify
     expect(result).isEqualTo("(antelope,null,elephant)");
   }
 }

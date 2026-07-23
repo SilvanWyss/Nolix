@@ -20,7 +20,7 @@ final class PascalCaseVariableCatalogTest extends StandardTest {
     // setup
     final var exceptions = LinkedList.withElement(PascalCaseVariableNameCatalog.GUI, PascalCaseVariableNameCatalog.URL);
 
-   // verify
+    // verify
     for (final var c : ReflectionTool.getStoredPublicStaticFieldValuesOfClass(PascalCaseVariableNameCatalog.class)) {
       expect(c).isOfType(String.class);
 

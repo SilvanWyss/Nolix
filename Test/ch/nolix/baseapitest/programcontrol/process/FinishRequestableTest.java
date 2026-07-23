@@ -22,10 +22,10 @@ final class FinishRequestableTest extends StandardTest {
       }
     };
 
-   // execute
+    // execute
     final var result = testUnit.isRunning();
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 
@@ -39,10 +39,10 @@ final class FinishRequestableTest extends StandardTest {
       }
     };
 
-   // execute
+    // execute
     final var result = testUnit.isRunning();
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 }

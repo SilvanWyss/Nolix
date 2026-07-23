@@ -27,7 +27,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", -20);
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> testUnit.isBetween(0, 100))
       .throwsException()
       .ofType(ArgumentIsOutOfRangeException.class)
@@ -44,7 +44,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", argument);
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> testUnit.isBetween(0, 100)).doesNotThrowException();
   }
 
@@ -53,7 +53,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 120);
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> testUnit.isBetween(0, 100))
       .throwsException()
       .ofType(ArgumentIsOutOfRangeException.class)
@@ -65,7 +65,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 20);
 
-   // verify & execution
+    // verify & execution
     expectRunning(() -> testUnit.isBiggerThan(100))
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -77,7 +77,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 100);
 
-   // verify & execution
+    // verify & execution
     expectRunning(() -> testUnit.isBiggerThan(100))
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -89,7 +89,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 120);
 
-   // verify & execution
+    // verify & execution
     expectRunning(() -> testUnit.isBiggerThan(100)).doesNotThrowException();
   }
 
@@ -98,7 +98,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 20);
 
-   // verify & execution
+    // verify & execution
     expectRunning(() -> testUnit.isBiggerThanOrEquals(100))
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -110,7 +110,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 100);
 
-   // verify & execution
+    // verify & execution
     expectRunning(() -> testUnit.isBiggerThanOrEquals(100)).doesNotThrowException();
   }
 
@@ -119,7 +119,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 120);
 
-   // verify & execution
+    // verify & execution
     expectRunning(() -> testUnit.isBiggerThanOrEquals(100)).doesNotThrowException();
   }
 
@@ -128,7 +128,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 10);
 
-   // execute
+    // execute
     expectRunning(() -> testUnit.isEqualToAnyOf(5, 10, 15, 20)).doesNotThrowException();
   }
 
@@ -137,7 +137,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 10);
 
-   // execute
+    // execute
     expectRunning(() -> testUnit.isEqualToAnyOf(15, 20, 25, 30))
       .throwsException()
       .ofType(InvalidArgumentException.class);
@@ -148,7 +148,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 10);
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> testUnit.isEqualTo(9))
       .throwsException()
       .ofType(UnequalArgumentException.class);
@@ -159,7 +159,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 10);
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> testUnit.isEqualTo(10)).doesNotThrowException();
   }
 
@@ -169,7 +169,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", argument);
 
-   // execute & verification
+    // execute & verify
     expectRunning(testUnit::isNegative).doesNotThrowException();
   }
 
@@ -179,7 +179,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", argument);
 
-   // execute & verification
+    // execute & verify
     expectRunning(testUnit::isNegative)
       .throwsException()
       .ofType(NonNegativeArgumentException.class)
@@ -191,7 +191,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", -1);
 
-   // execute & verification
+    // execute & verify
     expectRunning(testUnit::isNotNegative)
       .throwsException()
       .ofType(NegativeArgumentException.class)
@@ -203,7 +203,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 0);
 
-   // execute & verification
+    // execute & verify
     expectRunning(testUnit::isNotNegative).doesNotThrowException();
   }
 
@@ -212,7 +212,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 1);
 
-   // execute & verification
+    // execute & verify
     expectRunning(testUnit::isNotNegative).doesNotThrowException();
   }
 
@@ -221,7 +221,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", -1);
 
-   // execute & verification
+    // execute & verify
     expectRunning(testUnit::isPositive)
       .throwsException()
       .ofType(NonPositiveArgumentException.class)
@@ -233,7 +233,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 0);
 
-   // execute & verification
+    // execute & verify
     expectRunning(testUnit::isPositive)
       .throwsException()
       .ofType(NonPositiveArgumentException.class)
@@ -245,7 +245,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 1);
 
-   // execute & verification
+    // execute & verify
     expectRunning(testUnit::isPositive).doesNotThrowException();
   }
 
@@ -254,7 +254,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 20);
 
-   // verify & execution
+    // verify & execution
     expectRunning(() -> testUnit.isSmallerThan(100)).doesNotThrowException();
   }
 
@@ -263,7 +263,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 100);
 
-   // verify & execution
+    // verify & execution
     expectRunning(() -> testUnit.isSmallerThan(100))
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -275,7 +275,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 120);
 
-   // verify & execution
+    // verify & execution
     expectRunning(() -> testUnit.isSmallerThan(100))
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -287,7 +287,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 20);
 
-   // verify & execution
+    // verify & execution
     expectRunning(() -> testUnit.isSmallerThanOrEquals(100)).doesNotThrowException();
   }
 
@@ -296,7 +296,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 100);
 
-   // verify & execution
+    // verify & execution
     expectRunning(() -> testUnit.isSmallerThanOrEquals(100)).doesNotThrowException();
   }
 
@@ -305,7 +305,7 @@ final class LongMediatorTest extends StandardTest {
     // setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 120);
 
-   // verify & execution
+    // verify & execution
     expectRunning(() -> testUnit.isSmallerThanOrEquals(100))
       .throwsException()
       .ofType(BiggerArgumentException.class)

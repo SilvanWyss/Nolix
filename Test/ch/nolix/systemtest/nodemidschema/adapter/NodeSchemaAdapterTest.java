@@ -21,7 +21,7 @@ import ch.nolix.systemapi.midschema.structure.TableIdentification;
 final class NodeSchemaAdapterTest extends StandardTest {
   @Test
   void testCase_addColumn() {
-    // parameter definition
+    // define test parameters
     final var tableId = "table_id";
     final var tableName = "table_name";
     final var columnName = "column_name";
@@ -46,18 +46,18 @@ final class NodeSchemaAdapterTest extends StandardTest {
     final var testUnit = NodeSchemaAdapter.forNodeDatabase(nodeDatabase);
     testUnit.addTable(tableDto);
 
-   // execute
+    // execute
     testUnit.addColumn(new TableIdentification(tableId, tableName), columnDto);
     testUnit.saveChanges();
 
-   // verify
+    // verify
     expect(testUnit.isChangeFree()).isTrue();
     expect(testUnit.loadTable(tableName).columns()).contains(c -> c.name().equals(columnName));
   }
 
   @Test
   void testCase_addTable() {
-    // parameter definition
+    // define test parameters
     final var tableName = "table_name";
 
     // Setups nodeDatabase.
@@ -72,18 +72,18 @@ final class NodeSchemaAdapterTest extends StandardTest {
     // setup verification
     expect(testUnit.isChangeFree()).isTrue();
 
-   // execute
+    // execute
     testUnit.addTable(tableDto);
     testUnit.saveChanges();
 
-   // verify
+    // verify
     expect(testUnit.isChangeFree());
     expect(testUnit.loadTables()).contains(t -> t.name().equals(tableName));
   }
 
   @Test
   void testCase_deleteColumn() {
-    // parameter definition
+    // define test parameters
     final var tableId = "table_id";
     final var tableName = "table_name";
     final var columnName = "column_name";
@@ -110,18 +110,18 @@ final class NodeSchemaAdapterTest extends StandardTest {
     testUnit.addColumn(new TableIdentification(tableId, tableName), columnDto);
     testUnit.saveChanges();
 
-   // execute
+    // execute
     testUnit.deleteColumn(new TableIdentification(tableId, tableName), columnName);
     testUnit.saveChanges();
 
-   // verify
+    // verify
     expect(testUnit.isChangeFree()).isTrue();
     expect(testUnit.loadTable(tableName).columns()).isEmpty();
   }
 
   @Test
   void testCase_deleteTable() {
-    // parameter definition
+    // define test parameters
     final var tableName = "table_name";
 
     // Setups nodeDatabase.
@@ -135,11 +135,11 @@ final class NodeSchemaAdapterTest extends StandardTest {
     testUnit.addTable(tableDto);
     testUnit.saveChanges();
 
-   // execute
+    // execute
     testUnit.deleteTable(tableName);
     testUnit.saveChanges();
 
-   // verify
+    // verify
     expect(testUnit.isChangeFree()).isTrue();
     expect(testUnit.loadTables()).isEmpty();
   }

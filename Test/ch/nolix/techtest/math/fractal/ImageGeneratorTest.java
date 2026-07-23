@@ -21,10 +21,10 @@ final class ImageGeneratorTest extends StandardTest {
     final var testUnit = ImageGenerator.forFractal(fractal);
     testUnit.waitUntilIsFinished();
 
-   // execute
+    // execute
     final var result = testUnit.getStoredImage();
 
-   // verify
+    // verify
     expect(result.getWidth()).isEqualTo(10);
     expect(result.getHeight()).isEqualTo(5);
   }

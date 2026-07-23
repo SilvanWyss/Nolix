@@ -19,15 +19,15 @@ final class MultiValueStatementCreatorTest extends StandardTest {
     final var multiValueColumnId = "my_multi_value_column_id";
     final var testUnit = new MultiValueStatementCreator();
 
-   // verify setup
+    // verify setup
     final var expectedResult = //
     "DELETE FROM MultiValueEntry "
     + "WHERE EntityId = 'my_entity_id' AND MultiValueColumnId = 'my_multi_value_column_id';";
 
-   // execute
+    // execute
     final var result = testUnit.createStatementToDeleteMultiValueEntries(entityId, multiValueColumnId);
 
-   // verify
+    // verify
     expect(result).isEqualTo(expectedResult);
   }
 
@@ -39,15 +39,15 @@ final class MultiValueStatementCreatorTest extends StandardTest {
     final var entry = "my_entry";
     final var testUnit = new MultiValueStatementCreator();
 
-   // verify setup
+    // verify setup
     final var expectedResult = //
     "DELETE FROM MultiValueEntry "
     + "WHERE EntityId = 'my_entity_id' AND MultiValueColumnId = 'my_multi_value_column_id' AND Value_ = 'my_entry';";
 
-   // execute
+    // execute
     final var result = testUnit.createStatementToDeleteMultiValueEntry(entityId, multiValueColumnId, entry);
 
-   // verify
+    // verify
     expect(result).isEqualTo(expectedResult);
   }
 
@@ -59,16 +59,16 @@ final class MultiValueStatementCreatorTest extends StandardTest {
     final var entry = "my_entry";
     final var testUnit = new MultiValueStatementCreator();
 
-   // verify setup
+    // verify setup
     final var expectedResult = //
     "INSERT INTO MultiValueEntry "
     + "(EntityId, MultiValueColumnId, Value_) "
     + "VALUES ('my_entity_id', 'my_multi_value_column_id', 'my_entry');";
 
-   // execute
+    // execute
     final var result = testUnit.createStatementToInsertMultiValueEntry(entityId, multiValueColumnId, entry);
 
-   // verify
+    // verify
     expect(result).isEqualTo(expectedResult);
   }
 }

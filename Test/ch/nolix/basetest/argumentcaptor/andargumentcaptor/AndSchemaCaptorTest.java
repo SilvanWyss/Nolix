@@ -17,17 +17,17 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
 final class AndSchemaCaptorTest extends StandardTest {
   @Test
   void testCase_andSchema_whenHasNext() {
-    // parameter definition
+    // define test parameters
     final var schema = new VoidObject();
 
     // setup
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new AndSchemaCaptor<>(andNameCaptor);
 
-   // execute
+    // execute
     final var result = testUnit.andSchema(schema);
 
-   // verify
+    // verify
     expect(testUnit.getStoredSchema()).is(schema);
     expect(result).is(andNameCaptor);
   }
@@ -37,7 +37,7 @@ final class AndSchemaCaptorTest extends StandardTest {
     // setup
     final var testUnit = new AndSchemaCaptor<>();
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> testUnit.andSchema(new VoidObject()))
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);
@@ -48,7 +48,7 @@ final class AndSchemaCaptorTest extends StandardTest {
     // setup
     final var testUnit = new AndSchemaCaptor<>();
 
-   // execute & verification
+    // execute & verify
     expectRunning(testUnit::getStoredSchema).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }

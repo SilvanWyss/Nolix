@@ -35,10 +35,10 @@ final class HtmlElementTest extends StandardTest {
           ImmutableList.withElements(attribute1, attribute2),
           "my inner text"));
 
-   // execute
+    // execute
     final var result = testUnit.withAdditionalAttributes(attribute3, attribute4);
 
-   // verify
+    // verify
     expect(result).isEqualTo(
       HtmlElement.withTypeAndAttributesAndInnerText(
         HtmlElementTypeCatalog.DIV,

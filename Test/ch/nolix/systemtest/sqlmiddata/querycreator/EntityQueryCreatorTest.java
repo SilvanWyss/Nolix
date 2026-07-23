@@ -22,11 +22,11 @@ final class EntityQueryCreatorTest extends StandardTest {
     // setup
     final var testUnit = new EntityQueryCreator();
 
-   // execute
+    // execute
     final var result = testUnit.createQueryToCountEntitiesWithGivenValueAtGivenColumn("MyTable", "MyColumn",
       "my_value");
 
-   // verify
+    // verify
     final var expectedResult = "SELECT COUNT(MyColumn) FROM MyTable WHERE MyColumn = 'my_value';";
     expect(result).isEqualTo(expectedResult);
   }
@@ -42,10 +42,10 @@ final class EntityQueryCreatorTest extends StandardTest {
         new ColumnInfoDto("ccccccc1", "name", 0, FieldType.VALUE_FIELD, DataType.STRING),
         new ColumnInfoDto("ccccccc2", "year_of_birth", 0, FieldType.VALUE_FIELD, DataType.INTEGER_4BYTE)));
 
-   // execute
+    // execute
     final var result = testUnit.createQueryToLoadEntitiesByTable(tableView);
 
-   // verify
+    // verify
     final var expectedResult = "SELECT Id, SaveStamp, name, year_of_birth FROM Cat;";
     expect(result).isEqualTo(expectedResult);
   }
@@ -61,10 +61,10 @@ final class EntityQueryCreatorTest extends StandardTest {
         new ColumnInfoDto("ccccccc1", "name", 0, FieldType.VALUE_FIELD, DataType.STRING),
         new ColumnInfoDto("ccccccc2", "year_of_birth", 0, FieldType.VALUE_FIELD, DataType.INTEGER_4BYTE)));
 
-   // execute
+    // execute
     final var result = testUnit.createQueryToLoadEntityByTableAndId("eeeeeee1", tableView);
 
-   // verify
+    // verify
     final var expectedResult = "SELECT Id, SaveStamp, name, year_of_birth FROM Cat WHERE Id = 'eeeeeee1';";
     expect(result).isEqualTo(expectedResult);
   }
@@ -74,13 +74,13 @@ final class EntityQueryCreatorTest extends StandardTest {
     // setup
     final var testUnit = new EntityQueryCreator();
 
-   // execute
+    // execute
     final var result = testUnit.createQueryToLoadSchemaTimestamp();
 
-   // verify setup
+    // verify setup
     final var expectedResult = "SELECT Value_ FROM DatabaseProperty WHERE Key_ = 'SchemaTimestamp';";
 
-   // verify
+    // verify
     expect(result).isEqualTo(expectedResult);
   }
 }

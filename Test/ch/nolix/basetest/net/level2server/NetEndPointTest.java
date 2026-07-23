@@ -16,14 +16,14 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class NetEndPointTest extends StandardTest {
   @Test
   void testCase_constructor() {
-    // parameter definition
+    // define test parameters
     final var port = 50000;
 
     try (final var server = Server.forPort(50000)) {
       // setup
       server.addDefaultSlot(new MockSlot());
 
-     // execute & verification
+      // execute & verify
       expectRunning(
         () -> {
           try (final var _ = NetEndPoint.toLocalMachineAndGivenPortAndDefaultSlot(port)) {
@@ -36,7 +36,7 @@ final class NetEndPointTest extends StandardTest {
 
   @Test
   void testCase_sendAndGetReply() {
-    // parameter definition
+    // define test parameters
     final var port = 50000;
 
     try (final var server = Server.forPort(50000)) {
@@ -45,10 +45,10 @@ final class NetEndPointTest extends StandardTest {
       server.addDefaultSlot(slot);
 
       try (final var testUnit = NetEndPoint.toLocalMachineAndGivenPortAndDefaultSlot(port)) {
-       // execute
+        // execute
         final var result = testUnit.getReplyForRequest("message");
 
-       // verify
+        // verify
         expect(slot.getLatestReceivedMessage()).isEqualTo("message");
         expect(result).isEqualTo(MockSlot.REPLY);
       }

@@ -21,10 +21,10 @@ final class MultiExtendedIterableViewTest extends ExtendedIterableTest {
     final var array2 = new String[] { "y", "yy" };
     final var array3 = new String[] { "z", "zz" };
 
-   // execute
+    // execute
     final var result = MultiExtendedIterableView.forArrays(array1, array2, array3);
 
-   // verify
+    // verify
     expect(result).containsExactlyInSameOrder("x", "xx", "y", "yy", "z", "zz");
   }
 

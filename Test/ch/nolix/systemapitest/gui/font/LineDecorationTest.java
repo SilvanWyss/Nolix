@@ -30,10 +30,10 @@ final class LineDecorationTest extends StandardTest {
   @ParameterizedTest
   @MethodSource("getSpecificationsAndTheirLineDecorations")
   void testCase_fromSpecification(final INode<?> specification, final LineDecoration expectedLineDecoration) {
-   // execute
+    // execute
     final var result = LineDecoration.fromSpecification(specification);
 
-   // verify
+    // verify
     expect(result).is(expectedLineDecoration);
   }
 }

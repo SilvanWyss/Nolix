@@ -15,10 +15,10 @@ import ch.nolix.systemtest.webgui.main.ControlTest;
 public abstract class ContainerTest<C extends Container<C, ?>> extends ControlTest<C> {
   @Test
   final void testCase_constructor() {
-   // execute
+    // execute
     final var testUnit = createTestUnit();
 
-   // verify
+    // verify
     expect(testUnit.isEmpty()).isTrue();
   }
 }

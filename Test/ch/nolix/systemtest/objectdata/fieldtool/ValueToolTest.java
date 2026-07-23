@@ -31,10 +31,10 @@ final class ValueToolTest extends StandardTest {
     final String valueToSet = "Garfield";
     final var testUnit = new ValueFieldExaminer();
 
-   // execute
+    // execute
     final var result = testUnit.canSetValue(pet.name, valueToSet);
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 
@@ -56,10 +56,10 @@ final class ValueToolTest extends StandardTest {
     // setup verification
     expect(pet.name.isClosed()).isTrue();
 
-   // execute
+    // execute
     final var result = testUnit.canSetValue(pet.name, valueToSet);
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 
@@ -70,10 +70,10 @@ final class ValueToolTest extends StandardTest {
     final String valueToSet = null;
     final var testUnit = new ValueFieldExaminer();
 
-   // execute
+    // execute
     final var result = testUnit.canSetValue(pet.name, valueToSet);
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 }

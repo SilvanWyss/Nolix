@@ -43,10 +43,10 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
     final var garfield = new Pet();
     nodeDataAdapter.insertEntity(garfield);
 
-   // execute
+    // execute
     final var result = garfield.owner.getStoredBackReferencedBaseReferences();
 
-   // verify
+    // verify
     expect(result).isEmpty();
   }
 
@@ -62,10 +62,10 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
     john.pet.setEntity(garfield);
     nodeDataAdapter.insertEntity(john);
 
-   // execute
+    // execute
     final var result = garfield.owner.getStoredBackReferencedBaseReferences();
 
-   // verify
+    // verify
     expect(result).containsExactly(john.pet);
   }
 
@@ -78,7 +78,7 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
     final var garfield = new Pet();
     nodeDataAdapter.insertEntity(garfield);
 
-   // execute & verification
+    // execute & verify
     expectRunning(garfield.owner::getStoredBackReferencedEntity).throwsException();
   }
 
@@ -94,10 +94,10 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
     john.pet.setEntity(garfield);
     nodeDataAdapter.insertEntity(john);
 
-   // execute
+    // execute
     final var result = garfield.owner.getStoredBackReferencedEntity();
 
-   // verify
+    // verify
     expect(result).is(john);
   }
 
@@ -114,12 +114,12 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(john);
     nodeDataAdapter.saveChanges();
 
-   // execute
+    // execute
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
       .getStoredEntityById(garfield.getId());
     final var result = loadedGarfield.owner.getStoredBackReferencedEntity();
 
-   // verify
+    // verify
     expect(result.getId()).isEqualTo(john.getId());
   }
 
@@ -132,7 +132,7 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
     final var garfield = new Pet();
     nodeDataAdapter.insertEntity(garfield);
 
-   // execute & verification
+    // execute & verify
     expectRunning(nodeDataAdapter::saveChanges).throwsException();
   }
 
@@ -153,7 +153,7 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
     loadedJohn.delete();
 
-   // execute & verification
+    // execute & verify
     expectRunning(nodeDataAdapter::saveChanges).throwsException();
   }
 
@@ -181,7 +181,7 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
       .getStoredEntityById(garfield.getId());
     expect(loadedGarfield.owner.isEmpty()).isTrue();
 
-   // execute & verification
+    // execute & verify
     expectRunning(nodeDataAdapter::saveChanges).throwsException();
   }
 }

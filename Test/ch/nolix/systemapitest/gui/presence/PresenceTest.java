@@ -30,10 +30,10 @@ final class PresenceTest extends StandardTest {
   @ParameterizedTest
   @MethodSource("getSpecificationsAndTheirPresences")
   void testCase_fromSpecification(final INode<?> specification, final Presence expectedPresence) {
-   // execute
+    // execute
     final var result = Presence.fromSpecification(specification);
 
-   // verify
+    // verify
     expect(result).is(expectedPresence);
   }
 }

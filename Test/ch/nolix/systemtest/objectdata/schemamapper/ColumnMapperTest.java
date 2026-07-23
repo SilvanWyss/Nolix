@@ -19,7 +19,7 @@ final class ColumnMapperTest extends StandardTest {
     // setup
     final var testUnit = new ColumnMapper();
 
-    // execute & verify
+     // execute & verify
     expectRunning(() -> testUnit.mapFieldToColumn(null, "column_id", ImmutableList.createEmpty()))
       .throwsException()
       .ofType(InvalidArgumentException.class);

@@ -20,10 +20,10 @@ final class HtmlElementStringRepresentatorTest extends StandardTest {
     // setup
     final var htmlElement = HtmlElement.withType("div");
 
-   // execute
+    // execute
     final var result = HtmlElementStringRepresentator.toString(htmlElement);
 
-   // verify
+    // verify
     expect(result).isEqualTo("<div />");
   }
 
@@ -36,10 +36,10 @@ final class HtmlElementStringRepresentatorTest extends StandardTest {
       HtmlAttribute.withNameAndValue("class", "my_class"),
       HtmlAttribute.withNameAndValue("title", "my_title"));
 
-   // execute
+    // execute
     final var result = HtmlElementStringRepresentator.toString(htmlElement);
 
-   // verify
+    // verify
     expect(result).isEqualTo("<div class=\"my_class\" title=\"my_title\" />");
   }
 
@@ -55,10 +55,10 @@ final class HtmlElementStringRepresentatorTest extends StandardTest {
       HtmlElement.withType("h1"),
       HtmlElement.withType("p"));
 
-   // execute
+    // execute
     final var result = HtmlElementStringRepresentator.toString(htmlElement);
 
-   // verify
+    // verify
     expect(result).isEqualTo("<div class=\"my_class\" title=\"my_title\"><h1 /><p /></div>");
   }
 
@@ -73,10 +73,10 @@ final class HtmlElementStringRepresentatorTest extends StandardTest {
         HtmlAttribute.withNameAndValue("title", "my_title")),
       "my_content");
 
-   // execute
+    // execute
     final var result = HtmlElementStringRepresentator.toString(htmlElement);
 
-   // verify
+    // verify
     expect(result).isEqualTo("<div class=\"my_class\" title=\"my_title\">my_content</div>");
   }
 
@@ -89,10 +89,10 @@ final class HtmlElementStringRepresentatorTest extends StandardTest {
       HtmlElement.withType("h1"),
       HtmlElement.withType("p"));
 
-   // execute
+    // execute
     final var result = HtmlElementStringRepresentator.toString(htmlElement);
 
-   // verify
+    // verify
     expect(result).isEqualTo("<div><h1 /><p /></div>");
   }
 
@@ -101,10 +101,10 @@ final class HtmlElementStringRepresentatorTest extends StandardTest {
     // setup
     final var htmlElement = HtmlElement.withTypeAndInnerText("div", "my_content");
 
-   // execute
+    // execute
     final var result = HtmlElementStringRepresentator.toString(htmlElement);
 
-   // verify
+    // verify
     expect(result).isEqualTo("<div>my_content</div>");
   }
 }

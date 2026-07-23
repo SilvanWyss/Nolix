@@ -19,7 +19,7 @@ final class MultiDoubleMediatorTest extends StandardTest {
     final var arguments = new double[] { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 };
     final var testUnit = MultiDoubleMediator.forArugments(arguments);
 
-   // execute
+    // execute
     expectRunning(testUnit::arePositive).doesNotThrowException();
   }
 
@@ -29,7 +29,7 @@ final class MultiDoubleMediatorTest extends StandardTest {
     final var arguments = new double[] { 1.0, 2.0, 3.0, 4.0, 5.0, 0.0 };
     final var testUnit = MultiDoubleMediator.forArugments(arguments);
 
-   // execute
+    // execute
     expectRunning(testUnit::arePositive)
       .throwsException()
       .ofType(NonPositiveArgumentException.class)
@@ -42,7 +42,7 @@ final class MultiDoubleMediatorTest extends StandardTest {
     final var arguments = new double[] { 1.0, 2.0, 3.0, 4.0, 5.0, -1.0 };
     final var testUnit = MultiDoubleMediator.forArugments(arguments);
 
-   // execute
+    // execute
     expectRunning(testUnit::arePositive)
       .throwsException()
       .ofType(NonPositiveArgumentException.class)

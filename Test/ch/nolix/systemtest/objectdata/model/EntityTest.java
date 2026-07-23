@@ -19,19 +19,19 @@ final class EntityTest extends StandardTest {
 
   @Test
   void testCase_constructor() {
-   // execute
+    // execute
     final var result = new Thing();
 
-   // verify part 1: parents
+    // verify part 1: parents
     expect(result.belongsToDatabase()).isFalse();
     expect(result.belongsToTable()).isFalse();
 
-   // verify part 2: attributes
+    // verify part 2: attributes
     expect(result.getId()).hasLength(10);
     expect(result.internalGetStoredFields()).isEmpty();
     expect(result.hasSaveStamp()).isFalse();
 
-   // verify part 3: state
+    // verify part 3: state
     expect(result.getState()).is(DatabaseObjectState.NEW);
     expect(result.isNew()).isTrue();
     expect(result.isLoaded()).isFalse();
@@ -47,10 +47,10 @@ final class EntityTest extends StandardTest {
     // setup
     final var testUnit = new Thing();
 
-   // execute
+    // execute
     final var result = testUnit.getShortDescription();
 
-   // verify
+    // verify
     expect(result).isEqualTo("Thing (id: " + testUnit.getId() + ")");
   }
 
@@ -59,10 +59,10 @@ final class EntityTest extends StandardTest {
     // setup
     final var testUnit = new Thing();
 
-   // execute
+    // execute
     final var result = testUnit.toString();
 
-   // verify
+    // verify
     final var shortDescription = testUnit.getShortDescription();
     expect(result).isEqualTo(shortDescription);
   }

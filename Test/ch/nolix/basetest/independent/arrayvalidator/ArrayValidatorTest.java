@@ -18,7 +18,7 @@ final class ArrayValidatorTest extends StandardTest {
     final String[] array = null;
     final var testUnit = new ArrayValidator();
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> testUnit.assertDoesNotContainNull(array))
       .throwsException()
       .ofType(IllegalArgumentException.class)
@@ -31,7 +31,7 @@ final class ArrayValidatorTest extends StandardTest {
     final String[] array = {};
     final var testUnit = new ArrayValidator();
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> testUnit.assertDoesNotContainNull(array)).doesNotThrowException();
   }
 
@@ -41,7 +41,7 @@ final class ArrayValidatorTest extends StandardTest {
     final String[] array = { "antelope", "baboon", "elephant", "lion", "rhino", "zebra" };
     final var testUnit = new ArrayValidator();
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> testUnit.assertDoesNotContainNull(array)).doesNotThrowException();
   }
 
@@ -51,7 +51,7 @@ final class ArrayValidatorTest extends StandardTest {
     final String[] array = { "antelope", "baboon", "elephant", "lion", null, "rhino", "zebra" };
     final var testUnit = new ArrayValidator();
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> testUnit.assertDoesNotContainNull(array))
       .throwsException()
       .ofType(IllegalArgumentException.class)

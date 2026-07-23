@@ -20,23 +20,23 @@ final class WithSqlDatabaseEngineCaptorTest extends StandardTest {
     // setup
     final var testUnit = new WithSqlDatabaseEngineCaptor<>();
 
-   // execute & verification
+    // execute & verify
     expectRunning(testUnit::getSqlDatabaseEngine).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
   @Test
   void testCase_withSqlDatabaseEngine_whenHasNext() {
-    // parameter definition
+    // define test parameters
     final var sqlDatabaseEngine = SqlDatabaseEngine.MS_SQL;
 
     // setup
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new WithSqlDatabaseEngineCaptor<>(andNameCaptor);
 
-   // execute
+    // execute
     final var result = testUnit.withSqlDatabaseEngine(sqlDatabaseEngine);
 
-   // verify
+    // verify
     expect(testUnit.getSqlDatabaseEngine()).isEqualTo(sqlDatabaseEngine);
     expect(result).is(andNameCaptor);
   }
@@ -46,7 +46,7 @@ final class WithSqlDatabaseEngineCaptorTest extends StandardTest {
     // setup
     final var testUnit = new WithSqlDatabaseEngineCaptor<>();
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> testUnit.withSqlDatabaseEngine(SqlDatabaseEngine.MS_SQL))
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);

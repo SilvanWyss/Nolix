@@ -14,91 +14,91 @@ import ch.nolix.baseapi.programcontrol.function.FunctionService;
 final class FunctionCatalogTest extends StandardTest {
   @Test
   void testCase_getFalse() {
-   // execute
+    // execute
     final var result = FunctionService.getFalse();
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 
   @Test
   void testCase_getNull() {
-   // execute
+    // execute
     final var result = FunctionService.getNull();
 
-   // verify
+    // verify
     expect(result).isNull();
   }
 
   @Test
   void testCase_getOne() {
-   // execute
+    // execute
     final var result = FunctionService.getOne();
 
-   // verify
+    // verify
     expect(result).isEqualTo(1);
   }
 
   @Test
   void testCase_getStringRepresentationOf_whenNullIsGiven() {
-   // execute
+    // execute
     final var result = FunctionService.getStringRepresentationOf(null);
 
-   // verify
+    // verify
     expect(result).isEqualTo("null");
   }
 
   @Test
   void testCase_getStringRepresentationOf_whenAnIntIsGiven() {
-   // execute
+    // execute
     final var result = FunctionService.getStringRepresentationOf(2500);
 
-   // verify
+    // verify
     expect(result).isEqualTo("2500");
   }
 
   @Test
   void testCase_getStringRepresentationOf_whenAStringIsGiven() {
-   // execute
+    // execute
     final var result = FunctionService.getStringRepresentationOf("Lorem ipsum");
 
-   // verify
+    // verify
     expect(result).isEqualTo("Lorem ipsum");
   }
 
   @Test
   void testCase_getTrue() {
-   // execute
+    // execute
     final var result = FunctionService.getTrue();
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 
   @Test
   void testCase_getTypeOf_whenIntIsGiven() {
-   // execute
+    // execute
     final var result = FunctionService.getTypeOf(2500);
 
-   // verify
+    // verify
     expect(result).is(Integer.class);
   }
 
   @Test
   void testCase_getTypeOf_whenStringIsGiven() {
-   // execute
+    // execute
     final var result = FunctionService.getTypeOf("");
 
-   // verify
+    // verify
     expect(result).is(String.class);
   }
 
   @Test
   void testCase_getZero() {
-   // execute
+    // execute
     final var result = FunctionService.getZero();
 
-   // verify
+    // verify
     expect(result).isEqualTo(0);
   }
 }

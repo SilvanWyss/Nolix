@@ -43,10 +43,10 @@ final class EntityOnDatabaseTest extends StandardTest {
     // setup verification
     expect(testUnit.ageInYears.getStoredValue()).isEqualTo(0);
 
-   // execute
+    // execute
     nodeDataAdapter.insertEntity(testUnit);
 
-   // verify
+    // verify
     expect(testUnit.ageInYears.getStoredValue()).isEqualTo(1);
   }
 
@@ -61,11 +61,11 @@ final class EntityOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(garfield);
     nodeDataAdapter.saveChanges();
 
-   // execute
+    // execute
     final var loadedGarfield = //
     nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
 
-   // verify
+    // verify
     expect(loadedGarfield.getState()).is(DatabaseObjectState.UNEDITED);
     expect(loadedGarfield.getSaveStamp()).isNotEmpty();
   }
@@ -80,10 +80,10 @@ final class EntityOnDatabaseTest extends StandardTest {
     garfield.ageInYears.setValue(5);
     nodeDataAdapter.insertEntity(garfield);
 
-   // execute
+    // execute
     nodeDataAdapter.saveChanges();
 
-   // verify
+    // verify
     expect(garfield.isClosed()).isTrue();
   }
 
@@ -109,7 +109,7 @@ final class EntityOnDatabaseTest extends StandardTest {
     garfieldC.ageInYears.setValue(6);
     nodeDataAdapterC.saveChanges();
 
-   // execute: Tries to save changes.
+    // execute: Tries to save changes.
     expectRunning(nodeDataAdapterB::saveChanges)
       .throwsException()
       .ofType(ChangedResourceException.class)
@@ -138,7 +138,7 @@ final class EntityOnDatabaseTest extends StandardTest {
     garfieldC.delete();
     nodeDataAdapterC.saveChanges();
 
-   // execute & verification: Tries to save changes.
+    // execute & verify: Tries to save changes.
     expectRunning(nodeDataAdapterB::saveChanges)
       .throwsException()
       .ofType(ChangedResourceException.class)
@@ -160,16 +160,16 @@ final class EntityOnDatabaseTest extends StandardTest {
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
       .getStoredEntityById(garfield.getId());
 
-   // execute part 1
+    // execute part 1
     loadedGarfield.delete();
 
-   // verify part 1
+    // verify part 1
     expect(loadedGarfield.isDeleted()).isTrue();
 
-   // execute part 2
+    // execute part 2
     nodeDataAdapter.saveChanges();
 
-   // verify part 2
+    // verify part 2
     expect(loadedGarfield.isClosed());
     expect(
       nodeDataAdapter
@@ -189,7 +189,7 @@ final class EntityOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(garfield);
     nodeDataAdapter.saveChanges();
 
-   // execute & verification
+    // execute & verify
     expectRunning(garfield::delete).throwsException();
   }
 }

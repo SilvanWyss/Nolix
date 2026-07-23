@@ -24,7 +24,7 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
     // setup
     final N testUnit = createNodeWithHeaderAndChildNodes("a");
 
-   // execute & verification
+    // execute & verify
     expectRunning(testUnit::getStoredSingleChildNode).throwsException().ofType(EmptyArgumentException.class);
   }
 
@@ -33,10 +33,10 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
     // setup
     final N testUnit = createNodeWithHeaderAndChildNodes("a", "b");
 
-   // execute
+    // execute
     final N result = testUnit.getStoredSingleChildNode();
 
-   // verify
+    // verify
     expect(result).hasStringRepresentation("b");
   }
 
@@ -45,17 +45,17 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
     // setup
     final N testUnit = createNodeWithHeaderAndChildNodes("a", "b", "c", "d");
 
-   // execute
+    // execute
     final N result1 = testUnit.getStoredChildNodeAtOneBasedIndex(1);
     final N result2 = testUnit.getStoredChildNodeAtOneBasedIndex(2);
     final N result3 = testUnit.getStoredChildNodeAtOneBasedIndex(3);
 
-   // verify part 1
+    // verify part 1
     expect(result1.toString()).isEqualTo("b");
     expect(result2.toString()).isEqualTo("c");
     expect(result3.toString()).isEqualTo("d");
 
-   // verify part 2
+    // verify part 2
     expectRunning(
       () -> testUnit.getStoredChildNodeAtOneBasedIndex(-1)).throwsException()
       .ofType(ArgumentIsOutOfRangeException.class);
@@ -82,10 +82,10 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
     // setup
     final N testUnit = createNodeWithHeaderAndChildNodes(header);
 
-   // execute
+    // execute
     final var result = testUnit.getHeader();
 
-   // verify
+    // verify
     expect(result).isEqualTo(header);
   }
 
@@ -94,10 +94,10 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
     // setup
     final N testUnit = createNodeWithHeaderAndChildNodes("a", "b");
 
-   // execute
+    // execute
     final N result = testUnit.getStoredSingleChildNode();
 
-   // verify
+    // verify
     expect(result.toString()).isEqualTo("b");
   }
 
@@ -106,7 +106,7 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
     // setup
     final N testUnit = createBlankNode();
 
-   // execute
+    // execute
     expectRunning(testUnit::getStoredSingleChildNode).throwsException().ofType(EmptyArgumentException.class);
   }
 
@@ -115,10 +115,10 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
     // setup
     final N testUnit = createNodeWithHeaderAndChildNodes("a", "b", "c", "d");
 
-   // execute
+    // execute
     final var result = testUnit.toString();
 
-   // verify
+    // verify
     expect(result).isEqualTo("a(b,c,d)");
   }
 
@@ -132,10 +132,10 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
     // setup
     final N testUnit = createNodeWithHeader(header);
 
-   // execute
+    // execute
     final var result = testUnit.toString();
 
-   // verify
+    // verify
     expect(result).isEqualTo(expectedResult);
   }
 

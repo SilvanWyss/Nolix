@@ -21,7 +21,7 @@ final class SystemApiArchitectureTest {
     // setup
     final var rule = SlicesRuleDefinition.slices().matching("ch.nolix.systemapi.(*)..").should().beFreeOfCycles();
 
-   // execute & verification
+    // execute & verify
     rule.check(TEST_UNIT);
   }
 
@@ -38,7 +38,7 @@ final class SystemApiArchitectureTest {
         "ch.nolix.systemapi..",
         "java..");
 
-   // execute & verification
+    // execute & verify
     rule.check(TEST_UNIT);
   }
 }

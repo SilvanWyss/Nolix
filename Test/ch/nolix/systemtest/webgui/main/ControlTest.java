@@ -27,10 +27,10 @@ public abstract class ControlTest<C extends Control<C, ?>> extends StandardTest 
     // setup
     final var testUnit = createTestUnit();
 
-   // execute
+    // execute
     final var result = testUnit.belongsToGui();
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 
@@ -41,10 +41,10 @@ public abstract class ControlTest<C extends Control<C, ?>> extends StandardTest 
     final var testUnit = createTestUnit();
     webGui.pushLayerWithRootControl(testUnit);
 
-   // execute
+    // execute
     final var result = testUnit.belongsToGui();
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 
@@ -57,10 +57,10 @@ public abstract class ControlTest<C extends Control<C, ?>> extends StandardTest 
     final var testUnit = createTestUnit();
     floatContainer.addControl(testUnit);
 
-   // execute
+    // execute
     final var result = testUnit.belongsToGui();
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 
@@ -69,10 +69,10 @@ public abstract class ControlTest<C extends Control<C, ?>> extends StandardTest 
     // setup
     final var testUnit = createTestUnit();
 
-   // execute
+    // execute
     testUnit.editStyle(s -> s.forStateSetTextColor(ControlState.BASE, X11ColorCatalog.DARK_CYAN));
 
-   // verify
+    // verify
     final var actualBaseTextColor = testUnit.getStoredStyle().getTextColorWhenHasState(ControlState.BASE);
     expect(actualBaseTextColor).isEqualTo(X11ColorCatalog.DARK_CYAN);
   }
@@ -83,10 +83,10 @@ public abstract class ControlTest<C extends Control<C, ?>> extends StandardTest 
     final var testUnit = createTestUnit();
     testUnit.setCollapsed();
 
-   // execute
+    // execute
     final var result = testUnit.getAttributes();
 
-   // verify
+    // verify
     expect(result).containsEqualing(ImmutableNode.fromString("Presence(COLLAPSED)"));
   }
 
@@ -95,10 +95,10 @@ public abstract class ControlTest<C extends Control<C, ?>> extends StandardTest 
     // setup
     final var testUnit = createTestUnit();
 
-   // execute
+    // execute
     final var result = testUnit.getInternalId();
 
-   // verify
+    // verify
     expect(result).startsWith("i");
     expect(result).hasLength(11);
   }
@@ -110,10 +110,10 @@ public abstract class ControlTest<C extends Control<C, ?>> extends StandardTest 
     final var internalId = testUnit.getInternalId();
 
     for (var i = 1; i <= 10_000; i++) {
-     // execute
+      // execute
       final var result = testUnit.getInternalId();
 
-     // verify
+      // verify
       expect(result).isEqualTo(internalId);
     }
   }
@@ -123,10 +123,10 @@ public abstract class ControlTest<C extends Control<C, ?>> extends StandardTest 
     // setup
     final var testUnit = createTestUnit();
 
-   // execute
+    // execute
     final var result = testUnit.getStoredChildControls();
 
-   // verify
+    // verify
     expect(result).isEmpty();
   }
 
@@ -139,10 +139,10 @@ public abstract class ControlTest<C extends Control<C, ?>> extends StandardTest 
     // setup verification
     expect(testUnit.isLinkedToAnObject()).isFalse();
 
-   // execute
+    // execute
     testUnit.linkTo(voidObject);
 
-   // verify
+    // verify
     expect(testUnit.getStoredLinkedObjects()).containsExactly(voidObject);
   }
 
@@ -157,10 +157,10 @@ public abstract class ControlTest<C extends Control<C, ?>> extends StandardTest 
     testUnit.setMaxHeight(600);
     testUnit.setCursorIcon(CursorIcon.HAND);
 
-   // execute
+    // execute
     testUnit.reset();
 
-   // verify
+    // verify
     expect(testUnit.isVisible()).isTrue();
     expect(testUnit.hasMinWidth()).isFalse();
     expect(testUnit.hasMinHeight()).isFalse();
@@ -176,10 +176,10 @@ public abstract class ControlTest<C extends Control<C, ?>> extends StandardTest 
     // setup verification
     expect(testUnit.getCursorIcon()).isNot(CursorIcon.MOVE);
 
-   // execute
+    // execute
     final var result = testUnit.setCursorIcon(CursorIcon.MOVE);
 
-   // verify
+    // verify
     expect(result).is(testUnit);
     expect(testUnit.getCursorIcon()).is(CursorIcon.MOVE);
   }

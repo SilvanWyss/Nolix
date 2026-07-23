@@ -28,10 +28,10 @@ final class SslCertificateKeyReaderHelperTest extends StandardTest {
   "  -----END PRIVATE KEY-----  " })
   void testCase_isKeyLine_whenGivenLineIsNotAKeyLine(final String line) {
 
-   // execute
+    // execute
     final var result = SslCertificateKeyReaderHelper.isKeyLine(line);
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 }

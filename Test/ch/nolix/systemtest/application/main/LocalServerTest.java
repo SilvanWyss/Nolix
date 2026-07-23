@@ -22,10 +22,10 @@ final class LocalServerTest extends StandardTest {
     final var applicationMock = mock(Application.class);
 
     try (final var testUnit = new LocalServer()) {
-     // execute
+      // execute
       testUnit.addApplication(applicationMock);
 
-     // verify
+      // verify
       expect(testUnit.containsDefaultApplication()).isFalse();
       expect(testUnit.getStoredApplications()).containsExactly(applicationMock);
     }
@@ -37,10 +37,10 @@ final class LocalServerTest extends StandardTest {
     final var applicationMock = mock(Application.class);
 
     try (final var testUnit = new LocalServer()) {
-     // execute
+      // execute
       testUnit.addDefaultApplication(applicationMock);
 
-     // verify
+      // verify
       expect(testUnit.containsDefaultApplication()).isTrue();
       expect(testUnit.getStoredApplications()).containsExactly(applicationMock);
     }
@@ -49,7 +49,7 @@ final class LocalServerTest extends StandardTest {
   @Test
   void testCase_asTarget() {
     try (final var testUnit = new LocalServer()) {
-     // verify & execution
+      // verify & execution
       expectRunning(testUnit::asTarget).throwsException().ofType(ArgumentDoesNotSupportMethodException.class);
     }
   }
@@ -57,7 +57,7 @@ final class LocalServerTest extends StandardTest {
   @Test
   void testCase_constructor() {
     try (final var testUnit = new LocalServer()) {
-     // verify
+      // verify
       expect(testUnit.getSecurityMode()).is(SecurityMode.NONE);
       expect(testUnit.isEmpty()).isTrue();
       expect(testUnit.containsDefaultApplication()).isFalse();

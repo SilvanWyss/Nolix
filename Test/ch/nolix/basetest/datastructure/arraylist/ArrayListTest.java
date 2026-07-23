@@ -36,10 +36,10 @@ final class ArrayListTest extends ExtendedIterableTest {
     final var elements = new String[] {};
     final var testUnit = ArrayList.withInitialCapacity(10);
 
-   // execute
+    // execute
     testUnit.addAtEnd(elements);
 
-   // verify
+    // verify
     expect(testUnit).containsAll(elements);
   }
 
@@ -49,10 +49,10 @@ final class ArrayListTest extends ExtendedIterableTest {
     final var elements = new String[] { "antelope", "baboon", "elephant", "lion", "rhino", "zebra" };
     final var testUnit = ArrayList.withInitialCapacity(5);
 
-   // execute
+    // execute
     testUnit.addAtEnd(elements);
 
-   // verify
+    // verify
     expect(testUnit).containsAll(elements);
   }
 
@@ -61,10 +61,10 @@ final class ArrayListTest extends ExtendedIterableTest {
     // setup
     final ArrayList<String> testUnit = ArrayList.createEmpty();
 
-   // execute
+    // execute
     testUnit.clear();
 
-   // verify
+    // verify
     expect(testUnit).isEmpty();
   }
 
@@ -73,10 +73,10 @@ final class ArrayListTest extends ExtendedIterableTest {
     // setup
     final var testUnit = ArrayList.withElements("antelope", "baboon", "elephant", "lion", "rhino", "zebra");
 
-   // execute
+    // execute
     testUnit.clear();
 
-   // verify
+    // verify
     expect(testUnit).isEmpty();
   }
 
@@ -85,10 +85,10 @@ final class ArrayListTest extends ExtendedIterableTest {
     // setup
     final var testUnit = ArrayList.withElements("antelope", "baboon", "elephant", "lion", "rhino", "zebra");
 
-   // execute
+    // execute
     final var result = testUnit.getCopy();
 
-   // verify
+    // verify
     expect(result).containsExactlyInSameOrder(testUnit);
   }
 
@@ -97,10 +97,10 @@ final class ArrayListTest extends ExtendedIterableTest {
     // setup
     final var testUnit = ArrayList.createEmpty();
 
-   // execute
+    // execute
     final var result = testUnit.isMaterialized();
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 
@@ -109,25 +109,25 @@ final class ArrayListTest extends ExtendedIterableTest {
     // setup
     final var elements = new String[] { "antelope", "baboon", "elephant", "lion", "rhino", "zebra" };
 
-   // execute
+    // execute
     final var result = ArrayList.withElements(elements);
 
-   // verify
+    // verify
     expect(result).containsExactlyInSameOrder(elements);
   }
 
   @Test
   void testCase_withInitialCapacity() {
-   // execute
+    // execute
     final var result = ArrayList.withInitialCapacity(10);
 
-   // verify
+    // verify
     expect(result).isEmpty();
   }
 
   @Test
   void testCase_withInitialCapacity_whenTheGivenInitialCapacityIsNegative() {
-   // execute & verification
+    // execute & verify
     expectRunning(() -> ArrayList.withInitialCapacity(-1))
       .throwsException()
       .ofType(NegativeArgumentException.class)

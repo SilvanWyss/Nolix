@@ -36,17 +36,17 @@ final class FieldMapperTest extends StandardTest {
       ImmutableList.createEmpty(),
       ImmutableList.createEmpty());
 
-   // execute
+    // execute
     final var result = FieldMapper.mapColumnToField(column);
 
-   // verify part 1: Verifies parents.
+    // verify part 1: Verifies parents.
     verifyParentsOfCreatedField(result, column);
 
-   // verify part 2: Verifies attributes.
+    // verify part 2: Verifies attributes.
     expect(result.getName()).isEqualTo("name");
     expect(result.getType()).is(FieldType.VALUE_FIELD);
 
-   // verify part 3: Verifies states.
+    // verify part 3: Verifies states.
     verifyStateOfCreatedField(result);
   }
 
@@ -67,12 +67,12 @@ final class FieldMapperTest extends StandardTest {
       ImmutableList.createEmpty(),
       ImmutableList.createEmpty());
 
-   // execute
+    // execute
     final var result = FieldMapper.mapColumnToField(column);
 
     verifyParentsOfCreatedField(result, column);
 
-   // verify part 2: Verifies attributes.
+    // verify part 2: Verifies attributes.
     expect(result.getName()).isEqualTo("name");
     expect(result.getType()).is(FieldType.OPTIONAL_VALUE_FIELD);
 
@@ -96,12 +96,12 @@ final class FieldMapperTest extends StandardTest {
       ImmutableList.createEmpty(),
       ImmutableList.createEmpty());
 
-   // execute
+    // execute
     final var result = FieldMapper.mapColumnToField(column);
 
     verifyParentsOfCreatedField(result, column);
 
-   // verify part 2: Verifies attributes.
+    // verify part 2: Verifies attributes.
     expect(result.getName()).isEqualTo("name");
     expect(result.getType()).is(FieldType.MULTI_VALUE_FIELD);
 

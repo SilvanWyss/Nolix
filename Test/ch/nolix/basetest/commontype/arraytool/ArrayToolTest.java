@@ -18,10 +18,10 @@ final class ArrayToolTest extends StandardTest {
     final var array = new byte[10];
     final var testUnit = new ArrayTool();
 
-   // execute
+    // execute
     final var result = testUnit.onArray(array).fromIndex(2).write(new byte[] { 30, 40, 50 });
 
-   // verify part 1
+    // verify part 1
     expect(array[0]).isEqualTo(0);
     expect(array[1]).isEqualTo(0);
     expect(array[2]).isEqualTo(30);
@@ -33,7 +33,7 @@ final class ArrayToolTest extends StandardTest {
     expect(array[8]).isEqualTo(0);
     expect(array[9]).isEqualTo(0);
 
-   // verify part 2
+    // verify part 2
     expect(result.andGetNextIndex()).isEqualTo(5);
   }
 }

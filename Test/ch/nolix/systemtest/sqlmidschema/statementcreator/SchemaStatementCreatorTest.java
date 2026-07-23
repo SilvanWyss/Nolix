@@ -23,10 +23,10 @@ final class SchemaStatementCreatorTest extends StandardTest {
     final var columnDto = new ColumnDto("Name", dataTypeDto, ImmutableList.createEmpty());
     final var testUnit = new StatementCreator();
 
-   // execute
+    // execute
     final var result = testUnit.createStatementToAddColumn("Pet", columnDto);
 
-   // verify
+    // verify
     expect(result).isEqualTo("ALTER TABLE Pet ADD Name nvarchar(100);");
   }
 
@@ -40,10 +40,10 @@ final class SchemaStatementCreatorTest extends StandardTest {
         new ColumnDto("WeightInKilogram", new DataTypeDto("float", null), ImmutableList.createEmpty())));
     final var testUnit = new StatementCreator();
 
-   // execute
+    // execute
     final var result = testUnit.createStatementToAddTable(tableDto);
 
-   // verify
+    // verify
     expect(result).isEqualTo("CREATE TABLE Pet (Name nvarchar(100), WeightInKilogram float);");
   }
 }

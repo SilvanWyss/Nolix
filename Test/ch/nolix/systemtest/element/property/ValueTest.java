@@ -17,11 +17,11 @@ import ch.nolix.system.property.value.Value;
 final class ValueTest extends StandardTest {
   @Test
   void testCase_forInt() {
-   // execute
+    // execute
     final var result = //
     Value.forIntWithNameAndDefaultValueAndSetter("amount", 0, FunctionService::takeObjectAndDoNothing);
 
-   // verify
+    // verify
     expect(result.getName()).isEqualTo("amount");
     expect(result.containsAny()).isTrue();
   }
@@ -38,13 +38,13 @@ final class ValueTest extends StandardTest {
     // setup verification
     expect(testUnit.containsAny()).isTrue();
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> testUnit.setValue(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given value is null.");
 
-   // verify
+    // verify
     expect(testUnit.containsAny()).isTrue();
   }
 
@@ -57,10 +57,10 @@ final class ValueTest extends StandardTest {
       StringCatalog.EMPTY_STRING,
       FunctionService::takeObjectAndDoNothing);
 
-   // execute
+    // execute
     testUnit.setValue("Garfield");
 
-   // verify
+    // verify
     expect(testUnit.containsAny()).isTrue();
     expect(testUnit.getStoredValue()).isEqualTo("Garfield");
   }

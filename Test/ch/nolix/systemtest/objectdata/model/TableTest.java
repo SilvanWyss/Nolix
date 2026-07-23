@@ -43,10 +43,10 @@ final class TableTest extends StandardTest {
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var testUnit = nodeDataAdapter.getStoredTableByEntityType(Person.class);
 
-   // execute
+    // execute
     final var result = testUnit.getStoredEntities();
 
-   // verify
+    // verify
     expect(nodeDataAdapter.hasChanges()).isFalse();
     expect(result).isEmpty();
   }
@@ -66,10 +66,10 @@ final class TableTest extends StandardTest {
     final var nodeDataAdapter2 = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var testUnit = nodeDataAdapter2.getStoredTableByEntityType(Person.class);
 
-   // execute
+    // execute
     final var result = testUnit.getStoredEntities();
 
-   // verify
+    // verify
     expect(result.getCount()).isEqualTo(1);
     final var loadedPerson = result.getStoredAtOneBasedIndex(1);
     expect(loadedPerson.getId()).isEqualTo(person.getId());

@@ -18,7 +18,7 @@ final class BaseApiTestArchitectureTest {
     // setup
     final var rule = SlicesRuleDefinition.slices().matching("ch.nolix.baseapitest.(*)..").should().beFreeOfCycles();
 
-   // execute & verification
+    // execute & verify
     rule.check(TEST_UNIT);
   }
 
@@ -38,7 +38,7 @@ final class BaseApiTestArchitectureTest {
         "org.junit.jupiter..",
         "org.mockito..");
 
-   // execute & verification
+    // execute & verify
     rule.check(TEST_UNIT);
   }
 }

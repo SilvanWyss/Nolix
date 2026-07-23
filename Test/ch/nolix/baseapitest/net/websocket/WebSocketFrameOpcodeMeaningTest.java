@@ -55,27 +55,27 @@ final class WebSocketFrameOpcodeMeaningTest extends StandardTest {
   void testCase_toNumber_fromNumber(
     final int number,
     final WebSocketFrameOpcodeMeaning expectedWebSocketFrameOpcodeMeaning) {
-   // execute
+    // execute
     final var result = WebSocketFrameOpcodeMeaning.fromNumber(number);
 
-   // verify
+    // verify
     expect(result).isEqualTo(expectedWebSocketFrameOpcodeMeaning);
   }
 
   @ParameterizedTest
   @MethodSource("getWebSocketFrameOpcodeMeaningsAndTheirNumbers")
   void testCase_toNumber_whenHaseANumber(final WebSocketFrameOpcodeMeaning testUnit, final int expectedNumber) {
-   // execute
+    // execute
     final var result = testUnit.toNumber();
 
-   // verify
+    // verify
     expect(result).isEqualTo(expectedNumber);
   }
 
   @ParameterizedTest
   @MethodSource("getWebSocketFrameOpcodeMeaningsThatDoNotHaveANumber")
   void testCase_toNumber_whenDoesNotHaveASingleNumber(final WebSocketFrameOpcodeMeaning testUnit) {
-   // execute & verification
+    // execute & verify
     expectRunning(testUnit::toNumber).throwsException();
   }
 }

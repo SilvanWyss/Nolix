@@ -21,10 +21,10 @@ final class OptionalLabelHolderTest extends StandardTest {
     Mockito.when(testUnit.hasLabel()).thenReturn(true);
     Mockito.when(testUnit.getLabel()).thenReturn("label");
 
-   // execute
+    // execute
     final var result = testUnit.getLabelInSingleQuotes();
 
-   // verify
+    // verify
     expect(result).isEqualTo("'label'");
   }
 }

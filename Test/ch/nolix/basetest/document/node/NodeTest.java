@@ -18,10 +18,10 @@ final class NodeTest extends BaseNodeTest<ImmutableNode> {
     // setup
     final var testUnit = ImmutableNode.fromString("a(x,y)");
 
-   // execute
+    // execute
     final var result = testUnit.withNewHeader("b");
 
-   // verify
+    // verify
     expect(result).hasStringRepresentation("b(x,y)");
   }
 
@@ -30,10 +30,10 @@ final class NodeTest extends BaseNodeTest<ImmutableNode> {
     // setup
     final var testUnit = ImmutableNode.fromString("(x,y)");
 
-   // execute
+    // execute
     final var result = testUnit.withNewHeader("a");
 
-   // verify
+    // verify
     expect(result).hasStringRepresentation("a(x,y)");
   }
 
@@ -42,10 +42,10 @@ final class NodeTest extends BaseNodeTest<ImmutableNode> {
     // setup
     final var testUnit = ImmutableNode.fromString("a");
 
-   // execute
+    // execute
     final var result = testUnit.withNewHeader("b");
 
-   // verify
+    // verify
     expect(result).hasStringRepresentation("b");
   }
 
@@ -59,10 +59,10 @@ final class NodeTest extends BaseNodeTest<ImmutableNode> {
     // setup
     final var testUnit = ImmutableNode.fromString(nodeStringRepresentation);
 
-   // execute
+    // execute
     final var result = testUnit.toXml();
 
-   // verify
+    // verify
     expect(result).hasStringRepresentation(expectedXmlStringRepresentation);
   }
 

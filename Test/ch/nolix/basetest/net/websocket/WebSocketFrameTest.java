@@ -44,13 +44,13 @@ final class WebSocketFrameTest extends StandardTest {
     };
     final var webSocketFrame = WebSocketFrame.fromInputStream(inputStream);
 
-   // execute
+    // execute
     final var resultFINBit = webSocketFrame.getFINBit();
     final var resultMaskBit = webSocketFrame.getMaskBit();
     final var resultOpcode = webSocketFrame.getOpcodeMeaning();
     final var resultPayload = webSocketFrame.getPayload();
 
-   // verify
+    // verify
     expect(resultFINBit).isTrue();
     expect(resultMaskBit).isFalse();
     expect(resultOpcode).isEqualTo(WebSocketFrameOpcodeMeaning.TEXT_FRAME);
@@ -69,10 +69,10 @@ final class WebSocketFrameTest extends StandardTest {
       false,
       new byte[] {});
 
-   // execute
+    // execute
     final var result = testUnit.toBytes();
 
-   // verify
+    // verify
     expect(result.length).isEqualTo(2);
     expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("00000001");
     expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("00000000");
@@ -88,10 +88,10 @@ final class WebSocketFrameTest extends StandardTest {
       false,
       new byte[] {});
 
-   // execute
+    // execute
     final var result = testUnit.toBytes();
 
-   // verify
+    // verify
     expect(result.length).isEqualTo(2);
     expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("10000001");
     expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("00000000");
@@ -107,10 +107,10 @@ final class WebSocketFrameTest extends StandardTest {
       false,
       new byte[] { 0b00000001, 0b00000010, 0b00000011, 0b00000100 });
 
-   // execute
+    // execute
     final var result = testUnit.toBytes();
 
-   // verify
+    // verify
     expect(result.length).isEqualTo(6);
     expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("10000001");
     expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("00000100");
@@ -137,10 +137,10 @@ final class WebSocketFrameTest extends StandardTest {
       false,
       payload);
 
-   // execute
+    // execute
     final var result = testUnit.toBytes();
 
-   // verify
+    // verify
     expect(result.length).isEqualTo(65539);
     expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("10000001");
     expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("01111110");
@@ -168,10 +168,10 @@ final class WebSocketFrameTest extends StandardTest {
       false,
       payload);
 
-   // execute
+    // execute
     final var result = testUnit.toBytes();
 
-   // verify
+    // verify
     expect(result.length).isEqualTo(65546);
     expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("10000001");
     expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("01111111");
@@ -205,10 +205,10 @@ final class WebSocketFrameTest extends StandardTest {
       false,
       payload);
 
-   // execute
+    // execute
     final var result = testUnit.toBytes();
 
-   // verify
+    // verify
     expect(result.length).isEqualTo(1_000_010);
     expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("10000001");
     expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("01111111");

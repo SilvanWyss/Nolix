@@ -24,7 +24,7 @@ final class PluralLowerCaseVariableCatalogTest extends StandardTest {
     final var exceptions = //
     LinkedList.withElement(PluralLowerCaseVariableNameCatalog.GUIS, PluralLowerCaseVariableNameCatalog.URLS);
 
-   // verify
+    // verify
     for (final var c : ReflectionTool
       .getStoredPublicStaticFieldValuesOfClass(PluralLowerCaseVariableNameCatalog.class)) {
       expect(c).isOfType(String.class);

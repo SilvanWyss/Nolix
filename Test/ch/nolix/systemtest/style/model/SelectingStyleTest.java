@@ -25,10 +25,10 @@ final class SelectingStyleTest extends StandardTest {
     // setup verification
     expect(mockStylableElement.hasId()).isFalse();
 
-   // execute
+    // execute
     final var result = testUnit.selectsElement(mockStylableElement);
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 
@@ -44,10 +44,10 @@ final class SelectingStyleTest extends StandardTest {
     // setup verification
     expect(mockStylableElement.hasId()).isTrue();
 
-   // execute
+    // execute
     final var result = testUnit.selectsElement(mockStylableElement);
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 
@@ -63,10 +63,10 @@ final class SelectingStyleTest extends StandardTest {
     // setup verification
     expect(mockStylableElement.hasId());
 
-   // execute
+    // execute
     final var result = testUnit.selectsElement(mockStylableElement);
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 
@@ -78,10 +78,10 @@ final class SelectingStyleTest extends StandardTest {
     // setup testUnit
     final var testUnit = SelectingStyle.EMPTY.withSelectorType(ImmutableImage.class);
 
-   // execute
+    // execute
     final var result = testUnit.selectsElement(mockStylableElement);
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 
@@ -93,10 +93,10 @@ final class SelectingStyleTest extends StandardTest {
     // setup testUnit
     final var testUnit = SelectingStyle.EMPTY.withSelectorType(MockStylableElement.class);
 
-   // execute
+    // execute
     final var result = testUnit.selectsElement(mockStylableElement);
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 
@@ -108,10 +108,10 @@ final class SelectingStyleTest extends StandardTest {
     // setup testUnit
     final var testUnit = SelectingStyle.EMPTY.withSelectorType(AbstractPropertiesElement.class);
 
-   // execute
+    // execute
     final var result = testUnit.selectsElement(mockStylableElement);
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 
@@ -120,10 +120,10 @@ final class SelectingStyleTest extends StandardTest {
     // setup
     final var testUnit = SelectingStyle.EMPTY;
 
-   // execute
+    // execute
     final var result = testUnit.selectsChildElements();
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 
@@ -132,10 +132,10 @@ final class SelectingStyleTest extends StandardTest {
     // setup
     final var testUnit = SelectingStyle.EMPTY;
 
-   // execute
+    // execute
     final var result = testUnit.skipsChildElements();
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 }

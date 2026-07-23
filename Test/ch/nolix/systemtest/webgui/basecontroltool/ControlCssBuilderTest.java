@@ -31,10 +31,10 @@ extends StandardTest {
     control.editStyle(s -> s.forStateSetBackgroundColor(ControlState.HOVER, Color.fromString("0x102030")));
     final B testUnit = createTestUnit();
 
-   // execute
+    // execute
     final var result = testUnit.createCssRulesForControl(control);
 
-   // verify
+    // verify
     final var controlInternalId = control.getInternalId();
     final var hoverCssRule = result.getStoredSingle(r -> r.getSelector().startsWith("#" + controlInternalId + ":hover"));
     expect(hoverCssRule.getProperties()).containsExactlyOneWithStringRepresentation("background: #102030;");
@@ -47,18 +47,18 @@ extends StandardTest {
     final var controlInternalId = control.getInternalId();
     final B testUnit = createTestUnit();
 
-   // execute
+    // execute
     final var result = testUnit.createCssRulesForControl(control);
 
-   // verify part 1
+    // verify part 1
     expect(result).hasElementCount(4);
     final var cssRuleForAllStates = result.getStoredFirst(r -> r.getSelector().startsWith("#" + controlInternalId));
     expect(cssRuleForAllStates.getProperties().containsMatching(p -> p.hasName("cursor"))).isTrue();
 
-   // verify part 2
+    // verify part 2
     expect(result.containsMatching(r -> r.getSelector().startsWith("#" + controlInternalId + ":hover"))).isTrue();
 
-   // verify part 3
+    // verify part 3
     expect(result.containsMatching(r -> r.getSelector().startsWith("#" + controlInternalId + ":focus"))).isTrue();
   }
 }

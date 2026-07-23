@@ -15,11 +15,11 @@ import ch.nolix.template.math.sequence.SequenceFactory;
 final class SequenceCreatorTest extends StandardTest {
   @Test
   void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs0plus0i() {
-   // execute
+    // execute
     final var result = SequenceFactory
       .createMandelbrotSequenceForIncrement(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0));
 
-   // verify
+    // verify
     expect(result.getValueAtOneBasedIndex(1)).isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0));
     expect(result.getValueAtOneBasedIndex(2)).isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0));
     expect(result.getValueAtOneBasedIndex(3)).isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0));
@@ -29,11 +29,11 @@ final class SequenceCreatorTest extends StandardTest {
 
   @Test
   void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs1plus0i() {
-   // execute
+    // execute
     final var result = SequenceFactory
       .createMandelbrotSequenceForIncrement(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 0.0));
 
-   // verify
+    // verify
     expect(result.getValueAtOneBasedIndex(1)).isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0));
     expect(result.getValueAtOneBasedIndex(2)).isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 0.0));
     expect(result.getValueAtOneBasedIndex(3)).isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(2.0, 0.0));
@@ -44,11 +44,11 @@ final class SequenceCreatorTest extends StandardTest {
 
   @Test
   void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs1plus1i() {
-   // execute
+    // execute
     final var result = SequenceFactory
       .createMandelbrotSequenceForIncrement(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 1.0));
 
-   // verify
+    // verify
     expect(result.getValueAtOneBasedIndex(1)).isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0));
     expect(result.getValueAtOneBasedIndex(2)).isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 1.0));
     expect(result.getValueAtOneBasedIndex(3)).isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 3.0));

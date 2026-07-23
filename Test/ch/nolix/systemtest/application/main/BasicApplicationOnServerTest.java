@@ -28,10 +28,10 @@ final class BasicApplicationOnServerTest extends StandardTest {
         applicationService);
       localServer.addApplicationWithNameAddendum(testUnit, "Instance1");
 
-     // execute
+      // execute
       final var result = testUnit.getInstanceAppendix();
 
-     // verify
+      // verify
       expect(result).isEqualTo("Instance1");
     }
   }
@@ -46,10 +46,10 @@ final class BasicApplicationOnServerTest extends StandardTest {
       TestSession.withClientClass(WebClient.class).getClass(),
       applicationService);
 
-   // execute
+    // execute
     final var result = testUnit.getInstanceName();
 
-   // verify
+    // verify
     expect(result).isEqualTo("My application");
   }
 
@@ -65,10 +65,10 @@ final class BasicApplicationOnServerTest extends StandardTest {
         applicationService);
       localServer.addApplicationWithNameAddendum(testUnit, "Instance1");
 
-     // execute
+      // execute
       final var result = testUnit.getInstanceName();
 
-     // verify
+      // verify
       expect(result).isEqualTo("My application Instance1");
     }
   }
@@ -85,10 +85,10 @@ final class BasicApplicationOnServerTest extends StandardTest {
         applicationService);
       localServer.addApplicationWithNameAddendum(testUnit, "Instance1");
 
-     // execute
+      // execute
       final var result = testUnit.getUrlInstanceName();
 
-     // verify
+      // verify
       expect(result).isEqualTo("my_application_instance1");
     }
   }

@@ -21,10 +21,10 @@ final class NameHolderTest extends StandardTest {
     Mockito.when(testUnit.getNameInSingleQuotes()).thenCallRealMethod();
     Mockito.when(testUnit.getName()).thenReturn("name");
 
-   // execute
+    // execute
     final var result = testUnit.getNameInSingleQuotes();
 
-   // verify
+    // verify
     expect(result).isEqualTo("'name'");
   }
 
@@ -35,10 +35,10 @@ final class NameHolderTest extends StandardTest {
     Mockito.when(testUnit.hasName(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getName()).thenReturn("name");
 
-   // execute
+    // execute
     final var result = testUnit.hasName("name");
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 
@@ -49,10 +49,10 @@ final class NameHolderTest extends StandardTest {
     Mockito.when(testUnit.hasName(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getName()).thenReturn("name");
 
-   // execute
+    // execute
     final var result = testUnit.hasName("Name");
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 
@@ -67,10 +67,10 @@ final class NameHolderTest extends StandardTest {
     Mockito.when(testUnit.hasSameNameAs(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getName()).thenReturn("name");
 
-   // execute
+    // execute
     final var result = testUnit.hasSameNameAs(nameHolderMock);
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 
@@ -85,10 +85,10 @@ final class NameHolderTest extends StandardTest {
     Mockito.when(testUnit.hasSameNameAs(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getName()).thenReturn("name");
 
-   // execute
+    // execute
     final var result = testUnit.hasSameNameAs(nameHolderMock);
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 }

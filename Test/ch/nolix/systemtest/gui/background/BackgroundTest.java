@@ -27,19 +27,19 @@ final class BackgroundTest extends StandardTest {
     // setup
     final var backgroundSpecification = ImmutableNode.fromString(backgroundSpecificationAsString);
 
-    // execute
+     // execute
     final var result = Background.fromSpecification(backgroundSpecification);
 
-   // verify
+    // verify
     expect(result.getSpecification()).isEqualTo(backgroundSpecification);
   }
 
   @Test
   void testCase_withColor() {
-   // execute
+    // execute
     final var result = Background.withColor(X11ColorCatalog.BLUE);
 
-   // verify
+    // verify
     expect(result.getType()).is(BackgroundType.COLOR);
     expect(result.getColor()).is(X11ColorCatalog.BLUE);
   }

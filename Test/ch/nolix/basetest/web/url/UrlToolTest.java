@@ -20,7 +20,7 @@ final class UrlToolTest extends StandardTest {
     // setup
     final var testUnit = new UrlTool();
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> testUnit.getDisplayTextForUrl(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -40,10 +40,10 @@ final class UrlToolTest extends StandardTest {
     // setup
     final var testUnit = new UrlTool();
 
-   // execute
+    // execute
     final var result = testUnit.getDisplayTextForUrl(url);
 
-   // verify
+    // verify
     expect(result).isEqualTo(expectedResult);
   }
 }

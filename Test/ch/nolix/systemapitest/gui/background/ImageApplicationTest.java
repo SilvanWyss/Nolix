@@ -29,10 +29,10 @@ final class ImageApplicationTest extends StandardTest {
   @ParameterizedTest
   @MethodSource("getSpecificationsAndTheirImageApplications")
   void testCase_fromSpecification(final INode<?> specification, final ImageApplication expectedImageApplication) {
-   // execute
+    // execute
     final var result = ImageApplication.fromSpecification(specification);
 
-   // verify
+    // verify
     expect(result).is(expectedImageApplication);
   }
 }

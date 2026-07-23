@@ -14,10 +14,10 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class XmlAttributeTest extends StandardTest {
   @Test
   void testCase_constructor() {
-   // execute
+    // execute
     final var result = XmlAttribute.withNameAndValue("color", "green");
 
-   // verify
+    // verify
     expect(result.getName()).isEqualTo("color");
     expect(result.getStoredValue()).isEqualTo("green");
   }
@@ -27,10 +27,10 @@ final class XmlAttributeTest extends StandardTest {
     // setup
     final var xmlAttribute = XmlAttribute.withNameAndValue("color", "green");
 
-   // execute
+    // execute
     final var result = xmlAttribute.toString();
 
-   // verify
+    // verify
     expect(result).isEqualTo("color='green'");
   }
 }

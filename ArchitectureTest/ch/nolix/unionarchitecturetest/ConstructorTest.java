@@ -18,7 +18,7 @@ final class ConstructorTest {
     // setup
     final var testUnit = new ClassFileImporter().importPackages("ch.nolix..");
 
-   // execute & verification
+    // execute & verify
     ArchUnitRuleCatalog.PUBLIC_AND_PACKAGE_VISIBLE_CONSTRUCTORS_DO_NOT_CONTAIN_PARAMETERS.check(testUnit);
   }
 }

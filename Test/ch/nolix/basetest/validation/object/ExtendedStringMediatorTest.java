@@ -18,10 +18,10 @@ final class ExtendedStringMediatorTest extends StandardTest {
     final var argument = "Tom";
     final var testUnit = ExtendedStringMediator.forArgument(argument);
 
-   // execute
+    // execute
     final var result = testUnit.thatIsNamed("name");
 
-   // verify
+    // verify
     expectRunning(() -> result.isNotShorterThan(4))
       .throwsException()
       .withMessage("The given name 'Tom' has the length 3 and is therefore shorter than 4.");

@@ -17,10 +17,10 @@ final class WrapperExceptionTest extends StandardTest {
     // setup
     final var exception = new Exception();
 
-   // execute
+    // execute
     final var result = WrapperException.forError(exception);
 
-   // verify
+    // verify
     expect(result.getCause()).is(exception);
   }
 
@@ -30,10 +30,10 @@ final class WrapperExceptionTest extends StandardTest {
     final var errorMessage = "An Exception arrised.";
     final var exception = new Exception();
 
-   // execute
+    // execute
     final var result = WrapperException.forErrorMessageAndError(errorMessage, exception);
 
-   // verify
+    // verify
     expect(result.getMessage()).is(errorMessage);
     expect(result.getCause()).is(exception);
   }

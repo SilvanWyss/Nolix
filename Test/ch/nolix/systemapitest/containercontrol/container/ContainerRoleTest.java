@@ -34,10 +34,10 @@ final class ContainerRoleTest extends StandardTest {
   @ParameterizedTest
   @MethodSource("getSpecificationsAndTheirContainerRole")
   void testCase_fromSpecification(final INode<?> specification, final ContainerRole expectedContainerRole) {
-   // execute
+    // execute
     final var result = ContainerRole.fromSpecification(specification);
 
-   // verify
+    // verify
     expect(result).is(expectedContainerRole);
   }
 }

@@ -37,10 +37,10 @@ final class OptionalReferenceOnDatabaseTest extends StandardTest {
     final var john = new Person();
     nodeDataAdapter.insertEntity(john);
 
-   // execute
+    // execute
     nodeDataAdapter.saveChanges();
 
-   // verify
+    // verify
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
     expect(loadedJohn.pet.isEmpty()).isTrue();
   }
@@ -57,10 +57,10 @@ final class OptionalReferenceOnDatabaseTest extends StandardTest {
     john.pet.setEntity(garfield);
     nodeDataAdapter.insertEntity(john);
 
-   // execute
+    // execute
     final var result = john.pet.getStoredReferencedEntity();
 
-   // verify
+    // verify
     expect(result).is(garfield);
   }
 
@@ -80,10 +80,10 @@ final class OptionalReferenceOnDatabaseTest extends StandardTest {
     // setup part 2
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
 
-   // execute
+    // execute
     final var result = loadedJohn.pet.getStoredReferencedEntity();
 
-   // verify
+    // verify
     expect(result.getId()).isEqualTo(garfield.getId());
   }
 
@@ -112,7 +112,7 @@ final class OptionalReferenceOnDatabaseTest extends StandardTest {
     loadedGarfieldC.delete();
     nodeDataAdapterC.saveChanges();
 
-   // execute & verification: Tries to save when the referenced Entity was deleted.
+    // execute & verify: Tries to save when the referenced Entity was deleted.
     expectRunning(nodeDataAdapterB::saveChanges).throwsException();
   }
 
@@ -126,10 +126,10 @@ final class OptionalReferenceOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(john);
     final var garfield = new Pet();
 
-   // execute
+    // execute
     john.pet.setEntity(garfield);
 
-   // verify
+    // verify
     expect(garfield.belongsToTable()).isTrue();
   }
 
@@ -143,11 +143,11 @@ final class OptionalReferenceOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(john);
     final var garfield = new Pet();
 
-   // execute
+    // execute
     john.pet.setEntity(garfield);
     nodeDataAdapter.saveChanges();
 
-   // verify
+    // verify
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
     final var loadedGarfield = //
     nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());

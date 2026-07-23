@@ -22,13 +22,13 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
     // setup
     final N testUnit = createBlankNode();
 
-   // execute
+    // execute
     expectRunning(() -> testUnit.addPostfixToHeader(" "))
       .throwsException()
       .ofType(InvalidArgumentException.class)
       .withMessageThatMatches("The given postfix is blank.");
 
-   // verify
+    // verify
     expect(testUnit.hasHeader()).isFalse();
   }
 
@@ -37,10 +37,10 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
     // setup
     final N testUnit = createBlankNode();
 
-   // execute
+    // execute
     testUnit.addPostfixToHeader("1");
 
-   // verify
+    // verify
     expect(testUnit.getHeader()).isEqualTo("1");
   }
 
@@ -49,13 +49,13 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
     // setup
     final N testUnit = createNodeWithHeader("Color");
 
-   // execute
+    // execute
     expectRunning(() -> testUnit.addPostfixToHeader(" "))
       .throwsException()
       .ofType(InvalidArgumentException.class)
       .withMessageThatMatches("The given postfix is blank.");
 
-   // verify
+    // verify
     expect(testUnit.getHeader()).isEqualTo("Color");
   }
 
@@ -64,10 +64,10 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
     // setup
     final N testUnit = createNodeWithHeader("Color");
 
-   // execute
+    // execute
     testUnit.addPostfixToHeader("1");
 
-   // verify
+    // verify
     expect(testUnit.getHeader()).isEqualTo("Color1");
   }
 
@@ -76,13 +76,13 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
     // setup
     final N testUnit = createBlankNode();
 
-   // execute
+    // execute
     expectRunning(() -> testUnit.addPrefixToHeader(" "))
       .throwsException()
       .ofType(InvalidArgumentException.class)
       .withMessageThatMatches("The given prefix is blank.");
 
-   // verify
+    // verify
     expect(testUnit.hasHeader()).isFalse();
   }
 
@@ -91,10 +91,10 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
     // setup
     final N testUnit = createBlankNode();
 
-   // execute
+    // execute
     testUnit.addPrefixToHeader("Background");
 
-   // verify
+    // verify
     expect(testUnit.getHeader()).isEqualTo("Background");
   }
 
@@ -103,13 +103,13 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
     // setup
     final N testUnit = createNodeWithHeader("Color");
 
-   // execute
+    // execute
     expectRunning(() -> testUnit.addPrefixToHeader(" "))
       .throwsException()
       .ofType(InvalidArgumentException.class)
       .withMessageThatMatches("The given prefix is blank.");
 
-   // verify
+    // verify
     expect(testUnit.getHeader()).isEqualTo("Color");
   }
 
@@ -118,10 +118,10 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
     // setup
     final N testUnit = createNodeWithHeader("Color");
 
-   // execute
+    // execute
     testUnit.addPrefixToHeader("Background");
 
-   // verify
+    // verify
     expect(testUnit.getHeader()).isEqualTo("BackgroundColor");
   }
 
@@ -134,10 +134,10 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
     // setup verification
     expect(testUnit.hasHeader()).isTrue();
 
-   // execute
+    // execute
     testUnit.removeHeader();
 
-   // verify
+    // verify
     expect(testUnit.hasHeader()).isFalse();
   }
 
@@ -159,10 +159,10 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
     // setup
     final N testUnit = createBlankNode();
 
-   // execute
+    // execute
     testUnit.resetFromString(string);
 
-   // verify
+    // verify
     expect(testUnit).hasStringRepresentation(string);
   }
 
@@ -171,7 +171,7 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
     // setup
     final N testUnit = createBlankNode();
 
-   // execute & verification
+    // execute & verify
     expectRunning(() -> testUnit.resetFromString("a(b).c"))
       .throwsException()
       .ofType(UnrepresentingArgumentException.class);
@@ -186,10 +186,10 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
     // setup verification
     expect(testUnit.hasHeader());
 
-   // execute
+    // execute
     testUnit.setHeader("Ipsum");
 
-   // verify
+    // verify
     expect(testUnit.getHeader()).isEqualTo("Ipsum");
   }
 }

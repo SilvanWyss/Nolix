@@ -40,10 +40,10 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(john);
     nodeDataAdapter.saveChanges();
 
-   // execute
+    // execute
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
 
-   // verify
+    // verify
     expect(loadedJohn.pets.isEmpty()).isTrue();
   }
 
@@ -63,10 +63,10 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(john);
     nodeDataAdapter.saveChanges();
 
-   // execute
+    // execute
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
 
-   // verify
+    // verify
     expect(loadedJohn.pets.getAllStoredReferencedEntities().getCount()).isEqualTo(2);
     expect(loadedJohn.pets.getAllStoredReferencedEntities()).contains(p -> p.hasId(garfield.getId()));
     expect(loadedJohn.pets.getAllStoredReferencedEntities()).contains(p -> p.hasId(odie.getId()));
@@ -92,7 +92,7 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
       .getStoredEntityById(garfield.getId());
 
-   // execute & verification
+    // execute & verify
     expectRunning(loadedGarfield::delete).throwsException();
   }
 
@@ -124,7 +124,7 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
       .getStoredEntityById(garfield.getId());
     loadedGarfield2.delete();
 
-   // execute & verification
+    // execute & verify
     expectRunning(nodeDataAdapter::saveChanges).doesNotThrowException();
   }
 
@@ -138,10 +138,10 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(john);
     final var garfield = new Pet();
 
-   // execute
+    // execute
     john.pets.addEntity(garfield);
 
-   // verify
+    // verify
     expect(garfield.belongsToTable()).isTrue();
   }
 
@@ -155,11 +155,11 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(john);
     final var garfield = new Pet();
 
-   // execute
+    // execute
     john.pets.addEntity(garfield);
     nodeDataAdapter.saveChanges();
 
-   // verify
+    // verify
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
     final var loadedGarfield = //
     nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());

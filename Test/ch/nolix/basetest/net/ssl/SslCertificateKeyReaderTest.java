@@ -24,10 +24,10 @@ final class SslCertificateKeyReaderTest extends StandardTest {
       "-----END PRIVATE KEY-----");
     final var testUnit = new SslCertificateKeyReader();
 
-   // execute
+    // execute
     final var result = testUnit.getKeyFromPemFileLines(pemFileLines);
 
-   // verify
+    // verify
     expect(result).isEqualTo("AAAAABBBBB");
   }
 }

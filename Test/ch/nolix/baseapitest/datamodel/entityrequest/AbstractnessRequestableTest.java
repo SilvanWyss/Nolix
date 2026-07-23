@@ -16,10 +16,10 @@ final class AbstractnessRequestableTest extends StandardTest {
     // setup
     final var testUnit = AbstractnessRequestableMock.withIsAbstractFlag(true);
 
-   // execute
+    // execute
     final var result = testUnit.isConcrete();
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 
@@ -28,10 +28,10 @@ final class AbstractnessRequestableTest extends StandardTest {
     // setup
     final var testUnit = AbstractnessRequestableMock.withIsAbstractFlag(false);
 
-   // execute
+    // execute
     final var result = testUnit.isConcrete();
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 }

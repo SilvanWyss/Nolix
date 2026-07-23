@@ -25,10 +25,10 @@ final class LayerTest extends StandardTest {
     // setup verification
     expect(testUnit.isEmpty()).isTrue();
 
-   // execute
+    // execute
     testUnit.clear();
 
-   // verify
+    // verify
     expect(testUnit.isEmpty()).isTrue();
   }
 
@@ -41,10 +41,10 @@ final class LayerTest extends StandardTest {
     // setup verification
     expect(testUnit.containsAny()).isTrue();
 
-   // execute
+    // execute
     testUnit.clear();
 
-   // verify
+    // verify
     expect(testUnit.isEmpty()).isTrue();
   }
 
@@ -56,7 +56,7 @@ final class LayerTest extends StandardTest {
     // setup verification
     expect(testUnit.belongsToGui()).isFalse();
 
-   // execute
+    // execute
     expectRunning(testUnit::removeSelfFromGui).doesNotThrowException();
   }
 
@@ -71,10 +71,10 @@ final class LayerTest extends StandardTest {
     expect(webGui.getStoredLayers()).contains(testUnit);
     expect(testUnit.belongsToGui()).isTrue();
 
-   // execute
+    // execute
     testUnit.removeSelfFromGui();
 
-   // verify
+    // verify
     expect(webGui.getStoredLayers().contains(testUnit)).isFalse();
     expect(testUnit.belongsToGui()).isFalse();
   }
@@ -90,10 +90,10 @@ final class LayerTest extends StandardTest {
       .setContentAlignment(ContentAlignment.BOTTOM_RIGHT)
       .setRootControl(new Label());
 
-   // execute
+    // execute
     testUnit.reset();
 
-   // verify
+    // verify
     expect(testUnit.hasId()).isFalse();
     expect(testUnit.hasRole()).isFalse();
     expect(testUnit.getOpacity()).isEqualTo(1.0);

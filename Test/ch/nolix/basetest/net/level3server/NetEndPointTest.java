@@ -18,14 +18,14 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class NetEndPointTest extends StandardTest {
   @Test
   void testCase_constructor() {
-    // parameter definition
+    // define test parameters
     final var port = 50000;
 
     try (final var server = Server.forPort(port)) {
       // setup
       server.addDefaultSlot(new TestSlot());
 
-     // execute & verification
+      // execute & verify
       expectRunning(
         () -> {
           try (final var _ = NetEndPoint.toLocalMachineAndGivenPortAndDefaultSlot(port)) {
@@ -38,7 +38,7 @@ final class NetEndPointTest extends StandardTest {
 
   @Test
   void testCase_runCommand() {
-    // parameter definition
+    // define test parameters
     final var port = 50000;
 
     try (final var server = Server.forPort(port)) {
@@ -47,10 +47,10 @@ final class NetEndPointTest extends StandardTest {
       server.addDefaultSlot(slot);
 
       try (final var testUnit = NetEndPoint.toLocalMachineAndGivenPortAndDefaultSlot(port)) {
-       // execute
+        // execute
         testUnit.runCommand(ChainedNode.fromString("test_command"));
 
-       // verify
+        // verify
         expect(slot.getLatestCreatedReceivingDataProviderController().getLatestReceivedCommand())
           .hasStringRepresentation("test_command");
       }
@@ -59,7 +59,7 @@ final class NetEndPointTest extends StandardTest {
 
   @Test
   void testCase_getData() {
-    // parameter definition
+    // define test parameters
     final var port = 50000;
 
     try (final var server = Server.forPort(port)) {
@@ -68,10 +68,10 @@ final class NetEndPointTest extends StandardTest {
       server.addDefaultSlot(slot);
 
       try (final var testUnit = NetEndPoint.toLocalMachineAndGivenPortAndDefaultSlot(port)) {
-       // execute
+        // execute
         final var result = testUnit.getDataForRequest(ChainedNode.fromString("test_request"));
 
-       // verify
+        // verify
         expect(slot.getLatestCreatedReceivingDataProviderController().getLatestReceivedRequest())
           .hasStringRepresentation("test_request");
         expect(result).isEqualTo(ImmutableNode.withHeader("test_data"));

@@ -17,10 +17,10 @@ final class PolynomTest extends StandardTest {
     // setup
     final var testUnit = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
 
-   // execute
+    // execute
     final var result = testUnit.equals(null);
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 
@@ -30,10 +30,10 @@ final class PolynomTest extends StandardTest {
     final var testUnit = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
     final var object = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0);
 
-   // execute
+    // execute
     final var result = testUnit.equals(object);
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 
@@ -43,10 +43,10 @@ final class PolynomTest extends StandardTest {
     final var testUnit = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
     final var object = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 7.0);
 
-   // execute
+    // execute
     final var result = testUnit.equals(object);
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 
@@ -56,10 +56,10 @@ final class PolynomTest extends StandardTest {
     final var testUnit = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
     final var object = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
 
-   // execute
+    // execute
     final var result = testUnit.equals(object);
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 
@@ -71,10 +71,10 @@ final class PolynomTest extends StandardTest {
     // setup verification
     expect(testUnit).hasStringRepresentation("x->3.0x^2");
 
-   // execute
+    // execute
     final var result = testUnit.getDerived();
 
-   // verify
+    // verify
     expect(result).hasStringRepresentation("x->6.0x");
   }
 
@@ -86,10 +86,10 @@ final class PolynomTest extends StandardTest {
     // setup verification
     expect(testUnit).hasStringRepresentation("x->3.0x^2+3.0x+3.0");
 
-   // execute
+    // execute
     final var result = testUnit.getDerived();
 
-   // verify
+    // verify
     expect(result).hasStringRepresentation("x->6.0x+3.0");
   }
 
@@ -101,10 +101,10 @@ final class PolynomTest extends StandardTest {
     // setup verification
     expect(testUnit).hasStringRepresentation("x->3.0x^2+2.0x+1.0");
 
-   // execute
+    // execute
     final var result = testUnit.getDerived();
 
-   // verify
+    // verify
     expect(result).hasStringRepresentation("x->6.0x+2.0");
   }
 
@@ -116,10 +116,10 @@ final class PolynomTest extends StandardTest {
     // setup verification
     expect(testUnit).hasStringRepresentation("x->3.0x^2");
 
-   // execute
+    // execute
     final var result = testUnit.getIntegrated();
 
-   // verify
+    // verify
     expect(result).hasStringRepresentation("x->x^3");
   }
 
@@ -131,10 +131,10 @@ final class PolynomTest extends StandardTest {
     // setup verification
     expect(testUnit).hasStringRepresentation("x->3.0x^2+2.0x+1.0");
 
-   // execute
+    // execute
     final var result = testUnit.getIntegrated();
 
-   // verify
+    // verify
     expect(result).hasStringRepresentation("x->x^3+x^2+1.0x");
   }
 
@@ -143,10 +143,10 @@ final class PolynomTest extends StandardTest {
     // setup
     final var testUnit = Polynom.EMPTY_POLYNOM;
 
-   // execute
+    // execute
     final var result = testUnit.toString();
 
-   // verify
+    // verify
     expect(result).isEqualTo("x->0.0");
   }
 
@@ -155,10 +155,10 @@ final class PolynomTest extends StandardTest {
     // setup
     final var testUnit = Polynom.withCoefficients(1.0);
 
-   // execute
+    // execute
     final var result = testUnit.toString();
 
-   // execute
+    // execute
     expect(result).isEqualTo("x->1.0");
   }
 
@@ -167,10 +167,10 @@ final class PolynomTest extends StandardTest {
     // setup
     final var testUnit = Polynom.withCoefficients(2.0, 1.0);
 
-   // execute
+    // execute
     final var result = testUnit.toString();
 
-   // execute
+    // execute
     expect(result).isEqualTo("x->2.0x+1.0");
   }
 
@@ -179,29 +179,29 @@ final class PolynomTest extends StandardTest {
     // setup
     final var testUnit = Polynom.withCoefficients(3.0, 2.0, 1.0);
 
-   // execute
+    // execute
     final var result = testUnit.toString();
 
-   // execute
+    // execute
     expect(result).isEqualTo("x->3.0x^2+2.0x+1.0");
   }
 
   @Test
   void testCase_withCoefficient_whenThereIsGiven1Coefficient() {
-   // execute
+    // execute
     final var result = Polynom.withCoefficients(1.0);
 
-   // verify
+    // verify
     expect(result.getDegree()).isEqualTo(0);
     expect(result.getCoefficientForDegree(0)).isEqualTo(1.0);
   }
 
   @Test
   void testCase_withCoefficient_whenThereAreGiven2Coefficients() {
-   // execute
+    // execute
     final var result = Polynom.withCoefficients(2.0, 1.0);
 
-   // verify
+    // verify
     expect(result.getDegree()).isEqualTo(1);
     expect(result.getCoefficientForDegree(0)).isEqualTo(1.0);
     expect(result.getCoefficientForDegree(1)).isEqualTo(2.0);
@@ -209,10 +209,10 @@ final class PolynomTest extends StandardTest {
 
   @Test
   void testCase_withCoefficient_whenThereAreGiven3Coefficients() {
-   // execute
+    // execute
     final var result = Polynom.withCoefficients(3.0, 2.0, 1.0);
 
-   // verify
+    // verify
     expect(result.getDegree()).isEqualTo(2);
     expect(result.getCoefficientForDegree(0)).isEqualTo(1.0);
     expect(result.getCoefficientForDegree(1)).isEqualTo(2.0);

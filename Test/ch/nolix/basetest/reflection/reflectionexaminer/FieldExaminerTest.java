@@ -31,10 +31,10 @@ final class FieldExaminerTest extends StandardTest {
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
-   // execute
+    // execute
     final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, LinkedList.class);
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 
@@ -44,10 +44,10 @@ final class FieldExaminerTest extends StandardTest {
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
-   // execute
+    // execute
     final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, AbstractExtendedIterable.class);
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 
@@ -57,10 +57,10 @@ final class FieldExaminerTest extends StandardTest {
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
-   // execute
+    // execute
     final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, ILinkedList.class);
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 
@@ -70,10 +70,10 @@ final class FieldExaminerTest extends StandardTest {
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
-   // execute
+    // execute
     final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, ExtendedIterable.class);
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 
@@ -83,10 +83,10 @@ final class FieldExaminerTest extends StandardTest {
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
-   // execute
+    // execute
     final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, Matrix.class);
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 
@@ -96,10 +96,10 @@ final class FieldExaminerTest extends StandardTest {
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
-   // execute
+    // execute
     final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, ArrayList.class);
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 
@@ -109,10 +109,10 @@ final class FieldExaminerTest extends StandardTest {
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
-   // execute
+    // execute
     final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, IMatrix.class);
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 
@@ -122,10 +122,10 @@ final class FieldExaminerTest extends StandardTest {
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
-   // execute
+    // execute
     final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, IArrayList.class);
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 }

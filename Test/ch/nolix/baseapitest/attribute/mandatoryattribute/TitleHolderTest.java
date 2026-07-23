@@ -20,10 +20,10 @@ final class TitleHolderTest extends StandardTest {
     Mockito.when(testUnit.getTitleInSingleQuotes()).thenCallRealMethod();
     Mockito.when(testUnit.getTitle()).thenReturn("title");
 
-   // execute
+    // execute
     final var result = testUnit.getTitleInSingleQuotes();
 
-   // verify
+    // verify
     expect(result).isEqualTo("'title'");
   }
 }

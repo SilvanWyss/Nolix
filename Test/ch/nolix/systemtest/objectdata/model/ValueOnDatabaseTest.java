@@ -34,7 +34,7 @@ final class ValueOnDatabaseTest extends StandardTest {
     final var garfield = new Pet();
     nodeDataAdapter.insertEntity(garfield);
 
-   // execute & verification
+    // execute & verify
     expectRunning(nodeDataAdapter::saveChanges).throwsException();
   }
 
@@ -48,10 +48,10 @@ final class ValueOnDatabaseTest extends StandardTest {
     garfield.name.setValue("Garfield");
     nodeDataAdapter.insertEntity(garfield);
 
-   // execute
+    // execute
     final var result = garfield.name.getStoredValue();
 
-   // verify
+    // verify
     expect(result).isEqualTo("Garfield");
   }
 
@@ -70,10 +70,10 @@ final class ValueOnDatabaseTest extends StandardTest {
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
       .getStoredEntityById(garfield.getId());
 
-   // execute
+    // execute
     final var result = loadedGarfield.name.getStoredValue();
 
-   // verify
+    // verify
     expect(result).isEqualTo("Garfield");
   }
 
@@ -85,10 +85,10 @@ final class ValueOnDatabaseTest extends StandardTest {
     // setup verification
     expect(garfield.getState()).is(DatabaseObjectState.NEW);
 
-   // execute
+    // execute
     final var result = garfield.name.getState();
 
-   // verify
+    // verify
     expect(result).is(DatabaseObjectState.NEW);
   }
 
@@ -101,10 +101,10 @@ final class ValueOnDatabaseTest extends StandardTest {
     // setup verification
     expect(garfield.getState()).is(DatabaseObjectState.NEW);
 
-   // execute
+    // execute
     final var result = garfield.name.getState();
 
-   // verify
+    // verify
     expect(result).is(DatabaseObjectState.NEW);
   }
 
@@ -122,10 +122,10 @@ final class ValueOnDatabaseTest extends StandardTest {
     // setup verification
     expect(garfield.getState()).is(DatabaseObjectState.CLOSED);
 
-   // execute
+    // execute
     final var result = garfield.name.getState();
 
-   // verify
+    // verify
     expect(result).is(DatabaseObjectState.CLOSED);
   }
 
@@ -147,10 +147,10 @@ final class ValueOnDatabaseTest extends StandardTest {
     // setup verification
     expect(loaedGarfield.getState()).is(DatabaseObjectState.UNEDITED);
 
-   // execute
+    // execute
     final var result = loaedGarfield.name.getState();
 
-   // verify
+    // verify
     expect(result).is(DatabaseObjectState.UNEDITED);
   }
 }

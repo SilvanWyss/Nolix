@@ -19,10 +19,10 @@ final class SqlLiteralMapperTest extends StandardTest {
     // setup
     final var testUnit = new SqlLiteralMapper();
 
-   // execute
+    // execute
     final var result = testUnit.mapNullableValueStringToSqlLiteral(null);
 
-   // verify
+    // verify
     expect(result).isEqualTo("NULL");
   }
 
@@ -37,10 +37,10 @@ final class SqlLiteralMapperTest extends StandardTest {
     // setup
     final var testUnit = new SqlLiteralMapper();
 
-   // execute
+    // execute
     final var result = testUnit.mapNullableValueStringToSqlLiteral(nullableValue);
 
-   // verify
+    // verify
     expect(result).isEqualTo(expectedResult);
   }
 }
