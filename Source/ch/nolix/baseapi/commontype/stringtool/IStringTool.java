@@ -77,7 +77,6 @@ public interface IStringTool {
    * @param string
    * @return a proportion in [0, 1] from the given string
    * @throws RuntimeException if the given string does not represent a proportion
-   * 
    */
   double toProportion(String string);
 }

@@ -137,7 +137,6 @@ extends AbstractControl<C, S> implements Container<C, S> {
    * @param childControl
    * @throws RuntimeException if the given childControl does not belong to the
    *                          current {@link AbstractContainer}.
-   * 
    */
   protected final void unregisterChildControl(
     final Control<?, ?> childControl) {

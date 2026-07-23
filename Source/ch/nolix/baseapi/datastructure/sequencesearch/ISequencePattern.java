@@ -57,7 +57,6 @@ public interface ISequencePattern<E> {
    *         {@link ISequencePattern } with the given sequenceCondition for the
    *         sequences the {@link ISequencePattern}
    * @throws RuntimeException if the given sequenceCondition is null
-   * 
    */
   ISequencePattern<E> withSequenceCondition(Predicate<ExtendedIterable<E>> sequenceCondition);
 
