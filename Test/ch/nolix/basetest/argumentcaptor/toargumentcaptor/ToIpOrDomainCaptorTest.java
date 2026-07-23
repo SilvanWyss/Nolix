@@ -24,7 +24,7 @@ final class ToIpOrDomainCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_toIpOrDomain_whenDoesNotHaveNext() {
+  void testCase_toIpOrDomain_whenDoesNotHaveSuccessor() {
     // setup
     final var testUnit = new ToIpOrDomainCaptor<>();
 
@@ -35,7 +35,7 @@ final class ToIpOrDomainCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_toIpOrDomain_whenHasNext() {
+  void testCase_toIpOrDomain_whenHasSuccessor() {
     // define test parameters
     final var domain = "nolix.ch";
 
@@ -52,7 +52,7 @@ final class ToIpOrDomainCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_toLocalAddress_whenHasNext() {
+  void testCase_toLocalAddress_whenHasSuccessor() {
     // setup
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new ToIpOrDomainCaptor<>(andNameCaptor);

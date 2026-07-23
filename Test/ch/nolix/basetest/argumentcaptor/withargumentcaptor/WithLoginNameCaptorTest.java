@@ -24,7 +24,7 @@ final class WithLoginNameCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_withLoginName_whenHasNext() {
+  void testCase_withLoginName_whenHasSuccessor() {
     // define test parameters
     final var loginName = "my_login_name";
 
@@ -41,7 +41,7 @@ final class WithLoginNameCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_withLoginName_whenDoesNotHaveNext() {
+  void testCase_withLoginName_whenDoesNotHaveSuccessor() {
     // setup
     final var testUnit = new WithLoginNameCaptor<>();
 

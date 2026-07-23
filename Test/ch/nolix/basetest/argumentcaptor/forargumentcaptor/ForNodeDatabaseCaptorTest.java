@@ -17,7 +17,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
  */
 final class ForNodeDatabaseCaptorTest extends StandardTest {
   @Test
-  void testCase_forNodeDatabase_whenDoesNotHaveNext() {
+  void testCase_forNodeDatabase_whenDoesNotHaveSuccessor() {
     // setup
     final var database = MutableNode.createEmpty();
     final var testUnit = new ForNodeDatabaseCaptor<>();
@@ -29,7 +29,7 @@ final class ForNodeDatabaseCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_forNodeDatabase_whenHasNext() {
+  void testCase_forNodeDatabase_whenHasSuccessor() {
     // setup
     final var database = MutableNode.createEmpty();
     final var andNameCaptor = new AndNameCaptor<>();
@@ -44,7 +44,7 @@ final class ForNodeDatabaseCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_forTemporaryInMemoryNodeDatabase_whenHasNext() {
+  void testCase_forTemporaryInMemoryNodeDatabase_whenHasSuccessor() {
     // setup
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new ForNodeDatabaseCaptor<>(andNameCaptor);

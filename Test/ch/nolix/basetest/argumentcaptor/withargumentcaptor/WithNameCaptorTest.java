@@ -23,7 +23,7 @@ final class WithNameCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_withName_whenHasNext() {
+  void testCase_withName_whenHasSuccessor() {
     // define test parameters
     final var name = "my_name";
 
@@ -40,7 +40,7 @@ final class WithNameCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_withName_whenDoesNotHaveNext() {
+  void testCase_withName_whenDoesNotHaveSuccessor() {
     // setup
     final var testUnit = new WithNameCaptor<>();
 

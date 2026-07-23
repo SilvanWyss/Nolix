@@ -14,7 +14,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
  */
 final class AndNameCaptorTest extends StandardTest {
   @Test
-  void testCase_andName_whenHasNext() {
+  void testCase_andName_whenHasSuccessor() {
     // define test parameters
     final var name = "my_name";
 
@@ -31,7 +31,7 @@ final class AndNameCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_andName_whenDoesNotHaveNext() {
+  void testCase_andName_whenDoesNotHaveSuccessor() {
     // setup
     final var testUnit = new AndNameCaptor<>();
 

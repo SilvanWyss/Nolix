@@ -24,7 +24,7 @@ final class ToDatabaseNameCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_toDatabase_whenDoesNotHaveNext() {
+  void testCase_toDatabase_whenDoesNotHaveSuccessor() {
     // setup
     final var testUnit = new ToDatabaseNameCaptor<>();
 
@@ -35,7 +35,7 @@ final class ToDatabaseNameCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_toDatabaseName_whenHasNext() {
+  void testCase_toDatabaseName_whenHasSuccessor() {
     // define test parameters
     final var databaseName = "my_database";
 

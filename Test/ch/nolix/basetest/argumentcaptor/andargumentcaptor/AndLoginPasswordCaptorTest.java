@@ -15,7 +15,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
  */
 final class AndLoginPasswordCaptorTest extends StandardTest {
   @Test
-  void testCase_andLoginPassword_whenHasNext() {
+  void testCase_andLoginPassword_whenHasSuccessor() {
     // define test parameters
     final var loginPassword = "my_login_password";
 
@@ -32,7 +32,7 @@ final class AndLoginPasswordCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_andLoginPassword_whenDoesNotHaveNext() {
+  void testCase_andLoginPassword_whenDoesNotHaveSuccessor() {
     // setup
     final var testUnit = new AndLoginPasswordCaptor<>();
 

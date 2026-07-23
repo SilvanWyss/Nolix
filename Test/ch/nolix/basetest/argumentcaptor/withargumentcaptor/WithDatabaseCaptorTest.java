@@ -26,7 +26,7 @@ final class WithDatabaseCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_withDatabase_whenHasNext() {
+  void testCase_withDatabase_whenHasSuccessor() {
     // define test parameters
     final var database = MutableNode.createEmpty();
 
@@ -43,7 +43,7 @@ final class WithDatabaseCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_withDatabase_whenDoesNotHaveNext() {
+  void testCase_withDatabase_whenDoesNotHaveSuccessor() {
     // setup
     final var testUnit = new WithDatabaseCaptor<>();
 

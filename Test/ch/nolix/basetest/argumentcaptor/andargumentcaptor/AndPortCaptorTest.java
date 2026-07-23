@@ -15,7 +15,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
  */
 final class AndPortCaptorTest extends StandardTest {
   @Test
-  void testCase_andPort_whenHasNext() {
+  void testCase_andPort_whenHasSuccessor() {
     // define test parameters
     final var port = 8000;
 
@@ -32,7 +32,7 @@ final class AndPortCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_andPort_whenDoesNotHaveNext() {
+  void testCase_andPort_whenDoesNotHaveSuccessor() {
     // setup
     final var testUnit = new AndPortCaptor<>();
 
@@ -43,7 +43,7 @@ final class AndPortCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_andHttpPort_whenHasNext() {
+  void testCase_andHttpPort_whenHasSuccessor() {
     // setup
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new AndPortCaptor<>(andNameCaptor);
@@ -57,7 +57,7 @@ final class AndPortCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_andHttpsPort_whenHasNext() {
+  void testCase_andHttpsPort_whenHasSuccessor() {
     // setup
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new AndPortCaptor<>(andNameCaptor);
@@ -71,7 +71,7 @@ final class AndPortCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_andMsSqlPort_whenHasNext() {
+  void testCase_andMsSqlPort_whenHasSuccessor() {
     // setup
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new AndPortCaptor<>(andNameCaptor);

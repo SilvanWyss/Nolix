@@ -25,7 +25,7 @@ final class WithSqlDatabaseEngineCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_withSqlDatabaseEngine_whenHasNext() {
+  void testCase_withSqlDatabaseEngine_whenHasSuccessor() {
     // define test parameters
     final var sqlDatabaseEngine = SqlDatabaseEngine.MS_SQL;
 
@@ -42,7 +42,7 @@ final class WithSqlDatabaseEngineCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_withSqlDatabaseEngine_whenDoesNotHaveNext() {
+  void testCase_withSqlDatabaseEngine_whenDoesNotHaveSuccessor() {
     // setup
     final var testUnit = new WithSqlDatabaseEngineCaptor<>();
 
