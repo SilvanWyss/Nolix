@@ -24,17 +24,17 @@ public class AndDatabaseNameCaptor<S> extends AbstractArgumentCaptor<String, S> 
    * {@inheritDoc}
    */
   @Override
-  public final S andDatabase(final String databaseName) {
-    Validator.assertThat(databaseName).thatIsNamed(LowerCaseVariableNameCatalog.DATABASE_NAME).isNotBlank();
+  public final S andDatabase(final String database) {
+    Validator.assertThat(database).thatIsNamed(LowerCaseVariableNameCatalog.DATABASE_NAME).isNotBlank();
 
-    return setArgumentAndGetStoredSuccessor(databaseName);
+    return setArgumentAndGetStoredSuccessor(database);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public final String getDatabaseName() {
+  public final String getDatabase() {
     return getStoredArgument();
   }
 }

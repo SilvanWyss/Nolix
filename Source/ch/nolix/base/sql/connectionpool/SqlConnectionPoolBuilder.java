@@ -41,7 +41,7 @@ AndLoginPasswordCaptor<SqlConnectionPool>>>>>> {
     SqlConnectionPool.withHostAndPortAndDatabaseNameAndSqlDatabaseEngineAndLoginNameAndLoginPassword(
       getHost(),
       scsArgCpt().getPort(),
-      scsArgCpt().scsArgCpt().getDatabaseName(),
+      scsArgCpt().scsArgCpt().getDatabase(),
       scsArgCpt().scsArgCpt().scsArgCpt().getSqlDatabaseEngine(),
       scsArgCpt().scsArgCpt().scsArgCpt().scsArgCpt().getLoginName(),
       scsArgCpt().scsArgCpt().scsArgCpt().scsArgCpt().scsArgCpt().getLoginPassword());

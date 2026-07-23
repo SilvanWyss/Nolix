@@ -10,7 +10,7 @@ import ch.nolix.baseapi.argumentcaptor.base.ArgumentCaptor;
  * @param <S> the type of the successor of a {@link IAndDatabaseNameCaptor}
  */
 public interface IAndDatabaseNameCaptor<S> extends ArgumentCaptor<S> {
-  S andDatabase(String databaseName);
+  S andDatabase(String database);
 
-  String getDatabaseName();
+  String getDatabase();
 }
