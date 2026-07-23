@@ -50,7 +50,7 @@ final class SqlCollectorTest extends StandardTest {
   }
 
   @ParameterizedTest
-  @ValueSource(strings = { StringCatalog.EMPTY_STRING, StringCatalog.SPACE, StringCatalog.TABULATOR })
+  @ValueSource(strings = { StringCatalog.EMPTY_STRING, StringCatalog.SPACE, StringCatalog.TAB })
   void testCase_addSqlStatement_whenTheGivenSqlStatementIsBlank(final String sqlStatement) {
     // setup
     final var testUnit = new SqlCollector();

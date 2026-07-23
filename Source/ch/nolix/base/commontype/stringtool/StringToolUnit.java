@@ -31,7 +31,7 @@ public final class StringToolUnit implements IStringTool {
    */
   @Override
   public String createTabs(final int tabCount) {
-    return StringCatalog.TABULATOR.repeat(tabCount);
+    return StringCatalog.TAB.repeat(tabCount);
   }
 
   /**

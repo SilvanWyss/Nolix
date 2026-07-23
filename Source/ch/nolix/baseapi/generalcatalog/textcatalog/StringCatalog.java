@@ -101,7 +101,7 @@ public final class StringCatalog {
 
   public static final String SPACE = " ";
 
-  public static final String TABULATOR = "\t";
+  public static final String TAB = "\t";
 
   public static final String THIN_CROSS = "\u2715";
 
