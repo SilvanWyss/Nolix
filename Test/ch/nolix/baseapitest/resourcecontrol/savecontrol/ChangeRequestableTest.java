@@ -3,9 +3,13 @@
  */
 package ch.nolix.baseapitest.resourcecontrol.savecontrol;
 
+import static org.mockito.Mockito.when;
+
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.resourcecontrol.savecontrol.ChangeRequestable;
 
 /**
  * @author Silvan Wyss
@@ -14,24 +18,28 @@ final class ChangeRequestableTest extends StandardTest {
   @Test
   void testCase_isChangeFree_whenIsChangeFree() {
     // setup
-    final var testUnit = ChangeRequestableMock.withHasChangesFlag(false);
+    final var testUnit = Mockito.mock(ChangeRequestable.class);
+    when(testUnit.isChangeFree()).thenCallRealMethod();
+    when(testUnit.hasChanges()).thenReturn(false);
 
-   // execute
+    // execute
     final var result = testUnit.isChangeFree();
 
-   // verify
+    // verify
     expect(result).isTrue();
   }
 
   @Test
   void testCase_isChangeFree_whenHasChanges() {
     // setup
-    final var testUnit = ChangeRequestableMock.withHasChangesFlag(true);
+    final var testUnit = Mockito.mock(ChangeRequestable.class);
+    when(testUnit.isChangeFree()).thenCallRealMethod();
+    when(testUnit.hasChanges()).thenReturn(true);
 
-   // execute
+    // execute
     final var result = testUnit.isChangeFree();
 
-   // verify
+    // verify
     expect(result).isFalse();
   }
 }
