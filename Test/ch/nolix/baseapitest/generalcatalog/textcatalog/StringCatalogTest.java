@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapitest.commontypetool.stringtool;
+package ch.nolix.baseapitest.generalcatalog.textcatalog;
 
 import org.junit.jupiter.api.Test;
 
