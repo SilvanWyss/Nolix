@@ -19,7 +19,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 /**
  * @author Silvan Wyss
  */
-final class ArgumentCaptorTest extends StandardTest {
+final class AbstractArgumentCaptorTest extends StandardTest {
   @Test
   void testCase_constructor_whenTheGivenNextArgumentCaptorIsNull() {
    // execute & verification
