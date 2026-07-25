@@ -55,7 +55,6 @@ public final class ArraySorter {
       case 0, 1:
         break;
       case 2:
-
         if (comparableArray[zeroBasedBeginIndex].compareTo(comparableArray[zeroBasedEndIndex]) > 0) {
           swapElements(elementArray, zeroBasedBeginIndex, zeroBasedEndIndex);
           swapElements(comparableArray, zeroBasedBeginIndex, zeroBasedEndIndex);
@@ -119,50 +118,39 @@ public final class ArraySorter {
   }
 
   private static <E, C extends Comparable<C>> void mergeSortedSections(
-    final E[] elementArray,
-    final C[] comparableArray,
-    final int leftSectionZeroBasedBeginIndex,
-    final int leftSectionZeroBasedEndIndex,
-    final int rightSectionZeroBasedEndIndex,
-    final E[] workElementArray,
-    final C[] workComparableArray) {
-    var leftSectionZeroBasedIndex = leftSectionZeroBasedBeginIndex;
-    var rightSectionZeroBasedIndex = leftSectionZeroBasedEndIndex + 1;
-    var movedElement = false;
-    var index = 0;
+    final E[] elementsArray,
+    final C[] comparablesArray,
+    final int leftSectionStartIndex,
+    final int leftSectionEndIndex,
+    final int rightSectionEndIndex,
+    final E[] elementsWorkArray,
+    final C[] comparablesWorkArray) {
+    final var elementsToProcessCount = rightSectionEndIndex - leftSectionStartIndex + 1;
+    var movedElements = false;
+    var continueComparing = true;
+    var leftSectionIndex = leftSectionStartIndex;
+    var rightSectionIndex = leftSectionEndIndex + 1;
 
-    while (leftSectionZeroBasedIndex <= leftSectionZeroBasedEndIndex
-    && rightSectionZeroBasedIndex <= rightSectionZeroBasedEndIndex) {
-      if (comparableArray[leftSectionZeroBasedIndex].compareTo(comparableArray[rightSectionZeroBasedIndex]) > 0) {
-        workElementArray[index] = elementArray[rightSectionZeroBasedIndex];
-        workComparableArray[index] = comparableArray[rightSectionZeroBasedIndex];
-        movedElement = true;
-        rightSectionZeroBasedIndex++;
+    for (var i = 0; i < elementsToProcessCount; i++) {
+      if (continueComparing && comparablesArray[leftSectionIndex].compareTo(comparablesArray[rightSectionIndex]) > 0) {
+        elementsWorkArray[i] = elementsArray[rightSectionIndex];
+        comparablesWorkArray[i] = comparablesArray[rightSectionIndex];
+        rightSectionIndex++;
+        movedElements = true;
       } else {
-        workElementArray[index] = elementArray[leftSectionZeroBasedIndex];
-        workComparableArray[index] = comparableArray[leftSectionZeroBasedIndex];
-        leftSectionZeroBasedIndex++;
+        elementsWorkArray[i] = elementsArray[leftSectionIndex];
+        comparablesWorkArray[i] = comparablesArray[leftSectionIndex];
+        leftSectionIndex++;
       }
 
-      index++;
+      if (continueComparing && (leftSectionIndex > leftSectionEndIndex || rightSectionIndex > rightSectionEndIndex)) {
+        continueComparing = false;
+      }
     }
 
-    if (movedElement) {
-      while (leftSectionZeroBasedIndex <= leftSectionZeroBasedEndIndex) {
-        workElementArray[index] = elementArray[leftSectionZeroBasedIndex];
-        workComparableArray[index] = comparableArray[leftSectionZeroBasedIndex];
-        leftSectionZeroBasedIndex++;
-        index++;
-      }
-
-      while (rightSectionZeroBasedIndex <= rightSectionZeroBasedEndIndex) {
-        workElementArray[index] = elementArray[rightSectionZeroBasedIndex];
-        workComparableArray[index] = comparableArray[rightSectionZeroBasedIndex];
-        rightSectionZeroBasedIndex++;
-      }
-
-      System.arraycopy(workElementArray, 0, elementArray, leftSectionZeroBasedBeginIndex, index);
-      System.arraycopy(workComparableArray, 0, comparableArray, leftSectionZeroBasedBeginIndex, index);
+    if (movedElements) {
+      System.arraycopy(elementsWorkArray, 0, elementsArray, leftSectionStartIndex, elementsToProcessCount);
+      System.arraycopy(comparablesWorkArray, 0, comparablesArray, leftSectionStartIndex, elementsToProcessCount);
     }
   }
 }
