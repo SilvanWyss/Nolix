@@ -127,28 +127,32 @@ public final class ArraySorter {
     final C[] comparablesWorkArray) {
     final var elementsToProcessCount = rightSectionEndIndex - leftSectionStartIndex + 1;
     var movedElements = false;
-    var continueComparing = true;
     var leftSectionIndex = leftSectionStartIndex;
     var rightSectionIndex = leftSectionEndIndex + 1;
+    var index = 0;
 
-    for (var i = 0; i < elementsToProcessCount; i++) {
-      if (continueComparing && comparablesArray[leftSectionIndex].compareTo(comparablesArray[rightSectionIndex]) > 0) {
-        elementsWorkArray[i] = elementsArray[rightSectionIndex];
-        comparablesWorkArray[i] = comparablesArray[rightSectionIndex];
+    while (leftSectionIndex <= leftSectionEndIndex && rightSectionIndex <= rightSectionEndIndex) {
+      if (comparablesArray[leftSectionIndex].compareTo(comparablesArray[rightSectionIndex]) > 0) {
+        elementsWorkArray[index] = elementsArray[rightSectionIndex];
+        comparablesWorkArray[index] = comparablesArray[rightSectionIndex];
         rightSectionIndex++;
         movedElements = true;
       } else {
+        elementsWorkArray[index] = elementsArray[leftSectionIndex];
+        comparablesWorkArray[index] = comparablesArray[leftSectionIndex];
+        leftSectionIndex++;
+      }
+
+      index++;
+    }
+
+    if (movedElements) {
+      for (var i = index; i < elementsToProcessCount; i++) {
         elementsWorkArray[i] = elementsArray[leftSectionIndex];
         comparablesWorkArray[i] = comparablesArray[leftSectionIndex];
         leftSectionIndex++;
       }
 
-      if (continueComparing && (leftSectionIndex > leftSectionEndIndex || rightSectionIndex > rightSectionEndIndex)) {
-        continueComparing = false;
-      }
-    }
-
-    if (movedElements) {
       System.arraycopy(elementsWorkArray, 0, elementsArray, leftSectionStartIndex, elementsToProcessCount);
       System.arraycopy(comparablesWorkArray, 0, comparablesArray, leftSectionStartIndex, elementsToProcessCount);
     }
