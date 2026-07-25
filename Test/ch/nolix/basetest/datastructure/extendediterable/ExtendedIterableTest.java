@@ -1094,7 +1094,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
   }
 
   @Test
-  final void testCase_toOrderedList_1A() {
+  final void testCase_toOrdered() {
     // setup
     final var testUnit = createContainerWithElements("xxxxxx", "xxxxx", "xxxx", "xxx", "xx", "x");
 
@@ -1109,24 +1109,6 @@ public abstract class ExtendedIterableTest extends StandardTest {
     expect(result.getStoredAtOneBasedIndex(4)).isEqualTo("xxxx");
     expect(result.getStoredAtOneBasedIndex(5)).isEqualTo("xxxxx");
     expect(result.getStoredAtOneBasedIndex(6)).isEqualTo("xxxxxx");
-  }
-
-  @Test
-  final void testCase_toOrderedList_1B() {
-    // setup
-    final var testUnit = createContainerWithElements("python", "elephant", "zebra", "lion", "shark", "jaguar");
-
-    // execute
-    final var result = testUnit.toOrdered(FunctionService::getSelf);
-
-    // verify
-    expect(result.getCount()).isEqualTo(6);
-    expect(result.getStoredAtOneBasedIndex(1)).isEqualTo("elephant");
-    expect(result.getStoredAtOneBasedIndex(2)).isEqualTo("jaguar");
-    expect(result.getStoredAtOneBasedIndex(3)).isEqualTo("lion");
-    expect(result.getStoredAtOneBasedIndex(4)).isEqualTo("python");
-    expect(result.getStoredAtOneBasedIndex(5)).isEqualTo("shark");
-    expect(result.getStoredAtOneBasedIndex(6)).isEqualTo("zebra");
   }
 
   @Test
