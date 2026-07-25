@@ -1197,7 +1197,7 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final Object[] toArray() {
+  public Object[] toArray() {
     // Creates array.
     final var array = new Object[getCount()];
 

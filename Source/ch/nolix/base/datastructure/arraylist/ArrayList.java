@@ -253,6 +253,19 @@ public final class ArrayList<E> extends AbstractExtendedIterable<E> implements I
     return ArrayListIterator.forArrayAndMaxNextIndex(memberElements, getCount());
   }
 
+  //For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public Object[] toArray() {
+    final var array = new Object[memberElementCount];
+
+    System.arraycopy(memberElements, 0, array, 0, memberElementCount);
+
+    return array;
+  }
+
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link ArrayList} contains n elements.

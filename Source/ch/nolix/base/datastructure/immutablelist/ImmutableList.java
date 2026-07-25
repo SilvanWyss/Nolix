@@ -199,6 +199,20 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
     return ArrayIterator.forArray(elements);
   }
 
+  //For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public Object[] toArray() {
+    final var count = elements.length;
+    final var array = new Object[count];
+
+    System.arraycopy(elements, 0, array, 0, count);
+
+    return array;
+  }
+
   /**
    * {@inheritDoc}
    */
