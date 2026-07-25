@@ -12,7 +12,7 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 /**
  * @author Silvan Wyss
  */
-final class IsEmptyMethodTest extends StandardTest {
+final class IsEmptyTest extends StandardTest {
   @Test
   void testCase_isEmpty_whenGivenIterableIsNull() {
     // setup
