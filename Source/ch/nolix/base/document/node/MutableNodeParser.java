@@ -5,8 +5,11 @@ package ch.nolix.base.document.node;
 
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
+import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
 
 /**
+ * Of the {@link MutableNodeParser} an instance cannot be created.
+ * 
  * @author Silvan Wyss
  */
 public final class MutableNodeParser {
@@ -16,7 +19,9 @@ public final class MutableNodeParser {
   public static void resetMutableNodeFromString(final IMutableNode<?> mutableNode, final String string) {
     mutableNode.reset();
 
-    if (setMutableNodeFromStringAndStartIndexAndGetEndIndex(mutableNode, string, 0) != string.length() - 1) {
+    final var stringEndIndex = string.length() - 1;
+
+    if (setMutableNodeFromStringAndStartIndexAndGetEndIndex(mutableNode, string, 0) != stringEndIndex) {
       mutableNode.reset();
 
       throw UnrepresentingArgumentException.forArgumentAndType(string, ImmutableNode.class);
@@ -39,12 +44,12 @@ public final class MutableNodeParser {
     var index = startIndex + headerLength;
 
     if (index == string.length()) {
-      return (index - 1);
+      return index - 1;
     }
 
     final var character = string.charAt(index);
 
-    if (character == ',' || character == ')') {
+    if (character == CharacterCatalog.COMMA || character == CharacterCatalog.CLOSED_BRACKET) {
       return index - 1;
     }
 
@@ -56,12 +61,12 @@ public final class MutableNodeParser {
 
     while (index < string.length()) {
       switch (string.charAt(index)) {
-        case ',':
+        case CharacterCatalog.COMMA:
           var node = MutableNode.createEmpty();
           index = setMutableNodeFromStringAndStartIndexAndGetEndIndex(node, string, index + 1) + 1;
           mutableNode.addChildNode(node);
           break;
-        case ')':
+        case CharacterCatalog.CLOSED_BRACKET:
           return index;
         default:
       }
@@ -74,11 +79,13 @@ public final class MutableNodeParser {
     for (var index = startIndex; index < string.length(); index++) {
       final var character = string.charAt(index);
 
-      if (character == '(' || character == ',' || character == ')') {
-        return (index - startIndex);
+      if (character == CharacterCatalog.OPEN_BRACKET
+      || character == CharacterCatalog.COMMA
+      || character == CharacterCatalog.CLOSED_BRACKET) {
+        return index - startIndex;
       }
     }
 
-    return (string.length() - startIndex);
+    return string.length() - startIndex;
   }
 }
