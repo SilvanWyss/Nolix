@@ -129,40 +129,40 @@ public final class ArraySorter {
     var leftSectionZeroBasedIndex = leftSectionZeroBasedBeginIndex;
     var rightSectionZeroBasedIndex = leftSectionZeroBasedEndIndex + 1;
     var movedElement = false;
+    var index = 0;
 
-    var i = 0;
     while (leftSectionZeroBasedIndex <= leftSectionZeroBasedEndIndex
     && rightSectionZeroBasedIndex <= rightSectionZeroBasedEndIndex) {
       if (comparableArray[leftSectionZeroBasedIndex].compareTo(comparableArray[rightSectionZeroBasedIndex]) > 0) {
-        workElementArray[i] = elementArray[rightSectionZeroBasedIndex];
-        workComparableArray[i] = comparableArray[rightSectionZeroBasedIndex];
+        workElementArray[index] = elementArray[rightSectionZeroBasedIndex];
+        workComparableArray[index] = comparableArray[rightSectionZeroBasedIndex];
         movedElement = true;
         rightSectionZeroBasedIndex++;
       } else {
-        workElementArray[i] = elementArray[leftSectionZeroBasedIndex];
-        workComparableArray[i] = comparableArray[leftSectionZeroBasedIndex];
+        workElementArray[index] = elementArray[leftSectionZeroBasedIndex];
+        workComparableArray[index] = comparableArray[leftSectionZeroBasedIndex];
         leftSectionZeroBasedIndex++;
       }
 
-      i++;
+      index++;
     }
 
     if (movedElement) {
       while (leftSectionZeroBasedIndex <= leftSectionZeroBasedEndIndex) {
-        workElementArray[i] = elementArray[leftSectionZeroBasedIndex];
-        workComparableArray[i] = comparableArray[leftSectionZeroBasedIndex];
+        workElementArray[index] = elementArray[leftSectionZeroBasedIndex];
+        workComparableArray[index] = comparableArray[leftSectionZeroBasedIndex];
         leftSectionZeroBasedIndex++;
-        i++;
+        index++;
       }
 
       while (rightSectionZeroBasedIndex <= rightSectionZeroBasedEndIndex) {
-        workElementArray[i] = elementArray[rightSectionZeroBasedIndex];
-        workComparableArray[i] = comparableArray[rightSectionZeroBasedIndex];
+        workElementArray[index] = elementArray[rightSectionZeroBasedIndex];
+        workComparableArray[index] = comparableArray[rightSectionZeroBasedIndex];
         rightSectionZeroBasedIndex++;
       }
 
-      System.arraycopy(workElementArray, 0, elementArray, leftSectionZeroBasedBeginIndex, i);
-      System.arraycopy(workComparableArray, 0, comparableArray, leftSectionZeroBasedBeginIndex, i);
+      System.arraycopy(workElementArray, 0, elementArray, leftSectionZeroBasedBeginIndex, index);
+      System.arraycopy(workComparableArray, 0, comparableArray, leftSectionZeroBasedBeginIndex, index);
     }
   }
 }
