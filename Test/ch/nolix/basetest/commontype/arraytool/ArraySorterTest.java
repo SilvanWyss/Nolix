@@ -14,7 +14,16 @@ import ch.nolix.baseapi.programcontrol.function.FunctionService;
  */
 final class ArraySorterTest extends StandardTest {
   @Test
-  final void testCase_toOrderedList_1A() {
+  final void testCase_sortArray_whenGivenArrayIsEmpty() {
+    // setup
+    final var array = new String[] {};
+
+    // execute & verify
+    expectRunning(() -> ArraySorter.sortArray(array, String::length)).doesNotThrowException();
+  }
+
+  @Test
+  final void testCase_sortArray_1A() {
     // setup
     final var array = new String[] { "x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx" };
 
@@ -31,7 +40,7 @@ final class ArraySorterTest extends StandardTest {
   }
 
   @Test
-  final void testCase_toOrderedList_1B() {
+  final void testCase_sortArray_1B() {
     // setup
     final var array = new String[] { "xxxxxx", "xxxxx", "xxxx", "xxx", "xx", "x" };
 
@@ -48,7 +57,7 @@ final class ArraySorterTest extends StandardTest {
   }
 
   @Test
-  final void testCase_toOrderedList_2() {
+  final void testCase_sortArray_2() {
     // setup
     final var array = //
     new String[] {
