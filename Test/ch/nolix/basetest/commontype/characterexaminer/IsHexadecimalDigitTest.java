@@ -12,7 +12,7 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 /**
  * @author Silvan Wyss
  */
-final class CharacterExaminerTest extends StandardTest {
+final class IsHexadecimalDigitTest extends StandardTest {
   @ParameterizedTest
   @ValueSource(chars = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' })
   void testCase_isHexadecimalDigit_whenGivenCharacterIsAHexadecimalDigit(final char character) {
