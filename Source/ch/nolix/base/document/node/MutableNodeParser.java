@@ -9,8 +9,8 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgu
 /**
  * @author Silvan Wyss
  */
-public final class MutableNodeStringResetter {
-  private MutableNodeStringResetter() {
+public final class MutableNodeParser {
+  private MutableNodeParser() {
   }
 
   public static void resetMutableNodeFromString(final IMutableNode<?> mutableNode, final String string) {

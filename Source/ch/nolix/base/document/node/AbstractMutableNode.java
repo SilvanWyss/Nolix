@@ -89,7 +89,7 @@ implements IMutableNode<N> {
    */
   @Override
   public final void resetFromString(final String string) {
-    MutableNodeStringResetter.resetMutableNodeFromString(this, string);
+    MutableNodeParser.resetMutableNodeFromString(this, string);
   }
 
   /**
