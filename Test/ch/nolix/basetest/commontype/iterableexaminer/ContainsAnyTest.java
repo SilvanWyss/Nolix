@@ -12,7 +12,7 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 /**
  * @author Silvan Wyss
  */
-final class ContainsAnyMethodTest extends StandardTest {
+final class ContainsAnyTest extends StandardTest {
   @Test
   void testCase_containsAny_whenGivenIterableIsNull() {
     // setup
