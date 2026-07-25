@@ -5,29 +5,25 @@ package ch.nolix.base.commontype.arraytool;
 
 import java.util.function.Function;
 
-import ch.nolix.base.validation.validator.Validator;
-
 /**
+ * Of the {@link ArraySorter} an instance cannot be created.
+ * 
  * @author Silvan Wyss
  */
 public final class ArraySorter {
   private ArraySorter() {
   }
 
-  public static <E, C extends Comparable<C>> void sortArray(
-    final E[] array,
-    final int oneBasedEndIndex,
-    final Function<E, C> comparableMapper) {
-    Validator.assertThat(oneBasedEndIndex).thatIsNamed("one-based end index").isBetween(1, array.length);
-
-    final var zeroBasedEndIndex = oneBasedEndIndex - 1;
-    final var comparableArray = createComparableArray(array, oneBasedEndIndex, comparableMapper);
+  public static <E, C extends Comparable<C>> void sortArray(final E[] array, final Function<E, C> comparableMapper) {
+    final int legth = array.length;
+    final var zeroBasedEndIndex = legth - 1;
+    final var comparableArray = createComparableArray(array, legth, comparableMapper);
 
     @SuppressWarnings("unchecked")
-    final var workElementArray = (E[]) new Object[oneBasedEndIndex];
+    final var workElementArray = (E[]) new Object[legth];
 
     @SuppressWarnings("unchecked")
-    final var workComparableArray = (C[]) new Comparable[oneBasedEndIndex];
+    final var workComparableArray = (C[]) new Comparable[legth];
 
     sortSection(array, comparableArray, 0, zeroBasedEndIndex, workElementArray, workComparableArray);
   }

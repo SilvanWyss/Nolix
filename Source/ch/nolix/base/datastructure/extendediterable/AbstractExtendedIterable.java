@@ -1418,7 +1418,7 @@ implements ExtendedIterable<E> {
     @SuppressWarnings("unchecked")
     final var array = (E[]) toArray();
 
-    ArraySorter.sortArray(array, getCount(), comparableMapper);
+    ArraySorter.sortArray(array, comparableMapper);
 
     return ArrayList.withElements(array);
   }
