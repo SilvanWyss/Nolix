@@ -25,7 +25,7 @@ final class AbstractArgumentCaptorTest extends StandardTest {
     // execute & verify
     expectRunning(() -> //
     new AbstractArgumentCaptor<String, VoidObject>(null) {
-      // This class is just a sub class without additional methods.
+      // This class is a sub class without additional methods.
     }) //
       .throwsException()
       .ofType(InvalidArgumentException.class);
@@ -36,7 +36,7 @@ final class AbstractArgumentCaptorTest extends StandardTest {
     // execute & verify
     expectRunning(() -> //
     new AbstractArgumentCaptor<String, VoidObject>(new VoidObject()) {
-      // This class is just a sub class without additional methods.
+      // This class is a sub class without additional methods.
     }) //
       .throwsException()
       .ofType(InvalidArgumentException.class);
@@ -47,7 +47,7 @@ final class AbstractArgumentCaptorTest extends StandardTest {
     // execute & verify
     expectRunning(() -> //
     new AbstractArgumentCaptor<String, VoidObject>() {
-      // This class is just a sub class without additional methods.
+      // This class is a sub class without additional methods.
     }) //
       .doesNotThrowException();
   }
@@ -57,7 +57,7 @@ final class AbstractArgumentCaptorTest extends StandardTest {
     // setup
     final var testUnit = //
     new AbstractArgumentCaptor<String, VoidObject>() {
-      // This class is just a sub class without additional methods.
+      // This class is a sub class without additional methods.
     };
 
     // execute & verify

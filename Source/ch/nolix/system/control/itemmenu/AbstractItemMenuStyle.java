@@ -15,5 +15,5 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 public abstract class AbstractItemMenuStyle<S extends IItemMenuStyle<S> & IMultiStateConfiguration<S, ControlState>>
 extends AbstractControlStyle<S>
 implements IItemMenuStyle<S> {
-  // This class is just a sub class without additional methods.
+  // This class is a sub class without additional methods.
 }
