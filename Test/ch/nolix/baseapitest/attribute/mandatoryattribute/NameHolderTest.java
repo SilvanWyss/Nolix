@@ -58,11 +58,11 @@ final class NameHolderTest extends StandardTest {
 
   @Test
   void testCase_hasSameNameAs_whenHasTheSameName() {
-    // setup part 1: create nameHolderMock
+    // setup step 1: create nameHolderMock
     final var nameHolderMock = Mockito.mock(NameHolder.class);
     Mockito.when(nameHolderMock.getName()).thenReturn("name");
 
-    // setup part 2: create testUnit
+    // setup step 2: create testUnit
     final var testUnit = Mockito.mock(NameHolder.class);
     Mockito.when(testUnit.hasSameNameAs(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getName()).thenReturn("name");
@@ -76,11 +76,11 @@ final class NameHolderTest extends StandardTest {
 
   @Test
   void testCase_hasSameNameAs_whenDoesNotHaveTheSameName() {
-    // setup part 1: create nameHolderMock
+    // setup step 1: create nameHolderMock
     final var nameHolderMock = Mockito.mock(NameHolder.class);
     Mockito.when(nameHolderMock.getName()).thenReturn("Name");
 
-    // setup part 2: create testUnit
+    // setup step 2: create testUnit
     final var testUnit = Mockito.mock(NameHolder.class);
     Mockito.when(testUnit.hasSameNameAs(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getName()).thenReturn("name");

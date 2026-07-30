@@ -49,7 +49,7 @@ final class ReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_getStoredEntity_whenIsLoadedAndContainsAny() {
-    // setup part 1
+    // setup step 1
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
@@ -60,7 +60,7 @@ final class ReferenceOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(john);
     nodeDataAdapter.saveChanges();
 
-    // setup part 2
+    // setup step 2
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
 
     // execute
@@ -85,7 +85,7 @@ final class ReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isSaved_whenIsEditedAndReferencedEntityIsDeleted() {
-    // setup part 1: Initializes database.
+    // setup step 1: initialize database
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
@@ -93,7 +93,7 @@ final class ReferenceOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(garfield);
     nodeDataAdapter.saveChanges();
 
-    // setup part 2: Prepares a change.
+    // setup step 2: prepare change
     final var nodeDataAdapterB = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database")
       .andSchema(schema);
     final var loadedGarfieldB = nodeDataAdapterB.getStoredTableByEntityType(Pet.class)
@@ -102,7 +102,7 @@ final class ReferenceOnDatabaseTest extends StandardTest {
     johnB.pet.setEntity(loadedGarfieldB);
     nodeDataAdapterB.insertEntity(johnB);
 
-    // setup part 3: Deletes the referenced Entity.
+    // setup step 3: delete referenced Entity
     final var nodeDataAdapterC = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database")
       .andSchema(schema);
     final var loadedGarfieldC = nodeDataAdapterC.getStoredTableByEntityType(Pet.class)
@@ -110,7 +110,7 @@ final class ReferenceOnDatabaseTest extends StandardTest {
     loadedGarfieldC.delete();
     nodeDataAdapterC.saveChanges();
 
-    // execute & verify: Tries to save when the referenced Entity is deleted.
+    // execute & verify: try to save changes
     expectRunning(nodeDataAdapterB::saveChanges).throwsException();
   }
 

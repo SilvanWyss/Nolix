@@ -58,11 +58,11 @@ final class HeaderHolderTest extends StandardTest {
 
   @Test
   void testCase_hasSameHeaderAs_whenHasTheSameHeader() {
-    // setup part 1: create headerHolderMock
+    // setup step 1: create headerHolderMock
     final var headerHolderMock = Mockito.mock(HeaderHolder.class);
     Mockito.when(headerHolderMock.getHeader()).thenReturn("header");
 
-    // setup part 2: create testUnit
+    // setup step 2: create testUnit
     final var testUnit = Mockito.mock(HeaderHolder.class);
     Mockito.when(testUnit.hasSameHeaderAs(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getHeader()).thenReturn("header");
@@ -76,11 +76,11 @@ final class HeaderHolderTest extends StandardTest {
 
   @Test
   void testCase_hasSameHeaderAs_whenDoesNotHaveTheSameHeader() {
-    // setup part 1: create headerHolderMock
+    // setup step 1: create headerHolderMock
     final var headerHolderMock = Mockito.mock(HeaderHolder.class);
     Mockito.when(headerHolderMock.getHeader()).thenReturn("Header");
 
-    // setup part 2: create testUnit
+    // setup step 2: create testUnit
     final var testUnit = Mockito.mock(HeaderHolder.class);
     Mockito.when(testUnit.hasSameHeaderAs(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getHeader()).thenReturn("header");

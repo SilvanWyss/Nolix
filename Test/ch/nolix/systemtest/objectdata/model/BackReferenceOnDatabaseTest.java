@@ -138,7 +138,7 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isSaved_whenBackReferencedEntityIsDeleted() {
-    // setup part 1
+    // setup step 1
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Person.class, Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -149,7 +149,7 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(john);
     nodeDataAdapter.saveChanges();
 
-    // setup part 2
+    // setup step 2
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
     loadedJohn.delete();
 
@@ -159,7 +159,7 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isSaved_whenBackReferencedPropertyIsChanged() {
-    // setup part 1
+    // setup step 1
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Person.class, Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -170,7 +170,7 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(john);
     nodeDataAdapter.saveChanges();
 
-    // setup part 2
+    // setup step 2
     final var bello = new Pet();
     nodeDataAdapter.insertEntity(bello);
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());

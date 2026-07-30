@@ -70,7 +70,7 @@ final class MultiReferenceWithOptionalBackReferencesTest extends StandardTest {
 
   @Test
   void testCase_removeEntity_whenContainsEntity() {
-    // setup part 1
+    // setup step 1
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Person.class, Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
@@ -87,7 +87,7 @@ final class MultiReferenceWithOptionalBackReferencesTest extends StandardTest {
     nodeDataAdapter.insertEntity(john);
     nodeDataAdapter.saveChanges();
 
-    // setup part 2
+    // setup step 2
     final var loadedJohn1 = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
     final var loadedOdie1 = nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(odie.getId());
 

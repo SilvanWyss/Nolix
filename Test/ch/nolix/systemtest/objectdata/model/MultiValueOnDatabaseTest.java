@@ -66,7 +66,7 @@ final class MultiValueOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_removeValue_whenIsLoadedAndContainsValue() {
-    // setup part 1
+    // setup step 1
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Round.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -78,7 +78,7 @@ final class MultiValueOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(round);
     nodeDataAdapter.saveChanges();
 
-    // setup part 2
+    // setup step 2
     final var loadedRound = nodeDataAdapter.getStoredTableByEntityType(Round.class).getStoredEntityById(round.getId());
 
     // execute

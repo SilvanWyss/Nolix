@@ -74,7 +74,7 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_whenReferencedEntityIsLoadedAndDeleted() {
-    // setup part 1: initialize database
+    // setup step 1: initialize database
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -88,7 +88,7 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(john);
     nodeDataAdapter.saveChanges();
 
-    // setup part 2: prepare changes
+    // setup step 2: prepare changes
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
       .getStoredEntityById(garfield.getId());
 
@@ -98,7 +98,7 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_whenReferencedEntityIsLoadedAndRemovedAndDeleted() {
-    // setup part 1: initialize database
+    // setup step 1: initialize database
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -112,14 +112,14 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(john);
     nodeDataAdapter.saveChanges();
 
-    // setup part 2: remove Entity from MultiReference
+    // setup step 2: remove Entity from MultiReference
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
       .getStoredEntityById(garfield.getId());
     loadedJohn.pets.removeEntity(loadedGarfield);
     nodeDataAdapter.saveChanges();
 
-    // setup part 3: prepare deleting Entity
+    // setup step 3: prepare deleting Entity
     final var loadedGarfield2 = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
       .getStoredEntityById(garfield.getId());
     loadedGarfield2.delete();

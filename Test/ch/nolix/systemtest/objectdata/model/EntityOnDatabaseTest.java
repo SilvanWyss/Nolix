@@ -89,7 +89,7 @@ final class EntityOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isSaved_whenIsChangedInTheMeanwhile() {
-    // setup part 1: Initializes database.
+    // setup step 1: initialize database
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);
     final var nodeDataAdapterA = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -98,18 +98,18 @@ final class EntityOnDatabaseTest extends StandardTest {
     nodeDataAdapterA.insertEntity(garfieldA);
     nodeDataAdapterA.saveChanges();
 
-    // setup part 2: Prepares a change.
+    // setup step 2: prepare change
     final var nodeDataAdapterB = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfieldB = nodeDataAdapterB.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfieldA.getId());
     garfieldB.ageInYears.setValue(6);
 
-    // setup part 3: Makes a change.
+    // setup step 3: apply change
     final var nodeDataAdapterC = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfieldC = nodeDataAdapterC.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfieldA.getId());
     garfieldC.ageInYears.setValue(6);
     nodeDataAdapterC.saveChanges();
 
-    // execute: Tries to save changes.
+    // execute: try to save change
     expectRunning(nodeDataAdapterB::saveChanges)
       .throwsException()
       .ofType(ChangedResourceException.class)
@@ -118,7 +118,7 @@ final class EntityOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isSaved_whenIsDeletedInTheMeanwhile() {
-    // setup part 1: Initializes database.
+    // setup step 1: initialize database
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);
     final var nodeDataAdapterA = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -127,18 +127,18 @@ final class EntityOnDatabaseTest extends StandardTest {
     nodeDataAdapterA.insertEntity(garfieldA);
     nodeDataAdapterA.saveChanges();
 
-    // setup part 2: Prepares a change.
+    // setup step 2: prepare change
     final var nodeDataAdapterB = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfieldB = nodeDataAdapterB.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfieldA.getId());
     garfieldB.ageInYears.setValue(6);
 
-    // setup part 3: Deletes the Entity.
+    // setup step 3: delete the Entity
     final var nodeDataAdapterC = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfieldC = nodeDataAdapterC.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfieldA.getId());
     garfieldC.delete();
     nodeDataAdapterC.saveChanges();
 
-    // execute & verify: Tries to save changes.
+    // execute & verify: try to save changes
     expectRunning(nodeDataAdapterB::saveChanges)
       .throwsException()
       .ofType(ChangedResourceException.class)
@@ -147,7 +147,7 @@ final class EntityOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_delete_whenIsLoaded() {
-    // setup part 1
+    // setup step 1
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -156,7 +156,7 @@ final class EntityOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(garfield);
     nodeDataAdapter.saveChanges();
 
-    // setup part 2
+    // setup step 2
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
       .getStoredEntityById(garfield.getId());
 

@@ -36,11 +36,11 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_getAllStoredBackReferencedEntities_whenIsNewAndEmpty() {
-    // setup part 1: Creates nodeDatabase.
+    // setup step 1: create nodeDatabase.
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Plane.class, Flight.class);
 
-    // setup part 2: Creates and inserts plane.
+    // setup step 2: Creates and inserts plane.
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
     final var a320 = new Plane();
     nodeDataAdapter.insertEntity(a320);
@@ -54,11 +54,11 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_getAllStoredBackReferencedEntities_whenIsNewAndNotEmpty() {
-    // setup part 1: Creates nodeDatabase.
+    // setup step 1: create nodeDatabase.
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Plane.class, Flight.class);
 
-    // setup part 2: Creates and inserts planes and flights.
+    // setup step 2: Creates and inserts planes and flights.
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
     final var a320 = new Plane();
     nodeDataAdapter.insertEntity(a320);
@@ -78,11 +78,11 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_getAllBackReferencedEntityIds_whenIsLoaded() {
-    // setup part 1: Creates nodeDatabase.
+    // setup step 1: create nodeDatabase.
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Plane.class, Flight.class);
 
-    // setup part 2: Creates and inserts and saves planes and flights.
+    // setup step 2: Creates and inserts and saves planes and flights.
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
     final var a320 = new Plane();
     nodeDataAdapter.insertEntity(a320);
@@ -104,11 +104,11 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isSaved_whenIsEmpty() {
-    // setup part 1: Creates nodeDatabase.
+    // setup step 1: create nodeDatabase.
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Plane.class, Flight.class);
 
-    // setup part 2: Creates and inserts and saves plane.
+    // setup step 2: Creates and inserts and saves plane.
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
     final var a320 = new Plane();
     nodeDataAdapter.insertEntity(a320);
@@ -122,11 +122,11 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isSaved_whenBackReferencedEntityIsDeleted() {
-    // setup part 1: Creates nodeDatabase.
+    // setup step 1: create nodeDatabase.
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Plane.class, Flight.class);
 
-    // setup part 2: Creates and inserts and saves plane and flight.
+    // setup step 2: Creates and inserts and saves plane and flight.
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
     final var a320 = new Plane();
     nodeDataAdapter.insertEntity(a320);
@@ -135,7 +135,7 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(fx2650);
     nodeDataAdapter.saveChanges();
 
-    // setup part 2: Delete flight of plane.
+    // setup step 2: Delete flight of plane.
     final var loadedFx2650 = nodeDataAdapter.getStoredTableByEntityType(Flight.class)
       .getStoredEntityById(fx2650.getId());
     loadedFx2650.delete();

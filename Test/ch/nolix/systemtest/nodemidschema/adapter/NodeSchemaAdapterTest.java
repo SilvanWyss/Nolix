@@ -26,7 +26,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
     final var tableName = "table_name";
     final var columnName = "column_name";
 
-    // Setups nodeDatabase.
+    // setup nodeDatabase
     final var nodeDatabase = MutableNode.createEmpty();
 
     // Setups tableDto.
@@ -60,7 +60,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
     // define test parameters
     final var tableName = "table_name";
 
-    // Setups nodeDatabase.
+    // setup nodeDatabase
     final var nodeDatabase = MutableNode.createEmpty();
 
     // Setups tableDto.
@@ -88,7 +88,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
     final var tableName = "table_name";
     final var columnName = "column_name";
 
-    // Setups nodeDatabase.
+    // setup nodeDatabase
     final var nodeDatabase = MutableNode.createEmpty();
 
     // Setups tableDto.
@@ -124,7 +124,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
     // define test parameters
     final var tableName = "table_name";
 
-    // Setups nodeDatabase.
+    // setup nodeDatabase
     final var nodeDatabase = MutableNode.createEmpty();
 
     // Setups testUnit.

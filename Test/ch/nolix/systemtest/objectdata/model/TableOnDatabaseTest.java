@@ -23,13 +23,13 @@ final class TableOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_containsEntityWithId_whenDoesNotContainEntityWithGivenId() {
-    // setup part 1: Initializes database.
+    // setup step 1: initialize database
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Thing.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var thing = new Thing();
 
-    // setup part 2: Gains test unit.
+    // setup step 2: gains test unit
     final var testUnit = nodeDataAdapter.getStoredTableByEntityType(Thing.class);
 
     // execute
@@ -41,7 +41,7 @@ final class TableOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_containsEntityWithId_whenContainsEntityWithGivenId() {
-    // setup part 1: Initializes database.
+    // setup step 1: initialize database
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Thing.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -49,7 +49,7 @@ final class TableOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(thing);
     nodeDataAdapter.saveChanges();
 
-    // setup part 2: Gains test unit.
+    // setup step 2: gains test unit
     final var testUnit = nodeDataAdapter.getStoredTableByEntityType(Thing.class);
 
     // execute

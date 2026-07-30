@@ -66,11 +66,11 @@ final class LocalEndPointTest extends StandardTest {
 
   @Test
   void testCase_sendMessage_whenIsClosed() {
-    // setup part 1: Creates slot.
+    // setup step 1: create slot.
     final var slot = new MockSlot();
 
     try (final var testUnit = LocalEndPoint.toSlot(slot)) {
-      // setup part 2: Closes testUnit.
+      // setup step 2: Closes testUnit.
       testUnit.close(); //NOSONAR: This test case tests the close method.
 
       // setup verification

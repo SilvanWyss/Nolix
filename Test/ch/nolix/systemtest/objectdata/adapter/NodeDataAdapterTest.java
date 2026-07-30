@@ -150,7 +150,7 @@ final class NodeDataAdapterTest extends StandardTest {
 
   @Test
   void testCase_saveChangesAndReset_whenHasChangesAndSchemaWasChangedInTheMeanwhile() {
-    // setup part 1: Creates a database.
+    // setup step 1: create a database
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);
     NodeDataAdapter
@@ -159,11 +159,11 @@ final class NodeDataAdapterTest extends StandardTest {
       .andSchema(schema)
       .saveChanges();
 
-    // setup part 2: Prepare changes for the database.
+    // setup step 2: Prepare changes for the database.
     final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     testUnit.insertEntity(new Pet());
 
-    // setup part 4: Edit the schema of the database.
+    // setup step 4: Edit the schema of the database.
     final var schemaAdapter = NodeSchemaAdapter.forNodeDatabase("MyDatabase", nodeDatabase);
     schemaAdapter
       .getStoredTableByName("Pet")

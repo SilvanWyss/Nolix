@@ -21,10 +21,10 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 final class FieldMapperTest extends StandardTest {
   @Test
   void testCase_mapColumnToField_whenGivenColumnIsForValueFields() {
-    // setup part 1: Creates tableMock.
+    // setup step 1: create tableMock.
     final var tableMock = Mockito.mock(Table.class);
 
-    // setup part 1: Creates column.
+    // setup step 1: create column.
     @SuppressWarnings("unchecked")
     final var column = //
     Column.withParentTableAndIdAndNameAndFieldTypeAndDataTypeClassAndReferenceableTablesAndBackReferenceableColumns(
@@ -52,10 +52,10 @@ final class FieldMapperTest extends StandardTest {
 
   @Test
   void testCase_mapColumnToField_whenGivenColumnIsForOptionalValueFields() {
-    // setup part 1: Creates tableMock.
+    // setup step 1: create tableMock.
     final var tableMock = Mockito.mock(Table.class);
 
-    // setup part 1: Creates column.
+    // setup step 1: create column.
     @SuppressWarnings("unchecked")
     final var column = //
     Column.withParentTableAndIdAndNameAndFieldTypeAndDataTypeClassAndReferenceableTablesAndBackReferenceableColumns(
@@ -81,10 +81,10 @@ final class FieldMapperTest extends StandardTest {
 
   @Test
   void testCase_mapColumnToField_whenGivenColumnIsForMultiValueFields() {
-    // setup part 1: Creates tableMock.
+    // setup step 1: create tableMock.
     final var tableMock = Mockito.mock(Table.class);
 
-    // setup part 1: Creates column.
+    // setup step 1: create column.
     @SuppressWarnings("unchecked")
     final var column = //
     Column.withParentTableAndIdAndNameAndFieldTypeAndDataTypeClassAndReferenceableTablesAndBackReferenceableColumns(

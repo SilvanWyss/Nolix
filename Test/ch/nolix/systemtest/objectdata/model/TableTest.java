@@ -53,7 +53,7 @@ final class TableTest extends StandardTest {
 
   @Test
   void testCase_getStoredAllEntities() {
-    // setup part 1
+    // setup step 1
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -62,7 +62,7 @@ final class TableTest extends StandardTest {
     nodeDataAdapter.insertEntity(person);
     nodeDataAdapter.saveChanges();
 
-    // setup part 2
+    // setup step 2
     final var nodeDataAdapter2 = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var testUnit = nodeDataAdapter2.getStoredTableByEntityType(Person.class);
 

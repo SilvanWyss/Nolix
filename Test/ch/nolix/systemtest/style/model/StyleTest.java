@@ -57,10 +57,10 @@ final class StyleTest extends StandardTest {
 
   @Test
   void testCase_styleElement() {
-    // setup part 1: create WebGui
+    // setup step 1: create WebGui
     final var webGui = new WebGui();
 
-    // setup part 2: create testUnit
+    // setup step 2: create testUnit
     final var testUnit = //
     Style.withAttachingAttributesAndSubStyles(
       ImmutableList.withElements("Title(my_title)", "Background(Color(Blue))"),
