@@ -4,7 +4,6 @@
 package ch.nolix.systemapi.gui.model;
 
 import ch.nolix.baseapi.attribute.fluentmutablemandatoryattribute.FluentMutableTitleHolder;
-import ch.nolix.baseapi.objectcomposition.hierarchy.RootRequestable;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.gui.frontend.IFrontEndReader;
 import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
@@ -13,7 +12,7 @@ import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
  * @author Silvan Wyss
  * @param <G> the type of a {@link IGui}.
  */
-public interface IGui<G extends IGui<G>> extends FluentMutableTitleHolder<G>, RootRequestable {
+public interface IGui<G extends IGui<G>> extends FluentMutableTitleHolder<G> {
   /**
    * @return the {@link IFrontEndReader} of the current {@link IGui}.
    */

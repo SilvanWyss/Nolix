@@ -305,14 +305,6 @@ implements IWebGui<WebGui> {
    * {@inheritDoc}
    */
   @Override
-  public boolean isRoot() {
-    return true;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public IFrontEndWriter onFrontEnd() {
     return frontEndWriter;
   }
