@@ -6,6 +6,7 @@ package ch.nolix.base.commontype.inputstreamtool;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
+import ch.nolix.base.commontype.arraymapper.ArrayMapper;
 import ch.nolix.base.foundation.linkedlist.SimpleLinkedList;
 import ch.nolix.baseapi.commontype.inputstreamtool.IInputStreamTool;
 
@@ -13,6 +14,8 @@ import ch.nolix.baseapi.commontype.inputstreamtool.IInputStreamTool;
  * @author Silvan Wyss
  */
 public final class InputStreamTool implements IInputStreamTool {
+  private static final ArrayMapper ARRAY_MAPPER = new ArrayMapper();
+
   /**
    * {@inheritDoc}
    */
@@ -33,7 +36,9 @@ public final class InputStreamTool implements IInputStreamTool {
         }
 
         if (lByte == '\n') {
-          return new String(bytes.toByteArray(Byte::byteValue), StandardCharsets.UTF_8);
+          final var byteArray = ARRAY_MAPPER.toByteArray(bytes, bytes.getElementCount(), Byte::byteValue);
+
+          return new String(byteArray, StandardCharsets.UTF_8);
         }
 
         bytes.addAtEnd((byte) lByte);
