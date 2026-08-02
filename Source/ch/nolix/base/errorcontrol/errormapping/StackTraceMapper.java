@@ -18,7 +18,7 @@ public final class StackTraceMapper {
   public static String[] mapErrorToStackTrace(final Throwable error) {
     final SimpleLinkedList<String> list = SimpleLinkedList.createEmpty();
 
-    mapOwnStackTraceElementsOfErrorIntoList(error, list);
+    mapStackTraceElementsOfErrorIntoList(error, list);
 
     var cause = error.getCause();
     while (cause != null) {
@@ -34,11 +34,13 @@ public final class StackTraceMapper {
 
     list.addAtEnd("Cause: " + cause.getClass().getSimpleName() + ": " + errorMessage);
 
-    mapOwnStackTraceElementsOfErrorIntoList(cause, list);
+    mapStackTraceElementsOfErrorIntoList(cause, list);
   }
 
-  private static void mapOwnStackTraceElementsOfErrorIntoList(final Throwable cause, final SimpleLinkedList<String> list) {
-    for (final var t : cause.getStackTrace()) {
+  private static void mapStackTraceElementsOfErrorIntoList(
+    final Throwable error,
+    final SimpleLinkedList<String> list) {
+    for (final var t : error.getStackTrace()) {
       list.addAtEnd(t.toString());
     }
   }
