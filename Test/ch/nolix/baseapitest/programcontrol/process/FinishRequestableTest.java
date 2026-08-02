@@ -6,7 +6,7 @@ package ch.nolix.baseapitest.programcontrol.process;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.programcontrol.process.FinishRequestable;
+import ch.nolix.baseapi.state.staterequest.FinishRequestable;
 
 /**
  * @author Silvan Wyss

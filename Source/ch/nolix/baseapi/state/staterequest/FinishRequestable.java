@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.programcontrol.process;
+package ch.nolix.baseapi.state.staterequest;
 
 /**
  * A {@link FinishRequestable} can be asked if it is running or finished.
