@@ -4,7 +4,6 @@
 package ch.nolix.base.foundation.linkedlist;
 
 import java.util.Iterator;
-import java.util.function.Function;
 
 import ch.nolix.baseapi.foundation.linkedlist.ISimpleLinkedList;
 
@@ -108,20 +107,6 @@ public final class SimpleLinkedList<E> implements ISimpleLinkedList<E> {
    * {@inheritDoc}
    */
   @Override
-  public SimpleLinkedList<E> getCopy() {
-    final var list = new SimpleLinkedList<E>();
-
-    for (final var e : this) {
-      list.addAtEnd(e);
-    }
-
-    return list;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public int getElementCount() {
     return elementCount;
   }
@@ -173,73 +158,9 @@ public final class SimpleLinkedList<E> implements ISimpleLinkedList<E> {
     elementCount--;
   }
 
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public void removeFirstOccurrenceOf(final E element) {
-    if (!isEmpty()) {
-      removeFirstOccuranceOfWhenContainsAny(element);
-    }
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public byte[] toByteArray(Function<E, Byte> byteMapper) {
-    if (byteMapper == null) {
-      throw new IllegalArgumentException("The given byteMapper is null.");
-    }
-
-    final var array = new byte[getElementCount()];
-    var index = 0;
-
-    for (final var e : this) {
-      if (e == null) {
-        array[index] = 0;
-      } else {
-        array[index] = byteMapper.apply(e);
-      }
-
-      index++;
-    }
-
-    return array;
-  }
-
   private void assertIsNotEmpty() {
     if (isEmpty()) {
       throw new IllegalStateException("The current List is empty.");
-    }
-  }
-
-  private void removeFirstOccuranceOfWhenContainsAny(final E element) {
-    if (beginNode.contains(element)) {
-      removeFirst();
-    } else {
-      removeFirstOccuranceOfWhenIsNotFirst(element);
-    }
-  }
-
-  private void removeFirstOccuranceOfWhenIsNotFirst(final E element) {
-    var iteratorNode = beginNode;
-    while (iteratorNode.hasNextNode()) {
-      final var nextNode = iteratorNode.getStoredNextNode();
-
-      if (nextNode.contains(element)) {
-        if (!nextNode.hasNextNode()) {
-          iteratorNode.removeNextNode();
-          endNode = iteratorNode;
-        } else {
-          iteratorNode.setNextNode(nextNode.getStoredNextNode());
-        }
-
-        elementCount--;
-        return;
-      }
-
-      iteratorNode = nextNode;
     }
   }
 }
