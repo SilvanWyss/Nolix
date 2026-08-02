@@ -6,7 +6,7 @@ package ch.nolix.base.resourcecontrol.resourcevalidator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.resourcecontrol.closecontroller.CloseStateRequestable;
+import ch.nolix.baseapi.resourcecontrol.resourcerequest.OpennessRequestable;
 
 /**
  * The {@link ResourceValidator} provides methods to validate resources.
@@ -27,7 +27,7 @@ public final class ResourceValidator {
    * @throws RuntimeException if the given resource is null
    * @throws RuntimeException if the given resource is closed
    */
-  public static void assertIsOpen(final CloseStateRequestable resource) {
+  public static void assertIsOpen(final OpennessRequestable resource) {
     if (resource == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.RESOURCE);
     }

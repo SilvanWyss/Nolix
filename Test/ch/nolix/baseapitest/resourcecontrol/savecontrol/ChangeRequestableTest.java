@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.resourcecontrol.savecontrol.ChangeRequestable;
+import ch.nolix.baseapi.resourcecontrol.resourcerequest.ChangeRequestable;
 
 /**
  * @author Silvan Wyss

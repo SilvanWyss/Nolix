@@ -4,6 +4,7 @@
 package ch.nolix.baseapi.resourcecontrol.savecontrol;
 
 import ch.nolix.baseapi.resourcecontrol.closecontroller.Closeable;
+import ch.nolix.baseapi.resourcecontrol.resourcerequest.ChangeRequestable;
 
 /**
  * A {@link IChangeSaver} can save its changes.

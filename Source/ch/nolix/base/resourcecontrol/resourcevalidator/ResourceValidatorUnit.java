@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.resourcecontrol.resourcevalidator;
 
-import ch.nolix.baseapi.resourcecontrol.closecontroller.CloseStateRequestable;
+import ch.nolix.baseapi.resourcecontrol.resourcerequest.OpennessRequestable;
 import ch.nolix.baseapi.resourcecontrol.resourcevalidator.IResourceValidator;
 
 /**
@@ -14,7 +14,7 @@ public class ResourceValidatorUnit implements IResourceValidator {
    * {@inheritDoc}
    */
   @Override
-  public final void assertIsOpen(final CloseStateRequestable resource) {
+  public final void assertIsOpen(final OpennessRequestable resource) {
     ResourceValidator.assertIsOpen(resource);
   }
 }

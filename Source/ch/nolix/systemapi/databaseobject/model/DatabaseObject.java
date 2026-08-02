@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.databaseobject.model;
 
-import ch.nolix.baseapi.resourcecontrol.closecontroller.CloseStateRequestable;
+import ch.nolix.baseapi.resourcecontrol.resourcerequest.OpennessRequestable;
 import ch.nolix.baseapi.state.staterequest.StateRequestable;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.databaseobject.request.CreationRequestable;
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.databaseobject.request.LoadingRequestable;
  */
 public interface DatabaseObject
 extends
-CloseStateRequestable,
+OpennessRequestable,
 CreationRequestable,
 DatabaseConnectionRequestable,
 DeletionRequestable,

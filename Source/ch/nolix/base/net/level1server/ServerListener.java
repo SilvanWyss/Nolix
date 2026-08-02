@@ -11,7 +11,7 @@ import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.programcontrol.worker.AbstractWorker;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.resourcecontrol.closecontroller.CloseStateRequestable;
+import ch.nolix.baseapi.resourcecontrol.resourcerequest.OpennessRequestable;
 
 /**
  * A {@link ServerListener} listens to {@link SocketEndPoint}s for a
@@ -19,7 +19,7 @@ import ch.nolix.baseapi.resourcecontrol.closecontroller.CloseStateRequestable;
  * 
  * @author Silvan Wyss
  */
-public final class ServerListener extends AbstractWorker implements CloseStateRequestable {
+public final class ServerListener extends AbstractWorker implements OpennessRequestable {
   /**
    * The {@link Server} the current {@link ServerListener} is for.
    */

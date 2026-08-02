@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.resourcecontrol.savecontrol;
+package ch.nolix.baseapi.resourcecontrol.resourcerequest;
 
 /**
  * A {@link ChangeRequestable} can be asked if it has uncommitted changes.

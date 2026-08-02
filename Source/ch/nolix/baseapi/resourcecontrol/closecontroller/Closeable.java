@@ -3,6 +3,7 @@
  */
 package ch.nolix.baseapi.resourcecontrol.closecontroller;
 
+import ch.nolix.baseapi.resourcecontrol.resourcerequest.OpennessRequestable;
 import ch.nolix.baseapi.state.statemutation.Clearable;
 
 /**
@@ -11,7 +12,7 @@ import ch.nolix.baseapi.state.statemutation.Clearable;
  * 
  * @author Silvan Wyss
  */
-public interface Closeable extends AutoCloseable, CloseStateRequestable {
+public interface Closeable extends AutoCloseable, OpennessRequestable {
   /**
    * Closes the current {@link Closeable}.
    */

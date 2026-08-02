@@ -6,9 +6,9 @@ package ch.nolix.base.resourcecontrol.resourcepool;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
-import ch.nolix.baseapi.resourcecontrol.closecontroller.CloseStateRequestable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
+import ch.nolix.baseapi.resourcecontrol.resourcerequest.OpennessRequestable;
 
 /**
  * @author Silvan Wyss
@@ -24,7 +24,7 @@ implements GroupCloseable {
   private final ICloseController closeController = CloseController.forElement(this);
 
   protected AbstractWrapperResource(final R resource) {
-    Validator.assertThat(resource).fulfills(CloseStateRequestable::isOpen);
+    Validator.assertThat(resource).fulfills(OpennessRequestable::isOpen);
 
     this.resource = resource;
   }
@@ -53,7 +53,7 @@ implements GroupCloseable {
     Validator
       .assertThat(parentResourcePool)
       .thatIsNamed("parent resource pool")
-      .fulfills(CloseStateRequestable::isOpen);
+      .fulfills(OpennessRequestable::isOpen);
 
     assertDoesNotBelongToResourcePool();
 
