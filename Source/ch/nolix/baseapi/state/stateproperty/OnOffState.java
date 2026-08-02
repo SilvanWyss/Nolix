@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.programcontrol.processproperty;
+package ch.nolix.baseapi.state.stateproperty;
 
 /**
  * A {@link OnOffState} defines if something is on or off.
