@@ -16,13 +16,14 @@ public final class ControlHelper {
   }
 
   public static Optional<IComponent> getOptionalStoredParentComponentOfControl(final Control<?, ?> control) {
-    if (control.isLinkedToAnObject()
-    && control.getStoredLinkedObjects().getStoredFirstNonNull() instanceof final IComponent component) {
-      return Optional.of(component);
-    }
-
     if (control.belongsToControl()) {
-      return getOptionalStoredParentComponentOfControl(control.getStoredParentControl());
+      final var parentControl = control.getStoredParentControl();
+
+      if (parentControl instanceof final IComponent component) {
+        return Optional.of(component);
+      }
+
+      return getOptionalStoredParentComponentOfControl(parentControl);
     }
 
     return Optional.empty();
