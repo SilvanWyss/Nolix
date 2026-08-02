@@ -7,9 +7,9 @@ import java.util.function.ToDoubleFunction;
 import java.util.function.ToIntFunction;
 
 import ch.nolix.baseapi.commontype.arraymapper.IArrayMapper;
+import ch.nolix.baseapi.commontype.function.ToByteFunction;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
-import ch.nolix.baseapi.foundation.function.ToByteFunction;
 
 /**
  * @author Silvan Wyss

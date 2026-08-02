@@ -6,7 +6,7 @@ package ch.nolix.baseapi.commontype.arraymapper;
 import java.util.function.ToDoubleFunction;
 import java.util.function.ToIntFunction;
 
-import ch.nolix.baseapi.foundation.function.ToByteFunction;
+import ch.nolix.baseapi.commontype.function.ToByteFunction;
 
 /**
  * @author Silvan Wyss
