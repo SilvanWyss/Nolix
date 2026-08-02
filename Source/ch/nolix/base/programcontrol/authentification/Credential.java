@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.programcontrol.usercontrol;
+package ch.nolix.base.programcontrol.authentification;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
