@@ -3,11 +3,9 @@
  */
 package ch.nolix.system.webapplication.main;
 
-import java.util.Optional;
 import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 
-import ch.nolix.systemapi.webapplication.component.IComponent;
 import ch.nolix.systemapi.webapplication.component.RefreshTrigger;
 import ch.nolix.systemapi.webgui.main.Control;
 
@@ -43,19 +41,6 @@ public final class WebClientHtmlEventExecutor {
     }
   }
 
-  private static Optional<Control<?, ?>> getOptionalStoredParentComponentOfControl(final Control<?, ?> control) {
-    if (control.isLinkedToAnObject()
-    && control.getStoredLinkedObjects().getStoredFirstNonNull() instanceof final IComponent component) {
-      return Optional.of(component);
-    }
-
-    if (control.belongsToControl()) {
-      return getOptionalStoredParentComponentOfControl(control.getStoredParentControl());
-    }
-
-    return Optional.empty();
-  }
-
   private static RefreshTrigger getRefreshTrigger(
     final Control<?, ?> triggeredControl,
     final int originalLayerCount,
@@ -79,8 +64,12 @@ public final class WebClientHtmlEventExecutor {
   }
 
   private static Control<?, ?> getStoredControlToUpdateFromTriggeredConntrol(final Control<?, ?> triggeredControl) {
-    final var componentContainer = getOptionalStoredParentComponentOfControl(triggeredControl);
+    final var componentContainer = ControlHelper.getOptionalStoredParentComponentOfControl(triggeredControl);
 
-    return componentContainer.orElse(triggeredControl);
+    if (componentContainer.isPresent()) {
+      return componentContainer.get();
+    }
+
+    return triggeredControl;
   }
 }
