@@ -6,7 +6,7 @@ package ch.nolix.system.sqlschema.adapter;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
-import ch.nolix.baseapi.resourcecontrol.resourcepool.IResourcePool;
+import ch.nolix.baseapi.resourcecontrol.resourcepool.ResourcePool;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.sqlschema.adapter.ISchemaAdapter;
@@ -27,7 +27,7 @@ public final class SqlSchemaAdapter implements ISchemaAdapter {
 
   private final ISchemaWriter schemaWriter;
 
-  private SqlSchemaAdapter(final String databaseName, final IResourcePool<ISqlConnection> sqlConnectionPool) {
+  private SqlSchemaAdapter(final String databaseName, final ResourcePool<ISqlConnection> sqlConnectionPool) {
     sqlConnection = sqlConnectionPool.borrowResource();
 
     schemaReader = SchemaReader.forDatabaseNameAndSqlConnection(
@@ -44,7 +44,7 @@ public final class SqlSchemaAdapter implements ISchemaAdapter {
 
   public static SqlSchemaAdapter forDatabaseNameAndWithSqlConnectionPool(
     final String databaseName,
-    final IResourcePool<ISqlConnection> sqlConnectionPool) {
+    final ResourcePool<ISqlConnection> sqlConnectionPool) {
     return new SqlSchemaAdapter(databaseName, sqlConnectionPool);
   }
 

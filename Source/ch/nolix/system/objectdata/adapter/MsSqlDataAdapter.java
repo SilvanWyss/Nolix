@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.adapter;
 
 import ch.nolix.base.sql.connection.UncloseableSqlConnection;
 import ch.nolix.base.sql.connectionpool.SqlConnectionPoolBuilder;
-import ch.nolix.baseapi.resourcecontrol.resourcepool.IResourcePool;
+import ch.nolix.baseapi.resourcecontrol.resourcepool.ResourcePool;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.baseapi.sql.sqlproperty.SqlDatabaseEngine;
 import ch.nolix.system.objectschema.adapter.MsSqlSchemaAdapter;
@@ -16,7 +16,7 @@ import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
  * @author Silvan Wyss
  */
 public final class MsSqlDataAdapter extends AbstractDataAdapter {
-  private final IResourcePool<? extends ISqlConnection> sqlConnectionPool;
+  private final ResourcePool<? extends ISqlConnection> sqlConnectionPool;
 
   private MsSqlDataAdapter(
     final String ipOrDomain,
@@ -41,14 +41,14 @@ public final class MsSqlDataAdapter extends AbstractDataAdapter {
   private MsSqlDataAdapter(
     final String databaseName,
     final IEntityTypeSet entityTypeSet,
-    final IResourcePool<? extends ISqlConnection> sqlConnectionPool) {
+    final ResourcePool<? extends ISqlConnection> sqlConnectionPool) {
     this(databaseName, entityTypeSet, sqlConnectionPool, sqlConnectionPool.borrowResource());
   }
 
   private MsSqlDataAdapter(
     final String databaseName,
     final IEntityTypeSet entityTypeSet,
-    final IResourcePool<? extends ISqlConnection> sqlConnectionPool,
+    final ResourcePool<? extends ISqlConnection> sqlConnectionPool,
     final ISqlConnection sqlConnection) {
     super(
       databaseName,

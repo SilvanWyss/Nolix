@@ -8,7 +8,7 @@ import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.Closeable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
-import ch.nolix.baseapi.resourcecontrol.resourcepool.IResourcePool;
+import ch.nolix.baseapi.resourcecontrol.resourcepool.ResourcePool;
 
 /**
  * @author Silvan Wyss
@@ -18,7 +18,7 @@ import ch.nolix.baseapi.resourcecontrol.resourcepool.IResourcePool;
  *            of a {@link AbstractResourcePool}.
  */
 public abstract class AbstractResourcePool<W extends AbstractWrapperResource<W, R>, R extends GroupCloseable>
-implements IResourcePool<W> {
+implements ResourcePool<W> {
   private final ICloseController closeController = CloseController.forElement(this);
 
   private final LinkedList<R> resources = LinkedList.createEmpty();
