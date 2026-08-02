@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.objectcomposition.copier;
+package ch.nolix.baseapi.programcontrol.copy;
 
 /**
  * A {@link EmptyCopyable} can create an empty copy of itself.

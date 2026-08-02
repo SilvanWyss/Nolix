@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.objectcomposition.builder;
+package ch.nolix.baseapi.programcontrol.builder;
 
 /**
  * A {@link IBuilder} can build {@link Object}s.

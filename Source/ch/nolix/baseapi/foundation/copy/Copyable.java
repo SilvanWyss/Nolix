@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.objectcomposition.copier;
+package ch.nolix.baseapi.foundation.copy;
 
 /**
  * A {@link Copyable} can create a copy of itself.

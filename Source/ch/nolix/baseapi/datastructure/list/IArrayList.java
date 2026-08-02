@@ -4,8 +4,8 @@
 package ch.nolix.baseapi.datastructure.list;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.foundation.copy.Copyable;
 import ch.nolix.baseapi.generalstate.statemutation.Clearable;
-import ch.nolix.baseapi.objectcomposition.copier.Copyable;
 
 /**
  * A {@link IArrayList} is a {@link ExtendedIterable} that can add and remove

@@ -4,7 +4,7 @@
 package ch.nolix.template.webgui.dialog;
 
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
-import ch.nolix.baseapi.objectcomposition.builder.IBuilder;
+import ch.nolix.baseapi.programcontrol.builder.IBuilder;
 import ch.nolix.baseapi.programcontrol.function.FunctionService;
 import ch.nolix.system.control.label.Label;
 import ch.nolix.system.control.verticalstack.VerticalStack;

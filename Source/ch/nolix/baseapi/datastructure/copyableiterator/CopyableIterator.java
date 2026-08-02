@@ -5,7 +5,7 @@ package ch.nolix.baseapi.datastructure.copyableiterator;
 
 import java.util.Iterator;
 
-import ch.nolix.baseapi.objectcomposition.copier.Copyable;
+import ch.nolix.baseapi.foundation.copy.Copyable;
 
 /**
  * A {@link CopyableIterator} is a {@link Iterator} that can be copied.

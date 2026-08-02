@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.objectcomposition.type;
+package ch.nolix.baseapi.programcontrol.type;
 
 /**
  * A {@link TypeRequestable} is of a certain type.

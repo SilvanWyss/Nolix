@@ -6,8 +6,8 @@ package ch.nolix.baseapi.datastructure.list;
 import java.util.function.Predicate;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.foundation.copy.Copyable;
 import ch.nolix.baseapi.generalstate.statemutation.Clearable;
-import ch.nolix.baseapi.objectcomposition.copier.Copyable;
 
 /**
  * A {@link ILinkedList} is a {@link ExtendedIterable} that can add and remove
