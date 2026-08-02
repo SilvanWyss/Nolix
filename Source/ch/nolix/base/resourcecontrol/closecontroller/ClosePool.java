@@ -8,7 +8,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.IClosePool;
-import ch.nolix.baseapi.state.stateproperty.Openness;
+import ch.nolix.baseapi.resourcecontrol.resourceproperty.Openness;
 
 /**
  * @author Silvan Wyss

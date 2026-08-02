@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.state.stateproperty;
+package ch.nolix.baseapi.resourcecontrol.resourceproperty;
 
 /**
  * A {@link Openness} is either open, on closing or closed.

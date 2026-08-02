@@ -4,7 +4,7 @@
 package ch.nolix.baseapi.resourcecontrol.closecontroller;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.state.stateproperty.Openness;
+import ch.nolix.baseapi.resourcecontrol.resourceproperty.Openness;
 
 /**
  * @author Silvan Wyss

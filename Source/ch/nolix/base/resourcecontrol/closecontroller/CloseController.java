@@ -7,7 +7,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.IClosePool;
-import ch.nolix.baseapi.state.stateproperty.Openness;
+import ch.nolix.baseapi.resourcecontrol.resourceproperty.Openness;
 
 /**
  * @author Silvan Wyss
