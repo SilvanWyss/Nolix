@@ -1,32 +1,32 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.independent.list;
+package ch.nolix.base.independent.linkedlist;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements of the parent {@link List} of a
- *            {@link ListIterator}.
+ * @param <E> the type of the elements of the parent {@link LinkedList} of a
+ *            {@link LinkedListIterator}.
  */
-public final class ListIterator<E> implements Iterator<E> {
-  private ListNode<E> nextNode;
+public final class LinkedListIterator<E> implements Iterator<E> {
+  private LinkedListNode<E> nextNode;
 
-  private ListIterator() {
+  private LinkedListIterator() {
   }
 
-  private ListIterator(final ListNode<E> startNode) {
+  private LinkedListIterator(final LinkedListNode<E> startNode) {
     this.nextNode = startNode;
   }
 
-  public static <T> ListIterator<T> forEmptyList() {
-    return new ListIterator<>();
+  public static <T> LinkedListIterator<T> forEmptyList() {
+    return new LinkedListIterator<>();
   }
 
-  public static <T> ListIterator<T> forStartNode(final ListNode<T> startNode) {
-    return new ListIterator<>(startNode);
+  public static <T> LinkedListIterator<T> forStartNode(final LinkedListNode<T> startNode) {
+    return new LinkedListIterator<>(startNode);
   }
 
   /**

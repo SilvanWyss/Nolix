@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.errorcontrol.errormapping;
 
-import ch.nolix.base.independent.list.List;
+import ch.nolix.base.independent.linkedlist.LinkedList;
 import ch.nolix.baseapi.errorcontrol.errormapping.IErrorMessageExtractor;
 
 /**
@@ -16,7 +16,7 @@ public final class StackTraceMapper {
   }
 
   public static String[] mapErrorToStackTrace(final Throwable error) {
-    final List<String> list = List.createEmpty();
+    final LinkedList<String> list = LinkedList.createEmpty();
 
     mapOwnStackTraceElementsOfErrorIntoList(error, list);
 
@@ -26,10 +26,10 @@ public final class StackTraceMapper {
       cause = cause.getCause();
     }
 
-    return List.createArrayFromList(list);
+    return LinkedList.createArrayFromList(list);
   }
 
-  private static void mapCauseStackTraceIntoList(final Throwable cause, final List<String> list) {
+  private static void mapCauseStackTraceIntoList(final Throwable cause, final LinkedList<String> list) {
     final var errorMessage = ERROR_MESSAGE_EXTRACTOR.getMessageOfError(cause);
 
     list.addAtEnd("Cause: " + cause.getClass().getSimpleName() + ": " + errorMessage);
@@ -37,7 +37,7 @@ public final class StackTraceMapper {
     mapOwnStackTraceElementsOfErrorIntoList(cause, list);
   }
 
-  private static void mapOwnStackTraceElementsOfErrorIntoList(final Throwable cause, final List<String> list) {
+  private static void mapOwnStackTraceElementsOfErrorIntoList(final Throwable cause, final LinkedList<String> list) {
     for (final var t : cause.getStackTrace()) {
       list.addAtEnd(t.toString());
     }

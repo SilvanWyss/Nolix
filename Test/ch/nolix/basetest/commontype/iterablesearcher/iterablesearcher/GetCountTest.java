@@ -6,7 +6,7 @@ package ch.nolix.basetest.commontype.iterablesearcher.iterablesearcher;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.commontype.iterablesearcher.IterableSearcher;
-import ch.nolix.base.independent.list.List;
+import ch.nolix.base.independent.linkedlist.LinkedList;
 import ch.nolix.base.testing.standardtest.StandardTest;
 
 /**
@@ -26,7 +26,7 @@ final class GetCountTest extends StandardTest {
   @Test
   void testCase_getCount_whenGivenIterableIsEmpty() {
     // setup
-    final Iterable<Object> iterable = List.createEmpty();
+    final Iterable<Object> iterable = LinkedList.createEmpty();
     final var testUnit = new IterableSearcher();
 
     // execute
@@ -39,7 +39,7 @@ final class GetCountTest extends StandardTest {
   @Test
   void testCase_getCount_whenGivenIterableContains1Element() {
     // setup
-    final Iterable<Object> iterable = List.fromArray(new String[] { "antelope" });
+    final Iterable<Object> iterable = LinkedList.fromArray(new String[] { "antelope" });
     final var testUnit = new IterableSearcher();
 
     // execute
@@ -52,7 +52,7 @@ final class GetCountTest extends StandardTest {
   @Test
   void testCase_getCount_whenGivenIterableContains2Elements() {
     // setup
-    final Iterable<Object> iterable = List.fromArray(new String[] { "antelope", "elephant" });
+    final Iterable<Object> iterable = LinkedList.fromArray(new String[] { "antelope", "elephant" });
     final var testUnit = new IterableSearcher();
 
     // execute

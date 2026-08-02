@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.errorcontrol.logging;
 
-import ch.nolix.base.independent.list.List;
+import ch.nolix.base.independent.linkedlist.LinkedList;
 import ch.nolix.baseapi.errorcontrol.logging.HarmLevel;
 
 /**
@@ -17,7 +17,7 @@ public final class Logger {
   private static LogWorker logWorker;
 
   // static multi-attribute
-  private static final List<AbstractLogHandler> abstractLogHandlers = List.createEmpty();
+  private static final LinkedList<AbstractLogHandler> abstractLogHandlers = LinkedList.createEmpty();
 
   private Logger() {
   }

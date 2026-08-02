@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.independent.arraytool;
 
-import ch.nolix.base.independent.list.List;
+import ch.nolix.base.independent.linkedlist.LinkedList;
 import ch.nolix.baseapi.independent.arraytool.IArrayTool;
 
 /**
@@ -20,7 +20,7 @@ public final class ArrayTool implements IArrayTool {
       throw new IllegalArgumentException("The given values is null.");
     }
 
-    final List<Byte> valueList = List.createEmpty();
+    final LinkedList<Byte> valueList = LinkedList.createEmpty();
 
     // Iterates the given elements.
     for (final var v : values) {
@@ -40,7 +40,7 @@ public final class ArrayTool implements IArrayTool {
       throw new IllegalArgumentException("The given values is null.");
     }
 
-    final List<Double> valueList = List.createEmpty();
+    final LinkedList<Double> valueList = LinkedList.createEmpty();
 
     // Iterates the given values.
     for (final var v : values) {
@@ -60,7 +60,7 @@ public final class ArrayTool implements IArrayTool {
       throw new IllegalArgumentException("The given elements is null.");
     }
 
-    final List<E> elementList = List.createEmpty();
+    final LinkedList<E> elementList = LinkedList.createEmpty();
 
     // Iterates the given elements.
     for (final var e : elements) {
@@ -80,7 +80,7 @@ public final class ArrayTool implements IArrayTool {
       throw new IllegalArgumentException("The given values is null.");
     }
 
-    final List<Long> valueList = List.createEmpty();
+    final LinkedList<Long> valueList = LinkedList.createEmpty();
 
     // Iterates the given elements.
     for (final long v : values) {
@@ -100,7 +100,7 @@ public final class ArrayTool implements IArrayTool {
       throw new IllegalArgumentException("The given values is null.");
     }
 
-    final List<Long> valueList = List.createEmpty();
+    final LinkedList<Long> valueList = LinkedList.createEmpty();
 
     // Iterates the given elements.
     for (final var v : values) {
