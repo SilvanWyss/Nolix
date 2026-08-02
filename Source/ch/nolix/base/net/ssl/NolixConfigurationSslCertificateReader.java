@@ -4,7 +4,7 @@
 package ch.nolix.base.net.ssl;
 
 import ch.nolix.base.document.node.ImmutableNode;
-import ch.nolix.base.independent.nolixenvironment.NolixEnvironmentService;
+import ch.nolix.base.foundation.nolixenvironment.NolixEnvironmentService;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.net.ssl.ISslCertificate;
 

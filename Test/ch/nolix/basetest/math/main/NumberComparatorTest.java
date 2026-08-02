@@ -6,7 +6,7 @@ package ch.nolix.basetest.math.main;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import ch.nolix.base.independent.math.NumberComparator;
+import ch.nolix.base.foundation.math.NumberComparator;
 import ch.nolix.base.testing.standardtest.StandardTest;
 
 /**

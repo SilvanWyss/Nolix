@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 import java.util.function.IntFunction;
 import java.util.function.LongToDoubleFunction;
 
-import ch.nolix.base.independent.math.NumberComparator;
+import ch.nolix.base.foundation.math.NumberComparator;
 import ch.nolix.base.validation.stopwatch.DurationFinder;
 import ch.nolix.base.validation.stopwatch.StopWatch;
 

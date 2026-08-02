@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.independent.math;
+package ch.nolix.base.foundation.math;
 
 import ch.nolix.baseapi.math.number.ComparsionThresholdCatalog;
 

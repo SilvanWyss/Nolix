@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.independent.nolixenvironment;
+package ch.nolix.base.foundation.nolixenvironment;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;

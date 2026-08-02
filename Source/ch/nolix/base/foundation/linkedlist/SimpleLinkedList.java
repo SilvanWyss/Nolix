@@ -1,26 +1,26 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.independent.linkedlist;
+package ch.nolix.base.foundation.linkedlist;
 
 import java.util.Iterator;
 import java.util.function.Function;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements of a {@link LinkedList}.
+ * @param <E> the type of the elements of a {@link SimpleLinkedList}.
  */
-public final class LinkedList<E> implements Iterable<E> {
+public final class SimpleLinkedList<E> implements Iterable<E> {
   private int elementCount;
 
-  private LinkedListNode<E> beginNode;
+  private SimpleLinkedListNode<E> beginNode;
 
-  private LinkedListNode<E> endNode;
+  private SimpleLinkedListNode<E> endNode;
 
-  private LinkedList() {
+  private SimpleLinkedList() {
   }
 
-  public static String[] createArrayFromList(final LinkedList<String> list) {
+  public static String[] createArrayFromList(final SimpleLinkedList<String> list) {
     final var array = new String[list.getElementCount()];
 
     var index = 0;
@@ -32,12 +32,12 @@ public final class LinkedList<E> implements Iterable<E> {
     return array;
   }
 
-  public static <T> LinkedList<T> createEmpty() {
-    return new LinkedList<>();
+  public static <T> SimpleLinkedList<T> createEmpty() {
+    return new SimpleLinkedList<>();
   }
 
-  public static <T> LinkedList<T> fromArray(final T[] array) {
-    final var list = new LinkedList<T>();
+  public static <T> SimpleLinkedList<T> fromArray(final T[] array) {
+    final var list = new SimpleLinkedList<T>();
 
     for (final var e : array) {
       list.addAtBegin(e);
@@ -46,8 +46,8 @@ public final class LinkedList<E> implements Iterable<E> {
     return list;
   }
 
-  public static <T> LinkedList<T> withElements(final Iterable<T> elements) {
-    final var list = new LinkedList<T>();
+  public static <T> SimpleLinkedList<T> withElements(final Iterable<T> elements) {
+    final var list = new SimpleLinkedList<T>();
 
     for (final var e : elements) {
       list.addAtEnd(e);
@@ -57,7 +57,7 @@ public final class LinkedList<E> implements Iterable<E> {
   }
 
   public void addAtBegin(final E element) {
-    final LinkedListNode<E> node = LinkedListNode.withElement(element);
+    final SimpleLinkedListNode<E> node = SimpleLinkedListNode.withElement(element);
 
     if (isEmpty()) {
       beginNode = node;
@@ -71,7 +71,7 @@ public final class LinkedList<E> implements Iterable<E> {
   }
 
   public void addAtEnd(final E element) {
-    final var node = LinkedListNode.withElement(element);
+    final var node = SimpleLinkedListNode.withElement(element);
 
     if (isEmpty()) {
       beginNode = node;
@@ -90,8 +90,8 @@ public final class LinkedList<E> implements Iterable<E> {
     elementCount = 0;
   }
 
-  public LinkedList<E> getCopy() {
-    final var list = new LinkedList<E>();
+  public SimpleLinkedList<E> getCopy() {
+    final var list = new SimpleLinkedList<E>();
 
     for (final var e : this) {
       list.addAtEnd(e);
@@ -120,10 +120,10 @@ public final class LinkedList<E> implements Iterable<E> {
   @Override
   public Iterator<E> iterator() {
     if (isEmpty()) {
-      return LinkedListIterator.forEmptyList();
+      return SimpleLinkedListIterator.forEmptyList();
     }
 
-    return LinkedListIterator.forStartNode(beginNode);
+    return SimpleLinkedListIterator.forStartNode(beginNode);
   }
 
   public void removeFirst() {

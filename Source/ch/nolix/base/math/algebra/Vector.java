@@ -5,7 +5,7 @@ package ch.nolix.base.math.algebra;
 
 import java.util.Arrays;
 
-import ch.nolix.base.independent.math.NumberComparator;
+import ch.nolix.base.foundation.math.NumberComparator;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 

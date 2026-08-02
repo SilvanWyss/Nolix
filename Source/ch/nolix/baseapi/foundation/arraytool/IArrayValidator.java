@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.independent.arraytool;
+package ch.nolix.baseapi.foundation.arraytool;
 
 /**
  * @author Silvan Wyss

@@ -1,14 +1,14 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.independent.arraytool;
+package ch.nolix.base.foundation.arraytool;
 
-import ch.nolix.baseapi.independent.arraytool.IArrayValidator;
+import ch.nolix.baseapi.foundation.arraytool.IArrayValidator;
 
 /**
  * @author Silvan Wyss
  */
-public final class ArrayValidator implements IArrayValidator {
+public final class SimpleArrayValidator implements IArrayValidator {
   /**
    * {@inheritDoc}
    */

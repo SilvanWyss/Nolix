@@ -1,16 +1,16 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.independent.linkedlist;
+package ch.nolix.base.foundation.linkedlist;
 
 import java.util.NoSuchElementException;
 
-final class LinkedListNode<E> {
+final class SimpleLinkedListNode<E> {
   private final E memberElement;
 
-  private LinkedListNode<E> nextNode;
+  private SimpleLinkedListNode<E> nextNode;
 
-  private LinkedListNode(final E element) {
+  private SimpleLinkedListNode(final E element) {
     if (element == null) {
       throw new IllegalArgumentException("The given element is null.");
     }
@@ -18,8 +18,8 @@ final class LinkedListNode<E> {
     memberElement = element;
   }
 
-  public static <T> LinkedListNode<T> withElement(final T element) {
-    return new LinkedListNode<>(element);
+  public static <T> SimpleLinkedListNode<T> withElement(final T element) {
+    return new SimpleLinkedListNode<>(element);
   }
 
   public boolean contains(final E element) {
@@ -30,7 +30,7 @@ final class LinkedListNode<E> {
     return memberElement;
   }
 
-  public LinkedListNode<E> getStoredNextNode() {
+  public SimpleLinkedListNode<E> getStoredNextNode() {
     assertHasNextNode();
 
     return nextNode;
@@ -44,7 +44,7 @@ final class LinkedListNode<E> {
     nextNode = null;
   }
 
-  public void setNextNode(final LinkedListNode<E> nextNode) {
+  public void setNextNode(final SimpleLinkedListNode<E> nextNode) {
     if (nextNode == null) {
       throw new IllegalArgumentException("The given next node is null.");
     }

@@ -1,15 +1,15 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.independent.arraytool;
+package ch.nolix.base.foundation.arraytool;
 
-import ch.nolix.base.independent.linkedlist.LinkedList;
-import ch.nolix.baseapi.independent.arraytool.IArrayTool;
+import ch.nolix.base.foundation.linkedlist.SimpleLinkedList;
+import ch.nolix.baseapi.foundation.arraytool.IArrayTool;
 
 /**
  * @author Silvan Wyss
  */
-public final class ArrayTool implements IArrayTool {
+public final class SimpleArrayTool implements IArrayTool {
   /**
    * {@inheritDoc}
    */
@@ -20,7 +20,7 @@ public final class ArrayTool implements IArrayTool {
       throw new IllegalArgumentException("The given values is null.");
     }
 
-    final LinkedList<Byte> valueList = LinkedList.createEmpty();
+    final SimpleLinkedList<Byte> valueList = SimpleLinkedList.createEmpty();
 
     // Iterates the given elements.
     for (final var v : values) {
@@ -40,7 +40,7 @@ public final class ArrayTool implements IArrayTool {
       throw new IllegalArgumentException("The given values is null.");
     }
 
-    final LinkedList<Double> valueList = LinkedList.createEmpty();
+    final SimpleLinkedList<Double> valueList = SimpleLinkedList.createEmpty();
 
     // Iterates the given values.
     for (final var v : values) {
@@ -60,7 +60,7 @@ public final class ArrayTool implements IArrayTool {
       throw new IllegalArgumentException("The given elements is null.");
     }
 
-    final LinkedList<E> elementList = LinkedList.createEmpty();
+    final SimpleLinkedList<E> elementList = SimpleLinkedList.createEmpty();
 
     // Iterates the given elements.
     for (final var e : elements) {
@@ -80,7 +80,7 @@ public final class ArrayTool implements IArrayTool {
       throw new IllegalArgumentException("The given values is null.");
     }
 
-    final LinkedList<Long> valueList = LinkedList.createEmpty();
+    final SimpleLinkedList<Long> valueList = SimpleLinkedList.createEmpty();
 
     // Iterates the given elements.
     for (final long v : values) {
@@ -100,7 +100,7 @@ public final class ArrayTool implements IArrayTool {
       throw new IllegalArgumentException("The given values is null.");
     }
 
-    final LinkedList<Long> valueList = LinkedList.createEmpty();
+    final SimpleLinkedList<Long> valueList = SimpleLinkedList.createEmpty();
 
     // Iterates the given elements.
     for (final var v : values) {

@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.validation.multi;
 
-import ch.nolix.base.independent.arraytool.ArrayTool;
+import ch.nolix.base.foundation.arraytool.SimpleArrayTool;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
@@ -14,7 +14,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumen
  * @author Silvan Wyss
  */
 public final class MultiDoubleMediator extends AbstractMultiArgumentMediator<Double> {
-  private static final ArrayTool ARRAY_TOOL = new ArrayTool();
+  private static final SimpleArrayTool ARRAY_TOOL = new SimpleArrayTool();
 
   /**
    * Creates a new {@link MultiDoubleMediator} for the given arguments.

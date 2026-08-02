@@ -6,7 +6,7 @@ package ch.nolix.basetest.commontype.iterableexaminer;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.commontype.iterableexaminer.IterableExaminer;
-import ch.nolix.base.independent.linkedlist.LinkedList;
+import ch.nolix.base.foundation.linkedlist.SimpleLinkedList;
 import ch.nolix.base.testing.standardtest.StandardTest;
 
 /**
@@ -29,7 +29,7 @@ final class IsEmptyTest extends StandardTest {
   @Test
   void testCase_isEmpty_whenGivenIterableIsEmpty() {
     // setup
-    final Iterable<Object> iterable = LinkedList.createEmpty();
+    final Iterable<Object> iterable = SimpleLinkedList.createEmpty();
     final var testUnit = new IterableExaminer();
 
     // execute
@@ -42,7 +42,7 @@ final class IsEmptyTest extends StandardTest {
   @Test
   void testCase_isEmpty_whenGivenIterableContains1Element() {
     // setup
-    final Iterable<Object> iterable = LinkedList.fromArray(new String[] { "antelope" });
+    final Iterable<Object> iterable = SimpleLinkedList.fromArray(new String[] { "antelope" });
     final var testUnit = new IterableExaminer();
 
     // execute
@@ -55,7 +55,7 @@ final class IsEmptyTest extends StandardTest {
   @Test
   void testCase_isEmpty_whenGivenIterableContains2Elements() {
     // setup
-    final Iterable<Object> iterable = LinkedList.fromArray(new String[] { "antelope", "elephant" });
+    final Iterable<Object> iterable = SimpleLinkedList.fromArray(new String[] { "antelope", "elephant" });
     final var testUnit = new IterableExaminer();
 
     // execute

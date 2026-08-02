@@ -4,7 +4,7 @@
 package ch.nolix.system.webgui.main;
 
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
-import ch.nolix.base.independent.math.NumberComparator;
+import ch.nolix.base.foundation.math.NumberComparator;
 import ch.nolix.base.web.cssmodel.CssProperty;
 import ch.nolix.base.web.cssmodel.CssRule;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;

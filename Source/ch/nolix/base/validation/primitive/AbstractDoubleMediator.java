@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.validation.primitive;
 
-import ch.nolix.base.independent.math.NumberComparator;
+import ch.nolix.base.foundation.math.NumberComparator;
 import ch.nolix.base.validation.base.AbstractMediator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.BiggerArgumentException;

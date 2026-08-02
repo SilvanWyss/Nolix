@@ -5,7 +5,7 @@ package ch.nolix.basetest.independent.arrayvalidator;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.independent.arraytool.ArrayValidator;
+import ch.nolix.base.foundation.arraytool.SimpleArrayValidator;
 import ch.nolix.base.testing.standardtest.StandardTest;
 
 /**
@@ -16,7 +16,7 @@ final class ArrayValidatorTest extends StandardTest {
   void testCase_assertDoesNotContainNull_whenGivenArrayIsNull() {
     // setup
     final String[] array = null;
-    final var testUnit = new ArrayValidator();
+    final var testUnit = new SimpleArrayValidator();
 
     // execute & verify
     expectRunning(() -> testUnit.assertDoesNotContainNull(array))
@@ -29,7 +29,7 @@ final class ArrayValidatorTest extends StandardTest {
   void testCase_assertDoesNotContainNull_whenGivenArrayIsEmpty() {
     // setup
     final String[] array = {};
-    final var testUnit = new ArrayValidator();
+    final var testUnit = new SimpleArrayValidator();
 
     // execute & verify
     expectRunning(() -> testUnit.assertDoesNotContainNull(array)).doesNotThrowException();
@@ -39,7 +39,7 @@ final class ArrayValidatorTest extends StandardTest {
   void testCase_assertDoesNotContainNull_whenGivenArrayContainsAnyButNotNull() {
     // setup
     final String[] array = { "antelope", "baboon", "elephant", "lion", "rhino", "zebra" };
-    final var testUnit = new ArrayValidator();
+    final var testUnit = new SimpleArrayValidator();
 
     // execute & verify
     expectRunning(() -> testUnit.assertDoesNotContainNull(array)).doesNotThrowException();
@@ -49,7 +49,7 @@ final class ArrayValidatorTest extends StandardTest {
   void testCase_assertDoesNotContainNull_whenGivenArrayContainsNull() {
     // setup
     final String[] array = { "antelope", "baboon", "elephant", "lion", null, "rhino", "zebra" };
-    final var testUnit = new ArrayValidator();
+    final var testUnit = new SimpleArrayValidator();
 
     // execute & verify
     expectRunning(() -> testUnit.assertDoesNotContainNull(array))

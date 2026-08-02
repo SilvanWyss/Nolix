@@ -4,7 +4,7 @@
 package ch.nolix.base.errorcontrol.logging;
 
 import ch.nolix.base.errorcontrol.errormapping.StackTraceMapper;
-import ch.nolix.base.independent.immutablelist.ImmutableList;
+import ch.nolix.base.foundation.immutablelist.SimpleImmutableList;
 import ch.nolix.baseapi.errorcontrol.logging.HarmLevel;
 
 /**
@@ -17,7 +17,7 @@ public final class LogEntry {
 
   private final long creationTimeInMillisecondsSince1970;
 
-  private final ImmutableList<String> additionalInfoLines;
+  private final SimpleImmutableList<String> additionalInfoLines;
 
   private LogEntry(final HarmLevel harmLevel, final String message, final String[] additionalInfoLines) {
     creationTimeInMillisecondsSince1970 = System.currentTimeMillis();
@@ -35,9 +35,9 @@ public final class LogEntry {
     }
 
     if (additionalInfoLines == null) {
-      this.additionalInfoLines = ImmutableList.createEmptyList();
+      this.additionalInfoLines = SimpleImmutableList.createEmptyList();
     } else {
-      this.additionalInfoLines = ImmutableList.withElements(additionalInfoLines);
+      this.additionalInfoLines = SimpleImmutableList.withElements(additionalInfoLines);
     }
   }
 
@@ -66,7 +66,7 @@ public final class LogEntry {
     return message;
   }
 
-  public ImmutableList<String> getAdditionalInfoLines() {
+  public SimpleImmutableList<String> getAdditionalInfoLines() {
     return additionalInfoLines;
   }
 

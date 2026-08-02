@@ -6,7 +6,7 @@ package ch.nolix.base.commontype.inputstreamtool;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
-import ch.nolix.base.independent.linkedlist.LinkedList;
+import ch.nolix.base.foundation.linkedlist.SimpleLinkedList;
 import ch.nolix.baseapi.commontype.inputstreamtool.IInputStreamTool;
 
 /**
@@ -18,7 +18,7 @@ public final class InputStreamTool implements IInputStreamTool {
    */
   @Override
   public String readLineFromInputStreamOrNull(final InputStream inputStream) {
-    final LinkedList<Byte> bytes = LinkedList.createEmpty();
+    final SimpleLinkedList<Byte> bytes = SimpleLinkedList.createEmpty();
 
     while (true) {
       try {

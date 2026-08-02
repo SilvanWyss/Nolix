@@ -8,7 +8,7 @@ import java.util.Random;
 
 import ch.nolix.base.commontype.doubletool.DoubleTool;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
-import ch.nolix.base.independent.math.NumberComparator;
+import ch.nolix.base.foundation.math.NumberComparator;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.doubletool.IDoubleTool;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;

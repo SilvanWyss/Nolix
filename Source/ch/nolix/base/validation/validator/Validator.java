@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.util.Optional;
 
-import ch.nolix.base.independent.arraytool.ArrayTool;
+import ch.nolix.base.foundation.arraytool.SimpleArrayTool;
 import ch.nolix.base.validation.multi.MultiArgumentMediator;
 import ch.nolix.base.validation.multi.MultiDoubleMediator;
 import ch.nolix.base.validation.multi.MultiLongMediator;
@@ -33,7 +33,7 @@ import ch.nolix.base.validation.primitive.NamableLongMediator;
  */
 public final class Validator { // NOSONAR: The GlobalValidator bundles all validation methods.
 
-  private static final ArrayTool ARRAY_TOOL = new ArrayTool();
+  private static final SimpleArrayTool ARRAY_TOOL = new SimpleArrayTool();
 
   /**
    * Prevents that an instance of the {@link Validator} can be created.

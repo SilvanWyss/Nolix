@@ -9,7 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
-import ch.nolix.base.independent.nolixenvironment.NolixEnvironmentService;
+import ch.nolix.base.foundation.nolixenvironment.NolixEnvironmentService;
 
 /**
  * @author Silvan Wyss

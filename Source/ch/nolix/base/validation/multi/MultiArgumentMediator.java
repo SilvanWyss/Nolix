@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.validation.multi;
 
-import ch.nolix.base.independent.arraytool.ArrayTool;
+import ch.nolix.base.foundation.arraytool.SimpleArrayTool;
 
 /**
  * A {@link MultiArgumentMediator} is not mutable.
@@ -12,7 +12,7 @@ import ch.nolix.base.independent.arraytool.ArrayTool;
  * @param <A> the type of the arguments of a multi argument mediator.
  */
 public final class MultiArgumentMediator<A> extends AbstractMultiArgumentMediator<A> {
-  private static final ArrayTool ARRAY_TOOL = new ArrayTool();
+  private static final SimpleArrayTool ARRAY_TOOL = new SimpleArrayTool();
 
   /**
    * Creates a new {@link MultiArgumentMediator} for the given arguments.

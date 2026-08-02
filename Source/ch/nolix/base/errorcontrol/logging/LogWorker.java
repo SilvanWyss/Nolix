@@ -3,12 +3,12 @@
  */
 package ch.nolix.base.errorcontrol.logging;
 
-import ch.nolix.base.independent.linkedlist.LinkedList;
+import ch.nolix.base.foundation.linkedlist.SimpleLinkedList;
 
 final class LogWorker extends Thread {
   private boolean active = true;
 
-  private final LinkedList<LogEntry> logEntries = LinkedList.createEmpty();
+  private final SimpleLinkedList<LogEntry> logEntries = SimpleLinkedList.createEmpty();
 
   public LogWorker() {
     start();
