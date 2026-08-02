@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.validation.multi;
 
-import ch.nolix.base.foundation.arraytool.SimpleArrayTool;
+import ch.nolix.base.foundation.iterablemapper.SimpleIterableMapper;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
@@ -14,7 +14,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumen
  * @author Silvan Wyss
  */
 public final class MultiDoubleMediator extends AbstractMultiArgumentMediator<Double> {
-  private static final SimpleArrayTool ARRAY_TOOL = new SimpleArrayTool();
+  private static final SimpleIterableMapper ITERABLE_MAPPER = new SimpleIterableMapper();
 
   /**
    * Creates a new {@link MultiDoubleMediator} for the given arguments.
@@ -32,7 +32,7 @@ public final class MultiDoubleMediator extends AbstractMultiArgumentMediator<Dou
    * @throws RuntimeException if the given arguments is null
    */
   public static MultiDoubleMediator forArugments(final double[] arguments) {
-    final var argumentsIterable = ARRAY_TOOL.createIterable(arguments);
+    final var argumentsIterable = ITERABLE_MAPPER.toIterable(arguments);
 
     return new MultiDoubleMediator(argumentsIterable);
   }

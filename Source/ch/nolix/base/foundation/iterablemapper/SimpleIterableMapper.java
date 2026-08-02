@@ -1,20 +1,20 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.foundation.arraytool;
+package ch.nolix.base.foundation.iterablemapper;
 
 import ch.nolix.base.foundation.linkedlist.SimpleLinkedList;
-import ch.nolix.baseapi.foundation.arraytool.IArrayTool;
+import ch.nolix.baseapi.foundation.iterableMapper.ISimpleIterableMapper;
 
 /**
  * @author Silvan Wyss
  */
-public final class SimpleArrayTool implements IArrayTool {
+public final class SimpleIterableMapper implements ISimpleIterableMapper {
   /**
    * {@inheritDoc}
    */
   @Override
-  public Iterable<Byte> createIterable(final byte[] values) {
+  public Iterable<Byte> toIterable(final byte[] values) {
     // Asserts that the given values is not null.
     if (values == null) {
       throw new IllegalArgumentException("The given values is null.");
@@ -34,7 +34,7 @@ public final class SimpleArrayTool implements IArrayTool {
    * {@inheritDoc}
    */
   @Override
-  public Iterable<Double> createIterable(final double[] values) {
+  public Iterable<Double> toIterable(final double[] values) {
     // Asserts that the given values is not null.
     if (values == null) {
       throw new IllegalArgumentException("The given values is null.");
@@ -54,7 +54,7 @@ public final class SimpleArrayTool implements IArrayTool {
    * {@inheritDoc}
    */
   @Override
-  public <E> Iterable<E> createIterable(final E[] elements) {
+  public <E> Iterable<E> toIterable(final E[] elements) {
     // Asserts that the given elements is not null.
     if (elements == null) {
       throw new IllegalArgumentException("The given elements is null.");
@@ -74,7 +74,7 @@ public final class SimpleArrayTool implements IArrayTool {
    * {@inheritDoc}
    */
   @Override
-  public Iterable<Long> createIterable(final int[] values) {
+  public Iterable<Long> toIterable(final int[] values) {
     // Asserts that the given values is not null.
     if (values == null) {
       throw new IllegalArgumentException("The given values is null.");
@@ -94,7 +94,7 @@ public final class SimpleArrayTool implements IArrayTool {
    * {@inheritDoc}
    */
   @Override
-  public Iterable<Long> createIterable(final long[] values) {
+  public Iterable<Long> toIterable(final long[] values) {
     // Asserts that the given values is not null.
     if (values == null) {
       throw new IllegalArgumentException("The given values is null.");

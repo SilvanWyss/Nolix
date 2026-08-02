@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.validation.multi;
 
-import ch.nolix.base.foundation.arraytool.SimpleArrayTool;
+import ch.nolix.base.foundation.iterablemapper.SimpleIterableMapper;
 
 /**
  * A {@link MultiArgumentMediator} is not mutable.
@@ -12,7 +12,7 @@ import ch.nolix.base.foundation.arraytool.SimpleArrayTool;
  * @param <A> the type of the arguments of a multi argument mediator.
  */
 public final class MultiArgumentMediator<A> extends AbstractMultiArgumentMediator<A> {
-  private static final SimpleArrayTool ARRAY_TOOL = new SimpleArrayTool();
+  private static final SimpleIterableMapper ITERABLE_MAPPER = new SimpleIterableMapper();
 
   /**
    * Creates a new {@link MultiArgumentMediator} for the given arguments.
@@ -32,7 +32,7 @@ public final class MultiArgumentMediator<A> extends AbstractMultiArgumentMediato
    * @throws RuntimeException if the given arguments is null
    */
   public static <T> MultiArgumentMediator<T> forArguments(final T[] arguments) {
-    final var argumentsIterable = ARRAY_TOOL.createIterable(arguments);
+    final var argumentsIterable = ITERABLE_MAPPER.toIterable(arguments);
 
     return new MultiArgumentMediator<>(argumentsIterable);
   }

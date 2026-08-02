@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.util.Optional;
 
-import ch.nolix.base.foundation.arraytool.SimpleArrayTool;
+import ch.nolix.base.foundation.iterablemapper.SimpleIterableMapper;
 import ch.nolix.base.validation.multi.MultiArgumentMediator;
 import ch.nolix.base.validation.multi.MultiDoubleMediator;
 import ch.nolix.base.validation.multi.MultiLongMediator;
@@ -33,7 +33,7 @@ import ch.nolix.base.validation.primitive.NamableLongMediator;
  */
 public final class Validator { // NOSONAR: The GlobalValidator bundles all validation methods.
 
-  private static final SimpleArrayTool ARRAY_TOOL = new SimpleArrayTool();
+  private static final SimpleIterableMapper ITERABLE_MAPPER = new SimpleIterableMapper();
 
   /**
    * Prevents that an instance of the {@link Validator} can be created.
@@ -77,7 +77,7 @@ public final class Validator { // NOSONAR: The GlobalValidator bundles all valid
     }
 
     // Handles the case that the given argument is not null.
-    return NamableIterableMediator.forArgument(ARRAY_TOOL.createIterable(argument));
+    return NamableIterableMediator.forArgument(ITERABLE_MAPPER.toIterable(argument));
   }
 
   /**
@@ -108,7 +108,7 @@ public final class Validator { // NOSONAR: The GlobalValidator bundles all valid
     }
 
     // Handles the case that the given argument is not null.
-    return NamableIterableMediator.forArgument(ARRAY_TOOL.createIterable(argument));
+    return NamableIterableMediator.forArgument(ITERABLE_MAPPER.toIterable(argument));
   }
 
   /**
@@ -130,7 +130,7 @@ public final class Validator { // NOSONAR: The GlobalValidator bundles all valid
     }
 
     // Handles the case that the given argument is not null.
-    return NamableIterableMediator.forArgument(ARRAY_TOOL.createIterable(argument));
+    return NamableIterableMediator.forArgument(ITERABLE_MAPPER.toIterable(argument));
   }
 
   /**
@@ -161,7 +161,7 @@ public final class Validator { // NOSONAR: The GlobalValidator bundles all valid
     }
 
     // Handles the case that the given argument is not null.
-    return NamableIterableMediator.forArgument(ARRAY_TOOL.createIterable(argument));
+    return NamableIterableMediator.forArgument(ITERABLE_MAPPER.toIterable(argument));
   }
 
   /**
