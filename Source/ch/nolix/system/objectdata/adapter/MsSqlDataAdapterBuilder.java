@@ -4,7 +4,7 @@
 package ch.nolix.system.objectdata.adapter;
 
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndDatabaseNameCaptor;
-import ch.nolix.base.argumentcaptor.andargumentcaptor.AndLoginPasswordCaptor;
+import ch.nolix.base.argumentcaptor.andargumentcaptor.AndPasswordCaptor;
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndPortCaptor;
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndSchemaCaptor;
 import ch.nolix.base.argumentcaptor.toargumentcaptor.ToIpOrDomainCaptor;
@@ -21,7 +21,7 @@ ToIpOrDomainCaptor< //
 AndPortCaptor< //
 AndDatabaseNameCaptor< //
 WithLoginNameCaptor< //
-AndLoginPasswordCaptor< //
+AndPasswordCaptor< //
 AndSchemaCaptor<IEntityTypeSet, MsSqlDataAdapter>>>>>> {
   public static final int DEFAULT_PORT = PortCatalog.MS_SQL;
 
@@ -30,7 +30,7 @@ AndSchemaCaptor<IEntityTypeSet, MsSqlDataAdapter>>>>>> {
       new AndPortCaptor<>(
         new AndDatabaseNameCaptor<>(
           new WithLoginNameCaptor<>(
-            new AndLoginPasswordCaptor<>(
+            new AndPasswordCaptor<>(
               new AndSchemaCaptor<>())))));
 
     setBuilder(this::buildMsSqlDataAdapter);
@@ -47,7 +47,7 @@ AndSchemaCaptor<IEntityTypeSet, MsSqlDataAdapter>>>>>> {
       scsArgCpt().getPort(),
       scsArgCpt().scsArgCpt().getDatabase(),
       scsArgCpt().scsArgCpt().scsArgCpt().getLoginName(),
-      scsArgCpt().scsArgCpt().scsArgCpt().scsArgCpt().getLoginPassword(),
+      scsArgCpt().scsArgCpt().scsArgCpt().scsArgCpt().getPassword(),
       scsArgCpt().scsArgCpt().scsArgCpt().scsArgCpt().scsArgCpt().getStoredSchema());
   }
 }

@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectschema.adapter;
 
-import ch.nolix.base.argumentcaptor.andargumentcaptor.AndLoginPasswordCaptor;
+import ch.nolix.base.argumentcaptor.andargumentcaptor.AndPasswordCaptor;
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndPortCaptor;
 import ch.nolix.base.argumentcaptor.toargumentcaptor.ToDatabaseNameCaptor;
 import ch.nolix.base.argumentcaptor.toargumentcaptor.ToIpOrDomainCaptor;
@@ -19,14 +19,14 @@ ToIpOrDomainCaptor< //
 AndPortCaptor< //
 ToDatabaseNameCaptor< //
 WithLoginNameCaptor< //
-AndLoginPasswordCaptor< //
+AndPasswordCaptor< //
 MsSqlSchemaAdapter>>>>> {
   private MsSqlSchemaAdapterBuilder() {
     super(
       new AndPortCaptor<>(
         new ToDatabaseNameCaptor<>(
           new WithLoginNameCaptor<>(
-            new AndLoginPasswordCaptor<>()))));
+            new AndPasswordCaptor<>()))));
 
     setBuilder(this::buildMsSqlSchemaAdapter);
   }
@@ -43,7 +43,7 @@ MsSqlSchemaAdapter>>>>> {
       getHost(),
       scsArgCpt().getPort(),
       scsArgCpt().scsArgCpt().scsArgCpt().getLoginName(),
-      scsArgCpt().scsArgCpt().scsArgCpt().scsArgCpt().getLoginPassword());
+      scsArgCpt().scsArgCpt().scsArgCpt().scsArgCpt().getPassword());
 
     return MsSqlSchemaAdapter.forDatabaseNameAndSqlConnection(databaseName, msSqlConnection);
   }

@@ -35,7 +35,7 @@ public final class MsSqlDataAdapter extends AbstractDataAdapter {
         .andDatabase(databaseName)
         .withSqlDatabaseEngine(SqlDatabaseEngine.MS_SQL)
         .andLoginName(loginName)
-        .andLoginPassword(loginPassword));
+        .andPassword(loginPassword));
   }
 
   private MsSqlDataAdapter(
