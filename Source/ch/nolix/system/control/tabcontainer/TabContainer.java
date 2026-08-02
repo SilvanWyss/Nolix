@@ -37,7 +37,7 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 /**
  * @author Silvan Wyss
  */
-public final class TabContainer //NOSONAR: A TabContainer has many dependencies.
+public final class TabContainer // NOSONAR: A TabContainer has many dependencies.
 extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabContainer {
   private static final String TAB_HEADER = PascalCaseVariableNameCatalog.TAB;
 
@@ -77,7 +77,7 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
    * Creates a new {@link TabContainer}.
    */
   public TabContainer() {
-    final var controlParent = ControlParent.forControl(this); //NOSONAR: The TabContainer will be fully constructed on time.
+    final var controlParent = ControlParent.forControl(this); // NOSONAR: The TabContainer will be fully constructed on time.
 
     rootVerticalStack.internalSetControlParent(controlParent);
     rootVerticalStack.addControls(menuHorizontalStack, canvasSingleContainer);
@@ -102,7 +102,7 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
 
     if (isEmpty()) {
       tab.select();
-    } else if //NOSONAR: This else-if-case is an optimal implementation.
+    } else if // NOSONAR: This else-if-case is an optimal implementation.
     (tab.isSelected()) {
       for (final var t : getStoredTabs()) {
         if (t.isSelected()) {

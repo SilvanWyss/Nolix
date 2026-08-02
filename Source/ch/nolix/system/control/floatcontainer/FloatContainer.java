@@ -10,7 +10,7 @@ import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 /**
  * @author Silvan Wyss
  */
-public final class FloatContainer //NOSONAR: A FloatContainer is a LinearContainer.
+public final class FloatContainer // NOSONAR: A FloatContainer is a LinearContainer.
 extends AbstractLinearContainer<FloatContainer, FloatContainerStyle> {
   private static final FloatContainerHtmlBuilder HTML_BUILDER = new FloatContainerHtmlBuilder();
 

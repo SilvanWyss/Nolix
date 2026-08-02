@@ -104,7 +104,7 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
     for (final var a : getAttachingAttributes()) {
       try {
         element.addOrChangeAttribute(a);
-      } catch (final Throwable error) { //NOSONAR: All Throwable must be caught.
+      } catch (final Throwable error) { // NOSONAR: All Throwable must be caught.
 
         final var invalidArgumentException = InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
           a,

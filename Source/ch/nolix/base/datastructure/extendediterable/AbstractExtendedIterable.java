@@ -39,7 +39,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
  * @author Silvan Wyss
  * @param <E> the type of the elements of a {@link AbstractExtendedIterable}
  */
-public abstract class AbstractExtendedIterable<E> //NOSONAR: An AbstractExtendedIterable is a principal object thus it has many methods.
+public abstract class AbstractExtendedIterable<E> // NOSONAR: An AbstractExtendedIterable is a principal object thus it has many methods.
 implements ExtendedIterable<E> {
   private static final IterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
 
@@ -845,7 +845,7 @@ implements ExtendedIterable<E> {
       throw EmptyArgumentException.forArgument(this);
     }
 
-    final var element = iterator.next(); //NOSONAR: The next method has to be called before the hasNext method.
+    final var element = iterator.next(); // NOSONAR: The next method has to be called before the hasNext method.
 
     if (iterator.hasNext()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains several elements");

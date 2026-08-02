@@ -17,7 +17,7 @@ public final class Blob implements IBlob {
   private Blob(final byte[] bytes) {
     Validator.assertThat(bytes).thatIsNamed("bytes").isNotNull();
 
-    this.bytes = bytes; //NOSONAR: A BinaryObject operates on the original instance.
+    this.bytes = bytes; // NOSONAR: A BinaryObject operates on the original instance.
   }
 
   public static Blob forBytes(final byte[] bytes) {
@@ -33,7 +33,7 @@ public final class Blob implements IBlob {
    */
   @Override
   public byte[] getStoredBytes() {
-    return bytes; //NOSONAR: A BinaryObject returns the original instance.
+    return bytes; // NOSONAR: A BinaryObject returns the original instance.
   }
 
   /**

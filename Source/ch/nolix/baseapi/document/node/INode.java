@@ -151,7 +151,7 @@ extends BlanknessRequestable, FormattedStringRepresentable, OptionalHeaderHolder
    * @throws RuntimeException if the single child {@link INode} of the current
    *                          {@link INode} does not represent a boolean
    */
-  boolean getSingleChildNodeAsBoolean(); //NOSONAR: This method returns a boolean representation.
+  boolean getSingleChildNodeAsBoolean(); // NOSONAR: This method returns a boolean representation.
 
   /**
    * @return the double the single child {@link INode} of the current

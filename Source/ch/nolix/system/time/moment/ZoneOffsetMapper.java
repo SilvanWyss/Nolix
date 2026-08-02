@@ -17,7 +17,7 @@ public final class ZoneOffsetMapper implements IZoneOffsetMapper {
    * {@inheritDoc}
    */
   @Override
-  public ZoneOffset mapTimeZoneToZoneOffset(final TimeZone timeZone) { //NOSONAR: This method is not too complex.
+  public ZoneOffset mapTimeZoneToZoneOffset(final TimeZone timeZone) { // NOSONAR: This method is not too complex.
     return //
     switch (timeZone) {
       case UTC_MINUS_11 ->

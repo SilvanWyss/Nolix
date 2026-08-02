@@ -16,7 +16,7 @@ public final class EnglishWordEndExaminer implements IEnglishWordEndExaminer {
    */
   private static boolean endsWithVocalAndYWhenIsNotNull(final String word) {
     return //
-    word.endsWith("ay") //NOSONAR: This implementation is uniform.
+    word.endsWith("ay") // NOSONAR: This implementation is uniform.
     || word.endsWith("ey")
     || word.endsWith("iy")
     || word.endsWith("oy")

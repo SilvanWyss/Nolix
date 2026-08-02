@@ -12,7 +12,7 @@ import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 /**
  * @author Silvan Wyss
  */
-public final class ImmutableJsonFalseBoolean //NOSONAR: ImmutableJsonFalseBoolean is a singleton.
+public final class ImmutableJsonFalseBoolean // NOSONAR: ImmutableJsonFalseBoolean is a singleton.
 implements JsonBoolean {
   public static final ImmutableJsonFalseBoolean INSTANCE = new ImmutableJsonFalseBoolean();
 

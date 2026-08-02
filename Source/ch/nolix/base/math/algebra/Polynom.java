@@ -54,7 +54,7 @@ public final class Polynom {
     }
 
     // Sets the coefficients of the current Polynom.
-    coefficients = coefficientArray; //NOSONAR: A Polynom operates on the original instance.
+    coefficients = coefficientArray; // NOSONAR: A Polynom operates on the original instance.
   }
 
   public static Polynom withCoefficients(final double... coefficients) {

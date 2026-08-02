@@ -114,11 +114,11 @@ final class WebSocketFrameFirstWord {
     return (byte) byte2;
   }
 
-  public boolean getFINBit() { //NOSONAR: This method returns a bit as a boolean.
+  public boolean getFINBit() { // NOSONAR: This method returns a bit as a boolean.
     return mFINBit;
   }
 
-  public boolean getMaskBit() { //NOSONAR: This method returns a bit as a boolean.
+  public boolean getMaskBit() { // NOSONAR: This method returns a bit as a boolean.
     return maskBit;
   }
 

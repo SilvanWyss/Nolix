@@ -170,7 +170,7 @@ public abstract class AbstractSqlConnection implements ISqlConnection {
 
   private void registerSqlDatabaseEngineDriver() {
     try {
-      Class.forName( //NOSONAR: Dynamic class loading is needed to gain driver class.
+      Class.forName( // NOSONAR: Dynamic class loading is needed to gain driver class.
         getSqlDatabaseEngineDriverClass());
     } catch (final ClassNotFoundException classNotFoundException) {
       throw WrapperException.forError(classNotFoundException);

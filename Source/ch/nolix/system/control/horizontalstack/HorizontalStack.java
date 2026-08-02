@@ -15,7 +15,7 @@ import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 /**
  * @author Silvan Wyss
  */
-public final class HorizontalStack //NOSONAR: A HorizontalStack is a LinearContainer.
+public final class HorizontalStack // NOSONAR: A HorizontalStack is a LinearContainer.
 extends AbstractLinearContainer<IHorizontalStack, IHorizontalStackStyle>
 implements IHorizontalStack {
   public static final VerticalContentAlignment DEFAULT_CONTENT_ALIGNMENT = VerticalContentAlignment.TOP;

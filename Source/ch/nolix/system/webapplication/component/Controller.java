@@ -15,7 +15,7 @@ import ch.nolix.systemapi.application.main.IApplication;
  *            the {@link AbstractBackendClient} of the {@link WebClientSession}
  *            of a {@link Controller}.
  */
-public abstract class Controller<S> { //NOSONAR: A Controller is a base class without abstract methods.
+public abstract class Controller<S> { // NOSONAR: A Controller is a base class without abstract methods.
 
   private WebClientSession<S> memberWebClientSession;
 

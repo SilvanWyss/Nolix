@@ -11,7 +11,7 @@ import ch.nolix.systemapi.objectdata.entitytool.ITableNameExtractor;
 /**
  * @author Silvan Wyss
  */
-public abstract class Entity //NOSONAR: An entity class is expected to be abstract.
+public abstract class Entity // NOSONAR: An entity class is expected to be abstract.
 extends AbstractEntity {
   private static final ITableNameExtractor TABLE_NAME_EXTRACTOR = new TableNameExtractor();
 

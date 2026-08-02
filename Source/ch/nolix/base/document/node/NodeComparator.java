@@ -47,7 +47,7 @@ public final class NodeComparator implements INodeComparator {
   @Override
   public boolean haveEqualHeaderConstellationLikeNode(final INode<?> node1, final INode<?> node2) {
     return //
-    (node1 == null && node2 == null) //NOSONAR: This implementation bases on chained conditions only.
+    (node1 == null && node2 == null) // NOSONAR: This implementation bases on chained conditions only.
     || (node1 != null && node2 != null && !node1.hasHeader() && !node2.hasHeader())
     || (node1 != null && node2 != null && node1.hasHeader(node2.getHeader()));
   }

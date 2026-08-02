@@ -22,7 +22,7 @@ public enum Month {
   NOVEMBER,
   DECEMBER;
 
-  public static Month fromJavaMonth(final java.time.Month month) { //NOSONAR: This method is uniform.
+  public static Month fromJavaMonth(final java.time.Month month) { // NOSONAR: This method is uniform.
     return switch (month) {
       case JANUARY ->
         JANUARY;

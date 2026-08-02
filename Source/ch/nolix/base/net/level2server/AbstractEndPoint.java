@@ -69,7 +69,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
     while (!hasReplier()) {
       // The following statement, that is actually unnecessary,
       // makes that the current loop is not optimized away.
-      System.out.flush(); //NOSONAR: This statement is used to keep the loop.
+      System.out.flush(); // NOSONAR: This statement is used to keep the loop.
 
       if (System.currentTimeMillis() - startTimeInMilliseconds > REPLIER_GETTING_DELAY_IN_MILLISECONDS) {
         throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "replier");

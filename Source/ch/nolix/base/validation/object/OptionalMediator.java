@@ -18,26 +18,26 @@ import ch.nolix.baseapi.validation.object.IOptionalMediator;
  *            {@link OptionalMediator}.
  */
 public class OptionalMediator<T> extends AbstractObjectMediator<Optional<T>> implements IOptionalMediator {
-  protected OptionalMediator(final Optional<T> argument //NOSONAR: An Optional is the argument of an OptionalMediator.
+  protected OptionalMediator(final Optional<T> argument // NOSONAR: An Optional is the argument of an OptionalMediator.
   ) {
     super(argument);
   }
 
   protected OptionalMediator(
     final String argumentName,
-    final Optional<T> argument //NOSONAR: An Optional is the argument of an OptionalMediator.
+    final Optional<T> argument // NOSONAR: An Optional is the argument of an OptionalMediator.
   ) {
     super(argument, argumentName);
   }
 
-  public static <T2> OptionalMediator<T2> forArgument(final Optional<T2> argument //NOSONAR: An Optional is the argument of an OptionalMediator.
+  public static <T2> OptionalMediator<T2> forArgument(final Optional<T2> argument // NOSONAR: An Optional is the argument of an OptionalMediator.
   ) {
     return new OptionalMediator<>(argument);
   }
 
   public static <T2> OptionalMediator<T2> forArgumentNameAndArgument(
     final String argumentName,
-    final Optional<T2> argument //NOSONAR: An Optional is the argument of a OptionalMediator.
+    final Optional<T2> argument // NOSONAR: An Optional is the argument of a OptionalMediator.
   ) {
     return new OptionalMediator<>(argumentName, argument);
   }
@@ -49,7 +49,7 @@ public class OptionalMediator<T> extends AbstractObjectMediator<Optional<T>> imp
   public final void containsEqualObject(Object object) {
     final var argument = getStoredArgument();
 
-    if (argument == null //NOSONAR: The argument can be null.
+    if (argument == null // NOSONAR: The argument can be null.
     || argument.isEmpty()
     || !argument.get().equals(object)) {
       throw //
@@ -67,7 +67,7 @@ public class OptionalMediator<T> extends AbstractObjectMediator<Optional<T>> imp
   public final void containsObject(Object object) {
     final var argument = getStoredArgument();
 
-    if (argument == null //NOSONAR: The argument can be null.
+    if (argument == null // NOSONAR: The argument can be null.
     || argument.isEmpty()
     || argument.get() == object) {
       throw //
@@ -86,7 +86,7 @@ public class OptionalMediator<T> extends AbstractObjectMediator<Optional<T>> imp
 
     final var argument = getStoredArgument();
 
-    if (argument == null //NOSONAR: The argument can be null.
+    if (argument == null // NOSONAR: The argument can be null.
     || argument.isEmpty()
     || !type.isAssignableFrom(argument.get().getClass())) {
       throw //

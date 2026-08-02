@@ -264,7 +264,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    */
   void receive(final Package paramPackage) {
     // Enumerates the message role of the given package.
-    switch (paramPackage.getMessageRole()) { //NOSONAR: A switch-statement allows to add probable additional cases.
+    switch (paramPackage.getMessageRole()) { // NOSONAR: A switch-statement allows to add probable additional cases.
       case RESPONSE_EXPECTING_MESSAGE:
         receiveResponseExpectingMessage(paramPackage);
         break;
@@ -310,7 +310,7 @@ public final class NetEndPoint extends AbstractEndPoint {
 
         send(successResponsePackage);
       }
-    } catch (final Throwable error) { //NOSONAR: All Throwables must be caught.
+    } catch (final Throwable error) { // NOSONAR: All Throwables must be caught.
       String responseMessage = error.getMessage();
       final var errorResponsePackage = //
       Package.withIndexAndMessageRoleAndMessage(paramPackage.getIndex(), MessageRole.ERROR_RESPONSE, responseMessage);
@@ -377,7 +377,7 @@ public final class NetEndPoint extends AbstractEndPoint {
 
       // This statement, which is theoretically unnecessary, makes that the current
       // loop is not optimized away.
-      System.err.flush(); //NOSONAR: This statement is used to keep the loop.
+      System.err.flush(); // NOSONAR: This statement is used to keep the loop.
     }
 
     return getAndRemoveReceivedPackage(index);

@@ -12,7 +12,7 @@ record ServerHttpMessage(String serverIP, int serverPort) {
 
   private static final String NOLIX_SCRIPT = RunningJar.getResource(ResourcePathCatalog.NOLIX_JS);
 
-  public ServerHttpMessage( //NOSONAR: This constructor does more than the default one.
+  public ServerHttpMessage( // NOSONAR: This constructor does more than the default one.
     final String serverIP,
     final int serverPort) {
     Validator.assertThat(serverIP).thatIsNamed("server IP").isNotBlank();

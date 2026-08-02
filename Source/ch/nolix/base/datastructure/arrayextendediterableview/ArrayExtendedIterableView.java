@@ -32,7 +32,7 @@ public final class ArrayExtendedIterableView<E> extends AbstractExtendedIterable
   private ArrayExtendedIterableView(final E[] array) {
     Validator.assertThat(array).thatIsNamed(LowerCaseVariableNameCatalog.ARRAY).isNotNull();
 
-    this.array = array; //NOSONAR: An ArrayContainerView operates on the original instance.
+    this.array = array; // NOSONAR: An ArrayContainerView operates on the original instance.
   }
 
   /**

@@ -28,7 +28,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PluralLowerCaseVariab
  * @author Silvan Wyss
  * @param <E> the type of the elements of a {@link LinkedList}.
  */
-public final class LinkedList<E> //NOSONAR: A LinkedList is a principal object thus it has many methods.
+public final class LinkedList<E> // NOSONAR: A LinkedList is a principal object thus it has many methods.
 extends AbstractExtendedIterable<E>
 implements ILinkedList<E> {
   private static final IterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
@@ -548,7 +548,7 @@ implements ILinkedList<E> {
   public void replaceFirst(final Predicate<E> selector, final E element) {
     var iterator = firstNode;
 
-    while (true) { //NOSONAR: In this case, break statements are nicer than a terminal condition.
+    while (true) { // NOSONAR: In this case, break statements are nicer than a terminal condition.
 
       if (selector.test(iterator.getElement())) {
         iterator.setElement(element);

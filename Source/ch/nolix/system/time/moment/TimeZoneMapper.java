@@ -17,7 +17,7 @@ public final class TimeZoneMapper implements ITimeZoneMapper {
    * {@inheritDoc}
    */
   @Override
-  public TimeZone mapZoneOffsetToTimeZone(final ZoneOffset zoneOffset) { //NOSONAR: This method is not too complex.
+  public TimeZone mapZoneOffsetToTimeZone(final ZoneOffset zoneOffset) { // NOSONAR: This method is not too complex.
     return //
     switch (zoneOffset.toString()) {
       case "-11:00" ->

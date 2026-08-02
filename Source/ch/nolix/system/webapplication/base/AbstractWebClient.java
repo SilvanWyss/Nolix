@@ -71,7 +71,7 @@ implements ICookieManager {
    */
   @Override
   protected final void runHere(final IChainedNode command) {
-    switch (command.getHeader()) { //NOSONAR: A switch-statement allows to add probable additional cases.
+    switch (command.getHeader()) { // NOSONAR: A switch-statement allows to add probable additional cases.
       case CommandProtocol.RECEIVE_OPTIONAL_FILE:
         receiveOptionalFileFromCounterpart(command);
         break;

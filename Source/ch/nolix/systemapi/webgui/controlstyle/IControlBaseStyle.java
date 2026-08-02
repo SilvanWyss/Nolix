@@ -17,7 +17,7 @@ public interface IControlBaseStyle<S extends IControlBaseStyle<S>> extends IMult
 
   boolean definesTextLineDecorationForState(ControlState state);
 
-  boolean getBoldTextFlagWhenHasState(ControlState state); //NOSONAR: This method returns a flag as a boolean.
+  boolean getBoldTextFlagWhenHasState(ControlState state); // NOSONAR: This method returns a flag as a boolean.
 
   Font getFontWhenHasState(ControlState state);
 

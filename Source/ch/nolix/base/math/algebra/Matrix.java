@@ -26,7 +26,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
  * 
  * @author Silvan Wyss
  */
-public final class Matrix { //NOSONAR: A Matrix is a principal object thus it has many methods.
+public final class Matrix { // NOSONAR: A Matrix is a principal object thus it has many methods.
   private static final IDoubleTool DOUBLE_TOOL = new DoubleTool();
 
   private static final Random RANDOM = new Random();
@@ -402,7 +402,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
 
     try {
       inverseMatrix = matrix.getInverse();
-    } catch (final Throwable _ //NOSONAR: If an inverse matrix does not exists, a pseudo-inverse matrix will be calculated.
+    } catch (final Throwable _ // NOSONAR: If an inverse matrix does not exists, a pseudo-inverse matrix will be calculated.
     ) {
       inverseMatrix = matrix.getPseudoInverse();
     }
@@ -1038,7 +1038,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
         if (!NumberComparator.isZero(values[lineIndex - 1][j])) {
           return false;
         }
-      } else if ( //NOSONAR: The else-case is continuing the loop.
+      } else if ( // NOSONAR: The else-case is continuing the loop.
       !NumberComparator.isOne(values[lineIndex - 1][j])) {
         return false;
       }

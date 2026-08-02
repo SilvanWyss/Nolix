@@ -28,7 +28,7 @@ public final class ArrayIterator<E> implements CopyableIterator<E> {
       throw ArgumentIsNullException.forArgumentName("parent array");
     }
 
-    this.parentArray = parrentArray; //NOSONAR: An ArrayIterator operates on the original instance.
+    this.parentArray = parrentArray; // NOSONAR: An ArrayIterator operates on the original instance.
     nextIndex = 0;
   }
 
@@ -40,7 +40,7 @@ public final class ArrayIterator<E> implements CopyableIterator<E> {
       throw NegativeArgumentException.forArgumentAndArgumentName(startIndex, LowerCaseVariableNameCatalog.START_INDEX);
     }
 
-    this.parentArray = parrentArray; //NOSONAR: An ArrayIterator operates on the original instance.
+    this.parentArray = parrentArray; // NOSONAR: An ArrayIterator operates on the original instance.
     nextIndex = startIndex;
   }
 

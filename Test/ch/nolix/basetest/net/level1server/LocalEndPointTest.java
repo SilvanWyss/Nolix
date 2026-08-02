@@ -71,7 +71,7 @@ final class LocalEndPointTest extends StandardTest {
 
     try (final var testUnit = LocalEndPoint.toSlot(slot)) {
       // setup step 2: Closes testUnit.
-      testUnit.close(); //NOSONAR: This test case tests the close method.
+      testUnit.close(); // NOSONAR: This test case tests the close method.
 
       // setup verification
       expect(testUnit.isClosed()).isTrue();

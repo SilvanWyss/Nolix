@@ -61,7 +61,7 @@ public final class ArraySorter {
         }
 
         break;
-      default: //NOSONAR: The implementation of the case is as simple as possible.
+      default: // NOSONAR: The implementation of the case is as simple as possible.
         sortSectionWhenContainsMoreThanTwoElements(
           elementArray,
           comparableArray,

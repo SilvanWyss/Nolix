@@ -166,7 +166,7 @@ public final class FlowController {
     try {
       job.run();
       return true;
-    } catch (final Throwable error) { //NOSONAR: All Throwables must be caught.
+    } catch (final Throwable error) { // NOSONAR: All Throwables must be caught.
       error.printStackTrace();
       return false;
     }

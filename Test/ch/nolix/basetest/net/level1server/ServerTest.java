@@ -79,7 +79,7 @@ final class ServerTest extends StandardTest {
     // setup
     try (final var testUnit = Server.forPort(port)) {
       // execute
-      testUnit.close(); //NOSONAR: This test case tests the close method.
+      testUnit.close(); // NOSONAR: This test case tests the close method.
 
       // verify
       expect(testUnit.isClosed()).isTrue();

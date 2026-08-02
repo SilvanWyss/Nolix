@@ -31,7 +31,7 @@ import ch.nolix.base.validation.primitive.NamableLongMediator;
  * 
  * @author Silvan Wyss
  */
-public final class Validator { //NOSONAR: The GlobalValidator bundles all validation methods.
+public final class Validator { // NOSONAR: The GlobalValidator bundles all validation methods.
 
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
@@ -179,7 +179,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
    * @return a new {@link ExtendedOptionalMediator} for the given argument.
    */
   public static <T> ExtendedOptionalMediator<T> assertThat(
-    final Optional<T> argument //NOSONAR: An Optional is the argument of an ExtendedOptionalMediator.
+    final Optional<T> argument // NOSONAR: An Optional is the argument of an ExtendedOptionalMediator.
   ) {
     return ExtendedOptionalMediator.forArgument(argument);
   }

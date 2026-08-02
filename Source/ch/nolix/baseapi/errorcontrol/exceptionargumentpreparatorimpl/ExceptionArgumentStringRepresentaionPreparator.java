@@ -72,7 +72,7 @@ implements IExceptionArgumentStringRepresentaionPreparator {
       }
 
       return StringCatalog.LOWER_CASE_NULL;
-    } catch (final Throwable _) { //NOSONAR: All Throwable must be caught.
+    } catch (final Throwable _) { // NOSONAR: All Throwable must be caught.
       return StringCatalog.EMPTY_STRING;
     }
   }

@@ -33,7 +33,7 @@ public final class ByteArrayWithStartIndexMediator implements IByteArrayWithStar
         maxStartIndex);
     }
 
-    this.byteArray = byteArray; //NOSONAR: A ByteArrayMediatorWithStartIndex operates on the original instance.
+    this.byteArray = byteArray; // NOSONAR: A ByteArrayMediatorWithStartIndex operates on the original instance.
     index = startIndex;
   }
 

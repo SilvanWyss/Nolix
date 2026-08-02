@@ -9,5 +9,5 @@ package ch.nolix.base.datamodel.dataobject;
  * 
  * @author Silvan Wyss
  */
-public final class VoidObject { //NOSONAR: A VoidObject must be instantiable.
+public final class VoidObject { // NOSONAR: A VoidObject must be instantiable.
 }

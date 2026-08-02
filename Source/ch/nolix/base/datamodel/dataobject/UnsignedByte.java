@@ -39,7 +39,7 @@ public final class UnsignedByte {
    * @param bit7
    * @param bit8
    */
-  private UnsignedByte( //NOSONAR: A byte consists of 8 bits.
+  private UnsignedByte( // NOSONAR: A byte consists of 8 bits.
     final int bit1,
     final int bit2,
     final int bit3,
@@ -82,7 +82,7 @@ public final class UnsignedByte {
    * @param bit8
    * @return a new {@link UnsignedByte} with the given bits.
    */
-  public static UnsignedByte withBits( //NOSONAR: A byte consists of 8 bits.
+  public static UnsignedByte withBits( // NOSONAR: A byte consists of 8 bits.
     final int bit1,
     final int bit2,
     final int bit3,
@@ -98,7 +98,7 @@ public final class UnsignedByte {
    * @param index
    * @return the bit at the given index from the current {@link UnsignedByte}
    */
-  public boolean getBitAt(final int index) { //NOSONAR: This method returns a bit as a boolean.
+  public boolean getBitAt(final int index) { // NOSONAR: This method returns a bit as a boolean.
     return (getBitAtAsInt(index) == 1);
   }
 

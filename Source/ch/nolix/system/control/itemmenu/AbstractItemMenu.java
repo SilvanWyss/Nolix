@@ -26,7 +26,7 @@ import ch.nolix.systemapi.webgui.main.Control;
  * @param <S> the type of the {@link IItemMenuStyle}s of a
  *            {@link AbstractItemMenu}.
  */
-public abstract class AbstractItemMenu //NOSONAR: A AbstractItemMenu is a principal object thus it has many methods.
+public abstract class AbstractItemMenu // NOSONAR: A AbstractItemMenu is a principal object thus it has many methods.
 <M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>>
 extends AbstractControl<M, S> implements IItemMenu<M, S> {
   private static final String ITEM_HEADER = PascalCaseVariableNameCatalog.ITEM;

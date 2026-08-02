@@ -23,7 +23,7 @@ public final class TableExaminer extends DatabaseObjectExaminer implements ITabl
     return table
       .internalGetStoredEntitiesInLocalData()
       .containsMatchingOnly(
-        e -> ENTITY_EXAMINER.allNewAndEditedMandatoryFieldsAreSet(e) //NOSONAR: A method reference will rise a BootstrapMethodError.
+        e -> ENTITY_EXAMINER.allNewAndEditedMandatoryFieldsAreSet(e) // NOSONAR: A method reference will rise a BootstrapMethodError.
       );
   }
 

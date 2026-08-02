@@ -22,7 +22,7 @@ public record HttpRequest(String content) {
     && lines.containsMatching(l -> l.contains(ACCEPT_HEADER + ": text/html"));
   }
 
-  public HttpRequest(final String content) { //NOSONAR: This constructor does more than the default one.
+  public HttpRequest(final String content) { // NOSONAR: This constructor does more than the default one.
 
     Validator.assertThat(content).thatIsNamed(LowerCaseVariableNameCatalog.CONTENT).isNotBlank();
 

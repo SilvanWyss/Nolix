@@ -48,7 +48,7 @@ public final class WebSocketFrame {
       payload.length);
 
     payloadLength = new WebSocketFramePayloadLength(payload.length);
-    this.payload = payload; //NOSONAR: A WebSocketFrame operates on the original instance.
+    this.payload = payload; // NOSONAR: A WebSocketFrame operates on the original instance.
     maskingKey = null;
   }
 
@@ -127,7 +127,7 @@ public final class WebSocketFrame {
     return new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.PONG, false, payload);
   }
 
-  public boolean getFINBit() { //NOSONAR: This method returns a bit as a boolean.
+  public boolean getFINBit() { // NOSONAR: This method returns a bit as a boolean.
     return firstNibble.getFINBit();
   }
 
@@ -165,7 +165,7 @@ public final class WebSocketFrame {
     return byteRepresentationLength;
   }
 
-  public boolean getMaskBit() { //NOSONAR: This method returns a bit as a boolean.
+  public boolean getMaskBit() { // NOSONAR: This method returns a bit as a boolean.
     return firstNibble.getMaskBit();
   }
 
@@ -190,7 +190,7 @@ public final class WebSocketFrame {
   }
 
   public byte[] getPayload() {
-    return payload; //NOSONAR: A WebSocketFrame returns the original instance.
+    return payload; // NOSONAR: A WebSocketFrame returns the original instance.
   }
 
   public boolean isControlFrame() {

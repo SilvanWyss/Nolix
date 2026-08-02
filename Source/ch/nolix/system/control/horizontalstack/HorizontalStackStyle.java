@@ -9,7 +9,7 @@ import ch.nolix.systemapi.control.horizontalstack.IHorizontalStackStyle;
 /**
  * @author Silvan Wyss
  */
-public final class HorizontalStackStyle //NOSONAR: A HorizontalStackStyle is a LinearContainerStyle.
+public final class HorizontalStackStyle // NOSONAR: A HorizontalStackStyle is a LinearContainerStyle.
 extends AbstractLinearContainerStyle<IHorizontalStackStyle>
 implements IHorizontalStackStyle {
   public HorizontalStackStyle() {

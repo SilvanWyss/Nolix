@@ -198,7 +198,7 @@ public final class Background extends AbstractElement implements IBackground {
    * {@inheritDoc}
    */
   @Override
-  public BackgroundType getType() { //NOSONAR: The type of a Background is determined by all of its other attributes.
+  public BackgroundType getType() { // NOSONAR: The type of a Background is determined by all of its other attributes.
 
     if (isColor()) {
       return BackgroundType.COLOR;

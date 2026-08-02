@@ -108,6 +108,6 @@ final class FileReader {
     assertIsWaitingForFileFromCounterpart();
 
     isWaitingForFileFromCounterpart = false;
-    latestOptionalFileFromCounterpart = file; //NOSONAR: The given file can be stored instead of a copy.
+    latestOptionalFileFromCounterpart = file; // NOSONAR: The given file can be stored instead of a copy.
   }
 }

@@ -15,7 +15,7 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
  * @param <S> the type of the application service of the {@link IApplication} of
  *            the {@link WebClient} of a {@link WebClientSession}.
  */
-public abstract class WebClientSession<S> //NOSONAR: A web client session class is expected to be abstract.
+public abstract class WebClientSession<S> // NOSONAR: A web client session class is expected to be abstract.
 extends AbstractWebClientSession<WebClient<S>, S> {
   private final IWebGui<?> webGui = new WebGui();
 

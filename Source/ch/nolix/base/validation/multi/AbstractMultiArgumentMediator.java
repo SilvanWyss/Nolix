@@ -11,7 +11,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PluralLowerCaseVariab
  * @param <A> the type of the arguments of a
  *            {@link AbstractMultiArgumentMediator}.
  */
-public abstract class AbstractMultiArgumentMediator<A> { //NOSONAR: The AbstractMultiArgumentMediator is a super type.
+public abstract class AbstractMultiArgumentMediator<A> { // NOSONAR: The AbstractMultiArgumentMediator is a super type.
   private final Iterable<A> arguments;
 
   /**

@@ -40,7 +40,7 @@ public final class ColumnMutationExaminer implements IColumnMutationExaminer {
     final ExtendedIterable<? extends ITable> referenceableTables,
     final ExtendedIterable<? extends IColumn> backReferenceableColumns) {
     return //
-    COLUMN_EXAMINER //NOSONAR: There is no advantage to spreading the conditions.
+    COLUMN_EXAMINER // NOSONAR: There is no advantage to spreading the conditions.
       .isOpenAndEmptyAndNotBackReferenced(column)
     && fieldType != null
     && dataType != null
@@ -66,7 +66,7 @@ public final class ColumnMutationExaminer implements IColumnMutationExaminer {
    * @return true if the given name can be set to the given column because of the
    *         optional parent {@link ITable} of the given column, false otherwise
    */
-  private boolean canSetNameBecauseOfOptionalParentTable( //NOSONAR: This method is an instance method.
+  private boolean canSetNameBecauseOfOptionalParentTable( // NOSONAR: This method is an instance method.
     final IColumn column,
     final String name) {
     return //
@@ -80,7 +80,7 @@ public final class ColumnMutationExaminer implements IColumnMutationExaminer {
    * @return true if the given name can be set to a {@link IColumn}, false
    *         otherwise
    */
-  private boolean canSetName(final String name) { //NOSONAR: This method is an instance method.
+  private boolean canSetName(final String name) { // NOSONAR: This method is an instance method.
     return //
     name != null
     && !name.isBlank();

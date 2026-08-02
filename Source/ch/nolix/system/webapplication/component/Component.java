@@ -31,7 +31,7 @@ import ch.nolix.systemapi.webgui.main.Control;
  *            client session of the parent root GUI of a {@link Component}.
  * 
  */
-public abstract class Component<C extends Controller<S>, S> //NOSONAR: A component class is expected to be abstract.
+public abstract class Component<C extends Controller<S>, S> // NOSONAR: A component class is expected to be abstract.
 extends AbstractControl<IComponent, IComponentStyle>
 implements IComponent {
   private static final ComponentHtmlBuilder HTML_BUILDER = new ComponentHtmlBuilder();

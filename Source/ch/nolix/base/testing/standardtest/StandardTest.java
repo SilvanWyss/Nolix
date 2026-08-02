@@ -20,7 +20,7 @@ import ch.nolix.baseapi.validation.object.IOptionalMediator;
 /**
  * @author Silvan Wyss
  */
-public abstract class StandardTest { //NOSONAR: StandardTest does not have abstract methods.
+public abstract class StandardTest { // NOSONAR: StandardTest does not have abstract methods.
 
   /**
    * @param argument
@@ -108,7 +108,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @return a new {@link IOptionalMediator} for the given argument.
    */
   protected static final <T> IOptionalMediator expect(
-    final Optional<T> argument //NOSONAR: An Optional is the argument of an OptionalMediator.
+    final Optional<T> argument // NOSONAR: An Optional is the argument of an OptionalMediator.
   ) {
     return OptionalMediator.forArgument(argument);
   }

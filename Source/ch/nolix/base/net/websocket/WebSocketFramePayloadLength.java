@@ -11,7 +11,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 import ch.nolix.baseapi.net.websocket.WebSocketFramePayloadLengthType;
 
 public record WebSocketFramePayloadLength(long value) {
-  public WebSocketFramePayloadLength(final long value) { //NOSONAR: This constructor does more than the default one.
+  public WebSocketFramePayloadLength(final long value) { // NOSONAR: This constructor does more than the default one.
 
     Validator.assertThat(value).thatIsNamed(LowerCaseVariableNameCatalog.VALUE).isNotNegative();
 

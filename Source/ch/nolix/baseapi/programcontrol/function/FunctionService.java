@@ -48,7 +48,7 @@ public final class FunctionService {
   /**
    * @return false.
    */
-  public static boolean getFalse() { //NOSONAR: This method returns a boolean constant.
+  public static boolean getFalse() { // NOSONAR: This method returns a boolean constant.
     return FALSE;
   }
 
@@ -102,7 +102,7 @@ public final class FunctionService {
   /**
    * @return true.
    */
-  public static boolean getTrue() { //NOSONAR: This method returns a boolean constant.
+  public static boolean getTrue() { // NOSONAR: This method returns a boolean constant.
     return TRUE;
   }
 
@@ -126,7 +126,7 @@ public final class FunctionService {
    * 
    * @param object
    */
-  public static void takeObjectAndDoNothing(final Object object) { //NOSONAR: The parameter is necessary.
+  public static void takeObjectAndDoNothing(final Object object) { // NOSONAR: The parameter is necessary.
     // Does nothing.
   }
 
@@ -134,6 +134,6 @@ public final class FunctionService {
    * @throws GeneralException
    */
   public static void throwException() {
-    throw new RuntimeException("An error was provoked."); //NOSONAR: The Exception has to be generic.
+    throw new RuntimeException("An error was provoked."); // NOSONAR: The Exception has to be generic.
   }
 }

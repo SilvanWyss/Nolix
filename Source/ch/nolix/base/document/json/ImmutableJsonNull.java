@@ -12,7 +12,7 @@ import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 /**
  * @author Silvan Wyss
  */
-public final class ImmutableJsonNull //NOSONAR: ImmutableJsonNull is a singleton.
+public final class ImmutableJsonNull // NOSONAR: ImmutableJsonNull is a singleton.
 implements JsonNull {
   public static final ImmutableJsonNull INSTANCE = new ImmutableJsonNull();
 

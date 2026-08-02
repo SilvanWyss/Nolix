@@ -9,7 +9,7 @@ import ch.nolix.systemapi.control.dropdownmenu.IDropdownMenuStyle;
 /**
  * @author Silvan Wyss
  */
-public final class DropdownMenuStyle //NOSONAR: A DropdownMenuStyle is a ItemMenuStyle.
+public final class DropdownMenuStyle // NOSONAR: A DropdownMenuStyle is a ItemMenuStyle.
 extends AbstractItemMenuStyle<IDropdownMenuStyle>
 implements IDropdownMenuStyle {
   public DropdownMenuStyle() {

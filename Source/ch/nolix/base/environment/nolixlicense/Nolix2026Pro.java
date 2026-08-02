@@ -15,7 +15,7 @@ public final class Nolix2026Pro extends AbstractLicense {
     try {
       final var keyAsInt = Integer.valueOf(filteredKey);
       return (-3 * keyAsInt + keyAsInt / 20 - keyAsInt % 250 + 134_756_237 == 0);
-    } catch (final Throwable _) { //NOSONAR: This method just checks if the given filteredKey is valid.
+    } catch (final Throwable _) { // NOSONAR: This method just checks if the given filteredKey is valid.
       return false;
     }
   }

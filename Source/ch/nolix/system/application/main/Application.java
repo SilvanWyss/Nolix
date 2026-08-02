@@ -28,7 +28,7 @@ import ch.nolix.systemapi.application.main.IApplication;
  *            {@link Application}.
  * @param <S> the type of the application service of a {@link Application}.
  */
-public abstract class Application //NOSONAR: An application class is expected to be abstract.
+public abstract class Application // NOSONAR: An application class is expected to be abstract.
 <C extends AbstractBackendClient<C, S>, S>
 implements IApplication<C, S> {
   private String instanceAddendix;

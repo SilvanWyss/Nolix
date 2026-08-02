@@ -62,7 +62,7 @@ final class SslServerWorker extends AbstractWorker {
     final var bossGroup = new MultiThreadIoEventLoopGroup(NioIoHandler.newFactory());
     final var workerGroup = new MultiThreadIoEventLoopGroup(NioIoHandler.newFactory());
 
-    try { //NOSONAR: bossGroup and workerGroup will be shut down gracefully.
+    try { // NOSONAR: bossGroup and workerGroup will be shut down gracefully.
       final var serverBootstrab = //
       new ServerBootstrap()
         .childOption(ChannelOption.TCP_NODELAY, true)
@@ -74,7 +74,7 @@ final class SslServerWorker extends AbstractWorker {
 
       channel = serverBootstrab.bind(port).sync().channel();
       channel.closeFuture().sync();
-    } catch (final InterruptedException interruptedException //NOSONAR: The Exception is wrapped.
+    } catch (final InterruptedException interruptedException // NOSONAR: The Exception is wrapped.
     ) {
       throw WrapperException.forError(interruptedException);
     } finally {

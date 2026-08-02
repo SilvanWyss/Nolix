@@ -232,7 +232,7 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
   @Override
   public boolean referencesBackField(final IField field) {
     return //
-    field != null //NOSONAR: There is no advantage to spreading the conditions.
+    field != null // NOSONAR: There is no advantage to spreading the conditions.
     && field.belongsToEntity()
     && containsAny()
     && getBackReferencedTableName().equals(field.getStoredParentEntity().getParentTableName())

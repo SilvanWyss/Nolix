@@ -26,7 +26,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
 
   private final ExtendedIterable<Predicate<ExtendedIterable<E>>> sequenceConditions;
 
-  private final Predicate<E> blankCondition = _ -> true; //NOSONAR: This field must be a member.
+  private final Predicate<E> blankCondition = _ -> true; // NOSONAR: This field must be a member.
 
   /**
    * Creates a new {@link SequencePattern}.
@@ -59,7 +59,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    * @return a new {@link SequencePattern} for the given elementType.
    */
   public static <T> SequencePattern<T> forElementType(
-    final Class<T> elementType //NOSONAR: The unused parameter is necessary to know the type.
+    final Class<T> elementType // NOSONAR: The unused parameter is necessary to know the type.
   ) {
     return new SequencePattern<>();
   }

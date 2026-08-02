@@ -42,7 +42,7 @@ import ch.nolix.systemapi.webgui.main.LayerRole;
 /**
  * @author Silvan Wyss
  */
-public final class Layer //NOSONAR: A Layer is a principal object thus it has many methods.
+public final class Layer // NOSONAR: A Layer is a principal object thus it has many methods.
 extends AbstractStylableElement<ILayer>
 implements ILayer {
   public static final double DEFAULT_OPACITY = 1.0;

@@ -26,7 +26,7 @@ import ch.nolix.systemapi.time.timestructure.Weekday;
  * 
  * @author Silvan Wyss
  */
-public final class Time //NOSONAR: A Time is a principal object thus it has many methods.
+public final class Time // NOSONAR: A Time is a principal object thus it has many methods.
 extends AbstractElement implements ITime {
   public static final TimeZone DEFAULT_TIME_ZONE = TimeZone.UTC;
 
@@ -283,7 +283,7 @@ extends AbstractElement implements ITime {
    *         hourOfDay, minuteOfHour, secondOfMinute and millisecondOfSecond.
    */
   public static Time //
-  withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSecAndMicrosecOfMillisec( //NOSONAR: A Time has many parameters.
+  withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSecAndMicrosecOfMillisec( // NOSONAR: A Time has many parameters.
     final int year,
     final int monthOfYear,
     final int dayOfMonth,

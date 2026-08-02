@@ -21,7 +21,7 @@ public final class ImmutableListIterator<E> implements Iterator<E> {
       throw new IllegalArgumentException("The given parent array is null.");
     }
 
-    this.parentArray = parrentArray; //NOSONAR: An ArrayIterator operates on the original instance.
+    this.parentArray = parrentArray; // NOSONAR: An ArrayIterator operates on the original instance.
     nextIndex = 0;
   }
 

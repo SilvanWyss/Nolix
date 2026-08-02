@@ -12,7 +12,7 @@ public record HtmlElementEvent(String htmlElementId, String htmlEvent) implement
     return new HtmlElementEvent(htmlElementId, htmlEvent);
   }
 
-  public HtmlElementEvent( //NOSONAR: This constructor does more than the default one.
+  public HtmlElementEvent( // NOSONAR: This constructor does more than the default one.
     final String htmlElementId,
     final String htmlEvent) {
     Validator.assertThat(htmlElementId).thatIsNamed("HTML element id").isNotBlank();

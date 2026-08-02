@@ -38,7 +38,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
    */
   @Override
   protected void runHereOnBaseBackendWebClient(final IChainedNode command) {
-    switch (command.getHeader()) { //NOSONAR: A switch-statement allows to add probable additional cases.
+    switch (command.getHeader()) { // NOSONAR: A switch-statement allows to add probable additional cases.
       case ObjectProtocol.GUI:
         runGuiCommand(command.getNextNode());
         break;
@@ -70,7 +70,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
   }
 
   private void runCommandOnControl(final Control<?, ?> control, final IChainedNode command) {
-    switch (command.getHeader()) { //NOSONAR: A switch-statement allows to add probable additional cases.
+    switch (command.getHeader()) { // NOSONAR: A switch-statement allows to add probable additional cases.
       case ControlCommandProtocol.RUN_HTML_EVENT:
         runHtmlEventCommand(control, command);
         break;

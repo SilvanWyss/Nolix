@@ -24,7 +24,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
  * 
  * @author Silvan Wyss
  */
-public final class ChainedNode //NOSONAR: A ChainedNode is a principal object thus it has many methods.
+public final class ChainedNode // NOSONAR: A ChainedNode is a principal object thus it has many methods.
 implements IChainedNode {
   public static final ChainedNode EMPTY_CHAINED_NODE = new ChainedNode();
 

@@ -25,7 +25,7 @@ public final class ArrayListIterator<E> implements CopyableIterator<E> {
     Validator.assertThat(parrentArray).thatIsNamed("parent array").isNotNull();
     Validator.assertThat(maxNextIndex).thatIsNamed("max next index").isNotNegative();
 
-    this.parentArray = parrentArray; //NOSONAR: An ArrayIterator operates on the original instance.
+    this.parentArray = parrentArray; // NOSONAR: An ArrayIterator operates on the original instance.
     this.maxNextIndex = maxNextIndex;
     nextIndex = 0;
   }
@@ -35,7 +35,7 @@ public final class ArrayListIterator<E> implements CopyableIterator<E> {
     Validator.assertThat(startIndex).thatIsNamed("start index").isNotNegative();
     Validator.assertThat(maxNexIndex).thatIsNamed("max next index").isBiggerThanOrEquals(startIndex);
 
-    this.parentArray = parrentArray; //NOSONAR: An ArrayIterator operates on the original instance.
+    this.parentArray = parrentArray; // NOSONAR: An ArrayIterator operates on the original instance.
     this.maxNextIndex = maxNexIndex;
     nextIndex = startIndex;
   }

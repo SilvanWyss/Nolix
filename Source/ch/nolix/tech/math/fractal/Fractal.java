@@ -41,7 +41,7 @@ public final class Fractal implements IFractal {
 
   private final int decimalPlaces;
 
-  private Fractal( //NOSONAR: A Fractal has many parameters.
+  private Fractal( // NOSONAR: A Fractal has many parameters.
     final IClosedInterval realComponentInterval,
     final IClosedInterval imaginaryComponentInterval,
     final int widthInPixel,
@@ -107,7 +107,7 @@ public final class Fractal implements IFractal {
     this.decimalPlaces = decimalPlaces;
   }
 
-  public static Fractal withParams( //NOSONAR: A Fractal has many parameters.
+  public static Fractal withParams( // NOSONAR: A Fractal has many parameters.
     final IClosedInterval realComponentInterval,
     final IClosedInterval imaginaryComponentInterval,
     final int widthInPixel,

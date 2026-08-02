@@ -9,7 +9,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 /**
  * @author Silvan Wyss
  */
-public abstract class AbstractMediator { //NOSONAR: A AbstractMediator does not have abstract methods.
+public abstract class AbstractMediator { // NOSONAR: A AbstractMediator does not have abstract methods.
   public static final String DEFAULT_ARGUMENT_NAME = "argument";
 
   private final String argumentName;

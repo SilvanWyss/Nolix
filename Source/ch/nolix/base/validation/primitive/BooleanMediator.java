@@ -20,7 +20,7 @@ public final class BooleanMediator extends AbstractMediator {
     return new BooleanMediator(argument);
   }
 
-  public void is(final boolean value) { //NOSONAR: The parameter is a boolean.
+  public void is(final boolean value) { // NOSONAR: The parameter is a boolean.
     if (value) {
       isTrue();
     } else {

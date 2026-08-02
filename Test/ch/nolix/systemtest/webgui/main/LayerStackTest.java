@@ -42,7 +42,7 @@ final class LayerStackTest extends StandardTest {
     final var result = testUnit.getOptionalStoredControlByInternalId(control.getInternalId());
 
     // verify
-    expect(result.get()).is(control); //NOSONAR: The current test case expects a non-empty result.
+    expect(result.get()).is(control); // NOSONAR: The current test case expects a non-empty result.
   }
 
   @Test

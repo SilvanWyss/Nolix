@@ -42,7 +42,7 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
 /**
  * @author Silvan Wyss
  */
-public final class WebGui //NOSONAR: A WebGui is a principal object thus it has many methods.
+public final class WebGui // NOSONAR: A WebGui is a principal object thus it has many methods.
 extends AbstractStyleElement<WebGui>
 implements IWebGui<WebGui> {
   public static final String DEFAULT_TITLE = PascalCaseVariableNameCatalog.GUI;

@@ -32,7 +32,7 @@ import ch.nolix.systemapi.webgui.main.Control;
  * @param <A> is the typoe of the adapters of the {@link IAdapterFactory} of a
  *            {@link ComponentWithAdapterFactory}.
  */
-public abstract class ComponentWithAdapterFactory //NOSONAR: A component class is expected to be abstract.
+public abstract class ComponentWithAdapterFactory // NOSONAR: A component class is expected to be abstract.
 <C extends Controller<F>, F extends IAdapterFactory<A>, A>
 extends AbstractControl<IComponent, IComponentStyle>
 implements IComponent {

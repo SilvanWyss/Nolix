@@ -18,7 +18,7 @@ public final class ByteArrayMediator implements IByteArrayMediator {
       throw ArgumentIsNullException.forArgumentName("byte array");
     }
 
-    this.byteArray = byteArray; //NOSONAR: A ByteArrayMediator operates on the original instance.
+    this.byteArray = byteArray; // NOSONAR: A ByteArrayMediator operates on the original instance.
   }
 
   public static ByteArrayMediator forByteArray(final byte[] byteArray) {

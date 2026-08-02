@@ -15,7 +15,7 @@ import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 /**
  * @author Silvan Wyss
  */
-public final class VerticalStack //NOSONAR: A VerticalStack is a LinearContainer.
+public final class VerticalStack // NOSONAR: A VerticalStack is a LinearContainer.
 extends AbstractLinearContainer<IVerticalStack, IVerticalStackStyle>
 implements IVerticalStack {
   public static final HorizontalContentAlignment DEFAULT_CONTENT_ALIGNMENT = HorizontalContentAlignment.LEFT;

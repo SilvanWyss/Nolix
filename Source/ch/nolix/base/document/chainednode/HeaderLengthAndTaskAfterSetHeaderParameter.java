@@ -6,7 +6,7 @@ package ch.nolix.base.document.chainednode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 record HeaderLengthAndTaskAfterSetHeaderParameter(int headerLength, TaskAfterSetHeader taskAfterSetHeader) {
-  public HeaderLengthAndTaskAfterSetHeaderParameter( //NOSONAR: This constructor does more than the default one.
+  public HeaderLengthAndTaskAfterSetHeaderParameter( // NOSONAR: This constructor does more than the default one.
     final int headerLength,
     final TaskAfterSetHeader taskAfterSetHeader) {
     if (taskAfterSetHeader == null) {
