@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.independent.stopwatch;
+package ch.nolix.base.validation.stopwatch;
 
 /**
  * @author Silvan Wyss

@@ -9,8 +9,8 @@ import java.util.function.IntFunction;
 import java.util.function.LongToDoubleFunction;
 
 import ch.nolix.base.independent.math.NumberComparator;
-import ch.nolix.base.independent.stopwatch.DurationFinder;
-import ch.nolix.base.independent.stopwatch.StopWatch;
+import ch.nolix.base.validation.stopwatch.DurationFinder;
+import ch.nolix.base.validation.stopwatch.StopWatch;
 
 /**
  * @author Silvan Wyss
