@@ -8,6 +8,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.midschema.databaseinitializer.IDatabaseInitializer;
 import ch.nolix.systemapi.time.moment.ITime;
+import ch.nolix.systemapi.time.timestructure.TimeZone;
 
 /**
  * @author Silvan Wyss
@@ -46,7 +47,7 @@ public abstract class AbstractDatabaseInitializer implements IDatabaseInitialize
    * Initializes the database.
    */
   private void initializeDatabase() {
-    final var initialSchemaTimestamp = Time.ofNow();
+    final var initialSchemaTimestamp = Time.ofNowAndTimeZone(TimeZone.UTC);
 
     initializeDatabaseWithInitialSchemaTimestamp(initialSchemaTimestamp);
   }

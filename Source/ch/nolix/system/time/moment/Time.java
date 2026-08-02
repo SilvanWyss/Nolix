@@ -123,10 +123,14 @@ extends AbstractElement implements ITime {
   }
 
   /**
-   * @return a new {@link Time} that represents the current time.
+   * @param timeZone
+   * @return a new {@link Time} that represents the current time in the given
+   *         timeZone
    */
-  public static Time ofNow() {
-    return new Time(ZonedDateTime.now());
+  public static Time ofNowAndTimeZone(final TimeZone timeZone) {
+    final var zoneId = ZONE_OFFSET_MAPPER.mapTimeZoneToZoneOffset(timeZone);
+
+    return new Time(ZonedDateTime.now(zoneId));
   }
 
   /**
