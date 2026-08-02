@@ -5,28 +5,20 @@ package ch.nolix.base.foundation.immutablelist;
 
 import java.util.Iterator;
 
-import ch.nolix.base.foundation.arraytool.SimpleArrayValidator;
-
 /**
  * @author Silvan Wyss
  * @param <E> the type of the elements of a {@link SimpleImmutableList}.
  */
 public final class SimpleImmutableList<E> implements Iterable<E> {
-  private static final SimpleArrayValidator ARRAY_VALIDATOR = new SimpleArrayValidator();
-
   private final E[] elements;
 
   @SuppressWarnings("unchecked")
   private SimpleImmutableList() {
     elements = (E[]) new Object[0];
-
-    ARRAY_VALIDATOR.assertDoesNotContainNull(elements);
   }
 
   private SimpleImmutableList(final E[] paramElements) {
     elements = paramElements.clone();
-
-    ARRAY_VALIDATOR.assertDoesNotContainNull(elements);
   }
 
   public static <T> SimpleImmutableList<T> createEmptyList() {
