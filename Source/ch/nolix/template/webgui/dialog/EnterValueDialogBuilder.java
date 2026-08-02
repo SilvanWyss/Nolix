@@ -33,7 +33,8 @@ public final class EnterValueDialogBuilder implements IBuilder<ILayer> {
   private static final String DEFAULT_CANCEL_BUTTON_TEXT = StringCatalog.LONG_LEFT_ARROW;
 
   private static final Consumer<String> DEFAULT_VALUE_TAKER = //
-  _ -> {
+  _ // NOSONAR: An unnamed variable is suitable here.
+  -> {
     // This class is a sub class without additional methods.
   };
 
