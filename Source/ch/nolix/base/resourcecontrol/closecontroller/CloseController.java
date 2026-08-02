@@ -4,10 +4,10 @@
 package ch.nolix.base.resourcecontrol.closecontroller;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.programcontrol.processproperty.CloseState;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.IClosePool;
+import ch.nolix.baseapi.state.stateproperty.Openness;
 
 /**
  * @author Silvan Wyss
@@ -69,7 +69,7 @@ public final class CloseController implements ICloseController {
    */
   @Override
   public boolean hasClosed() {
-    return (parentClosePool.getState() == CloseState.CLOSED);
+    return (parentClosePool.getState() == Openness.CLOSED);
   }
 
   /**

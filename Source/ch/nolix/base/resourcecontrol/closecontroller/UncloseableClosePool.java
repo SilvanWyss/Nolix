@@ -5,9 +5,9 @@ package ch.nolix.base.resourcecontrol.closecontroller;
 
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.programcontrol.processproperty.CloseState;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.IClosePool;
+import ch.nolix.baseapi.state.stateproperty.Openness;
 
 /**
  * @author Silvan Wyss
@@ -33,8 +33,8 @@ public final class UncloseableClosePool implements IClosePool {
    * {@inheritDoc}
    */
   @Override
-  public CloseState getState() {
-    return CloseState.OPEN;
+  public Openness getState() {
+    return Openness.OPEN;
   }
 
   /**

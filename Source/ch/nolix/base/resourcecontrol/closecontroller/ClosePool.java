@@ -6,15 +6,15 @@ package ch.nolix.base.resourcecontrol.closecontroller;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
-import ch.nolix.baseapi.programcontrol.processproperty.CloseState;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.IClosePool;
+import ch.nolix.baseapi.state.stateproperty.Openness;
 
 /**
  * @author Silvan Wyss
  */
 final class ClosePool implements IClosePool {
-  private CloseState state = CloseState.OPEN;
+  private Openness state = Openness.OPEN;
 
   private final LinkedList<GroupCloseable> memberElements = LinkedList.createEmpty();
 
@@ -50,7 +50,7 @@ final class ClosePool implements IClosePool {
    */
   @Override
   public void closeElementsIfStateIsOpen() {
-    if (getState() == CloseState.OPEN) {
+    if (getState() == Openness.OPEN) {
       closeElementsWhenStateIsOpen();
     }
   }
@@ -67,7 +67,7 @@ final class ClosePool implements IClosePool {
    * {@inheritDoc}
    */
   @Override
-  public CloseState getState() {
+  public Openness getState() {
     return state;
   }
 
@@ -98,14 +98,14 @@ final class ClosePool implements IClosePool {
 
   /**
    * Closes the elements of the current {@link IClosePool} for the case that the
-   * state of the current {@link IClosePool} is {@link CloseState#OPEN}.
+   * state of the current {@link IClosePool} is {@link Openness#OPEN}.
    */
   private void closeElementsWhenStateIsOpen() {
-    state = CloseState.ON_CLOSING;
+    state = Openness.ON_CLOSING;
 
     memberElements.forEach(ClosePoolHelper::letNoteClose);
 
-    state = CloseState.CLOSED;
+    state = Openness.CLOSED;
   }
 
   /**

@@ -4,7 +4,7 @@
 package ch.nolix.baseapi.resourcecontrol.closecontroller;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.programcontrol.processproperty.CloseState;
+import ch.nolix.baseapi.state.stateproperty.Openness;
 
 /**
  * @author Silvan Wyss
@@ -22,7 +22,7 @@ public interface IClosePool {
 
   /**
    * Closes the elements of the current {@link IClosePool} if the state of the
-   * current {@link IClosePool} is {@link CloseState#OPEN}.
+   * current {@link IClosePool} is {@link Openness#OPEN}.
    */
   void closeElementsIfStateIsOpen();
 
@@ -34,5 +34,5 @@ public interface IClosePool {
   /**
    * @return the state of the current {@link IClosePool}.
    */
-  CloseState getState();
+  Openness getState();
 }
