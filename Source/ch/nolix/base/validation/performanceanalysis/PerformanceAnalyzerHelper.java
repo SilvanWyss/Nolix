@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.errorcontrol.performanceanalysis;
+package ch.nolix.base.validation.performanceanalysis;
 
 import java.util.Optional;
 import java.util.function.Consumer;

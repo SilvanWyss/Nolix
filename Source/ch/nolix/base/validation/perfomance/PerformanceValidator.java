@@ -1,11 +1,11 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.errorcontrol.perfomancevalidator;
+package ch.nolix.base.validation.perfomance;
 
 import java.util.function.IntFunction;
 
-import ch.nolix.baseapi.errorcontrol.performancevalidation.IObjectSupplierMediator;
+import ch.nolix.baseapi.validation.performance.IObjectSupplierMediator;
 
 /**
  * @author Silvan Wyss

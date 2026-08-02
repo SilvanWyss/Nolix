@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.errorcontrol.performanceanalysis.TimeComplexityFunctionCatalog;
+import ch.nolix.baseapi.validation.performanceanalysis.TimeComplexityFunctionCatalog;
 
 /**
  * @author Silvan Wyss

@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.errorcontrol.performanceanalysis;
+package ch.nolix.baseapi.validation.performanceanalysis;
 
 import java.util.function.LongToDoubleFunction;
 

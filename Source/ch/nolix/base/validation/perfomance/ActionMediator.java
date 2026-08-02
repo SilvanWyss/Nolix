@@ -1,19 +1,19 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.errorcontrol.perfomancevalidator;
+package ch.nolix.base.validation.perfomance;
 
 import java.util.function.Consumer;
 import java.util.function.IntFunction;
 import java.util.function.LongToDoubleFunction;
 
 import ch.nolix.base.errorcontrol.generalexception.GeneralException;
-import ch.nolix.base.errorcontrol.performanceanalysis.PerformanceAnalyzer;
+import ch.nolix.base.validation.performanceanalysis.PerformanceAnalyzer;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.errorcontrol.performanceanalysis.IPerformanceAnalyzer;
-import ch.nolix.baseapi.errorcontrol.performanceanalysis.TimeComplexityFunctionCatalog;
-import ch.nolix.baseapi.errorcontrol.performancevalidation.IActionMediator;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.validation.performance.IActionMediator;
+import ch.nolix.baseapi.validation.performanceanalysis.IPerformanceAnalyzer;
+import ch.nolix.baseapi.validation.performanceanalysis.TimeComplexityFunctionCatalog;
 
 /**
  * @author Silvan Wyss
