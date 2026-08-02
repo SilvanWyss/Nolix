@@ -18,7 +18,7 @@ import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
 import ch.nolix.baseapi.net.securityproperty.SecurityMode;
 import ch.nolix.baseapi.net.websocket.WebSocketFrameOpcodeMeaning;
-import ch.nolix.baseapi.programcontrol.processproperty.TargetInfoState;
+import ch.nolix.baseapi.state.stateproperty.TargetInfoState;
 
 final class WebSocketEndPoint extends AbstractNetEndPoint {
   private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
@@ -35,7 +35,7 @@ final class WebSocketEndPoint extends AbstractNetEndPoint {
     final Socket socket,
     final InputStream socketInputStream,
     final OutputStream socketOutputStream) {
-    super(TargetInfoState.WAITS_TO_TARGET_INFO);
+    super(TargetInfoState.WAITING_TO_TARGET_INFO);
 
     Validator.assertThat(socket).thatIsNamed(Socket.class).isNotNull();
     Validator.assertThat(socketInputStream).thatIsNamed("socket input stream").isNotNull();

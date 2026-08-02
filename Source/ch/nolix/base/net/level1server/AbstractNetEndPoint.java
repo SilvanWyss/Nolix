@@ -7,7 +7,7 @@ import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.net.endpointprotocol.MessageType;
-import ch.nolix.baseapi.programcontrol.processproperty.TargetInfoState;
+import ch.nolix.baseapi.state.stateproperty.TargetInfoState;
 
 /**
  * A {@link AbstractNetEndPoint} can send messages to an other

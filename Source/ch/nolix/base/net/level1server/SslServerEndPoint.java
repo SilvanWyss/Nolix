@@ -7,7 +7,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
 import ch.nolix.baseapi.net.securityproperty.SecurityMode;
-import ch.nolix.baseapi.programcontrol.processproperty.TargetInfoState;
+import ch.nolix.baseapi.state.stateproperty.TargetInfoState;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 
@@ -24,7 +24,7 @@ public final class SslServerEndPoint extends AbstractNetEndPoint {
    * @throws RuntimeException if the given channelHandlerContext is null
    */
   private SslServerEndPoint(final ChannelHandlerContext channelHandlerContext) {
-    super(TargetInfoState.WAITS_TO_TARGET_INFO);
+    super(TargetInfoState.WAITING_TO_TARGET_INFO);
 
     Validator.assertThat(channelHandlerContext).thatIsNamed(ChannelHandlerContext.class).isNotNull();
 

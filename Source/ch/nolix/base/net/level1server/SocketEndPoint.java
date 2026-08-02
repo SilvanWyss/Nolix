@@ -18,7 +18,7 @@ import ch.nolix.baseapi.net.netcatalog.PortCatalog;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
 import ch.nolix.baseapi.net.securityproperty.SecurityMode;
-import ch.nolix.baseapi.programcontrol.processproperty.TargetInfoState;
+import ch.nolix.baseapi.state.stateproperty.TargetInfoState;
 
 /**
  * @author Silvan Wyss
