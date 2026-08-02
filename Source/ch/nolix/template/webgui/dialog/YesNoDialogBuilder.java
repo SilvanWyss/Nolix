@@ -4,7 +4,7 @@
 package ch.nolix.template.webgui.dialog;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.objectcreation.builder.IBuilder;
+import ch.nolix.baseapi.objectcomposition.builder.IBuilder;
 import ch.nolix.baseapi.programcontrol.function.FunctionService;
 import ch.nolix.system.control.button.Button;
 import ch.nolix.system.control.horizontalstack.HorizontalStack;

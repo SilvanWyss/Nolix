@@ -3,7 +3,7 @@
  */
 package ch.nolix.template.webgui.dialog;
 
-import ch.nolix.baseapi.objectcreation.builder.IBuilder;
+import ch.nolix.baseapi.objectcomposition.builder.IBuilder;
 import ch.nolix.system.control.button.Button;
 import ch.nolix.system.control.label.Label;
 import ch.nolix.system.control.verticalstack.VerticalStack;

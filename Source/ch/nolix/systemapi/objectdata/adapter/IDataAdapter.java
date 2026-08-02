@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.objectdata.adapter;
 
 import ch.nolix.baseapi.attribute.mandatoryattribute.DatabaseNameHolder;
-import ch.nolix.baseapi.objectcreation.copier.EmptyCopyable;
+import ch.nolix.baseapi.objectcomposition.copier.EmptyCopyable;
 import ch.nolix.baseapi.resourcecontrol.savecontrol.IResettableChangeSaver;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;

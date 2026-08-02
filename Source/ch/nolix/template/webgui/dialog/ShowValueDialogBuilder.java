@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.objectcreation.builder.IBuilder;
+import ch.nolix.baseapi.objectcomposition.builder.IBuilder;
 import ch.nolix.system.control.button.Button;
 import ch.nolix.system.control.horizontalstack.HorizontalStack;
 import ch.nolix.system.control.label.Label;

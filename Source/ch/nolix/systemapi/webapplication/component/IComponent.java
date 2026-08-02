@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.webapplication.component;
 
-import ch.nolix.baseapi.objectcreation.builder.Rebuildable;
+import ch.nolix.baseapi.objectcomposition.builder.Rebuildable;
 import ch.nolix.baseapi.programcontrol.trigger.IRefreshableSubscriber;
 import ch.nolix.systemapi.webgui.main.Control;
 

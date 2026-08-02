@@ -4,7 +4,7 @@
 package ch.nolix.baseapi.datastructure.list;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.objectcreation.copier.Copyable;
+import ch.nolix.baseapi.objectcomposition.copier.Copyable;
 import ch.nolix.baseapi.state.statemutation.Clearable;
 
 /**

@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.objectcreation.builder;
+package ch.nolix.baseapi.objectcomposition.builder;
 
 /**
  * A {@link Rebuildable} can rebuild itself.
