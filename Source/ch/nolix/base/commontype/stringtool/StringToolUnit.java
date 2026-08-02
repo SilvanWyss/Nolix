@@ -4,9 +4,10 @@
 package ch.nolix.base.commontype.stringtool;
 
 import ch.nolix.base.commontype.characterexaminer.CharacterExaminer;
-import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.stringtool.IStringTool;
 import ch.nolix.baseapi.commontype.stringtool.RegularExpressionPatternCatalog;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 
@@ -85,8 +86,15 @@ public final class StringToolUnit implements IStringTool {
    */
   @Override
   public String getWithoutLastCharacters(final String string, final int n) {
-    Validator.assertThat(string).thatIsNamed(String.class).isNotNull();
-    Validator.assertThat(n).thatIsNamed("n").isBetween(0, string.length());
+    if (string == null) {
+      throw ArgumentIsNullException.forArgumentType(String.class);
+    }
+
+    final var maxN = string.length();
+
+    if (n < 0 || n > maxN) {
+      throw ArgumentIsOutOfRangeException.forArgumentAndArgumentNameAndRangeWithMinAndMax(n, "n", 0, maxN);
+    }
 
     return string.substring(0, string.length() - n);
   }
