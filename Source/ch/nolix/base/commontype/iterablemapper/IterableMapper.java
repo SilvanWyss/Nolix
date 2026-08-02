@@ -6,8 +6,9 @@ package ch.nolix.base.commontype.iterablemapper;
 import java.util.function.ToDoubleFunction;
 import java.util.function.ToIntFunction;
 
-import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.iterablemapper.IIterableMapper;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
 
 /**
  * @author Silvan Wyss
@@ -18,7 +19,9 @@ public final class IterableMapper implements IIterableMapper {
    */
   @Override
   public <E> int[] toIntArray(final Iterable<E> iterable, final int n, final ToIntFunction<E> intMapper) {
-    Validator.assertThat(intMapper).thatIsNamed("int mapper").isNotNull();
+    if (intMapper == null) {
+      throw ArgumentIsNullException.forArgumentName("int mapper");
+    }
 
     if (iterable != null) {
       final var array = new int[n];
@@ -37,7 +40,9 @@ public final class IterableMapper implements IIterableMapper {
       return array;
     }
 
-    Validator.assertThat(n).thatIsNamed("n").isEqualTo(0);
+    if (n != 0) {
+      throw UnequalArgumentException.forArgumentAndArgumentNameAndValue(n, "n", 0);
+    }
 
     return new int[0];
   }
@@ -47,7 +52,9 @@ public final class IterableMapper implements IIterableMapper {
    */
   @Override
   public <E> double[] toDoubleArray(final Iterable<E> iterable, final int n, final ToDoubleFunction<E> doubleMapper) {
-    Validator.assertThat(doubleMapper).thatIsNamed("double mapper").isNotNull();
+    if (doubleMapper == null) {
+      throw ArgumentIsNullException.forArgumentName("double mapper");
+    }
 
     if (iterable != null) {
       final var array = new double[n];
@@ -66,7 +73,9 @@ public final class IterableMapper implements IIterableMapper {
       return array;
     }
 
-    Validator.assertThat(n).thatIsNamed("n").isEqualTo(0);
+    if (n != 0) {
+      throw UnequalArgumentException.forArgumentAndArgumentNameAndValue(n, "n", 0);
+    }
 
     return new double[0];
   }
