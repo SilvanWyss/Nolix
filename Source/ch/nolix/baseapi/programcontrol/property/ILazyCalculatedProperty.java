@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.objectcomposition.property;
+package ch.nolix.baseapi.programcontrol.property;
 
 import ch.nolix.baseapi.state.staterequest.UpToDateRequestable;
 

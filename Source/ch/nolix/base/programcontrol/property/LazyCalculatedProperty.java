@@ -1,13 +1,13 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.objectcomposition.property;
+package ch.nolix.base.programcontrol.property;
 
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.objectcomposition.property.ILazyCalculatedProperty;
+import ch.nolix.baseapi.programcontrol.property.ILazyCalculatedProperty;
 
 /**
  * @author Silvan Wyss

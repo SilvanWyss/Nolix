@@ -6,7 +6,7 @@ package ch.nolix.system.objectdata.model;
 import java.util.Optional;
 
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
-import ch.nolix.base.objectcomposition.property.LazyCalculatedProperty;
+import ch.nolix.base.programcontrol.property.LazyCalculatedProperty;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
