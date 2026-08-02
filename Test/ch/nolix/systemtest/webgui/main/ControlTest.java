@@ -5,7 +5,6 @@ package ch.nolix.systemtest.webgui.main;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.datamodel.dataobject.VoidObject;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.control.floatcontainer.FloatContainer;
@@ -128,22 +127,6 @@ public abstract class ControlTest<C extends Control<C, ?>> extends StandardTest 
 
     // verify
     expect(result).isEmpty();
-  }
-
-  @Test
-  final void testCase_linkTo() {
-    // setup
-    final var voidObject = new VoidObject();
-    final var testUnit = createTestUnit();
-
-    // setup verification
-    expect(testUnit.isLinkedToAnObject()).isFalse();
-
-    // execute
-    testUnit.linkTo(voidObject);
-
-    // verify
-    expect(testUnit.getStoredLinkedObjects()).containsExactly(voidObject);
   }
 
   @Test

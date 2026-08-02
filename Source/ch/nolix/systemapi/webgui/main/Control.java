@@ -11,7 +11,6 @@ import ch.nolix.baseapi.component.guicomponent.GuiComponent;
 import ch.nolix.baseapi.component.guicomponent.LayerComponent;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.objectcomposition.linking.Linkable;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.systemapi.gui.box.ISizeAdjustableBox;
 import ch.nolix.systemapi.gui.model.CursorIcon;
@@ -36,7 +35,6 @@ ISizeAdjustableBox<C>,
 IStylableElement<C>,
 IUserInputCell<C>,
 LayerComponent<ILayer>,
-Linkable,
 PresenceSettable<C> {
   C editStyle(Consumer<S> styleEditor);
 

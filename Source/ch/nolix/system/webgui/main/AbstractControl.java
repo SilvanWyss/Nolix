@@ -7,7 +7,6 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 import ch.nolix.base.datamodel.id.IdCreator;
-import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
@@ -108,8 +107,6 @@ implements Control<C, S> {
   private final ExtensionProperty<S> style = ExtensionProperty.withExtension(createStyle());
 
   private IControlParent parent;
-
-  private Object linkedObject;
 
   // For a better performance, this implementation does not use all available comfort methods.
   @Override
@@ -235,18 +232,6 @@ implements Control<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<Object> getStoredLinkedObjects() {
-    if (!isLinkedToAnObject()) {
-      return ImmutableList.createEmpty();
-    }
-
-    return ImmutableList.withElements(linkedObject);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public final Control<?, ?> getStoredParentControl() {
     return getStoredParent().getStoredControl();
   }
@@ -362,35 +347,8 @@ implements Control<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public boolean isLinkedTo(final Object object) {
-    return isLinkedToAnObject() && (linkedObject == object);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final boolean isLinkedToAnObject() {
-    return (linkedObject != null);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public final boolean isVisible() {
     return (getPresence() == Presence.VISIBLE);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void linkTo(final Object object) {
-    Validator.assertThat(object).thatIsNamed(Object.class).isNotNull();
-    assertIsNotLinkedAnObject();
-
-    linkedObject = object;
   }
 
   /**
@@ -606,12 +564,6 @@ implements Control<C, S> {
         throw ArgumentBelongsToParentException.forArgumentAndParent(this, parent.getStoredLayer());
       }
       throw InvalidArgumentException.forArgumentAndArgumentName(parent, LowerCaseVariableNameCatalog.PARENT);
-    }
-  }
-
-  private void assertIsNotLinkedAnObject() {
-    if (isLinkedToAnObject()) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is alreay linked to an object");
     }
   }
 

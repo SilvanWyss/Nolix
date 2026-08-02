@@ -104,7 +104,6 @@ implements IComponent {
 
     childControl = createControl(getStoredController());
     childControl.internalSetControlParent(controlParent);
-    childControl.linkTo(this);
   }
 
   /**
