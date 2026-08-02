@@ -6,8 +6,10 @@ package ch.nolix.base.commontype.arraytool;
 import java.util.NoSuchElementException;
 
 import ch.nolix.base.commontype.iteratorvalidator.IteratorValidator;
-import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.copyableiterator.CopyableIterator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -22,15 +24,21 @@ public final class ArrayIterator<E> implements CopyableIterator<E> {
   private int nextIndex;
 
   private ArrayIterator(final E[] parrentArray) {
-    Validator.assertThat(parrentArray).thatIsNamed("parent array").isNotNull();
+    if (parrentArray == null) {
+      throw ArgumentIsNullException.forArgumentName("parent array");
+    }
 
     this.parentArray = parrentArray; //NOSONAR: An ArrayIterator operates on the original instance.
     nextIndex = 0;
   }
 
   private ArrayIterator(final E[] parrentArray, final int startIndex) {
-    Validator.assertThat(parrentArray).thatIsNamed("parent array").isNotNull();
-    Validator.assertThat(startIndex).thatIsNamed("start index").isNotNegative();
+    if (parrentArray == null) {
+      throw ArgumentIsNullException.forArgumentName("parent array");
+    }
+    if (startIndex < 0) {
+      throw NegativeArgumentException.forArgumentAndArgumentName(startIndex, LowerCaseVariableNameCatalog.START_INDEX);
+    }
 
     this.parentArray = parrentArray; //NOSONAR: An ArrayIterator operates on the original instance.
     nextIndex = startIndex;
