@@ -6,7 +6,7 @@ package ch.nolix.baseapi.document.node;
 import java.util.function.Predicate;
 
 import ch.nolix.baseapi.attribute.fluentmutableoptionalattribute.FluentMutableOptionalHeaderHolder;
-import ch.nolix.baseapi.state.statemutation.Resettable;
+import ch.nolix.baseapi.generalstate.statemutation.Resettable;
 
 /**
  * A {@link IMutableNode} is a {@link INode} that is mutable.

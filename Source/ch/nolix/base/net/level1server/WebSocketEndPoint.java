@@ -13,12 +13,12 @@ import ch.nolix.base.net.websocket.WebSocketFrame;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.generalstate.stateproperty.TargetInfoState;
 import ch.nolix.baseapi.net.endpointprotocol.MessageType;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
 import ch.nolix.baseapi.net.securityproperty.SecurityMode;
 import ch.nolix.baseapi.net.websocket.WebSocketFrameOpcodeMeaning;
-import ch.nolix.baseapi.state.stateproperty.TargetInfoState;
 
 final class WebSocketEndPoint extends AbstractNetEndPoint {
   private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;

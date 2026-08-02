@@ -3,8 +3,8 @@
  */
 package ch.nolix.baseapi.resourcecontrol.closecontroller;
 
+import ch.nolix.baseapi.generalstate.statemutation.Clearable;
 import ch.nolix.baseapi.resourcecontrol.resourcerequest.OpennessRequestable;
-import ch.nolix.baseapi.state.statemutation.Clearable;
 
 /**
  * A {@link Clearable} is a {@link AutoCloseable} whose close method does not

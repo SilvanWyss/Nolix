@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.programcontrol.property;
 
-import ch.nolix.baseapi.state.staterequest.UpToDateRequestable;
+import ch.nolix.baseapi.generalstate.staterequest.UpToDateRequestable;
 
 /**
  * A {@link ILazyCalculatedProperty} provides a value that is calculated lazy.

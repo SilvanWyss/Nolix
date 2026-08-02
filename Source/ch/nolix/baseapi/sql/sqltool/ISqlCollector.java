@@ -4,8 +4,8 @@
 package ch.nolix.baseapi.sql.sqltool;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.generalstate.statemutation.Clearable;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
-import ch.nolix.baseapi.state.statemutation.Clearable;
 
 /**
  * @author Silvan Wyss

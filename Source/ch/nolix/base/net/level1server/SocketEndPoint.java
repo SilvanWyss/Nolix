@@ -12,13 +12,13 @@ import java.nio.charset.StandardCharsets;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalstate.stateproperty.TargetInfoState;
 import ch.nolix.baseapi.net.endpointprotocol.MessageType;
 import ch.nolix.baseapi.net.netcatalog.IPv6Catalog;
 import ch.nolix.baseapi.net.netcatalog.PortCatalog;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
 import ch.nolix.baseapi.net.securityproperty.SecurityMode;
-import ch.nolix.baseapi.state.stateproperty.TargetInfoState;
 
 /**
  * @author Silvan Wyss

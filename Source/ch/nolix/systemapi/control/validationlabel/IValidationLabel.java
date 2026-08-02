@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.control.validationlabel;
 
-import ch.nolix.baseapi.state.statemutation.Clearable;
+import ch.nolix.baseapi.generalstate.statemutation.Clearable;
 import ch.nolix.systemapi.webgui.main.Control;
 
 /**

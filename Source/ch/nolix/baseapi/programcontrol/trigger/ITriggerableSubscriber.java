@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.programcontrol.trigger;
 
-import ch.nolix.baseapi.state.staterequest.AlivenessRequestable;
+import ch.nolix.baseapi.generalstate.staterequest.AlivenessRequestable;
 
 /**
  * @author Silvan Wyss

@@ -6,7 +6,7 @@ package ch.nolix.systemapi.webgui.main;
 import java.util.Optional;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.state.statemutation.Clearable;
+import ch.nolix.baseapi.generalstate.statemutation.Clearable;
 
 /**
  * @author Silvan Wyss

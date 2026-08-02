@@ -6,7 +6,7 @@ package ch.nolix.baseapi.programcontrol.updater;
 import java.util.function.Consumer;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.state.statemutation.Clearable;
+import ch.nolix.baseapi.generalstate.statemutation.Clearable;
 
 /**
  * @author Silvan Wyss

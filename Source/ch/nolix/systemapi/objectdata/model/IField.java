@@ -9,7 +9,7 @@ import ch.nolix.baseapi.component.datamodelcomponent.EntityComponent;
 import ch.nolix.baseapi.component.datamodelcomponent.TableComponent;
 import ch.nolix.baseapi.datamodel.fieldrequest.MandatorynessRequestable;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.state.staterequest.EmptinessRequestable;
+import ch.nolix.baseapi.generalstate.staterequest.EmptinessRequestable;
 import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 

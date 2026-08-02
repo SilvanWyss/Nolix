@@ -1,9 +1,9 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.state.statemutation;
+package ch.nolix.baseapi.generalstate.statemutation;
 
-import ch.nolix.baseapi.state.staterequest.EmptinessRequestable;
+import ch.nolix.baseapi.generalstate.staterequest.EmptinessRequestable;
 
 /**
  * A {@link Clearable} can contain elements that can be removed.

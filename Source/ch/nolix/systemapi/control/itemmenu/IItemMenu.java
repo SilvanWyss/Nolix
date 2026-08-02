@@ -6,7 +6,7 @@ package ch.nolix.systemapi.control.itemmenu;
 import java.util.function.Consumer;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.state.statemutation.Clearable;
+import ch.nolix.baseapi.generalstate.statemutation.Clearable;
 import ch.nolix.systemapi.webgui.main.Control;
 
 //An IItemMenu can contain 0 or 1 selected item.

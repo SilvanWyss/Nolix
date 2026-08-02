@@ -10,7 +10,7 @@ import ch.nolix.baseapi.attribute.optionalattribute.OptionalHeaderHolder;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.base.FormattedStringRepresentable;
 import ch.nolix.baseapi.document.xml.IXmlNode;
-import ch.nolix.baseapi.state.staterequest.BlanknessRequestable;
+import ch.nolix.baseapi.generalstate.staterequest.BlanknessRequestable;
 
 /**
  * A {@link INode} has the following attributes. -0 or 1 header -an arbitrary

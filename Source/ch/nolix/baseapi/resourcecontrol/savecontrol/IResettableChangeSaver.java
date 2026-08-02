@@ -3,8 +3,8 @@
  */
 package ch.nolix.baseapi.resourcecontrol.savecontrol;
 
+import ch.nolix.baseapi.generalstate.statemutation.Resettable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
-import ch.nolix.baseapi.state.statemutation.Resettable;
 
 /**
  * @author Silvan Wyss

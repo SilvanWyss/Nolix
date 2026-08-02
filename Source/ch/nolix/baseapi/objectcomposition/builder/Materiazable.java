@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.objectcomposition.builder;
 
-import ch.nolix.baseapi.state.staterequest.MaterializationRequestable;
+import ch.nolix.baseapi.generalstate.staterequest.MaterializationRequestable;
 
 /**
  * @author Silvan Wyss

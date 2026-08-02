@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.datastructure.iterablerequest;
 
-import ch.nolix.baseapi.state.staterequest.EmptinessRequestable;
+import ch.nolix.baseapi.generalstate.staterequest.EmptinessRequestable;
 
 /**
  * @author Silvan Wyss

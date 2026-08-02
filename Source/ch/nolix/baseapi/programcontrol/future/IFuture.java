@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.programcontrol.future;
 
-import ch.nolix.baseapi.state.staterequest.FinishRequestable;
+import ch.nolix.baseapi.generalstate.staterequest.FinishRequestable;
 
 /**
  * A {@link IFuture} is supposed to be given back when a job is started in

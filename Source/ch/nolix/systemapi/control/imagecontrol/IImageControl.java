@@ -5,7 +5,7 @@ package ch.nolix.systemapi.control.imagecontrol;
 
 import java.util.function.Consumer;
 
-import ch.nolix.baseapi.state.statemutation.Clearable;
+import ch.nolix.baseapi.generalstate.statemutation.Clearable;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.graphic.image.IMutableImage;
 import ch.nolix.systemapi.webgui.main.Control;

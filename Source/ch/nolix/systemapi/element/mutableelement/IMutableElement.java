@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.element.mutableelement;
 
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.state.statemutation.Resettable;
+import ch.nolix.baseapi.generalstate.statemutation.Resettable;
 import ch.nolix.systemapi.element.base.IElement;
 
 /**

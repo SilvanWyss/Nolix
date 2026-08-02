@@ -4,7 +4,7 @@
 package ch.nolix.baseapi.document.json;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.state.staterequest.EmptinessRequestable;
+import ch.nolix.baseapi.generalstate.staterequest.EmptinessRequestable;
 
 /**
  * @author Silvan Wyss

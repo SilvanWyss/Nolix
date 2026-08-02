@@ -10,7 +10,7 @@ import java.util.function.Consumer;
 
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.state.staterequest.CompletenessRequestable;
+import ch.nolix.baseapi.generalstate.staterequest.CompletenessRequestable;
 
 /**
  * @author Silvan Wyss

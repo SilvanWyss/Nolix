@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.state.staterequest;
+package ch.nolix.baseapi.generalstate.staterequest;
 
 /**
  * A {@link UpToDateRequestable} can be asked if it is up-to-date.

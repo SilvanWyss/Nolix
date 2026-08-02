@@ -19,7 +19,7 @@ import ch.nolix.baseapi.datastructure.iterablerequest.IterableOneBasedIndexReque
 import ch.nolix.baseapi.datastructure.set.AggregationRequestable;
 import ch.nolix.baseapi.datastructure.set.CountRequestable;
 import ch.nolix.baseapi.datastructure.set.SingleProvider;
-import ch.nolix.baseapi.state.staterequest.MaterializationRequestable;
+import ch.nolix.baseapi.generalstate.staterequest.MaterializationRequestable;
 
 /**
  * A {@link ExtendedIterable} can store several elements of a certain type. A
