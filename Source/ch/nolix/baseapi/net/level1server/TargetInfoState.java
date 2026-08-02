@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.generalstate.stateproperty;
+package ch.nolix.baseapi.net.level1server;
 
 /**
  * A {@link TargetInfoState} defines whether a {@link Object} either has

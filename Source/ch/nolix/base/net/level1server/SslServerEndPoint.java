@@ -4,7 +4,7 @@
 package ch.nolix.base.net.level1server;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.generalstate.stateproperty.TargetInfoState;
+import ch.nolix.baseapi.net.level1server.TargetInfoState;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
 import ch.nolix.baseapi.net.securityproperty.SecurityMode;
