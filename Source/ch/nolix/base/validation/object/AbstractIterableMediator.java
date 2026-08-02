@@ -7,8 +7,8 @@ import java.util.Iterator;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-import ch.nolix.base.independent.iterabletool.IterableExaminer;
-import ch.nolix.base.independent.iterabletool.IterableTool;
+import ch.nolix.base.commontype.iterableexaminer.IterableExaminer;
+import ch.nolix.base.commontype.iterablesearcher.IterableSearcher;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -17,7 +17,6 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentEx
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PluralLowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.independent.iterabletool.IIterableExaminer;
 
 /**
  * @author Silvan Wyss
@@ -25,9 +24,9 @@ import ch.nolix.baseapi.independent.iterabletool.IIterableExaminer;
  *            {@link AbstractIterableMediator}.
  */
 public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator<Iterable<E>> {
-  private static final IIterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
+  private static final IterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
 
-  private static final IterableTool ITERABLE_TOOL = new IterableTool();
+  private static final IterableSearcher ITERABLE_SEARCHER = new IterableSearcher();
 
   protected AbstractIterableMediator(final Iterable<E> argument) {
     super(argument);
@@ -38,7 +37,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
   }
 
   public void contains(final Object element) {
-    if (!ITERABLE_EXAMINER.containsElement(getStoredArgument(), element)) {
+    if (!ITERABLE_EXAMINER.contains(getStoredArgument(), element)) {
       throw ArgumentDoesNotContainElementException.forArgumentAndArgumentNameAndElement(
         getStoredArgument(),
         getArgumentName(),
@@ -94,7 +93,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
   }
 
   public void containsAsManyElementsAs(final Iterable<?> iterable) {
-    final var elementCountOfIterable = ITERABLE_TOOL.getElementCount(iterable);
+    final var elementCountOfIterable = ITERABLE_SEARCHER.getCount(iterable);
 
     hasElementCount(elementCountOfIterable);
   }
@@ -105,7 +104,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
     final var argument = getStoredArgument();
 
     for (final var e : argument) {
-      if (ITERABLE_EXAMINER.containsElementMultipleTimes(argument, e)) {
+      if (ITERABLE_SEARCHER.getCountOf(argument, e) > 1) {
         throw //
         InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
           argument,
@@ -202,7 +201,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
    *                          with the given stringRepresentation.
    */
   public void containsExactlyOneWithStringRepresentation(final String stringRepresentation) {
-    if (!ITERABLE_EXAMINER.containsExactlyOneWithStringRepresentation(getStoredArgument(), stringRepresentation)) {
+    if (ITERABLE_SEARCHER.getCount(getStoredArgument(), e -> e.toString().equals(stringRepresentation)) != 1) {
       throw //
       InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         getStoredArgument(),
@@ -219,8 +218,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
    *                          times.
    */
   public void containsOnce(final Object element) {
-    if (!ITERABLE_EXAMINER.containsElementOnce(getStoredArgument(),
-      element)) {
+    if (!ITERABLE_EXAMINER.containsOnce(getStoredArgument(), element)) {
       throw //
       InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         getStoredArgument(),
