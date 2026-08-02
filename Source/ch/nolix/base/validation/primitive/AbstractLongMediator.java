@@ -3,7 +3,6 @@
  */
 package ch.nolix.base.validation.primitive;
 
-import ch.nolix.base.independent.arraytool.ArrayTool;
 import ch.nolix.base.validation.base.AbstractMediator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsInRangeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -19,15 +18,12 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.PositiveArgumentEx
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PluralLowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.independent.arraytool.IArrayTool;
 import ch.nolix.baseapi.net.netcatalog.PortCatalog;
 
 /**
  * @author Silvan Wyss
  */
 public abstract class AbstractLongMediator extends AbstractMediator {
-  private static final IArrayTool ARRAY_TOOL = new ArrayTool();
-
   private final long argument;
 
   /**
@@ -154,7 +150,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
     InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
       argument,
       getArgumentName(),
-      "does not equal one of {" + ARRAY_TOOL.createString(values) + "}");
+      "does not equal one of the given values");
   }
 
   /**
