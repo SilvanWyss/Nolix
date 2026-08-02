@@ -109,28 +109,4 @@ public final class ArrayTool implements IArrayTool {
 
     return valueList;
   }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public String createString(final long[] values) {
-    // Asserts that the given values is not null.
-    if (values == null) {
-      throw new IllegalArgumentException("The given values is null.");
-    }
-
-    final var stringBuilder = new StringBuilder();
-
-    // Iterates the given values.
-    for (var i = 0; i < values.length; i++) {
-      if (i < values.length - 1) {
-        stringBuilder.append(values[i]).append(", ");
-      } else {
-        stringBuilder.append(values[i]);
-      }
-    }
-
-    return stringBuilder.toString();
-  }
 }

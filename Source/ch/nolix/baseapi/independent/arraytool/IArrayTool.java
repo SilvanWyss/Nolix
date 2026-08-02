@@ -44,11 +44,4 @@ public interface IArrayTool {
    * @throws RuntimeException if the given values is null
    */
   Iterable<Long> createIterable(long[] values);
-
-  /**
-   * @param values
-   * @return a {@link String} representation of the given values
-   * @throws RuntimeException if the given values is null
-   */
-  String createString(long[] values);
 }
