@@ -5,7 +5,7 @@ package ch.nolix.basetest.commontype.iterablemapper;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.commontype.iterablemapper.IterableMapper;
+import ch.nolix.base.commontype.arraymapper.ArrayMapper;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
 
@@ -17,7 +17,7 @@ final class ToIntArrayTest extends StandardTest {
   void testCase_toIntArray_whenGivenIterableIsNullAndGivenNIs0() {
     // setup
     final Iterable<String> iterable = null;
-    final var testUnit = new IterableMapper();
+    final var testUnit = new ArrayMapper();
 
     // execute
     final var result = testUnit.toIntArray(iterable, 0, String::length);
@@ -30,7 +30,7 @@ final class ToIntArrayTest extends StandardTest {
   void testCase_toIntArray_whenGivenIterableIsNullAndGivenNIs10() {
     // setup
     final Iterable<String> iterable = null;
-    final var testUnit = new IterableMapper();
+    final var testUnit = new ArrayMapper();
 
     // execute & verify
     expectRunning(() -> testUnit.toIntArray(iterable, 10, String::length))

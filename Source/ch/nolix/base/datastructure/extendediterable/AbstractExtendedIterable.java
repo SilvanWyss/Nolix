@@ -15,9 +15,9 @@ import java.util.function.ToDoubleFunction;
 import java.util.function.ToIntFunction;
 import java.util.function.ToLongFunction;
 
+import ch.nolix.base.commontype.arraymapper.ArrayMapper;
 import ch.nolix.base.commontype.arraytool.ArraySorter;
 import ch.nolix.base.commontype.iterableexaminer.IterableExaminer;
-import ch.nolix.base.commontype.iterablemapper.IterableMapper;
 import ch.nolix.base.commontype.iterablesearcher.IterableSearcher;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterablefilterview.ExtendedIterableFilterView;
@@ -45,7 +45,7 @@ implements ExtendedIterable<E> {
 
   private static final IterableSearcher ITERABLE_SEARCHER = new IterableSearcher();
 
-  private static final IterableMapper ITERABLE_MAPPER = new IterableMapper();
+  private static final ArrayMapper ITERABLE_MAPPER = new ArrayMapper();
 
   /**
    * {@inheritDoc}
