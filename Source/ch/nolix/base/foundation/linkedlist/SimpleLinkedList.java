@@ -6,11 +6,13 @@ package ch.nolix.base.foundation.linkedlist;
 import java.util.Iterator;
 import java.util.function.Function;
 
+import ch.nolix.baseapi.foundation.linkedlist.ISimpleLinkedList;
+
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements of a {@link SimpleLinkedList}.
+ * @param <E> the type of the elements of a {@link SimpleLinkedList}
  */
-public final class SimpleLinkedList<E> implements Iterable<E> {
+public final class SimpleLinkedList<E> implements ISimpleLinkedList<E> {
   private int elementCount;
 
   private SimpleLinkedListNode<E> beginNode;
@@ -56,6 +58,10 @@ public final class SimpleLinkedList<E> implements Iterable<E> {
     return list;
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void addAtBegin(final E element) {
     final SimpleLinkedListNode<E> node = SimpleLinkedListNode.withElement(element);
 
@@ -70,6 +76,10 @@ public final class SimpleLinkedList<E> implements Iterable<E> {
     elementCount++;
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void addAtEnd(final E element) {
     final var node = SimpleLinkedListNode.withElement(element);
 
@@ -84,12 +94,20 @@ public final class SimpleLinkedList<E> implements Iterable<E> {
     elementCount++;
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void clear() {
     beginNode = null;
     endNode = null;
     elementCount = 0;
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public SimpleLinkedList<E> getCopy() {
     final var list = new SimpleLinkedList<E>();
 
@@ -100,16 +118,28 @@ public final class SimpleLinkedList<E> implements Iterable<E> {
     return list;
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public int getElementCount() {
     return elementCount;
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public E getStoredFirst() {
     assertIsNotEmpty();
 
     return beginNode.getStoredElement();
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean isEmpty() {
     return (beginNode == null);
   }
@@ -126,6 +156,10 @@ public final class SimpleLinkedList<E> implements Iterable<E> {
     return SimpleLinkedListIterator.forStartNode(beginNode);
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void removeFirst() {
     assertIsNotEmpty();
 
@@ -139,12 +173,20 @@ public final class SimpleLinkedList<E> implements Iterable<E> {
     elementCount--;
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void removeFirstOccurrenceOf(final E element) {
     if (!isEmpty()) {
       removeFirstOccuranceOfWhenContainsAny(element);
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public byte[] toByteArray(Function<E, Byte> byteMapper) {
     if (byteMapper == null) {
       throw new IllegalArgumentException("The given byteMapper is null.");
