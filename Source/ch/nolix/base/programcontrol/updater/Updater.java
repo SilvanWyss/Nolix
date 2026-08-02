@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.programcontrol.process;
+package ch.nolix.base.programcontrol.updater;
 
 import java.util.function.Consumer;
 
@@ -9,30 +9,30 @@ import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.programcontrol.process.IUpdaterCollector;
+import ch.nolix.baseapi.programcontrol.updater.IUpdater;
 
 /**
  * @author Silvan Wyss
  * @param <O> the type of the {@link Object}s the updaters of a
- *            {@link UpdaterCollector} can mutate.
+ *            {@link Updater} can mutate.
  */
-public final class UpdaterCollector<O> implements IUpdaterCollector<O> {
+public final class Updater<O> implements IUpdater<O> {
   private final ILinkedList<Consumer<O>> memberUpdaters = LinkedList.createEmpty();
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public void addUpdater(final Consumer<O> updater) {
-    memberUpdaters.addAtEnd(updater);
+  public void addUpdate(final Consumer<O> update) {
+    memberUpdaters.addAtEnd(update);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public void addUpdaters(final ExtendedIterable<Consumer<O>> updaters) {
-    memberUpdaters.addAtEnd(updaters);
+  public void addUpdates(final ExtendedIterable<Consumer<O>> updates) {
+    memberUpdaters.addAtEnd(updates);
   }
 
   /**
@@ -62,7 +62,7 @@ public final class UpdaterCollector<O> implements IUpdaterCollector<O> {
   }
 
   /**
-   * Updates the given object and clears the current {@link IUpdaterCollector} for
+   * Updates the given object and clears the current {@link IUpdater} for
    * the case when the given object is not null.
    * 
    * @param object
