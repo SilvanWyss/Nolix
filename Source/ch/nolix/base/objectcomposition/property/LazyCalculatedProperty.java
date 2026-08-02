@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.programcomposition.property;
+package ch.nolix.base.objectcomposition.property;
 
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
