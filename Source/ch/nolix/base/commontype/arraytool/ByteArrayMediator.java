@@ -3,9 +3,9 @@
  */
 package ch.nolix.base.commontype.arraytool;
 
-import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.arraytool.IByteArrayMediator;
 import ch.nolix.baseapi.commontype.arraytool.IByteArrayWithStartIndexMediator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 /**
  * @author Silvan Wyss
@@ -14,7 +14,9 @@ public final class ByteArrayMediator implements IByteArrayMediator {
   private final byte[] byteArray;
 
   private ByteArrayMediator(final byte[] byteArray) {
-    Validator.assertThat(byteArray).thatIsNamed("byte array").isNotNull();
+    if (byteArray == null) {
+      throw ArgumentIsNullException.forArgumentName("byte array");
+    }
 
     this.byteArray = byteArray; //NOSONAR: A ByteArrayMediator operates on the original instance.
   }
