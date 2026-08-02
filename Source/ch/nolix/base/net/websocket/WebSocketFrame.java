@@ -263,7 +263,9 @@ public final class WebSocketFrame {
       i = ARRAY_TOOL.onArray(bytes).fromIndex(i).write(maskingKey).andGetNextIndex();
     }
 
-    ARRAY_TOOL.onArray(bytes).fromIndex(i).write(payload);
+    if (payload.length > 0) {
+      ARRAY_TOOL.onArray(bytes).fromIndex(i).write(payload);
+    }
 
     return bytes;
   }

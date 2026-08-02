@@ -3,9 +3,10 @@
  */
 package ch.nolix.base.commontype.arraytool;
 
-import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.arraytool.IByteArrayWithStartIndexMediator;
 import ch.nolix.baseapi.commontype.arraytool.INextIndexMediator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
@@ -17,12 +18,20 @@ public final class ByteArrayWithStartIndexMediator implements IByteArrayWithStar
   private int index;
 
   private ByteArrayWithStartIndexMediator(final byte[] byteArray, final int startIndex) {
-    Validator.assertThat(byteArray).thatIsNamed("byte array").isNotNull();
+    if (byteArray == null) {
+      throw ArgumentIsNullException.forArgumentName("byte array");
+    }
 
-    Validator
-      .assertThat(startIndex)
-      .thatIsNamed(LowerCaseVariableNameCatalog.START_INDEX)
-      .isBetween(0, byteArray.length);
+    final var maxStartIndex = byteArray.length - 1;
+
+    if (startIndex < 0 || startIndex > maxStartIndex) {
+      throw //
+      ArgumentIsOutOfRangeException.forArgumentAndArgumentNameAndRangeWithMinAndMax(
+        startIndex,
+        LowerCaseVariableNameCatalog.START_INDEX,
+        0,
+        maxStartIndex);
+    }
 
     this.byteArray = byteArray; //NOSONAR: A ByteArrayMediatorWithStartIndex operates on the original instance.
     index = startIndex;
