@@ -4,7 +4,7 @@
 package ch.nolix.base.foundation.iterablemapper;
 
 import ch.nolix.base.foundation.linkedlist.SimpleLinkedList;
-import ch.nolix.baseapi.foundation.iterableMapper.ISimpleIterableMapper;
+import ch.nolix.baseapi.foundation.iterablemapper.ISimpleIterableMapper;
 
 /**
  * @author Silvan Wyss
