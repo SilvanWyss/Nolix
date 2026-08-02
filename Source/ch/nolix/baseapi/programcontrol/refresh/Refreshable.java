@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.programcontrol.trigger;
+package ch.nolix.baseapi.programcontrol.refresh;
 
 /**
  * @author Silvan Wyss
