@@ -5,13 +5,26 @@ package ch.nolix.unionarchitecturetest;
 
 import org.junit.jupiter.api.Test;
 
+import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
+import com.tngtech.archunit.library.dependencies.SlicesRuleDefinition;
 
 /**
  * @author Silvan Wyss
  */
 final class PackageTest {
+  private static final JavaClasses TEST_UNIT = new ClassFileImporter().importPackages("ch.nolix..");
+
+  @Test
+  void testCase_packagesDoNotHaveCyclicDependencies() {
+    // setup
+    final var rule = SlicesRuleDefinition.slices().matching("ch.nolix.(**)..").should().beFreeOfCycles();
+
+    // execute & verify
+    rule.check(TEST_UNIT);
+  }
+
   @Test
   void testCase_packagesHaveAMaxHierarchyDepthOf5() {
     // define test parameters
