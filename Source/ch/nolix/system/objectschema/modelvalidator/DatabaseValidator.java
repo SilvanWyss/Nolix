@@ -9,10 +9,12 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullExce
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.objectschema.modelexaminer.DatabaseExaminer;
+import ch.nolix.system.objectschema.modelmutationexaminer.DatabaseMutationExaminer;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modelexaminer.IDatabaseExaminer;
+import ch.nolix.systemapi.objectschema.modelmutationexaminer.IDatabaseMutationExaminer;
 import ch.nolix.systemapi.objectschema.modelvalidator.IDatabaseValidator;
 
 /**
@@ -20,6 +22,8 @@ import ch.nolix.systemapi.objectschema.modelvalidator.IDatabaseValidator;
  */
 public final class DatabaseValidator implements IDatabaseValidator {
   private static final IDatabaseExaminer DATABASE_EXAMINER = new DatabaseExaminer();
+
+  private static final IDatabaseMutationExaminer DATABASE_MUTATION_EXAMINER = new DatabaseMutationExaminer();
 
   @Override
   public void assertContainsTable(final IDatabase database, final ITable table) {
@@ -53,7 +57,7 @@ public final class DatabaseValidator implements IDatabaseValidator {
    */
   @Override
   public void assertCanAddGivenTable(final IDatabase database, final ITable table) {
-    if (!DATABASE_EXAMINER.canAddTable(database, table)) {
+    if (!DATABASE_MUTATION_EXAMINER.canAddTable(database, table)) {
       if (table == null) {
         throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.TABLE);
       }

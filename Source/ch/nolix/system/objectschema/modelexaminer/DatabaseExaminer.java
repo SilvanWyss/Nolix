@@ -3,29 +3,22 @@
  */
 package ch.nolix.system.objectschema.modelexaminer;
 
-import ch.nolix.system.objectschema.modelmutationexaminer.TableMutationExaminer;
 import ch.nolix.system.objectschema.modelsearcher.DatabaseSearcher;
 import ch.nolix.system.objectschema.modeltool.ColumnTool;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modelexaminer.IDatabaseExaminer;
-import ch.nolix.systemapi.objectschema.modelexaminer.ITableExaminer;
-import ch.nolix.systemapi.objectschema.modelmutationexaminer.ITableMutationExaminer;
-import ch.nolix.systemapi.objectschema.modelsearcher.IDatabaseSearcher;
-import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
 
 /**
  * @author Silvan Wyss
  */
 public final class DatabaseExaminer implements IDatabaseExaminer {
-  private static final IDatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
+  private static final DatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
 
-  private static final ITableExaminer TABLE_EXAMINER = new TableExaminer();
+  private static final TableExaminer TABLE_EXAMINER = new TableExaminer();
 
-  private static final ITableMutationExaminer TABLE_MUTATION_EXAMINER = new TableMutationExaminer();
-
-  private static final IColumnTool COLUMN_TOOL = new ColumnTool();
+  private static final ColumnTool COLUMN_TOOL = new ColumnTool();
 
   @Override
   public boolean allBackReferencesAreValid(final IDatabase database) {
@@ -33,28 +26,6 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
     final var baseBackReferenceColumns = DATABASE_SEARCHER.getStoredBaseBackReferenceColumns(database);
 
     return baseBackReferenceColumns.containsMatchingOnly(COLUMN_TOOL::isAValidBackReferenceColumn);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public boolean canAddTable(final IDatabase database) {
-    return //
-    database != null
-    && database.isOpen();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public boolean canAddTable(final IDatabase database, final ITable table) {
-    return //
-    canAddTable(database)
-    && TABLE_MUTATION_EXAMINER.canBeAddedToDatabase(table)
-    && !containsTableWithName(database, table.getName())
-    && canAddGivenTableBecauseOfColumns(database, table);
   }
 
   /**
@@ -131,35 +102,4 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
     && database.getStoredTables().containsMatching(t -> t.hasName(name));
   }
 
-  private boolean canAddGivenTableBecauseOfColumns(final IDatabase database, final ITable table) {
-    return table.getStoredColumns().containsMatchingOnly(c -> canAddGivenTableBecauseOfGivenColumn(database, table, c));
-  }
-
-  private boolean canAddGivenTableBecauseOfGivenColumn(
-    final IDatabase database,
-    final ITable table,
-    final IColumn column) {
-    final var baseFieldType = COLUMN_TOOL.getBaseFieldType(column);
-
-    return //
-    switch (baseFieldType) {
-      case BASE_VALUE_FIELD ->
-        true;
-      case BASE_REFERENCE ->
-        canAddGivenTableBecauseOfGivenReferenceColumn(database, table, column);
-      case BASE_BACK_REFERENCE ->
-        true;
-      default ->
-        true;
-    };
-  }
-
-  private boolean canAddGivenTableBecauseOfGivenReferenceColumn(
-    final IDatabase database,
-    final ITable table,
-    final IColumn referenceColumn) {
-    return //
-    containsTableReferencedByColumn(database, referenceColumn)
-    || COLUMN_TOOL.referencesGivenTable(referenceColumn, table);
-  }
 }
