@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.programcontrol.jobpool;
 
-import ch.nolix.base.programcontrol.flowcontrol.FlowController;
+import ch.nolix.base.programcontrol.basicflowcontroller.BasicFlowController;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -72,13 +72,13 @@ final class JobWrapper implements Runnable {
   }
 
   public void waitUntilIsFinished() {
-    FlowController.waitUntil(this::isFinished);
+    BasicFlowController.waitUntil(this::isFinished);
   }
 
   public void waitUntilIsFinished(final int timeoutInMilliseconds) {
     final var startTimeInMilliseconds = System.currentTimeMillis();
 
-    FlowController.waitAsLongAs(
+    BasicFlowController.waitAsLongAs(
       () -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds && !isFinished());
 
     if (!isFinished()) {

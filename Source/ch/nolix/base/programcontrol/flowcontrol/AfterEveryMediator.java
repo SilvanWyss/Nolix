@@ -5,6 +5,7 @@ package ch.nolix.base.programcontrol.flowcontrol;
 
 import java.util.function.BooleanSupplier;
 
+import ch.nolix.base.programcontrol.basicflowcontroller.BasicFlowController;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
@@ -195,7 +196,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
 
     while (condition.getAsBoolean()) {
       job.run();
-      Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
+      BasicFlowController.waitForMilliseconds(timeIntervalInMilliseconds);
     }
   }
 
@@ -211,7 +212,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
     // Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {
       for (var i = 1; i <= maxRunCount; i++) {
-        Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
+        BasicFlowController.waitForMilliseconds(timeIntervalInMilliseconds);
 
         job.run();
       }
@@ -219,7 +220,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
       // Handles the case that the current AfterAllMediator has a condition.
     } else {
       for (var i = 1; i <= maxRunCount; i++) {
-        Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
+        BasicFlowController.waitForMilliseconds(timeIntervalInMilliseconds);
 
         if (!condition.getAsBoolean()) {
           break;

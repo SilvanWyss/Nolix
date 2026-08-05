@@ -6,9 +6,8 @@ package ch.nolix.base.programcontrol.flowcontrol;
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
+import ch.nolix.base.programcontrol.basicflowcontroller.BasicFlowController;
 import ch.nolix.base.programcontrol.jobpool.JobPool;
-import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.programcontrol.flowcontrol.IAsLongAsMediator;
 import ch.nolix.baseapi.programcontrol.flowcontrol.IAsSoonAsMediator;
 import ch.nolix.baseapi.programcontrol.flowcontrol.IForCountMediator;
@@ -186,21 +185,11 @@ public final class FlowController {
    * Waits as long as the given condition is fulfilled.
    * 
    * @param condition
-   * @return a {@link IWaitMediator}
+   * @return a new {@link IWaitMediator}
    * @throws RuntimeException if the given condition is null
    */
   public static IWaitMediator waitAsLongAs(final BooleanSupplier condition) {
-    Validator.assertThat(condition).thatIsNamed(LowerCaseVariableNameCatalog.CONDITION).isNotNull();
-
-    var i = 1;
-    while (condition.getAsBoolean()) {
-      if (i < 100) {
-        waitForMilliseconds(10);
-        i++;
-      } else {
-        waitForMilliseconds(100);
-      }
-    }
+    BasicFlowController.waitAsLongAs(condition);
 
     return new WaitMediator();
   }
@@ -213,7 +202,7 @@ public final class FlowController {
    * @throws RuntimeException if the given durationInMilliseconds is negative
    */
   public static IWaitMediator waitForMilliseconds(final int durationInMilliseconds) {
-    Waiter.waitForMilliseconds(durationInMilliseconds);
+    BasicFlowController.waitForMilliseconds(durationInMilliseconds);
 
     return new WaitMediator();
   }
@@ -226,7 +215,7 @@ public final class FlowController {
    * @throws RuntimeException if the given durationInSeconds is negative
    */
   public static IWaitMediator waitForSeconds(final int durationInSeconds) {
-    Waiter.waitForSeconds(durationInSeconds);
+    BasicFlowController.waitForSeconds(durationInSeconds);
 
     return new WaitMediator();
   }
@@ -239,7 +228,7 @@ public final class FlowController {
    * @throws RuntimeException if the given condition is null
    */
   public static IWaitMediator waitUntil(final BooleanSupplier condition) {
-    waitAsLongAs(() -> !condition.getAsBoolean());
+    BasicFlowController.waitUntil(condition);
 
     return new WaitMediator();
   }

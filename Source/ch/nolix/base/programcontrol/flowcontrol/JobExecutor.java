@@ -7,6 +7,7 @@ import java.util.function.BooleanSupplier;
 
 import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.errorcontrol.logging.Logger;
+import ch.nolix.base.programcontrol.basicflowcontroller.BasicFlowController;
 import ch.nolix.base.programcontrol.job.JobTool;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
@@ -471,7 +472,7 @@ public final class JobExecutor extends Thread {
    */
   private void waitForTimeIntervalIfHasTimeInterval() {
     if (hasTimeInterval()) {
-      Waiter.waitForMilliseconds(optionalDelayBetweenStepRunsInMilliseconds);
+      BasicFlowController.waitForMilliseconds(optionalDelayBetweenStepRunsInMilliseconds);
     }
   }
 }
