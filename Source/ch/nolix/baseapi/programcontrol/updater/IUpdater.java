@@ -10,8 +10,8 @@ import ch.nolix.baseapi.generalstate.statemutation.Clearable;
 
 /**
  * @author Silvan Wyss
- * @param <O> the type of the {@link Object}s the updaters of a
- *            {@link IUpdater} can mutate.
+ * @param <O> the type of the {@link Object}s the updaters of a {@link IUpdater}
+ *            can mutate.
  */
 public interface IUpdater<O> extends Clearable {
   /**

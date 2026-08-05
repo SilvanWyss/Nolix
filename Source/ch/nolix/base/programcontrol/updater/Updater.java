@@ -13,8 +13,8 @@ import ch.nolix.baseapi.programcontrol.updater.IUpdater;
 
 /**
  * @author Silvan Wyss
- * @param <O> the type of the {@link Object}s the updaters of a
- *            {@link Updater} can mutate.
+ * @param <O> the type of the {@link Object}s the updaters of a {@link Updater}
+ *            can mutate.
  */
 public final class Updater<O> implements IUpdater<O> {
   private final ILinkedList<Consumer<O>> memberUpdaters = LinkedList.createEmpty();
@@ -62,8 +62,8 @@ public final class Updater<O> implements IUpdater<O> {
   }
 
   /**
-   * Updates the given object and clears the current {@link IUpdater} for
-   * the case when the given object is not null.
+   * Updates the given object and clears the current {@link IUpdater} for the case
+   * when the given object is not null.
    * 
    * @param object
    */

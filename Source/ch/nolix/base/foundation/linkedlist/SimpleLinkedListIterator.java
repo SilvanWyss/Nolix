@@ -8,8 +8,8 @@ import java.util.NoSuchElementException;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements of the parent {@link SimpleLinkedList} of a
- *            {@link SimpleLinkedListIterator}.
+ * @param <E> the type of the elements of the parent {@link SimpleLinkedList} of
+ *            a {@link SimpleLinkedListIterator}.
  */
 public final class SimpleLinkedListIterator<E> implements Iterator<E> {
   private SimpleLinkedListNode<E> nextNode;
