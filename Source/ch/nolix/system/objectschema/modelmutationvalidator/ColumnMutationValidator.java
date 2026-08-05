@@ -10,14 +10,13 @@ import ch.nolix.system.objectschema.modelmutationexaminer.ColumnMutationExaminer
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
-import ch.nolix.systemapi.objectschema.modelmutationexaminer.IColumnMutationExaminer;
 import ch.nolix.systemapi.objectschema.modelmutationvalidator.IColumnMutationValidator;
 
 /**
  * @author Silvan Wyss
  */
 public final class ColumnMutationValidator implements IColumnMutationValidator {
-  private static final IColumnMutationExaminer COLUMN_MUTATION_EXAMINER = new ColumnMutationExaminer();
+  private static final ColumnMutationExaminer COLUMN_MUTATION_EXAMINER = new ColumnMutationExaminer();
 
   /**
    * {@inheritDoc}
@@ -58,8 +57,7 @@ public final class ColumnMutationValidator implements IColumnMutationValidator {
       backReferenceableColumns);
 
     if (!canSetContentModel) {
-      throw //
-      InvalidArgumentException.forArgumentAndErrorPredicate(column, "cannot set the given content model'");
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(column, "cannot set the given content model'");
     }
   }
 }
