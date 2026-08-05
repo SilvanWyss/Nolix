@@ -3,13 +3,13 @@
  */
 package ch.nolix.base.datastructure.extendediterableintervalview;
 
-import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
-import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.copyableiterator.CopyableIterator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.datastructure.list.ArrayListCreator;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
+import ch.nolix.baseapi.foundation.marker.Marker;
 import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
@@ -27,13 +27,17 @@ public final class ExtendedIterableIntervalView<E> extends AbstractExtendedItera
 
   private final int endIndex;
 
+  private final ArrayListCreator arrayListCreator;
+
   /**
-   * Creates a new {@link ExtendedIterableIntervalView} with the given
-   * extendedIterable, startIndex and endIndex.
+   * Creates a new {@link ExtendedIterableIntervalView} for the given
+   * extendedIterable and with the given startIndex, endIndex and
+   * arrayListCreator.
    * 
    * @param extendedIterable
    * @param startIndex
    * @param endIndex
+   * @param arrayListCreator
    * @throws RuntimeException if the given extendedIterable is null
    * @throws RuntimeException if the given startIndex is not positive
    * @throws RuntimeException if the given endIndex is not positive
@@ -41,14 +45,17 @@ public final class ExtendedIterableIntervalView<E> extends AbstractExtendedItera
    *                          startIndex
    * @throws RuntimeException if the given endIndex is bigger than the number of
    *                          elements of the given extendedIterable.
+   * @throws RuntimeException if the given arrayListCreator is null
    */
   private ExtendedIterableIntervalView(
     final ExtendedIterable<E> extendedIterable,
     final int startIndex,
-    final int endIndex) {
+    final int endIndex,
+    final ArrayListCreator arrayListCreator) {
     Validator.assertThat(extendedIterable).thatIsNamed(LowerCaseVariableNameCatalog.CONTAINER).isNotNull();
     Validator.assertThat(startIndex).thatIsNamed(LowerCaseVariableNameCatalog.START_INDEX).isPositive();
     Validator.assertThat(endIndex).thatIsNamed(LowerCaseVariableNameCatalog.END_INDEX).isPositive();
+    Validator.assertThat(arrayListCreator).thatIsNamed(ArrayListCreator.class).isNotNull();
 
     Validator
       .assertThat(endIndex)
@@ -63,29 +70,34 @@ public final class ExtendedIterableIntervalView<E> extends AbstractExtendedItera
     this.extendedIterable = extendedIterable;
     this.startIndex = startIndex;
     this.endIndex = endIndex;
+    this.arrayListCreator = arrayListCreator;
   }
 
   /**
    * @param extendedIterable
    * @param startIndex
    * @param endIndex
+   * @param arrayListCreator
    * @param <T>              the type of the elements of the created
    *                         {@link ExtendedIterableIntervalView}
-   * @return a new {@link ExtendedIterableIntervalView} with the given
-   *         extendedIterable, startIndex and endIndex
+   * @return a new {@link ExtendedIterableIntervalView} for the given
+   *         extendedIterable and with the given startIndex, endIndex and
+   *         arrayListCreator
    * @throws RuntimeException if the given extendedIterable is null
    * @throws RuntimeException if the given startIndex is not positive
    * @throws RuntimeException if the given endIndex is not positive
    * @throws RuntimeException if the given endIndex is smaller than the given
    *                          startIndex
    * @throws RuntimeException if the given endIndex is bigger than the number of
-   *                          elements of the given extendedIterable.
+   *                          elements of the given extendedIterable
+   * @throws RuntimeException if the given arrayListCreator is null
    */
-  public static <T> ExtendedIterableIntervalView<T> forExtendedIterableAndStartIndexAndEndIndex(
+  public static <T> ExtendedIterableIntervalView<T> forExtendedIterableAndStartIndexAndEndIndexAndArrayListCreator(
     final ExtendedIterable<T> extendedIterable,
     final int startIndex,
-    final int endIndex) {
-    return new ExtendedIterableIntervalView<>(extendedIterable, startIndex, endIndex);
+    final int endIndex,
+    final ArrayListCreator arrayListCreator) {
+    return new ExtendedIterableIntervalView<>(extendedIterable, startIndex, endIndex, arrayListCreator);
   }
 
   /**
@@ -144,6 +156,6 @@ public final class ExtendedIterableIntervalView<E> extends AbstractExtendedItera
   protected <T> IArrayList<T> createEmptyArrayListFromMarkerWithInitialCapacity(
     final Marker<T> marker,
     final int initialCapacity) {
-    return ArrayList.withInitialCapacity(initialCapacity);
+    return arrayListCreator.createEmptyArrayListFromMarkerWithInitialCapacity(marker, initialCapacity);
   }
 }

@@ -8,7 +8,6 @@ import java.util.function.Function;
 
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
-import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
@@ -21,6 +20,7 @@ import ch.nolix.baseapi.datastructure.matrix.IMatrixColumn;
 import ch.nolix.baseapi.datastructure.matrix.IMatrixRow;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
+import ch.nolix.baseapi.foundation.marker.Marker;
 import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 

@@ -9,12 +9,12 @@ import ch.nolix.base.commontype.arraytool.ArrayIterator;
 import ch.nolix.base.commontype.iterablesearcher.IterableSearcher;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
-import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.copyableiterator.CopyableIterator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.foundation.marker.Marker;
 import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 

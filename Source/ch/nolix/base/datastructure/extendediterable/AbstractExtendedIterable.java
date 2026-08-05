@@ -30,6 +30,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotCon
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.foundation.marker.Marker;
 import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
@@ -1031,7 +1032,11 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final <T> ExtendedIterable<T> getViewOf(final Function<E, T> mapper) {
-    return ExtendedIterableMapperView.forContainerAndMapper(this, mapper);
+    return //
+    ExtendedIterableMapperView.forContainerAndMapperAndArrayListCreator(
+      this,
+      mapper,
+      this::createEmptyArrayListFromMarkerWithInitialCapacity);
   }
 
   /**
@@ -1054,8 +1059,12 @@ implements ExtendedIterable<E> {
   public final ExtendedIterable<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
     final int oneBasedStartIndex,
     final int oneBasedEndIndex) {
-    return ExtendedIterableIntervalView.forExtendedIterableAndStartIndexAndEndIndex(this, oneBasedStartIndex,
-      oneBasedEndIndex);
+    return //
+    ExtendedIterableIntervalView.forExtendedIterableAndStartIndexAndEndIndexAndArrayListCreator(
+      this,
+      oneBasedStartIndex,
+      oneBasedEndIndex,
+      this::createEmptyArrayListFromMarkerWithInitialCapacity);
   }
 
   /**
@@ -1065,7 +1074,11 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final ExtendedIterable<E> getViewOfStoredSelected(final Predicate<E> selector) {
-    return ExtendedIterableFilterView.forContainerAndSelector(this, selector);
+    return //
+    ExtendedIterableFilterView.forContainerAndSelectorAndArrayListCreator(
+      this,
+      selector,
+      this::createEmptyArrayListFromMarkerWithInitialCapacity);
   }
 
   /**

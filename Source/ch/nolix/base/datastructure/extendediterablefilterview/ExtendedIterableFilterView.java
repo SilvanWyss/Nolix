@@ -6,13 +6,13 @@ package ch.nolix.base.datastructure.extendediterablefilterview;
 import java.util.function.Predicate;
 
 import ch.nolix.base.commontype.iterablesearcher.IterableSearcher;
-import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
-import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.copyableiterator.CopyableIterator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.datastructure.list.ArrayListCreator;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
+import ch.nolix.baseapi.foundation.marker.Marker;
 import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
@@ -27,36 +27,48 @@ public final class ExtendedIterableFilterView<E> extends AbstractExtendedIterabl
 
   private final Predicate<E> selector;
 
+  private final ArrayListCreator arrayListCreator;
+
   /**
    * Creates a new {@link ExtendedIterableFilterView} for the given container and
-   * selector.
+   * with the given selector and arrayListCreator.
    * 
    * @param container
    * @param selector
+   * @param arrayListCreator
    * @throws RuntimeException if the given container is null
    * @throws RuntimeException if the given selector is null
+   * @throws RuntimeException if the given arrayListCreator is null
    */
-  private ExtendedIterableFilterView(final ExtendedIterable<E> container, final Predicate<E> selector) {
+  private ExtendedIterableFilterView(
+    final ExtendedIterable<E> container,
+    final Predicate<E> selector,
+    final ArrayListCreator arrayListCreator) {
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableNameCatalog.CONTAINER).isNotNull();
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableNameCatalog.SELECTOR).isNotNull();
+    Validator.assertThat(arrayListCreator).thatIsNamed(ArrayListCreator.class).isNotNull();
 
     this.wellOrderContainer = container;
     this.selector = selector;
+    this.arrayListCreator = arrayListCreator;
   }
 
   /**
    * @param container
    * @param selector
-   * @param <T>       the type of the elements of the given container
+   * @param arrayListCreator
+   * @param <T>              the type of the elements of the given container
    * @return a new {@link ExtendedIterableFilterView} for the given container and
-   *         selector
+   *         with the given selector and arrayListCreator
    * @throws RuntimeException if the given container is null
    * @throws RuntimeException if the given selector is null
+   * @throws RuntimeException if the given arrayListCreator is null
    */
-  public static <T> ExtendedIterableFilterView<T> forContainerAndSelector(
+  public static <T> ExtendedIterableFilterView<T> forContainerAndSelectorAndArrayListCreator(
     final ExtendedIterable<T> container,
-    final Predicate<T> selector) {
-    return new ExtendedIterableFilterView<>(container, selector);
+    final Predicate<T> selector,
+    final ArrayListCreator arrayListCreator) {
+    return new ExtendedIterableFilterView<>(container, selector, arrayListCreator);
   }
 
   /**
@@ -106,6 +118,6 @@ public final class ExtendedIterableFilterView<E> extends AbstractExtendedIterabl
   protected <T> IArrayList<T> createEmptyArrayListFromMarkerWithInitialCapacity(
     final Marker<T> marker,
     final int initialCapacity) {
-    return ArrayList.withInitialCapacity(initialCapacity);
+    return arrayListCreator.createEmptyArrayListFromMarkerWithInitialCapacity(marker, initialCapacity);
   }
 }

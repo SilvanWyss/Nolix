@@ -6,13 +6,13 @@ package ch.nolix.base.datastructure.multiextendediterableview;
 import ch.nolix.base.datastructure.arrayextendediterableview.ArrayExtendedIterableView;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
-import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.datastructure.iterableextendediterableview.IterableExtendedIterableView;
 import ch.nolix.baseapi.datastructure.copyableiterator.CopyableIterator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.baseapi.foundation.marker.Marker;
 import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
 
 /**
