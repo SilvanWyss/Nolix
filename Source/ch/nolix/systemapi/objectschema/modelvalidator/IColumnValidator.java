@@ -15,6 +15,12 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 public interface IColumnValidator {
   /**
    * @param column
+   * @throws RuntimeException if the given column does not belong to a table
+   */
+  void assertBelongsToTable(IColumn column);
+
+  /**
+   * @param column
    * @param fieldType
    * @param dataType
    * @param referenceableTables

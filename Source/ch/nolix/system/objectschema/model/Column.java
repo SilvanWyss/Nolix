@@ -153,7 +153,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
    */
   @Override
   public Table getStoredParentTable() {
-    COLUMN_TOOL.assertBelongsToTable(this);
+    COLUMN_VALIDATOR.assertBelongsToTable(this);
 
     return parentTable;
   }

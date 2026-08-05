@@ -5,6 +5,7 @@ package ch.nolix.system.objectschema.modelvalidator;
 
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectschema.modelexaminer.ColumnExaminer;
 import ch.nolix.system.objectschema.modelmutationexaminer.ColumnMutationExaminer;
@@ -20,6 +21,16 @@ public final class ColumnValidator implements IColumnValidator {
   private static final ColumnExaminer COLUMN_EXAMINER = new ColumnExaminer();
 
   private static final ColumnMutationExaminer COLUMN_MUTATION_EXAMINER = new ColumnMutationExaminer();
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void assertBelongsToTable(final IColumn column) {
+    if (!column.belongsToTable()) {
+      throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(column, ITable.class);
+    }
+  }
 
   /**
    * {@inheritDoc}
