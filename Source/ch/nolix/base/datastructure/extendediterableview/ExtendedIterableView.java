@@ -31,7 +31,7 @@ public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
   private static final ExtendedIterableView<Object> EMPTY_ARRAY_CONTAINER_VIEW = //
   new ExtendedIterableView<>(ImmutableList.createEmpty());
 
-  private final ExtendedIterable<E> internalContainer;
+  private final ExtendedIterable<E> extendedIterable;
 
   /**
    * Creates a new {@link ExtendedIterableView} for the given container.
@@ -42,7 +42,7 @@ public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
   private ExtendedIterableView(final ExtendedIterable<E> container) {
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableNameCatalog.CONTAINER).isNotNull();
 
-    internalContainer = container;
+    extendedIterable = container;
   }
 
   /**
@@ -142,7 +142,7 @@ public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
    */
   @Override
   public int getCount() {
-    return internalContainer.getCount();
+    return extendedIterable.getCount();
   }
 
   /**
@@ -150,7 +150,7 @@ public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
    */
   @Override
   public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
-    return internalContainer.getStoredAtOneBasedIndex(oneBasedIndex);
+    return extendedIterable.getStoredAtOneBasedIndex(oneBasedIndex);
   }
 
   /**
@@ -158,7 +158,7 @@ public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
    */
   @Override
   public int hashCode() {
-    return internalContainer.hashCode();
+    return extendedIterable.hashCode();
   }
 
   /**
@@ -166,7 +166,7 @@ public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
    */
   @Override
   public boolean isMaterialized() {
-    return internalContainer.isMaterialized();
+    return extendedIterable.isMaterialized();
   }
 
   /**
@@ -174,7 +174,7 @@ public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
    */
   @Override
   public CopyableIterator<E> iterator() {
-    return internalContainer.iterator();
+    return extendedIterable.iterator();
   }
 
   /**
@@ -182,7 +182,7 @@ public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
    */
   @Override
   public String toString() {
-    return internalContainer.toString();
+    return extendedIterable.toString();
   }
 
   /**
