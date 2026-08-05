@@ -5,7 +5,7 @@ package ch.nolix.base.math.algebra;
 
 import ch.nolix.base.commontype.doubletool.DoubleTool;
 import ch.nolix.base.foundation.math.NumberComparator;
-import ch.nolix.base.math.main.Calculator;
+import ch.nolix.base.math.basic.BasicCalculator;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.doubletool.IDoubleTool;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
@@ -22,6 +22,8 @@ public final class Polynom {
   public static final Polynom EMPTY_POLYNOM = new Polynom();
 
   public static final String DEFAULT_PARAMTER_SYMBOL = "x";
+
+  private static final BasicCalculator BASIC_CALCULATOR = new BasicCalculator();
 
   private static final IDoubleTool DOUBLE_TOOL = new DoubleTool();
 
@@ -253,7 +255,7 @@ public final class Polynom {
     }
 
     final var degree = getDegree();
-    final var derivedDegree = Calculator.getMax(0, degree - deriveCount);
+    final var derivedDegree = BASIC_CALCULATOR.getMax(0, degree - deriveCount);
     final var derivedCoefficients = new double[derivedDegree + 1];
 
     for (var derivedCoefficientIndex = 0; derivedCoefficientIndex <= derivedDegree; derivedCoefficientIndex++) {
