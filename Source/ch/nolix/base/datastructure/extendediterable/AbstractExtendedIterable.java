@@ -19,7 +19,6 @@ import ch.nolix.base.commontype.arraymapper.ArrayMapper;
 import ch.nolix.base.commontype.arraytool.ArraySorter;
 import ch.nolix.base.commontype.iterableexaminer.IterableExaminer;
 import ch.nolix.base.commontype.iterablesearcher.IterableSearcher;
-import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterablefilterview.ExtendedIterableFilterView;
 import ch.nolix.base.datastructure.extendediterableintervalview.ExtendedIterableIntervalView;
 import ch.nolix.base.datastructure.extendediterablemapperview.ExtendedIterableMapperView;
@@ -1415,12 +1414,16 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final <C extends Comparable<C>> ExtendedIterable<E> toOrdered(final Function<E, C> comparableMapper) {
+    final var marker = new Marker<E>();
+    final var ordered = createEmptyArrayListFromMarkerWithInitialCapacity(marker, getCount());
+
     @SuppressWarnings("unchecked")
     final var array = (E[]) toArray();
 
     ArraySorter.sortArray(array, comparableMapper);
+    ordered.addAtEnd(array);
 
-    return ArrayList.withElements(array);
+    return ordered;
   }
 
   /**
