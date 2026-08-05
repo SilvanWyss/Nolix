@@ -9,7 +9,6 @@ import ch.nolix.base.commontype.iterablesearcher.IterableSearcher;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
-import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.copyableiterator.CopyableIterator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
@@ -58,23 +57,6 @@ public final class ExtendedIterableFilterView<E> extends AbstractExtendedIterabl
     final ExtendedIterable<T> container,
     final Predicate<T> selector) {
     return new ExtendedIterableFilterView<>(container, selector);
-  }
-
-  /**
-   * @param array
-   * @param selector
-   * @param <T>      the type of the given element and elements of the given array
-   * @return a new {@link ExtendedIterableFilterView} for the given element and
-   *         array
-   * @throws RuntimeException if the given array is null
-   * @throws RuntimeException if the given selector is null
-   */
-  public static <T> ExtendedIterableFilterView<T> forArrayAndSelector(
-    final T[] array,
-    final Predicate<T> selector) {
-    final var container = ExtendedIterableView.forArray(array);
-
-    return forContainerAndSelector(container, selector);
   }
 
   /**
