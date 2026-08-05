@@ -3,7 +3,6 @@
  */
 package ch.nolix.system.objectschema.modeltool;
 
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.midschema.fieldproperty.BaseFieldType;
@@ -16,16 +15,6 @@ import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
  * @author Silvan Wyss
  */
 public final class ColumnTool extends DatabaseObjectExaminer implements IColumnTool {
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public void assertDoesNotBelongToTable(final IColumn column) {
-    if (column.belongsToTable()) {
-      throw ArgumentBelongsToParentException.forArgumentAndParent(column, column.getStoredParentTable());
-    }
-  }
-
   /**
    * {@inheritDoc}
    */
