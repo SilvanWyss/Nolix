@@ -59,9 +59,7 @@ public final class ColumnMutationValidator implements IColumnMutationValidator {
 
     if (!canSetContentModel) {
       throw //
-      InvalidArgumentException.forArgumentAndErrorPredicate(
-        column,
-        "cannot set the given content model'");
+      InvalidArgumentException.forArgumentAndErrorPredicate(column, "cannot set the given content model'");
     }
   }
 }
