@@ -37,16 +37,6 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
    * {@inheritDoc}
    */
   @Override
-  public boolean isAValueColumn(final IColumn column) {
-    return //
-    column != null &&
-    column.getFieldType().getBaseType() == BaseFieldType.BASE_VALUE_FIELD;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public boolean isAValidBackReferenceColumn(IColumn column) {
     final var fieldType = column.getFieldType();
     final var baseType = fieldType.getBaseType();

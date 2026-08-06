@@ -25,6 +25,16 @@ public final class ColumnExaminer implements IColumnExaminer {
    * {@inheritDoc}
    */
   @Override
+  public boolean isBaseValueColumn(final IColumn column) {
+    return //
+    column != null
+    && column.getFieldType().getBaseType() == BaseFieldType.BASE_VALUE_FIELD;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean isOpenAndEmptyAndNotBackReferenced(final IColumn column) {
     return //
     column != null

@@ -11,6 +11,12 @@ import ch.nolix.systemapi.objectschema.model.IColumn;
 public interface IColumnExaminer {
   /**
    * @param column
+   * @return true if the given column is a base value column, false otherwise
+   */
+  boolean isBaseValueColumn(IColumn column);
+
+  /**
+   * @param column
    * @return true if the given column is a base reference column, false otherwise
    */
   boolean isBaseReferenceColumn(IColumn column);

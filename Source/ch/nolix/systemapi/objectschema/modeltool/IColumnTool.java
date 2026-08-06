@@ -17,8 +17,6 @@ public interface IColumnTool extends IDatabaseObjectExaminer {
 
   boolean isAValidBackReferenceColumn(IColumn column);
 
-  boolean isAValueColumn(IColumn column);
-
   boolean referencesBackGivenColumn(IColumn column, IColumn probableBackReferencedColumn);
 
   boolean referencesGivenTable(IColumn column, ITable table);
