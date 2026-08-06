@@ -4,12 +4,13 @@
 package ch.nolix.base.validation.response;
 
 import ch.nolix.baseapi.validation.response.IValidationResponse;
+import ch.nolix.template.webgui.textcatalog.TextCatalog;
 
 /**
  * @author Silvan Wyss
  */
 public final class ValidationResponse implements IValidationResponse {
-  public static final ValidationResponse OK_VALIDATION_RESPONSE = new ValidationResponse(true, "Ok");
+  public static final ValidationResponse OK_VALIDATION_RESPONSE = new ValidationResponse(true, TextCatalog.OK);
 
   private final boolean ok;
 
