@@ -4,6 +4,7 @@
 package ch.nolix.system.objectschema.modelmutationexaminer;
 
 import ch.nolix.system.objectschema.modelexaminer.DatabaseExaminer;
+import ch.nolix.system.objectschema.modelsearcher.ColumnSearcher;
 import ch.nolix.system.objectschema.modeltool.ColumnTool;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
@@ -17,6 +18,8 @@ public final class DatabaseMutationExaminer implements IDatabaseMutationExaminer
   private static final DatabaseExaminer DATABASE_EXAMINER = new DatabaseExaminer();
 
   private static final TableMutationExaminer TABLE_MUTATION_EXAMINER = new TableMutationExaminer();
+
+  private static final ColumnSearcher COLUMN_SEARCHER = new ColumnSearcher();
 
   private static final ColumnTool COLUMN_TOOL = new ColumnTool();
 
@@ -50,7 +53,7 @@ public final class DatabaseMutationExaminer implements IDatabaseMutationExaminer
     final IDatabase database,
     final ITable table,
     final IColumn column) {
-    final var baseFieldType = COLUMN_TOOL.getBaseFieldType(column);
+    final var baseFieldType = COLUMN_SEARCHER.getBaseFieldType(column);
 
     return //
     switch (baseFieldType) {
