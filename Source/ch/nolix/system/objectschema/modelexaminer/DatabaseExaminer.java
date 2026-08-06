@@ -3,7 +3,6 @@
  */
 package ch.nolix.system.objectschema.modelexaminer;
 
-import ch.nolix.system.objectschema.modelsearcher.DatabaseSearcher;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
@@ -13,18 +12,19 @@ import ch.nolix.systemapi.objectschema.modelexaminer.IDatabaseExaminer;
  * @author Silvan Wyss
  */
 public final class DatabaseExaminer implements IDatabaseExaminer {
-  private static final DatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
-
   private static final TableExaminer TABLE_EXAMINER = new TableExaminer();
 
   private static final ColumnExaminer COLUMN_EXAMINER = new ColumnExaminer();
 
   @Override
   public boolean allBaseBackReferencesAreValid(final IDatabase database) {
+    final var tables = database.getStoredTables();
+    final var columns = tables.toMultiples(ITable::getStoredColumns);
 
-    final var baseBackReferenceColumns = DATABASE_SEARCHER.getStoredBaseBackReferenceColumns(database);
+    final var baseBackReferenceColumnsView = //
+    columns.getViewOfStoredSelected(COLUMN_EXAMINER::isBaseBackReferenceColumn);
 
-    return baseBackReferenceColumns.containsMatchingOnly(COLUMN_EXAMINER::isValidBaseBackReferenceColumn);
+    return baseBackReferenceColumnsView.containsMatchingOnly(COLUMN_EXAMINER::isValidBaseBackReferenceColumn);
   }
 
   /**
