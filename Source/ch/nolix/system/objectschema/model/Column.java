@@ -303,7 +303,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   }
 
   private ExtendedIterable<? extends IColumn> getStoredBackReferencingColumnsWhenIsReferenceColumn() {
-    if (COLUMN_TOOL.belongsToDatabase(this)) {
+    if (belongsToDatabase()) {
       return //
       COLUMN_TOOL
         .getParentDatabase(this)
@@ -320,7 +320,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   }
 
   private boolean isBackReferencedWhenIsAnyReferenceColumn() {
-    if (COLUMN_TOOL.belongsToDatabase(this)) {
+    if (belongsToDatabase()) {
       return //
       COLUMN_TOOL
         .getParentDatabase(this)

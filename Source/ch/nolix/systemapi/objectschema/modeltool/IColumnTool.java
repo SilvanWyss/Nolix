@@ -13,8 +13,6 @@ import ch.nolix.systemapi.objectschema.model.ITable;
  * @author Silvan Wyss
  */
 public interface IColumnTool extends IDatabaseObjectExaminer {
-  boolean belongsToDatabase(IColumn column);
-
   BaseFieldType getBaseFieldType(IColumn column);
 
   IDatabase getParentDatabase(IColumn column);

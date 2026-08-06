@@ -18,14 +18,6 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
    * {@inheritDoc}
    */
   @Override
-  public boolean belongsToDatabase(final IColumn column) {
-    return (column.belongsToTable() && column.getStoredParentTable().belongsToDatabase());
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public BaseFieldType getBaseFieldType(IColumn column) {
     return column.getFieldType().getBaseType();
   }
