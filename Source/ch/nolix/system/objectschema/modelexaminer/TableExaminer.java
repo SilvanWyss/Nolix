@@ -63,7 +63,7 @@ public final class TableExaminer implements ITableExaminer {
     final ITable otherTable) {
     return //
     table != null
-    && table.getStoredColumns().containsMatching(c -> COLUMN_TOOL.referencesGivenTable(c, otherTable));
+    && table.getStoredColumns().containsMatching(c -> c.referencesTable(otherTable));
   }
 
   /**

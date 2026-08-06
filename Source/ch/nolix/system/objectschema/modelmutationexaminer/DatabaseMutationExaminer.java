@@ -5,7 +5,6 @@ package ch.nolix.system.objectschema.modelmutationexaminer;
 
 import ch.nolix.system.objectschema.modelexaminer.DatabaseExaminer;
 import ch.nolix.system.objectschema.modelsearcher.ColumnSearcher;
-import ch.nolix.system.objectschema.modeltool.ColumnTool;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
@@ -20,8 +19,6 @@ public final class DatabaseMutationExaminer implements IDatabaseMutationExaminer
   private static final TableMutationExaminer TABLE_MUTATION_EXAMINER = new TableMutationExaminer();
 
   private static final ColumnSearcher COLUMN_SEARCHER = new ColumnSearcher();
-
-  private static final ColumnTool COLUMN_TOOL = new ColumnTool();
 
   /**
    * {@inheritDoc}
@@ -74,6 +71,6 @@ public final class DatabaseMutationExaminer implements IDatabaseMutationExaminer
     final IColumn referenceColumn) {
     return //
     DATABASE_EXAMINER.containsTableReferencedByColumn(database, referenceColumn)
-    || COLUMN_TOOL.referencesGivenTable(referenceColumn, table);
+    || referenceColumn.referencesTable(table);
   }
 }

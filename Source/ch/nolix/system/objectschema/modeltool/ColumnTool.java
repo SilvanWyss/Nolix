@@ -7,7 +7,6 @@ import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectschema.modelexaminer.ColumnExaminer;
 import ch.nolix.systemapi.midschema.fieldproperty.BaseFieldType;
 import ch.nolix.systemapi.objectschema.model.IColumn;
-import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
 
 /**
@@ -29,7 +28,7 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
       final var backReferenceableColumns = column.getStoredBackReferenceableColumns();
 
       for (final var c : backReferenceableColumns) {
-        if (!COLUMN_EXAMINER.isBaseReferenceColumn(c) || !referencesGivenTable(c, table)) {
+        if (!COLUMN_EXAMINER.isBaseReferenceColumn(c) || !c.referencesTable(table)) {
           return false;
         }
       }
@@ -46,13 +45,5 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
   @Override
   public boolean referencesBackGivenColumn(final IColumn column, final IColumn probableBackReferencedColumn) {
     return column.referencesBackColumn(probableBackReferencedColumn);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public boolean referencesGivenTable(final IColumn column, final ITable table) {
-    return column.referencesTable(table);
   }
 }

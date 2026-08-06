@@ -80,7 +80,7 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
 
     return //
     database != null
-    && database.getStoredTables().containsMatching(t -> COLUMN_TOOL.referencesGivenTable(column, t));
+    && database.getStoredTables().containsMatching(column::referencesTable);
   }
 
   /**

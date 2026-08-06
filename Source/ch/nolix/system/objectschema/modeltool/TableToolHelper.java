@@ -41,11 +41,11 @@ public final class TableToolHelper {
       .getStoredParentDatabase()
       .getStoredTables()
       .toMultiples(ITable::getStoredColumns)
-      .getStoredSelected(c -> COLUMN_TOOL.referencesGivenTable(c, table));
+      .getStoredSelected(c -> c.referencesTable(table));
   }
 
   public static ExtendedIterable<? extends IColumn> getStoredReferencingColumnsWhenDoesNotBelongToDatabase(
     final ITable table) {
-    return table.getStoredColumns().getStoredSelected(c -> COLUMN_TOOL.referencesGivenTable(c, table));
+    return table.getStoredColumns().getStoredSelected(c -> c.referencesTable(table));
   }
 }
