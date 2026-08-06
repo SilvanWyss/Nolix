@@ -7,6 +7,8 @@ import ch.nolix.system.style.model.Style;
 import ch.nolix.systemapi.style.model.IStyle;
 
 /**
+ * Of the {@link ShapeModeCatalog} an instance cannot be created.
+ * 
  * @author Silvan Wyss
  */
 public final class ShapeModeCatalog {
