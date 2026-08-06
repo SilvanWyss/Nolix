@@ -3,11 +3,11 @@
  */
 package ch.nolix.base.commontype.arraymapper;
 
+import java.util.function.Function;
 import java.util.function.ToDoubleFunction;
 import java.util.function.ToIntFunction;
 
 import ch.nolix.baseapi.commontype.arraymapper.IArrayMapper;
-import ch.nolix.baseapi.commontype.function.ToByteFunction;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
 
@@ -19,7 +19,7 @@ public final class ArrayMapper implements IArrayMapper {
    * {@inheritDoc}
    */
   @Override
-  public <E> byte[] toByteArray(Iterable<E> iterable, int n, ToByteFunction<E> byteMapper) {
+  public <E> byte[] toByteArray(Iterable<E> iterable, int n, Function<E, Byte> byteMapper) {
     if (byteMapper == null) {
       throw ArgumentIsNullException.forArgumentName("byte mapper");
     }
@@ -34,7 +34,7 @@ public final class ArrayMapper implements IArrayMapper {
         if (element == null) {
           array[i] = 0;
         } else {
-          array[i] = byteMapper.mapElementToByte(element);
+          array[i] = byteMapper.apply(element);
         }
       }
 

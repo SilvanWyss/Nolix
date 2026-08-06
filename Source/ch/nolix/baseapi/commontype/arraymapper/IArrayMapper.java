@@ -3,10 +3,9 @@
  */
 package ch.nolix.baseapi.commontype.arraymapper;
 
+import java.util.function.Function;
 import java.util.function.ToDoubleFunction;
 import java.util.function.ToIntFunction;
-
-import ch.nolix.baseapi.commontype.function.ToByteFunction;
 
 /**
  * @author Silvan Wyss
@@ -26,7 +25,7 @@ public interface IArrayMapper {
    *                          of the given iterable
    * @throws RuntimeException if the given byteMapper is null
    */
-  <E> byte[] toByteArray(Iterable<E> iterable, int n, ToByteFunction<E> byteMapper);
+  <E> byte[] toByteArray(Iterable<E> iterable, int n, Function<E, Byte> byteMapper);
 
   /**
    * The time complexity of this method is O(n) if the given iterable contains n

@@ -20,7 +20,6 @@ import ch.nolix.base.commontype.arraytool.ArraySorter;
 import ch.nolix.base.commontype.iterableexaminer.IterableExaminer;
 import ch.nolix.base.commontype.iterablesearcher.IterableSearcher;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.commontype.function.ToByteFunction;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.baseapi.datastructure.set.SingleProvider;
@@ -1231,7 +1230,7 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final byte[] toByteArray(final ToByteFunction<E> byteMapper) {
+  public final byte[] toByteArray(final Function<E, Byte> byteMapper) {
     return ITERABLE_MAPPER.toByteArray(this, getCount(), byteMapper);
   }
 

@@ -8,8 +8,6 @@ import java.util.function.ToDoubleFunction;
 import java.util.function.ToIntFunction;
 import java.util.function.ToLongFunction;
 
-import ch.nolix.baseapi.commontype.function.ToByteFunction;
-
 /**
  * @author Silvan Wyss
  * @param <E> the type of the elements a {@link IterableArrayProvider}
@@ -34,7 +32,7 @@ public interface IterableArrayProvider<E> {
    *         elements to 0
    * @throws RuntimeException if the given byteMapper is null
    */
-  byte[] toByteArray(ToByteFunction<E> byteMapper);
+  byte[] toByteArray(Function<E, Byte> byteMapper);
 
   /**
    * The time complexity of this method is O(n) if the current
