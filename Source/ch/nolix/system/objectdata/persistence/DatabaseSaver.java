@@ -4,7 +4,7 @@
 package ch.nolix.system.objectdata.persistence;
 
 import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.perstistence.IDatabaseSaver;
 
@@ -20,7 +20,7 @@ public final class DatabaseSaver implements IDatabaseSaver {
    * {@inheritDoc}
    */
   @Override
-  public void saveDatabaseChanges(final IDatabase database, final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+  public void saveDatabaseChanges(final IDatabase database, final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var entitiesInLocalData = DATABASE_TOOL.getStoredEntitiesInLocalData(database);
 
     for (final var e : entitiesInLocalData) {

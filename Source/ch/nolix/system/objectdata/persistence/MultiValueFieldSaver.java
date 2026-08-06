@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectdata.persistence;
 
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 import ch.nolix.systemapi.objectdata.perstistence.IMultiValueFieldSaver;
 
@@ -19,7 +19,7 @@ public final class MultiValueFieldSaver implements IMultiValueFieldSaver {
   @Override
   public void saveMultiValueFieldChanges(
     final IMultiValueField<?> multiValueField,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     for (final var e : multiValueField.getStoredNewAndDeletedEntries()) {
       MULTI_VALUE_FIELD_ENTRY_SAVER.saveMultiValueFieldEntryChange(e, dataAndSchemaAdapter);
     }

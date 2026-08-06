@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectdata.persistence;
 
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 import ch.nolix.systemapi.objectdata.perstistence.IMultiReferenceSaver;
 
@@ -19,7 +19,7 @@ public final class MultiReferenceSaver implements IMultiReferenceSaver {
   @Override
   public void saveMultiReferenceChanges(
     final IMultiReference<?> multiReference,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     for (final var e : multiReference.getStoredNewAndDeletedEntries()) {
       MULTI_REFERENCE_ENTRY_SAVER.saveMultiReferenceEntryChange(e, dataAndSchemaAdapter);
     }

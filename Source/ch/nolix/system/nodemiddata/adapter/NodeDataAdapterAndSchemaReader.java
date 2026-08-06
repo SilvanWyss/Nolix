@@ -7,7 +7,7 @@ import ch.nolix.base.document.node.FileNode;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.system.middata.adapter.AbstractDataAdapterAndSchemaReader;
 import ch.nolix.system.nodemidschema.adapter.NodeSchemaAdapter;
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 
 /**
  * @author Silvan Wyss
@@ -35,7 +35,7 @@ public final class NodeDataAdapterAndSchemaReader extends AbstractDataAdapterAnd
    * {@inheritDoc}
    */
   @Override
-  public IDataAdapterAndSchemaReader createEmptyCopy() {
+  public DataAdapterAndSchemaReader createEmptyCopy() {
     return forNodeDatabase(nodeDatabase);
   }
 }

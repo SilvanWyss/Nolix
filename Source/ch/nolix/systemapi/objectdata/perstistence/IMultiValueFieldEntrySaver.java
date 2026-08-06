@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.perstistence;
 
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IMultiValueFieldEntry;
 
 /**
@@ -18,7 +18,7 @@ public interface IMultiValueFieldEntrySaver {
    */
   void saveMultiValueFieldEntryChange(
     IMultiValueFieldEntry<?> multiValueFieldEntry,
-    IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+    DataAdapterAndSchemaReader dataAndSchemaAdapter);
 
   /**
    * Saves the creation of the given multiValueFieldEntry.
@@ -28,7 +28,7 @@ public interface IMultiValueFieldEntrySaver {
    */
   void saveMultiValueFieldEntryCreation(
     IMultiValueFieldEntry<?> multiValueFieldEntry,
-    IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+    DataAdapterAndSchemaReader dataAndSchemaAdapter);
 
   /**
    * Saves the deletion of the given multiValueFieldEntry.
@@ -38,5 +38,5 @@ public interface IMultiValueFieldEntrySaver {
    */
   void saveMultiValueFieldEntryDeletion(
     IMultiValueFieldEntry<?> multiValueFieldEntry,
-    IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+    DataAdapterAndSchemaReader dataAndSchemaAdapter);
 }

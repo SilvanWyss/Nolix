@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.expectation;
 
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
 
@@ -20,7 +20,7 @@ public interface IMultiReferenceEntryExpectationAdder {
    */
   void addExpectationThatNewlyReferencedEntitiesExist(
     IMultiReferenceEntry<? extends IEntity> multiReferenceEntry,
-    IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+    DataAdapterAndSchemaReader dataAndSchemaAdapter);
 
   /**
    * Adds expectation to the given multiReferenceEntry that its newly referenced
@@ -31,5 +31,5 @@ public interface IMultiReferenceEntryExpectationAdder {
    */
   void addExpectationThatNewlyReferencedEntitiesExistIfMultiReferenceEntryIsNew(
     IMultiReferenceEntry<? extends IEntity> multiReferenceEntry,
-    IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+    DataAdapterAndSchemaReader dataAndSchemaAdapter);
 }

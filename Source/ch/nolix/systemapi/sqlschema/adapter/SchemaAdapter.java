@@ -6,6 +6,6 @@ package ch.nolix.systemapi.sqlschema.adapter;
 /**
  * @author Silvan Wyss
  */
-public interface ISchemaAdapter extends ISchemaReader, ISchemaWriter {
+public interface SchemaAdapter extends ISchemaReader, ISchemaWriter {
   // This interface is a dedicated union of other interfaces.
 }

@@ -9,7 +9,7 @@ import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.baseapi.resourcecontrol.resourcepool.ResourcePool;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
-import ch.nolix.systemapi.sqlschema.adapter.ISchemaAdapter;
+import ch.nolix.systemapi.sqlschema.adapter.SchemaAdapter;
 import ch.nolix.systemapi.sqlschema.adapter.ISchemaReader;
 import ch.nolix.systemapi.sqlschema.adapter.ISchemaWriter;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
@@ -18,7 +18,7 @@ import ch.nolix.systemapi.sqlschema.model.TableDto;
 /**
  * @author Silvan Wyss
  */
-public final class SqlSchemaAdapter implements ISchemaAdapter {
+public final class SqlSchemaAdapter implements SchemaAdapter {
   private final ICloseController closeController = CloseController.forElement(this);
 
   private final ISqlConnection sqlConnection;

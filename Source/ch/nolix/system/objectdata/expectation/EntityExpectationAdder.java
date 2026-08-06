@@ -4,7 +4,7 @@
 package ch.nolix.system.objectdata.expectation;
 
 import ch.nolix.system.objectdata.modelexaminer.EntityExaminer;
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.expectation.IEntityExpectationAdder;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 
@@ -22,7 +22,7 @@ public final class EntityExpectationAdder implements IEntityExpectationAdder {
   @Override
   public void addExpectationThatNewlyReferencedEntitiesExist(
     final IEntity entity,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var fields = entity.internalGetStoredFields();
 
     for (final var f : fields) {
@@ -38,7 +38,7 @@ public final class EntityExpectationAdder implements IEntityExpectationAdder {
   @Override
   public void addExpectationThatNewlyReferencedEntitiesExistIfEntityIsNewOrEdited(
     final IEntity entity,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     if (ENTITY_EXAMINER.isNewOrEdited(entity)) {
       addExpectationThatNewlyReferencedEntitiesExist(entity, dataAndSchemaAdapter);
     }

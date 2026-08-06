@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.expectation;
 
 import ch.nolix.baseapi.programcontrol.function.FunctionService;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.expectation.IFieldExpectationAdder;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.Field;
@@ -28,7 +28,7 @@ public final class FieldExpectationAdder implements IFieldExpectationAdder {
   @Override
   public void addExpectationThatNewlyReferencedEntitiesExist(
     final Field field,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     switch (field) {
       case IReference<? extends IEntity> reference ->
         addExpectationThatNewlyReferencedEntitiesExist(reference, dataAndSchemaAdapter);
@@ -47,7 +47,7 @@ public final class FieldExpectationAdder implements IFieldExpectationAdder {
   @Override
   public void addExpectationThatNewlyReferencedEntitiesExist(
     final IMultiReference<? extends IEntity> multiReference,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var newAndDeletedEntries = multiReference.getStoredNewAndDeletedEntries();
     for (final var e : newAndDeletedEntries) {
       MULTI_REFERENCE_ENTRY_EXPECTATION_ADDER.addExpectationThatNewlyReferencedEntitiesExistIfMultiReferenceEntryIsNew(
@@ -62,7 +62,7 @@ public final class FieldExpectationAdder implements IFieldExpectationAdder {
   @Override
   public void addExpectationThatNewlyReferencedEntitiesExist(
     final IOptionalReference<? extends IEntity> optionalReference,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     if (optionalReference.containsAny()) {
       final var referencedTableName = optionalReference.getReferencedTableName();
       final var referencedEntityId = optionalReference.getReferencedEntityId();
@@ -77,7 +77,7 @@ public final class FieldExpectationAdder implements IFieldExpectationAdder {
   @Override
   public void addExpectationThatNewlyReferencedEntitiesExist(
     final IReference<? extends IEntity> reference,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var referencedTableName = reference.getReferencedTableName();
     final var referencedEntityId = reference.getReferencedEntityId();
 
@@ -90,7 +90,7 @@ public final class FieldExpectationAdder implements IFieldExpectationAdder {
   @Override
   public void addExpectationThatNewlyReferencedEntitiesExistIfFieldIsNewOrEdited(
     final Field field,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     if (FIELD_EXAMINER.isNewOrEdited(field)) {
       addExpectationThatNewlyReferencedEntitiesExist(field, dataAndSchemaAdapter);
     }

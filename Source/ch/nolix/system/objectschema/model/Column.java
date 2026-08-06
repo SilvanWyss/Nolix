@@ -13,7 +13,7 @@ import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.objectschema.modelexaminer.ColumnExaminer;
 import ch.nolix.system.objectschema.modelvalidator.ColumnValidator;
-import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
+import ch.nolix.systemapi.midschema.adapter.SchemaAdapter;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
@@ -241,7 +241,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     return getStoredBackReferencingColumnsWhenIsReferenceColumn();
   }
 
-  ISchemaAdapter getStoredMidSchemaAdapter() {
+  SchemaAdapter getStoredMidSchemaAdapter() {
     return ((Database) getStoredParentDatabase()).getStoredMidSchemaAdapter();
   }
 

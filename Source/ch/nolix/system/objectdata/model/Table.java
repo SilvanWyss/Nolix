@@ -17,7 +17,7 @@ import ch.nolix.system.objectdata.modelexaminer.TableExaminer;
 import ch.nolix.system.objectdata.modelsearcher.TableSearcher;
 import ch.nolix.system.objectdata.modelvalidator.TableValidator;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
 import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
@@ -296,7 +296,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
     }
   }
 
-  IDataAdapterAndSchemaReader getStoredMidDataDataAdapterAndSchemaReader() {
+  DataAdapterAndSchemaReader getStoredMidDataDataAdapterAndSchemaReader() {
     return parentDatabase.getStoredMidDataAdapterAndSchemaReader();
   }
 

@@ -9,7 +9,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
@@ -26,13 +26,13 @@ public final class Database implements IDatabase {
 
   private final ExtendedIterable<? extends ITable<IEntity>> tables;
 
-  private final IDataAdapterAndSchemaReader midDataAdapterAndSchemaReader;
+  private final DataAdapterAndSchemaReader midDataAdapterAndSchemaReader;
 
   private final ICloseController closeController = CloseController.forElement(this);
 
   private Database(
     final IEntityTypeSet entityTypeSet,
-    final IDataAdapterAndSchemaReader midDataAdapterAndSchemaReader) {
+    final DataAdapterAndSchemaReader midDataAdapterAndSchemaReader) {
     ResourceValidator.assertIsOpen(midDataAdapterAndSchemaReader);
     Validator.assertThat(entityTypeSet).thatIsNamed(IEntityTypeSet.class).isNotNull();
 
@@ -45,7 +45,7 @@ public final class Database implements IDatabase {
 
   public static Database withEntityTypeSetAndMidDataAdapterAndSchemaReader(
     final IEntityTypeSet entityTypeSet,
-    final IDataAdapterAndSchemaReader midDataAdapterAndSchemaReader) {
+    final DataAdapterAndSchemaReader midDataAdapterAndSchemaReader) {
     return new Database(entityTypeSet, midDataAdapterAndSchemaReader);
   }
 
@@ -208,7 +208,7 @@ public final class Database implements IDatabase {
     midDataAdapterAndSchemaReader.close();
   }
 
-  IDataAdapterAndSchemaReader getStoredMidDataAdapterAndSchemaReader() {
+  DataAdapterAndSchemaReader getStoredMidDataAdapterAndSchemaReader() {
     return midDataAdapterAndSchemaReader;
   }
 }

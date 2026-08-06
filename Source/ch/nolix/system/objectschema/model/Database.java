@@ -8,7 +8,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectschema.modelvalidator.DatabaseValidator;
-import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
+import ch.nolix.systemapi.midschema.adapter.SchemaAdapter;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
@@ -24,11 +24,11 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
 
   private boolean loadedTablesFromDatabase;
 
-  private final ISchemaAdapter midSchemaAdapter;
+  private final SchemaAdapter midSchemaAdapter;
 
   private LinkedList<ITable> tables = LinkedList.createEmpty();
 
-  private Database(final String name, final ISchemaAdapter midSchemaAdapter) {
+  private Database(final String name, final SchemaAdapter midSchemaAdapter) {
     DATABASE_VALIDATOR.assertCanSetGivenNameToDatabase(name);
     Validator.assertThat(midSchemaAdapter).thatIsNamed("mid schema adapter").isNotNull();
 
@@ -38,7 +38,7 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
     setLoaded();
   }
 
-  public static Database withNameAndMidSchemaAdapter(final String name, final ISchemaAdapter midSchemaAdapter) {
+  public static Database withNameAndMidSchemaAdapter(final String name, final SchemaAdapter midSchemaAdapter) {
     return new Database(name, midSchemaAdapter);
   }
 
@@ -116,7 +116,7 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
     tables.addAtEnd(table);
   }
 
-  ISchemaAdapter getStoredMidSchemaAdapter() {
+  SchemaAdapter getStoredMidSchemaAdapter() {
     DATABASE_OBJECT_VALIDATOR.assertIsConnectedWithRealDatabase(this);
 
     return midSchemaAdapter;

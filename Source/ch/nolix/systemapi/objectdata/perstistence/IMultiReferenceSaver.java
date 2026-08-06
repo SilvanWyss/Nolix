@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.perstistence;
 
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 
 /**
@@ -16,5 +16,5 @@ public interface IMultiReferenceSaver {
    * @param multiReference
    * @param dataAndSchemaAdapter
    */
-  void saveMultiReferenceChanges(IMultiReference<?> multiReference, IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+  void saveMultiReferenceChanges(IMultiReference<?> multiReference, DataAdapterAndSchemaReader dataAndSchemaAdapter);
 }

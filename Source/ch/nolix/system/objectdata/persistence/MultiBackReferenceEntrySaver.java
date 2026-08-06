@@ -6,7 +6,7 @@ package ch.nolix.system.objectdata.persistence;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.middatamodelmapper.MultiBackReferenceEntryDeletionDtoMapper;
 import ch.nolix.system.objectdata.middatamodelmapper.MultiBackReferenceEntryDtoMapper;
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReferenceEntry;
 import ch.nolix.systemapi.objectdata.perstistence.IMultiBackReferenceEntrySaver;
 
@@ -26,7 +26,7 @@ public final class MultiBackReferenceEntrySaver implements IMultiBackReferenceEn
   @Override
   public void saveMultiBackReferenceEntryChange(
     final IMultiBackReferenceEntry<?> multiBackReferenceEntry,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var multiBackReferenceEntryState = multiBackReferenceEntry.getState();
 
     switch (multiBackReferenceEntryState) {
@@ -49,7 +49,7 @@ public final class MultiBackReferenceEntrySaver implements IMultiBackReferenceEn
   @Override
   public void saveMultiBackReferenceEntryCreation(
     final IMultiBackReferenceEntry<?> multiBackReferenceEntry,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var multiBackReferenceEntryDto = //
     MULTI_BACK_REFERENCE_ENTRY_DTO_MAPPER.mapMultiBackReferenceEntryToMultiBackReferenceEntryDto(
       multiBackReferenceEntry);
@@ -63,7 +63,7 @@ public final class MultiBackReferenceEntrySaver implements IMultiBackReferenceEn
   @Override
   public void saveMultiBackReferenceEntryDeletion(
     final IMultiBackReferenceEntry<?> multiBackReferenceEntry,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var multiBackReferenceEntryDeletionDto = //
     MULTI_BACK_REFERENCE_ENTRY_DELETION_DTO_MAPPER.mapMultiBackReferenceEntryToMultiBackReferenceEntryDeletionDto(
       multiBackReferenceEntry);

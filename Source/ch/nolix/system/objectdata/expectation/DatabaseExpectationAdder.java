@@ -4,7 +4,7 @@
 package ch.nolix.system.objectdata.expectation;
 
 import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.expectation.IDatabaseExpectationAdder;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 
@@ -22,7 +22,7 @@ public final class DatabaseExpectationAdder implements IDatabaseExpectationAdder
   @Override
   public void addExpectationThatNewlyReferencedEntitiesExist(
     final IDatabase database,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var entitiesInLocalData = DATABASE_SEARCHER.getStoredEntitiesInLocalData(database);
 
     for (final var e : entitiesInLocalData) {

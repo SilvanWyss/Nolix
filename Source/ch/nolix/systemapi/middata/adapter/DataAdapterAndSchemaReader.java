@@ -9,7 +9,7 @@ import ch.nolix.systemapi.midschema.adapter.ISchemaReader;
 /**
  * @author Silvan Wyss
  */
-public interface IDataAdapterAndSchemaReader
-extends EmptyCopyable<IDataAdapterAndSchemaReader>, IDataAdapter, ISchemaReader {
+public interface DataAdapterAndSchemaReader
+extends EmptyCopyable<DataAdapterAndSchemaReader>, DataAdapter, ISchemaReader {
   // This interface is a dedicated union of other interfaces.
 }

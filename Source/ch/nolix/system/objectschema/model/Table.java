@@ -13,7 +13,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBel
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.objectschema.modelmutationvalidator.TableMutationValidator;
 import ch.nolix.system.objectschema.modelvalidator.TableValidator;
-import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
+import ch.nolix.systemapi.midschema.adapter.SchemaAdapter;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
@@ -196,7 +196,7 @@ public final class Table extends AbstractSchemaObject implements ITable {
     memberColumns.addAtEnd(column);
   }
 
-  ISchemaAdapter getStoredMidSchemaAdapter() {
+  SchemaAdapter getStoredMidSchemaAdapter() {
     return getStoredParentDatabase().getStoredMidSchemaAdapter();
   }
 

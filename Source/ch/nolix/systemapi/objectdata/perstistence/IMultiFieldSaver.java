@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.perstistence;
 
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.Field;
 
@@ -17,7 +17,7 @@ public interface IMultiFieldSaver {
    * @param field
    * @param dataAndSchemaAdapter
    */
-  void saveFieldChangesIfIsMultiField(Field field, IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+  void saveFieldChangesIfIsMultiField(Field field, DataAdapterAndSchemaReader dataAndSchemaAdapter);
 
   /**
    * Saves the changes of the multi fields of the given entity.
@@ -25,5 +25,5 @@ public interface IMultiFieldSaver {
    * @param entity
    * @param dataAndSchemaAdapter
    */
-  void saveMultiFieldChangesOfEntity(IEntity entity, IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+  void saveMultiFieldChangesOfEntity(IEntity entity, DataAdapterAndSchemaReader dataAndSchemaAdapter);
 }

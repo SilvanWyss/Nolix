@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.perstistence;
 
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 
 /**
@@ -16,5 +16,5 @@ public interface IDatabaseSaver {
    * @param database
    * @param dataAndSchemaAdapter
    */
-  void saveDatabaseChanges(IDatabase database, IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+  void saveDatabaseChanges(IDatabase database, DataAdapterAndSchemaReader dataAndSchemaAdapter);
 }

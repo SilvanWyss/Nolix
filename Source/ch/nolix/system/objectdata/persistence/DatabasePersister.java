@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.persistence;
 
 import ch.nolix.system.objectdata.expectation.DatabaseExpectationAdder;
 import ch.nolix.system.objectdata.modelvalidator.DatabaseValidator;
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.perstistence.IDatabasePersister;
 
@@ -25,7 +25,7 @@ public final class DatabasePersister implements IDatabasePersister {
   @Override
   public void persistDatabaseChanges(
     final IDatabase database,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     DATABASE_VALIDATOR.assertCanSaveChanges(database);
 
     dataAndSchemaAdapter.expectSchemaTimestamp(database.getSchemaTimestamp());
@@ -43,7 +43,7 @@ public final class DatabasePersister implements IDatabasePersister {
   @Override
   public void persistDatabaseChangesTransactional(
     final IDatabase database,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     synchronized (DatabasePersister.class) {
       persistDatabaseChanges(database, dataAndSchemaAdapter);
     }

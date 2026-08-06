@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.persistence;
 
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.middatamodelmapper.MultiValueEntryDtoMapper;
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IMultiValueFieldEntry;
 import ch.nolix.systemapi.objectdata.perstistence.IMultiValueFieldEntrySaver;
 
@@ -21,7 +21,7 @@ public final class MultiValueFieldEntrySaver implements IMultiValueFieldEntrySav
   @Override
   public void saveMultiValueFieldEntryChange(
     final IMultiValueFieldEntry<?> multiValueFieldEntry,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var multiValueEntryState = multiValueFieldEntry.getState();
 
     switch (multiValueEntryState) {
@@ -43,7 +43,7 @@ public final class MultiValueFieldEntrySaver implements IMultiValueFieldEntrySav
   @Override
   public void saveMultiValueFieldEntryCreation(
     final IMultiValueFieldEntry<?> multiValueFieldEntry,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var multiValueEntryDto = //
     MULTI_VALUE_ENTRY_DTO_MAPPER.mapMultiValueEntryToMultiValueEntryDto(multiValueFieldEntry);
 
@@ -56,7 +56,7 @@ public final class MultiValueFieldEntrySaver implements IMultiValueFieldEntrySav
   @Override
   public void saveMultiValueFieldEntryDeletion(
     final IMultiValueFieldEntry<?> multiValueFieldEntry,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var multiValueEntryDto = //
     MULTI_VALUE_ENTRY_DTO_MAPPER.mapMultiValueEntryToMultiValueEntryDto(multiValueFieldEntry);
 

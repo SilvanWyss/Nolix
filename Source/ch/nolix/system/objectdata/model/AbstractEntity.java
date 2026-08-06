@@ -15,7 +15,7 @@ import ch.nolix.system.objectdata.modelflyweight.EntityFlyWeight;
 import ch.nolix.system.objectdata.modelflyweight.VoidEntityFlyWeight;
 import ch.nolix.system.objectdata.modelvalidator.EntityValidator;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.Field;
@@ -265,7 +265,7 @@ public abstract class AbstractEntity implements IEntity {
 
   abstract ExtendedIterable<AbstractField> findFields();
 
-  final IDataAdapterAndSchemaReader getStoredMidDataAdapterAndSchemaReader() {
+  final DataAdapterAndSchemaReader getStoredMidDataAdapterAndSchemaReader() {
     return ((Table<?>) getStoredParentTable()).getStoredMidDataDataAdapterAndSchemaReader();
   }
 

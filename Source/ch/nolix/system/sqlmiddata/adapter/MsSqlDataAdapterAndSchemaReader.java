@@ -6,7 +6,7 @@ package ch.nolix.system.sqlmiddata.adapter;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.system.middata.adapter.AbstractDataAdapterAndSchemaReader;
 import ch.nolix.system.sqlmidschema.adapter.SqlSchemaAdapter;
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 
 /**
  * @author Silvan Wyss
@@ -34,7 +34,7 @@ public final class MsSqlDataAdapterAndSchemaReader extends AbstractDataAdapterAn
    * {@inheritDoc}
    */
   @Override
-  public IDataAdapterAndSchemaReader createEmptyCopy() {
+  public DataAdapterAndSchemaReader createEmptyCopy() {
     return forDatabaseNameAndSqlConnection(getDatabaseName(), sqlConnection);
   }
 }

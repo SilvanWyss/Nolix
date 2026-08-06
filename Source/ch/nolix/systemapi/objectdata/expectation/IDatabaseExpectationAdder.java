@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.expectation;
 
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 
 /**
@@ -19,5 +19,5 @@ public interface IDatabaseExpectationAdder {
    */
   void addExpectationThatNewlyReferencedEntitiesExist(
     IDatabase database,
-    IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+    DataAdapterAndSchemaReader dataAndSchemaAdapter);
 }

@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.perstistence;
 
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
 
 /**
@@ -18,7 +18,7 @@ public interface IMultiReferenceEntrySaver {
    */
   void saveMultiReferenceEntryChange(
     IMultiReferenceEntry<?> multiReferenceEntry,
-    IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+    DataAdapterAndSchemaReader dataAndSchemaAdapter);
 
   /**
    * Saves the creation of the given multiReferenceEntry.
@@ -28,7 +28,7 @@ public interface IMultiReferenceEntrySaver {
    */
   void saveMultiReferenceEntryCreation(
     IMultiReferenceEntry<?> multiReferenceEntry,
-    IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+    DataAdapterAndSchemaReader dataAndSchemaAdapter);
 
   /**
    * Saves the deletion of the given multiReferenceEntry.
@@ -38,5 +38,5 @@ public interface IMultiReferenceEntrySaver {
    */
   void saveMultiReferenceEntryDeletion(
     IMultiReferenceEntry<?> multiReferenceEntry,
-    IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+    DataAdapterAndSchemaReader dataAndSchemaAdapter);
 }

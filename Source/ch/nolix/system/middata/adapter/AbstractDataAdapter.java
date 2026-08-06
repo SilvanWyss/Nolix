@@ -8,7 +8,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
-import ch.nolix.systemapi.middata.adapter.IDataAdapter;
+import ch.nolix.systemapi.middata.adapter.DataAdapter;
 import ch.nolix.systemapi.middata.adapter.IDataWriter;
 import ch.nolix.systemapi.middata.loader.IDataReader;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
@@ -27,7 +27,7 @@ import ch.nolix.systemapi.time.moment.ITime;
 /**
  * @author Silvan Wyss
  */
-public abstract class AbstractDataAdapter implements IDataAdapter {
+public abstract class AbstractDataAdapter implements DataAdapter {
   private final ICloseController closeController = CloseController.forElement(this);
 
   private final IDataReader dataReader;
@@ -75,7 +75,7 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
    */
   @Override
   public final void createCloseDependencyTo(final GroupCloseable element) {
-    IDataAdapter.super.createCloseDependencyTo(element);
+    DataAdapter.super.createCloseDependencyTo(element);
   }
 
   /**

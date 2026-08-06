@@ -26,16 +26,16 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
 
   private IDatabase database;
 
-  private final ch.nolix.systemapi.midschema.adapter.ISchemaAdapter midSchemaAdapter;
+  private final ch.nolix.systemapi.midschema.adapter.SchemaAdapter midSchemaAdapter;
 
   private int saveCount;
 
   protected AbstractSchemaAdapter(
     final String databaseName,
-    final ch.nolix.systemapi.midschema.adapter.ISchemaAdapter midSchemaAdapter) {
+    final ch.nolix.systemapi.midschema.adapter.SchemaAdapter midSchemaAdapter) {
     Validator
       .assertThat(midSchemaAdapter)
-      .thatIsNamed(ch.nolix.systemapi.midschema.adapter.ISchemaAdapter.class)
+      .thatIsNamed(ch.nolix.systemapi.midschema.adapter.SchemaAdapter.class)
       .isNotNull();
 
     this.midSchemaAdapter = midSchemaAdapter;

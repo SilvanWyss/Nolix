@@ -12,8 +12,8 @@ import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.system.objectdata.model.Database;
 import ch.nolix.system.objectdata.model.SchemaInitializer;
 import ch.nolix.system.objectdata.persistence.DatabasePersister;
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdata.adapter.IDataAdapter;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
+import ch.nolix.systemapi.objectdata.adapter.DataAdapter;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 import ch.nolix.systemapi.objectdata.model.ITable;
@@ -22,7 +22,7 @@ import ch.nolix.systemapi.objectschema.schemaadapter.ISchemaAdapter;
 /**
  * @author Silvan Wyss
  */
-public abstract class AbstractDataAdapter implements IDataAdapter {
+public abstract class AbstractDataAdapter implements DataAdapter {
   private static final DatabasePersister DATABASE_PERSISTER = new DatabasePersister();
 
   private final String databaseName;
@@ -35,13 +35,13 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
 
   private Database database;
 
-  private IDataAdapterAndSchemaReader midDataAdapterAndSchemaReader;
+  private DataAdapterAndSchemaReader midDataAdapterAndSchemaReader;
 
   protected AbstractDataAdapter(
     final String databaseName,
     final IEntityTypeSet entityTypeSet,
     final ISchemaAdapter schemaAdapter,
-    final Supplier<IDataAdapterAndSchemaReader> midDataAdapterAndSchemaReader) {
+    final Supplier<DataAdapterAndSchemaReader> midDataAdapterAndSchemaReader) {
     Validator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
 
     SchemaInitializer.initializeDatabaseIfDatabaseIsEmpty(entityTypeSet, schemaAdapter);
@@ -64,7 +64,7 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
    */
   @Override
   public final void createCloseDependencyTo(final GroupCloseable element) {
-    IDataAdapter.super.createCloseDependencyTo(element);
+    DataAdapter.super.createCloseDependencyTo(element);
   }
 
   /**
@@ -122,7 +122,7 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
    * {@inheritDoc}
    */
   @Override
-  public final IDataAdapter insertEntity(final IEntity entity) {
+  public final DataAdapter insertEntity(final IEntity entity) {
     database.insertEntity(entity);
 
     return this;

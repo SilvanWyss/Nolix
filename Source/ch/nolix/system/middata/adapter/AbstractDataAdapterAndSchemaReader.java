@@ -5,8 +5,8 @@ package ch.nolix.system.middata.adapter;
 
 import ch.nolix.base.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.systemapi.middata.adapter.IDataAdapter;
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapter;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.midschema.adapter.ISchemaReader;
 import ch.nolix.systemapi.midschema.model.TableDto;
 
@@ -15,10 +15,10 @@ import ch.nolix.systemapi.midschema.model.TableDto;
  */
 public abstract class AbstractDataAdapterAndSchemaReader
 extends AbstractDataAdapter
-implements IDataAdapterAndSchemaReader {
+implements DataAdapterAndSchemaReader {
   private final ISchemaReader schemaReader;
 
-  protected AbstractDataAdapterAndSchemaReader(final IDataAdapter dataAdapter, final ISchemaReader schemaReader) {
+  protected AbstractDataAdapterAndSchemaReader(final DataAdapter dataAdapter, final ISchemaReader schemaReader) {
     super(dataAdapter, dataAdapter);
 
     ResourceValidator.assertIsOpen(schemaReader);

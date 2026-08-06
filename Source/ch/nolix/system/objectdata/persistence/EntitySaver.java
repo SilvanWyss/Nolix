@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.persistence;
 
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.middatamodelmapper.EntityDtoMapper;
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.perstistence.IEntitySaver;
 
@@ -21,7 +21,7 @@ public final class EntitySaver implements IEntitySaver {
    * {@inheritDoc}
    */
   @Override
-  public void saveEntityChanges(final IEntity entity, final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+  public void saveEntityChanges(final IEntity entity, final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var entityState = entity.getState();
 
     switch (entityState) {
@@ -45,7 +45,7 @@ public final class EntitySaver implements IEntitySaver {
    * {@inheritDoc}
    */
   @Override
-  public void saveEntityCreation(final IEntity entity, final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+  public void saveEntityCreation(final IEntity entity, final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var tableName = entity.getStoredParentTable().getName();
     final var entityCreationDto = ENTITY_DTO_MAPPER.mapEntityToEntityCreationDto(entity);
 
@@ -57,7 +57,7 @@ public final class EntitySaver implements IEntitySaver {
    * {@inheritDoc}
    */
   @Override
-  public void saveEntityDeletion(final IEntity entity, final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+  public void saveEntityDeletion(final IEntity entity, final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var tableName = entity.getStoredParentTable().getName();
     final var entityDeletionDto = ENTITY_DTO_MAPPER.mapEntityToEntityDeletionDto(entity);
 
@@ -69,7 +69,7 @@ public final class EntitySaver implements IEntitySaver {
    * {@inheritDoc}
    */
   @Override
-  public void saveEntityUpdates(final IEntity entity, final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+  public void saveEntityUpdates(final IEntity entity, final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var tableName = entity.getStoredParentTable().getName();
     final var entityUpdateDto = ENTITY_DTO_MAPPER.mapEntityToEntityUpdateDto(entity);
 

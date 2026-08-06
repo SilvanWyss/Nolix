@@ -11,7 +11,7 @@ import ch.nolix.system.objectdata.fieldvalidator.FieldValidator;
 import ch.nolix.system.objectdata.modelflyweight.FieldFlyWeight;
 import ch.nolix.system.objectdata.modelflyweight.VoidFieldFlyWeight;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntity;
@@ -195,7 +195,7 @@ public abstract class AbstractField implements Field {
     fieldFlyWeight = FieldFlyWeight.wihUpdateAction(updateAction);
   }
 
-  protected final IDataAdapterAndSchemaReader getStoredDataAndSchemaAdapter() {
+  protected final DataAdapterAndSchemaReader getStoredDataAndSchemaAdapter() {
     return getStoredParentEntity().getStoredMidDataAdapterAndSchemaReader();
   }
 

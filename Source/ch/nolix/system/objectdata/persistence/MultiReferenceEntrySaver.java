@@ -6,7 +6,7 @@ package ch.nolix.system.objectdata.persistence;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.middatamodelmapper.MultiReferenceEntryDeletionDtoMapper;
 import ch.nolix.system.objectdata.middatamodelmapper.MultiReferenceEntryDtoMapper;
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
 import ch.nolix.systemapi.objectdata.perstistence.IMultiReferenceEntrySaver;
 
@@ -26,7 +26,7 @@ public final class MultiReferenceEntrySaver implements IMultiReferenceEntrySaver
   @Override
   public void saveMultiReferenceEntryChange(
     final IMultiReferenceEntry<?> multiReferenceEntry,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var state = multiReferenceEntry.getState();
 
     switch (state) {
@@ -49,7 +49,7 @@ public final class MultiReferenceEntrySaver implements IMultiReferenceEntrySaver
   @Override
   public void saveMultiReferenceEntryCreation(
     final IMultiReferenceEntry<?> multiReferenceEntry,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var multiReferenceEntryDto = //
     MULTI_REFERENCE_ENTRY_DTO_MAPPER.mapMultiReferenceEntryToMultiReferenceEntryDto(multiReferenceEntry);
 
@@ -62,7 +62,7 @@ public final class MultiReferenceEntrySaver implements IMultiReferenceEntrySaver
   @Override
   public void saveMultiReferenceEntryDeletion(
     final IMultiReferenceEntry<?> multiReferenceEntry,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var multiReferenceEntryDeletionDto = //
     MULTI_REFERENCE_ENTRY_DELETION_DTO_MAPPER.mapMultiReferenceEntryToMultiReferenceEntryDeletionDto(
       multiReferenceEntry);

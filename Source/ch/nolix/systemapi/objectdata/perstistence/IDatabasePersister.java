@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.perstistence;
 
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 
 /**
@@ -16,7 +16,7 @@ public interface IDatabasePersister {
    * @param database
    * @param dataAndSchemaAdapter
    */
-  void persistDatabaseChanges(IDatabase database, IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+  void persistDatabaseChanges(IDatabase database, DataAdapterAndSchemaReader dataAndSchemaAdapter);
 
   /**
    * Persists the changes of the given database in one transaction.
@@ -24,5 +24,5 @@ public interface IDatabasePersister {
    * @param database
    * @param dataAndSchemaAdapter
    */
-  void persistDatabaseChangesTransactional(IDatabase database, IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+  void persistDatabaseChangesTransactional(IDatabase database, DataAdapterAndSchemaReader dataAndSchemaAdapter);
 }

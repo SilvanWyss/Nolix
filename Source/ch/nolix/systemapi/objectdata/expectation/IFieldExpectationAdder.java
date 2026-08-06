@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.expectation;
 
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
@@ -21,7 +21,7 @@ public interface IFieldExpectationAdder {
    * @param field
    * @param dataAndSchemaAdapter
    */
-  void addExpectationThatNewlyReferencedEntitiesExist(Field field, IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+  void addExpectationThatNewlyReferencedEntitiesExist(Field field, DataAdapterAndSchemaReader dataAndSchemaAdapter);
 
   /**
    * Adds expectation to the given multiReference that its newly referenced
@@ -32,7 +32,7 @@ public interface IFieldExpectationAdder {
    */
   void addExpectationThatNewlyReferencedEntitiesExist(
     IMultiReference<? extends IEntity> multiReference,
-    IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+    DataAdapterAndSchemaReader dataAndSchemaAdapter);
 
   /**
    * Adds expectation to the given optionalReference that its newly referenced
@@ -43,7 +43,7 @@ public interface IFieldExpectationAdder {
    */
   void addExpectationThatNewlyReferencedEntitiesExist(
     IOptionalReference<? extends IEntity> optionalReference,
-    IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+    DataAdapterAndSchemaReader dataAndSchemaAdapter);
 
   /**
    * Adds expectation to the given reference that its newly referenced entities
@@ -54,7 +54,7 @@ public interface IFieldExpectationAdder {
    */
   void addExpectationThatNewlyReferencedEntitiesExist(
     IReference<? extends IEntity> reference,
-    IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+    DataAdapterAndSchemaReader dataAndSchemaAdapter);
 
   /**
    * Adds expectation to the given field that its newly referenced entities
@@ -65,5 +65,5 @@ public interface IFieldExpectationAdder {
    */
   void addExpectationThatNewlyReferencedEntitiesExistIfFieldIsNewOrEdited(
     Field field,
-    IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+    DataAdapterAndSchemaReader dataAndSchemaAdapter);
 }

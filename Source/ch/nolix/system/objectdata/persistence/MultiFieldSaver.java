@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.persistence;
 
 import ch.nolix.baseapi.programcontrol.function.FunctionService;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
-import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
@@ -31,7 +31,7 @@ public final class MultiFieldSaver implements IMultiFieldSaver {
   @Override
   public void saveFieldChangesIfIsMultiField(
     final Field field,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     switch (field) {
       case IMultiValueField<?> multiValueField ->
         MULTI_VALUE_FIELD_SAVER.saveMultiValueFieldChanges(multiValueField, dataAndSchemaAdapter);
@@ -50,7 +50,7 @@ public final class MultiFieldSaver implements IMultiFieldSaver {
   @Override
   public void saveMultiFieldChangesOfEntity(
     final IEntity entity,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var entityState = entity.getState();
 
     switch (entityState) {
@@ -79,7 +79,7 @@ public final class MultiFieldSaver implements IMultiFieldSaver {
    */
   private void saveFieldChangesIfIsNewOrEditedMultiField(
     final Field field,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     if (FIELD_EXAMINER.isNewOrEdited(field)) {
       saveFieldChangesIfIsMultiField(field, dataAndSchemaAdapter);
     }

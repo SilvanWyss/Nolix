@@ -10,7 +10,7 @@ import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
-import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
+import ch.nolix.systemapi.midschema.adapter.SchemaAdapter;
 import ch.nolix.systemapi.midschema.adapter.ISchemaReader;
 import ch.nolix.systemapi.midschema.adapter.ISchemaWriter;
 import ch.nolix.systemapi.midschema.databaseinitializer.IDatabaseInitializer;
@@ -24,7 +24,7 @@ import ch.nolix.systemapi.time.moment.ITime;
 /**
  * @author Silvan Wyss
  */
-public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
+public abstract class AbstractSchemaAdapter implements SchemaAdapter {
   private final ICloseController closeController = CloseController.forElement(this);
 
   private final ISchemaReader schemaReader;
@@ -73,7 +73,7 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
    */
   @Override
   public final void createCloseDependencyTo(final GroupCloseable element) {
-    ISchemaAdapter.super.createCloseDependencyTo(element);
+    SchemaAdapter.super.createCloseDependencyTo(element);
   }
 
   /**
