@@ -26,6 +26,6 @@ extends AbstractEntity {
    */
   @Override
   final ExtendedIterable<AbstractField> findFields() {
-    return ENTITY_FIELD_EXTRACTOR.extractStoredFieldsFromEntity(this);
+    return ENTITY_FIELD_EXTRACTOR.extractStoredFieldsFromEntity(this, AbstractField.class);
   }
 }

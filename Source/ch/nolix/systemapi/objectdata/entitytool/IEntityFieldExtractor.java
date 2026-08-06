@@ -4,20 +4,20 @@
 package ch.nolix.systemapi.objectdata.entitytool;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.Field;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the {@link IEntity}s a {@link IEntityFieldExtractor}
- *            can extract {@link Field}s from.
- * @param <F> the type of the {@link Field}s of the {@link IEntity}s a
- *            {@link IEntityFieldExtractor} can extract.
  */
-public interface IEntityFieldExtractor<E extends IEntity, F extends Field> {
+public interface IEntityFieldExtractor {
   /**
    * @param entity
+   * @param fieldClass
+   * @param <F>        the type of the {@link Field}s that will be extract from
+   *                   the given entity
    * @return the {@link Field}s from the given entity.
+   * @throws RuntimeException if the given entity is null.
+   * @throws RuntimeException if the given fieldClass is null.
    */
-  ExtendedIterable<F> extractStoredFieldsFromEntity(final E entity);
+  <F extends Field> ExtendedIterable<F> extractStoredFieldsFromEntity(final Object entity, Class<F> fieldClass);
 }
