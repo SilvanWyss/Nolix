@@ -245,7 +245,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   }
 
   ISchemaAdapter getStoredMidSchemaAdapter() {
-    return ((Database) COLUMN_TOOL.getParentDatabase(this)).getStoredMidSchemaAdapter();
+    return ((Database) getStoredParentDatabase()).getStoredMidSchemaAdapter();
   }
 
   void internalSetContentModelToDatabase() {
@@ -305,8 +305,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   private ExtendedIterable<? extends IColumn> getStoredBackReferencingColumnsWhenIsReferenceColumn() {
     if (belongsToDatabase()) {
       return //
-      COLUMN_TOOL
-        .getParentDatabase(this)
+      getStoredParentDatabase()
         .getStoredTables()
         .toMultiples(t -> t.getStoredColumns().getStoredSelected(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this)));
     }
@@ -322,8 +321,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   private boolean isBackReferencedWhenIsAnyReferenceColumn() {
     if (belongsToDatabase()) {
       return //
-      COLUMN_TOOL
-        .getParentDatabase(this)
+      getStoredParentDatabase()
         .getStoredTables()
         .containsMatching(
           t -> t.getStoredColumns().containsMatching(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this)));

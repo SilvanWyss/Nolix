@@ -6,7 +6,6 @@ package ch.nolix.system.objectschema.modeltool;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.midschema.fieldproperty.BaseFieldType;
 import ch.nolix.systemapi.objectschema.model.IColumn;
-import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
 
@@ -14,14 +13,6 @@ import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
  * @author Silvan Wyss
  */
 public final class ColumnTool extends DatabaseObjectExaminer implements IColumnTool {
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public IDatabase getParentDatabase(final IColumn column) {
-    return column.getStoredParentTable().getStoredParentDatabase();
-  }
-
   /**
    * {@inheritDoc}
    */
