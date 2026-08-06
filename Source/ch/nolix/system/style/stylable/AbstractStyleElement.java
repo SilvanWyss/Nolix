@@ -7,7 +7,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNam
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.style.model.Style;
 import ch.nolix.systemapi.style.model.IStyle;
-import ch.nolix.systemapi.style.stylable.IStyleElement;
+import ch.nolix.systemapi.style.styleholder.StyleHolder;
 
 /**
  * A {@link AbstractStyleElement} is a {@link AbstractStyleElement} that can
@@ -17,7 +17,7 @@ import ch.nolix.systemapi.style.stylable.IStyleElement;
  * @param <E> the type of a {@link AbstractStyleElement}.
  */
 public abstract class AbstractStyleElement<E extends AbstractStyleElement<E>> extends AbstractStylableElement<E>
-implements IStyleElement<E> {
+implements StyleHolder<E> {
   private static final String CONFIGURATION_HEADER = PascalCaseVariableNameCatalog.CONFIGURATION;
 
   private final OptionalValue<IStyle> style = //
