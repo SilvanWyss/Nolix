@@ -142,14 +142,6 @@ public final class FolderAccessor extends FileSystemItemAccessor {
   }
 
   /**
-   * Opens the folder of the current {@link FolderAccessor} in a new file
-   * explorer.
-   */
-  public void openInFileExplorer() {
-    FileSystemAccessor.openInFileExplorer(getPath());
-  }
-
-  /**
    * Reads the content of the file with the given relative path.
    * 
    * @param relativePath

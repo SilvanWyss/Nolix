@@ -51,26 +51,6 @@ public final class FileSystemAccessor {
   }
 
   /**
-   * Opens the folder with the given path in a new file explorer.
-   * 
-   * @param path
-   */
-  public static void openInFileExplorer(final String path) {
-    try {
-      Runtime.getRuntime().exec(new String[] { "explorer.exe", "/select,", path });
-    } catch (final IOException pIOException) {
-      throw WrapperException.forError(pIOException);
-    }
-  }
-
-  /**
-   * Opens the folder of the running jar file in a new file explorer.
-   */
-  public static void openFolderOfRunningJarFileInExplorer() {
-    openInFileExplorer(getFolderPathOfRunningJarFile());
-  }
-
-  /**
    * Creates a new empty file with the given path.
    * 
    * @param path

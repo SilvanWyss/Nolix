@@ -120,14 +120,6 @@ public class FileSystemItemAccessor {
   }
 
   /**
-   * Opens the parent folder of the file system item of this file system item
-   * accessor in the file explorer.
-   */
-  public final void openParentFolder() {
-    getParentFolderAccessor().openInFileExplorer();
-  }
-
-  /**
    * @return the internal accessor of this file system item accessor.
    */
   protected final File getInternalAccessor() {
