@@ -33,5 +33,7 @@ IdHolder {
     ExtendedIterable<? extends ITable> referenceableTables,
     ExtendedIterable<? extends IColumn> backReferenceableColumns);
 
+  int getColumnCount();
+
   ExtendedIterable<? extends IColumn> getStoredColumns();
 }

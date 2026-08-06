@@ -13,11 +13,6 @@ import ch.nolix.systemapi.objectschema.modeltool.ITableTool;
  * @author Silvan Wyss
  */
 public final class TableTool extends DatabaseObjectExaminer implements ITableTool {
-  @Override
-  public int getColumnCount(final ITable table) {
-    return table.getStoredColumns().getCount();
-  }
-
   /**
    * {@inheritDoc}
    */

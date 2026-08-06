@@ -119,6 +119,15 @@ public final class Table extends AbstractSchemaObject implements ITable {
     TableEditor.deleteTable(this);
   }
 
+  //For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public int getColumnCount() {
+    return memberColumns.getCount();
+  }
+
   /**
    * {@inheritDoc}
    */
