@@ -14,7 +14,7 @@ import ch.nolix.system.webgui.controltool.AbstractControlCssBuilder;
 import ch.nolix.system.webgui.controltool.CssValueMapper;
 import ch.nolix.systemapi.control.grid.IGrid;
 import ch.nolix.systemapi.control.grid.IGridStyle;
-import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss

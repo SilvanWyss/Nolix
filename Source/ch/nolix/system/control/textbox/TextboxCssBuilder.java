@@ -10,7 +10,7 @@ import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.system.webgui.controltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.control.textbox.ITextbox;
 import ch.nolix.systemapi.control.textbox.ITextboxStyle;
-import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss

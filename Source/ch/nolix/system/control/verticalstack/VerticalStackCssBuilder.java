@@ -14,7 +14,7 @@ import ch.nolix.baseapi.web.htmlcatalog.HtmlElementTypeCatalog;
 import ch.nolix.system.webgui.controltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.control.verticalstack.IVerticalStack;
 import ch.nolix.systemapi.control.verticalstack.IVerticalStackStyle;
-import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss

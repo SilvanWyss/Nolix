@@ -6,7 +6,7 @@ package ch.nolix.system.control.itemmenu;
 import ch.nolix.system.webgui.controlstyle.AbstractControlStyle;
 import ch.nolix.systemapi.control.itemmenu.IItemMenuStyle;
 import ch.nolix.systemapi.element.multistateconfiguration.IMultiStateConfiguration;
-import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss

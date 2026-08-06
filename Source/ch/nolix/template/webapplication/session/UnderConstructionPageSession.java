@@ -13,7 +13,7 @@ import ch.nolix.system.webapplication.main.WebClientSession;
 import ch.nolix.systemapi.control.container.ContainerRole;
 import ch.nolix.systemapi.control.label.LabelRole;
 import ch.nolix.systemapi.graphic.image.IImage;
-import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss

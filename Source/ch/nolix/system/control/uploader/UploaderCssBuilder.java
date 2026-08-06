@@ -9,7 +9,7 @@ import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.system.webgui.controltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.control.uploader.IUploader;
 import ch.nolix.systemapi.control.uploader.IUploaderStyle;
-import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss

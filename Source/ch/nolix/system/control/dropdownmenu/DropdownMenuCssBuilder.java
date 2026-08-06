@@ -8,7 +8,7 @@ import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 import ch.nolix.system.control.itemmenu.AbstractItemMenuCssBuilder;
 import ch.nolix.systemapi.control.dropdownmenu.IDropdownMenu;
 import ch.nolix.systemapi.control.dropdownmenu.IDropdownMenuStyle;
-import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss

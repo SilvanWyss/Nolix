@@ -9,7 +9,7 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.main.Control;
-import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss

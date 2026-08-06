@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.webgui.controlstyle;
 
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
-import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss

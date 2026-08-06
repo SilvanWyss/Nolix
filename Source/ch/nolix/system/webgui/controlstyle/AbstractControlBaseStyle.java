@@ -15,7 +15,7 @@ import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.gui.font.Font;
 import ch.nolix.systemapi.gui.font.LineDecoration;
 import ch.nolix.systemapi.webgui.controlstyle.IControlBaseStyle;
-import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss

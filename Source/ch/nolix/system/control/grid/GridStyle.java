@@ -12,7 +12,7 @@ import ch.nolix.system.webgui.controlstyle.AbstractControlStyle;
 import ch.nolix.systemapi.control.grid.GridType;
 import ch.nolix.systemapi.control.grid.IGridStyle;
 import ch.nolix.systemapi.graphic.color.IColor;
-import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss

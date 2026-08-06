@@ -8,7 +8,7 @@ import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.webgui.controlstyle.AbstractControlStyle;
 import ch.nolix.systemapi.control.linearcontainer.ILinearContainerStyle;
 import ch.nolix.systemapi.element.multistateconfiguration.IMultiStateConfiguration;
-import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss

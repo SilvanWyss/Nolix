@@ -9,7 +9,7 @@ import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.system.webgui.controltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.control.singlecontainer.ISingleContainer;
 import ch.nolix.systemapi.control.singlecontainer.ISingleContainerStyle;
-import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss

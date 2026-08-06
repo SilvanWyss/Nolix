@@ -9,7 +9,7 @@ import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.system.webgui.controltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.webapplication.component.IComponent;
 import ch.nolix.systemapi.webapplication.component.IComponentStyle;
-import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss

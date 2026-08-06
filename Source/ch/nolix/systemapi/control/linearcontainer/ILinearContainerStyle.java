@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.control.linearcontainer;
 
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
-import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss

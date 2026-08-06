@@ -26,7 +26,7 @@ import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
 import ch.nolix.systemapi.webgui.main.Control;
-import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss
