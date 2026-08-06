@@ -6,8 +6,8 @@ package ch.nolix.system.webgui.main;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.webgui.controlstructure.IControlParent;
 import ch.nolix.systemapi.webgui.main.Control;
+import ch.nolix.systemapi.webgui.main.IControlParent;
 import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
