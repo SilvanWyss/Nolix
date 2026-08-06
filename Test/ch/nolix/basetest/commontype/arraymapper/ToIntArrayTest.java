@@ -6,7 +6,9 @@ package ch.nolix.basetest.commontype.arraymapper;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.commontype.arraymapper.ArrayMapper;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
 
 /**
@@ -36,5 +38,18 @@ final class ToIntArrayTest extends StandardTest {
     expectRunning(() -> testUnit.toIntArray(iterable, 10, String::length))
       .throwsException()
       .ofType(UnequalArgumentException.class);
+  }
+
+  @Test
+  void testCase_toIntArray_whenGivenIntMapperIsNull() {
+    // setup
+    final Iterable<String> iterable = ImmutableList.createEmpty();
+    final var testUnit = new ArrayMapper();
+
+    // execute & verify
+    expectRunning(() -> testUnit.toIntArray(iterable, 0, null))
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessageThatMatches("The given int mapper is null.");
   }
 }
