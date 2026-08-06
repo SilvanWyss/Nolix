@@ -5,16 +5,17 @@ package ch.nolix.system.objectschema.modeltool;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
+import ch.nolix.system.objectschema.modelexaminer.ColumnExaminer;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
-import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
+import ch.nolix.systemapi.objectschema.modelexaminer.IColumnExaminer;
 import ch.nolix.systemapi.objectschema.modeltool.ITableTool;
 
 /**
  * @author Silvan Wyss
  */
 public final class TableTool extends DatabaseObjectExaminer implements ITableTool {
-  private static final IColumnTool COLUMN_TOOL = new ColumnTool();
+  private static final IColumnExaminer COLUMN_EXAMINER = new ColumnExaminer();
 
   @Override
   public int getColumnCount(final ITable table) {
@@ -26,7 +27,7 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
    */
   @Override
   public ExtendedIterable<? extends IColumn> getStoredBaseBackReferenceColumns(final ITable table) {
-    return table.getStoredColumns().getStoredSelected(COLUMN_TOOL::isABackReferenceColumn);
+    return table.getStoredColumns().getStoredSelected(COLUMN_EXAMINER::isBaseBackReferenceColumn);
   }
 
   /**

@@ -7,16 +7,12 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectschema.modelexaminer.ColumnExaminer;
-import ch.nolix.system.objectschema.modeltool.ColumnTool;
 import ch.nolix.system.objectschema.modelvalidator.DatabaseValidator;
 import ch.nolix.system.objectschema.modelvalidator.TableValidator;
 import ch.nolix.systemapi.databaseobject.modelvalidator.IDatabaseObjectValidator;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modelmutationvalidator.ITableMutationValidator;
-import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
-import ch.nolix.systemapi.objectschema.modelvalidator.IDatabaseValidator;
-import ch.nolix.systemapi.objectschema.modelvalidator.ITableValidator;
 
 /**
  * @author Silvan Wyss
@@ -24,13 +20,11 @@ import ch.nolix.systemapi.objectschema.modelvalidator.ITableValidator;
 public final class TableMutationValidator implements ITableMutationValidator {
   private static final IDatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 
-  private static final IDatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();
+  private static final DatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();
 
-  private static final ITableValidator TABLE_VALIDATOR = new TableValidator();
+  private static final TableValidator TABLE_VALIDATOR = new TableValidator();
 
   private static final ColumnExaminer COLUMN_EXAMINER = new ColumnExaminer();
-
-  private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
   /**
    * {@inheritDoc}
@@ -50,7 +44,7 @@ public final class TableMutationValidator implements ITableMutationValidator {
       referencedTables.forEach(t -> DATABASE_VALIDATOR.assertContainsTable(database, t));
     }
 
-    if (COLUMN_TOOL.isABackReferenceColumn(column) && table.belongsToDatabase()) {
+    if (COLUMN_EXAMINER.isBaseBackReferenceColumn(column) && table.belongsToDatabase()) {
       final var backReferenceableColumns = column.getStoredBackReferenceableColumns();
       final var database = table.getStoredParentDatabase();
 

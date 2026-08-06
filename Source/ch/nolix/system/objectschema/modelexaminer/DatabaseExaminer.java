@@ -48,14 +48,13 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
     final IDatabase database,
     final IColumn column) {
     // This part is not mandatory, but provides a better performance.
-    if (!COLUMN_TOOL.isABackReferenceColumn(column)) {
+    if (!COLUMN_EXAMINER.isBaseBackReferenceColumn(column)) {
       return false;
     }
 
     return //
-    database != null //
-    &&
-    database.getStoredTables().containsMatching(
+    database != null
+    && database.getStoredTables().containsMatching(
       t -> TABLE_EXAMINER.containsColumnThatIsBackReferencedByColumn(t, column));
   }
 

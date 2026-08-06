@@ -7,13 +7,12 @@ import ch.nolix.system.objectschema.modeltool.ColumnTool;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modelexaminer.ITableExaminer;
-import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
 
 /**
  * @author Silvan Wyss
  */
 public final class TableExaminer implements ITableExaminer {
-  private static final IColumnTool COLUMN_TOOL = new ColumnTool();
+  private static final ColumnTool COLUMN_TOOL = new ColumnTool();
 
   private static final ColumnExaminer COLUMN_EXAMINER = new ColumnExaminer();
 
@@ -36,7 +35,7 @@ public final class TableExaminer implements ITableExaminer {
     table != null
 
     // This part is not mandatory, but provides a better performance.
-    && COLUMN_TOOL.isABackReferenceColumn(column)
+    && COLUMN_EXAMINER.isBaseBackReferenceColumn(column)
 
     && table.getStoredColumns().containsMatching(c -> COLUMN_TOOL.referencesBackGivenColumn(c, column));
   }
