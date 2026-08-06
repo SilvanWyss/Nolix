@@ -19,16 +19,6 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
    * {@inheritDoc}
    */
   @Override
-  public void assertIsABackReferenceColumn(final IColumn column) {
-    if (!isABackReferenceColumn(column)) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(column, "is not a back reference column");
-    }
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public void assertIsAReferenceColumn(final IColumn column) {
     if (!isAReferenceColumn(column)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(column, "is not any reference column");
