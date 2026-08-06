@@ -47,7 +47,7 @@ public final class DatabaseValidator implements IDatabaseValidator {
    */
   @Override
   public void assertAllBackReferencesAreValid(final IDatabase database) {
-    if (!DATABASE_EXAMINER.allBackReferencesAreValid(database)) {
+    if (!DATABASE_EXAMINER.allBaseBackReferencesAreValid(database)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(database, "contains invalid back references");
     }
   }

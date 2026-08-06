@@ -11,7 +11,7 @@ import ch.nolix.systemapi.objectschema.model.ITable;
  * @author Silvan Wyss
  */
 public interface IDatabaseExaminer {
-  boolean allBackReferencesAreValid(IDatabase database);
+  boolean allBaseBackReferencesAreValid(IDatabase database);
 
   boolean canSetName(String name);
 

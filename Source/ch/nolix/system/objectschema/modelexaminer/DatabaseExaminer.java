@@ -20,7 +20,7 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
   private static final ColumnExaminer COLUMN_EXAMINER = new ColumnExaminer();
 
   @Override
-  public boolean allBackReferencesAreValid(final IDatabase database) {
+  public boolean allBaseBackReferencesAreValid(final IDatabase database) {
 
     final var baseBackReferenceColumns = DATABASE_SEARCHER.getStoredBaseBackReferenceColumns(database);
 
