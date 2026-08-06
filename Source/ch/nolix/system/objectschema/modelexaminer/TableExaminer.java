@@ -15,6 +15,8 @@ import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
 public final class TableExaminer implements ITableExaminer {
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
+  private static final ColumnExaminer COLUMN_EXAMINER = new ColumnExaminer();
+
   /**
    * {@inheritDoc}
    */
@@ -48,7 +50,7 @@ public final class TableExaminer implements ITableExaminer {
     table != null
 
     // This part is not mandatory, but provides a better performance.
-    && COLUMN_TOOL.isAReferenceColumn(column)
+    && COLUMN_EXAMINER.isBaseReferenceColumn(column)
 
     && table.getStoredColumns().containsMatching(c -> COLUMN_TOOL.referencesBackGivenColumn(c, column));
   }

@@ -11,6 +11,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.system.objectschema.modelexaminer.ColumnExaminer;
 import ch.nolix.system.objectschema.modeltool.ColumnTool;
 import ch.nolix.system.objectschema.modelvalidator.ColumnValidator;
 import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
@@ -20,9 +21,7 @@ import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
-import ch.nolix.systemapi.objectschema.modeleditor.IColumnEditor;
 import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
-import ch.nolix.systemapi.objectschema.modelvalidator.IColumnValidator;
 
 /**
  * @author Silvan Wyss
@@ -30,11 +29,13 @@ import ch.nolix.systemapi.objectschema.modelvalidator.IColumnValidator;
 public final class Column extends AbstractSchemaObject implements IColumn {
   private static final String INITIAL_HEADER = StringCatalog.PASCAL_CASE_DEFAULT;
 
-  private static final IColumnEditor<Column> COLUMN_EDITOR = new ColumnEditor();
+  private static final ColumnValidator COLUMN_VALIDATOR = new ColumnValidator();
+
+  private static final ColumnExaminer COLUMN_EXAMINER = new ColumnExaminer();
+
+  private static final ColumnEditor COLUMN_EDITOR = new ColumnEditor();
 
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();
-
-  private static final IColumnValidator COLUMN_VALIDATOR = new ColumnValidator();
 
   private final String id;
 
@@ -171,7 +172,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
    */
   @Override
   public boolean isBackReferenced() {
-    if (!COLUMN_TOOL.isAReferenceColumn(this)) {
+    if (!COLUMN_EXAMINER.isBaseReferenceColumn(this)) {
       return false;
     }
 
@@ -237,7 +238,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   }
 
   ExtendedIterable<? extends IColumn> getStoredBackReferencingColumns() {
-    if (!COLUMN_TOOL.isAReferenceColumn(this)) {
+    if (!COLUMN_EXAMINER.isBaseReferenceColumn(this)) {
       return LinkedList.createEmpty();
     }
 

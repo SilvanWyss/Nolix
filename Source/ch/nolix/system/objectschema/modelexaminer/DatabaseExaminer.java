@@ -18,6 +18,8 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
 
   private static final TableExaminer TABLE_EXAMINER = new TableExaminer();
 
+  private static final ColumnExaminer COLUMN_EXAMINER = new ColumnExaminer();
+
   private static final ColumnTool COLUMN_TOOL = new ColumnTool();
 
   @Override
@@ -73,7 +75,7 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
   @Override
   public boolean containsTableReferencedByColumn(final IDatabase database, final IColumn column) {
     // This part is not mandatory, but provides a better performance.
-    if (!COLUMN_TOOL.isAReferenceColumn(column)) {
+    if (!COLUMN_EXAMINER.isBaseReferenceColumn(column)) {
       return false;
     }
 

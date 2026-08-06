@@ -6,6 +6,7 @@ package ch.nolix.system.objectschema.modelmutationvalidator;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
+import ch.nolix.system.objectschema.modelexaminer.ColumnExaminer;
 import ch.nolix.system.objectschema.modeltool.ColumnTool;
 import ch.nolix.system.objectschema.modelvalidator.DatabaseValidator;
 import ch.nolix.system.objectschema.modelvalidator.TableValidator;
@@ -27,6 +28,8 @@ public final class TableMutationValidator implements ITableMutationValidator {
 
   private static final ITableValidator TABLE_VALIDATOR = new TableValidator();
 
+  private static final ColumnExaminer COLUMN_EXAMINER = new ColumnExaminer();
+
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
   /**
@@ -40,10 +43,10 @@ public final class TableMutationValidator implements ITableMutationValidator {
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(column);
     DATABASE_OBJECT_VALIDATOR.assertIsNew(column);
 
-    if (COLUMN_TOOL.isAReferenceColumn(column) && table.belongsToDatabase()) {
+    if (COLUMN_EXAMINER.isBaseReferenceColumn(column) && table.belongsToDatabase()) {
       final var referencedTables = column.getStoredReferenceableTables();
-
       final var database = table.getStoredParentDatabase();
+
       referencedTables.forEach(t -> DATABASE_VALIDATOR.assertContainsTable(database, t));
     }
 
