@@ -38,12 +38,4 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
 
     return false;
   }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public boolean referencesBackGivenColumn(final IColumn column, final IColumn probableBackReferencedColumn) {
-    return column.referencesBackColumn(probableBackReferencedColumn);
-  }
 }

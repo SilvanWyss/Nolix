@@ -12,7 +12,6 @@ import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.objectschema.modelexaminer.ColumnExaminer;
-import ch.nolix.system.objectschema.modeltool.ColumnTool;
 import ch.nolix.system.objectschema.modelvalidator.ColumnValidator;
 import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
@@ -21,7 +20,6 @@ import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
-import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
 
 /**
  * @author Silvan Wyss
@@ -34,8 +32,6 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   private static final ColumnExaminer COLUMN_EXAMINER = new ColumnExaminer();
 
   private static final ColumnEditor COLUMN_EDITOR = new ColumnEditor();
-
-  private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
   private final String id;
 
@@ -308,12 +304,11 @@ public final class Column extends AbstractSchemaObject implements IColumn {
       return //
       getStoredParentDatabase()
         .getStoredTables()
-        .toMultiples(t -> t.getStoredColumns().getStoredSelected(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this)));
+        .toMultiples(t -> t.getStoredColumns().getStoredSelected(c -> c.referencesBackColumn(this)));
     }
 
     if (belongsToTable()) {
-      return //
-      getStoredParentTable().getStoredColumns().getStoredSelected(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this));
+      return getStoredParentTable().getStoredColumns().getStoredSelected(c -> c.referencesBackColumn(this));
     }
 
     return LinkedList.createEmpty();
@@ -325,12 +320,11 @@ public final class Column extends AbstractSchemaObject implements IColumn {
       getStoredParentDatabase()
         .getStoredTables()
         .containsMatching(
-          t -> t.getStoredColumns().containsMatching(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this)));
+          t -> t.getStoredColumns().containsMatching(c -> c.referencesBackColumn(this)));
     }
 
     if (belongsToTable()) {
-      return //
-      getStoredParentTable().getStoredColumns().containsMatching(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this));
+      return getStoredParentTable().getStoredColumns().containsMatching(c -> c.referencesBackColumn(this));
     }
 
     return false;

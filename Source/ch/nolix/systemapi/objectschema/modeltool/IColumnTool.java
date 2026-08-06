@@ -11,6 +11,4 @@ import ch.nolix.systemapi.objectschema.model.IColumn;
  */
 public interface IColumnTool extends IDatabaseObjectExaminer {
   boolean isAValidBackReferenceColumn(IColumn column);
-
-  boolean referencesBackGivenColumn(IColumn column, IColumn probableBackReferencedColumn);
 }

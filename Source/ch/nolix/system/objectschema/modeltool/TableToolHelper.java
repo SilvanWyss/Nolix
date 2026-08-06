@@ -6,14 +6,11 @@ package ch.nolix.system.objectschema.modeltool;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
-import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
 
 /**
  * @author Silvan Wyss
  */
 public final class TableToolHelper {
-  private static final IColumnTool COLUMN_TOOL = new ColumnTool();
-
   private TableToolHelper() {
   }
 
@@ -24,14 +21,14 @@ public final class TableToolHelper {
     return //
     table
       .getStoredColumns()
-      .getStoredSelected(c -> columns.containsMatching(c2 -> COLUMN_TOOL.referencesBackGivenColumn(c, c2)));
+      .getStoredSelected(c -> columns.containsMatching(c2 -> c.referencesBackColumn(c2)));
   }
 
   public static ExtendedIterable<? extends IColumn> getStoredBackReferencingColumnsWhenDoesNotBelongToDatabase(
     final ITable table) {
     final var columns = table.getStoredColumns();
 
-    return columns.getStoredSelected(c -> columns.containsMatching(c2 -> COLUMN_TOOL.referencesBackGivenColumn(c, c2)));
+    return columns.getStoredSelected(c -> columns.containsMatching(c2 -> c.referencesBackColumn(c2)));
   }
 
   public static ExtendedIterable<? extends IColumn> getStoredReferencingColumnsWhenBelongsToDatabase(
