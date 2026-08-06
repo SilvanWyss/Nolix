@@ -8,7 +8,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
-import ch.nolix.systemapi.objectdata.model.IBaseValueField;
+import ch.nolix.systemapi.objectdata.model.BaseValueField;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.Field;
 
@@ -16,7 +16,7 @@ import ch.nolix.systemapi.objectdata.model.Field;
  * @author Silvan Wyss
  * @param <V> the type of the values of a {@link AbstractBaseValueField}.
  */
-public abstract class AbstractBaseValueField<V> extends AbstractField implements IBaseValueField<V> {
+public abstract class AbstractBaseValueField<V> extends AbstractField implements BaseValueField<V> {
   private final Class<V> valueType;
 
   protected AbstractBaseValueField(final Class<V> valueType) {

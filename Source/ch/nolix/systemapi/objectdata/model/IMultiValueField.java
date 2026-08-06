@@ -12,7 +12,7 @@ import ch.nolix.baseapi.generalstate.statemutation.Clearable;
  * @author Silvan Wyss
  * @param <V> the type of the values of a {@link IMultiValueField}.
  */
-public interface IMultiValueField<V> extends Clearable, IBaseValueField<V>, Iterable<V> {
+public interface IMultiValueField<V> extends Clearable, BaseValueField<V>, Iterable<V> {
   void addValue(V value);
 
   ExtendedIterable<V> getAllStoredValues();
