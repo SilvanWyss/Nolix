@@ -30,7 +30,15 @@ public interface IColumnExaminer {
 
   /**
    * @param column
-   * @return true if the given column is open and empty and not back referenced.
+   * @return true if the given column is open and empty and not back referenced,
+   *         false otherwise
    */
   boolean isOpenAndEmptyAndNotBackReferenced(IColumn column);
+
+  /**
+   * @param column
+   * @return true if the given column is a valid base back reference column, false
+   *         otherwise
+   */
+  boolean isValidBaseBackReferenceColumn(IColumn column);
 }

@@ -4,7 +4,6 @@
 package ch.nolix.system.objectschema.modelexaminer;
 
 import ch.nolix.system.objectschema.modelsearcher.DatabaseSearcher;
-import ch.nolix.system.objectschema.modeltool.ColumnTool;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
@@ -20,14 +19,12 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
 
   private static final ColumnExaminer COLUMN_EXAMINER = new ColumnExaminer();
 
-  private static final ColumnTool COLUMN_TOOL = new ColumnTool();
-
   @Override
   public boolean allBackReferencesAreValid(final IDatabase database) {
 
     final var baseBackReferenceColumns = DATABASE_SEARCHER.getStoredBaseBackReferenceColumns(database);
 
-    return baseBackReferenceColumns.containsMatchingOnly(COLUMN_TOOL::isAValidBackReferenceColumn);
+    return baseBackReferenceColumns.containsMatchingOnly(COLUMN_EXAMINER::isValidBaseBackReferenceColumn);
   }
 
   /**

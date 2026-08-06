@@ -52,4 +52,28 @@ public final class ColumnExaminer implements IColumnExaminer {
     && column.isEmpty()
     && !column.isBackReferenced();
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean isValidBaseBackReferenceColumn(final IColumn column) {
+    final var fieldType = column.getFieldType();
+    final var baseType = fieldType.getBaseType();
+
+    if (baseType == BaseFieldType.BASE_BACK_REFERENCE) {
+      final var table = column.getStoredParentTable();
+      final var backReferenceableColumns = column.getStoredBackReferenceableColumns();
+
+      for (final var c : backReferenceableColumns) {
+        if (!isBaseReferenceColumn(c) || !c.referencesTable(table)) {
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+    return false;
+  }
 }
