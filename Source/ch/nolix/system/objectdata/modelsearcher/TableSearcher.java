@@ -12,14 +12,13 @@ import ch.nolix.system.objectdata.modelexaminer.ColumnExaminer;
 import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
-import ch.nolix.systemapi.objectdata.modelexaminer.IColumnExaminer;
 import ch.nolix.systemapi.objectdata.modelsearcher.ITableSearcher;
 
 /**
  * @author Silvan Wyss
  */
 public final class TableSearcher extends DatabaseObjectExaminer implements ITableSearcher {
-  private static final IColumnExaminer COLUMN_EXAMINER = new ColumnExaminer();
+  private static final ColumnExaminer COLUMN_EXAMINER = new ColumnExaminer();
 
   /**
    * {@inheritDoc}

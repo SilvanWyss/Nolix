@@ -12,14 +12,13 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 import ch.nolix.system.objectdata.modelexaminer.EntityExaminer;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
-import ch.nolix.systemapi.objectdata.modelexaminer.IEntityExaminer;
 import ch.nolix.systemapi.objectdata.modelvalidator.IEntityValidator;
 
 /**
  * @author Silvan Wyss
  */
 public final class EntityValidator implements IEntityValidator {
-  private static final IEntityExaminer ENTITY_EXAMINER = new EntityExaminer();
+  private static final EntityExaminer ENTITY_EXAMINER = new EntityExaminer();
 
   @Override
   public void assertBelongsToTable(final IEntity entity) {

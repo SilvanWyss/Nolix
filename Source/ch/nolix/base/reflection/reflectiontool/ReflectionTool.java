@@ -15,7 +15,6 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.reflection.reflectionexaminer.IFieldExaminer;
 
 /**
  * @author Silvan Wyss
@@ -25,7 +24,7 @@ public final class ReflectionTool {
 
   private static final MemberExaminer MEMBER_EXAMINER = new MemberExaminer();
 
-  private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
+  private static final FieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
   private static final FieldTool FIELD_TOOL = new FieldTool();
 

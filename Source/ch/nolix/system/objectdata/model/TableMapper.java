@@ -6,13 +6,12 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.system.objectdata.schemasearcher.SchemaSearcher;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.schemamodelsearcher.ISchemaSearcher;
 
 /**
  * @author Silvan Wyss
  */
 public final class TableMapper {
-  private static final ISchemaSearcher SCHEMA_SEARCHER = new SchemaSearcher();
+  private static final SchemaSearcher SCHEMA_SEARCHER = new SchemaSearcher();
 
   private TableMapper() {
   }

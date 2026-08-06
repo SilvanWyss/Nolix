@@ -17,14 +17,13 @@ import ch.nolix.systemapi.objectdata.adapter.IDataAdapter;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 import ch.nolix.systemapi.objectdata.model.ITable;
-import ch.nolix.systemapi.objectdata.perstistence.IDatabasePersister;
 import ch.nolix.systemapi.objectschema.schemaadapter.ISchemaAdapter;
 
 /**
  * @author Silvan Wyss
  */
 public abstract class AbstractDataAdapter implements IDataAdapter {
-  private static final IDatabasePersister DATABASE_PERSISTER = new DatabasePersister();
+  private static final DatabasePersister DATABASE_PERSISTER = new DatabasePersister();
 
   private final String databaseName;
 

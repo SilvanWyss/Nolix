@@ -12,7 +12,6 @@ import ch.nolix.base.validation.performanceanalysis.PerformanceAnalyzer;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.validation.performance.IActionMediator;
-import ch.nolix.baseapi.validation.performanceanalysis.IPerformanceAnalyzer;
 import ch.nolix.baseapi.validation.performanceanalysis.TimeComplexityFunctionCatalog;
 
 /**
@@ -20,7 +19,7 @@ import ch.nolix.baseapi.validation.performanceanalysis.TimeComplexityFunctionCat
  * @param <O> the type of the {@link Object}s a {@link ActionMediator} is for.
  */
 public final class ActionMediator<O> implements IActionMediator {
-  private static final IPerformanceAnalyzer PERFORMANCE_ANALYZER = new PerformanceAnalyzer();
+  private static final PerformanceAnalyzer PERFORMANCE_ANALYZER = new PerformanceAnalyzer();
 
   private final IntFunction<O> objectSupplier;
 

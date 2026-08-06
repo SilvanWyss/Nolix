@@ -25,7 +25,6 @@ import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 import ch.nolix.techapi.math.fractal.IFractal;
-import ch.nolix.techapi.math.fractal.IFractalTool;
 import ch.nolix.techapi.math.fractal.IImageGenerator;
 
 /**
@@ -34,7 +33,7 @@ import ch.nolix.techapi.math.fractal.IImageGenerator;
 public final class ImageGenerator extends AbstractFuture implements IImageGenerator {
   private static final int IMAGE_ROWS_PER_THREAD = 10;
 
-  private static final IFractalTool FRACTAL_TOOL = new FractalTool();
+  private static final FractalTool FRACTAL_TOOL = new FractalTool();
 
   private final IFractal fractal;
 

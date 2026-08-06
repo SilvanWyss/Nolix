@@ -14,24 +14,20 @@ import ch.nolix.system.sqlmiddata.statementcreator.MultiValueStatementCreator;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
 import ch.nolix.systemapi.middata.model.EntityDeletionDto;
 import ch.nolix.systemapi.middata.model.EntityUpdateDto;
-import ch.nolix.systemapi.sqlmiddata.statementcreator.IEntityStatementCreator;
-import ch.nolix.systemapi.sqlmiddata.statementcreator.IMultiBackReferenceStatementCreator;
-import ch.nolix.systemapi.sqlmiddata.statementcreator.IMultiReferenceStatementCreator;
-import ch.nolix.systemapi.sqlmiddata.statementcreator.IMultiValueStatementCreator;
 import ch.nolix.systemapi.time.moment.ITime;
 
 /**
  * @author Silvan Wyss
  */
 public final class ExecutiveDataWriter {
-  private static final IEntityStatementCreator ENTITY_STATEMENT_CREATOR = new EntityStatementCreator();
+  private static final EntityStatementCreator ENTITY_STATEMENT_CREATOR = new EntityStatementCreator();
 
-  private static final IMultiValueStatementCreator MULTI_VALUE_STATEMENT_CREATOR = new MultiValueStatementCreator();
+  private static final MultiValueStatementCreator MULTI_VALUE_STATEMENT_CREATOR = new MultiValueStatementCreator();
 
-  private static final IMultiReferenceStatementCreator MULTI_REFERENCE_STATEMENT_CREATOR = //
+  private static final MultiReferenceStatementCreator MULTI_REFERENCE_STATEMENT_CREATOR = //
   new MultiReferenceStatementCreator();
 
-  private static final IMultiBackReferenceStatementCreator MULTI_BACK_REFERENCE_STATEMENT_CREATOR = //
+  private static final MultiBackReferenceStatementCreator MULTI_BACK_REFERENCE_STATEMENT_CREATOR = //
   new MultiBackReferenceStatementCreator();
 
   private int saveCount;

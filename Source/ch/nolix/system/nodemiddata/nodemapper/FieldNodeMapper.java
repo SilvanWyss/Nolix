@@ -11,17 +11,15 @@ import ch.nolix.system.midschemainfo.modelsearcher.TableInfoSearcher;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
 import ch.nolix.systemapi.midschema.databasestructure.FixDatabasePropertyCatalogue;
 import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
-import ch.nolix.systemapi.midschemainfo.modelsearcher.ITableInfoSearcher;
-import ch.nolix.systemapi.nodemiddata.nodemapper.IContentFieldNodeMapper;
 import ch.nolix.systemapi.nodemiddata.nodemapper.IFieldNodeMapper;
 
 /**
  * @author Silvan Wyss
  */
 public final class FieldNodeMapper implements IFieldNodeMapper {
-  private static final ITableInfoSearcher TABLE_VIEW_SEARCHER = new TableInfoSearcher();
+  private static final TableInfoSearcher TABLE_VIEW_SEARCHER = new TableInfoSearcher();
 
-  private static final IContentFieldNodeMapper CONTENT_FIELD_NODE_MAPPER = new ContentFieldNodeMapper();
+  private static final ContentFieldNodeMapper CONTENT_FIELD_NODE_MAPPER = new ContentFieldNodeMapper();
 
   /**
    * {@inheritDoc}

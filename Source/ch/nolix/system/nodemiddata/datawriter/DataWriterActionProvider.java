@@ -22,39 +22,30 @@ import ch.nolix.system.nodemidschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.middata.model.EntityUpdateDto;
 import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
-import ch.nolix.systemapi.midschemainfo.modelsearcher.ITableInfoSearcher;
-import ch.nolix.systemapi.nodemiddata.nodeeditor.ITableNodeEditor;
-import ch.nolix.systemapi.nodemiddata.nodeexaminer.ITableNodeExaminer;
-import ch.nolix.systemapi.nodemiddata.nodemapper.IContentFieldNodeMapper;
-import ch.nolix.systemapi.nodemiddata.nodesearcher.IEntityNodeSearcher;
-import ch.nolix.systemapi.nodemiddata.nodesearcher.ITableNodeSearcher;
-import ch.nolix.systemapi.nodemiddata.nodevalidator.ITableNodeValidator;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabaseNodeSearcher;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.time.moment.ITime;
 
 /**
  * @author Silvan Wyss
  */
 public final class DataWriterActionProvider {
-  private static final IDatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
+  private static final DatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 
-  private static final IDatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
+  private static final DatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
   new DatabasePropertiesNodeSearcher();
 
-  private static final ITableInfoSearcher TABLE_VIEW_SEARCHER = new TableInfoSearcher();
+  private static final TableInfoSearcher TABLE_VIEW_SEARCHER = new TableInfoSearcher();
 
-  private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
+  private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
-  private static final ITableNodeExaminer TABLE_NODE_EXAMINER = new TableNodeExaminer();
+  private static final TableNodeExaminer TABLE_NODE_EXAMINER = new TableNodeExaminer();
 
-  private static final ITableNodeValidator TABLE_NODE_VALIDATOR = new TableNodeValidator();
+  private static final TableNodeValidator TABLE_NODE_VALIDATOR = new TableNodeValidator();
 
-  private static final ITableNodeEditor TABLE_NODE_EDITOR = new TableNodeEditor();
+  private static final TableNodeEditor TABLE_NODE_EDITOR = new TableNodeEditor();
 
-  private static final IEntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
+  private static final EntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
 
-  private static final IContentFieldNodeMapper CONTENT_FIELD_NODE_MAPPER = new ContentFieldNodeMapper();
+  private static final ContentFieldNodeMapper CONTENT_FIELD_NODE_MAPPER = new ContentFieldNodeMapper();
 
   private DataWriterActionProvider() {
   }

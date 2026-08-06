@@ -6,7 +6,6 @@ package ch.nolix.system.sqlmiddata.modelmapper;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.middata.valuemapper.ValueMapper;
 import ch.nolix.systemapi.middata.model.FieldDto;
-import ch.nolix.systemapi.middata.valuemapper.IValueMapper;
 import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
 import ch.nolix.systemapi.sqlmiddata.modelmapper.IContentFieldDtoMapper;
 
@@ -14,7 +13,7 @@ import ch.nolix.systemapi.sqlmiddata.modelmapper.IContentFieldDtoMapper;
  * @author Silvan Wyss
  */
 public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
-  private static final IValueMapper VALUE_MAPPER = new ValueMapper();
+  private static final ValueMapper VALUE_MAPPER = new ValueMapper();
 
   /**
    * {@inheritDoc}

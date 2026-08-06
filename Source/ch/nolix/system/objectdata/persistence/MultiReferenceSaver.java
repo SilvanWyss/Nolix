@@ -5,14 +5,13 @@ package ch.nolix.system.objectdata.persistence;
 
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
-import ch.nolix.systemapi.objectdata.perstistence.IMultiReferenceEntrySaver;
 import ch.nolix.systemapi.objectdata.perstistence.IMultiReferenceSaver;
 
 /**
  * @author Silvan Wyss
  */
 public final class MultiReferenceSaver implements IMultiReferenceSaver {
-  private static final IMultiReferenceEntrySaver MULTI_REFERENCE_ENTRY_SAVER = new MultiReferenceEntrySaver();
+  private static final MultiReferenceEntrySaver MULTI_REFERENCE_ENTRY_SAVER = new MultiReferenceEntrySaver();
 
   /**
    * {@inheritDoc}

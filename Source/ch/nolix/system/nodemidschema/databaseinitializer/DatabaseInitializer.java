@@ -7,8 +7,6 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.system.midschema.databaseinitializer.AbstractDatabaseInitializer;
 import ch.nolix.systemapi.midschema.databaseinitializer.DatabaseState;
-import ch.nolix.systemapi.nodemidschema.databaseinitializer.IDatabaseComponentCreator;
-import ch.nolix.systemapi.nodemidschema.databaseinitializer.IDatabaseStateAnalyser;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 import ch.nolix.systemapi.time.moment.ITime;
 
@@ -16,9 +14,9 @@ import ch.nolix.systemapi.time.moment.ITime;
  * @author Silvan Wyss
  */
 public final class DatabaseInitializer extends AbstractDatabaseInitializer {
-  private static final IDatabaseStateAnalyser DATABASE_STATE_ANALYSER = new DatabaseStateAnalyser();
+  private static final DatabaseStateAnalyser DATABASE_STATE_ANALYSER = new DatabaseStateAnalyser();
 
-  private static final IDatabaseComponentCreator DATABASE_COMPONENT_CREATOR = new DatabaseComponentCreator();
+  private static final DatabaseComponentCreator DATABASE_COMPONENT_CREATOR = new DatabaseComponentCreator();
 
   private final String databaseName;
 

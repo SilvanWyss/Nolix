@@ -7,13 +7,12 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
 /**
  * @author Silvan Wyss
  */
 public final class BaseBackReferenceUpdater {
-  private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
+  private static final EntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
   private BaseBackReferenceUpdater() {
   }

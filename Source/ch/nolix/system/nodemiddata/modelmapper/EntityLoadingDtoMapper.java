@@ -7,17 +7,15 @@ import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.system.nodemiddata.nodesearcher.EntityNodeSearcher;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
 import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
-import ch.nolix.systemapi.nodemiddata.modelmapper.IContentFieldDtoMapper;
 import ch.nolix.systemapi.nodemiddata.modelmapper.IEntityLoadingDtoMapper;
-import ch.nolix.systemapi.nodemiddata.nodesearcher.IEntityNodeSearcher;
 
 /**
  * @author Silvan Wyss
  */
 public final class EntityLoadingDtoMapper implements IEntityLoadingDtoMapper {
-  private static final IEntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
+  private static final EntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
 
-  private static final IContentFieldDtoMapper CONTENT_FIELD_DTO_MAPPER = new ContentFieldDtoMapper();
+  private static final ContentFieldDtoMapper CONTENT_FIELD_DTO_MAPPER = new ContentFieldDtoMapper();
 
   /**
    * {@inheritDoc}

@@ -11,7 +11,6 @@ import ch.nolix.system.objectschema.modelvalidator.DatabaseValidator;
 import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
-import ch.nolix.systemapi.objectschema.modelvalidator.IDatabaseValidator;
 
 /**
  * @author Silvan Wyss
@@ -19,7 +18,7 @@ import ch.nolix.systemapi.objectschema.modelvalidator.IDatabaseValidator;
 public final class Database extends AbstractSchemaObject implements IDatabase {
   private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 
-  private static final IDatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();
+  private static final DatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();
 
   private final String memberName;
 

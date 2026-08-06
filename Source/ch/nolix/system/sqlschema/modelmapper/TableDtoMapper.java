@@ -7,14 +7,13 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.sql.model.ISqlRecord;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
-import ch.nolix.systemapi.sqlschema.modelmapper.IColumnDtoMapper;
 import ch.nolix.systemapi.sqlschema.modelmapper.ITableDtoMapper;
 
 /**
  * @author Silvan Wyss
  */
 public final class TableDtoMapper implements ITableDtoMapper {
-  private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
+  private static final ColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
 
   /**
    * {@inheritDoc}

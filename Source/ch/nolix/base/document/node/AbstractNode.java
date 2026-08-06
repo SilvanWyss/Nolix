@@ -11,7 +11,6 @@ import ch.nolix.base.document.xml.MutableXmlNode;
 import ch.nolix.base.environment.filesystem.FileSystemAccessor;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.document.node.INodeComparator;
 import ch.nolix.baseapi.document.xml.IMutableXmlNode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
@@ -30,7 +29,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
 
   public static final String CLOSED_BRACKET_CODE = "$C";
 
-  private static final INodeComparator NODE_COMPARATOR = new NodeComparator();
+  private static final NodeComparator NODE_COMPARATOR = new NodeComparator();
 
   /**
    * @param string

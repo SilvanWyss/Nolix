@@ -7,7 +7,6 @@ import ch.nolix.base.web.cssmodel.CssProperty;
 import ch.nolix.baseapi.web.csscatalog.CssPropertyNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 import ch.nolix.systemapi.gui.box.ICornerShadow;
-import ch.nolix.systemapi.gui.cssmapper.ICssValueMapper;
 
 /**
  * Of the {@link CornerShadowToCssMapperHelper} an instance cannot be created.
@@ -15,7 +14,7 @@ import ch.nolix.systemapi.gui.cssmapper.ICssValueMapper;
  * @author Silvan Wyss
  */
 public final class CornerShadowToCssMapperHelper {
-  private static final ICssValueMapper CSS_VALUE_MAPPER = new CssValueMapper();
+  private static final CssValueMapper CSS_VALUE_MAPPER = new CssValueMapper();
 
   /**
    * Prevents that an instance of the {@link CornerShadowToCssMapperHelper} can be

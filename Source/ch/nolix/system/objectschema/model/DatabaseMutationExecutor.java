@@ -4,10 +4,9 @@
 package ch.nolix.system.objectschema.model;
 
 import ch.nolix.system.objectschema.midschemamodelmapper.TableDtoMapper;
-import ch.nolix.systemapi.objectschema.midschemamodelmapper.ITableDtoMapper;
 
 final class DatabaseMutationExecutor {
-  private static final ITableDtoMapper TABLE_DTO_MAPPER = new TableDtoMapper();
+  private static final TableDtoMapper TABLE_DTO_MAPPER = new TableDtoMapper();
 
   private DatabaseMutationExecutor() {
   }

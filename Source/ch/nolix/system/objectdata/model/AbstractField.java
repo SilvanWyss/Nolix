@@ -12,7 +12,6 @@ import ch.nolix.system.objectdata.modelflyweight.FieldFlyWeight;
 import ch.nolix.system.objectdata.modelflyweight.VoidFieldFlyWeight;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdata.fieldvalidator.IFieldValidator;
 import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntity;
@@ -24,7 +23,7 @@ import ch.nolix.systemapi.objectdata.modelflyweight.IFieldFlyWeight;
  * @author Silvan Wyss
  */
 public abstract class AbstractField implements IField {
-  private static final IFieldValidator FIELD_VALIDATOR = new FieldValidator();
+  private static final FieldValidator FIELD_VALIDATOR = new FieldValidator();
 
   private static final VoidFieldFlyWeight VOID_FIELD_FLY_WEIGHT = new VoidFieldFlyWeight();
 

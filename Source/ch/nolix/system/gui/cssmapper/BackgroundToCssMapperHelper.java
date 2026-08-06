@@ -13,16 +13,15 @@ import ch.nolix.systemapi.gui.background.IBackground;
 import ch.nolix.systemapi.gui.background.ImageApplication;
 import ch.nolix.systemapi.gui.box.Direction;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
-import ch.nolix.systemapi.gui.cssmapper.ICssValueMapper;
 
 /**
  * @author Silvan Wyss
  */
 public final class BackgroundToCssMapperHelper {
-  private static final ICssProperty TRANSPARENT_BACKGROUND_CSS_PROPERTY = //
+  private static final CssProperty TRANSPARENT_BACKGROUND_CSS_PROPERTY = //
   CssProperty.withNameAndValue(CssPropertyNameCatalog.BACKGROUND, "none");
 
-  private static final ICssValueMapper CSS_VALUE_MAPPER = new CssValueMapper();
+  private static final CssValueMapper CSS_VALUE_MAPPER = new CssValueMapper();
 
   public static final ImmutableList<ICssProperty> TRANSPARENT_BACKGROUND_CSS_PROPERTIES = ImmutableList
     .withElements(TRANSPARENT_BACKGROUND_CSS_PROPERTY);

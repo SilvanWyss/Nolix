@@ -6,18 +6,16 @@ package ch.nolix.system.objectdata.persistence;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.middatamodelmapper.EntityDtoMapper;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdata.middatamodelmapper.IEntityDtoMapper;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.perstistence.IEntitySaver;
-import ch.nolix.systemapi.objectdata.perstistence.IMultiFieldSaver;
 
 /**
  * @author Silvan Wyss
  */
 public final class EntitySaver implements IEntitySaver {
-  private static final IEntityDtoMapper ENTITY_DTO_MAPPER = new EntityDtoMapper();
+  private static final EntityDtoMapper ENTITY_DTO_MAPPER = new EntityDtoMapper();
 
-  private static final IMultiFieldSaver MULTI_FIELD_SAVER = new MultiFieldSaver();
+  private static final MultiFieldSaver MULTI_FIELD_SAVER = new MultiFieldSaver();
 
   /**
    * {@inheritDoc}

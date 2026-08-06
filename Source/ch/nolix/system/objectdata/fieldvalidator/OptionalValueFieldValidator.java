@@ -6,7 +6,6 @@ package ch.nolix.system.objectdata.fieldvalidator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.fieldexaminer.OptionalValueFieldExaminer;
-import ch.nolix.systemapi.objectdata.fieldexaminer.IOptionalValueFieldExaminer;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IOptionalValueFieldValidator;
 import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
 
@@ -14,7 +13,7 @@ import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
  * @author Silvan Wyss
  */
 public final class OptionalValueFieldValidator extends FieldValidator implements IOptionalValueFieldValidator {
-  private static final IOptionalValueFieldExaminer OPTIONAL_VALUE_TOOL = new OptionalValueFieldExaminer();
+  private static final OptionalValueFieldExaminer OPTIONAL_VALUE_TOOL = new OptionalValueFieldExaminer();
 
   @Override
   public <V> void assertCanSetValue(final IOptionalValueField<V> optionalValueField, final V value) {

@@ -10,7 +10,6 @@ import java.util.function.Function;
 import ch.nolix.base.commontype.stringexaminer.StringExaminer;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.commontype.stringexaminer.IStringExaminer;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -27,7 +26,7 @@ import ch.nolix.systemapi.element.multistateconfiguration.ValueStoringState;
 public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends AbstractProperty<S> {
   private static final String NONE_HEADER = "None";
 
-  private static final IStringExaminer STRING_EXAMINER = new StringExaminer();
+  private static final StringExaminer STRING_EXAMINER = new StringExaminer();
 
   private final Function<INode<?>, V> valueCreator;
 

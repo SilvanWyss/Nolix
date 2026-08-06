@@ -6,14 +6,13 @@ package ch.nolix.system.sqlmiddata.schemaviewloader;
 import ch.nolix.system.midschemainfo.modelmapper.TableInfoDtoMapper;
 import ch.nolix.systemapi.midschema.adapter.ISchemaReader;
 import ch.nolix.systemapi.midschemainfo.model.DatabaseInfoDto;
-import ch.nolix.systemapi.midschemainfo.modelmapper.ITableInfoDtoMapper;
 import ch.nolix.systemapi.sqlmiddata.schemaviewloader.IDatabaseSchemaViewLoader;
 
 /**
  * @author Silvan Wyss
  */
 public final class DatabaseSchemaViewLoader implements IDatabaseSchemaViewLoader {
-  private static final ITableInfoDtoMapper TABLE_DEFINITION_MAPPER = new TableInfoDtoMapper();
+  private static final TableInfoDtoMapper TABLE_DEFINITION_MAPPER = new TableInfoDtoMapper();
 
   /**
    * {@inheritDoc}

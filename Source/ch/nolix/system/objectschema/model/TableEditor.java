@@ -5,13 +5,12 @@ package ch.nolix.system.objectschema.model;
 
 import ch.nolix.system.objectschema.midschemamodelmapper.ColumnDtoMapper;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
-import ch.nolix.systemapi.objectschema.midschemamodelmapper.IColumnDtoMapper;
 
 /**
  * @author Silvan Wyss
  */
 public final class TableEditor {
-  private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
+  private static final ColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
 
   private TableEditor() {
   }

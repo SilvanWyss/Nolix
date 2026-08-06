@@ -6,14 +6,12 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
-import ch.nolix.systemapi.databaseobject.modelvalidator.IDatabaseObjectValidator;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReferenceEntry;
 import ch.nolix.systemapi.objectdata.model.ITable;
-import ch.nolix.systemapi.objectdata.modelsearcher.IDatabaseSearcher;
 import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
 /**
@@ -22,9 +20,9 @@ import ch.nolix.systemapi.objectdata.structure.EntityCache;
  *            references back.
  */
 public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiBackReferenceEntry<E> {
-  private static final IDatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
+  private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 
-  private static final IDatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
+  private static final DatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
 
   private final IMultiBackReference<E> parentMultiBackReference;
 

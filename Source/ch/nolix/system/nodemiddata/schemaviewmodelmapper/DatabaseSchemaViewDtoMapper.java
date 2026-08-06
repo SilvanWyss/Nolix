@@ -7,16 +7,14 @@ import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.systemapi.midschemainfo.model.DatabaseInfoDto;
 import ch.nolix.systemapi.nodemiddata.schemaviewmodelmapper.IDatabaseSchemaViewDtoMapper;
-import ch.nolix.systemapi.nodemiddata.schemaviewmodelmapper.ITableSchemaViewDtoMapper;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabaseNodeSearcher;
 
 /**
  * @author Silvan Wyss
  */
 public final class DatabaseSchemaViewDtoMapper implements IDatabaseSchemaViewDtoMapper {
-  private static final IDatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
+  private static final DatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 
-  private static final ITableSchemaViewDtoMapper TABLE_SCHEMA_VIEW_DTO_MAPPER = new TableSchemaViewDtoMapper();
+  private static final TableSchemaViewDtoMapper TABLE_SCHEMA_VIEW_DTO_MAPPER = new TableSchemaViewDtoMapper();
 
   /**
    * {@inheritDoc}

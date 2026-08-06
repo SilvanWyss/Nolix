@@ -6,22 +6,20 @@ package ch.nolix.system.objectdata.persistence;
 import ch.nolix.baseapi.programcontrol.function.FunctionService;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 import ch.nolix.systemapi.objectdata.perstistence.IMultiFieldSaver;
-import ch.nolix.systemapi.objectdata.perstistence.IMultiValueFieldSaver;
 
 /**
  * @author Silvan Wyss
  */
 public final class MultiFieldSaver implements IMultiFieldSaver {
-  private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
+  private static final FieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
-  private static final IMultiValueFieldSaver MULTI_VALUE_FIELD_SAVER = new MultiValueFieldSaver();
+  private static final MultiValueFieldSaver MULTI_VALUE_FIELD_SAVER = new MultiValueFieldSaver();
 
   private static final MultiReferenceSaver MULTI_REFERENCE_SAVER = new MultiReferenceSaver();
 

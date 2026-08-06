@@ -7,13 +7,12 @@ import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.system.nodemidschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
 import ch.nolix.systemapi.nodemiddata.schemaviewmodelmapper.IColumnSchemaViewDtoMapper;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.IColumnNodeSearcher;
 
 /**
  * @author Silvan Wyss
  */
 public final class ColumnSchemaViewDtoMapper implements IColumnSchemaViewDtoMapper {
-  private static final IColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
+  private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
   @Override
   /**

@@ -14,16 +14,14 @@ import ch.nolix.system.sqlschema.modelmapper.TableDtoMapper;
 import ch.nolix.system.sqlschema.querycreator.QueryCreator;
 import ch.nolix.systemapi.sqlschema.adapter.ISchemaReader;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
-import ch.nolix.systemapi.sqlschema.modelmapper.ITableDtoMapper;
-import ch.nolix.systemapi.sqlschema.querycreator.IQueryCreator;
 
 /**
  * @author Silvan Wyss
  */
 public final class SchemaReader implements ISchemaReader {
-  private static final IQueryCreator QUERY_CREATOR = new QueryCreator();
+  private static final QueryCreator QUERY_CREATOR = new QueryCreator();
 
-  private static final ITableDtoMapper TABLE_DTO_MAPPER = new TableDtoMapper();
+  private static final TableDtoMapper TABLE_DTO_MAPPER = new TableDtoMapper();
 
   private final ICloseController closeController = CloseController.forElement(this);
 

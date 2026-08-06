@@ -8,14 +8,13 @@ import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
 import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
 import ch.nolix.systemapi.nodemiddata.nodemapper.IEntityNodeMapper;
-import ch.nolix.systemapi.nodemiddata.nodemapper.IFieldNodeMapper;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 
 /**
  * @author Silvan Wyss
  */
 public final class EntityNodeMapper implements IEntityNodeMapper {
-  private static final IFieldNodeMapper FIELD_NODE_MAPPER = new FieldNodeMapper();
+  private static final FieldNodeMapper FIELD_NODE_MAPPER = new FieldNodeMapper();
 
   @Override
   /**

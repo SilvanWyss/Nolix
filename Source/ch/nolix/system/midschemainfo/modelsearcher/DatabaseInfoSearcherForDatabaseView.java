@@ -7,14 +7,13 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
 import ch.nolix.systemapi.midschemainfo.model.DatabaseInfoDto;
 import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
-import ch.nolix.systemapi.midschemainfo.modelsearcher.IDatabaseInfoSearcher;
 import ch.nolix.systemapi.midschemainfo.modelsearcher.IDatabaseInfoSearcherForDatabaseInfo;
 
 /**
  * @author Silvan Wyss
  */
 public final class DatabaseInfoSearcherForDatabaseView implements IDatabaseInfoSearcherForDatabaseInfo {
-  private static final IDatabaseInfoSearcher DATABASE_VIEW_SEARCHER = new DatabaseInfoSearcher();
+  private static final DatabaseInfoSearcher DATABASE_VIEW_SEARCHER = new DatabaseInfoSearcher();
 
   private final DatabaseInfoDto databaseView;
 

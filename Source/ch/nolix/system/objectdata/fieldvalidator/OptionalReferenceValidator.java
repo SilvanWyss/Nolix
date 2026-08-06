@@ -6,7 +6,6 @@ package ch.nolix.system.objectdata.fieldvalidator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.fieldexaminer.OptionalReferenceExaminer;
-import ch.nolix.systemapi.objectdata.fieldexaminer.IOptionalReferenceExaminer;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IOptionalReferenceValidator;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IOptionalReference;
@@ -15,7 +14,7 @@ import ch.nolix.systemapi.objectdata.model.IOptionalReference;
  * @author Silvan Wyss
  */
 public final class OptionalReferenceValidator extends FieldValidator implements IOptionalReferenceValidator {
-  private static final IOptionalReferenceExaminer OPTIONAL_REFERENCE_EXAMINER = new OptionalReferenceExaminer();
+  private static final OptionalReferenceExaminer OPTIONAL_REFERENCE_EXAMINER = new OptionalReferenceExaminer();
 
   @Override
   public void assertCanBeCleared(final IOptionalReference<?> optionalReference) {

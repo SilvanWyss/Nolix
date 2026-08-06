@@ -8,13 +8,12 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
-import ch.nolix.systemapi.nodemidschema.nodemapper.IColumnNodeMapper;
 
 /**
  * @author Silvan Wyss
  */
 public final class TableNodeComponentMapper {
-  private static final IColumnNodeMapper COLUMN_NODE_MAPPER = new ColumnNodeMapper();
+  private static final ColumnNodeMapper COLUMN_NODE_MAPPER = new ColumnNodeMapper();
 
   private TableNodeComponentMapper() {
   }

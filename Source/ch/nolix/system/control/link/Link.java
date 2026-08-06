@@ -15,7 +15,6 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSup
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
-import ch.nolix.baseapi.web.url.IUrlTool;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
@@ -49,7 +48,7 @@ public final class Link extends AbstractControl<ILink, ILinkStyle> implements IL
 
   private static final LinkCssBuilder LINK_CSS_BUILDER = new LinkCssBuilder();
 
-  private static final IUrlTool URL_TOOL = new UrlTool();
+  private static final UrlTool URL_TOOL = new UrlTool();
 
   private final Value<String> displayText = //
   Value.forStringWithNameAndDefaultValueAndSetter(

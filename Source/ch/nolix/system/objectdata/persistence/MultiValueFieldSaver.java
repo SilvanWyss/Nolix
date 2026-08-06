@@ -5,14 +5,13 @@ package ch.nolix.system.objectdata.persistence;
 
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
-import ch.nolix.systemapi.objectdata.perstistence.IMultiValueFieldEntrySaver;
 import ch.nolix.systemapi.objectdata.perstistence.IMultiValueFieldSaver;
 
 /**
  * @author Silvan Wyss
  */
 public final class MultiValueFieldSaver implements IMultiValueFieldSaver {
-  private static final IMultiValueFieldEntrySaver MULTI_VALUE_FIELD_ENTRY_SAVER = new MultiValueFieldEntrySaver();
+  private static final MultiValueFieldEntrySaver MULTI_VALUE_FIELD_ENTRY_SAVER = new MultiValueFieldEntrySaver();
 
   /**
    * {@inheritDoc}

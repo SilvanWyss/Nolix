@@ -10,12 +10,8 @@ import ch.nolix.system.objectdata.entitytool.EntityCreator;
 import ch.nolix.system.objectdata.schemamapper.ColumnMapper;
 import ch.nolix.system.objectdata.schemasearcher.SchemaSearcher;
 import ch.nolix.systemapi.midschema.fieldproperty.BaseFieldType;
-import ch.nolix.systemapi.objectdata.entitytool.IEntityCreator;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
-import ch.nolix.systemapi.objectdata.schemamapper.IColumnMapper;
-import ch.nolix.systemapi.objectdata.schemamapper.ITableMapper;
-import ch.nolix.systemapi.objectdata.schemamodelsearcher.ISchemaSearcher;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.schemaadapter.ISchemaAdapter;
 
@@ -23,13 +19,14 @@ import ch.nolix.systemapi.objectschema.schemaadapter.ISchemaAdapter;
  * @author Silvan Wyss
  */
 public final class SchemaInitializer {
-  private static final ISchemaSearcher SCHEMA_SEARCHER = new SchemaSearcher();
+  private static final SchemaSearcher SCHEMA_SEARCHER = new SchemaSearcher();
 
-  private static final ITableMapper TABLE_MAPPER = new ch.nolix.system.objectdata.schemamapper.TableMapper();
+  private static final ch.nolix.system.objectdata.schemamapper.TableMapper TABLE_MAPPER = //
+  new ch.nolix.system.objectdata.schemamapper.TableMapper();
 
-  private static final IEntityCreator ENTITY_CREATOR = new EntityCreator();
+  private static final EntityCreator ENTITY_CREATOR = new EntityCreator();
 
-  private static final IColumnMapper COLUMN_MAPPER = new ColumnMapper();
+  private static final ColumnMapper COLUMN_MAPPER = new ColumnMapper();
 
   private SchemaInitializer() {
   }

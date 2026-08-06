@@ -12,13 +12,12 @@ import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modeleditor.IColumnEditor;
-import ch.nolix.systemapi.objectschema.modelmutationvalidator.IColumnMutationValidator;
 
 /**
  * @author Silvan Wyss
  */
 public final class ColumnEditor implements IColumnEditor<Column> {
-  private static final IColumnMutationValidator COLUMN_MUTATION_VALIDATOR = new ColumnMutationValidator();
+  private static final ColumnMutationValidator COLUMN_MUTATION_VALIDATOR = new ColumnMutationValidator();
 
   /**
    * {@inheritDoc}

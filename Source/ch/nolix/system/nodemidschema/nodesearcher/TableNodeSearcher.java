@@ -8,14 +8,13 @@ import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.midschema.databasestructure.FixDatabasePropertyCatalogue;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.IColumnNodeSearcher;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.ITableNodeSearcher;
 
 /**
  * @author Silvan Wyss
  */
 public final class TableNodeSearcher implements ITableNodeSearcher {
-  private static final IColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
+  private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
   @Override
   public int getOneBasedIndexOfColumnInTableNodeByColumnName(final IMutableNode<?> tableNode, final String columnName) {

@@ -16,35 +16,29 @@ import ch.nolix.system.nodemidschema.nodesearcher.DatabasePropertiesNodeSearcher
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
 import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDto;
 import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
-import ch.nolix.systemapi.middata.valuemapper.IValueMapper;
 import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
 import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
-import ch.nolix.systemapi.nodemiddata.modelmapper.IMultiBackReferenceEntryDtoMapper;
-import ch.nolix.systemapi.nodemiddata.nodeexaminer.ITableNodeExaminer;
-import ch.nolix.systemapi.nodemiddata.nodesearcher.ITableNodeSearcher;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabaseNodeSearcher;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.time.moment.ITime;
 
 /**
  * @author Silvan Wyss
  */
 public final class InternalDataReader {
-  private static final IDatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
+  private static final DatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 
-  private static final IDatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
+  private static final DatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
   new DatabasePropertiesNodeSearcher();
 
-  private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
+  private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
-  private static final ITableNodeExaminer TABLE_NODE_EXAMINER = new TableNodeExaminer();
+  private static final TableNodeExaminer TABLE_NODE_EXAMINER = new TableNodeExaminer();
 
   private static final EntityLoadingDtoMapper ENTITY_LOADING_DTO_MAPPER = new EntityLoadingDtoMapper();
 
-  private static final IMultiBackReferenceEntryDtoMapper MULTI_BACK_REFERENCE_ENTRY_DTO_MAPPER = //
+  private static final MultiBackReferenceEntryDtoMapper MULTI_BACK_REFERENCE_ENTRY_DTO_MAPPER = //
   new MultiBackReferenceEntryDtoMapper();
 
-  private static final IValueMapper VALUE_MAPPER = new ValueMapper();
+  private static final ValueMapper VALUE_MAPPER = new ValueMapper();
 
   private final IMutableNode<?> nodeDatabase;
 

@@ -4,13 +4,12 @@
 package ch.nolix.base.errorcontrol.errormapping;
 
 import ch.nolix.base.foundation.linkedlist.SimpleLinkedList;
-import ch.nolix.baseapi.errorcontrol.errormapping.IErrorMessageExtractor;
 
 /**
  * @author Silvan Wyss
  */
 public final class StackTraceMapper {
-  private static final IErrorMessageExtractor ERROR_MESSAGE_EXTRACTOR = new ErrorMessageExtractor();
+  private static final ErrorMessageExtractor ERROR_MESSAGE_EXTRACTOR = new ErrorMessageExtractor();
 
   private StackTraceMapper() {
   }

@@ -24,7 +24,6 @@ import ch.nolix.systemapi.gui.background.BackgroundType;
 import ch.nolix.systemapi.gui.background.IBackground;
 import ch.nolix.systemapi.gui.background.ImageApplication;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
-import ch.nolix.systemapi.gui.cssmapper.ICssPropertyMapper;
 
 /**
  * @author Silvan Wyss
@@ -42,7 +41,7 @@ public final class Background extends AbstractElement implements IBackground {
 
   private static final String TRANSPARENCY_HEADER = "Transparency";
 
-  private static final ICssPropertyMapper CSS_PROPERTY_MAPPER = new CssPropertyMapper();
+  private static final CssPropertyMapper CSS_PROPERTY_MAPPER = new CssPropertyMapper();
 
   private final IColor color;
 

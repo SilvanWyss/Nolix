@@ -7,14 +7,13 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 import ch.nolix.system.objectdata.modelexaminer.TableExaminer;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
-import ch.nolix.systemapi.objectdata.modelexaminer.ITableExaminer;
 import ch.nolix.systemapi.objectdata.modelvalidator.ITableValidator;
 
 /**
  * @author Silvan Wyss
  */
 public final class TableValidator implements ITableValidator {
-  private static final ITableExaminer TABLE_EXAMINER = new TableExaminer();
+  private static final TableExaminer TABLE_EXAMINER = new TableExaminer();
 
   @Override
   public void assertCanInsertEntity(final ITable<? extends IEntity> table, final IEntity entity) {

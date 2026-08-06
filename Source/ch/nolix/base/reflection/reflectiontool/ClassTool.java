@@ -9,14 +9,13 @@ import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.reflection.reflectionexaminer.FieldExaminer;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.reflection.reflectionexaminer.IFieldExaminer;
 import ch.nolix.baseapi.reflection.reflectiontool.IClassTool;
 
 /**
  * @author Silvan Wyss
  */
 public final class ClassTool implements IClassTool {
-  private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
+  private static final FieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
   private static final ConstructorTool CONSTRUCTOR_TOOL = new ConstructorTool();
 

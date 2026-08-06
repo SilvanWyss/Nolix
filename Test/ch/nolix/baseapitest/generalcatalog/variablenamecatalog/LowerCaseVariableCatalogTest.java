@@ -9,14 +9,13 @@ import ch.nolix.base.commontype.stringexaminer.StringExaminer;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.commontype.stringexaminer.IStringExaminer;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
  */
 final class LowerCaseVariableCatalogTest extends StandardTest {
-  private static final IStringExaminer STRING_EXAMINER = new StringExaminer();
+  private static final StringExaminer STRING_EXAMINER = new StringExaminer();
 
   @Test
   void testCase_constants() {

@@ -17,16 +17,14 @@ import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
-import ch.nolix.systemapi.objectschema.modelmutationvalidator.ITableMutationValidator;
-import ch.nolix.systemapi.objectschema.modelvalidator.ITableValidator;
 
 /**
  * @author Silvan Wyss
  */
 public final class Table extends AbstractSchemaObject implements ITable {
-  private static final ITableMutationValidator MUTATION_VALIDATOR = new TableMutationValidator();
+  private static final TableMutationValidator MUTATION_VALIDATOR = new TableMutationValidator();
 
-  private static final ITableValidator TABLE_VALIDATOR = new TableValidator();
+  private static final TableValidator TABLE_VALIDATOR = new TableValidator();
 
   private final String id;
 

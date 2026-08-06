@@ -7,14 +7,13 @@ import ch.nolix.baseapi.sql.model.ISqlRecord;
 import ch.nolix.system.midschemainfo.modelsearcher.DatabaseInfoSearcher;
 import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
 import ch.nolix.systemapi.midschemainfo.model.DatabaseInfoDto;
-import ch.nolix.systemapi.midschemainfo.modelsearcher.IDatabaseInfoSearcher;
 import ch.nolix.systemapi.sqlmiddata.modelmapper.IMultiReferenceEntryDtoMapper;
 
 /**
  * @author Silvan Wyss
  */
 public final class MultiReferenceEntryDtoMapper implements IMultiReferenceEntryDtoMapper {
-  private static final IDatabaseInfoSearcher DATABASE_VIEW_SEARCHER = new DatabaseInfoSearcher();
+  private static final DatabaseInfoSearcher DATABASE_VIEW_SEARCHER = new DatabaseInfoSearcher();
 
   /**
    * {@inheritDoc}

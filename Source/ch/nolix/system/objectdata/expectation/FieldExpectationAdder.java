@@ -7,8 +7,6 @@ import ch.nolix.baseapi.programcontrol.function.FunctionService;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.expectation.IFieldExpectationAdder;
-import ch.nolix.systemapi.objectdata.expectation.IMultiReferenceEntryExpectationAdder;
-import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
@@ -19,9 +17,9 @@ import ch.nolix.systemapi.objectdata.model.IReference;
  * @author Silvan Wyss
  */
 public final class FieldExpectationAdder implements IFieldExpectationAdder {
-  private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
+  private static final FieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
-  private static final IMultiReferenceEntryExpectationAdder MULTI_REFERENCE_ENTRY_EXPECTATION_ADDER = //
+  private static final MultiReferenceEntryExpectationAdder MULTI_REFERENCE_ENTRY_EXPECTATION_ADDER = //
   new MultiReferenceEntryExpectationAdder();
 
   /**

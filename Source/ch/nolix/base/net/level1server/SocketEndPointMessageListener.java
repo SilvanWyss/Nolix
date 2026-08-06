@@ -6,13 +6,12 @@ package ch.nolix.base.net.level1server;
 import ch.nolix.base.commontype.inputstreamtool.InputStreamTool;
 import ch.nolix.base.programcontrol.worker.AbstractWorker;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.commontype.inputstreamtool.IInputStreamTool;
 
 /**
  * @author Silvan Wyss
  */
 public final class SocketEndPointMessageListener extends AbstractWorker {
-  private static final IInputStreamTool INPUT_STREAM_TOOL = new InputStreamTool();
+  private static final InputStreamTool INPUT_STREAM_TOOL = new InputStreamTool();
 
   private final SocketEndPoint parentSocketEndPoint;
 

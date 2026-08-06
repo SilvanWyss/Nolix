@@ -33,7 +33,6 @@ import ch.nolix.systemapi.gui.background.ImageApplication;
 import ch.nolix.systemapi.gui.box.ContentAlignment;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
-import ch.nolix.systemapi.webgui.controltool.IControlTool;
 import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.IWebGui;
@@ -65,7 +64,7 @@ implements ILayer {
 
   private static final ControlAnalyser CONTROL_ANALYSER = new ControlAnalyser();
 
-  private static final IControlTool CONTROL_TOOL = new ControlTool();
+  private static final ControlTool CONTROL_TOOL = new ControlTool();
 
   // For CSS an id works only when it begins with a letter.
   private final String memberInternalId = "i" + IdCreator.createIdOf10HexadecimalCharacters();

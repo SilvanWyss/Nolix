@@ -14,7 +14,6 @@ import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectdata.modelflyweight.EntityFlyWeight;
 import ch.nolix.system.objectdata.modelflyweight.VoidEntityFlyWeight;
 import ch.nolix.system.objectdata.modelvalidator.EntityValidator;
-import ch.nolix.systemapi.databaseobject.modelvalidator.IDatabaseObjectValidator;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
@@ -22,7 +21,6 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelflyweight.IEntityFlyWeight;
-import ch.nolix.systemapi.objectdata.modelvalidator.IEntityValidator;
 
 /**
  * @author Silvan Wyss
@@ -30,9 +28,9 @@ import ch.nolix.systemapi.objectdata.modelvalidator.IEntityValidator;
 public abstract class AbstractEntity implements IEntity {
   private static final VoidEntityFlyWeight VOID_ENTITY_FLY_WEIGHT = new VoidEntityFlyWeight();
 
-  private static final IDatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
+  private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 
-  private static final IEntityValidator ENTITY_VALIDATOR = new EntityValidator();
+  private static final EntityValidator ENTITY_VALIDATOR = new EntityValidator();
 
   private ITable<? extends IEntity> memberParentTable;
 

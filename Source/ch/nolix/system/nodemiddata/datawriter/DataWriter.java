@@ -21,8 +21,6 @@ import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
 import ch.nolix.systemapi.middata.model.MultiValueEntryDto;
 import ch.nolix.systemapi.midschemainfo.model.DatabaseInfoDto;
 import ch.nolix.systemapi.midschemainfo.modelsearcher.IDatabaseInfoSearcherForDatabaseInfo;
-import ch.nolix.systemapi.nodemiddata.nodemapper.IEntityIndexNodeMapper;
-import ch.nolix.systemapi.nodemiddata.nodemapper.IEntityNodeMapper;
 import ch.nolix.systemapi.time.moment.ITime;
 
 /**
@@ -31,9 +29,9 @@ import ch.nolix.systemapi.time.moment.ITime;
 public final class DataWriter implements IDataWriter {
   public static final int INITIAL_ENTITY_SAVE_STAMP = 0;
 
-  private static final IEntityNodeMapper ENTITY_NODE_MAPPER = new EntityNodeMapper();
+  private static final EntityNodeMapper ENTITY_NODE_MAPPER = new EntityNodeMapper();
 
-  private static final IEntityIndexNodeMapper ENTITY_INDEXES_NODE_MAPPER = new EntityIndexNodeMapper();
+  private static final EntityIndexNodeMapper ENTITY_INDEXES_NODE_MAPPER = new EntityIndexNodeMapper();
 
   private final ICloseController closeController = CloseController.forElement(this);
 

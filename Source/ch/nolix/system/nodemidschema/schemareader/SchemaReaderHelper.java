@@ -9,17 +9,15 @@ import ch.nolix.system.nodemidschema.modelmapper.ColumnDtoMapper;
 import ch.nolix.system.nodemidschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
-import ch.nolix.systemapi.nodemidschema.modelmapper.IColumnDtoMapper;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.ITableNodeSearcher;
 import ch.nolix.systemapi.nodemidschema.schemareader.ISchemaReaderHelper;
 
 /**
  * @author Silvan Wyss
  */
 public final class SchemaReaderHelper implements ISchemaReaderHelper {
-  private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
+  private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
-  private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
+  private static final ColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
 
   /**
    * {@inheritDoc}

@@ -6,17 +6,15 @@ package ch.nolix.system.objectdata.expectation;
 import ch.nolix.system.objectdata.modelexaminer.EntityExaminer;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.expectation.IEntityExpectationAdder;
-import ch.nolix.systemapi.objectdata.expectation.IFieldExpectationAdder;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.modelexaminer.IEntityExaminer;
 
 /**
  * @author Silvan Wyss
  */
 public final class EntityExpectationAdder implements IEntityExpectationAdder {
-  private static final IEntityExaminer ENTITY_EXAMINER = new EntityExaminer();
+  private static final EntityExaminer ENTITY_EXAMINER = new EntityExaminer();
 
-  private static final IFieldExpectationAdder FIELD_EXPECTATION_ADDER = new FieldExpectationAdder();
+  private static final FieldExpectationAdder FIELD_EXPECTATION_ADDER = new FieldExpectationAdder();
 
   /**
    * {@inheritDoc}

@@ -5,19 +5,17 @@ package ch.nolix.system.objectdata.modelexaminer;
 
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
-import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelexaminer.IEntityExaminer;
-import ch.nolix.systemapi.objectdata.modelexaminer.IEntityExaminerHelper;
 
 /**
  * @author Silvan Wyss
  */
 public final class EntityExaminer extends DatabaseObjectExaminer implements IEntityExaminer {
-  private static final IEntityExaminerHelper ENTITY_EXAMINER_HELPER = new EntityExaminerHelper();
+  private static final EntityExaminerHelper ENTITY_EXAMINER_HELPER = new EntityExaminerHelper();
 
-  private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
+  private static final FieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
   /**
    * {@inheritDoc}

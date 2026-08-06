@@ -7,7 +7,6 @@ import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.system.sqlmidschema.sqlschemadtocatalog.EntitySqlSchemaColumnDtoCatalog;
 import ch.nolix.systemapi.midschema.model.TableDto;
-import ch.nolix.systemapi.sqlmidschema.sqlschemamodelmapper.ISqlSchemaColumnDtoMapper;
 import ch.nolix.systemapi.sqlmidschema.sqlschemamodelmapper.ISqlSchemaTableDtoMapper;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 
@@ -20,7 +19,7 @@ public final class SqlSchemaTableDtoMapper implements ISqlSchemaTableDtoMapper {
     EntitySqlSchemaColumnDtoCatalog.ID_COLUMN_DTO,
     EntitySqlSchemaColumnDtoCatalog.SAVE_STAMP_COLUMN_DTO);
 
-  private static final ISqlSchemaColumnDtoMapper SQL_SCHEMA_COLUMN_DTO_MAPPER = new SqlSchemaColumnDtoMapper();
+  private static final SqlSchemaColumnDtoMapper SQL_SCHEMA_COLUMN_DTO_MAPPER = new SqlSchemaColumnDtoMapper();
 
   /**
    * {@inheritDoc}

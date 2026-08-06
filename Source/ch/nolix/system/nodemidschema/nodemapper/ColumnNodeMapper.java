@@ -7,14 +7,13 @@ import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
-import ch.nolix.systemapi.nodemidschema.nodemapper.IColumnNodeChildNodeMapper;
 import ch.nolix.systemapi.nodemidschema.nodemapper.IColumnNodeMapper;
 
 /**
  * @author Silvan Wyss
  */
 public final class ColumnNodeMapper implements IColumnNodeMapper {
-  private static final IColumnNodeChildNodeMapper COLUMN_NODE_CHILD_NODE_MAPPER = new ColumnNodeChildNodeMapper();
+  private static final ColumnNodeChildNodeMapper COLUMN_NODE_CHILD_NODE_MAPPER = new ColumnNodeChildNodeMapper();
 
   /**
    * {@inheritDoc}

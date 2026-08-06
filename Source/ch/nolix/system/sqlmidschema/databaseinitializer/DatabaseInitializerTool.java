@@ -17,7 +17,6 @@ import ch.nolix.system.sqlmidschema.sqlschemadtocatalog.ReferenceableTableSqlSch
 import ch.nolix.system.sqlmidschema.sqlschemadtocatalog.TableTableSqlSchemaDtoCatalog;
 import ch.nolix.system.sqlmidschema.statementcreator.DatabaseInitializationStatementCreator;
 import ch.nolix.systemapi.sqlmidschema.databaseinitializer.IDatabaseInitializerTool;
-import ch.nolix.systemapi.sqlmidschema.statementcreator.IDatabaseInitializationStatementCreator;
 import ch.nolix.systemapi.sqlschema.adapter.ISchemaWriter;
 import ch.nolix.systemapi.time.moment.ITime;
 
@@ -27,7 +26,7 @@ import ch.nolix.systemapi.time.moment.ITime;
  * @author Silvan Wyss
  */
 public final class DatabaseInitializerTool implements IDatabaseInitializerTool {
-  private static final IDatabaseInitializationStatementCreator DATABASE_INITIALIZER_SQL_STATEMENT_CREATOR = //
+  private static final DatabaseInitializationStatementCreator DATABASE_INITIALIZER_SQL_STATEMENT_CREATOR = //
   new DatabaseInitializationStatementCreator();
 
   /**

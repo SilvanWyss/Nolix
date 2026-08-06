@@ -3,7 +3,6 @@
  */
 package ch.nolix.base.environment.license;
 
-import ch.nolix.baseapi.environment.license.ILicenseValidator;
 import ch.nolix.baseapi.environment.license.License;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnacceptedKeyException;
 
@@ -11,7 +10,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnacceptedKeyExcep
  * @author Silvan Wyss
  */
 public abstract class AbstractLicense implements License {
-  private static final ILicenseValidator LICENSE_VALIDATOR = new LicenseValidator();
+  private static final LicenseValidator LICENSE_VALIDATOR = new LicenseValidator();
 
   private boolean activated;
 

@@ -9,7 +9,6 @@ import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectschema.modelexaminer.ColumnExaminer;
 import ch.nolix.system.objectschema.modelvalidator.DatabaseValidator;
 import ch.nolix.system.objectschema.modelvalidator.TableValidator;
-import ch.nolix.systemapi.databaseobject.modelvalidator.IDatabaseObjectValidator;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modelmutationvalidator.ITableMutationValidator;
@@ -18,7 +17,7 @@ import ch.nolix.systemapi.objectschema.modelmutationvalidator.ITableMutationVali
  * @author Silvan Wyss
  */
 public final class TableMutationValidator implements ITableMutationValidator {
-  private static final IDatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
+  private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 
   private static final DatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();
 

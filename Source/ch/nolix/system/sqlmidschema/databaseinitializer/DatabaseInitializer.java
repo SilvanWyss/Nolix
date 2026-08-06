@@ -10,17 +10,15 @@ import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.system.midschema.databaseinitializer.AbstractDatabaseInitializer;
 import ch.nolix.system.sqlschema.adapter.SchemaWriter;
 import ch.nolix.systemapi.midschema.databaseinitializer.DatabaseState;
-import ch.nolix.systemapi.sqlmidschema.databaseinitializer.IDatabaseInitializerTool;
-import ch.nolix.systemapi.sqlmidschema.databaseinitializer.IDatabaseStateAnalyser;
 import ch.nolix.systemapi.time.moment.ITime;
 
 /**
  * @author Silvan Wyss
  */
 public final class DatabaseInitializer extends AbstractDatabaseInitializer {
-  private static final IDatabaseStateAnalyser DATABASE_STATE_ANALYSER = new DatabaseStateAnalyser();
+  private static final DatabaseStateAnalyser DATABASE_STATE_ANALYSER = new DatabaseStateAnalyser();
 
-  private static final IDatabaseInitializerTool DATABASE_INITIALIZER_TOOL = new DatabaseInitializerTool();
+  private static final DatabaseInitializerTool DATABASE_INITIALIZER_TOOL = new DatabaseInitializerTool();
 
   private final String databaseName;
 

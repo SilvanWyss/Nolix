@@ -6,10 +6,6 @@ package ch.nolix.baseapi.errorcontrol.invalidargumentexception;
 import ch.nolix.baseapi.errorcontrol.exceptionargumentbox.ArgumentNameDto;
 import ch.nolix.baseapi.errorcontrol.exceptionargumentbox.CauseDto;
 import ch.nolix.baseapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
-import ch.nolix.baseapi.errorcontrol.exceptionargumentpreparator.IExceptionArgumentNamePreparator;
-import ch.nolix.baseapi.errorcontrol.exceptionargumentpreparator.IExceptionArgumentStringRepresentaionPreparator;
-import ch.nolix.baseapi.errorcontrol.exceptionargumentpreparator.IExceptionCausePreparator;
-import ch.nolix.baseapi.errorcontrol.exceptionargumentpreparator.IExceptionErrorPredicatePreparator;
 import ch.nolix.baseapi.errorcontrol.exceptionargumentpreparatorimpl.ExceptionArgumentNamePreparator;
 import ch.nolix.baseapi.errorcontrol.exceptionargumentpreparatorimpl.ExceptionArgumentStringRepresentaionPreparator;
 import ch.nolix.baseapi.errorcontrol.exceptionargumentpreparatorimpl.ExceptionCausePreparator;
@@ -31,16 +27,16 @@ import ch.nolix.baseapi.errorcontrol.exceptionargumentpreparatorimpl.ExceptionEr
 public abstract class AbstractInvalidArgumentException extends RuntimeException {
   private static final String DEFAULT_ERROR_PREDICATE = "is not valid";
 
-  private static final IExceptionArgumentStringRepresentaionPreparator ARGUMENT_STRING_REPRESENTAION_PREPARATOR = //
+  private static final ExceptionArgumentStringRepresentaionPreparator ARGUMENT_STRING_REPRESENTAION_PREPARATOR = //
   new ExceptionArgumentStringRepresentaionPreparator();
 
-  private static final IExceptionArgumentNamePreparator ARGUMENT_NAME_PREPARATOR = //
+  private static final ExceptionArgumentNamePreparator ARGUMENT_NAME_PREPARATOR = //
   new ExceptionArgumentNamePreparator();
 
-  private static final IExceptionErrorPredicatePreparator ERROR_PREDICATE_PREPARATOR = //
+  private static final ExceptionErrorPredicatePreparator ERROR_PREDICATE_PREPARATOR = //
   new ExceptionErrorPredicatePreparator();
 
-  private static final IExceptionCausePreparator CAUSE_PREPARATOR = new ExceptionCausePreparator();
+  private static final ExceptionCausePreparator CAUSE_PREPARATOR = new ExceptionCausePreparator();
 
   private final transient Object argument;
 

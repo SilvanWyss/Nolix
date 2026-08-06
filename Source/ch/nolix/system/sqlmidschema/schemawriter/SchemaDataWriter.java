@@ -15,18 +15,16 @@ import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
-import ch.nolix.systemapi.sqlmidschema.statementcreator.IDatabasePropertiesStatementCreator;
-import ch.nolix.systemapi.sqlmidschema.statementcreator.ISchemaDataStatementCreator;
 import ch.nolix.systemapi.time.moment.ITime;
 
 /**
  * @author Silvan Wyss
  */
 public final class SchemaDataWriter {
-  private static final IDatabasePropertiesStatementCreator DATABASE_PROPERTIES_STATEMENT_CREATOR = //
+  private static final DatabasePropertiesStatementCreator DATABASE_PROPERTIES_STATEMENT_CREATOR = //
   new DatabasePropertiesStatementCreator();
 
-  private static final ISchemaDataStatementCreator META_DATA_STATEMENT_CREATOR = new SchemaDataStatementCreator();
+  private static final SchemaDataStatementCreator META_DATA_STATEMENT_CREATOR = new SchemaDataStatementCreator();
 
   private final ISqlCollector sqlCollector;
 

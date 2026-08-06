@@ -23,7 +23,6 @@ import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.control.button.ButtonRole;
 import ch.nolix.systemapi.control.button.IButton;
 import ch.nolix.systemapi.control.button.IButtonStyle;
-import ch.nolix.systemapi.control.validationlabel.IValidationLabelTool;
 import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
@@ -37,7 +36,7 @@ import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 public final class Button extends AbstractControl<IButton, IButtonStyle> implements IButton {
   public static final String DEFAULT_TEXT = StringCatalog.MINUS;
 
-  private static final IValidationLabelTool VALIDATION_LABEL_TOOL = new ValidationLabelTool();
+  private static final ValidationLabelTool VALIDATION_LABEL_TOOL = new ValidationLabelTool();
 
   private static final ButtonHtmlBuilder HTML_BUILDER = new ButtonHtmlBuilder();
 

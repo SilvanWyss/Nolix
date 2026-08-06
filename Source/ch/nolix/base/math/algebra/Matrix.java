@@ -10,7 +10,6 @@ import ch.nolix.base.commontype.doubletool.DoubleTool;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.foundation.math.NumberComparator;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.commontype.doubletool.IDoubleTool;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
@@ -27,7 +26,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
  * @author Silvan Wyss
  */
 public final class Matrix { // NOSONAR: A Matrix is a principal object thus it has many methods.
-  private static final IDoubleTool DOUBLE_TOOL = new DoubleTool();
+  private static final DoubleTool DOUBLE_TOOL = new DoubleTool();
 
   private static final Random RANDOM = new Random();
 

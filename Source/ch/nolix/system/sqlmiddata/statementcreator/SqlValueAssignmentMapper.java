@@ -6,7 +6,6 @@ package ch.nolix.system.sqlmiddata.statementcreator;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.sql.sqltool.SqlLiteralMapper;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.sql.sqltool.ISqlLiteralMapper;
 import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
 import ch.nolix.systemapi.sqlmiddata.statementcreator.ISqlValueAssignmentMapper;
 
@@ -14,7 +13,7 @@ import ch.nolix.systemapi.sqlmiddata.statementcreator.ISqlValueAssignmentMapper;
  * @author Silvan Wyss
  */
 public final class SqlValueAssignmentMapper implements ISqlValueAssignmentMapper {
-  private static final ISqlLiteralMapper SQL_LITERAL_MAPPER = new SqlLiteralMapper();
+  private static final SqlLiteralMapper SQL_LITERAL_MAPPER = new SqlLiteralMapper();
 
   @Override
   public ExtendedIterable<String> mapValueStringFieldDtoToSqlValueAssignemnts(

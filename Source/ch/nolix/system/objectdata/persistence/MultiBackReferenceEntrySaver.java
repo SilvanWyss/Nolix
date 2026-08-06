@@ -7,8 +7,6 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 import ch.nolix.system.objectdata.middatamodelmapper.MultiBackReferenceEntryDeletionDtoMapper;
 import ch.nolix.system.objectdata.middatamodelmapper.MultiBackReferenceEntryDtoMapper;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdata.middatamodelmapper.IMultiBackReferenceEntryDeletionDtoMapper;
-import ch.nolix.systemapi.objectdata.middatamodelmapper.IMultiBackReferenceEntryDtoMapper;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReferenceEntry;
 import ch.nolix.systemapi.objectdata.perstistence.IMultiBackReferenceEntrySaver;
 
@@ -16,10 +14,10 @@ import ch.nolix.systemapi.objectdata.perstistence.IMultiBackReferenceEntrySaver;
  * @author Silvan Wyss
  */
 public final class MultiBackReferenceEntrySaver implements IMultiBackReferenceEntrySaver {
-  private static final IMultiBackReferenceEntryDtoMapper MULTI_BACK_REFERENCE_ENTRY_DTO_MAPPER = //
+  private static final MultiBackReferenceEntryDtoMapper MULTI_BACK_REFERENCE_ENTRY_DTO_MAPPER = //
   new MultiBackReferenceEntryDtoMapper();
 
-  private static final IMultiBackReferenceEntryDeletionDtoMapper MULTI_BACK_REFERENCE_ENTRY_DELETION_DTO_MAPPER = //
+  private static final MultiBackReferenceEntryDeletionDtoMapper MULTI_BACK_REFERENCE_ENTRY_DELETION_DTO_MAPPER = //
   new MultiBackReferenceEntryDeletionDtoMapper();
 
   /**

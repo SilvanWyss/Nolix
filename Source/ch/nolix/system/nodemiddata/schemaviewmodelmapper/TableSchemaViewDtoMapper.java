@@ -7,17 +7,15 @@ import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.system.nodemiddata.nodesearcher.TableNodeSearcher;
 import ch.nolix.systemapi.midschema.databasestructure.FixDatabasePropertyCatalogue;
 import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
-import ch.nolix.systemapi.nodemiddata.nodesearcher.ITableNodeSearcher;
-import ch.nolix.systemapi.nodemiddata.schemaviewmodelmapper.IColumnSchemaViewDtoMapper;
 import ch.nolix.systemapi.nodemiddata.schemaviewmodelmapper.ITableSchemaViewDtoMapper;
 
 /**
  * @author Silvan Wyss
  */
 public final class TableSchemaViewDtoMapper implements ITableSchemaViewDtoMapper {
-  private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
+  private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
-  private static final IColumnSchemaViewDtoMapper COLUMN_VIEW_DTO_MAPPER = new ColumnSchemaViewDtoMapper();
+  private static final ColumnSchemaViewDtoMapper COLUMN_VIEW_DTO_MAPPER = new ColumnSchemaViewDtoMapper();
 
   /**
    * {@inheritDoc}

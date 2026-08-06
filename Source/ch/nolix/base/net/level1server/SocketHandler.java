@@ -18,7 +18,6 @@ import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.errorcontrol.logging.Logger;
 import ch.nolix.base.net.http.HttpRequest;
 import ch.nolix.base.net.websocket.WebSocketHandShakeRequest;
-import ch.nolix.baseapi.commontype.inputstreamtool.IInputStreamTool;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.endpointprotocol.MessageType;
@@ -29,7 +28,7 @@ import ch.nolix.baseapi.net.level1server.SocketType;
  * @author Silvan Wyss
  */
 public final class SocketHandler {
-  private static final IInputStreamTool INPUT_STREAM_TOOL = new InputStreamTool();
+  private static final InputStreamTool INPUT_STREAM_TOOL = new InputStreamTool();
 
   private SocketHandler() {
   }

@@ -13,13 +13,12 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.programcontrol.job.IJobTool;
 
 /**
  * @author Silvan Wyss
  */
 public final class JobExecutor extends Thread {
-  private static final IJobTool JOB_TOOL = new JobTool();
+  private static final JobTool JOB_TOOL = new JobTool();
 
   private final Runnable step;
 

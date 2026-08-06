@@ -14,9 +14,7 @@ import ch.nolix.system.property.value.MultiValue;
 import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.control.itemmenu.IItemMenu;
 import ch.nolix.systemapi.control.itemmenu.IItemMenuItem;
-import ch.nolix.systemapi.control.itemmenu.IItemMenuSearcher;
 import ch.nolix.systemapi.control.itemmenu.IItemMenuStyle;
-import ch.nolix.systemapi.control.itemmenu.IItemMenuValidator;
 import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.webgui.main.Control;
 
@@ -31,9 +29,9 @@ public abstract class AbstractItemMenu // NOSONAR: A AbstractItemMenu is a princ
 extends AbstractControl<M, S> implements IItemMenu<M, S> {
   private static final String ITEM_HEADER = PascalCaseVariableNameCatalog.ITEM;
 
-  private static final IItemMenuSearcher ITEM_MENU_SEARCHER = new ItemMenuSearcher();
+  private static final ItemMenuSearcher ITEM_MENU_SEARCHER = new ItemMenuSearcher();
 
-  private static final IItemMenuValidator ITEM_MENU_VALIDATOR = new ItemMenuValidator();
+  private static final ItemMenuValidator ITEM_MENU_VALIDATOR = new ItemMenuValidator();
 
   private final MultiValue<IItemMenuItem<?>> memberItems = //
   MultiValue.forElementsOfSameTypeWithNameAndAdderAndValueMapper(

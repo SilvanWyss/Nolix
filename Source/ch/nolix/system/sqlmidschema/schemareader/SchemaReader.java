@@ -12,16 +12,14 @@ import ch.nolix.system.sqlmidschema.querycreator.QueryCreator;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.midschema.adapter.ISchemaReader;
 import ch.nolix.systemapi.midschema.model.TableDto;
-import ch.nolix.systemapi.sqlmidschema.modelmapper.ITableDtoMapper;
-import ch.nolix.systemapi.sqlmidschema.querycreator.IQueryCreator;
 
 /**
  * @author Silvan Wyss
  */
 public final class SchemaReader implements ISchemaReader {
-  private static final IQueryCreator QUERY_CREATOR = new QueryCreator();
+  private static final QueryCreator QUERY_CREATOR = new QueryCreator();
 
-  private static final ITableDtoMapper TABLE_DTO_MAPPER = new TableDtoMapper();
+  private static final TableDtoMapper TABLE_DTO_MAPPER = new TableDtoMapper();
 
   private final ICloseController closeController = CloseController.forElement(this);
 

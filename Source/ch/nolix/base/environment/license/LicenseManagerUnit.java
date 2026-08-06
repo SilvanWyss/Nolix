@@ -12,7 +12,6 @@ import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.environment.license.ILicenseValidator;
 import ch.nolix.baseapi.environment.nolixenvironment.NolixDirectoryAndFileCatalog;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -24,7 +23,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
  * @author Silvan Wyss
  */
 public final class LicenseManagerUnit {
-  private static final ILicenseValidator LICENSE_VALIDATOR = new LicenseValidator();
+  private static final LicenseValidator LICENSE_VALIDATOR = new LicenseValidator();
 
   private final LinkedList<AbstractLicense> abstractLicenses = LinkedList.createEmpty();
 

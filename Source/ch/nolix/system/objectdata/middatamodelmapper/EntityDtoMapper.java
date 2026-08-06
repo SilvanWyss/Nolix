@@ -8,17 +8,15 @@ import ch.nolix.systemapi.middata.model.EntityCreationDto;
 import ch.nolix.systemapi.middata.model.EntityDeletionDto;
 import ch.nolix.systemapi.middata.model.EntityUpdateDto;
 import ch.nolix.systemapi.objectdata.middatamodelmapper.IEntityDtoMapper;
-import ch.nolix.systemapi.objectdata.middatamodelmapper.IStringRepresentedFieldDtoMapper;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
 /**
  * @author Silvan Wyss
  */
 public final class EntityDtoMapper implements IEntityDtoMapper {
-  private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
+  private static final EntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
-  private static final IStringRepresentedFieldDtoMapper STRING_REPRESENTED_FIELD_DTO_MAPPER = //
+  private static final StringRepresentedFieldDtoMapper STRING_REPRESENTED_FIELD_DTO_MAPPER = //
   new StringRepresentedFieldDtoMapper();
 
   /**

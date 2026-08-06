@@ -6,14 +6,13 @@ package ch.nolix.system.midschemainfo.modelmapper;
 import ch.nolix.systemapi.midschema.databasestructure.FixDatabasePropertyCatalogue;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
-import ch.nolix.systemapi.midschemainfo.modelmapper.IColumnInfoDtoMapper;
 import ch.nolix.systemapi.midschemainfo.modelmapper.ITableInfoDtoMapper;
 
 /**
  * @author Silvan Wyss
  */
 public final class TableInfoDtoMapper implements ITableInfoDtoMapper {
-  private static final IColumnInfoDtoMapper COLUMN_VIEW_DTO_MAPPER = new ColumnInfoDtoMapper();
+  private static final ColumnInfoDtoMapper COLUMN_VIEW_DTO_MAPPER = new ColumnInfoDtoMapper();
 
   /**
    * {@inheritDoc}

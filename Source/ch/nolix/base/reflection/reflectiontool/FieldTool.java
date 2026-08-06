@@ -8,14 +8,13 @@ import java.lang.reflect.Field;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.reflection.reflectionexaminer.FieldExaminer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.reflection.reflectionexaminer.IFieldExaminer;
 import ch.nolix.baseapi.reflection.reflectiontool.IFieldTool;
 
 /**
  * @author Silvan Wyss
  */
 public final class FieldTool implements IFieldTool {
-  private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
+  private static final FieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
   @Override
   @SuppressWarnings("unchecked")

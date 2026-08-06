@@ -5,17 +5,15 @@ package ch.nolix.system.nodemidschema.nodeexaminer;
 
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.system.nodemidschema.nodesearcher.TableNodeSearcher;
-import ch.nolix.systemapi.nodemidschema.nodeexaminer.IEntityNodeExaminer;
 import ch.nolix.systemapi.nodemidschema.nodeexaminer.ITableNodeExaminer;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.ITableNodeSearcher;
 
 /**
  * @author Silvan Wyss
  */
 public final class TableNodeExaminer implements ITableNodeExaminer {
-  private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
+  private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
-  private static final IEntityNodeExaminer ENTITY_NODE_EXAMINER = new EntityNodeExaminer();
+  private static final EntityNodeExaminer ENTITY_NODE_EXAMINER = new EntityNodeExaminer();
 
   /**
    * {@inheritDoc}

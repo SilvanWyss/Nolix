@@ -18,13 +18,12 @@ import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.sqlschema.adapter.ISchemaWriter;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
-import ch.nolix.systemapi.sqlschema.statementcreator.IStatementCreator;
 
 /**
  * @author Silvan Wyss
  */
 public final class SchemaWriter implements ISchemaWriter {
-  private static final IStatementCreator STATEMENT_CREATOR = new StatementCreator();
+  private static final StatementCreator STATEMENT_CREATOR = new StatementCreator();
 
   private final ICloseController closeController = CloseController.forElement(this);
 

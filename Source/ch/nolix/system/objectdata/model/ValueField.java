@@ -5,10 +5,8 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.base.datamodel.fieldvalue.ValueMapper;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
-import ch.nolix.baseapi.datamodel.fieldvalue.IValueMapper;
 import ch.nolix.system.objectdata.fieldvalidator.ValueFieldValidator;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
-import ch.nolix.systemapi.objectdata.fieldvalidator.IValueFieldValidator;
 import ch.nolix.systemapi.objectdata.model.IValueField;
 
 /**
@@ -16,9 +14,9 @@ import ch.nolix.systemapi.objectdata.model.IValueField;
  * @param <V> the type of the values of a {@link ValueField}.
  */
 public final class ValueField<V> extends AbstractBaseValueField<V> implements IValueField<V> {
-  private static final IValueFieldValidator VALUE_VALIDATOR = new ValueFieldValidator();
+  private static final ValueFieldValidator VALUE_VALIDATOR = new ValueFieldValidator();
 
-  private static final IValueMapper VALUE_MAPPER = new ValueMapper();
+  private static final ValueMapper VALUE_MAPPER = new ValueMapper();
 
   private V internalValue;
 

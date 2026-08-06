@@ -14,14 +14,13 @@ import ch.nolix.systemapi.midschema.databasestructure.FixDatabasePropertyCatalog
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
 import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
-import ch.nolix.systemapi.sqlmiddata.modelmapper.IContentFieldDtoMapper;
 import ch.nolix.systemapi.sqlmiddata.modelmapper.ILoadedEntityDtoMapper;
 
 /**
  * @author Silvan Wyss
  */
 public final class LoadedEntityDtoMapper implements ILoadedEntityDtoMapper {
-  private static final IContentFieldDtoMapper CONTENT_FIELD_DTO_MAPPER = new ContentFieldDtoMapper();
+  private static final ContentFieldDtoMapper CONTENT_FIELD_DTO_MAPPER = new ContentFieldDtoMapper();
 
   @Override
   public EntityLoadingDto mapSqlRecordToEntityLoadingDto(

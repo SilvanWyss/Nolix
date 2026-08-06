@@ -6,11 +6,9 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.base.datamodel.fieldvalue.ValueMapper;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
-import ch.nolix.baseapi.datamodel.fieldvalue.IValueMapper;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.objectdata.fieldvalidator.OptionalValueFieldValidator;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
-import ch.nolix.systemapi.objectdata.fieldvalidator.IOptionalValueFieldValidator;
 import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
 
 /**
@@ -18,9 +16,9 @@ import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
  * @param <V> the type of the value of a {@link OptionalValueField}.
  */
 public final class OptionalValueField<V> extends AbstractBaseValueField<V> implements IOptionalValueField<V> {
-  private static final IOptionalValueFieldValidator OPTIONAL_VALUE_VALIDATOR = new OptionalValueFieldValidator();
+  private static final OptionalValueFieldValidator OPTIONAL_VALUE_VALIDATOR = new OptionalValueFieldValidator();
 
-  private static final IValueMapper VALUE_MAPPER = new ValueMapper();
+  private static final ValueMapper VALUE_MAPPER = new ValueMapper();
 
   private V internalValue;
 

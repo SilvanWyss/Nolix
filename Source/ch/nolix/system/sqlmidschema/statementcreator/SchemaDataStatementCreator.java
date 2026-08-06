@@ -17,14 +17,13 @@ import ch.nolix.systemapi.sqlmiddatabasestructure.column.ColumnColumn;
 import ch.nolix.systemapi.sqlmiddatabasestructure.column.ReferenceableTableColumn;
 import ch.nolix.systemapi.sqlmiddatabasestructure.column.TableColumn;
 import ch.nolix.systemapi.sqlmiddatabasestructure.table.SchemaTable;
-import ch.nolix.systemapi.sqlmidschema.statementcreator.IColumnTableStatementCreator;
 import ch.nolix.systemapi.sqlmidschema.statementcreator.ISchemaDataStatementCreator;
 
 /**
  * @author Silvan Wyss
  */
 public final class SchemaDataStatementCreator implements ISchemaDataStatementCreator {
-  private static final IColumnTableStatementCreator COLUMN_TABLE_STATEMENT_CREATOR = new ColumnTableStatementCreator();
+  private static final ColumnTableStatementCreator COLUMN_TABLE_STATEMENT_CREATOR = new ColumnTableStatementCreator();
 
   @Override
   public String createStatementToAddBackReferenceableColumn(

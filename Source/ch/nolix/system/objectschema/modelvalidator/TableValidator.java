@@ -11,14 +11,13 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ReferencedArgument
 import ch.nolix.system.objectschema.modelexaminer.TableExaminer;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
-import ch.nolix.systemapi.objectschema.modelexaminer.ITableExaminer;
 import ch.nolix.systemapi.objectschema.modelvalidator.ITableValidator;
 
 /**
  * @author Silvan Wyss
  */
 public final class TableValidator implements ITableValidator {
-  private static final ITableExaminer TABLE_EXAMINER = new TableExaminer();
+  private static final TableExaminer TABLE_EXAMINER = new TableExaminer();
 
   @Override
   public void assertContainsColumn(final ITable table, final IColumn column) {

@@ -6,13 +6,12 @@ package ch.nolix.system.nodemidschema.nodeexaminer;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.system.nodemidschema.nodesearcher.EntityNodeSearcher;
 import ch.nolix.systemapi.nodemidschema.nodeexaminer.IEntityNodeExaminer;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.IEntityNodeSearcher;
 
 /**
  * @author Silvan Wyss
  */
 public final class EntityNodeExaminer implements IEntityNodeExaminer {
-  private static final IEntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
+  private static final EntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
 
   /**
    * {@inheritDoc}

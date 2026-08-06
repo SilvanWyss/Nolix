@@ -20,30 +20,24 @@ import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
-import ch.nolix.systemapi.nodemidschema.nodemapper.IColumnNodeMapper;
-import ch.nolix.systemapi.nodemidschema.nodemapper.ITableNodeMapper;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.IColumnNodeSearcher;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabaseNodeSearcher;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabasePropertiesNodeSearcher;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.ITableNodeSearcher;
 import ch.nolix.systemapi.time.moment.ITime;
 
 /**
  * @author Silvan Wyss
  */
 public final class SchemaWriterActionProvider {
-  private static final IDatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
+  private static final DatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 
-  private static final IDatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
+  private static final DatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
   new DatabasePropertiesNodeSearcher();
 
-  private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
+  private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
-  private static final IColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
+  private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
-  private static final ITableNodeMapper TABLE_NODE_MAPPER = new TableNodeMapper();
+  private static final TableNodeMapper TABLE_NODE_MAPPER = new TableNodeMapper();
 
-  private static final IColumnNodeMapper COLUMN_NODE_MAPPER = new ColumnNodeMapper();
+  private static final ColumnNodeMapper COLUMN_NODE_MAPPER = new ColumnNodeMapper();
 
   private SchemaWriterActionProvider() {
   }

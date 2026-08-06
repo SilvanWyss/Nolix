@@ -7,7 +7,6 @@ import ch.nolix.base.commontype.doubletool.DoubleTool;
 import ch.nolix.base.foundation.math.NumberComparator;
 import ch.nolix.base.math.basic.BasicCalculator;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.commontype.doubletool.IDoubleTool;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
@@ -25,7 +24,7 @@ public final class Polynom {
 
   private static final BasicCalculator BASIC_CALCULATOR = new BasicCalculator();
 
-  private static final IDoubleTool DOUBLE_TOOL = new DoubleTool();
+  private static final DoubleTool DOUBLE_TOOL = new DoubleTool();
 
   private Polynom derivedPolynom;
 

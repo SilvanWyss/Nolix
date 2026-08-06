@@ -13,17 +13,15 @@ import ch.nolix.system.objectschema.modelmutationexaminer.DatabaseMutationExamin
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
-import ch.nolix.systemapi.objectschema.modelexaminer.IDatabaseExaminer;
-import ch.nolix.systemapi.objectschema.modelmutationexaminer.IDatabaseMutationExaminer;
 import ch.nolix.systemapi.objectschema.modelvalidator.IDatabaseValidator;
 
 /**
  * @author Silvan Wyss
  */
 public final class DatabaseValidator implements IDatabaseValidator {
-  private static final IDatabaseExaminer DATABASE_EXAMINER = new DatabaseExaminer();
+  private static final DatabaseExaminer DATABASE_EXAMINER = new DatabaseExaminer();
 
-  private static final IDatabaseMutationExaminer DATABASE_MUTATION_EXAMINER = new DatabaseMutationExaminer();
+  private static final DatabaseMutationExaminer DATABASE_MUTATION_EXAMINER = new DatabaseMutationExaminer();
 
   @Override
   public void assertContainsTable(final IDatabase database, final ITable table) {

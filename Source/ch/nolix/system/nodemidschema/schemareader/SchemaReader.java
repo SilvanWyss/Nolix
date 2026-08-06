@@ -14,23 +14,19 @@ import ch.nolix.system.nodemidschema.nodesearcher.DatabasePropertiesNodeSearcher
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.midschema.adapter.ISchemaReader;
 import ch.nolix.systemapi.midschema.model.TableDto;
-import ch.nolix.systemapi.nodemidschema.nodeexaminer.ITableNodeExaminer;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabaseNodeSearcher;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabasePropertiesNodeSearcher;
-import ch.nolix.systemapi.nodemidschema.schemareader.ISchemaReaderHelper;
 
 /**
  * @author Silvan Wyss
  */
 public final class SchemaReader implements ISchemaReader {
-  private static final ISchemaReaderHelper SCHEMA_READER_HELPER = new SchemaReaderHelper();
+  private static final SchemaReaderHelper SCHEMA_READER_HELPER = new SchemaReaderHelper();
 
-  private static final IDatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
+  private static final DatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 
-  private static final IDatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
+  private static final DatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
   new DatabasePropertiesNodeSearcher();
 
-  private static final ITableNodeExaminer TABLE_NODE_EXAMINER = new TableNodeExaminer();
+  private static final TableNodeExaminer TABLE_NODE_EXAMINER = new TableNodeExaminer();
 
   private final ICloseController closeController = CloseController.forElement(this);
 

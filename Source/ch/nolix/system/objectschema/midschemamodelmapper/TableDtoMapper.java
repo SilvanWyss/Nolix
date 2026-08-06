@@ -4,7 +4,6 @@
 package ch.nolix.system.objectschema.midschemamodelmapper;
 
 import ch.nolix.systemapi.midschema.model.TableDto;
-import ch.nolix.systemapi.objectschema.midschemamodelmapper.IColumnDtoMapper;
 import ch.nolix.systemapi.objectschema.midschemamodelmapper.ITableDtoMapper;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
@@ -12,7 +11,7 @@ import ch.nolix.systemapi.objectschema.model.ITable;
  * @author Silvan Wyss
  */
 public final class TableDtoMapper implements ITableDtoMapper {
-  private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
+  private static final ColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
 
   /**
    * {@inheritDoc}

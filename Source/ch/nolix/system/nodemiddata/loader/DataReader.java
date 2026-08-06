@@ -18,14 +18,13 @@ import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
 import ch.nolix.systemapi.midschemainfo.model.DatabaseInfoDto;
 import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
-import ch.nolix.systemapi.midschemainfo.modelsearcher.IDatabaseInfoSearcher;
 import ch.nolix.systemapi.time.moment.ITime;
 
 /**
  * @author Silvan Wyss
  */
 public final class DataReader implements IDataReader {
-  private static final IDatabaseInfoSearcher DATABASE_VIEW_SEARCHER = new DatabaseInfoSearcher();
+  private static final DatabaseInfoSearcher DATABASE_VIEW_SEARCHER = new DatabaseInfoSearcher();
 
   private final ICloseController closeController = CloseController.forElement(this);
 

@@ -6,14 +6,13 @@ package ch.nolix.system.nodemiddata.nodevalidator;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.nodemiddata.nodeexaminer.TableNodeExaminer;
-import ch.nolix.systemapi.nodemiddata.nodeexaminer.ITableNodeExaminer;
 import ch.nolix.systemapi.nodemiddata.nodevalidator.ITableNodeValidator;
 
 /**
  * @author Silvan Wyss
  */
 public final class TableNodeValidator implements ITableNodeValidator {
-  private static final ITableNodeExaminer TABLE_NODE_EXAMINER = new TableNodeExaminer();
+  private static final TableNodeExaminer TABLE_NODE_EXAMINER = new TableNodeExaminer();
 
   /**
    * {@inheritDoc}n

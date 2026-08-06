@@ -16,7 +16,6 @@ import ch.nolix.baseapi.web.csscatalog.CssPropertyNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.system.gui.cssmapper.CssPropertyMapper;
-import ch.nolix.systemapi.gui.cssmapper.ICssPropertyMapper;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.main.Control;
@@ -31,7 +30,7 @@ import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
  */
 public abstract class AbstractControlCssBuilder<C extends Control<C, S>, S extends IControlStyle<S>>
 implements IControlCssBuilder<C, S> {
-  private static final ICssPropertyMapper CSS_PROPERTY_MAPPER = new CssPropertyMapper();
+  private static final CssPropertyMapper CSS_PROPERTY_MAPPER = new CssPropertyMapper();
 
   @Override
   public final ExtendedIterable<ICssRule> createCssRulesForControl(final C control) {

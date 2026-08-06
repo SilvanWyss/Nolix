@@ -6,7 +6,6 @@ package ch.nolix.system.objectdata.persistence;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.middatamodelmapper.MultiValueEntryDtoMapper;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdata.middatamodelmapper.IMultiValueEntryDtoMapper;
 import ch.nolix.systemapi.objectdata.model.IMultiValueFieldEntry;
 import ch.nolix.systemapi.objectdata.perstistence.IMultiValueFieldEntrySaver;
 
@@ -14,7 +13,7 @@ import ch.nolix.systemapi.objectdata.perstistence.IMultiValueFieldEntrySaver;
  * @author Silvan Wyss
  */
 public final class MultiValueFieldEntrySaver implements IMultiValueFieldEntrySaver {
-  private static final IMultiValueEntryDtoMapper MULTI_VALUE_ENTRY_DTO_MAPPER = new MultiValueEntryDtoMapper();
+  private static final MultiValueEntryDtoMapper MULTI_VALUE_ENTRY_DTO_MAPPER = new MultiValueEntryDtoMapper();
 
   /**
    * {@inheritDoc}

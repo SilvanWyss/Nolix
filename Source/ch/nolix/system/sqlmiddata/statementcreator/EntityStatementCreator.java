@@ -9,9 +9,7 @@ import ch.nolix.systemapi.middata.model.EntityCreationDto;
 import ch.nolix.systemapi.middata.model.EntityDeletionDto;
 import ch.nolix.systemapi.middata.model.EntityUpdateDto;
 import ch.nolix.systemapi.midschema.databasestructure.DatabaseProperty;
-import ch.nolix.systemapi.sqlmiddata.sqlmapper.ISqlPartsMapper;
 import ch.nolix.systemapi.sqlmiddata.statementcreator.IEntityStatementCreator;
-import ch.nolix.systemapi.sqlmiddata.statementcreator.ISqlValueAssignmentMapper;
 import ch.nolix.systemapi.sqlmiddatabasestructure.column.DatabasePropertyColumn;
 import ch.nolix.systemapi.sqlmiddatabasestructure.column.EntityIndexColumn;
 import ch.nolix.systemapi.sqlmiddatabasestructure.table.DataTable;
@@ -22,9 +20,9 @@ import ch.nolix.systemapi.time.moment.ITime;
  * @author Silvan Wyss
  */
 public final class EntityStatementCreator implements IEntityStatementCreator {
-  private static final ISqlPartsMapper SQL_PARTS_MAPPER = new SqlPartsMapper();
+  private static final SqlPartsMapper SQL_PARTS_MAPPER = new SqlPartsMapper();
 
-  private static final ISqlValueAssignmentMapper SQL_VALUE_ASSIGNMENT_MAPPER = new SqlValueAssignmentMapper();
+  private static final SqlValueAssignmentMapper SQL_VALUE_ASSIGNMENT_MAPPER = new SqlValueAssignmentMapper();
 
   @Override
   public String createStatementToDeleteEntity(final String tableName, final EntityDeletionDto entity) {

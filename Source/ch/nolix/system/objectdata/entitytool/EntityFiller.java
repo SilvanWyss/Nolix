@@ -4,7 +4,6 @@
 package ch.nolix.system.objectdata.entitytool;
 
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
-import ch.nolix.systemapi.objectdata.entitytool.IEntityContentFieldsFiller;
 import ch.nolix.systemapi.objectdata.entitytool.IEntityFiller;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 
@@ -12,7 +11,7 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
  * @author Silvan Wyss
  */
 public final class EntityFiller implements IEntityFiller {
-  private static final IEntityContentFieldsFiller ENTITY_CONTENT_FIELDS_FILLER = new EntityContentFieldsFiller();
+  private static final EntityContentFieldsFiller ENTITY_CONTENT_FIELDS_FILLER = new EntityContentFieldsFiller();
 
   /**
    * {@inheritDoc}

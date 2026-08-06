@@ -6,21 +6,18 @@ package ch.nolix.system.nodemidschema.nodesearcher;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.IColumnNodeSearcher;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabaseNodeSearcher;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabasePropertiesNodeSearcher;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.ITableNodeSearcher;
 
 /**
  * @author Silvan Wyss
  */
 public final class DatabaseNodeSearcher implements IDatabaseNodeSearcher {
-  private static final IDatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
+  private static final DatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
   new DatabasePropertiesNodeSearcher();
 
-  private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
+  private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
-  private static final IColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
+  private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
   @Override
   public String getDatabaseNameFromNodeDatabase(IMutableNode<?> nodeDatabase) {
