@@ -4,7 +4,7 @@
 package ch.nolix.template.webgui.dialog;
 
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
-import ch.nolix.baseapi.programcontrol.builder.IBuilder;
+import ch.nolix.baseapi.programcontrol.builder.Builder;
 import ch.nolix.baseapi.programcontrol.function.FunctionService;
 import ch.nolix.system.control.label.Label;
 import ch.nolix.system.control.verticalstack.VerticalStack;
@@ -17,7 +17,7 @@ import ch.nolix.systemapi.webgui.main.LayerRole;
 /**
  * @author Silvan Wyss
  */
-public final class WaitDialogBuilder implements IBuilder<ILayer> {
+public final class WaitDialogBuilder implements Builder<ILayer> {
   private static final Runnable DEFAULT_JOB = FunctionService::doNothing;
 
   private static final Runnable DEFAULT_TERMINAL_ACTION = FunctionService::doNothing;

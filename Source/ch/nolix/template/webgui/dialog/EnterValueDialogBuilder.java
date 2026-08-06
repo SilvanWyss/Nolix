@@ -7,7 +7,7 @@ import java.util.function.Consumer;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
-import ch.nolix.baseapi.programcontrol.builder.IBuilder;
+import ch.nolix.baseapi.programcontrol.builder.Builder;
 import ch.nolix.system.control.button.Button;
 import ch.nolix.system.control.horizontalstack.HorizontalStack;
 import ch.nolix.system.control.label.Label;
@@ -23,7 +23,7 @@ import ch.nolix.systemapi.webgui.main.LayerRole;
 /**
  * @author Silvan Wyss
  */
-public final class EnterValueDialogBuilder implements IBuilder<ILayer> {
+public final class EnterValueDialogBuilder implements Builder<ILayer> {
   private static final String DEFAULT_INFO_TEXT = "Enter value";
 
   private static final String DEFAULT_ORIGINAL_VALUE = StringCatalog.EMPTY_STRING;

@@ -4,7 +4,7 @@
 package ch.nolix.template.webgui.dialog;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.programcontrol.builder.IBuilder;
+import ch.nolix.baseapi.programcontrol.builder.Builder;
 import ch.nolix.baseapi.programcontrol.function.FunctionService;
 import ch.nolix.system.control.button.Button;
 import ch.nolix.system.control.horizontalstack.HorizontalStack;
@@ -20,7 +20,7 @@ import ch.nolix.systemapi.webgui.main.LayerRole;
 /**
  * @author Silvan Wyss
  */
-public final class YesNoDialogBuilder implements IBuilder<ILayer> {
+public final class YesNoDialogBuilder implements Builder<ILayer> {
   private static final String DEFAULT_YES_NO_QUESTION = "Do you want to run the action?";
 
   private static final Runnable DEFAULT_CONFIRM_ACTION = FunctionService::doNothing;

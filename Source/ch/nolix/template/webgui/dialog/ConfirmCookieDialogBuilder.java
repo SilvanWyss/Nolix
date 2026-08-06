@@ -3,7 +3,7 @@
  */
 package ch.nolix.template.webgui.dialog;
 
-import ch.nolix.baseapi.programcontrol.builder.IBuilder;
+import ch.nolix.baseapi.programcontrol.builder.Builder;
 import ch.nolix.system.control.button.Button;
 import ch.nolix.system.control.label.Label;
 import ch.nolix.system.control.verticalstack.VerticalStack;
@@ -19,7 +19,7 @@ import ch.nolix.template.webgui.textcatalog.TextCatalog;
 /**
  * @author Silvan Wyss
  */
-public final class ConfirmCookieDialogBuilder implements IBuilder<ILayer> {
+public final class ConfirmCookieDialogBuilder implements Builder<ILayer> {
   /**
    * {@inheritDoc}
    */
