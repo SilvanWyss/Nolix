@@ -77,6 +77,13 @@ final class LinkedListPerformanceTest extends PerformanceTest {
       .hasLinearOrLowerTimeComplexity();
   }
 
+  @Test
+  void testCase_toOrdered() {
+    expectOnAnObjectFrom(this::createLinkedList)
+      .running(l -> l.toOrdered(FunctionService::getSelf))
+      .hasGivenOrLowerTimeComplexity(n -> n * Math.sqrt(n));
+  }
+
   private ILinkedList<Integer> createLinkedList(final int elementCount) {
     final ILinkedList<Integer> list = LinkedList.createEmpty();
 
