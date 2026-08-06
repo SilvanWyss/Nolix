@@ -6,7 +6,7 @@ package ch.nolix.systemapi.objectdata.fieldexaminer;
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.Field;
 
 /**
  * @author Silvan Wyss
@@ -16,14 +16,14 @@ public interface IFieldExaminer extends IDatabaseObjectExaminer {
    * @param field
    * @return true if the given field belongs to a {@link IEntity}, false otherwise
    */
-  boolean belongsToEntity(IField field);
+  boolean belongsToEntity(Field field);
 
   /**
    * @param field
    * @return true if the given field belongs to a loaded {@link IEntity}, false
    *         otherwise
    */
-  boolean belongsToLoadedEntity(IField field);
+  boolean belongsToLoadedEntity(Field field);
 
   /**
    * @param field
@@ -31,29 +31,29 @@ public interface IFieldExaminer extends IDatabaseObjectExaminer {
    * @return true if the given field can reference back the given baseReference,
    *         false otherwise
    */
-  boolean canReferenceBackBaseReference(IField field, IBaseReference baseReference);
+  boolean canReferenceBackBaseReference(Field field, IBaseReference baseReference);
 
   /**
    * @param field
    * @return true if the given field is for multi content, false otherwise
    */
-  boolean isForMultiContent(IField field);
+  boolean isForMultiContent(Field field);
 
   /**
    * @param field
    * @return true if the given field is for single content, false otherwise
    */
-  boolean isForSingleContent(IField field);
+  boolean isForSingleContent(Field field);
 
   /**
    * @param field
    * @return true if the given field is mandatory but empty, false otherwise
    */
-  boolean isMandatoryButEmpty(IField field);
+  boolean isMandatoryButEmpty(Field field);
 
   /**
    * @param field
    * @return true if the given field is new or edited but set, false otherwise
    */
-  boolean isSetForCaseWhenIsMandatoryAndNewOrEdited(IField field);
+  boolean isSetForCaseWhenIsMandatoryAndNewOrEdited(Field field);
 }

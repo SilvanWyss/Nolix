@@ -3,19 +3,19 @@
  */
 package ch.nolix.systemapi.objectdata.fieldvalidator;
 
-import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.Field;
 
 /**
  * @author Silvan Wyss
  */
 public interface IFieldValidator {
-  void assertBelongsToEntity(IField field);
+  void assertBelongsToEntity(Field field);
 
-  void assertDoesNotBelongToEntity(IField field);
+  void assertDoesNotBelongToEntity(Field field);
 
-  void assertIsNotEmpty(IField field);
+  void assertIsNotEmpty(Field field);
 
-  void assertIsNotMandatoryAndEmptyBoth(IField field);
+  void assertIsNotMandatoryAndEmptyBoth(Field field);
 
-  void assertKnowsParentColumn(IField field);
+  void assertKnowsParentColumn(Field field);
 }

@@ -16,7 +16,7 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 /**
  * @author Silvan Wyss
  */
-public interface IField
+public interface Field
 extends
 EmptinessRequestable,
 DatabaseComponent<IDatabase>,
@@ -41,7 +41,7 @@ MandatorynessRequestable {
 
   boolean referencesBackEntityWithId(String id);
 
-  boolean referencesBackField(IField field);
+  boolean referencesBackField(Field field);
 
   boolean referencesEntity(IEntity entity);
 

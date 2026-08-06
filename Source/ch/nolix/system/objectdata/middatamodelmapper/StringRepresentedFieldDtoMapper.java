@@ -8,7 +8,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
 import ch.nolix.systemapi.objectdata.middatamodelmapper.IStringRepresentedFieldDtoMapper;
 import ch.nolix.systemapi.objectdata.model.IBackReference;
-import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
@@ -27,7 +27,7 @@ public final class StringRepresentedFieldDtoMapper implements IStringRepresented
    */
   @Override
   public ExtendedIterable<ValueStringFieldDto> mapFieldsToStringRepresentedFieldDtos(
-    final ExtendedIterable<? extends IField> fields) {
+    final ExtendedIterable<? extends Field> fields) {
     return fields.to(this::mapFieldToStringRepresentedFieldDto);
   }
 
@@ -35,7 +35,7 @@ public final class StringRepresentedFieldDtoMapper implements IStringRepresented
    * {@inheritDoc}
    */
   @Override
-  public ValueStringFieldDto mapFieldToStringRepresentedFieldDto(final IField field) {
+  public ValueStringFieldDto mapFieldToStringRepresentedFieldDto(final Field field) {
     if (field instanceof final IValueField<?> value) {
       return //
       new ValueStringFieldDto(value.getName(), value.getStoredValue().toString(), null);

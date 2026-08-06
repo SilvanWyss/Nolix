@@ -14,7 +14,7 @@ import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.IOptionalBackReference;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.structure.EntityCache;
@@ -219,7 +219,7 @@ implements IOptionalBackReference<E> {
    * {@inheritDoc}
    */
   @Override
-  public boolean referencesBackField(final IField field) {
+  public boolean referencesBackField(final Field field) {
     return //
     field != null // NOSONAR: There is no advantage to spreading the conditions.
     && field.belongsToEntity()

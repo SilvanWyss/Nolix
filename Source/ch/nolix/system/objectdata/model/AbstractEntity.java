@@ -18,7 +18,7 @@ import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelflyweight.IEntityFlyWeight;
 
@@ -140,7 +140,7 @@ public abstract class AbstractEntity implements IEntity {
    * {@inheritDoc}
    */
   @Override
-  public final ExtendedIterable<? extends IField> internalGetStoredFields() {
+  public final ExtendedIterable<? extends Field> internalGetStoredFields() {
     return getStoredFields();
   }
 

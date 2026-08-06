@@ -11,7 +11,7 @@ import ch.nolix.system.objectdata.model.AbstractBaseBackReference;
 import ch.nolix.system.objectdata.model.AbstractBaseReference;
 import ch.nolix.system.objectdata.model.AbstractBaseValueField;
 import ch.nolix.system.objectschema.model.Column;
-import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.schemamapper.IColumnMapper;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
@@ -22,7 +22,7 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 public final class ColumnMapper implements IColumnMapper {
 
   @Override
-  public IColumn mapFieldToColumn(final IField field, final String columnId, final ExtendedIterable<ITable> tables) {
+  public IColumn mapFieldToColumn(final Field field, final String columnId, final ExtendedIterable<ITable> tables) {
     if (field instanceof final AbstractBaseValueField<?> baseValueField) {
       return //
       Column.withIdAndNameAndContentModel(

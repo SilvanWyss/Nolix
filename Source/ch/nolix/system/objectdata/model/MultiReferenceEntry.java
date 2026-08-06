@@ -11,7 +11,7 @@ import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
 import ch.nolix.systemapi.objectdata.model.ITable;
@@ -105,7 +105,7 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
    * {@inheritDoc}
    */
   @Override
-  public Optional<? extends IField> getOptionalStoredBaseBackReferenceWhoReferencesBackTheParentMultiReferenceOfThis() {
+  public Optional<? extends Field> getOptionalStoredBaseBackReferenceWhoReferencesBackTheParentMultiReferenceOfThis() {
     return //
     getStoredReferencedEntity()
       .internalGetStoredFields()

@@ -10,7 +10,7 @@ import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IBaseValueField;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.Field;
 
 /**
  * @author Silvan Wyss
@@ -77,7 +77,7 @@ public abstract class AbstractBaseValueField<V> extends AbstractField implements
    * {@inheritDoc}
    */
   @Override
-  public final boolean referencesBackField(final IField field) {
+  public final boolean referencesBackField(final Field field) {
     return false;
   }
 

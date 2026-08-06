@@ -7,7 +7,7 @@ import ch.nolix.baseapi.programcontrol.function.FunctionService;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
@@ -30,7 +30,7 @@ public final class MultiFieldSaver implements IMultiFieldSaver {
    */
   @Override
   public void saveFieldChangesIfIsMultiField(
-    final IField field,
+    final Field field,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     switch (field) {
       case IMultiValueField<?> multiValueField ->
@@ -78,7 +78,7 @@ public final class MultiFieldSaver implements IMultiFieldSaver {
    * @param dataAndSchemaAdapter
    */
   private void saveFieldChangesIfIsNewOrEditedMultiField(
-    final IField field,
+    final Field field,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     if (FIELD_EXAMINER.isNewOrEdited(field)) {
       saveFieldChangesIfIsMultiField(field, dataAndSchemaAdapter);

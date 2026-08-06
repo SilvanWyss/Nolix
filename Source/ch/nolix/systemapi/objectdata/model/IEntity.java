@@ -26,7 +26,7 @@ ShortDescriptionHolder,
 TableComponent<ITable<? extends IEntity>> {
   String getParentTableName();
 
-  ExtendedIterable<? extends IField> internalGetStoredFields();
+  ExtendedIterable<? extends Field> internalGetStoredFields();
 
   void internalSetLoadedAndIdAndSaveStamp(String loadedId, String saveStamp);
 

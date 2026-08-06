@@ -10,7 +10,7 @@ import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
 /**
@@ -46,22 +46,22 @@ public final class EntitySearcher implements IEntitySearcher {
     final IEntity entity) {
     final var fields = entity.internalGetStoredFields();
 
-    return fields.toMultiples(IField::getStoredBaseBackReferencesWhoReferencesBackThis);
+    return fields.toMultiples(Field::getStoredBaseBackReferencesWhoReferencesBackThis);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<? extends IField> getStoredEditedFields(final IEntity entity) {
-    return entity.internalGetStoredFields().getStoredSelected(IField::isEdited);
+  public ExtendedIterable<? extends Field> getStoredEditedFields(final IEntity entity) {
+    return entity.internalGetStoredFields().getStoredSelected(Field::isEdited);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public IField getStoredFieldByName(final IEntity entity, final String name) {
+  public Field getStoredFieldByName(final IEntity entity, final String name) {
     final var fields = entity.internalGetStoredFields();
 
     return fields.getStoredFirst(f -> f.hasName(name));
@@ -74,6 +74,6 @@ public final class EntitySearcher implements IEntitySearcher {
   public ExtendedIterable<IBaseReference> getStoredFieldsWhoAreBackReferencedFromEntity(final IEntity entity) {
     final var fields = entity.internalGetStoredFields();
 
-    return fields.toMultiples(IField::getStoredBackReferencedBaseReferences);
+    return fields.toMultiples(Field::getStoredBackReferencedBaseReferences);
   }
 }

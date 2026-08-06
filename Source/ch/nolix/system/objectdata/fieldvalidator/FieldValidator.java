@@ -10,7 +10,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IFieldValidator;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.Field;
 
 /**
  * @author Silvan Wyss
@@ -19,7 +19,7 @@ public class FieldValidator implements IFieldValidator {
   private static final FieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
   @Override
-  public final void assertBelongsToEntity(final IField field) {
+  public final void assertBelongsToEntity(final Field field) {
     if (!field.belongsToEntity()) {
       throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(field, IEntity.class);
     }
@@ -29,7 +29,7 @@ public class FieldValidator implements IFieldValidator {
    * {@inheritDoc}
    */
   @Override
-  public final void assertDoesNotBelongToEntity(final IField field) {
+  public final void assertDoesNotBelongToEntity(final Field field) {
     if (field.belongsToEntity()) {
       throw ArgumentBelongsToParentException.forArgumentAndParent(field, field.getStoredParentEntity());
     }
@@ -39,7 +39,7 @@ public class FieldValidator implements IFieldValidator {
    * {@inheritDoc}
    */
   @Override
-  public final void assertIsNotEmpty(final IField field) {
+  public final void assertIsNotEmpty(final Field field) {
     if (field.isEmpty()) {
       throw EmptyArgumentException.forArgument(field);
     }
@@ -49,7 +49,7 @@ public class FieldValidator implements IFieldValidator {
    * {@inheritDoc}
    */
   @Override
-  public final void assertIsNotMandatoryAndEmptyBoth(final IField field) {
+  public final void assertIsNotMandatoryAndEmptyBoth(final Field field) {
     if (FIELD_EXAMINER.isMandatoryButEmpty(field)) {
       throw EmptyArgumentException.forArgument(field);
     }
@@ -59,7 +59,7 @@ public class FieldValidator implements IFieldValidator {
    * {@inheritDoc}
    */
   @Override
-  public final void assertKnowsParentColumn(final IField field) {
+  public final void assertKnowsParentColumn(final Field field) {
     if (!field.knowsParentColumn()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(field, "does not know its parent column");
     }

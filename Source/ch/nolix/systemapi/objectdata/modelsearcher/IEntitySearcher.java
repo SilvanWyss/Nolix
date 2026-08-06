@@ -9,7 +9,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.Field;
 
 /**
  * @author Silvan Wyss
@@ -34,22 +34,22 @@ public interface IEntitySearcher {
 
   /**
    * @param entity
-   * @return the edited {@link IField}s of the given entity.
+   * @return the edited {@link Field}s of the given entity.
    */
-  ExtendedIterable<? extends IField> getStoredEditedFields(IEntity entity);
+  ExtendedIterable<? extends Field> getStoredEditedFields(IEntity entity);
 
   /**
    * @param entity
    * @param name
-   * @return the {@link IField} with the given name from the given entity
+   * @return the {@link Field} with the given name from the given entity
    * @throws RuntimeException if the given entity does not have a field with the
    *                          given name.
    */
-  IField getStoredFieldByName(IEntity entity, String name);
+  Field getStoredFieldByName(IEntity entity, String name);
 
   /**
    * @param entity
-   * @return the {@link IField}s the given entity references back.
+   * @return the {@link Field}s the given entity references back.
    */
   ExtendedIterable<IBaseReference> getStoredFieldsWhoAreBackReferencedFromEntity(IEntity entity);
 }

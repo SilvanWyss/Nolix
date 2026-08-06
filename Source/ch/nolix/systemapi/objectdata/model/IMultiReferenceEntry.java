@@ -16,7 +16,7 @@ import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
  */
 public interface IMultiReferenceEntry<E extends IEntity>
 extends DatabaseComponent<IDatabase>, DatabaseObject, TableComponent<ITable<? extends IEntity>> {
-  Optional<? extends IField> getOptionalStoredBaseBackReferenceWhoReferencesBackTheParentMultiReferenceOfThis();
+  Optional<? extends Field> getOptionalStoredBaseBackReferenceWhoReferencesBackTheParentMultiReferenceOfThis();
 
   String getReferencedEntityId();
 

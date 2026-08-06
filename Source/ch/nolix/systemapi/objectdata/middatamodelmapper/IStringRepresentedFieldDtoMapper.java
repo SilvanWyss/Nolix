@@ -5,7 +5,7 @@ package ch.nolix.systemapi.objectdata.middatamodelmapper;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
-import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.Field;
 
 /**
  * @author Silvan Wyss
@@ -18,12 +18,12 @@ public interface IStringRepresentedFieldDtoMapper {
    *                          fields is null
    */
   ExtendedIterable<ValueStringFieldDto> mapFieldsToStringRepresentedFieldDtos(
-    ExtendedIterable<? extends IField> fields);
+    ExtendedIterable<? extends Field> fields);
 
   /**
    * @param field
    * @return a new {@link ValueStringFieldDto} from the given field
    * @throws RuntimeException if the given field is null
    */
-  ValueStringFieldDto mapFieldToStringRepresentedFieldDto(IField field);
+  ValueStringFieldDto mapFieldToStringRepresentedFieldDto(Field field);
 }

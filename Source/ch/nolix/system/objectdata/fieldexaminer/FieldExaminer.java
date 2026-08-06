@@ -8,7 +8,7 @@ import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
-import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.Field;
 
 /**
  * @author Silvan Wyss
@@ -18,7 +18,7 @@ public class FieldExaminer extends DatabaseObjectExaminer implements IFieldExami
    * {@inheritDoc}
    */
   @Override
-  public boolean belongsToEntity(final IField field) {
+  public boolean belongsToEntity(final Field field) {
     return //
     field != null
     && field.belongsToEntity();
@@ -28,7 +28,7 @@ public class FieldExaminer extends DatabaseObjectExaminer implements IFieldExami
    * {@inheritDoc}
    */
   @Override
-  public boolean belongsToLoadedEntity(final IField field) {
+  public boolean belongsToLoadedEntity(final Field field) {
     return //
     belongsToEntity(field)
     && field.getStoredParentEntity().isLoaded();
@@ -38,7 +38,7 @@ public class FieldExaminer extends DatabaseObjectExaminer implements IFieldExami
    * {@inheritDoc}
    */
   @Override
-  public boolean canReferenceBackBaseReference(final IField field, final IBaseReference baseReference) {
+  public boolean canReferenceBackBaseReference(final Field field, final IBaseReference baseReference) {
     if (field instanceof final IBaseBackReference baseBackReference
     && baseReference != null
     && baseReference.belongsToEntity()) {
@@ -59,7 +59,7 @@ public class FieldExaminer extends DatabaseObjectExaminer implements IFieldExami
    * {@inheritDoc}
    */
   @Override
-  public boolean isForMultiContent(final IField field) {
+  public boolean isForMultiContent(final Field field) {
     return //
     field != null &&
     field.getType().getCardinality().getBaseCardinality() == BaseCardinality.MULTI;
@@ -69,7 +69,7 @@ public class FieldExaminer extends DatabaseObjectExaminer implements IFieldExami
    * {@inheritDoc}
    */
   @Override
-  public boolean isForSingleContent(final IField field) {
+  public boolean isForSingleContent(final Field field) {
     return //
     field != null
     && field.getType().getCardinality().getBaseCardinality() == BaseCardinality.SINGLE;
@@ -79,7 +79,7 @@ public class FieldExaminer extends DatabaseObjectExaminer implements IFieldExami
    * {@inheritDoc}
    */
   @Override
-  public boolean isMandatoryButEmpty(final IField field) {
+  public boolean isMandatoryButEmpty(final Field field) {
     return //
     field != null
     && field.isMandatory()
@@ -90,7 +90,7 @@ public class FieldExaminer extends DatabaseObjectExaminer implements IFieldExami
    * {@inheritDoc}
    */
   @Override
-  public boolean isSetForCaseWhenIsMandatoryAndNewOrEdited(final IField field) {
+  public boolean isSetForCaseWhenIsMandatoryAndNewOrEdited(final Field field) {
     return //
     field != null
     && (!field.isMandatory()

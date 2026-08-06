@@ -8,7 +8,7 @@ import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.expectation.IFieldExpectationAdder;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 import ch.nolix.systemapi.objectdata.model.IOptionalReference;
 import ch.nolix.systemapi.objectdata.model.IReference;
@@ -27,7 +27,7 @@ public final class FieldExpectationAdder implements IFieldExpectationAdder {
    */
   @Override
   public void addExpectationThatNewlyReferencedEntitiesExist(
-    final IField field,
+    final Field field,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     switch (field) {
       case IReference<? extends IEntity> reference ->
@@ -89,7 +89,7 @@ public final class FieldExpectationAdder implements IFieldExpectationAdder {
    */
   @Override
   public void addExpectationThatNewlyReferencedEntitiesExistIfFieldIsNewOrEdited(
-    final IField field,
+    final Field field,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     if (FIELD_EXAMINER.isNewOrEdited(field)) {
       addExpectationThatNewlyReferencedEntitiesExist(field, dataAndSchemaAdapter);

@@ -15,14 +15,14 @@ import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelflyweight.IFieldFlyWeight;
 
 /**
  * @author Silvan Wyss
  */
-public abstract class AbstractField implements IField {
+public abstract class AbstractField implements Field {
   private static final FieldValidator FIELD_VALIDATOR = new FieldValidator();
 
   private static final VoidFieldFlyWeight VOID_FIELD_FLY_WEIGHT = new VoidFieldFlyWeight();

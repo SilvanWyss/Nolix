@@ -8,7 +8,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 /**
  * @author Silvan Wyss
  */
-public interface IBaseBackReference extends IField {
+public interface IBaseBackReference extends Field {
   /**
    * @return the names of the {@link ITable}s the current
    *         {@link IBaseBackReference} can reference back.

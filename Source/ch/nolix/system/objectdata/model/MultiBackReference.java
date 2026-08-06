@@ -18,7 +18,7 @@ import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReferenceEntry;
 
@@ -179,7 +179,7 @@ implements IMultiBackReference<E> {
    * {@inheritDoc}
    */
   @Override
-  public boolean referencesBackField(final IField field) {
+  public boolean referencesBackField(final Field field) {
     return //
     field != null
     && field.belongsToEntity()
