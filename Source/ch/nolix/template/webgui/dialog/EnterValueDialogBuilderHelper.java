@@ -8,6 +8,8 @@ import java.util.function.Consumer;
 import ch.nolix.systemapi.control.textbox.ITextbox;
 
 /**
+ * Of the {@link EnterValueDialogBuilderHelper} an instance cannot be created.
+ * 
  * @author Silvan Wyss
  */
 public final class EnterValueDialogBuilderHelper {

@@ -8,6 +8,7 @@ import java.util.function.Consumer;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.programcontrol.builder.Builder;
+import ch.nolix.baseapi.programcontrol.function.FunctionService;
 import ch.nolix.system.control.button.Button;
 import ch.nolix.system.control.horizontalstack.HorizontalStack;
 import ch.nolix.system.control.label.Label;
@@ -19,12 +20,13 @@ import ch.nolix.systemapi.control.button.ButtonRole;
 import ch.nolix.systemapi.control.container.ContainerRole;
 import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.LayerRole;
+import ch.nolix.template.webgui.textcatalog.SentenceCatalog;
 
 /**
  * @author Silvan Wyss
  */
 public final class EnterValueDialogBuilder implements Builder<ILayer> {
-  private static final String DEFAULT_INFO_TEXT = "Enter value";
+  private static final String DEFAULT_INFO_TEXT = SentenceCatalog.ENTER_VALUE;
 
   private static final String DEFAULT_ORIGINAL_VALUE = StringCatalog.EMPTY_STRING;
 
@@ -32,11 +34,7 @@ public final class EnterValueDialogBuilder implements Builder<ILayer> {
 
   private static final String DEFAULT_CANCEL_BUTTON_TEXT = StringCatalog.LONG_LEFT_ARROW;
 
-  private static final Consumer<String> DEFAULT_VALUE_TAKER = //
-  _ // NOSONAR: An unnamed variable is suitable here.
-  -> {
-    // This class is a sub class without additional methods.
-  };
+  private static final Consumer<String> DEFAULT_VALUE_TAKER = FunctionService::takeObjectAndDoNothing;
 
   private String infoText = DEFAULT_INFO_TEXT;
 
@@ -50,11 +48,10 @@ public final class EnterValueDialogBuilder implements Builder<ILayer> {
 
   @Override
   public ILayer build() {
-    Validator.assertThat(valueTaker).thatIsNamed("value taker").isNotNull();
-
     final var valueTextbox = new Textbox().setText(originalValue);
 
-    return new Layer()
+    return //
+    new Layer()
       .setRole(LayerRole.DIALOG_LAYER)
       .setRootControl(
         new VerticalStack()
@@ -78,30 +75,40 @@ public final class EnterValueDialogBuilder implements Builder<ILayer> {
   }
 
   public EnterValueDialogBuilder setCancelButtonText(String cancelButtonText) {
+    Validator.assertThat(cancelButtonText).thatIsNamed("cancel button text").isNotBlank();
+
     this.cancelButtonText = cancelButtonText;
 
     return this;
   }
 
   public EnterValueDialogBuilder setConfirmButtonText(final String confirmButtonText) {
+    Validator.assertThat(confirmButtonText).thatIsNamed("confirm button text").isNotBlank();
+
     this.confirmButtonText = confirmButtonText;
 
     return this;
   }
 
   public EnterValueDialogBuilder setInfoText(final String infoText) {
+    Validator.assertThat(infoText).thatIsNamed("info text").isNotBlank();
+
     this.infoText = infoText;
 
     return this;
   }
 
   public EnterValueDialogBuilder setOriginalValue(final String originalValue) {
+    Validator.assertThat(originalValue).thatIsNamed("original value").isNotNull();
+
     this.originalValue = originalValue;
 
     return this;
   }
 
   public EnterValueDialogBuilder setValueTaker(final Consumer<String> valueTaker) {
+    Validator.assertThat(valueTaker).thatIsNamed("value taker").isNotNull();
+
     this.valueTaker = valueTaker;
 
     return this;
