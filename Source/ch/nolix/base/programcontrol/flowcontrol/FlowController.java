@@ -6,6 +6,7 @@ package ch.nolix.base.programcontrol.flowcontrol;
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
+import ch.nolix.base.errorcontrol.logging.Logger;
 import ch.nolix.base.programcontrol.basicflowcontroller.BasicFlowController;
 import ch.nolix.base.programcontrol.jobpool.JobPool;
 import ch.nolix.baseapi.programcontrol.flowcontrol.IAsLongAsMediator;
@@ -166,7 +167,8 @@ public final class FlowController {
       job.run();
       return true;
     } catch (final Throwable error) { // NOSONAR: All errors must be caught.
-      error.printStackTrace();
+      Logger.logError(error);
+
       return false;
     }
   }
