@@ -20,6 +20,7 @@ import ch.nolix.base.commontype.arraytool.ArraySorter;
 import ch.nolix.base.commontype.iterableexaminer.IterableExaminer;
 import ch.nolix.base.commontype.iterablesearcher.IterableSearcher;
 import ch.nolix.base.validation.validator.Validator;
+import ch.nolix.baseapi.commontype.function.ToByteFunction;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.baseapi.datastructure.set.SingleProvider;
@@ -1230,30 +1231,8 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final byte[] toByteArray(final Function<E, Byte> byteMapper) {
-    // Asserts that the given byteMapper is not null.
-    Validator.assertThat(byteMapper).thatIsNamed("byte mapper").isNotNull();
-
-    // Creates array.
-    final var array = new byte[getCount()];
-
-    // Fills up the array.
-    var index = 0;
-    for (final var e : this) {
-      // Handles the case that the current element is null.
-      if (e == null) {
-        array[index] = 0;
-
-        // Handles the case that the current element is not  null.
-      } else {
-        array[index] = byteMapper.apply(e);
-      }
-
-      // Increments the index.
-      index++;
-    }
-
-    return array;
+  public final byte[] toByteArray(final ToByteFunction<E> byteMapper) {
+    return ITERABLE_MAPPER.toByteArray(this, getCount(), byteMapper);
   }
 
   /**
