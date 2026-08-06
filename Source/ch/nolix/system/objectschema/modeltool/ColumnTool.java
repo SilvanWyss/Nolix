@@ -3,7 +3,6 @@
  */
 package ch.nolix.system.objectschema.modeltool;
 
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.midschema.fieldproperty.BaseFieldType;
 import ch.nolix.systemapi.objectschema.model.IColumn;
@@ -15,16 +14,6 @@ import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
  * @author Silvan Wyss
  */
 public final class ColumnTool extends DatabaseObjectExaminer implements IColumnTool {
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public void assertIsAReferenceColumn(final IColumn column) {
-    if (!isAReferenceColumn(column)) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(column, "is not any reference column");
-    }
-  }
-
   /**
    * {@inheritDoc}
    */
