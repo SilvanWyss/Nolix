@@ -3,6 +3,7 @@
  */
 package ch.nolix.base.net.level1server;
 
+import ch.nolix.base.errorcontrol.logging.Logger;
 import ch.nolix.base.validation.validator.Validator;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufUtil;
@@ -79,7 +80,7 @@ public final class SslServerIndexPageHandler extends SimpleChannelInboundHandler
    */
   @Override
   public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-    cause.printStackTrace();
+    Logger.logError(cause);
     ctx.close();
   }
 
