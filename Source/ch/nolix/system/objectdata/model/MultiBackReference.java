@@ -16,7 +16,7 @@ import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
-import ch.nolix.systemapi.objectdata.model.IBaseReference;
+import ch.nolix.systemapi.objectdata.model.BaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
@@ -112,13 +112,13 @@ implements IMultiBackReference<E> {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<IBaseReference> getStoredBackReferencedBaseReferences() {
-    final ILinkedList<IBaseReference> abstractReferences = LinkedList.createEmpty();
+  public ExtendedIterable<BaseReference> getStoredBackReferencedBaseReferences() {
+    final ILinkedList<BaseReference> abstractReferences = LinkedList.createEmpty();
     final var backReferencedBaseReferenceName = getBackReferencedFieldName();
 
     for (final var e : getAllStoredBackReferencedEntities()) {
       final var backReferencedField = //
-      (IBaseReference) ENTITY_SEARCHER.getStoredFieldByName(e, backReferencedBaseReferenceName);
+      (BaseReference) ENTITY_SEARCHER.getStoredFieldByName(e, backReferencedBaseReferenceName);
 
       abstractReferences.addAtEnd(backReferencedField);
     }

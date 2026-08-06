@@ -7,7 +7,7 @@ import java.util.Optional;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
-import ch.nolix.systemapi.objectdata.model.IBaseReference;
+import ch.nolix.systemapi.objectdata.model.BaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.Field;
 
@@ -24,7 +24,7 @@ public interface IEntitySearcher {
    */
   Optional<IBaseBackReference> getOptionalStoredBaseBackReferenceWhoCanBackReferenceTheBaseReference(
     IEntity entity,
-    IBaseReference baseReference);
+    BaseReference baseReference);
 
   /**
    * @param entity
@@ -51,5 +51,5 @@ public interface IEntitySearcher {
    * @param entity
    * @return the {@link Field}s the given entity references back.
    */
-  ExtendedIterable<IBaseReference> getStoredFieldsWhoAreBackReferencedFromEntity(IEntity entity);
+  ExtendedIterable<BaseReference> getStoredFieldsWhoAreBackReferencedFromEntity(IEntity entity);
 }

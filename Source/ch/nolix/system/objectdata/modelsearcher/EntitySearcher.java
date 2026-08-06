@@ -8,7 +8,7 @@ import java.util.Optional;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
-import ch.nolix.systemapi.objectdata.model.IBaseReference;
+import ch.nolix.systemapi.objectdata.model.BaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
@@ -26,7 +26,7 @@ public final class EntitySearcher implements IEntitySearcher {
   public Optional<IBaseBackReference> //
   getOptionalStoredBaseBackReferenceWhoCanBackReferenceTheBaseReference(
     final IEntity entity,
-    final IBaseReference baseReference) {
+    final BaseReference baseReference) {
     if (entity != null && baseReference != null) {
       for (final var f : entity.internalGetStoredFields()) {
         if (FIELD_EXAMINER.canReferenceBackBaseReference(f, baseReference)) {
@@ -71,7 +71,7 @@ public final class EntitySearcher implements IEntitySearcher {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<IBaseReference> getStoredFieldsWhoAreBackReferencedFromEntity(final IEntity entity) {
+  public ExtendedIterable<BaseReference> getStoredFieldsWhoAreBackReferencedFromEntity(final IEntity entity) {
     final var fields = entity.internalGetStoredFields();
 
     return fields.toMultiples(Field::getStoredBackReferencedBaseReferences);

@@ -7,7 +7,7 @@ package ch.nolix.systemapi.objectdata.model;
  * @author Silvan Wyss
  * @param <E> the type of the {@link IEntity} a {@link IReference} references.
  */
-public interface IReference<E extends IEntity> extends IBaseReference {
+public interface IReference<E extends IEntity> extends BaseReference {
   String getReferencedEntityId();
 
   String getReferencedTableId();

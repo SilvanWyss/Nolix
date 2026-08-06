@@ -7,7 +7,7 @@ import ch.nolix.baseapi.datamodel.cardinality.BaseCardinality;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
-import ch.nolix.systemapi.objectdata.model.IBaseReference;
+import ch.nolix.systemapi.objectdata.model.BaseReference;
 import ch.nolix.systemapi.objectdata.model.Field;
 
 /**
@@ -38,7 +38,7 @@ public class FieldExaminer extends DatabaseObjectExaminer implements IFieldExami
    * {@inheritDoc}
    */
   @Override
-  public boolean canReferenceBackBaseReference(final Field field, final IBaseReference baseReference) {
+  public boolean canReferenceBackBaseReference(final Field field, final BaseReference baseReference) {
     if (field instanceof final IBaseBackReference baseBackReference
     && baseReference != null
     && baseReference.belongsToEntity()) {

@@ -14,7 +14,7 @@ import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.model.IBackReference;
-import ch.nolix.systemapi.objectdata.model.IBaseReference;
+import ch.nolix.systemapi.objectdata.model.BaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.ITable;
@@ -72,13 +72,13 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<IBaseReference> getStoredBackReferencedBaseReferences() {
+  public ExtendedIterable<BaseReference> getStoredBackReferencedBaseReferences() {
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }
 
     final var backReferencedField = //
-    (IBaseReference) //
+    (BaseReference) //
     ENTITY_SEARCHER.getStoredFieldByName(getStoredBackReferencedEntity(), getBackReferencedFieldName());
 
     return ImmutableList.withElements(backReferencedField);

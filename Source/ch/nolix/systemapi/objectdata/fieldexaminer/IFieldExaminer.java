@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.objectdata.fieldexaminer;
 
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
-import ch.nolix.systemapi.objectdata.model.IBaseReference;
+import ch.nolix.systemapi.objectdata.model.BaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.Field;
 
@@ -31,7 +31,7 @@ public interface IFieldExaminer extends IDatabaseObjectExaminer {
    * @return true if the given field can reference back the given baseReference,
    *         false otherwise
    */
-  boolean canReferenceBackBaseReference(Field field, IBaseReference baseReference);
+  boolean canReferenceBackBaseReference(Field field, BaseReference baseReference);
 
   /**
    * @param field
