@@ -14,8 +14,6 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 public interface ITableTool extends IDatabaseObjectExaminer {
   int getColumnCount(ITable table);
 
-  ExtendedIterable<? extends IColumn> getStoredBaseBackReferenceColumns(ITable table);
-
   ExtendedIterable<? extends IColumn> getStoredBackReferencingColumns(ITable table);
 
   ExtendedIterable<? extends IColumn> getStoredReferencingColumns(ITable table);
