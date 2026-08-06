@@ -20,6 +20,8 @@ import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 
 /**
+ * Of the {@link EdgeModeSubStyleCatalog} an instance cannot be created.
+ * 
  * @author Silvan Wyss
  */
 public final class EdgeModeSubStyleCatalog {
