@@ -8,7 +8,7 @@ package ch.nolix.systemapi.objectdata.model;
  * @param <E> the type of the {@link IEntity} a {@link IBackReference}
  *            references back.
  */
-public interface IBackReference<E extends IEntity> extends IBaseBackReference {
+public interface IBackReference<E extends IEntity> extends BaseBackReference {
   String getBackReferencedEntityId();
 
   String getBackReferencedTableId();

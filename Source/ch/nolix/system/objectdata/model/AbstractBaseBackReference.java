@@ -6,13 +6,13 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
+import ch.nolix.systemapi.objectdata.model.BaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 
 /**
  * @author Silvan Wyss
  */
-public abstract class AbstractBaseBackReference extends AbstractField implements IBaseBackReference {
+public abstract class AbstractBaseBackReference extends AbstractField implements BaseBackReference {
   private final ImmutableList<String> backReferenceableTableNames;
 
   private final String backReferencedFieldName;
@@ -52,7 +52,7 @@ public abstract class AbstractBaseBackReference extends AbstractField implements
    * {@inheritDoc}
    */
   @Override
-  public final ExtendedIterable<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
+  public final ExtendedIterable<BaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
     return ImmutableList.createEmpty();
   }
 

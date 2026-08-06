@@ -6,7 +6,7 @@ package ch.nolix.systemapi.objectdata.modelsearcher;
 import java.util.Optional;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
+import ch.nolix.systemapi.objectdata.model.BaseBackReference;
 import ch.nolix.systemapi.objectdata.model.BaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.Field;
@@ -18,19 +18,19 @@ public interface IEntitySearcher {
   /**
    * @param entity
    * @param baseReference
-   * @return a {@link Optional} with the {@link IBaseBackReference} of the given
+   * @return a {@link Optional} with the {@link BaseBackReference} of the given
    *         entity that can reference back the given abstractReference, an empty
    *         {@link Optional} otherwise.
    */
-  Optional<IBaseBackReference> getOptionalStoredBaseBackReferenceWhoCanBackReferenceTheBaseReference(
+  Optional<BaseBackReference> getOptionalStoredBaseBackReferenceWhoCanBackReferenceTheBaseReference(
     IEntity entity,
     BaseReference baseReference);
 
   /**
    * @param entity
-   * @return the {@link IBaseBackReference}s that reference back the given entity.
+   * @return the {@link BaseBackReference}s that reference back the given entity.
    */
-  ExtendedIterable<IBaseBackReference> getStoredBaseBackReferencesThatReferenceBackEntity(IEntity entity);
+  ExtendedIterable<BaseBackReference> getStoredBaseBackReferencesThatReferenceBackEntity(IEntity entity);
 
   /**
    * @param entity

@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
-import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
+import ch.nolix.systemapi.objectdata.model.BaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 
 /**
@@ -18,7 +18,7 @@ public final class BaseBackReferenceUpdater {
   }
 
   public static void updateBaseBackReferenceForClearBaseReference(
-    final IBaseBackReference baseBackReference,
+    final BaseBackReference baseBackReference,
     final String backReferencedEntityId) {
     switch (baseBackReference) {
       case BackReference<? extends IEntity> backReference ->
@@ -33,7 +33,7 @@ public final class BaseBackReferenceUpdater {
   }
 
   public static void updateBaseBackReferenceThatReferencesBackEntityForDeleteEntity(
-    final IBaseBackReference baseBackReference,
+    final BaseBackReference baseBackReference,
     final IEntity entity) {
     switch (baseBackReference) {
       case BackReference<? extends IEntity> backReference ->

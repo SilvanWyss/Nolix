@@ -6,7 +6,7 @@ package ch.nolix.system.objectdata.fieldexaminer;
 import ch.nolix.baseapi.datamodel.cardinality.BaseCardinality;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
-import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
+import ch.nolix.systemapi.objectdata.model.BaseBackReference;
 import ch.nolix.systemapi.objectdata.model.BaseReference;
 import ch.nolix.systemapi.objectdata.model.Field;
 
@@ -39,7 +39,7 @@ public class FieldExaminer extends DatabaseObjectExaminer implements IFieldExami
    */
   @Override
   public boolean canReferenceBackBaseReference(final Field field, final BaseReference baseReference) {
-    if (field instanceof final IBaseBackReference baseBackReference
+    if (field instanceof final BaseBackReference baseBackReference
     && baseReference != null
     && baseReference.belongsToEntity()) {
       final var baseReferenceParentTableName = baseReference.getStoredParentEntity().getParentTableName();

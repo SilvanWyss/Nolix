@@ -17,7 +17,7 @@ import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
-import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
+import ch.nolix.systemapi.objectdata.model.BaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.IReference;
@@ -112,7 +112,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
+  public ExtendedIterable<BaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }
@@ -121,7 +121,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     final var abstractBackReferenceContainer = fields.getOptionalStoredFirst(f -> f.referencesBackField(this));
 
     if (abstractBackReferenceContainer.isPresent()) {
-      final var abstractBackReference = (IBaseBackReference) abstractBackReferenceContainer.get();
+      final var abstractBackReference = (BaseBackReference) abstractBackReferenceContainer.get();
 
       return ImmutableList.withElements(abstractBackReference);
     }

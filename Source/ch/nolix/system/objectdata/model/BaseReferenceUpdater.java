@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
-import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
+import ch.nolix.systemapi.objectdata.model.BaseBackReference;
 import ch.nolix.systemapi.objectdata.model.BaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 
@@ -30,7 +30,7 @@ public final class BaseReferenceUpdater {
   }
 
   private static void toBaseBackReferenceAddOrSetEntity(
-    final IBaseBackReference baseBackReference,
+    final BaseBackReference baseBackReference,
     final IEntity entity) {
     final var type = baseBackReference.getType();
 

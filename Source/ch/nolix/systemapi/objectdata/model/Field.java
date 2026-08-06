@@ -25,7 +25,7 @@ EntityComponent<IEntity>,
 NameHolder,
 TableComponent<ITable<? extends IEntity>>,
 MandatorynessRequestable {
-  ExtendedIterable<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis();
+  ExtendedIterable<BaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis();
 
   ExtendedIterable<BaseReference> getStoredBackReferencedBaseReferences();
 

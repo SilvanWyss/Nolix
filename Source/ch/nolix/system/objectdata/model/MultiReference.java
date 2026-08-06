@@ -17,7 +17,7 @@ import ch.nolix.system.objectdata.fieldexaminer.MultiReferenceExaminer;
 import ch.nolix.system.objectdata.fieldvalidator.MultiReferenceValidator;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
-import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
+import ch.nolix.systemapi.objectdata.model.BaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
@@ -123,8 +123,8 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
-    final ILinkedList<IBaseBackReference> abstractBackReferences = LinkedList.createEmpty();
+  public ExtendedIterable<BaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
+    final ILinkedList<BaseBackReference> abstractBackReferences = LinkedList.createEmpty();
 
     for (final var e : getAllStoredReferencedEntities()) {
       final var fields = e.internalGetStoredFields();
@@ -132,7 +132,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
       final var abstractBackReferenceContainer = fields.getOptionalStoredFirst(f -> f.referencesBackField(this));
 
       if (abstractBackReferenceContainer.isPresent()) {
-        final var abstractBackReference = (IBaseBackReference) abstractBackReferenceContainer.get();
+        final var abstractBackReference = (BaseBackReference) abstractBackReferenceContainer.get();
 
         abstractBackReferences.addAtEnd(abstractBackReference);
       }
