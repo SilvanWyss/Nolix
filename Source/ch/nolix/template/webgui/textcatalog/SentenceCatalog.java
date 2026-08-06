@@ -4,6 +4,8 @@
 package ch.nolix.template.webgui.textcatalog;
 
 /**
+ * Of the {@link SentenceCatalog} an instance cannot be created.
+ * 
  * @author Silvan Wyss
  */
 public final class SentenceCatalog {
