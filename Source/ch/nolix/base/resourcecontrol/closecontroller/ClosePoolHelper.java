@@ -26,7 +26,7 @@ public final class ClosePoolHelper {
   public static void letNoteClose(final GroupCloseable element) {
     try {
       element.noteClose();
-    } catch (final Throwable exception) { // NOSONAR: All Throwables must be caught.
+    } catch (final Throwable exception) { // NOSONAR: All errors must be caught.
       Logger.logError(exception);
     }
   }

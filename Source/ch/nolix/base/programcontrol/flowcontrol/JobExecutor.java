@@ -448,7 +448,7 @@ public final class JobExecutor extends Thread {
       finishedStepRunCount++;
 
       return true;
-    } catch (final Throwable paramError) { // NOSONAR: All Throwables must be caught.
+    } catch (final Throwable paramError) { // NOSONAR: All errors must be caught.
 
       optionalCaughtError = paramError;
       Logger.logError(paramError);

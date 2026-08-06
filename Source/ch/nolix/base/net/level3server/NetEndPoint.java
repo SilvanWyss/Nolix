@@ -308,7 +308,7 @@ public final class NetEndPoint extends AbstractEndPoint {
   private String receiveAndGetReply(final String message) {
     try {
       return receiveAndGetReply(ChainedNode.fromString(message));
-    } catch (final Throwable error) { // NOSONAR: All Throwables must be caught.
+    } catch (final Throwable error) { // NOSONAR: All errors must be caught.
 
       Logger.logError(error);
 

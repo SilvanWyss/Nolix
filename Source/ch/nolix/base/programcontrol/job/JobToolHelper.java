@@ -17,7 +17,7 @@ public final class JobToolHelper {
     for (var i = 1; i <= jobs.getCount(); i++) {
       try {
         jobs.getStoredAtOneBasedIndex(i).run();
-      } catch (final Throwable error) { // NOSONAR: All Throwables must be caught.
+      } catch (final Throwable error) { // NOSONAR: All errors must be caught.
         throw //
         WrapperException.forErrorMessageAndError(
           "An error occured by running the " + i + "th job of the given " + jobs.getCount() + " jobs.",

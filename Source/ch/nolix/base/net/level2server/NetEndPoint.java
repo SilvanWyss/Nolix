@@ -310,7 +310,7 @@ public final class NetEndPoint extends AbstractEndPoint {
 
         send(successResponsePackage);
       }
-    } catch (final Throwable error) { // NOSONAR: All Throwables must be caught.
+    } catch (final Throwable error) { // NOSONAR: All errors must be caught.
       String responseMessage = error.getMessage();
       final var errorResponsePackage = //
       Package.withIndexAndMessageRoleAndMessage(paramPackage.getIndex(), MessageRole.ERROR_RESPONSE, responseMessage);

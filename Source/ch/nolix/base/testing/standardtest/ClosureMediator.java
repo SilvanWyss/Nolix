@@ -49,7 +49,7 @@ public final class ClosureMediator {
     try {
       closure.run();
       throw GeneralException.withErrorMessage("An exception was expected, but no exception was thrown.");
-    } catch (final Throwable exception) { // NOSONAR: All Throwables must be caught.
+    } catch (final Throwable exception) { // NOSONAR: All errors must be caught.
       return ExtendedThrownExceptionMediator.forExcetpion(exception);
     }
   }
@@ -61,7 +61,7 @@ public final class ClosureMediator {
   public void doesNotThrowException() {
     try {
       closure.run();
-    } catch (final Throwable exception) { // NOSONAR: All Throwables must be caught.
+    } catch (final Throwable exception) { // NOSONAR: All errors must be caught.
 
       final var message = exception.getMessage();
 
