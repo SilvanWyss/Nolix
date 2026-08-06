@@ -17,7 +17,6 @@ public final class DatabaseSearcher implements IDatabaseSearcher {
 
   @Override
   public ExtendedIterable<? extends IColumn> getStoredBaseBackReferenceColumns(final IDatabase database) {
-
     final var tables = database.getStoredTables();
 
     return tables.toMultiples(TABLE_SEARCHER::getStoredBaseBackReferenceColumns);
@@ -28,7 +27,6 @@ public final class DatabaseSearcher implements IDatabaseSearcher {
    */
   @Override
   public ITable getStoredTableByName(final IDatabase database, final String tableName) {
-
     final var tables = database.getStoredTables();
 
     return tables.getStoredFirst(t -> t.hasName(tableName));
