@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.commontype.iterablemapper;
+package ch.nolix.basetest.commontype.arraymapper;
 
 import org.junit.jupiter.api.Test;
 
