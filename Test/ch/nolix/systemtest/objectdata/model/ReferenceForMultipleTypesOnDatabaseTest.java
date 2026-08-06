@@ -16,7 +16,7 @@ import ch.nolix.system.objectdata.model.Reference;
  * @author Silvan Wyss
  */
 final class ReferenceForMultipleTypesOnDatabaseTest extends StandardTest {
-  private static abstract class Pet extends Entity {
+  private abstract static class Pet extends Entity {
     // This class is a sub class without additional methods.
   }
 
