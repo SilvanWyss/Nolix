@@ -11,9 +11,9 @@ import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss
- * @param <S> the type of a {@link IControlBaseStyle}.
+ * @param <S> the type of a {@link ControlBaseStyle}.
  */
-public interface IControlBaseStyle<S extends IControlBaseStyle<S>> extends IMultiStateConfiguration<S, ControlState> {
+public interface ControlBaseStyle<S extends ControlBaseStyle<S>> extends IMultiStateConfiguration<S, ControlState> {
 
   boolean definesTextLineDecorationForState(ControlState state);
 

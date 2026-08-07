@@ -3,11 +3,11 @@
  */
 package ch.nolix.systemapi.control.tabcontainer;
 
-import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
+import ch.nolix.systemapi.webgui.controlstyle.ControlStyle;
 
 /**
  * @author Silvan Wyss
  */
-public interface ITabContainerStyle extends IControlStyle<ITabContainerStyle> {
+public interface ITabContainerStyle extends ControlStyle<ITabContainerStyle> {
   // This interface is a dedicated union of other interfaces.
 }

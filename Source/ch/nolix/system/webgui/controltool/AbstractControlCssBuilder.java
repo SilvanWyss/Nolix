@@ -16,7 +16,7 @@ import ch.nolix.baseapi.web.csscatalog.CssPropertyNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.system.gui.cssmapper.CssPropertyMapper;
-import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
+import ch.nolix.systemapi.webgui.controlstyle.ControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
@@ -25,10 +25,10 @@ import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
  * @author Silvan Wyss
  * @param <C> the type of the {@link Control} of a
  *            {@link AbstractControlCssBuilder}.
- * @param <S> the type of the {@link IControlStyle}s of the {@link Control} of a
+ * @param <S> the type of the {@link ControlStyle}s of the {@link Control} of a
  *            {@link AbstractControlCssBuilder}.
  */
-public abstract class AbstractControlCssBuilder<C extends Control<C, S>, S extends IControlStyle<S>>
+public abstract class AbstractControlCssBuilder<C extends Control<C, S>, S extends ControlStyle<S>>
 implements IControlCssBuilder<C, S> {
   private static final CssPropertyMapper CSS_PROPERTY_MAPPER = new CssPropertyMapper();
 

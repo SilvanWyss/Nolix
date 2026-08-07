@@ -4,13 +4,13 @@
 package ch.nolix.systemapi.control.grid;
 
 import ch.nolix.systemapi.graphic.color.IColor;
-import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
+import ch.nolix.systemapi.webgui.controlstyle.ControlStyle;
 import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss
  */
-public interface IGridStyle extends IControlStyle<IGridStyle> {
+public interface IGridStyle extends ControlStyle<IGridStyle> {
   int getChildControlMarginWhenHasState(ControlState state);
 
   IColor getGridColorWhenHasState(ControlState state);

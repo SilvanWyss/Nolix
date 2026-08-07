@@ -9,9 +9,9 @@ import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss
- * @param <S> the type of a {@link IShadowStyle}.
+ * @param <S> the type of a {@link ShadowStyle}.
  */
-public interface IShadowStyle<S extends IShadowStyle<S>> {
+public interface ShadowStyle<S extends ShadowStyle<S>> {
   ExtendedIterable<? extends ICornerShadow> getCornerShadowsWhenHasState(ControlState state);
 
   void removeCustomCornerShadows();

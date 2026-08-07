@@ -12,9 +12,9 @@ import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss
- * @param <S> the type of a {@link IBackgroundStyle}.
+ * @param <S> the type of a {@link BackgroundStyle}.
  */
-public interface IBackgroundStyle<S extends IBackgroundStyle<S>> {
+public interface BackgroundStyle<S extends BackgroundStyle<S>> {
   IBackground getBackgroundWhenHasState(ControlState state);
 
   void removeCustomBackgrounds();

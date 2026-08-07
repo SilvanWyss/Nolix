@@ -8,9 +8,9 @@ import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss
- * @param <S> the type of a {@link IBorderStyle}.
+ * @param <S> the type of a {@link BorderStyle}.
  */
-public interface IBorderStyle<S extends IBorderStyle<S>> {
+public interface BorderStyle<S extends BorderStyle<S>> {
   IColor getBottomBorderColorWhenHasState(ControlState state);
 
   int getBottomBorderThicknessWhenHasState(ControlState state);

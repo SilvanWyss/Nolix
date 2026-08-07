@@ -8,9 +8,9 @@ import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss
- * @param <S> the type of a {@link ISizeStyle}.
+ * @param <S> the type of a {@link SizeStyle}.
  */
-public interface ISizeStyle<S extends ISizeStyle<S>> {
+public interface SizeStyle<S extends SizeStyle<S>> {
   boolean definesHeightForState(ControlState state);
 
   boolean definesWidthForState(ControlState state);

@@ -3,11 +3,11 @@
  */
 package ch.nolix.systemapi.control.label;
 
-import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
+import ch.nolix.systemapi.webgui.controlstyle.ControlStyle;
 
 /**
  * @author Silvan Wyss
  */
-public interface ILabelStyle extends IControlStyle<ILabelStyle> {
+public interface ILabelStyle extends ControlStyle<ILabelStyle> {
   // This interface is a dedicated union of other interfaces.
 }

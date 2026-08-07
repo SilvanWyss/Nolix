@@ -27,7 +27,7 @@ import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.gui.presence.Presence;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
-import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
+import ch.nolix.systemapi.webgui.controlstyle.ControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.Control;
@@ -38,11 +38,11 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
 /**
  * @author Silvan Wyss
  * @param <C> the type of a {@link AbstractControl}.
- * @param <S> the type of the {@link IControlStyle} of a
+ * @param <S> the type of the {@link ControlStyle} of a
  *            {@link AbstractControl}.
  */
 public abstract class AbstractControl // NOSONAR: A AbstractControl is a principal object thus it has many methods.
-<C extends Control<C, S>, S extends IControlStyle<S>>
+<C extends Control<C, S>, S extends ControlStyle<S>>
 extends AbstractStylableElement<C>
 implements Control<C, S> {
   public static final Presence DEFAULT_PRESENCE = Presence.VISIBLE;

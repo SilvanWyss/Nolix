@@ -3,11 +3,11 @@
  */
 package ch.nolix.systemapi.control.button;
 
-import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
+import ch.nolix.systemapi.webgui.controlstyle.ControlStyle;
 
 /**
  * @author Silvan Wyss
  */
-public interface IButtonStyle extends IControlStyle<IButtonStyle> {
+public interface IButtonStyle extends ControlStyle<IButtonStyle> {
   // This interface is a dedicated union of other interfaces.
 }

@@ -14,16 +14,16 @@ import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.gui.font.Font;
 import ch.nolix.systemapi.gui.font.LineDecoration;
-import ch.nolix.systemapi.webgui.controlstyle.IControlBaseStyle;
+import ch.nolix.systemapi.webgui.controlstyle.ControlBaseStyle;
 import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss
  * @param <C> the type of a {@link AbstractControlBaseStyle}.
  */
-abstract class AbstractControlBaseStyle<C extends IControlBaseStyle<C>>
+abstract class AbstractControlBaseStyle<C extends ControlBaseStyle<C>>
 extends AbstractMultiStateConfiguration<C, ControlState>
-implements IControlBaseStyle<C> {
+implements ControlBaseStyle<C> {
   public static final double DEFAULT_OPACITY = 1.0;
 
   public static final Font DEFAULT_FONT = Font.ARIAL;

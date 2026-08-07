@@ -14,16 +14,16 @@ import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.system.webgui.main.ControlParent;
 import ch.nolix.systemapi.control.container.Container;
 import ch.nolix.systemapi.control.container.ContainerRole;
-import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
+import ch.nolix.systemapi.webgui.controlstyle.ControlStyle;
 import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
  * @param <C> the type of a {@link AbstractContainer}
- * @param <S> the type of the {@link IControlStyle}s of a
+ * @param <S> the type of the {@link ControlStyle}s of a
  *            {@link AbstractContainer}
  */
-public abstract class AbstractContainer<C extends Container<C, S>, S extends IControlStyle<S>>
+public abstract class AbstractContainer<C extends Container<C, S>, S extends ControlStyle<S>>
 extends AbstractControl<C, S> implements Container<C, S> {
   private static final String ROLE_HEADER = PascalCaseVariableNameCatalog.ROLE;
 

@@ -25,14 +25,14 @@ import ch.nolix.systemapi.gui.background.IBackground;
 import ch.nolix.systemapi.gui.background.ImageApplication;
 import ch.nolix.systemapi.gui.box.ICornerShadow;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
-import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
+import ch.nolix.systemapi.webgui.controlstyle.ControlStyle;
 import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 public abstract //
 class AbstractControlStyle< // NOSONAR: A AbstractControlStyle is a principal object thus it has many methods.
-S extends IControlStyle<S> & IMultiStateConfiguration<S, ControlState>>
+S extends ControlStyle<S> & IMultiStateConfiguration<S, ControlState>>
 extends AbstractControlBaseStyle<S>
-implements IControlStyle<S> {
+implements ControlStyle<S> {
   public static final int DEFAULT_CORNER_RADIUS = 0;
 
   public static final int DEFAULT_BORDER_THICKNESS = 0;

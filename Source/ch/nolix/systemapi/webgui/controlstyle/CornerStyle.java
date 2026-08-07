@@ -7,9 +7,9 @@ import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
  * @author Silvan Wyss
- * @param <S> the type of a {@link ICornerStyle}.
+ * @param <S> the type of a {@link CornerStyle}.
  */
-public interface ICornerStyle<S extends ICornerStyle<S>> {
+public interface CornerStyle<S extends CornerStyle<S>> {
   int getCornerRadiusWhenHasState(ControlState state);
 
   S forStateSetCornerRadius(ControlState state, int cornerRadius);

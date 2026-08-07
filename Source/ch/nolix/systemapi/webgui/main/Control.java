@@ -16,16 +16,16 @@ import ch.nolix.systemapi.gui.box.ISizeAdjustableBox;
 import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.gui.presence.PresenceSettable;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
-import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
+import ch.nolix.systemapi.webgui.controlstyle.ControlStyle;
 import ch.nolix.systemapi.webgui.html.HtmlGetter;
 import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
 
 /**
  * @author Silvan Wyss
  * @param <C> the type of a {@link Control}.
- * @param <S> the type of the {@link IControlStyle} of a {@link Control}.
+ * @param <S> the type of the {@link ControlStyle} of a {@link Control}.
  */
-public interface Control<C extends Control<C, S>, S extends IControlStyle<S>>
+public interface Control<C extends Control<C, S>, S extends ControlStyle<S>>
 extends
 ControlComponent<Control<?, ?>>,
 GuiComponent<IWebGui<?>>,

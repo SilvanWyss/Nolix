@@ -3,11 +3,11 @@
  */
 package ch.nolix.systemapi.control.textbox;
 
-import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
+import ch.nolix.systemapi.webgui.controlstyle.ControlStyle;
 
 /**
  * @author Silvan Wyss
  */
-public interface ITextboxStyle extends IControlStyle<ITextboxStyle> {
+public interface ITextboxStyle extends ControlStyle<ITextboxStyle> {
   // This interface is a dedicated union of other interfaces.
 }
