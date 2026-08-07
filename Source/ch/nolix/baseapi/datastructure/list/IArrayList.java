@@ -14,7 +14,7 @@ import ch.nolix.baseapi.generalstate.statemutation.Clearable;
  * @author Silvan Wyss
  * @param <E> the type of the elements of a {@link IArrayList}.
  */
-public interface IArrayList<E> extends Clearable, Copyable<IArrayList<E>>, IAppendableList<E> {
+public interface IArrayList<E> extends Clearable, Copyable<IArrayList<E>>, AppendableList<E> {
   /**
    * Adds the given element at the given oneBasedIndex
    * 
