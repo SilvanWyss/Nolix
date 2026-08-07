@@ -30,7 +30,7 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
   public Optional<? extends IMutableNode<?>> getOptionalStoredEntityNodeFromTableNode(
     final IMutableNode<?> tableNode,
     final String id) {
-    return tableNode.getOptionalStoredFirstChildNodeThat(
+    return tableNode.getOptionalStoredFirstChildNode(
       a -> a.hasHeader(NodeHeaderCatalog.ENTITY)
       && a.getStoredChildNodeAtOneBasedIndex(FieldIndexCatalog.ID_INDEX).hasHeader(id));
   }
@@ -49,7 +49,7 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
    */
   @Override
   public IMutableNode<?> getStoredEntityNodeFromTableNode(final IMutableNode<?> tableNode, final String id) {
-    return tableNode.getStoredFirstChildNodeThat(
+    return tableNode.getStoredFirstChildNode(
       a -> a.hasHeader(NodeHeaderCatalog.ENTITY)
       && a.getStoredChildNodeAtOneBasedIndex(FieldIndexCatalog.ID_INDEX).hasHeader(id));
   }

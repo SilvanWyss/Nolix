@@ -121,7 +121,7 @@ extends AbstractPropertiesElement implements IMutableImage<MutableImage> {
       .getSingleChildNodeAsInt();
 
     final var pixelArray = //
-    pixelArraySpecification.getStoredFirstChildNodeThat(a -> a.hasHeader(PluralPascalCaseVariableNameCatalog.PIXELS));
+    pixelArraySpecification.getStoredFirstChildNode(a -> a.hasHeader(PluralPascalCaseVariableNameCatalog.PIXELS));
 
     final var image = MutableImage.withWidthAndHeightAndWhiteColor(width, height);
 

@@ -13,13 +13,11 @@ import ch.nolix.baseapi.document.xml.IXmlNode;
 import ch.nolix.baseapi.generalstate.staterequest.BlanknessRequestable;
 
 /**
- * A {@link Node} has the following attributes. -0 or 1 header -an arbitrary
- * number of child {@link Node}s
+ * A {@link Node} can have a header and contain an arbitrary number of child
+ * {@link Node}s.
  * 
- * A {@link Node} that does not have a header and does not contains attributes
- * is blank.
- * 
- * A sub type of {@link Node} may be or may be not mutable.
+ * A {@link Node} that does not have a header and does not contain any child
+ * {@link Node} is blank.
  * 
  * @author Silvan Wyss
  * @param <N> the type of a {@link Node}
@@ -27,17 +25,17 @@ import ch.nolix.baseapi.generalstate.staterequest.BlanknessRequestable;
 public interface Node<N extends Node<N>>
 extends BlanknessRequestable, FormattedStringRepresentable, OptionalHeaderHolder {
   /**
-   * @return true if the current {@link Node} contains child {@link Node}s,
-   *         false otherwise
-   */
-  boolean containsChildNodes();
-
-  /**
    * @param selector
    * @return true if the current {@link Node} contains a child {@link Node} the
    *         given selector selects, false otherwise
    */
-  boolean containsChildNodeThat(Predicate<Node<?>> selector);
+  boolean containsChildNode(Predicate<Node<?>> selector);
+
+  /**
+   * @return true if the current {@link Node} contains child {@link Node}s, false
+   *         otherwise
+   */
+  boolean containsChildNodes();
 
   /**
    * @param header
@@ -47,20 +45,14 @@ extends BlanknessRequestable, FormattedStringRepresentable, OptionalHeaderHolder
   boolean containsChildNodeWithHeader(String header);
 
   /**
-   * @return true if the current {@link Node} contains 1 child {@link Node},
-   *         false otherwise
-   */
-  boolean containsOneChildNode();
-
-  /**
    * @return the number of child {@link Node}s of the current {@link Node}
    */
   int getChildNodeCount();
 
   /**
    * @param selector
-   * @return the number of child {@link Node}s the given selector selects from
-   *         the current {@link Node}
+   * @return the number of child {@link Node}s the given selector selects from the
+   *         current {@link Node}
    * @throws RuntimeException if the given selector is null
    */
   int getChildNodeCount(Predicate<Node<?>> selector);
@@ -77,16 +69,16 @@ extends BlanknessRequestable, FormattedStringRepresentable, OptionalHeaderHolder
    * @return a new {@link Optional} with the first child {@link Node} the given
    *         selector selects from the current {@link Node}, an empty
    *         {@link Optional} otherwise
+   * @throws RuntimeException if the given selector is null
    */
-  Optional<N> getOptionalStoredFirstChildNodeThat(Predicate<Node<?>> selector);
+  Optional<N> getOptionalStoredFirstChildNode(Predicate<Node<?>> selector);
 
   /**
    * @param oneBasedIndex
    * @return the child {@link Node} at the given oneBasedIndex from the current
    *         {@link Node}
-   * @throws RuntimeException if the given index is not positive
-   * @throws RuntimeException if the current {@link Node} does not contain a
-   *                          child {@link Node} at the given oneBasedIndex
+   * @throws RuntimeException if the current {@link Node} does not contain a child
+   *                          {@link Node} at the given oneBasedIndex
    */
   N getStoredChildNodeAtOneBasedIndex(int oneBasedIndex);
 
@@ -99,8 +91,9 @@ extends BlanknessRequestable, FormattedStringRepresentable, OptionalHeaderHolder
    * @param selector
    * @return the child {@link Node}s the given selector selects from the current
    *         {@link Node}
+   * @throws RuntimeException if the given selector is null
    */
-  ExtendedIterable<N> getStoredChildNodesThat(Predicate<Node<?>> selector);
+  ExtendedIterable<N> getStoredChildNodes(Predicate<Node<?>> selector);
 
   /**
    * @param header
@@ -111,8 +104,8 @@ extends BlanknessRequestable, FormattedStringRepresentable, OptionalHeaderHolder
 
   /**
    * @return the first child {@link Node} from the current {@link Node}
-   * @throws RuntimeException if the current {@link Node} does not contain child
-   *                          {@link Node}s
+   * @throws RuntimeException if the current {@link Node} does not contain a child
+   *                          {@link Node}
    */
   N getStoredFirstChildNode();
 
@@ -120,17 +113,18 @@ extends BlanknessRequestable, FormattedStringRepresentable, OptionalHeaderHolder
    * @param selector
    * @return the first child {@link Node} the given selector selects from the
    *         current {@link Node}
-   * @throws RuntimeException if the current {@link Node} does not contain a
-   *                          child {@link Node} the given selector selects
+   * @throws RuntimeException if the given selector is null
+   * @throws RuntimeException if the current {@link Node} does not contain a child
+   *                          {@link Node} the given selector selects
    */
-  N getStoredFirstChildNodeThat(Predicate<Node<?>> selector);
+  N getStoredFirstChildNode(Predicate<Node<?>> selector);
 
   /**
    * @param header
    * @return the first child {@link Node} with the given header from the current
    *         {@link Node}
-   * @throws RuntimeException if the current {@link Node} does not contain a
-   *                          child {@link Node} with the given header
+   * @throws RuntimeException if the current {@link Node} does not contain a child
+   *                          {@link Node} with the given header
    */
   N getStoredFirstChildNodeWithHeader(String header);
 
@@ -143,8 +137,8 @@ extends BlanknessRequestable, FormattedStringRepresentable, OptionalHeaderHolder
   N getStoredSingleChildNode();
 
   /**
-   * @return the boolean the single child {@link Node} of the current
-   *         {@link Node} represents
+   * @return the boolean the single child {@link Node} of the current {@link Node}
+   *         represents
    * @throws RuntimeException if the current {@link Node} does not contain child
    *                          {@link Node}s or contains several child
    *                          {@link Node}s
@@ -154,8 +148,8 @@ extends BlanknessRequestable, FormattedStringRepresentable, OptionalHeaderHolder
   boolean getSingleChildNodeAsBoolean(); // NOSONAR: This method returns a boolean representation.
 
   /**
-   * @return the double the single child {@link Node} of the current
-   *         {@link Node} represents
+   * @return the double the single child {@link Node} of the current {@link Node}
+   *         represents
    * @throws RuntimeException if the current {@link Node} does not contain child
    *                          {@link Node}s or contains several child
    *                          {@link Node}s

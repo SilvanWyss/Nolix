@@ -88,7 +88,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements Node<N>
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsChildNodeThat(final Predicate<Node<?>> selector) {
+  public final boolean containsChildNode(final Predicate<Node<?>> selector) {
     return getStoredChildNodes().containsMatching(selector::test);
   }
 
@@ -97,15 +97,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements Node<N>
    */
   @Override
   public final boolean containsChildNodeWithHeader(final String header) {
-    return containsChildNodeThat(a -> a.hasHeader(header));
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final boolean containsOneChildNode() {
-    return getStoredChildNodes().containsOne();
+    return containsChildNode(a -> a.hasHeader(header));
   }
 
   /**
@@ -149,7 +141,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements Node<N>
    */
   @Override
   public final int getChildNodeCount(final Predicate<Node<?>> selector) {
-    return getStoredChildNodesThat(selector).getCount();
+    return getStoredChildNodes(selector).getCount();
   }
 
   /**
@@ -164,7 +156,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements Node<N>
    * {@inheritDoc}
    */
   @Override
-  public Optional<N> getOptionalStoredFirstChildNodeThat(Predicate<Node<?>> selector) {
+  public Optional<N> getOptionalStoredFirstChildNode(Predicate<Node<?>> selector) {
     return getStoredChildNodes().getOptionalStoredFirst(selector);
   }
 
@@ -181,14 +173,14 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements Node<N>
    */
   @Override
   public final ExtendedIterable<N> getStoredChildNodesWithHeader(final String header) {
-    return getStoredChildNodesThat(a -> a.hasHeader(header));
+    return getStoredChildNodes(a -> a.hasHeader(header));
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public final ExtendedIterable<N> getStoredChildNodesThat(final Predicate<Node<?>> selector) {
+  public final ExtendedIterable<N> getStoredChildNodes(final Predicate<Node<?>> selector) {
     return getStoredChildNodes().getStoredSelected(selector);
   }
 
@@ -212,7 +204,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements Node<N>
    * {@inheritDoc}
    */
   @Override
-  public final N getStoredFirstChildNodeThat(Predicate<Node<?>> selector) {
+  public final N getStoredFirstChildNode(Predicate<Node<?>> selector) {
     return getStoredChildNodes().getStoredFirst(selector);
   }
 
@@ -221,7 +213,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements Node<N>
    */
   @Override
   public final N getStoredFirstChildNodeWithHeader(final String header) {
-    return getStoredFirstChildNodeThat(a -> a.hasHeader(header));
+    return getStoredFirstChildNode(a -> a.hasHeader(header));
   }
 
   /**

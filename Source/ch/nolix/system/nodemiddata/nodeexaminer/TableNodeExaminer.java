@@ -23,7 +23,7 @@ public final class TableNodeExaminer implements ITableNodeExaminer {
     final String value,
     final ExtendedIterable<String> entitiesToIgnoreIds) {
     return //
-    tableNode.containsChildNodeThat(
+    tableNode.containsChildNode(
       a -> a.hasHeader(NodeHeaderCatalog.ENTITY)
       && a.getStoredChildNodeAtOneBasedIndex(oneBasedIndex).hasHeader(value)
       && !entitiesToIgnoreIds
@@ -46,7 +46,7 @@ public final class TableNodeExaminer implements ITableNodeExaminer {
     final IMutableNode<?> tableNode,
     final int valueIndex,
     final String value) {
-    return tableNode.containsChildNodeThat(
+    return tableNode.containsChildNode(
       (final var a) -> {
         if (!a.hasHeader(NodeHeaderCatalog.ENTITY)) {
           return false;
@@ -66,7 +66,7 @@ public final class TableNodeExaminer implements ITableNodeExaminer {
     final int valueIndex,
     final String header) {
     return //
-    tableNode.containsChildNodeThat(
+    tableNode.containsChildNode(
       a -> a.hasHeader(NodeHeaderCatalog.ENTITY)
       && a.getStoredChildNodeAtOneBasedIndex(valueIndex).hasHeader(header));
   }
