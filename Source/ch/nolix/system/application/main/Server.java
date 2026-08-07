@@ -5,9 +5,9 @@ package ch.nolix.system.application.main;
 
 import ch.nolix.base.environment.localcomputer.LocalComputer;
 import ch.nolix.base.net.target.ServerTarget;
-import ch.nolix.baseapi.net.baseserver.SinglePortServer;
 import ch.nolix.baseapi.net.netcatalog.PortCatalog;
 import ch.nolix.baseapi.net.netproperty.SecurityMode;
+import ch.nolix.baseapi.net.server.SinglePortServer;
 import ch.nolix.baseapi.net.target.IServerTarget;
 import ch.nolix.systemapi.application.main.IApplication;
 

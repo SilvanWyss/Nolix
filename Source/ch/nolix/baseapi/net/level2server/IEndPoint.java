@@ -5,7 +5,7 @@ package ch.nolix.baseapi.net.level2server;
 
 import java.util.function.UnaryOperator;
 
-import ch.nolix.baseapi.net.baseendpoint.BaseEndPoint;
+import ch.nolix.baseapi.net.endpoint.BaseEndPoint;
 
 /**
  * @author Silvan Wyss

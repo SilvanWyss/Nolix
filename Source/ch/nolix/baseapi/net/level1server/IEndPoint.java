@@ -5,7 +5,7 @@ package ch.nolix.baseapi.net.level1server;
 
 import java.util.function.Consumer;
 
-import ch.nolix.baseapi.net.baseendpoint.BaseEndPoint;
+import ch.nolix.baseapi.net.endpoint.BaseEndPoint;
 
 /**
  * @author Silvan Wyss

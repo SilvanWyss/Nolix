@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.net.baseendpoint;
+package ch.nolix.baseapi.net.endpoint;
 
 import ch.nolix.baseapi.net.netattribute.ConnectionTypeHolder;
 import ch.nolix.baseapi.net.netattribute.SecurityModeHolder;
