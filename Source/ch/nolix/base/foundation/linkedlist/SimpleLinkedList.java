@@ -41,7 +41,7 @@ public final class SimpleLinkedList<E> implements ISimpleLinkedList<E> {
     final var list = new SimpleLinkedList<T>();
 
     for (final var e : array) {
-      list.addAtBegin(e);
+      list.addAtEnd(e);
     }
 
     return list;
@@ -55,24 +55,6 @@ public final class SimpleLinkedList<E> implements ISimpleLinkedList<E> {
     }
 
     return list;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public void addAtBegin(final E element) {
-    final SimpleLinkedListNode<E> node = SimpleLinkedListNode.withElement(element);
-
-    if (isEmpty()) {
-      beginNode = node;
-      endNode = node;
-    } else {
-      node.setNextNode(beginNode);
-      beginNode = node;
-    }
-
-    elementCount++;
   }
 
   /**

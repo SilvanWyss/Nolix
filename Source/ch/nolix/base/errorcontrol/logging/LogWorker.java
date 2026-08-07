@@ -50,7 +50,7 @@ final class LogWorker extends Thread {
   }
 
   public synchronized void takeLogEntry(final LogEntry logEntry) {
-    logEntries.addAtBegin(logEntry);
+    logEntries.addAtEnd(logEntry);
   }
 
   private synchronized LogEntry getAndRemoveNextLogEntry() {

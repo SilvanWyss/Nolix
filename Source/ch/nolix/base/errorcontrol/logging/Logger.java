@@ -24,8 +24,8 @@ public final class Logger {
 
   // static initialization
   static {
-    abstractLogHandlers.addAtBegin(new StandardConsoleLogHandler());
-    abstractLogHandlers.addAtBegin(new FileLogHandler());
+    abstractLogHandlers.addAtEnd(new StandardConsoleLogHandler());
+    abstractLogHandlers.addAtEnd(new FileLogHandler());
   }
 
   public static void addLogHandler(final AbstractLogHandler abstractLogHandler) {
