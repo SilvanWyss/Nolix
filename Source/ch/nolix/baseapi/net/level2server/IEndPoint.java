@@ -5,12 +5,12 @@ package ch.nolix.baseapi.net.level2server;
 
 import java.util.function.UnaryOperator;
 
-import ch.nolix.baseapi.net.baseendpoint.IBaseEndPoint;
+import ch.nolix.baseapi.net.baseendpoint.BaseEndPoint;
 
 /**
  * @author Silvan Wyss
  */
-public interface IEndPoint extends IBaseEndPoint {
+public interface IEndPoint extends BaseEndPoint {
   String getReplyForRequest(String request);
 
   boolean hasReplier();

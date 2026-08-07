@@ -3,12 +3,12 @@
  */
 package ch.nolix.baseapi.net.level3server;
 
-import ch.nolix.baseapi.net.baseendpoint.IBaseEndPoint;
+import ch.nolix.baseapi.net.baseendpoint.BaseEndPoint;
 
 /**
  * @author Silvan Wyss
  */
-public interface IEndPoint extends IBaseEndPoint, IDataProviderController {
+public interface IEndPoint extends BaseEndPoint, IDataProviderController {
   boolean hasReceivingDataProviderController();
 
   void setReceivingDataProviderController(IDataProviderController receivingDataProviderController);

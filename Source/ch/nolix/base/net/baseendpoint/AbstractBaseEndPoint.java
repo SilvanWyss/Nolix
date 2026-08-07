@@ -4,7 +4,7 @@
 package ch.nolix.base.net.baseendpoint;
 
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
-import ch.nolix.baseapi.net.baseendpoint.IBaseEndPoint;
+import ch.nolix.baseapi.net.baseendpoint.BaseEndPoint;
 import ch.nolix.baseapi.net.baseendpoint.TargetSlotDefinition;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
@@ -13,7 +13,7 @@ import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 /**
  * @author Silvan Wyss
  */
-public abstract class AbstractBaseEndPoint implements IBaseEndPoint {
+public abstract class AbstractBaseEndPoint implements BaseEndPoint {
   private final ICloseController closeController = CloseController.forElement(this);
 
   @Override

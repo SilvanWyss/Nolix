@@ -11,7 +11,7 @@ import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 /**
  * @author Silvan Wyss
  */
-public interface IBaseEndPoint extends GroupCloseable {
+public interface BaseEndPoint extends GroupCloseable {
   ConnectionType getConnectionType();
 
   String getCustomTargetSlot();
