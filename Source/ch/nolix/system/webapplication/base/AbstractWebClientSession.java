@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.webapplication.base;
 
-import ch.nolix.system.application.main.AbstractSession;
-import ch.nolix.systemapi.application.main.IApplication;
+import ch.nolix.base.net.sessionserver.AbstractSession;
+import ch.nolix.baseapi.net.sessionserver.IApplication;
 import ch.nolix.systemapi.gui.frontend.IFrontEndReader;
 import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
 

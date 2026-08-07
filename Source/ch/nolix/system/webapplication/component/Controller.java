@@ -3,11 +3,11 @@
  */
 package ch.nolix.system.webapplication.component;
 
+import ch.nolix.base.net.sessionserver.AbstractBackendClient;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.system.application.main.AbstractBackendClient;
+import ch.nolix.baseapi.net.sessionserver.IApplication;
 import ch.nolix.system.webapplication.main.WebClientSession;
-import ch.nolix.systemapi.application.main.IApplication;
 
 /**
  * @author Silvan Wyss

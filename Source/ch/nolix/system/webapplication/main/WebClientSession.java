@@ -4,9 +4,9 @@
 package ch.nolix.system.webapplication.main;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.net.sessionserver.IApplication;
 import ch.nolix.system.webapplication.base.AbstractWebClientSession;
 import ch.nolix.system.webgui.main.WebGui;
-import ch.nolix.systemapi.application.main.IApplication;
 import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 

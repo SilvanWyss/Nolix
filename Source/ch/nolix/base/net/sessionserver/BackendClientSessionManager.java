@@ -1,0 +1,187 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.base.net.sessionserver;
+
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
+import ch.nolix.base.programcontrol.flowcontrol.FlowController;
+import ch.nolix.base.resourcecontrol.resourcevalidator.ResourceValidator;
+import ch.nolix.base.validation.validator.Validator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+
+/**
+ * @author Silvan Wyss
+ * @param <C> the type of the parent {@link AbstractBackendClient} of a
+ *            {@link BackendClientSessionManager}.
+ * @param <S> the type of the application service of the parent
+ *            {@link Application} of the parent {@link AbstractBackendClient} of
+ *            a {@link BackendClientSessionManager}.
+ */
+public final class BackendClientSessionManager<C extends AbstractBackendClient<C, S>, S> {
+  private static final int MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS = 10_000;
+
+  private final C parentClient;
+
+  private AbstractSession<C, S> currentSession;
+
+  private final LinkedList<AbstractSession<C, S>> sessionStack = LinkedList.createEmpty();
+
+  private BackendClientSessionManager(final C parentClient) {
+    // Asserts that the given parentClient is not null.
+    Validator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
+
+    // Sets the parentClient of the current ClientSessionManager.
+    this.parentClient = parentClient;
+  }
+
+  public static <C2 extends AbstractBackendClient<C2, S2>, S2> BackendClientSessionManager<C2, S2> forClient(
+    final C2 client) {
+    return new BackendClientSessionManager<>(client);
+  }
+
+  public boolean containsCurrentSession() {
+    return (currentSession != null);
+  }
+
+  public boolean containsNextSession() {
+    return (containsCurrentSession() && getSessionStackSize() > getCurrentSessionIndex());
+  }
+
+  public boolean containsPreviousSession() {
+    return (containsCurrentSession() && getCurrentSessionIndex() > 1);
+  }
+
+  public boolean currentSessionIsTopSession() {
+    return (containsCurrentSession() && getStoredCurrentSession() == getStoredTopSession());
+  }
+
+  public AbstractSession<C, S> getStoredCurrentSession() {
+    FlowController
+      .forMaxMilliseconds(MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS)
+      .waitUntil(this::containsCurrentSession);
+
+    assertContainsCurrentSession();
+
+    return currentSession;
+  }
+
+  public int getSessionStackSize() {
+    return sessionStack.getCount();
+  }
+
+  public void popCurrentSession() {
+    popCurrentSessionFromStack();
+    closeClientOrReinitializeCurrentSession();
+  }
+
+  public void popCurrentSessionAndForwardGivenResult(final Object result) {
+    getStoredCurrentSession().internalSetResult(result);
+    popCurrentSessionFromStack();
+  }
+
+  public void pushSession(final AbstractSession<C, S> session) {
+    // Asserts that the given session is not null.
+    Validator.assertThat(session).isOfType(AbstractSession.class);
+
+    // Sets the given session to the Client of the current ClientSessionManager.
+    session.internalSetParentClient(parentClient);
+
+    // Pushes the given session to the current ClientSessionManager.
+    sessionStack.addAtEnd(session);
+    currentSession = session;
+
+    // Initializes the given session.
+    initializeSession(session);
+  }
+
+  @SuppressWarnings("unchecked")
+  public <R> R pushSessionAndGetResult(final AbstractSession<C, S> session) {
+    pushSession(session);
+
+    FlowController.waitUntil(() -> (parentClient.isClosed() || !session.belongsToClient()));
+
+    ResourceValidator.assertIsOpen(parentClient);
+
+    return (R) session.internalGetStoredResult();
+  }
+
+  public void setCurrentSession(final AbstractSession<C, S> session) {
+    popCurrentSessionFromStack();
+    pushSession(session);
+  }
+
+  private void assertContainsCurrentSession() {
+    if (!containsCurrentSession()) {
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "current Session");
+    }
+  }
+
+  private void assertContainsCurrentSessionAsTopSession() {
+    assertContainsCurrentSession();
+
+    if (!currentSessionIsTopSession()) {
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
+        getStoredCurrentSession(),
+        "current Session",
+        "is not the top Session");
+    }
+  }
+
+  private void closeClientOrReinitializeCurrentSession() {
+    if (!containsCurrentSession()) {
+      parentClient.close();
+    } else {
+      initializeSession(getStoredCurrentSession());
+    }
+  }
+
+  private int getCurrentSessionIndex() {
+    return sessionStack.getOneBasedIndexOfFirstOccurrenceOf(getStoredCurrentSession());
+  }
+
+  private AbstractSession<C, S> getStoredTopSession() {
+    return sessionStack.getStoredLast();
+  }
+
+  private void initializeSession(final AbstractSession<C, S> session) {
+    // Check if the parentClient is open because it could be closed before.
+    if (parentClient.isOpen()) {
+      session.fullInitialize();
+    }
+
+    /*
+     * Check if the parentClient is open because it could be closed by the
+     * fullInitialize method. Checks if the session belongs to a Client because it
+     * could be popped from the Client by the fullInitialize method.
+     */
+    if (parentClient.isOpen() && session.belongsToClient()) {
+      session.refresh();
+    }
+  }
+
+  private void popCurrentSessionFromStack() {
+    assertContainsCurrentSessionAsTopSession();
+
+    popCurrentSessionFromStackWhenContainsCurrentSessionAsTopSession();
+  }
+
+  private void popCurrentSessionFromStackWhenContainsCurrentSessionAsTopSession() {
+    popTopSessionFromSessionStackWhenContainsCurrentSessionAsTopSession();
+    setOrClearCurrentSessionAccordingToSessionStack();
+  }
+
+  private void popTopSessionFromSessionStackWhenContainsCurrentSessionAsTopSession() {
+    final var topSession = sessionStack.removeAndGetStoredLast();
+    topSession.internalRemoveParentClient();
+  }
+
+  private void setOrClearCurrentSessionAccordingToSessionStack() {
+    if (sessionStack.isEmpty()) {
+      currentSession = null;
+    } else {
+      currentSession = sessionStack.getStoredLast();
+    }
+  }
+}
