@@ -17,7 +17,7 @@ import ch.nolix.systemapi.objectdata.adapter.DataAdapter;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 import ch.nolix.systemapi.objectdata.model.ITable;
-import ch.nolix.systemapi.objectschema.schemaadapter.ISchemaAdapter;
+import ch.nolix.systemapi.objectschema.schemaadapter.SchemaAdapter;
 
 /**
  * @author Silvan Wyss
@@ -40,7 +40,7 @@ public abstract class AbstractDataAdapter implements DataAdapter {
   protected AbstractDataAdapter(
     final String databaseName,
     final IEntityTypeSet entityTypeSet,
-    final ISchemaAdapter schemaAdapter,
+    final SchemaAdapter schemaAdapter,
     final Supplier<DataAdapterAndSchemaReader> midDataAdapterAndSchemaReader) {
     Validator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
 

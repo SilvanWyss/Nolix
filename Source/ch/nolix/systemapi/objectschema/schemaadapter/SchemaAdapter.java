@@ -10,8 +10,8 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 /**
  * @author Silvan Wyss
  */
-public interface ISchemaAdapter extends IResettableChangeSaver {
-  ISchemaAdapter addTable(ITable table);
+public interface SchemaAdapter extends IResettableChangeSaver {
+  SchemaAdapter addTable(ITable table);
 
   boolean databaseIsEmpty();
 

@@ -13,7 +13,7 @@ import ch.nolix.systemapi.midschema.fieldproperty.BaseFieldType;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 import ch.nolix.systemapi.objectschema.model.ITable;
-import ch.nolix.systemapi.objectschema.schemaadapter.ISchemaAdapter;
+import ch.nolix.systemapi.objectschema.schemaadapter.SchemaAdapter;
 
 /**
  * @author Silvan Wyss
@@ -33,7 +33,7 @@ public final class SchemaInitializer {
 
   public static void initializeDatabaseIfDatabaseIsEmpty(
     final IEntityTypeSet entityTypeSet,
-    final ISchemaAdapter schemaAdapter) {
+    final SchemaAdapter schemaAdapter) {
     if (schemaAdapter.databaseIsEmpty()) {
       initializeDatabase(entityTypeSet, schemaAdapter);
     }
@@ -41,7 +41,7 @@ public final class SchemaInitializer {
 
   private static void initializeDatabase(
     final IEntityTypeSet entityTypeSet,
-    final ISchemaAdapter schemaAdapter) {
+    final SchemaAdapter schemaAdapter) {
     final var tables = TABLE_MAPPER.mapSchemaToEmptyTables(entityTypeSet);
 
     tables.forEach(schemaAdapter::addTable);

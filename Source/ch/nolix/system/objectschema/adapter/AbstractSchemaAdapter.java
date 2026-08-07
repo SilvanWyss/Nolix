@@ -12,12 +12,12 @@ import ch.nolix.system.objectschema.modelsearcher.DatabaseSearcher;
 import ch.nolix.system.objectschema.modelvalidator.DatabaseValidator;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
-import ch.nolix.systemapi.objectschema.schemaadapter.ISchemaAdapter;
+import ch.nolix.systemapi.objectschema.schemaadapter.SchemaAdapter;
 
 /**
  * @author Silvan Wyss
  */
-public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
+public abstract class AbstractSchemaAdapter implements SchemaAdapter {
   private static final DatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
 
   private static final DatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();
@@ -48,7 +48,7 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
    * {@inheritDoc}
    */
   @Override
-  public ISchemaAdapter addTable(final ITable table) {
+  public SchemaAdapter addTable(final ITable table) {
     database.addTable(table);
 
     return this;
