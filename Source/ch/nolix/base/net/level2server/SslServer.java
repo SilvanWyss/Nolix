@@ -50,7 +50,7 @@ public final class SslServer extends AbstractServer {
    */
   @Override
   protected void noteAddedDefaultSlot(final ISlot defaultSlot) {
-    internalWebSocketServer.addDefaultSlot(Slot.withNameAndParentServer(defaultSlot.getName(), this));
+    internalWebSocketServer.addDefaultSlot(Level1Slot.withNameAndParentServer(defaultSlot.getName(), this));
   }
 
   /**
@@ -58,7 +58,7 @@ public final class SslServer extends AbstractServer {
    */
   @Override
   protected void noteAddedSlot(final ISlot slot) {
-    internalWebSocketServer.addSlot(Slot.withNameAndParentServer(slot.getName(), this));
+    internalWebSocketServer.addSlot(Level1Slot.withNameAndParentServer(slot.getName(), this));
   }
 
   /**

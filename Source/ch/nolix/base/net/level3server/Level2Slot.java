@@ -10,7 +10,7 @@ import ch.nolix.baseapi.net.level2server.ISlot;
 /**
  * @author Silvan Wyss
  */
-final class Slot implements ISlot {
+final class Level2Slot implements ISlot {
   private final String name;
 
   private final AbstractServer parentServer;
@@ -24,7 +24,7 @@ final class Slot implements ISlot {
    * @throws RuntimeException if given name is null or blank
    * @throws RuntimeException if the given parentServer is null
    */
-  private Slot(final String name, final AbstractServer parentServer) {
+  private Level2Slot(final String name, final AbstractServer parentServer) {
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableNameCatalog.NAME).isNotBlank();
     Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
 
@@ -40,8 +40,8 @@ final class Slot implements ISlot {
    * @throws RuntimeException if given name is null or blank
    * @throws RuntimeException if the given parentServer is null
    */
-  public static Slot withNameAndParentServer(final String name, final AbstractServer parentServer) {
-    return new Slot(name, parentServer);
+  public static Level2Slot withNameAndParentServer(final String name, final AbstractServer parentServer) {
+    return new Level2Slot(name, parentServer);
   }
 
   /**

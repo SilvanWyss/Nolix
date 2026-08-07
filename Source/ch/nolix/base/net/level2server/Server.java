@@ -98,7 +98,7 @@ public final class Server extends AbstractServer {
    */
   @Override
   protected void noteAddedDefaultSlot(final ISlot defaultSlot) {
-    internalServer.addDefaultSlot(Slot.withNameAndParentServer(defaultSlot.getName(), this));
+    internalServer.addDefaultSlot(Level1Slot.withNameAndParentServer(defaultSlot.getName(), this));
   }
 
   /**
@@ -106,7 +106,7 @@ public final class Server extends AbstractServer {
    */
   @Override
   protected void noteAddedSlot(final ISlot slot) {
-    internalServer.addSlot(Slot.withNameAndParentServer(slot.getName(), this));
+    internalServer.addSlot(Level1Slot.withNameAndParentServer(slot.getName(), this));
   }
 
   /**

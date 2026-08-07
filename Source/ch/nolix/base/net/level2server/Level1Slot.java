@@ -11,7 +11,7 @@ import ch.nolix.baseapi.net.level1server.ISlot;
 /**
  * @author Silvan Wyss
  */
-public final class Slot implements ISlot {
+public final class Level1Slot implements ISlot {
   private final String name;
 
   private final AbstractServer parentServer;
@@ -25,7 +25,7 @@ public final class Slot implements ISlot {
    * @throws RuntimeException if given name is null or blank
    * @throws RuntimeException if the given parentServer is null
    */
-  private Slot(final String name, final AbstractServer parentServer) {
+  private Level1Slot(final String name, final AbstractServer parentServer) {
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableNameCatalog.NAME).isNotBlank();
     Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
 
@@ -36,13 +36,13 @@ public final class Slot implements ISlot {
   /**
    * @param name
    * @param parentServer
-   * @return a new {@link Slot} with the given name and that will belong to the
+   * @return a new {@link Level1Slot} with the given name and that will belong to the
    *         given parentServer
    * @throws RuntimeException if given name is null or blank
    * @throws RuntimeException if the given parentServer is null
    */
-  public static Slot withNameAndParentServer(final String name, final AbstractServer parentServer) {
-    return new Slot(name, parentServer);
+  public static Level1Slot withNameAndParentServer(final String name, final AbstractServer parentServer) {
+    return new Level1Slot(name, parentServer);
   }
 
   /**
