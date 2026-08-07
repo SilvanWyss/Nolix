@@ -6,7 +6,7 @@ package ch.nolix.base.document.node;
 import ch.nolix.base.environment.filesystem.FileAccessor;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.node.IMutableNode;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
@@ -74,7 +74,7 @@ implements IMutableNode<N> {
    * {@inheritDoc}
    */
   @Override
-  public final void resetFromNode(INode<?> node) {
+  public final void resetFromNode(Node<?> node) {
     reset();
 
     if (node.hasHeader()) {
@@ -96,7 +96,7 @@ implements IMutableNode<N> {
    * {@inheritDoc}
    */
   @Override
-  public final N setChildNodes(final Iterable<? extends INode<?>> childNodes) {
+  public final N setChildNodes(final Iterable<? extends Node<?>> childNodes) {
     removeChildNodes();
     addChildNodes(childNodes);
 

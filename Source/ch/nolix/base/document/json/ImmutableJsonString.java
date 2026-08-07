@@ -6,7 +6,7 @@ package ch.nolix.base.document.json;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.document.json.JsonString;
 import ch.nolix.baseapi.document.json.JsonValueType;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 
@@ -83,7 +83,7 @@ public final class ImmutableJsonString implements JsonString {
    * {@inheritDoc}
    */
   @Override
-  public INode<?> toNode() {
+  public Node<?> toNode() {
     return ImmutableNode.withHeader(string);
   }
 

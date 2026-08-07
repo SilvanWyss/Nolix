@@ -8,7 +8,7 @@ import ch.nolix.base.net.level3server.AbstractEndPoint;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnconnectedArgumentException;
 import ch.nolix.baseapi.net.level3server.IEndPoint;
@@ -83,7 +83,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements ICl
    * @throws RuntimeException if the current {@link AbstractClient} is not
    *                          connected.
    */
-  protected final INode<?> getDataFromCounterpart(final IChainedNode request) {
+  protected final Node<?> getDataFromCounterpart(final IChainedNode request) {
     return getStoredEndPoint().getDataForRequest(request);
   }
 
@@ -92,7 +92,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements ICl
    * @return the data the given request requests from the current
    *         {@link AbstractClient}.
    */
-  protected abstract INode<?> getDataFromHere(IChainedNode request);
+  protected abstract Node<?> getDataFromHere(IChainedNode request);
 
   /**
    * Lets the current {@link AbstractClient} run the given command.

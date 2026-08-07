@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.element.base;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * A {@link SpecificationRepresentable} can be represented by a specification.
@@ -14,7 +14,7 @@ public interface SpecificationRepresentable {
   /**
    * @return the specification of the current {@link SpecificationRepresentable}
    */
-  INode<?> getSpecification();
+  Node<?> getSpecification();
 
   /**
    * @param element

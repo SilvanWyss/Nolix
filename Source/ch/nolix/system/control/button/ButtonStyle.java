@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.control.button;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.system.webgui.controlstyle.AbstractControlStyle;
 import ch.nolix.systemapi.control.button.IButtonStyle;
 
@@ -15,7 +15,7 @@ public final class ButtonStyle extends AbstractControlStyle<IButtonStyle> implem
     initialize();
   }
 
-  public static ButtonStyle fromSpecification(final INode<?> specification) {
+  public static ButtonStyle fromSpecification(final Node<?> specification) {
     final var buttonStyle = new ButtonStyle();
     buttonStyle.resetFromSpecification(specification);
 

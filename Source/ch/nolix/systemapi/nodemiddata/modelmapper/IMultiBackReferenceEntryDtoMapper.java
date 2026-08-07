@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.nodemiddata.modelmapper;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDto;
 
 /**
@@ -23,7 +23,7 @@ public interface IMultiBackReferenceEntryDtoMapper {
     String tableName,
     String entityId,
     String multiBackReferenceColumnId,
-    INode<?> multiBackReferenceEntryNode);
+    Node<?> multiBackReferenceEntryNode);
 
   /**
    * @param tableName
@@ -38,5 +38,5 @@ public interface IMultiBackReferenceEntryDtoMapper {
     String tableName,
     String entityId,
     String multiBackReferenceColumnId,
-    INode<?> multiBackReferenceNode);
+    Node<?> multiBackReferenceNode);
 }

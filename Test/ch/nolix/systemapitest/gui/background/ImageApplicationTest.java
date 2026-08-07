@@ -11,7 +11,7 @@ import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.systemapi.gui.background.ImageApplication;
 
 /**
@@ -28,7 +28,7 @@ final class ImageApplicationTest extends StandardTest {
 
   @ParameterizedTest
   @MethodSource("getSpecificationsAndTheirImageApplications")
-  void testCase_fromSpecification(final INode<?> specification, final ImageApplication expectedImageApplication) {
+  void testCase_fromSpecification(final Node<?> specification, final ImageApplication expectedImageApplication) {
     // execute
     final var result = ImageApplication.fromSpecification(specification);
 

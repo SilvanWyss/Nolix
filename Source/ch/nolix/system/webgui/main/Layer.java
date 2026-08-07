@@ -13,7 +13,7 @@ import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
@@ -108,7 +108,7 @@ implements ILayer {
 
   private IWebGui<?> memberParentGui;
 
-  public static Layer fromSpecification(final INode<?> specification) {
+  public static Layer fromSpecification(final Node<?> specification) {
     final var layer = new Layer();
     layer.resetFromSpecification(specification);
 

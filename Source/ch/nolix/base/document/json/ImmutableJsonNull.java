@@ -6,7 +6,7 @@ package ch.nolix.base.document.json;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.document.json.JsonNull;
 import ch.nolix.baseapi.document.json.JsonValueType;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 
 /**
@@ -52,7 +52,7 @@ implements JsonNull {
    * {@inheritDoc}
    */
   @Override
-  public INode<?> toNode() {
+  public Node<?> toNode() {
     return ImmutableNode.withHeader(StringCatalog.LOWER_CASE_NULL);
   }
 }

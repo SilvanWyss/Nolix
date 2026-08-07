@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.control.container;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
@@ -23,7 +23,7 @@ public enum ContainerRole {
    * @throws RuntimeException if the given specification does not represent a
    *                          {@link ContainerRole}.
    */
-  public static ContainerRole fromSpecification(final INode<?> specification) {
+  public static ContainerRole fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 }

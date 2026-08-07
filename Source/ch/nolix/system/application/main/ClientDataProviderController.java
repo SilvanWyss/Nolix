@@ -9,7 +9,7 @@ import ch.nolix.base.net.level3server.AbstractEndPoint;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.net.level3server.IDataProviderController;
 
 /**
@@ -47,7 +47,7 @@ final class ClientDataProviderController implements IDataProviderController {
    * {@inheritDoc}
    */
   @Override
-  public INode<?> getDataForRequest(final IChainedNode request) {
+  public Node<?> getDataForRequest(final IChainedNode request) {
     return parentClient.getDataFromHere(request);
   }
 
@@ -55,7 +55,7 @@ final class ClientDataProviderController implements IDataProviderController {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<INode<?>> getDataForRequests(final IChainedNode... requests) {
+  public ExtendedIterable<Node<?>> getDataForRequests(final IChainedNode... requests) {
     // Concatenates the given requests.
     final var concatenatedRequests = ImmutableList.withElements(requests);
 
@@ -67,7 +67,7 @@ final class ClientDataProviderController implements IDataProviderController {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
+  public ExtendedIterable<Node<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
     return ExtendedIterableView.forIterable(requests).to(parentClient::getDataFromHere);
   }
 

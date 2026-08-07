@@ -11,7 +11,7 @@ import ch.nolix.base.commontype.stringexaminer.StringExaminer;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.element.multistateconfiguration.ValueStoringState;
@@ -28,9 +28,9 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
 
   private static final StringExaminer STRING_EXAMINER = new StringExaminer();
 
-  private final Function<INode<?>, V> valueCreator;
+  private final Function<Node<?>, V> valueCreator;
 
-  private final Function<V, INode<?>> specificationCreator;
+  private final Function<V, Node<?>> specificationCreator;
 
   private final BiConsumer<S, V> setterMethod;
 
@@ -40,8 +40,8 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
   protected AbstractMaterializedProperty(
     final String name,
     final Class<S> stateClass,
-    final Function<INode<?>, V> valueCreator,
-    final Function<V, INode<?>> specificationCreator) {
+    final Function<Node<?>, V> valueCreator,
+    final Function<V, Node<?>> specificationCreator) {
     super(name);
 
     Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
@@ -59,8 +59,8 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
   protected AbstractMaterializedProperty(
     final String name,
     final Class<S> stateClass,
-    final Function<INode<?>, V> valueCreator,
-    final Function<V, INode<?>> specificationCreator,
+    final Function<Node<?>, V> valueCreator,
+    final Function<V, Node<?>> specificationCreator,
     final BiConsumer<S, V> setterMethod) {
     super(name);
 
@@ -132,7 +132,7 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
    * {@inheritDoc}
    */
   @Override
-  protected final void fillUpValuesSpecificationInto(final ILinkedList<INode<?>> list) {
+  protected final void fillUpValuesSpecificationInto(final ILinkedList<Node<?>> list) {
     for (final var s : parent.getAvailableStates()) {
       final var stateProperty = stateProperties[s.getIndex()];
       final var assignmentType = stateProperty.getAssignmentType();
@@ -183,7 +183,7 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
    * {@inheritDoc}
    */
   @Override
-  protected final void setValueFromSpecification(final INode<?> specification) {
+  protected final void setValueFromSpecification(final Node<?> specification) {
     for (final var s : parent.getAvailableStates()) {
       if (STRING_EXAMINER.startsWithIgnoringCase(specification.getHeader(), s.getQualifyingPrefix())) {
         setValueFromSpecificationToState(s, specification);
@@ -230,7 +230,7 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
     }
   }
 
-  private void setValueFromSpecificationToState(final State<S> state, final INode<?> specification) {
+  private void setValueFromSpecificationToState(final State<S> state, final Node<?> specification) {
     if (specification.getSingleChildNodeHeader().equals(NONE_HEADER)) {
       stateProperties[state.getIndex()].setEmpty();
     } else {

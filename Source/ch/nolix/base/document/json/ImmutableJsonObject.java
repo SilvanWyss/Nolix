@@ -9,7 +9,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.json.JsonNameValuePair;
 import ch.nolix.baseapi.document.json.JsonObject;
 import ch.nolix.baseapi.document.json.JsonValueType;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.programcontrol.function.FunctionService;
@@ -173,7 +173,7 @@ public final class ImmutableJsonObject implements JsonObject {
    * {@inheritDoc}
    */
   @Override
-  public INode<?> toNode() {
+  public Node<?> toNode() {
     final var childNodes = nameValuePairs.getViewOf(JsonNameValuePair::toNode);
 
     return ImmutableNode.withChildNodes(childNodes);

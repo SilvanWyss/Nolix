@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.gui.box;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
@@ -13,7 +13,7 @@ public enum VerticalContentAlignment {
   CENTER,
   BOTTOM;
 
-  public static VerticalContentAlignment fromSpecification(final INode<?> specification) {
+  public static VerticalContentAlignment fromSpecification(final Node<?> specification) {
     final var verticalContentAlignmentString = specification.getSingleChildNodeHeader();
 
     return valueOf(verticalContentAlignmentString);

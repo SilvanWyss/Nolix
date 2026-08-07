@@ -11,7 +11,7 @@ import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.element.base.IElement;
 import ch.nolix.systemapi.property.value.IMultiValue;
@@ -41,8 +41,8 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
   private MultiValue(
     final String name,
     final Consumer<V> adder,
-    final Function<INode<?>, V> valueMapper,
-    final Function<V, INode<?>> specificationMapper) {
+    final Function<Node<?>, V> valueMapper,
+    final Function<V, Node<?>> specificationMapper) {
     super(name, valueMapper, specificationMapper);
 
     Validator.assertThat(adder).thatIsNamed(LowerCaseVariableNameCatalog.ADDER).isNotNull();
@@ -64,7 +64,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
   public static <E extends IElement> MultiValue<E> forElementsOfSameTypeWithNameAndAdderAndValueMapper(
     final String name,
     final Consumer<E> adder,
-    final Function<INode<?>, E> valueMapper) {
+    final Function<Node<?>, E> valueMapper) {
     return new MultiValue<>(name, adder, valueMapper, IElement::getSpecification);
   }
 
@@ -82,7 +82,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
   public static <E extends IElement> MultiValue<E> forElementsWithNameAndAdderAndValueMapper(
     final String name,
     final Consumer<E> adder,
-    final Function<INode<?>, E> valueMapper) {
+    final Function<Node<?>, E> valueMapper) {
     return new MultiValue<>(name, adder, valueMapper, e -> ImmutableNode.withChildNode(e.getSpecification()));
   }
 
@@ -95,7 +95,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
    * @throws RuntimeException if the given adder is null
    */
   public static MultiValue<Integer> forIntsWithNameAndAdder(final String name, final Consumer<Integer> adder) {
-    return new MultiValue<>(name, adder, INode::toInt, ImmutableNode::withHeader);
+    return new MultiValue<>(name, adder, Node::toInt, ImmutableNode::withHeader);
   }
 
   /**
@@ -107,7 +107,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
    * @throws RuntimeException if the given adder is null
    */
   public static MultiValue<String> forStringsWithNameAndAdder(final String name, final Consumer<String> adder) {
-    return new MultiValue<>(name, adder, INode::getHeader, ImmutableNode::withHeader);
+    return new MultiValue<>(name, adder, Node::getHeader, ImmutableNode::withHeader);
   }
 
   /**
@@ -130,7 +130,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
    * {@inheritDoc}
    */
   @Override
-  public void fillUpAttributesIntoList(final ILinkedList<INode<?>> list) {
+  public void fillUpAttributesIntoList(final ILinkedList<Node<?>> list) {
     for (final var v : getStoredValues()) {
       final var attribute = mapValueToSpecification(v).withNewHeader(getName());
 

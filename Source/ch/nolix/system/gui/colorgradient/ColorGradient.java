@@ -7,7 +7,7 @@ import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.element.base.AbstractElement;
@@ -60,7 +60,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @return a new {@link ColorGradient} from the given specification
    * @throws RuntimeException if the given specification is not valid
    */
-  public static ColorGradient fromSpecification(final INode<?> specification) {
+  public static ColorGradient fromSpecification(final Node<?> specification) {
     final var attributes = specification.getStoredChildNodes();
     final var attributeCount = attributes.getCount();
 
@@ -108,7 +108,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @return a new {@link ColorGradient} from the given attributes
    * @throws RuntimeException if the given attributes are not valid
    */
-  private static ColorGradient from2Attributes(ExtendedIterable<? extends INode<?>> attributes) {
+  private static ColorGradient from2Attributes(ExtendedIterable<? extends Node<?>> attributes) {
     final var color1Specification = ImmutableNode.withChildNode(attributes.getStoredAtOneBasedIndex(1));
     final var color2Specification = ImmutableNode.withChildNode(attributes.getStoredAtOneBasedIndex(2));
 
@@ -123,7 +123,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @return a new {@link ColorGradient} from the given attributes
    * @throws RuntimeException if the given attributes are not valid
    */
-  private static ColorGradient from3Attributes(ExtendedIterable<? extends INode<?>> attributes) {
+  private static ColorGradient from3Attributes(ExtendedIterable<? extends Node<?>> attributes) {
     final var directionSpecification = ImmutableNode.withChildNode(attributes.getStoredAtOneBasedIndex(1));
     final var color1Specification = ImmutableNode.withChildNode(attributes.getStoredAtOneBasedIndex(2));
     final var color2Specification = ImmutableNode.withChildNode(attributes.getStoredAtOneBasedIndex(3));
@@ -139,7 +139,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<INode<?>> getAttributes() {
+  public ExtendedIterable<Node<?>> getAttributes() {
     return LinkedList.withElement(
       ImmutableNode.withHeader(getDirection().toString()),
       ImmutableNode.withHeader(getColor1().toHexadecimalString()),

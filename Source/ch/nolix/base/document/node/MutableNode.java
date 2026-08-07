@@ -8,7 +8,7 @@ import java.util.function.Predicate;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
@@ -49,9 +49,9 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
 
   /**
    * @param node
-   * @return a new {@link MutableNode} from the given {@link INode}.
+   * @return a new {@link MutableNode} from the given {@link Node}.
    */
-  public static MutableNode fromNode(final INode<?> node) {
+  public static MutableNode fromNode(final Node<?> node) {
     final var mutableNode = MutableNode.createEmpty();
 
     if (node.hasHeader()) {
@@ -80,7 +80,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public MutableNode addChildNode(final INode<?> childNode) {
+  public MutableNode addChildNode(final Node<?> childNode) {
     memberChildNodes.addAtEnd(fromNode(childNode));
 
     return this;
@@ -90,7 +90,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public MutableNode addChildNodes(final INode<?>... childNodes) {
+  public MutableNode addChildNodes(final Node<?>... childNodes) {
     for (final var c : childNodes) {
       addChildNode(c);
     }
@@ -102,7 +102,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public <N extends INode<?>> MutableNode addChildNodes(final Iterable<N> pChildNodes) {
+  public <N extends Node<?>> MutableNode addChildNodes(final Iterable<N> pChildNodes) {
     for (final var c : pChildNodes) {
       memberChildNodes.addAtEnd(fromNode(c));
     }
@@ -138,7 +138,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public INode<?> withNewHeader(String header) {
+  public Node<?> withNewHeader(String header) {
     return ImmutableNode.withHeaderAndChildNodes(header, getStoredChildNodes());
   }
 
@@ -180,7 +180,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public MutableNode removeAndGetStoredFirstChildNodeThat(final Predicate<INode<?>> selector) {
+  public MutableNode removeAndGetStoredFirstChildNodeThat(final Predicate<Node<?>> selector) {
     return memberChildNodes.removeAndGetStoredFirst(selector::test);
   }
 
@@ -188,7 +188,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public void removeFirstChildNodeThat(final Predicate<INode<?>> selector) {
+  public void removeFirstChildNodeThat(final Predicate<Node<?>> selector) {
     memberChildNodes.removeFirst(selector::test);
   }
 
@@ -212,7 +212,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public void replaceFirstChildNodeWithGivenHeaderByGivenNode(final String header, final INode<?> childNode) {
+  public void replaceFirstChildNodeWithGivenHeaderByGivenNode(final String header, final Node<?> childNode) {
     memberChildNodes.replaceFirst(a -> a.hasHeader(header), fromNode(childNode));
   }
 

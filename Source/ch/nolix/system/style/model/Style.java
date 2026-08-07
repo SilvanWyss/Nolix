@@ -9,7 +9,7 @@ import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.style.model.ISelectingStyle;
@@ -60,7 +60,7 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
    * @return a new {@link Style} from the given specification
    * @throws RuntimeException if the given specification is not valid
    */
-  public static Style fromSpecification(final INode<?> specification) {
+  public static Style fromSpecification(final Node<?> specification) {
     final ILinkedList<String> attachingAttributes = LinkedList.createEmpty();
     final ILinkedList<AbstractSelectingStyle> subStyles = LinkedList.createEmpty();
 
@@ -101,7 +101,7 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<INode<?>> getAttributes() {
+  public ExtendedIterable<Node<?>> getAttributes() {
     return //
     ExtendedIterableView.forIterables(
       getAttachingAttributes().getViewOf(a -> ImmutableNode.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, a)),

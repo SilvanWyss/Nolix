@@ -6,7 +6,7 @@ package ch.nolix.systemapi.gui.model;
 import java.awt.Cursor;
 import java.util.Locale;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
@@ -25,7 +25,7 @@ public enum CursorIcon {
    * @throws RuntimeException if the given specification does not represent a
    *                          {@link CursorIcon}.
    */
-  public static CursorIcon fromSpecification(final INode<?> specification) {
+  public static CursorIcon fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader().toUpperCase(Locale.ENGLISH));
   }
 

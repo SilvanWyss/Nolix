@@ -7,7 +7,7 @@ import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
@@ -86,7 +86,7 @@ public final class Background extends AbstractElement implements IBackground {
     this.imageApplication = imageApplication;
   }
 
-  public static Background fromSpecification(final INode<?> specification) {
+  public static Background fromSpecification(final Node<?> specification) {
     final var childNode = specification.getStoredFirstChildNode();
 
     return switch (childNode.getHeader()) {
@@ -124,7 +124,7 @@ public final class Background extends AbstractElement implements IBackground {
   }
 
   private static UnrepresentingArgumentException createExceptionForSpecificationDoesNotSpecifyBackground(
-    final INode<?> specification) {
+    final Node<?> specification) {
     return //
     UnrepresentingArgumentException.forArgumentAndArgumentNameAndType(
       specification,
@@ -136,7 +136,7 @@ public final class Background extends AbstractElement implements IBackground {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<INode<?>> getAttributes() {
+  public ExtendedIterable<Node<?>> getAttributes() {
     return switch (getType()) {
       case COLOR ->
         LinkedList.withElement(getColor().getSpecification());

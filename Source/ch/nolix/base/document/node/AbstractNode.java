@@ -10,7 +10,7 @@ import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.base.document.xml.MutableXmlNode;
 import ch.nolix.base.environment.filesystem.FileSystemAccessor;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.document.xml.IMutableXmlNode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
@@ -20,7 +20,7 @@ import ch.nolix.baseapi.programcontrol.processproperty.WriteMode;
  * @author Silvan Wyss
  * @param <N> the type of a {@link AbstractNode}.
  */
-public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N> {
+public abstract class AbstractNode<N extends AbstractNode<N>> implements Node<N> {
   public static final String COMMA_CODE = "$M";
 
   public static final String DOLLAR_SYMBOL_CODE = "$X";
@@ -88,7 +88,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsChildNodeThat(final Predicate<INode<?>> selector) {
+  public final boolean containsChildNodeThat(final Predicate<Node<?>> selector) {
     return getStoredChildNodes().containsMatching(selector::test);
   }
 
@@ -114,7 +114,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
   @Override
   public final boolean equals(Object object) {
     return //
-    object instanceof final INode<?> node
+    object instanceof final Node<?> node
     && NODE_COMPARATOR.areEqual(this, node);
   }
 
@@ -148,7 +148,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    * {@inheritDoc}
    */
   @Override
-  public final int getChildNodeCount(final Predicate<INode<?>> selector) {
+  public final int getChildNodeCount(final Predicate<Node<?>> selector) {
     return getStoredChildNodesThat(selector).getCount();
   }
 
@@ -157,14 +157,14 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    */
   @Override
   public final ExtendedIterable<String> getChildNodesHeaders() {
-    return getStoredChildNodes().to(INode::getHeader);
+    return getStoredChildNodes().to(Node::getHeader);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public Optional<N> getOptionalStoredFirstChildNodeThat(Predicate<INode<?>> selector) {
+  public Optional<N> getOptionalStoredFirstChildNodeThat(Predicate<Node<?>> selector) {
     return getStoredChildNodes().getOptionalStoredFirst(selector);
   }
 
@@ -188,7 +188,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    * {@inheritDoc}
    */
   @Override
-  public final ExtendedIterable<N> getStoredChildNodesThat(final Predicate<INode<?>> selector) {
+  public final ExtendedIterable<N> getStoredChildNodesThat(final Predicate<Node<?>> selector) {
     return getStoredChildNodes().getStoredSelected(selector);
   }
 
@@ -212,7 +212,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    * {@inheritDoc}
    */
   @Override
-  public final N getStoredFirstChildNodeThat(Predicate<INode<?>> selector) {
+  public final N getStoredFirstChildNodeThat(Predicate<Node<?>> selector) {
     return getStoredChildNodes().getStoredFirst(selector);
   }
 
@@ -414,7 +414,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
     final StringBuilder stringBuilder) {
     // Handles the case that all child nodes of the current BaseNode themselves do
     // not contain child nodes.
-    if (getStoredChildNodes().containsNoMatching(INode::containsChildNodes)) {
+    if (getStoredChildNodes().containsNoMatching(Node::containsChildNodes)) {
       stringBuilder
         .append(CharacterCatalog.OPEN_BRACKET)
         .append(getStoredChildNodes().toString())

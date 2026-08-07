@@ -5,7 +5,7 @@ package ch.nolix.baseapi.document.chainednode;
 
 import ch.nolix.baseapi.attribute.optionalattribute.OptionalHeaderHolder;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalstate.staterequest.BlanknessRequestable;
 
 /**
@@ -135,13 +135,13 @@ public interface IChainedNode extends BlanknessRequestable, OptionalHeaderHolder
   int toInt();
 
   /**
-   * A {@link IChainedNode} represents a {@link INode} if: -The
+   * A {@link IChainedNode} represents a {@link Node} if: -The
    * {@link IChainedNode} does not have a next node. -Each child nodes of the
-   * {@link IChainedNode} represents a {@link INode}.
+   * {@link IChainedNode} represents a {@link Node}.
    * 
-   * @return a {@link INode} representation of the current {@link IChainedNode}
+   * @return a {@link Node} representation of the current {@link IChainedNode}
    * @throws RuntimeException if the current {@link IChainedNode} does not
-   *                          represent a {@link INode}.
+   *                          represent a {@link Node}.
    */
-  INode<?> toNode();
+  Node<?> toNode();
 }

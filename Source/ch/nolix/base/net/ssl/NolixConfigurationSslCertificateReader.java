@@ -5,7 +5,7 @@ package ch.nolix.base.net.ssl;
 
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.foundation.nolixenvironment.NolixEnvironmentService;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.net.ssl.ISslCertificate;
 
 /**
@@ -36,13 +36,13 @@ public final class NolixConfigurationSslCertificateReader {
   }
 
   private static String getDefaultDomainFromDefaultCertificateConfiguration(
-    final INode<?> defaultSSLCertificateConfiguration) {
+    final Node<?> defaultSSLCertificateConfiguration) {
     return defaultSSLCertificateConfiguration
       .getStoredFirstChildNodeWithHeader(DOMAIN_HEADER)
       .getSingleChildNodeHeader();
   }
 
-  private static String getDefaultDomainFromNolixConfiguration(final INode<?> nolixConfiguration) {
+  private static String getDefaultDomainFromNolixConfiguration(final Node<?> nolixConfiguration) {
     final var defaultSSLCertificateConfiguration = nolixConfiguration
       .getStoredFirstChildNodeWithHeader(DEFAULT_SSL_CERTIFICATE_HEADER);
 
@@ -50,7 +50,7 @@ public final class NolixConfigurationSslCertificateReader {
   }
 
   private static ISslCertificate getDefaultSSLCertificateFromDefaultCertificateConfiguration(
-    final INode<?> defaultSSLCertificateConfiguration) {
+    final Node<?> defaultSSLCertificateConfiguration) {
     final var publicKeyPemFilePath = defaultSSLCertificateConfiguration
       .getStoredFirstChildNodeWithHeader(PUBLIC_KEY_PEM_FILE_HEADER)
       .getSingleChildNodeHeader();
@@ -62,14 +62,14 @@ public final class NolixConfigurationSslCertificateReader {
     return new SslCertificate(publicKeyPemFilePath, privateKeyPemFilePath);
   }
 
-  private static ISslCertificate getDefaultSSLCertificateFromNolixConfiguration(final INode<?> nolixConfiguration) {
+  private static ISslCertificate getDefaultSSLCertificateFromNolixConfiguration(final Node<?> nolixConfiguration) {
     final var defaultSSLCertificateConfiguration = nolixConfiguration
       .getStoredFirstChildNodeWithHeader(DEFAULT_SSL_CERTIFICATE_HEADER);
 
     return getDefaultSSLCertificateFromDefaultCertificateConfiguration(defaultSSLCertificateConfiguration);
   }
 
-  private static INode<?> getNolixConfiguration() {
+  private static Node<?> getNolixConfiguration() {
     return ImmutableNode.fromFile(NolixEnvironmentService.getNolixConfigurationFilePath());
   }
 }

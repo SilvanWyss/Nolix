@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.element.base;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * A {@link AttributesRepresentable} can be represented by a collection of
@@ -16,5 +16,5 @@ public interface AttributesRepresentable {
   /**
    * @return the attributes of the current {@link AttributesRepresentable}
    */
-  ExtendedIterable<INode<?>> getAttributes();
+  ExtendedIterable<Node<?>> getAttributes();
 }

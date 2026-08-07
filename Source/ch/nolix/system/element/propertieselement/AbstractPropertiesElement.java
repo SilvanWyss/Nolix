@@ -11,7 +11,7 @@ import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.errorcontrol.errormapping.IllegalAccessErrorMapper;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
@@ -29,7 +29,7 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
    * {@inheritDoc}
    */
   @Override
-  public final void addOrChangeAttribute(final INode<?> attribute) {
+  public final void addOrChangeAttribute(final Node<?> attribute) {
     // Iterates the properties of the current AbstractPropertiesElement.
     for (final var p : getStoredProperties()) {
       // Handles the case that the current property has added or changed the given attribute.
@@ -66,9 +66,9 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
    * {@inheritDoc}
    */
   @Override
-  public final ExtendedIterable<INode<?>> getAttributes() {
+  public final ExtendedIterable<Node<?>> getAttributes() {
     // Creates attributes list.
-    final LinkedList<INode<?>> attributes = LinkedList.createEmpty();
+    final LinkedList<Node<?>> attributes = LinkedList.createEmpty();
 
     // Iterates the properties of the current AbstractPropertiesElement.
     for (final var p : getStoredProperties()) {
@@ -84,7 +84,7 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
    * {@inheritDoc}
    */
   @Override
-  public final INode<?> getSpecification() {
+  public final Node<?> getSpecification() {
     return ImmutableNode.withHeaderAndChildNodes(getSpecificationHeader(), getAttributes());
   }
 

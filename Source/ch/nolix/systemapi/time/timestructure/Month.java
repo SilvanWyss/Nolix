@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.time.timestructure;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
@@ -53,7 +53,7 @@ public enum Month {
     };
   }
 
-  public Month fromSpecification(final INode<?> specification) {
+  public Month fromSpecification(final Node<?> specification) {
     return Month.valueOf(specification.getSingleChildNodeHeader());
   }
 }

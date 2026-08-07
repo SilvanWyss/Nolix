@@ -10,7 +10,7 @@ import java.util.function.Supplier;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.systemapi.property.proxy.IMultiValueProxy;
@@ -26,9 +26,9 @@ public final class MultiValueProxy<V> implements IMultiValueProxy {
 
   private final Supplier<ExtendedIterable<V>> getter;
 
-  private final Function<INode<?>, V> valueMapper;
+  private final Function<Node<?>, V> valueMapper;
 
-  private final Function<V, INode<?>> specificationMapper;
+  private final Function<V, Node<?>> specificationMapper;
 
   /**
    * Creates a new {@link MultiValueProxy} with the given name, adder, getter,
@@ -49,8 +49,8 @@ public final class MultiValueProxy<V> implements IMultiValueProxy {
     final String name,
     final Consumer<V> adder,
     final Supplier<ExtendedIterable<V>> getter,
-    final Function<INode<?>, V> valueMapper,
-    final Function<V, INode<?>> specificationMapper) {
+    final Function<Node<?>, V> valueMapper,
+    final Function<V, Node<?>> specificationMapper) {
     Validator.assertThat(name).thatIsNamed(PascalCaseVariableNameCatalog.NAME).isNotBlank();
     Validator.assertThat(adder).thatIsNamed(LowerCaseVariableNameCatalog.ADDER).isNotNull();
     Validator.assertThat(getter).thatIsNamed(LowerCaseVariableNameCatalog.GETTER).isNotNull();
@@ -84,8 +84,8 @@ public final class MultiValueProxy<V> implements IMultiValueProxy {
     final String name,
     final Consumer<T> adder,
     final Supplier<ExtendedIterable<T>> getter,
-    final Function<INode<?>, T> valueMapper,
-    final Function<T, INode<?>> specificationMapper) {
+    final Function<Node<?>, T> valueMapper,
+    final Function<T, Node<?>> specificationMapper) {
     return new MultiValueProxy<>(name, adder, getter, valueMapper, specificationMapper);
   }
 
@@ -93,7 +93,7 @@ public final class MultiValueProxy<V> implements IMultiValueProxy {
    * {@inheritDoc}
    */
   @Override
-  public boolean addedOrChangedAttribute(final INode<?> attribute) {
+  public boolean addedOrChangedAttribute(final Node<?> attribute) {
     if (attribute != null && attribute.hasHeader(getName())) {
       final var value = valueMapper.apply(attribute);
 
@@ -109,7 +109,7 @@ public final class MultiValueProxy<V> implements IMultiValueProxy {
    * {@inheritDoc}
    */
   @Override
-  public void fillUpAttributesIntoList(final ILinkedList<INode<?>> list) {
+  public void fillUpAttributesIntoList(final ILinkedList<Node<?>> list) {
     for (final var v : getter.get()) {
       final var attribute = specificationMapper.apply(v);
 

@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.nodemidschema.nodemapper;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 
 /**
@@ -12,45 +12,45 @@ import ch.nolix.systemapi.midschema.model.ColumnDto;
 public interface IColumnNodeChildNodeMapper {
   /**
    * @param columnDto
-   * @return a new back referenceable column ids {@link INode} from the given
+   * @return a new back referenceable column ids {@link Node} from the given
    *         columnDto
    * @throws RuntimeException if the given columnDto is null
    */
-  INode<?> mapColumnDtoToBackReferenceableColumnIdsNode(ColumnDto columnDto);
+  Node<?> mapColumnDtoToBackReferenceableColumnIdsNode(ColumnDto columnDto);
 
   /**
    * @param columnDto
-   * @return a new data type {@link INode} from the given columnDto
+   * @return a new data type {@link Node} from the given columnDto
    * @throws RuntimeException if the given columnDto is null
    */
-  INode<?> mapColumnDtoToDataTypeNode(ColumnDto columnDto);
+  Node<?> mapColumnDtoToDataTypeNode(ColumnDto columnDto);
 
   /**
    * @param columnDto
-   * @return a new field type {@link INode} from the given columnDto
+   * @return a new field type {@link Node} from the given columnDto
    * @throws RuntimeException if the given columnDto is null
    */
-  INode<?> mapColumnDtoToFieldTypeNode(ColumnDto columnDto);
+  Node<?> mapColumnDtoToFieldTypeNode(ColumnDto columnDto);
 
   /**
    * @param columnDto
-   * @return a new id {@link INode} from the given columnDto
+   * @return a new id {@link Node} from the given columnDto
    * @throws RuntimeException if the given columnDto is null
    */
-  INode<?> mapColumnDtoToIdNode(ColumnDto columnDto);
+  Node<?> mapColumnDtoToIdNode(ColumnDto columnDto);
 
   /**
    * @param columnDto
-   * @return a new name {@link INode} from the given columnDto
+   * @return a new name {@link Node} from the given columnDto
    * @throws RuntimeException if the given columnDto is null
    */
-  INode<?> mapColumnDtoToNameNode(ColumnDto columnDto);
+  Node<?> mapColumnDtoToNameNode(ColumnDto columnDto);
 
   /**
    * @param columnDto
-   * @return a new referenceable table ids node {@link INode} from the given
+   * @return a new referenceable table ids node {@link Node} from the given
    *         columnDto
    * @throws RuntimeException if the given columnDto is null
    */
-  INode<?> mapColumnDtoToReferenceableTableIdsNode(ColumnDto columnDto);
+  Node<?> mapColumnDtoToReferenceableTableIdsNode(ColumnDto columnDto);
 }

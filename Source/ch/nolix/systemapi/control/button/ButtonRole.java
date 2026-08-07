@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.control.button;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
@@ -23,7 +23,7 @@ public enum ButtonRole {
    * @throws RuntimeException if the given specification does nor represent
    *                          {@link ButtonRole}.
    */
-  public static ButtonRole fromSpecification(final INode<?> specification) {
+  public static ButtonRole fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 }

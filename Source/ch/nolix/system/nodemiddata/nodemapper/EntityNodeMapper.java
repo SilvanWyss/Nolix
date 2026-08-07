@@ -4,7 +4,7 @@
 package ch.nolix.system.nodemiddata.nodemapper;
 
 import ch.nolix.base.document.node.ImmutableNode;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
 import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
 import ch.nolix.systemapi.nodemiddata.nodemapper.IEntityNodeMapper;
@@ -20,7 +20,7 @@ public final class EntityNodeMapper implements IEntityNodeMapper {
   /**
    * {@inheritDoc}
    */
-  public INode<?> mapEntityCreationDtoToEntityNode(
+  public Node<?> mapEntityCreationDtoToEntityNode(
     final EntityCreationDto newEntity,
     final TableInfoDto tableView,
     final long saveStamp) {

@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.control.grid;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
@@ -13,7 +13,7 @@ public enum GridType {
   INNER_AND_OUTER_LINES,
   NO_LINES;
 
-  public static GridType fromSpecification(final INode<?> specification) {
+  public static GridType fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 }

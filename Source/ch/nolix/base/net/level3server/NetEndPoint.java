@@ -14,7 +14,7 @@ import ch.nolix.base.errorcontrol.generalexception.GeneralException;
 import ch.nolix.base.errorcontrol.logging.Logger;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
@@ -195,7 +195,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public INode<?> getDataForRequest(final IChainedNode request) {
+  public Node<?> getDataForRequest(final IChainedNode request) {
     final var requests = ImmutableList.withElements(request);
 
     return getDataForRequests(requests).getStoredSingle();
@@ -205,7 +205,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<? extends INode<?>> getDataForRequests(final IChainedNode... requests) {
+  public ExtendedIterable<? extends Node<?>> getDataForRequests(final IChainedNode... requests) {
     // Concatenates the given requests.
     final var concatenatedRequests = ImmutableList.withElements(requests);
 
@@ -217,7 +217,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<? extends INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
+  public ExtendedIterable<? extends Node<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
     // Creates message.
     final var message = MessageHeaderCatalog.MULTI_DATA_REQUEST_HEADER + '(' + requests.toString() + ')';
 

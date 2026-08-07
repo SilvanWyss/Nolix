@@ -5,15 +5,15 @@ package ch.nolix.baseapi.net.level3server;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
  */
 public interface IDataProvider {
-  INode<?> getDataForRequest(IChainedNode request);
+  Node<?> getDataForRequest(IChainedNode request);
 
-  ExtendedIterable<? extends INode<?>> getDataForRequests(IChainedNode... requests);
+  ExtendedIterable<? extends Node<?>> getDataForRequests(IChainedNode... requests);
 
-  ExtendedIterable<? extends INode<?>> getDataForRequests(Iterable<? extends IChainedNode> requests);
+  ExtendedIterable<? extends Node<?>> getDataForRequests(Iterable<? extends IChainedNode> requests);
 }

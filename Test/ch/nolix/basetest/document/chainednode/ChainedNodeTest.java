@@ -213,6 +213,6 @@ final class ChainedNodeTest extends StandardTest {
     expectRunning(testUnit::toNode)
       .throwsException()
       .ofType(UnrepresentingArgumentException.class)
-      .withMessage("The given ChainedNode 'a.b' does not represent an INode.");
+      .withMessage("The given ChainedNode 'a.b' does not represent a Node.");
   }
 }

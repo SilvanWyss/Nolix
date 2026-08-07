@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.webgui.main;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.systemapi.webgui.main.Control;
 
 /**
@@ -19,7 +19,7 @@ public final class ControlFactory {
     return CONTROL_FACTORY.canCreateControlOfType(type);
   }
 
-  public static Control<?, ?> createControlFromSpecification(final INode<?> specification) {
+  public static Control<?, ?> createControlFromSpecification(final Node<?> specification) {
     return CONTROL_FACTORY.createControlFromSpecification(specification);
   }
 

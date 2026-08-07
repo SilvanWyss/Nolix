@@ -10,7 +10,7 @@ import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.system.element.base.AbstractElement;
 
 /**
@@ -22,7 +22,7 @@ final class EqualsMethodTest extends StandardTest {
     // setup
     final var testUnit = new AbstractElement() {
       @Override
-      public ExtendedIterable<INode<?>> getAttributes() {
+      public ExtendedIterable<Node<?>> getAttributes() {
         return ImmutableList.withElements(ImmutableNode.withHeader("my_flag"));
       }
     };
@@ -40,7 +40,7 @@ final class EqualsMethodTest extends StandardTest {
     final Object object = new VoidObject();
     final var testUnit = new AbstractElement() {
       @Override
-      public ExtendedIterable<INode<?>> getAttributes() {
+      public ExtendedIterable<Node<?>> getAttributes() {
         return ImmutableList.withElements(ImmutableNode.withHeader("my_flag"));
       }
     };
@@ -57,7 +57,7 @@ final class EqualsMethodTest extends StandardTest {
     // setup
     final var testUnit = new AbstractElement() {
       @Override
-      public ExtendedIterable<INode<?>> getAttributes() {
+      public ExtendedIterable<Node<?>> getAttributes() {
         return ImmutableList.withElements(ImmutableNode.withHeader("my_flag"));
       }
     };

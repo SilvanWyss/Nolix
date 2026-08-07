@@ -7,7 +7,7 @@ import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.errorcontrol.generalexception.ChangedResourceException;
 import ch.nolix.baseapi.datamodel.cardinality.BaseCardinality;
 import ch.nolix.baseapi.document.node.IMutableNode;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PluralLowerCaseVariableNameCatalog;
@@ -161,8 +161,8 @@ public final class DataWriterActionProvider {
     final IMutableNode<?> nodeDatabase,
     final String tableName,
     final String entityId,
-    final INode<?> entityIndexNode,
-    final INode<?> entityNode) {
+    final Node<?> entityIndexNode,
+    final Node<?> entityNode) {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
     if (TABLE_NODE_EXAMINER.tableNodeContainsEntityNodeWithGivenId(tableNode, entityId)) {
@@ -181,7 +181,7 @@ public final class DataWriterActionProvider {
     final String tableName,
     final String entityId,
     final int multiBackReferenceColumnOneBasedOrdinalIndex,
-    final INode<?> multiBackReferenceEntryNode) {
+    final Node<?> multiBackReferenceEntryNode) {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
@@ -196,7 +196,7 @@ public final class DataWriterActionProvider {
     final String tableName,
     final String entityId,
     final int multiReferenceColumnOneBasedOrdinalIndex,
-    final INode<?> multiReferenceEntryNode) {
+    final Node<?> multiReferenceEntryNode) {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 

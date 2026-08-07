@@ -11,7 +11,7 @@ import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.element.base.AbstractElement;
@@ -47,7 +47,7 @@ implements IMultiStateConfiguration<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean addedOrChangedAttribute(final INode<?> attribute) {
+  public final boolean addedOrChangedAttribute(final Node<?> attribute) {
     for (final var p : getStoredProperties()) {
       if (attribute.getHeader().endsWith(p.getName())) {
         p.setValueFromSpecification(attribute);
@@ -62,7 +62,7 @@ implements IMultiStateConfiguration<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final void addOrChangeAttribute(final INode<?> attribute) {
+  public final void addOrChangeAttribute(final Node<?> attribute) {
     if (!addedOrChangedAttribute(attribute)) {
       throw InvalidArgumentException.forArgumentAndArgumentName(attribute, LowerCaseVariableNameCatalog.ATTRIBUTE);
     }
@@ -82,8 +82,8 @@ implements IMultiStateConfiguration<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final ExtendedIterable<INode<?>> getAttributes() {
-    final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
+  public final ExtendedIterable<Node<?>> getAttributes() {
+    final ILinkedList<Node<?>> attributes = LinkedList.createEmpty();
 
     for (final var p : getStoredProperties()) {
       p.fillUpValuesSpecificationInto(attributes);

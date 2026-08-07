@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.document.node;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.document.node.INodeComparator;
 
 /**
@@ -14,7 +14,7 @@ public final class NodeComparator implements INodeComparator {
    * {@inheritDoc}
    */
   @Override
-  public boolean areEqual(final INode<?> node1, final INode<?> node2) {
+  public boolean areEqual(final Node<?> node1, final Node<?> node2) {
     return //
     haveEqualHeaderConstellationLikeNode(node1, node2)
     && haveEqualChildNodesConstellationLikeNodes(node1, node2);
@@ -24,7 +24,7 @@ public final class NodeComparator implements INodeComparator {
    * {@inheritDoc}
    */
   @Override
-  public boolean haveEqualChildNodesConstellationLikeNodes(final INode<?> node1, final INode<?> node2) {
+  public boolean haveEqualChildNodesConstellationLikeNodes(final Node<?> node1, final Node<?> node2) {
     if (node1 != null && node2 != null && node1.getChildNodeCount() == node2.getChildNodeCount()) {
       final var iterator = node2.getStoredChildNodes().iterator();
 
@@ -45,7 +45,7 @@ public final class NodeComparator implements INodeComparator {
    * {@inheritDoc}
    */
   @Override
-  public boolean haveEqualHeaderConstellationLikeNode(final INode<?> node1, final INode<?> node2) {
+  public boolean haveEqualHeaderConstellationLikeNode(final Node<?> node1, final Node<?> node2) {
     return //
     (node1 == null && node2 == null) // NOSONAR: This implementation bases on chained conditions only.
     || (node1 != null && node2 != null && !node1.hasHeader() && !node2.hasHeader())

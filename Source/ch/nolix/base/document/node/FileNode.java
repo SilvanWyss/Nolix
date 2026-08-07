@@ -10,7 +10,7 @@ import ch.nolix.base.environment.filesystem.FileAccessor;
 import ch.nolix.base.environment.filesystem.FileSystemAccessor;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.node.IMutableNode;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 /**
@@ -88,7 +88,7 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    * {@inheritDoc}
    */
   @Override
-  public FileNode addChildNode(final INode<?> childNode) {
+  public FileNode addChildNode(final Node<?> childNode) {
     internalSpecification.addChildNode(childNode);
 
     return this;
@@ -98,7 +98,7 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    * {@inheritDoc}
    */
   @Override
-  public FileNode addChildNodes(final INode<?>... childNodes) {
+  public FileNode addChildNodes(final Node<?>... childNodes) {
     internalSpecification.addChildNodes(childNodes);
     save();
 
@@ -109,7 +109,7 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    * {@inheritDoc}
    */
   @Override
-  public <N extends INode<?>> FileNode addChildNodes(final Iterable<N> childNodes) {
+  public <N extends Node<?>> FileNode addChildNodes(final Iterable<N> childNodes) {
     internalSpecification.addChildNodes(childNodes);
     save();
 
@@ -142,7 +142,7 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    * {@inheritDoc}
    */
   @Override
-  public INode<?> withNewHeader(String header) {
+  public Node<?> withNewHeader(String header) {
     return ImmutableNode.withHeaderAndChildNodes(header, getStoredChildNodes());
   }
 
@@ -176,7 +176,7 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    * {@inheritDoc}
    */
   @Override
-  public FileNode removeAndGetStoredFirstChildNodeThat(final Predicate<INode<?>> selector) {
+  public FileNode removeAndGetStoredFirstChildNodeThat(final Predicate<Node<?>> selector) {
     final var attribute = internalSpecification.removeAndGetStoredFirstChildNodeThat(selector::test);
     save();
 
@@ -187,7 +187,7 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    * {@inheritDoc}
    */
   @Override
-  public void removeFirstChildNodeThat(final Predicate<INode<?>> selector) {
+  public void removeFirstChildNodeThat(final Predicate<Node<?>> selector) {
     internalSpecification.removeFirstChildNodeThat(selector);
     save();
   }
@@ -223,7 +223,7 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    * {@inheritDoc}
    */
   @Override
-  public void replaceFirstChildNodeWithGivenHeaderByGivenNode(final String header, final INode<?> node) {
+  public void replaceFirstChildNodeWithGivenHeaderByGivenNode(final String header, final Node<?> node) {
     internalSpecification.replaceFirstChildNodeWithGivenHeaderByGivenNode(header, node);
     save();
   }

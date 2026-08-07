@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.gui.location;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
@@ -18,7 +18,7 @@ public enum Location {
    * @throws RuntimeException if the given specification does not represent a
    *                          {@link Location}.
    */
-  public static Location fromSpecification(final INode<?> specification) {
+  public static Location fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 }

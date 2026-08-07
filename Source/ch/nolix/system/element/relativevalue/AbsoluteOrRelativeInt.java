@@ -10,7 +10,7 @@ import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
@@ -60,7 +60,7 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
    * @return a new {@link AbsoluteOrRelativeInt} from the given specification
    * @throws RuntimeException if the given specification is not valid
    */
-  public static AbsoluteOrRelativeInt fromSpecification(final INode<?> specification) {
+  public static AbsoluteOrRelativeInt fromSpecification(final Node<?> specification) {
     final var attribute = specification.getSingleChildNodeHeader();
 
     if (attribute.endsWith("%")) {
@@ -91,8 +91,8 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<INode<?>> getAttributes() {
-    final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
+  public ExtendedIterable<Node<?>> getAttributes() {
+    final ILinkedList<Node<?>> attributes = LinkedList.createEmpty();
 
     if (isAbsolute()) {
       attributes.addAtEnd(ImmutableNode.withHeader(getAbsoluteValue()));

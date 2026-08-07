@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.gui.font;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
@@ -35,7 +35,7 @@ public enum Font {
    * @throws RuntimeException if the given specification does not represent a
    *                          {@link Font}.
    */
-  public static Font fromSpecification(final INode<?> specification) {
+  public static Font fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 

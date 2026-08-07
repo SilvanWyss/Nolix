@@ -7,7 +7,7 @@ import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -83,7 +83,7 @@ implements IChainedNode {
    * @param node
    * @return a new {@link ChainedNode} from the given node.
    */
-  public static ChainedNode fromNode(final INode<?> node) {
+  public static ChainedNode fromNode(final Node<?> node) {
     final var chainedNode = new ChainedNode();
 
     if (node.hasHeader()) {
@@ -145,7 +145,7 @@ implements IChainedNode {
    * @throws RuntimeException if the given nodes is null
    * @throws RuntimeException if one of the given nodes is null
    */
-  public static ChainedNode withChildNodes(final INode<?>... nodes) {
+  public static ChainedNode withChildNodes(final Node<?>... nodes) {
     final var chainedNode = new ChainedNode();
 
     chainedNode.addChildNodes(nodes);
@@ -160,7 +160,7 @@ implements IChainedNode {
    * @return a new {@link ChainedNode} with the given attributes
    * @throws RuntimeException if one of the given attributes is null
    */
-  public static ChainedNode withChildNodesFromNodes(final Iterable<? extends INode<?>> attributes) {
+  public static ChainedNode withChildNodesFromNodes(final Iterable<? extends Node<?>> attributes) {
     final var chainedNode = new ChainedNode();
     chainedNode.addChildNodesFromNodes(attributes);
 
@@ -221,7 +221,7 @@ implements IChainedNode {
    * @throws RuntimeException if the given header is null or blank
    * @throws RuntimeException if the given header is blank
    */
-  public static ChainedNode withHeaderAndChildNode(final String header, final INode<?> childNode) {
+  public static ChainedNode withHeaderAndChildNode(final String header, final Node<?> childNode) {
     final var chainedNode = new ChainedNode();
 
     chainedNode.setHeader(header);
@@ -256,7 +256,7 @@ implements IChainedNode {
    * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes is null
    */
-  public static ChainedNode withHeaderAndChildNodes(final String header, final INode<?>... childNodes) {
+  public static ChainedNode withHeaderAndChildNodes(final String header, final Node<?>... childNodes) {
     final var chainedNode = new ChainedNode();
 
     chainedNode.setHeader(header);
@@ -277,7 +277,7 @@ implements IChainedNode {
    */
   public static ChainedNode withHeaderAndChildNodesFromNodes(
     final String header,
-    final Iterable<? extends INode<?>> attributes) {
+    final Iterable<? extends Node<?>> attributes) {
     final var chainedNode = new ChainedNode();
     chainedNode.setHeader(header);
     chainedNode.addChildNodesFromNodes(attributes);
@@ -510,7 +510,7 @@ implements IChainedNode {
   public ImmutableNode toNode() {
     // Asserts that the current ChainedNode can represent a Node.
     if (nextNode != null) {
-      throw UnrepresentingArgumentException.forArgumentAndType(this, INode.class);
+      throw UnrepresentingArgumentException.forArgumentAndType(this, Node.class);
     }
 
     // Handles the case that the current ChainedNode does not have a header.
@@ -538,7 +538,7 @@ implements IChainedNode {
    * @param childNode
    * @throws RuntimeException if the given childNode is null
    */
-  private void addChildNode(final INode<?> childNode) {
+  private void addChildNode(final Node<?> childNode) {
     memberChildNodes.addAtEnd(fromNode(childNode));
   }
 
@@ -564,7 +564,7 @@ implements IChainedNode {
    * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes is null
    */
-  private void addChildNodes(final INode<?>... childNodes) {
+  private void addChildNodes(final Node<?>... childNodes) {
     for (final var c : childNodes) {
       memberChildNodes.addAtEnd(fromNode(c));
     }
@@ -591,7 +591,7 @@ implements IChainedNode {
    * 
    * @param attributes
    */
-  private void addChildNodesFromNodes(final Iterable<? extends INode<?>> attributes) {
+  private void addChildNodesFromNodes(final Iterable<? extends Node<?>> attributes) {
     for (final var a : attributes) {
       memberChildNodes.addAtEnd(fromNode(a));
     }

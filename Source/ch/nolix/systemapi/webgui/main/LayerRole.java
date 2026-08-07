@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.webgui.main;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
@@ -13,7 +13,7 @@ public enum LayerRole {
   MAIN_LAYER,
   DIALOG_LAYER;
 
-  public static LayerRole fromSpecification(final INode<?> specification) {
+  public static LayerRole fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 }

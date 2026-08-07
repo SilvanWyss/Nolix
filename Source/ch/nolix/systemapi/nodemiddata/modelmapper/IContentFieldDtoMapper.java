@@ -5,7 +5,7 @@ package ch.nolix.systemapi.nodemiddata.modelmapper;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.IMutableNode;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.systemapi.middata.model.FieldDto;
 import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
 import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
@@ -22,7 +22,7 @@ public interface IContentFieldDtoMapper {
    * @throws RuntimeException if the given columnView is null
    */
   FieldDto mapContentFieldNodeToContentFieldDto(
-    INode<?> contentFieldNode,
+    Node<?> contentFieldNode,
     ColumnInfoDto columnView);
 
   /**

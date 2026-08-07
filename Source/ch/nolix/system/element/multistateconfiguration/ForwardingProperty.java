@@ -7,7 +7,7 @@ import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
@@ -57,7 +57,7 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends AbstractProp
    * {@inheritDoc}
    */
   @Override
-  protected void fillUpValuesSpecificationInto(ILinkedList<INode<?>> list) {
+  protected void fillUpValuesSpecificationInto(ILinkedList<Node<?>> list) {
     // Does nothing.
   }
 
@@ -73,7 +73,7 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends AbstractProp
    * {@inheritDoc}
    */
   @Override
-  protected void setValueFromSpecification(final INode<?> specification) {
+  protected void setValueFromSpecification(final Node<?> specification) {
     for (final var p : abstractMaterializedProperties) {
       p.setValueFromSpecification(specification);
     }

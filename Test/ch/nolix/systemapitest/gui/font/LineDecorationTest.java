@@ -11,7 +11,7 @@ import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.systemapi.gui.font.LineDecoration;
 
 /**
@@ -29,7 +29,7 @@ final class LineDecorationTest extends StandardTest {
 
   @ParameterizedTest
   @MethodSource("getSpecificationsAndTheirLineDecorations")
-  void testCase_fromSpecification(final INode<?> specification, final LineDecoration expectedLineDecoration) {
+  void testCase_fromSpecification(final Node<?> specification, final LineDecoration expectedLineDecoration) {
     // execute
     final var result = LineDecoration.fromSpecification(specification);
 

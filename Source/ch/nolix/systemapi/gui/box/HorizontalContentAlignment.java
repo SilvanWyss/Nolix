@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.gui.box;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
@@ -13,7 +13,7 @@ public enum HorizontalContentAlignment {
   CENTER,
   RIGHT;
 
-  public static HorizontalContentAlignment fromSpecification(final INode<?> specification) {
+  public static HorizontalContentAlignment fromSpecification(final Node<?> specification) {
     final var horizontalContentAlignmentString = specification.getSingleChildNodeHeader();
 
     return valueOf(horizontalContentAlignmentString);

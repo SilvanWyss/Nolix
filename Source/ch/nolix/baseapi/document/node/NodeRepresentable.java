@@ -8,8 +8,8 @@ package ch.nolix.baseapi.document.node;
  */
 public interface NodeRepresentable {
   /**
-   * @return a new immutable {@link INode} that represents the current
+   * @return a new immutable {@link Node} that represents the current
    *         {@link NodeRepresentable}
    */
-  INode<?> toNode();
+  Node<?> toNode();
 }

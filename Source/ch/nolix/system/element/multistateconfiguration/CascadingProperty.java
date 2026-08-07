@@ -8,7 +8,7 @@ import java.util.function.Function;
 
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
@@ -24,8 +24,8 @@ public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMater
   private CascadingProperty(
     final String name,
     final Class<S> stateClass,
-    final Function<INode<?>, V> valueCreator,
-    final Function<V, INode<?>> specificationCreator,
+    final Function<Node<?>, V> valueCreator,
+    final Function<V, Node<?>> specificationCreator,
     final V defaultValue) {
     super(name, stateClass, valueCreator, specificationCreator);
 
@@ -37,8 +37,8 @@ public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMater
   private CascadingProperty(
     final String name,
     final Class<S> stateClass,
-    final Function<INode<?>, V> valueCreator,
-    final Function<V, INode<?>> specificationCreator,
+    final Function<Node<?>, V> valueCreator,
+    final Function<V, Node<?>> specificationCreator,
     final BiConsumer<S, V> setterMethod,
     final V defaultValue) {
     super(name, stateClass, valueCreator, specificationCreator, setterMethod);
@@ -55,7 +55,7 @@ public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMater
     return new CascadingProperty<>(
       name,
       stateClass,
-      INode::getSingleChildNodeAsBoolean,
+      Node::getSingleChildNodeAsBoolean,
       ImmutableNode::withChildNode,
       defaultValue);
   }
@@ -69,7 +69,7 @@ public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMater
     return new CascadingProperty<>(
       name,
       stateClass,
-      INode::getSingleChildNodeAsInt,
+      Node::getSingleChildNodeAsInt,
       ImmutableNode::withChildNode,
       setterMethod,
       defaultValue);
@@ -79,8 +79,8 @@ public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMater
   withNameAndStateClassAndValueMapperAndSpecificationMapperAndDefaultValue(
     final String name,
     final Class<S2> stateClass,
-    final Function<INode<?>, V2> valueCreator,
-    final Function<V2, INode<?>> specificationCreator,
+    final Function<Node<?>, V2> valueCreator,
+    final Function<V2, Node<?>> specificationCreator,
     final V2 defaultValue) {
     return new CascadingProperty<>(name, stateClass, valueCreator, specificationCreator, defaultValue);
   }
@@ -89,8 +89,8 @@ public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMater
   withNameAndStateClassAndValueMapperAndSpecificationMapperAndSetterAndDefaultValue(
     final String name,
     final Class<S2> stateClass,
-    final Function<INode<?>, V2> valueCreator,
-    final Function<V2, INode<?>> specificationCreator,
+    final Function<Node<?>, V2> valueCreator,
+    final Function<V2, Node<?>> specificationCreator,
     final BiConsumer<S2, V2> setterMethod,
     final V2 defaultValue) {
     return new CascadingProperty<>(name, stateClass, valueCreator, specificationCreator, setterMethod, defaultValue);

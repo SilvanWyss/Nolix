@@ -7,7 +7,7 @@ import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
@@ -129,7 +129,7 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
    * @return a {@link CornerShadow} from the given specification
    * @throws RuntimeException if the given specification is not valid
    */
-  public static CornerShadow fromSpecification(final INode<?> specification) {
+  public static CornerShadow fromSpecification(final Node<?> specification) {
     var corner = DEFAULT_CORNER;
     var location = DEFAULT_LOCATION;
     var side1Thickness = DEFAULT_SIDE_THICKNESS;
@@ -205,7 +205,7 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<INode<?>> getAttributes() {
+  public ExtendedIterable<Node<?>> getAttributes() {
     return //
     ArrayList.withElements(
       ImmutableNode.fromEnum(getCorner()),

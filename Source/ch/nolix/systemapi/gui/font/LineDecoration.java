@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.gui.font;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
@@ -19,7 +19,7 @@ public enum LineDecoration {
    * @throws RuntimeException if the given specification does not represent a
    *                          {@link LineDecoration}.
    */
-  public static LineDecoration fromSpecification(final INode<?> specification) {
+  public static LineDecoration fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 }

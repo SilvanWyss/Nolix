@@ -7,7 +7,7 @@ import java.util.Base64;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.webapplication.base.AbstractWebClient;
@@ -29,7 +29,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
   WebClientRefreshQueue.forCounterpartRunnerAndOpenStateRequestable(this::runOnCounterpart, this::isOpen);
 
   @Override
-  protected INode<?> getDataFromHere(final IChainedNode request) {
+  protected Node<?> getDataFromHere(final IChainedNode request) {
     throw InvalidArgumentException.forArgumentAndArgumentName(request, LowerCaseVariableNameCatalog.REQUEST);
   }
 

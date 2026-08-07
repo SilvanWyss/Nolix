@@ -8,7 +8,7 @@ import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.net.level3server.IDataProviderController;
 
 /**
@@ -20,7 +20,7 @@ public final class TestReceivingDataProviderController implements IDataProviderC
   private IChainedNode latestReceivedRequest;
 
   @Override
-  public INode<?> getDataForRequest(final IChainedNode request) {
+  public Node<?> getDataForRequest(final IChainedNode request) {
     latestReceivedRequest = request;
 
     return ImmutableNode.withHeader("test_data");
@@ -30,7 +30,7 @@ public final class TestReceivingDataProviderController implements IDataProviderC
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<? extends INode<?>> getDataForRequests(final IChainedNode... requests) {
+  public ExtendedIterable<? extends Node<?>> getDataForRequests(final IChainedNode... requests) {
     return getDataForRequests(ImmutableList.fromArray(requests));
   }
 
@@ -38,7 +38,7 @@ public final class TestReceivingDataProviderController implements IDataProviderC
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<? extends INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
+  public ExtendedIterable<? extends Node<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
     return ExtendedIterableView.forIterable(requests).to(this::getDataForRequest);
   }
 

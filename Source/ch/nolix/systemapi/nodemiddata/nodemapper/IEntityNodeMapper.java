@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.nodemiddata.nodemapper;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
 import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
 
@@ -18,7 +18,7 @@ public interface IEntityNodeMapper {
    * @return a new entity node from the given entityCreationDto
    * @throws RuntimeException if the given entityCreationDto is null
    */
-  INode<?> mapEntityCreationDtoToEntityNode(
+  Node<?> mapEntityCreationDtoToEntityNode(
     EntityCreationDto entityCreationDto,
     TableInfoDto tableView,
     long saveStamp);

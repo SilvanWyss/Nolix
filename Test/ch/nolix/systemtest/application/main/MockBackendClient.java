@@ -6,7 +6,7 @@ package ch.nolix.systemtest.application.main;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.application.main.AbstractBackendClient;
 
@@ -19,7 +19,7 @@ public final class MockBackendClient extends AbstractBackendClient<MockBackendCl
   private IChainedNode latestGetDataFromHereRequest;
 
   @Override
-  protected INode<?> getDataFromHere(final IChainedNode request) {
+  protected Node<?> getDataFromHere(final IChainedNode request) {
     Validator.assertThat(request).thatIsNamed(LowerCaseVariableNameCatalog.REQUEST).isNotNull();
 
     latestGetDataFromHereRequest = request;

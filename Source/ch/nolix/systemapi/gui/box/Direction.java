@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.gui.box;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * A {@link Direction} defines the horizontal, vertical or diagonals options in
@@ -23,7 +23,7 @@ public enum Direction {
    * @throws RuntimeException if the given specification does not represent a
    *                          {@link Direction}.
    */
-  public static Direction fromSpecification(final INode<?> specification) {
+  public static Direction fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 }

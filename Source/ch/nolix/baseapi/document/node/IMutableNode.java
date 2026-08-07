@@ -9,14 +9,14 @@ import ch.nolix.baseapi.attribute.fluentmutableoptionalattribute.FluentMutableOp
 import ch.nolix.baseapi.generalstate.statemutation.Resettable;
 
 /**
- * A {@link IMutableNode} is a {@link INode} that is mutable.
+ * A {@link IMutableNode} is a {@link Node} that is mutable.
  * 
  * @author Silvan Wyss
  * @param <N> the type of a {@link IMutableNode}
  */
 public interface IMutableNode<N extends IMutableNode<N>>
 extends
-INode<N>,
+Node<N>,
 FluentMutableOptionalHeaderHolder<N>,
 Resettable {
   /**
@@ -26,7 +26,7 @@ Resettable {
    * @return the current {@link IMutableNode}
    * @throws RuntimeException if the given childNodes is null
    */
-  N addChildNode(INode<?> childNode);
+  N addChildNode(Node<?> childNode);
 
   /**
    * Adds the given childNodes to the current {@link IMutableNode}.
@@ -35,7 +35,7 @@ Resettable {
    * @return the current {@link IMutableNode}
    * @throws RuntimeException if one of the given childNodes is null
    */
-  N addChildNodes(INode<?>... childNodes);
+  N addChildNodes(Node<?>... childNodes);
 
   /**
    * Adds the given childNodes to the current {@link IMutableNode}.
@@ -45,28 +45,28 @@ Resettable {
    * @param <N2> the type of the given childNodes
    * @throws RuntimeException if one of the given childNodes is null
    */
-  <N2 extends INode<?>> N addChildNodes(Iterable<N2> childNodes);
+  <N2 extends Node<?>> N addChildNodes(Iterable<N2> childNodes);
 
   /**
-   * Adds the child {@link INode}s from the given strings the current
+   * Adds the child {@link Node}s from the given strings the current
    * {@link IMutableNode}.
    * 
    * @param strings
    * @return the current {@link IMutableNode}
    * @throws RuntimeException if one of the given strings does not represent a
-   *                          {@link INode}
+   *                          {@link Node}
    */
   N addChildNodesFromStrings(Iterable<String> strings);
 
   /**
-   * Adds the child {@link INode}s from the given strings to the current
+   * Adds the child {@link Node}s from the given strings to the current
    * {@link IMutableNode}.
    * 
    * @param strings
    * @return the current {@link IMutableNode}
    * @throws RuntimeException if the given strings is null
    * @throws RuntimeException if one of the given strings does not represent a
-   *                          {@link INode}
+   *                          {@link Node}
    */
   N addChildNodesFromStrings(String... strings);
 
@@ -95,52 +95,52 @@ Resettable {
   N addPrefixToHeader(String prefix);
 
   /**
-   * Removes and returns the first child {@link INode} the given selector selects
+   * Removes and returns the first child {@link Node} the given selector selects
    * from the current {@link IMutableNode}.
    * 
    * @param selector
-   * @return the first child {@link INode} the given selector selects from the
+   * @return the first child {@link Node} the given selector selects from the
    *         current {@link IMutableNode}
    * @throws RuntimeException if the current {@link IMutableNode} does not contain
-   *                          a child {@link INode} the given selector selects
+   *                          a child {@link Node} the given selector selects
    */
-  N removeAndGetStoredFirstChildNodeThat(Predicate<INode<?>> selector);
+  N removeAndGetStoredFirstChildNodeThat(Predicate<Node<?>> selector);
 
   /**
-   * Removes the child {@link INode}s from the current {@link IMutableNode}.
+   * Removes the child {@link Node}s from the current {@link IMutableNode}.
    */
   void removeChildNodes();
 
   /**
-   * Removes the first child {@link INode} the given selector selects from the
+   * Removes the first child {@link Node} the given selector selects from the
    * current {@link IMutableNode}.
    * 
    * @param selector
    * @throws RuntimeException if the current {@link IMutableNode} does not contain
-   *                          a child {@link INode} the given selector selects
+   *                          a child {@link Node} the given selector selects
    */
-  void removeFirstChildNodeThat(Predicate<INode<?>> selector);
+  void removeFirstChildNodeThat(Predicate<Node<?>> selector);
 
   /**
-   * Removes the first child {@link INode} with the given header from the current
+   * Removes the first child {@link Node} with the given header from the current
    * {@link IMutableNode}.
    * 
    * @param header
    * @throws RuntimeException if the current {@link IMutableNode} does not contain
-   *                          a child {@link INode} with the given header
+   *                          a child {@link Node} with the given header
    */
   void removeFirstChildNodeWithHeader(String header);
 
   /**
-   * Replaces the first child {@link INode} with the given header from the current
-   * {@link IMutableNode} by the given {@link INode}.
+   * Replaces the first child {@link Node} with the given header from the current
+   * {@link IMutableNode} by the given {@link Node}.
    * 
    * @param header
    * @param node
    * @throws RuntimeException if the current {@link IMutableNode} does not contain
-   *                          a child {@link INode} with the given header
+   *                          a child {@link Node} with the given header
    */
-  void replaceFirstChildNodeWithGivenHeaderByGivenNode(String header, INode<?> node);
+  void replaceFirstChildNodeWithGivenHeaderByGivenNode(String header, Node<?> node);
 
   /**
    * Resets the current {@link IMutableNode} from the file with the given file
@@ -156,7 +156,7 @@ Resettable {
    * @param node
    * @throws RuntimeException if the given node is null
    */
-  void resetFromNode(INode<?> node);
+  void resetFromNode(Node<?> node);
 
   /**
    * Resets the current {@link IMutableNode} from the given string.
@@ -168,12 +168,12 @@ Resettable {
   void resetFromString(String string);
 
   /**
-   * Resets the child {@link INode}s of the current {@link IMutableNode} with the
+   * Resets the child {@link Node}s of the current {@link IMutableNode} with the
    * given childNodes.
    * 
    * @param childNodes
    * @return the current {@link IMutableNode}
    * @throws RuntimeException if one of the given childNodes is null
    */
-  N setChildNodes(Iterable<? extends INode<?>> childNodes);
+  N setChildNodes(Iterable<? extends Node<?>> childNodes);
 }

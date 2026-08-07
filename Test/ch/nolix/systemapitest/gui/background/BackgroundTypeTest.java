@@ -11,7 +11,7 @@ import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.systemapi.gui.background.BackgroundType;
 
 /**
@@ -30,7 +30,7 @@ final class BackgroundTypeTest extends StandardTest {
 
   @ParameterizedTest
   @MethodSource("getSpecificationsAndTheirBackgroundTypes")
-  void testCase_fromSpecification(final INode<?> specification, final BackgroundType expectedBackgroundType) {
+  void testCase_fromSpecification(final Node<?> specification, final BackgroundType expectedBackgroundType) {
     // execute
     final var result = BackgroundType.fromSpecification(specification);
 

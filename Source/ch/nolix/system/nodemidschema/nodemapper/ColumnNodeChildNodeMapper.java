@@ -4,7 +4,7 @@
 package ch.nolix.system.nodemidschema.nodemapper;
 
 import ch.nolix.base.document.node.ImmutableNode;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 import ch.nolix.systemapi.nodemidschema.nodemapper.IColumnNodeChildNodeMapper;
@@ -17,7 +17,7 @@ public final class ColumnNodeChildNodeMapper implements IColumnNodeChildNodeMapp
    * {@inheritDoc}
    */
   @Override
-  public INode<?> mapColumnDtoToBackReferenceableColumnIdsNode(final ColumnDto columnDto) {
+  public Node<?> mapColumnDtoToBackReferenceableColumnIdsNode(final ColumnDto columnDto) {
     return //
     ImmutableNode.withHeaderAndChildNodes(
       NodeHeaderCatalog.BACK_REFERENCEABLE_COLUMN_IDS,
@@ -28,7 +28,7 @@ public final class ColumnNodeChildNodeMapper implements IColumnNodeChildNodeMapp
    * {@inheritDoc}
    */
   @Override
-  public INode<?> mapColumnDtoToDataTypeNode(final ColumnDto columnDto) {
+  public Node<?> mapColumnDtoToDataTypeNode(final ColumnDto columnDto) {
     return ImmutableNode.withHeaderAndChildNode(NodeHeaderCatalog.DATA_TYPE, columnDto.dataType().name());
   }
 
@@ -36,7 +36,7 @@ public final class ColumnNodeChildNodeMapper implements IColumnNodeChildNodeMapp
    * {@inheritDoc}
    */
   @Override
-  public INode<?> mapColumnDtoToFieldTypeNode(final ColumnDto columnDto) {
+  public Node<?> mapColumnDtoToFieldTypeNode(final ColumnDto columnDto) {
     return ImmutableNode.withHeaderAndChildNode(NodeHeaderCatalog.FIELD_TYPE, columnDto.fieldType().name());
   }
 
@@ -44,7 +44,7 @@ public final class ColumnNodeChildNodeMapper implements IColumnNodeChildNodeMapp
    * {@inheritDoc}
    */
   @Override
-  public INode<?> mapColumnDtoToIdNode(final ColumnDto columnDto) {
+  public Node<?> mapColumnDtoToIdNode(final ColumnDto columnDto) {
     return ImmutableNode.withHeaderAndChildNode(NodeHeaderCatalog.ID, columnDto.id());
   }
 
@@ -52,7 +52,7 @@ public final class ColumnNodeChildNodeMapper implements IColumnNodeChildNodeMapp
    * {@inheritDoc}
    */
   @Override
-  public INode<?> mapColumnDtoToNameNode(final ColumnDto columnDto) {
+  public Node<?> mapColumnDtoToNameNode(final ColumnDto columnDto) {
     return ImmutableNode.withHeaderAndChildNode(NodeHeaderCatalog.NAME, columnDto.name());
   }
 
@@ -60,7 +60,7 @@ public final class ColumnNodeChildNodeMapper implements IColumnNodeChildNodeMapp
    * {@inheritDoc}
    */
   @Override
-  public INode<?> mapColumnDtoToReferenceableTableIdsNode(final ColumnDto columnDto) {
+  public Node<?> mapColumnDtoToReferenceableTableIdsNode(final ColumnDto columnDto) {
     return //
     ImmutableNode.withHeaderAndChildNodes(
       NodeHeaderCatalog.REFERENCEABLE_TABLE_IDS,

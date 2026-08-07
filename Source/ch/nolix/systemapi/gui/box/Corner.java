@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.gui.box;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
@@ -20,7 +20,7 @@ public enum Corner {
    * @throws RuntimeException if the given specification does not represent a
    *                          {@link Corner}.
    */
-  public static Corner fromSpecification(final INode<?> specification) {
+  public static Corner fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 }

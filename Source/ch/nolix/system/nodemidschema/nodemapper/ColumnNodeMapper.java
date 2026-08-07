@@ -4,7 +4,7 @@
 package ch.nolix.system.nodemidschema.nodemapper;
 
 import ch.nolix.base.document.node.ImmutableNode;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 import ch.nolix.systemapi.nodemidschema.nodemapper.IColumnNodeMapper;
@@ -19,7 +19,7 @@ public final class ColumnNodeMapper implements IColumnNodeMapper {
    * {@inheritDoc}
    */
   @Override
-  public INode<?> mapColumnDtoToColumnNode(final ColumnDto columnDto) {
+  public Node<?> mapColumnDtoToColumnNode(final ColumnDto columnDto) {
     final var idNode = COLUMN_NODE_CHILD_NODE_MAPPER.mapColumnDtoToIdNode(columnDto);
     final var nameNode = COLUMN_NODE_CHILD_NODE_MAPPER.mapColumnDtoToNameNode(columnDto);
     final var fieldTypeNode = COLUMN_NODE_CHILD_NODE_MAPPER.mapColumnDtoToFieldTypeNode(columnDto);

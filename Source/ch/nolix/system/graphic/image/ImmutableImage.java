@@ -9,7 +9,7 @@ import ch.nolix.base.datastructure.matrix.Matrix;
 import ch.nolix.base.environment.runningjar.RunningJar;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.image.IImage;
@@ -49,7 +49,7 @@ public final class ImmutableImage extends AbstractElement implements IImage {
     return new ImmutableImage(MutableImage.fromBytes(RunningJar.getResourceAsBytes(path)));
   }
 
-  public static ImmutableImage fromSpecification(final INode<?> specification) {
+  public static ImmutableImage fromSpecification(final Node<?> specification) {
     return new ImmutableImage(MutableImage.fromSpecification(specification));
   }
 
@@ -61,7 +61,7 @@ public final class ImmutableImage extends AbstractElement implements IImage {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<INode<?>> getAttributes() {
+  public ExtendedIterable<Node<?>> getAttributes() {
     return internalImage.getAttributes();
   }
 

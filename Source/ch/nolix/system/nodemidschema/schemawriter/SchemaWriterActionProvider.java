@@ -7,7 +7,7 @@ import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.IMutableNode;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.system.nodemidschema.nodemapper.ColumnNodeMapper;
 import ch.nolix.system.nodemidschema.nodemapper.TableNodeMapper;
 import ch.nolix.system.nodemidschema.nodesearcher.ColumnNodeSearcher;
@@ -68,14 +68,14 @@ public final class SchemaWriterActionProvider {
     DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromNodeDatabase(nodeDatabase, tableId);
 
     tableNode.removeFirstChildNodeThat(
-      (final INode<?> a) -> a.hasHeader(NodeHeaderCatalog.COLUMN)
+      (final Node<?> a) -> a.hasHeader(NodeHeaderCatalog.COLUMN)
       && COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode((IMutableNode<?>) a).getStoredSingleChildNode()
         .hasHeader(columnName));
   }
 
   public static void deleteTable(final IMutableNode<?> nodeDatabase, final String tableName) {
     nodeDatabase.removeFirstChildNodeThat(
-      (final INode<?> a) -> a.hasHeader(NodeHeaderCatalog.TABLE)
+      (final Node<?> a) -> a.hasHeader(NodeHeaderCatalog.TABLE)
       && TABLE_NODE_SEARCHER.getStoredNameNodeFromTableNode((IMutableNode<?>) a).getStoredSingleChildNode()
         .hasHeader(tableName));
   }

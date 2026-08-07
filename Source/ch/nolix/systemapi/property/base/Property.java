@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.property.base;
 
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalstate.staterequest.MaterializationRequestable;
 
 /**
@@ -21,7 +21,7 @@ public interface Property extends MaterializationRequestable {
    * @throws RuntimeException if the given attribute is for the current
    *                          {@link Property}, but is not valid
    */
-  boolean addedOrChangedAttribute(INode<?> attribute);
+  boolean addedOrChangedAttribute(Node<?> attribute);
 
   /**
    * Fills up the attributes of the current {@link Property} into the given list.
@@ -29,5 +29,5 @@ public interface Property extends MaterializationRequestable {
    * @param list
    * @throws RuntimeException if the given list is null
    */
-  void fillUpAttributesIntoList(ILinkedList<INode<?>> list);
+  void fillUpAttributesIntoList(ILinkedList<Node<?>> list);
 }

@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.gui.presence;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
@@ -13,7 +13,7 @@ public enum Presence {
   INVISIBLE,
   COLLAPSED;
 
-  public static Presence fromSpecification(final INode<?> specification) {
+  public static Presence fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 }

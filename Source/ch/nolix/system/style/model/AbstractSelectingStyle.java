@@ -10,7 +10,7 @@ import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
@@ -75,8 +75,8 @@ implements ISelectingStyleWithSelectors {
    * {@inheritDoc}
    */
   @Override
-  public final ExtendedIterable<INode<?>> getAttributes() {
-    final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
+  public final ExtendedIterable<Node<?>> getAttributes() {
+    final ILinkedList<Node<?>> attributes = LinkedList.createEmpty();
 
     if (hasSelectorId()) {
       attributes.addAtEnd(ImmutableNode.withHeaderAndChildNode(SELECTOR_ID_HEADER, getSelectorId()));

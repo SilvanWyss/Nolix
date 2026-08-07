@@ -9,7 +9,7 @@ import ch.nolix.base.document.node.MutableNode;
 import ch.nolix.base.programcontrol.updater.Updater;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.node.IMutableNode;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.programcontrol.updater.IUpdater;
 import ch.nolix.systemapi.middata.model.EntityUpdateDto;
 import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
@@ -142,8 +142,8 @@ public final class ExecutiveDataWriter {
   public void insertEntity(
     final String tableName,
     final String entityId,
-    final INode<?> entityIndexNode,
-    final INode<?> entityNode) {
+    final Node<?> entityIndexNode,
+    final Node<?> entityNode) {
     final Consumer<IMutableNode<?>> updateAction = //
     d -> DataWriterActionProvider.insertEntity(d, tableName, entityId, entityIndexNode, entityNode);
 
@@ -154,7 +154,7 @@ public final class ExecutiveDataWriter {
     final String tableName,
     final String entityId,
     final int multiBackReferenceColumnOneBasedOrdinalIndex,
-    final INode<?> multiBackReferenceEntryNode) {
+    final Node<?> multiBackReferenceEntryNode) {
     final Consumer<IMutableNode<?>> updateAction = //
     d -> //
     DataWriterActionProvider.insertMultiBackReferenceEntry(
@@ -171,7 +171,7 @@ public final class ExecutiveDataWriter {
     final String tableName,
     final String entityId,
     final int multiReferenceColumnOneBasedOrdinalIndex,
-    final INode<?> multiReferenceEntryNode) {
+    final Node<?> multiReferenceEntryNode) {
     final Consumer<IMutableNode<?>> updateAction = //
     d -> //
     DataWriterActionProvider.insertMultiReferenceEntry(

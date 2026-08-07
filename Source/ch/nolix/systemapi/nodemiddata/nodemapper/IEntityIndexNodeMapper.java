@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.nodemiddata.nodemapper;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
 
 /**
@@ -16,5 +16,5 @@ public interface IEntityIndexNodeMapper {
    * @return a new entity index node from the given entityCreationDto
    * @throws RuntimeException if the given entityCreationDto is null
    */
-  INode<?> mapEntityCreationDtoToEntityIndexNode(EntityCreationDto entityCreationDto, String tableId);
+  Node<?> mapEntityCreationDtoToEntityIndexNode(EntityCreationDto entityCreationDto, String tableId);
 }

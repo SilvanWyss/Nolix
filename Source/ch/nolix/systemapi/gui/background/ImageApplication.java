@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.gui.background;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
@@ -12,7 +12,7 @@ public enum ImageApplication {
   SCALE_TO_FRAME,
   REPEAT;
 
-  public static ImageApplication fromSpecification(final INode<?> specification) {
+  public static ImageApplication fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 }

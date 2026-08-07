@@ -7,7 +7,7 @@ import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
@@ -99,10 +99,10 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
 
   /**
    * @param node
-   * @return a new {@link ImmutableNode} from the given {@link INode}
+   * @return a new {@link ImmutableNode} from the given {@link Node}
    * @throws RuntimeException if the given node is null
    */
-  public static ImmutableNode fromNode(final INode<?> node) {
+  public static ImmutableNode fromNode(final Node<?> node) {
     if (node instanceof final ImmutableNode localNode) {
       return localNode;
     }
@@ -157,7 +157,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * @return a new {@link ImmutableNode} with the given childNode
    * @throws RuntimeException if the given childNode is null
    */
-  public static ImmutableNode withChildNode(final INode<?> childNode) {
+  public static ImmutableNode withChildNode(final Node<?> childNode) {
     final var nodeChildNode = fromNode(childNode);
     final var childNodes = ImmutableList.withElement(nodeChildNode);
 
@@ -181,7 +181,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes is null
    */
-  public static ImmutableNode withChildNodes(final INode<?>... childNodes) {
+  public static ImmutableNode withChildNodes(final Node<?>... childNodes) {
     final var childNodesContainer = ExtendedIterableView.forArray(childNodes).getViewOf(ImmutableNode::fromNode);
 
     return new ImmutableNode(childNodesContainer);
@@ -193,7 +193,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes is null
    */
-  public static ImmutableNode withChildNodes(final Iterable<? extends INode<?>> childNodes) {
+  public static ImmutableNode withChildNodes(final Iterable<? extends Node<?>> childNodes) {
     final var childNodesContainer = ExtendedIterableView.forIterable(childNodes).getViewOf(ImmutableNode::fromNode);
 
     return new ImmutableNode(childNodesContainer);
@@ -284,7 +284,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * @throws RuntimeException if the given header is null or blank
    * @throws RuntimeException if the given childNode is null
    */
-  public static ImmutableNode withHeaderAndChildNode(final String header, final INode<?> childNode) {
+  public static ImmutableNode withHeaderAndChildNode(final String header, final Node<?> childNode) {
     final var nodeChildNode = fromNode(childNode);
     final var childNodes = ImmutableList.withElement(nodeChildNode);
 
@@ -327,7 +327,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes is null
    */
-  public static ImmutableNode withHeaderAndChildNodes(final String header, final INode<?>... childNodes) {
+  public static ImmutableNode withHeaderAndChildNodes(final String header, final Node<?>... childNodes) {
     final var childNodesContainer = ExtendedIterableView.forArray(childNodes).getViewOf(ImmutableNode::fromNode);
 
     return new ImmutableNode(header, childNodesContainer);
@@ -342,7 +342,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * @throws RuntimeException if one of the given childNodes is null
    */
   public static ImmutableNode withHeaderAndChildNodes(final String header,
-    final Iterable<? extends INode<?>> childNodes) {
+    final Iterable<? extends Node<?>> childNodes) {
     final var childNodesContainer = ExtendedIterableView.forIterable(childNodes).getViewOf(ImmutableNode::fromNode);
 
     return new ImmutableNode(header, childNodesContainer);
@@ -404,7 +404,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public INode<?> withNewHeader(String header) {
+  public Node<?> withNewHeader(String header) {
     return withHeaderAndChildNodes(header, getStoredChildNodes());
   }
 }

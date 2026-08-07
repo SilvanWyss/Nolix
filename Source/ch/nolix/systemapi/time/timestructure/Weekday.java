@@ -5,7 +5,7 @@ package ch.nolix.systemapi.time.timestructure;
 
 import java.time.DayOfWeek;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
@@ -40,7 +40,7 @@ public enum Weekday {
     };
   }
 
-  public static Weekday fromSpecification(final INode<?> specification) {
+  public static Weekday fromSpecification(final Node<?> specification) {
     return Weekday.valueOf(specification.getSingleChildNodeHeader());
   }
 }

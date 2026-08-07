@@ -9,7 +9,7 @@ import java.util.function.Function;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.element.base.IElement;
@@ -39,8 +39,8 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
   private OptionalValue(
     final String name,
     final Consumer<V> setter,
-    final Function<INode<?>, V> valueMapper,
-    final Function<V, INode<?>> specificationMapper) {
+    final Function<Node<?>, V> valueMapper,
+    final Function<V, Node<?>> specificationMapper) {
     super(name, valueMapper, specificationMapper);
 
     Validator.assertThat(setter).thatIsNamed(LowerCaseVariableNameCatalog.SETTER).isNotNull();
@@ -57,7 +57,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
    * @throws RuntimeException if the given setter is null
    */
   public static OptionalValue<Boolean> forBooleanWithNameAndSetter(final String name, final Consumer<Boolean> setter) {
-    return new OptionalValue<>(name, setter, INode::getSingleChildNodeAsBoolean, ImmutableNode::withChildNode);
+    return new OptionalValue<>(name, setter, Node::getSingleChildNodeAsBoolean, ImmutableNode::withChildNode);
   }
 
   /**
@@ -69,7 +69,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
    * @throws RuntimeException if the given setter is null
    */
   public static OptionalValue<Double> forDoubleWithNameAndSetter(final String name, final Consumer<Double> setter) {
-    return new OptionalValue<>(name, setter, INode::getSingleChildNodeAsDouble, ImmutableNode::withChildNode);
+    return new OptionalValue<>(name, setter, Node::getSingleChildNodeAsDouble, ImmutableNode::withChildNode);
   }
 
   /**
@@ -86,7 +86,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
   public static <E extends IElement> OptionalValue<E> forElementWithNameAndSetterAndValueMapper(
     final String name,
     final Consumer<E> setter,
-    final Function<INode<?>, E> valueMapper) {
+    final Function<Node<?>, E> valueMapper) {
     return new OptionalValue<>(name, setter, valueMapper, IElement::getSpecification);
   }
 
@@ -125,7 +125,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
    * @throws RuntimeException if the given setter is null
    */
   public static OptionalValue<Integer> forIntWithNameAndSetter(final String name, final Consumer<Integer> setter) {
-    return new OptionalValue<>(name, setter, INode::getSingleChildNodeAsInt, ImmutableNode::withChildNode);
+    return new OptionalValue<>(name, setter, Node::getSingleChildNodeAsInt, ImmutableNode::withChildNode);
   }
 
   /**
@@ -159,8 +159,8 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
   public static <T> OptionalValue<T> withNameAndSetterAndValueMapperAndSpecificationMapper(
     final String name,
     final Consumer<T> setter,
-    final Function<INode<?>, T> valueMapper,
-    final Function<T, INode<?>> specificationMapper) {
+    final Function<Node<?>, T> valueMapper,
+    final Function<T, Node<?>> specificationMapper) {
     return new OptionalValue<>(name, setter, valueMapper, specificationMapper);
   }
 
@@ -177,7 +177,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
    * {@inheritDoc}
    */
   @Override
-  public void fillUpAttributesIntoList(final ILinkedList<INode<?>> list) {
+  public void fillUpAttributesIntoList(final ILinkedList<Node<?>> list) {
     if (memberOptionalValue != null) {
       final var attribute = mapValueToSpecification(memberOptionalValue).withNewHeader(getName());
 

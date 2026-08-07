@@ -10,7 +10,7 @@ import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICss;
@@ -64,7 +64,7 @@ implements IWebGui<WebGui> {
     TITLE_HEADER,
     DEFAULT_TITLE,
     this::setTitle,
-    INode::getSingleChildNodeHeader,
+    Node::getSingleChildNodeHeader,
     ImmutableNode::withChildNodes);
 
   private final Value<ImmutableImage> icon = //

@@ -6,7 +6,7 @@ package ch.nolix.system.nodemiddata.nodemapper;
 import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.system.midschemainfo.modelsearcher.TableInfoSearcher;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
 import ch.nolix.systemapi.midschema.databasestructure.FixDatabasePropertyCatalogue;
@@ -25,14 +25,14 @@ public final class FieldNodeMapper implements IFieldNodeMapper {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<INode<?>> mapEntityCreationDtoToFieldNodes(
+  public ExtendedIterable<Node<?>> mapEntityCreationDtoToFieldNodes(
     final EntityCreationDto entityCreationDto,
     final long saveStamp,
     final TableInfoDto tableView) {
     final var size = //
     FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS + tableView.columnViews().getCount();
 
-    final var attributes = new INode[size];
+    final var attributes = new Node[size];
     final var entityId = entityCreationDto.id();
 
     attributes[0] = ImmutableNode.withHeader(entityId);

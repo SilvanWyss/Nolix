@@ -9,7 +9,7 @@ import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.pair.IPair;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
@@ -188,7 +188,7 @@ public final class Color extends AbstractElement implements IColor {
    * @return a new {@link Color} from the given specification
    * @throws RuntimeException if the given specification is not valid
    */
-  public static Color fromSpecification(final INode<?> specification) {
+  public static Color fromSpecification(final Node<?> specification) {
     return Color.fromString(specification.getSingleChildNodeHeader());
   }
 
@@ -372,7 +372,7 @@ public final class Color extends AbstractElement implements IColor {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<INode<?>> getAttributes() {
+  public ExtendedIterable<Node<?>> getAttributes() {
     return LinkedList.withElement(ImmutableNode.withHeader(toHexadecimalString()));
   }
 

@@ -5,7 +5,7 @@ package ch.nolix.system.property.extension;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.element.mutableelement.IRespondingMutableElement;
 import ch.nolix.systemapi.property.exension.IExtensionProperty;
@@ -44,7 +44,7 @@ public final class ExtensionProperty<E extends IRespondingMutableElement<E>> imp
    * {@inheritDoc}
    */
   @Override
-  public boolean addedOrChangedAttribute(final INode<?> attribute) {
+  public boolean addedOrChangedAttribute(final Node<?> attribute) {
     return memberExtension.addedOrChangedAttribute(attribute);
   }
 
@@ -52,7 +52,7 @@ public final class ExtensionProperty<E extends IRespondingMutableElement<E>> imp
    * {@inheritDoc}
    */
   @Override
-  public void fillUpAttributesIntoList(final ILinkedList<INode<?>> list) {
+  public void fillUpAttributesIntoList(final ILinkedList<Node<?>> list) {
     list.addAtEnd(memberExtension.getAttributes());
   }
 

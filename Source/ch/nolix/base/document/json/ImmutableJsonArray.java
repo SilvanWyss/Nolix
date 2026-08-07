@@ -9,7 +9,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.json.JsonArray;
 import ch.nolix.baseapi.document.json.JsonObject;
 import ch.nolix.baseapi.document.json.JsonValueType;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
 
@@ -127,7 +127,7 @@ public final class ImmutableJsonArray implements JsonArray {
    * {@inheritDoc}
    */
   @Override
-  public INode<?> toNode() {
+  public Node<?> toNode() {
     final var childNodes = objects.getViewOf(JsonObject::toNode);
 
     return ImmutableNode.withHeaderAndChildNodes(NODE_HEADER, childNodes);

@@ -6,7 +6,7 @@ package ch.nolix.system.property.value;
 import java.util.function.Function;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.property.value.IBaseValue;
 
@@ -17,9 +17,9 @@ import ch.nolix.systemapi.property.value.IBaseValue;
 public abstract class AbstractValue<V> implements IBaseValue {
   private final String name;
 
-  private final Function<INode<?>, V> valueMapper;
+  private final Function<Node<?>, V> valueMapper;
 
-  private final Function<V, INode<?>> specificationMapper;
+  private final Function<V, Node<?>> specificationMapper;
 
   /**
    * Creates a new {@link AbstractValue} with the given name, valueMapper and
@@ -34,8 +34,8 @@ public abstract class AbstractValue<V> implements IBaseValue {
    */
   protected AbstractValue(
     final String name,
-    final Function<INode<?>, V> valueMapper,
-    final Function<V, INode<?>> specificationMapper) {
+    final Function<Node<?>, V> valueMapper,
+    final Function<V, Node<?>> specificationMapper) {
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableNameCatalog.NAME).isNotBlank();
     Validator.assertThat(valueMapper).thatIsNamed("value mapper").isNotNull();
     Validator.assertThat(specificationMapper).thatIsNamed("specification mapper").isNotNull();
@@ -57,7 +57,7 @@ public abstract class AbstractValue<V> implements IBaseValue {
    * {@inheritDoc}
    */
   @Override
-  public final boolean addedOrChangedAttribute(final INode<?> attribute) {
+  public final boolean addedOrChangedAttribute(final Node<?> attribute) {
     if (attribute != null && attribute.hasHeader(getName())) {
       final var value = valueMapper.apply(attribute);
 
@@ -88,7 +88,7 @@ public abstract class AbstractValue<V> implements IBaseValue {
    * @param value
    * @return the specification from the given value.
    */
-  protected final INode<?> mapValueToSpecification(final V value) {
+  protected final Node<?> mapValueToSpecification(final V value) {
     return specificationMapper.apply(value);
   }
 }

@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.gui.background;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
@@ -20,7 +20,7 @@ public enum BackgroundType {
    * @throws RuntimeException if the given specification does not represent a
    *                          {@link BackgroundType}.
    */
-  public static BackgroundType fromSpecification(final INode<?> specification) {
+  public static BackgroundType fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 }

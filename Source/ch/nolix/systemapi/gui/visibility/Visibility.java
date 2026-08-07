@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.gui.visibility;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
@@ -12,7 +12,7 @@ public enum Visibility {
   VISIBLE,
   INVISIBLE;
 
-  public static Visibility fromSpecification(final INode<?> specification) {
+  public static Visibility fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 }

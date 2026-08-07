@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.control.label;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
@@ -21,7 +21,7 @@ public enum LabelRole {
   WARNING_LABEL,
   ERROR_LABEL;
 
-  public static LabelRole fromSpecification(final INode<?> specification) {
+  public static LabelRole fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 }

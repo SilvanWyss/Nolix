@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.nodemidschema.nodemapper;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.systemapi.midschema.model.TableDto;
 
 /**
@@ -12,8 +12,8 @@ import ch.nolix.systemapi.midschema.model.TableDto;
 public interface ITableNodeMapper {
   /**
    * @param tableDto
-   * @return a new {@link INode} from the given tableDto
+   * @return a new {@link Node} from the given tableDto
    * @throws RuntimeException if the given tableDto is null
    */
-  INode<?> mapTableDtoToNode(TableDto tableDto);
+  Node<?> mapTableDtoToNode(TableDto tableDto);
 }

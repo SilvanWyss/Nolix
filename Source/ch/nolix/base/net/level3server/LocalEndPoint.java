@@ -6,7 +6,7 @@ package ch.nolix.base.net.level3server;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.net.level3server.ISlot;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
@@ -124,7 +124,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    *                                               controller.
    */
   @Override
-  public INode<?> getDataForRequest(final IChainedNode request) {
+  public Node<?> getDataForRequest(final IChainedNode request) {
     return counterpart.getStoredReceiverController().getDataForRequest(request);
   }
 
@@ -132,7 +132,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<? extends INode<?>> getDataForRequests(final IChainedNode... requests) {
+  public ExtendedIterable<? extends Node<?>> getDataForRequests(final IChainedNode... requests) {
     return counterpart.getStoredReceiverController().getDataForRequests(requests);
   }
 
@@ -140,7 +140,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<? extends INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
+  public ExtendedIterable<? extends Node<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
     return counterpart.getStoredReceiverController().getDataForRequests(requests);
   }
 

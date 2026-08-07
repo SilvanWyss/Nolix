@@ -8,7 +8,7 @@ import java.util.Optional;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
@@ -61,7 +61,7 @@ public final class TabContainerTab extends AbstractPropertiesElement implements 
     optionalParentTabContainer = null;
   }
 
-  public static TabContainerTab fromSpecification(final INode<?> specification) {
+  public static TabContainerTab fromSpecification(final Node<?> specification) {
     final var tab = new TabContainerTab();
     tab.resetFromSpecification(specification);
 

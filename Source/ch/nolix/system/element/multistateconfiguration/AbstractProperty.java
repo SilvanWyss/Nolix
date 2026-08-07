@@ -6,7 +6,7 @@ package ch.nolix.system.element.multistateconfiguration;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
@@ -34,13 +34,13 @@ public abstract class AbstractProperty<S extends Enum<S>> implements NameHolder 
     return name;
   }
 
-  protected abstract void fillUpValuesSpecificationInto(ILinkedList<INode<?>> list);
+  protected abstract void fillUpValuesSpecificationInto(ILinkedList<Node<?>> list);
 
   protected abstract void setFrom(AbstractProperty<S> property);
 
   protected abstract void setUndefined();
 
-  protected abstract void setValueFromSpecification(INode<?> specification);
+  protected abstract void setValueFromSpecification(Node<?> specification);
 
   final void setParent(final AbstractMultiStateConfiguration<?, S> parent) {
     Validator.assertThat(parent).thatIsNamed(LowerCaseVariableNameCatalog.PARENT).isNotNull();

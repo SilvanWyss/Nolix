@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.nodemiddata.nodemapper;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
 
 /**
@@ -15,5 +15,5 @@ public interface IContentFieldNodeMapper {
    * @return a new content field node from the given valueStringFieldDto
    * @throws RuntimeException if the given valueStringFieldDto is null
    */
-  INode<?> mapValueStringFieldDtoToContentFieldNode(ValueStringFieldDto valueStringFieldDto);
+  Node<?> mapValueStringFieldDtoToContentFieldNode(ValueStringFieldDto valueStringFieldDto);
 }

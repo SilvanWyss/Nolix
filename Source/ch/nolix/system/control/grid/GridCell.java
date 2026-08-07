@@ -4,7 +4,7 @@
 package ch.nolix.system.control.grid;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalstate.statemutation.Clearable;
@@ -40,7 +40,7 @@ public final class GridCell extends AbstractPropertiesElement implements Clearab
   private GridCell() {
   }
 
-  public static GridCell fromSpecification(final INode<?> specification) {
+  public static GridCell fromSpecification(final Node<?> specification) {
     final var cell = new GridCell();
     cell.resetFromSpecification(specification);
 

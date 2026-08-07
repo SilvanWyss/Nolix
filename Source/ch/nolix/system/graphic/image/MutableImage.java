@@ -20,7 +20,7 @@ import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.matrix.IMatrix;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PluralPascalCaseVariableNameCatalog;
@@ -101,7 +101,7 @@ extends AbstractPropertiesElement implements IMutableImage<MutableImage> {
     return fromBytes(RunningJar.getResourceAsBytes(path));
   }
 
-  public static MutableImage fromSpecification(final INode<?> specification) {
+  public static MutableImage fromSpecification(final Node<?> specification) {
     if (specification.containsChildNodeWithHeader(JPG_STRING)) {
       final var lJPGString = specification.getStoredFirstChildNodeWithHeader(JPG_STRING).getSingleChildNodeHeader();
 
@@ -296,7 +296,7 @@ extends AbstractPropertiesElement implements IMutableImage<MutableImage> {
     return this;
   }
 
-  public void setPixelArray(final INode<?> pixelArray) {
+  public void setPixelArray(final Node<?> pixelArray) {
     final var pixelSpecifications = pixelArray.getStoredChildNodes();
 
     Validator.assertThat(pixelSpecifications.getCount()).thatIsNamed("number of pixels").isEqualTo(getPixelCount());

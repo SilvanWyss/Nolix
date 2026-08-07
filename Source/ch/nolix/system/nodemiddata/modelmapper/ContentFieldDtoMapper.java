@@ -7,7 +7,7 @@ import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.IMutableNode;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.middata.valuemapper.ValueMapper;
 import ch.nolix.systemapi.middata.model.FieldDto;
@@ -26,7 +26,7 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
    */
   @Override
   public FieldDto mapContentFieldNodeToContentFieldDto(
-    final INode<?> contentFieldNode,
+    final Node<?> contentFieldNode,
     final ColumnInfoDto columnView) {
     final var columnName = columnView.name();
     final var fieldType = columnView.fieldType();

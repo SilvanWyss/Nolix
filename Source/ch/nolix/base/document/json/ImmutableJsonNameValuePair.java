@@ -7,7 +7,7 @@ import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.json.JsonNameValuePair;
 import ch.nolix.baseapi.document.json.JsonValue;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
@@ -118,7 +118,7 @@ public final class ImmutableJsonNameValuePair implements JsonNameValuePair {
    * {@inheritDoc}
    */
   @Override
-  public INode<?> toNode() {
+  public Node<?> toNode() {
     return ImmutableNode.withHeaderAndChildNode(name, value.toNode());
   }
 

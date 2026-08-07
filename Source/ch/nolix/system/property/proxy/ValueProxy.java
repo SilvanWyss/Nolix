@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.property.proxy.IValueProxy;
 
@@ -18,9 +18,9 @@ import ch.nolix.systemapi.property.proxy.IValueProxy;
 public final class ValueProxy implements IValueProxy {
   private final String name;
 
-  private final Consumer<INode<?>> valueSpecificationConsumer;
+  private final Consumer<Node<?>> valueSpecificationConsumer;
 
-  private final Supplier<INode<?>> valueSpecificationSupplier;
+  private final Supplier<Node<?>> valueSpecificationSupplier;
 
   /**
    * Creates a new {@link ValueProxy} with the given name,
@@ -35,8 +35,8 @@ public final class ValueProxy implements IValueProxy {
    */
   private ValueProxy(
     final String name,
-    final Consumer<INode<?>> valueSpecificationConsumer,
-    final Supplier<INode<?>> valueSpecificationSupplier) {
+    final Consumer<Node<?>> valueSpecificationConsumer,
+    final Supplier<Node<?>> valueSpecificationSupplier) {
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableNameCatalog.NAME).isNotBlank();
     Validator.assertThat(valueSpecificationConsumer).thatIsNamed("value specification consumer").isNotNull();
     Validator.assertThat(valueSpecificationSupplier).thatIsNamed("value specification supplier").isNotNull();
@@ -58,8 +58,8 @@ public final class ValueProxy implements IValueProxy {
    */
   public static ValueProxy withNameAndValueSpecificationConsumerAndValueSpecificationSupplier(
     final String name,
-    final Consumer<INode<?>> valueSpecificationConsumer,
-    final Supplier<INode<?>> valueSpecificationSupplier) {
+    final Consumer<Node<?>> valueSpecificationConsumer,
+    final Supplier<Node<?>> valueSpecificationSupplier) {
     return new ValueProxy(name, valueSpecificationConsumer, valueSpecificationSupplier);
   }
 
@@ -67,7 +67,7 @@ public final class ValueProxy implements IValueProxy {
    * {@inheritDoc}
    */
   @Override
-  public boolean addedOrChangedAttribute(final INode<?> attribute) {
+  public boolean addedOrChangedAttribute(final Node<?> attribute) {
     if (attribute != null && attribute.hasHeader(getName())) {
       valueSpecificationConsumer.accept(attribute);
 
@@ -89,7 +89,7 @@ public final class ValueProxy implements IValueProxy {
    * {@inheritDoc}
    */
   @Override
-  public void fillUpAttributesIntoList(final ILinkedList<INode<?>> list) {
+  public void fillUpAttributesIntoList(final ILinkedList<Node<?>> list) {
     final var attribute = valueSpecificationSupplier.get();
 
     list.addAtEnd(attribute);

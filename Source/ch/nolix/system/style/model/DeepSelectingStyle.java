@@ -9,7 +9,7 @@ import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
@@ -62,7 +62,7 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
    * @return a new {@link DeepSelectingStyle} from the given specification
    * @throws RuntimeException if the given specification is not valid
    */
-  public static DeepSelectingStyle fromSpecification(final INode<?> specification) {
+  public static DeepSelectingStyle fromSpecification(final Node<?> specification) {
     String optionalselectorId = null;
     String optionalSelectorType = null;
     final ILinkedList<String> selectorRoles = LinkedList.createEmpty();

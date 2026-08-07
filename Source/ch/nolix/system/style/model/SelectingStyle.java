@@ -9,7 +9,7 @@ import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
@@ -81,7 +81,7 @@ public final class SelectingStyle extends AbstractSelectingStyle {
    * @throws NullPointerException if the given specification is null
    * @throws RuntimeException     if the given specification is not valid
    */
-  public static SelectingStyle fromSpecification(final INode<?> specification) {
+  public static SelectingStyle fromSpecification(final Node<?> specification) {
     String optionalSelectorId = null;
     String optionalSelectorType = null;
     final ILinkedList<String> selectorRoles = LinkedList.createEmpty();

@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.midschema.fieldproperty;
 
 import ch.nolix.baseapi.datamodel.cardinality.Cardinality;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
@@ -29,7 +29,7 @@ public enum FieldType {
     this.cardinality = cardinality;
   }
 
-  public static FieldType fromSpecification(final INode<?> specification) {
+  public static FieldType fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 

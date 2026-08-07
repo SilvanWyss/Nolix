@@ -9,7 +9,7 @@ import java.util.function.Function;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.element.base.IElement;
 import ch.nolix.systemapi.property.value.IValue;
@@ -42,8 +42,8 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
     final String name,
     final V defaultValue,
     final Consumer<V> setter,
-    final Function<INode<?>, V> valueMapper,
-    final Function<V, INode<?>> specificationMapper) {
+    final Function<Node<?>, V> valueMapper,
+    final Function<V, Node<?>> specificationMapper) {
     super(name, valueMapper, specificationMapper);
 
     Validator.assertThat(setter).thatIsNamed(LowerCaseVariableNameCatalog.SETTER).isNotNull();
@@ -67,7 +67,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
     final String name,
     final boolean defaultValue,
     final Consumer<Boolean> setter) {
-    return new Value<>(name, defaultValue, setter, INode::getSingleChildNodeAsBoolean,
+    return new Value<>(name, defaultValue, setter, Node::getSingleChildNodeAsBoolean,
       ImmutableNode::withChildNode);
   }
 
@@ -85,7 +85,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
     final String name,
     final double defaultValue,
     final Consumer<Double> setter) {
-    return new Value<>(name, defaultValue, setter, INode::getSingleChildNodeAsDouble, ImmutableNode::withChildNode);
+    return new Value<>(name, defaultValue, setter, Node::getSingleChildNodeAsDouble, ImmutableNode::withChildNode);
   }
 
   /**
@@ -105,7 +105,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
     final String name,
     final E defaultValue,
     final Consumer<E> setter,
-    final Function<INode<?>, E> valueMapper) {
+    final Function<Node<?>, E> valueMapper) {
     return new Value<>(name, defaultValue, setter, valueMapper, IElement::getSpecification);
   }
 
@@ -123,7 +123,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
     final String name,
     final int defaultValue,
     final Consumer<Integer> setter) {
-    return new Value<>(name, defaultValue, setter, INode::getSingleChildNodeAsInt, ImmutableNode::withChildNode);
+    return new Value<>(name, defaultValue, setter, Node::getSingleChildNodeAsInt, ImmutableNode::withChildNode);
   }
 
   /**
@@ -167,8 +167,8 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
     final String name,
     final T defaultValue,
     final Consumer<T> setter,
-    final Function<INode<?>, T> valueMapper,
-    final Function<T, INode<?>> specificationMapper) {
+    final Function<Node<?>, T> valueMapper,
+    final Function<T, Node<?>> specificationMapper) {
     return new Value<>(name, defaultValue, setter, valueMapper, specificationMapper);
   }
 
@@ -176,7 +176,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * {@inheritDoc}
    */
   @Override
-  public void fillUpAttributesIntoList(final ILinkedList<INode<?>> list) {
+  public void fillUpAttributesIntoList(final ILinkedList<Node<?>> list) {
     final var attribute = mapValueToSpecification(memberValue).withNewHeader(getName());
 
     list.addAtEnd(attribute);

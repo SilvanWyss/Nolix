@@ -4,7 +4,7 @@
 package ch.nolix.system.nodemiddata.modelmapper;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDto;
 import ch.nolix.systemapi.nodemiddata.modelmapper.IMultiBackReferenceEntryDtoMapper;
 
@@ -20,7 +20,7 @@ public final class MultiBackReferenceEntryDtoMapper implements IMultiBackReferen
     final String tableName,
     final String entityId,
     final String multiBackReferenceColumnId,
-    final INode<?> multiBackReferenceEntryNode) {
+    final Node<?> multiBackReferenceEntryNode) {
     final var backReferencedEntityId = multiBackReferenceEntryNode.getStoredChildNodeAtOneBasedIndex(1).getHeader();
 
     final var backReferencedEntityTableId = //
@@ -43,7 +43,7 @@ public final class MultiBackReferenceEntryDtoMapper implements IMultiBackReferen
     final String tableName,
     final String entityId,
     final String multiBackReferenceColumnId,
-    final INode<?> multiBackReferenceNode) {
+    final Node<?> multiBackReferenceNode) {
     final var multiBackReferenceEntryNodes = multiBackReferenceNode.getStoredChildNodes();
 
     return //

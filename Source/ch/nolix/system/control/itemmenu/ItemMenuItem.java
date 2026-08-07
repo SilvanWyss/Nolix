@@ -7,7 +7,7 @@ import java.util.function.Consumer;
 
 import ch.nolix.base.datamodel.id.IdCreator;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
@@ -58,7 +58,7 @@ public final class ItemMenuItem extends AbstractPropertiesElement implements IIt
     return withText(StringCatalog.EMPTY_STRING);
   }
 
-  public static ItemMenuItem fromSpecification(final INode<?> specification) {
+  public static ItemMenuItem fromSpecification(final Node<?> specification) {
     final var item = new ItemMenuItem();
     item.resetFromSpecification(specification);
 

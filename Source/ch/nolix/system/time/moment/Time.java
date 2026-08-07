@@ -11,7 +11,7 @@ import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.baseapi.generalcatalog.unitconversioncatalog.TimeUnitConversionCatalog;
 import ch.nolix.system.element.base.AbstractElement;
@@ -91,7 +91,7 @@ extends AbstractElement implements ITime {
    * @throws RuntimeException     if the given specification does not represent a
    *                              {@link Time}.
    */
-  public static Time fromSpecification(final INode<?> specification) {
+  public static Time fromSpecification(final Node<?> specification) {
     return fromString(specification.getSingleChildNodeHeader());
   }
 
@@ -390,7 +390,7 @@ extends AbstractElement implements ITime {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<INode<?>> getAttributes() {
+  public ExtendedIterable<Node<?>> getAttributes() {
     final var timeCode = //
     String.format(
       "%04d-%02d-%02d-%02d-%02d-%02d-%03d-%03d",

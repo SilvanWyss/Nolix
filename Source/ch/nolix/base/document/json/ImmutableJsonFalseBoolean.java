@@ -6,7 +6,7 @@ package ch.nolix.base.document.json;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.document.json.JsonBoolean;
 import ch.nolix.baseapi.document.json.JsonValueType;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 
 /**
@@ -60,7 +60,7 @@ implements JsonBoolean {
    * {@inheritDoc}
    */
   @Override
-  public INode<?> toNode() {
+  public Node<?> toNode() {
     return ImmutableNode.withHeader(StringCatalog.PASCAL_CASE_FALSE);
   }
 

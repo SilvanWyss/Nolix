@@ -5,7 +5,7 @@ package ch.nolix.system.webgui.main;
 
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.webgui.main.Control;
 
@@ -19,7 +19,7 @@ public final class ControlFactoryUnit {
     return containsControlClassWithName(type);
   }
 
-  public Control<?, ?> createControlFromSpecification(final INode<?> specification) {
+  public Control<?, ?> createControlFromSpecification(final Node<?> specification) {
     final var control = createControlOfType(specification.getHeader());
 
     control.resetFromSpecification(specification);

@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.gui.box;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
@@ -26,7 +26,7 @@ public enum FreeableContentAlignment {
    * @throws RuntimeException if the given specification does not represent a
    *                          {@link FreeableContentAlignment}.
    */
-  public static FreeableContentAlignment fromSpecification(final INode<?> specification) {
+  public static FreeableContentAlignment fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 }

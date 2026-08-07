@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.control.accordion;
 
-import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * A {@link TabExpansionBehavior} is not mutable.
@@ -21,7 +21,7 @@ public enum TabExpansionBehavior {
    * @return a new {@link TabExpansionBehavior} from the given specification
    * @throws RuntimeException if the given specification is not valid
    */
-  public static TabExpansionBehavior fromSpecification(final INode<?> specification) {
+  public static TabExpansionBehavior fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 }
