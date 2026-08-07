@@ -10,23 +10,23 @@ import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 /**
  * @author Silvan Wyss
  */
-public interface IClient extends ConnectionSideRequestable, GroupCloseable, SecurityModeHolder {
+public interface Client extends ConnectionSideRequestable, GroupCloseable, SecurityModeHolder {
   /**
    * @return the URL instance name of the target application of the current
-   *         {@link IClient}
-   * @throws RuntimeException if the current {@link IClient} does not know the URL
+   *         {@link Client}
+   * @throws RuntimeException if the current {@link Client} does not know the URL
    *                          instance name of its target application.
    */
   String getUrlInstanceNameOfTargetApplication();
 
   /**
-   * @return true if the current {@link IClient} has requested the connection,
+   * @return true if the current {@link Client} has requested the connection,
    *         false otherwise
    */
   boolean hasRequestedConnection();
 
   /**
-   * @return true if the current {@link IClient} has the URL instance name of its
+   * @return true if the current {@link Client} has the URL instance name of its
    *         target application, false otherwise
    */
   boolean hasUrlInstanceNameOfTargetApplication();

@@ -14,13 +14,13 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnconnectedArgumen
 import ch.nolix.baseapi.net.level3server.IEndPoint;
 import ch.nolix.baseapi.net.netproperty.SecurityMode;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
-import ch.nolix.systemapi.application.client.IClient;
+import ch.nolix.systemapi.application.client.Client;
 
 /**
  * @author Silvan Wyss
  * @param <C> the type of a {@link AbstractClient}.
  */
-public abstract class AbstractClient<C extends AbstractClient<C>> implements IClient {
+public abstract class AbstractClient<C extends AbstractClient<C>> implements Client {
   private final ICloseController closeController = CloseController.forElement(this);
 
   private IEndPoint nullableEndPoint;
