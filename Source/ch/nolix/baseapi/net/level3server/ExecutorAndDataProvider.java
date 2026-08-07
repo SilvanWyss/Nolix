@@ -6,6 +6,6 @@ package ch.nolix.baseapi.net.level3server;
 /**
  * @author Silvan Wyss
  */
-public interface IDataProviderController extends IDataProvider, IController {
+public interface ExecutorAndDataProvider extends DataProvider, Executor {
   // This interface is a dedicated union of other interfaces.
 }

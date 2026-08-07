@@ -8,7 +8,7 @@ import ch.nolix.baseapi.document.chainednode.IChainedNode;
 /**
  * @author Silvan Wyss
  */
-public interface IController {
+public interface Executor {
   void runCommand(IChainedNode command);
 
   void runCommands(IChainedNode... commands);

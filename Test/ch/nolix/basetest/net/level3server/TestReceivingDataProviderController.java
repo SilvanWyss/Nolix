@@ -9,12 +9,12 @@ import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.Node;
-import ch.nolix.baseapi.net.level3server.IDataProviderController;
+import ch.nolix.baseapi.net.level3server.ExecutorAndDataProvider;
 
 /**
  * @author Silvan Wyss
  */
-public final class TestReceivingDataProviderController implements IDataProviderController {
+public final class TestReceivingDataProviderController implements ExecutorAndDataProvider {
   private IChainedNode latestReceivedCommand;
 
   private IChainedNode latestReceivedRequest;

@@ -10,15 +10,15 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.Node;
-import ch.nolix.baseapi.net.level3server.IDataProviderController;
+import ch.nolix.baseapi.net.level3server.ExecutorAndDataProvider;
 
 /**
- * A {@link ClientDataProviderController} is a {@link IDataProviderController}
+ * A {@link ClientDataProviderController} is a {@link ExecutorAndDataProvider}
  * for the {@link AbstractEndPoint} of a {@link AbstractClient}.
  * 
  * @author Silvan Wyss
  */
-final class ClientDataProviderController implements IDataProviderController {
+final class ClientDataProviderController implements ExecutorAndDataProvider {
   private final AbstractClient<?> parentClient;
 
   /**

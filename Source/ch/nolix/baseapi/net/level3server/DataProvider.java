@@ -10,7 +10,7 @@ import ch.nolix.baseapi.document.node.Node;
 /**
  * @author Silvan Wyss
  */
-public interface IDataProvider {
+public interface DataProvider {
   Node<?> getDataForRequest(IChainedNode request);
 
   ExtendedIterable<? extends Node<?>> getDataForRequests(IChainedNode... requests);

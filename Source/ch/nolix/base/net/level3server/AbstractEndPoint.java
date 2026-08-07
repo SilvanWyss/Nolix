@@ -10,7 +10,7 @@ import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.net.level3server.IDataProviderController;
+import ch.nolix.baseapi.net.level3server.ExecutorAndDataProvider;
 import ch.nolix.baseapi.net.level3server.IEndPoint;
 
 /**
@@ -19,7 +19,7 @@ import ch.nolix.baseapi.net.level3server.IEndPoint;
 public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements IEndPoint {
   private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 
-  private IDataProviderController receiverController;
+  private ExecutorAndDataProvider receiverController;
 
   AbstractEndPoint() {
   }
@@ -54,7 +54,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    * {@inheritDoc}
    */
   @Override
-  public final void setReceivingDataProviderController(final IDataProviderController receiverController) {
+  public final void setReceivingDataProviderController(final ExecutorAndDataProvider receiverController) {
     // Asserts that the given receiverController is not null.
     Validator.assertThat(receiverController).thatIsNamed("receiver controller").isNotNull();
 
@@ -77,7 +77,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    *                                               {@link AbstractEndPoint} does
    *                                               not have a receiver controller.
    */
-  IDataProviderController getStoredReceiverController() {
+  ExecutorAndDataProvider getStoredReceiverController() {
     if (hasReceivingDataProviderController()) {
       return receiverController;
     }
