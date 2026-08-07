@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.net.endpointprotocol;
+package ch.nolix.baseapi.net.level1serverprotocol;
 
 /**
  * @author Silvan Wyss
