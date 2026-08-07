@@ -30,6 +30,9 @@ public interface IterableFilterProvider<E> {
   ExtendedIterable<E> getStoredOthers(Predicate<E> selector);
 
   /**
+   * The time complexity of this method is O(n) if the current
+   * {@link IterableFilterProvider} contains n elements.
+   * 
    * @param selector
    * @return a new {@link ExtendedIterable} with the elements the given selector
    *         selects from the current {@link IterableFilterProvider}, ignoring

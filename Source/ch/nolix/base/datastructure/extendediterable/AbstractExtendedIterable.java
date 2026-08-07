@@ -898,29 +898,20 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
   public final ExtendedIterable<E> getStoredSelected(final Predicate<? super E> selector) {
-    // Asserts that the given selector is not null.
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableNameCatalog.SELECTOR).isNotNull();
 
-    // Initializes selectedElements.
     final var selectedElements = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<E>(), 10);
 
-    // Iterates the current Container.
     for (final var e : this) {
-      // Handles the case that the current element is not null and the given selector selects the current element.
       if (e != null && selector.test(e)) {
-        // Adds the current element to the selectedElements.
         selectedElements.addAtEnd(e);
       }
     }
 
-    // Returns the selectedElements.
     return selectedElements;
   }
 
