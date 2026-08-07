@@ -16,9 +16,9 @@ import ch.nolix.system.objectdata.modelflyweight.VoidEntityFlyWeight;
 import ch.nolix.system.objectdata.modelvalidator.EntityValidator;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
+import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelflyweight.IEntityFlyWeight;
 

@@ -3,8 +3,8 @@
  */
 package ch.nolix.base.document.node;
 
-import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.document.node.INodeComparator;
+import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss

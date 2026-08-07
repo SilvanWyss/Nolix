@@ -8,8 +8,8 @@ import java.util.Optional;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.objectdata.model.BaseBackReference;
 import ch.nolix.systemapi.objectdata.model.BaseReference;
-import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.Field;
+import ch.nolix.systemapi.objectdata.model.IEntity;
 
 /**
  * @author Silvan Wyss

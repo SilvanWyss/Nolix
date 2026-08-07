@@ -9,8 +9,8 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentExcep
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IFieldValidator;
-import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.Field;
+import ch.nolix.systemapi.objectdata.model.IEntity;
 
 /**
  * @author Silvan Wyss

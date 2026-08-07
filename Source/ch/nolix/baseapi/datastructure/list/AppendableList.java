@@ -21,8 +21,8 @@ public interface AppendableList<E> extends ExtendedIterable<E> {
   void addAtEnd(E element);
 
   /**
-   * Adds the given elements at the end of the current {@link AppendableList}.
-   * The elements will be added in the given order.
+   * Adds the given elements at the end of the current {@link AppendableList}. The
+   * elements will be added in the given order.
    * 
    * @param elements
    * @throws RuntimeException if the given elements is null
@@ -31,8 +31,8 @@ public interface AppendableList<E> extends ExtendedIterable<E> {
   void addAtEnd(Iterable<? extends E> elements);
 
   /**
-   * Adds the given elements at the end of the current {@link AppendableList}.
-   * The elements will be added in the given order.
+   * Adds the given elements at the end of the current {@link AppendableList}. The
+   * elements will be added in the given order.
    * 
    * @param elements
    * @param <T>      the type of the given elements

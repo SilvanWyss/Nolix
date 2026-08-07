@@ -4,8 +4,8 @@
 package ch.nolix.systemapi.objectdata.perstistence;
 
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.Field;
+import ch.nolix.systemapi.objectdata.model.IEntity;
 
 /**
  * @author Silvan Wyss

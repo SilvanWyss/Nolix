@@ -7,8 +7,8 @@ import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.objectdata.model.BaseReference;
-import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.Field;
+import ch.nolix.systemapi.objectdata.model.IEntity;
 
 /**
  * @author Silvan Wyss

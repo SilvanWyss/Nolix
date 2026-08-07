@@ -4,8 +4,8 @@
 package ch.nolix.systemapi.objectdata.expectation;
 
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.Field;
+import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 import ch.nolix.systemapi.objectdata.model.IOptionalReference;
 import ch.nolix.systemapi.objectdata.model.IReference;

@@ -12,10 +12,10 @@ import ch.nolix.system.objectdata.modelflyweight.FieldFlyWeight;
 import ch.nolix.system.objectdata.modelflyweight.VoidFieldFlyWeight;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
+import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelflyweight.IFieldFlyWeight;
 
