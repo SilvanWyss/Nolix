@@ -16,7 +16,7 @@ public interface BaseEndPoint extends ConnectionTypeHolder, GroupCloseable, Secu
 
   PeerType getPeerType();
 
-  TargetSlotDefinition getTargetSlotDefinition();
+  TargetSlotDefinitionType getTargetSlotDefinitionType();
 
   boolean hasCustomTargetSlot();
 

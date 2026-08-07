@@ -6,7 +6,7 @@ package ch.nolix.baseapi.net.endpoint;
 /**
  * @author Silvan Wyss
  */
-public enum TargetSlotDefinition {
+public enum TargetSlotDefinitionType {
   DEFAULT,
   CUSTOM
 }

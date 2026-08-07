@@ -5,7 +5,7 @@ package ch.nolix.base.net.baseendpoint;
 
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.baseapi.net.endpoint.BaseEndPoint;
-import ch.nolix.baseapi.net.endpoint.TargetSlotDefinition;
+import ch.nolix.baseapi.net.endpoint.TargetSlotDefinitionType;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
@@ -25,12 +25,12 @@ public abstract class AbstractBaseEndPoint implements BaseEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public final TargetSlotDefinition getTargetSlotDefinition() {
+  public final TargetSlotDefinitionType getTargetSlotDefinitionType() {
     if (hasCustomTargetSlot()) {
-      return TargetSlotDefinition.CUSTOM;
+      return TargetSlotDefinitionType.CUSTOM;
     }
 
-    return TargetSlotDefinition.DEFAULT;
+    return TargetSlotDefinitionType.DEFAULT;
   }
 
   /**
@@ -38,7 +38,7 @@ public abstract class AbstractBaseEndPoint implements BaseEndPoint {
    */
   @Override
   public final boolean hasDefaultTargetSlot() {
-    return (getTargetSlotDefinition() == TargetSlotDefinition.DEFAULT);
+    return (getTargetSlotDefinitionType() == TargetSlotDefinitionType.DEFAULT);
   }
 
   /**
