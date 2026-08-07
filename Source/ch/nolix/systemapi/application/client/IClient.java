@@ -3,14 +3,14 @@
  */
 package ch.nolix.systemapi.application.client;
 
-import ch.nolix.baseapi.net.netattribute.ISecuriyModeHolder;
+import ch.nolix.baseapi.net.netattribute.SecurityModeHolder;
 import ch.nolix.baseapi.net.staterequest.ConnectionSideRequestable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 
 /**
  * @author Silvan Wyss
  */
-public interface IClient extends ConnectionSideRequestable, GroupCloseable, ISecuriyModeHolder {
+public interface IClient extends ConnectionSideRequestable, GroupCloseable, SecurityModeHolder {
   /**
    * @return the URL instance name of the target application of the current
    *         {@link IClient}

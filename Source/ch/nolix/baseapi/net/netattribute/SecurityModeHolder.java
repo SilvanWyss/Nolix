@@ -6,13 +6,13 @@ package ch.nolix.baseapi.net.netattribute;
 import ch.nolix.baseapi.net.netproperty.SecurityMode;
 
 /**
- * A {@link ISecuriyModeHolder} has a {@link SecurityMode}.
+ * A {@link SecurityModeHolder} has a {@link SecurityMode}.
  * 
  * @author Silvan Wyss
  */
-public interface ISecuriyModeHolder {
+public interface SecurityModeHolder {
   /**
-   * @return the {@link SecurityMode} of the current {@link ISecuriyModeHolder}.
+   * @return the {@link SecurityMode} of the current {@link SecurityModeHolder}.
    */
   SecurityMode getSecurityMode();
 }

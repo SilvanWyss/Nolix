@@ -5,7 +5,7 @@ package ch.nolix.systemapi.application.main;
 
 import ch.nolix.baseapi.generalstate.statemutation.Clearable;
 import ch.nolix.baseapi.manager.applicationmanager.ApplicationManager;
-import ch.nolix.baseapi.net.netattribute.ISecuriyModeHolder;
+import ch.nolix.baseapi.net.netattribute.SecurityModeHolder;
 import ch.nolix.baseapi.net.target.IServerTarget;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 
@@ -14,7 +14,7 @@ import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
  * @param <S> the type of a {@link IServer}.
  */
 public interface IServer<S extends IServer<S>>
-extends Clearable, GroupCloseable, ApplicationManager<IApplication<?, ?>>, ISecuriyModeHolder {
+extends Clearable, GroupCloseable, ApplicationManager<IApplication<?, ?>>, SecurityModeHolder {
   /**
    * Adds the given application to the current {@link IServer}.
    * 
