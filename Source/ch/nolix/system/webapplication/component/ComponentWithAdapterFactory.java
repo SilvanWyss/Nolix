@@ -12,7 +12,7 @@ import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
-import ch.nolix.baseapi.programcontrol.adapter.IAdapterFactory;
+import ch.nolix.baseapi.programcontrol.adapter.AdapterFactory;
 import ch.nolix.system.webapplication.main.WebClientSession;
 import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.system.webgui.main.ControlParent;
@@ -27,13 +27,13 @@ import ch.nolix.systemapi.webgui.main.Control;
  * @author Silvan Wyss
  * @param <C> the type of the {@link Controller} of a
  *            {@link ComponentWithAdapterFactory}.
- * @param <F> the type of the {@link IAdapterFactory} of a
+ * @param <F> the type of the {@link AdapterFactory} of a
  *            {@link ComponentWithAdapterFactory}.
- * @param <A> is the typoe of the adapters of the {@link IAdapterFactory} of a
+ * @param <A> is the typoe of the adapters of the {@link AdapterFactory} of a
  *            {@link ComponentWithAdapterFactory}.
  */
 public abstract class ComponentWithAdapterFactory // NOSONAR: A component class is expected to be abstract.
-<C extends Controller<F>, F extends IAdapterFactory<A>, A>
+<C extends Controller<F>, F extends AdapterFactory<A>, A>
 extends AbstractControl<IComponent, IComponentStyle>
 implements IComponent {
   private static final ComponentHtmlBuilder HTML_BUILDER = new ComponentHtmlBuilder();
