@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.net.target;
 
-import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.net.netproperty.SecurityMode;
 
 /**
  * @author Silvan Wyss

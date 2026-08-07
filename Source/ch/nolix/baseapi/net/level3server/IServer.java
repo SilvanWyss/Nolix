@@ -4,7 +4,7 @@
 package ch.nolix.baseapi.net.level3server;
 
 import ch.nolix.baseapi.generalstate.statemutation.Clearable;
-import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.net.netproperty.SecurityMode;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 
 /**

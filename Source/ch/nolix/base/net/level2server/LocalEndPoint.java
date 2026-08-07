@@ -8,7 +8,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
 import ch.nolix.baseapi.net.level2server.ISlot;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
-import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.net.netproperty.SecurityMode;
 
 /**
  * A local end point can send messages to an other local end point.

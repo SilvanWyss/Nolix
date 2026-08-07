@@ -10,7 +10,7 @@ import ch.nolix.base.net.level1server.Server;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.net.level1server.ISlot;
-import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.net.netproperty.SecurityMode;
 
 /**
  * @author Silvan Wyss

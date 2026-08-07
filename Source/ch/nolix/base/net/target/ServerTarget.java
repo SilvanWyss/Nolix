@@ -6,7 +6,7 @@ package ch.nolix.base.net.target;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.netcatalog.PortCatalog;
-import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.net.netproperty.SecurityMode;
 import ch.nolix.baseapi.net.target.IServerTarget;
 
 /**

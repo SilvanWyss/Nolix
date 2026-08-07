@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.base.environment.localcomputer.LocalComputer;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.net.netcatalog.PortCatalog;
-import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.net.netproperty.SecurityMode;
 import ch.nolix.system.application.main.Server;
 
 /**

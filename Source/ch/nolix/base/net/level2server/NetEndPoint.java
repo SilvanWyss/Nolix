@@ -13,7 +13,7 @@ import ch.nolix.baseapi.net.level1server.IEndPoint;
 import ch.nolix.baseapi.net.level2serverprotocol.MessageRole;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
-import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.net.netproperty.SecurityMode;
 
 /**
  * A {@link NetEndPoint} is a {@link AbstractEndPoint} that can send messages to

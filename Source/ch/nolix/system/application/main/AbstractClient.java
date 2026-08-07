@@ -12,7 +12,7 @@ import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnconnectedArgumentException;
 import ch.nolix.baseapi.net.level3server.IEndPoint;
-import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.net.netproperty.SecurityMode;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.systemapi.application.client.IClient;
 

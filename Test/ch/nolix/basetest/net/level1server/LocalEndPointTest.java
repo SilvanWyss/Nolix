@@ -13,7 +13,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentExce
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
-import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.net.netproperty.SecurityMode;
 
 /**
  * @author Silvan Wyss

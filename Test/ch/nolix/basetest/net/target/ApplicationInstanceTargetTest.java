@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.base.net.target.ApplicationInstanceTarget;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.net.netcatalog.PortCatalog;
-import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.net.netproperty.SecurityMode;
 
 /**
  * @author Silvan Wyss

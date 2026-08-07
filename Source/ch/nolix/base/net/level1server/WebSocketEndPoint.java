@@ -17,7 +17,7 @@ import ch.nolix.baseapi.net.level1server.TargetInfoState;
 import ch.nolix.baseapi.net.level1serverprotocol.MessageType;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
-import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.net.netproperty.SecurityMode;
 import ch.nolix.baseapi.net.websocket.WebSocketFrameOpcodeMeaning;
 
 final class WebSocketEndPoint extends AbstractNetEndPoint {

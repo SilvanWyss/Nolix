@@ -9,7 +9,7 @@ import ch.nolix.base.sql.connection.AbstractSqlConnection;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.net.netproperty.SecurityMode;
 import ch.nolix.baseapi.sql.connection.ISqlDatabaseTarget;
 import ch.nolix.baseapi.sql.sqlproperty.SqlDatabaseEngine;
 

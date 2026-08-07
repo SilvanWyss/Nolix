@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.net.netattribute;
 
-import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.net.netproperty.SecurityMode;
 
 /**
  * A {@link ISecuriyModeHolder} has a {@link SecurityMode}.

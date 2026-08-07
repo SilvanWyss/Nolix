@@ -5,7 +5,7 @@ package ch.nolix.baseapi.net.baseendpoint;
 
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
-import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.net.netproperty.SecurityMode;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 
 /**

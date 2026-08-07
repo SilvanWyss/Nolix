@@ -8,7 +8,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 import ch.nolix.baseapi.net.level1server.ISlot;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
-import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.net.netproperty.SecurityMode;
 
 /**
  * A {@link LocalEndPoint} is an {@link AbstractEndPoint} that can send messages

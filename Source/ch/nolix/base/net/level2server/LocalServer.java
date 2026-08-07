@@ -4,7 +4,7 @@
 package ch.nolix.base.net.level2server;
 
 import ch.nolix.baseapi.net.level2server.ISlot;
-import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.net.netproperty.SecurityMode;
 
 /**
  * @author Silvan Wyss

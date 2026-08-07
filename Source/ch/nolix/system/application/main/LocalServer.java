@@ -4,7 +4,7 @@
 package ch.nolix.system.application.main;
 
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.net.netproperty.SecurityMode;
 import ch.nolix.baseapi.net.target.IServerTarget;
 import ch.nolix.systemapi.application.main.IApplication;
 

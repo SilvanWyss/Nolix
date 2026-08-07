@@ -9,7 +9,7 @@ import java.net.ServerSocket;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.net.netcatalog.PortCatalog;
-import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.net.netproperty.SecurityMode;
 
 /**
  * A {@link Server} is a {@link AbstractServer} that listens to

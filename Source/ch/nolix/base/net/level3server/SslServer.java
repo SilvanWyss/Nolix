@@ -5,7 +5,7 @@ package ch.nolix.base.net.level3server;
 
 import ch.nolix.base.net.ssl.NolixConfigurationSslCertificateReader;
 import ch.nolix.baseapi.net.level3server.ISlot;
-import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.net.netproperty.SecurityMode;
 import ch.nolix.baseapi.net.ssl.ISslCertificate;
 
 /**

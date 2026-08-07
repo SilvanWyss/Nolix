@@ -22,7 +22,7 @@ import ch.nolix.baseapi.net.level3serverprotocol.MessageHeaderCatalog;
 import ch.nolix.baseapi.net.netproperty.BaseConnectionType;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
-import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.net.netproperty.SecurityMode;
 
 /**
  * @author Silvan Wyss
