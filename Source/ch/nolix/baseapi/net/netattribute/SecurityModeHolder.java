@@ -12,7 +12,7 @@ import ch.nolix.baseapi.net.netproperty.SecurityMode;
  */
 public interface SecurityModeHolder {
   /**
-   * @return the {@link SecurityMode} of the current {@link SecurityModeHolder}.
+   * @return the {@link SecurityMode} of the current {@link SecurityModeHolder}
    */
   SecurityMode getSecurityMode();
 }
