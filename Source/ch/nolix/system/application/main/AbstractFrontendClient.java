@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.application.main;
 
-import ch.nolix.base.net.level3server.LocalEndPoint;
-import ch.nolix.base.net.level3server.NetEndPoint;
+import ch.nolix.base.net.executoranddataproviderserver.LocalEndPoint;
+import ch.nolix.base.net.executoranddataproviderserver.NetEndPoint;
 
 /**
  * @author Silvan Wyss

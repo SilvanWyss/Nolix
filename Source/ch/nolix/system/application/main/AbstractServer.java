@@ -11,7 +11,7 @@ import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.net.level3server.IEndPoint;
+import ch.nolix.baseapi.net.executoranddataproviderserver.IEndPoint;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.systemapi.application.main.IApplication;
 import ch.nolix.systemapi.application.main.IServer;

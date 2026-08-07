@@ -1,31 +1,30 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.system.application.main;
+package ch.nolix.base.net.executoranddataproviderserver;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.net.executoranddataproviderserver.IEndPoint;
-import ch.nolix.baseapi.net.executoranddataproviderserver.ISlot;
+import ch.nolix.baseapi.net.messageandreplyserver.ISlot;
 
 /**
  * @author Silvan Wyss
  */
-final class Slot implements ISlot {
+final class Level2Slot implements ISlot {
   private final String name;
 
-  private final AbstractServer<?> parentServer;
+  private final AbstractServer parentServer;
 
   /**
-   * Creates a new {Slot} with the given name that will belong to the given
-   * parentServer.
+   * Creates a new {@ServerSlot} with the given name and that will belong to the
+   * given parentServer.
    * 
    * @param name
    * @param parentServer
    * @throws RuntimeException if given name is null or blank
    * @throws RuntimeException if the given parentServer is null
    */
-  private Slot(final String name, final AbstractServer<?> parentServer) {
+  private Level2Slot(final String name, final AbstractServer parentServer) {
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableNameCatalog.NAME).isNotBlank();
     Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
 
@@ -41,8 +40,8 @@ final class Slot implements ISlot {
    * @throws RuntimeException if given name is null or blank
    * @throws RuntimeException if the given parentServer is null
    */
-  public static Slot withNameAndParentServer(final String name, final AbstractServer<?> parentServer) {
-    return new Slot(name, parentServer);
+  public static Level2Slot withNameAndParentServer(final String name, final AbstractServer parentServer) {
+    return new Level2Slot(name, parentServer);
   }
 
   /**
@@ -57,7 +56,7 @@ final class Slot implements ISlot {
    * {@inheritDoc}
    */
   @Override
-  public void takeBackendEndPoint(final IEndPoint endPoint) {
-    parentServer.internalTakeEndPoint(endPoint);
+  public void takeBackendEndPoint(final ch.nolix.baseapi.net.messageandreplyserver.IEndPoint backendEndPoint) {
+    parentServer.internalTakeBackendEndPoint(NetEndPoint.withInternalEndPoint(backendEndPoint));
   }
 }

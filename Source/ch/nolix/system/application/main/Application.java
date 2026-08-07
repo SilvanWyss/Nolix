@@ -17,7 +17,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBel
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
-import ch.nolix.baseapi.net.level3server.IEndPoint;
+import ch.nolix.baseapi.net.executoranddataproviderserver.IEndPoint;
 import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
 import ch.nolix.baseapi.net.target.IServerTarget;
 import ch.nolix.systemapi.application.main.IApplication;

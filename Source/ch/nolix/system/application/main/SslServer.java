@@ -17,7 +17,7 @@ import ch.nolix.systemapi.application.main.IApplication;
 public final class SslServer extends AbstractServer<SslServer> {
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.SSL;
 
-  private final ch.nolix.base.net.level3server.SslServer internalWebSocketServer;
+  private final ch.nolix.base.net.executoranddataproviderserver.SslServer internalWebSocketServer;
 
   private final String domain;
 
@@ -27,7 +27,7 @@ public final class SslServer extends AbstractServer<SslServer> {
     final var htmlPage = SslServerPage.forDomainAndPort(domain, port);
     final var htmlPageAsString = htmlPage.toString();
 
-    internalWebSocketServer = ch.nolix.base.net.level3server.SslServer.forPortAndHtmlPageAndSSLCertificate(port,
+    internalWebSocketServer = ch.nolix.base.net.executoranddataproviderserver.SslServer.forPortAndHtmlPageAndSSLCertificate(port,
       htmlPageAsString, paramSSLCertificate);
 
     this.domain = domain;

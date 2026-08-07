@@ -5,12 +5,12 @@ package ch.nolix.system.application.main;
 
 import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
-import ch.nolix.base.net.level3server.AbstractEndPoint;
+import ch.nolix.base.net.executoranddataproviderserver.AbstractEndPoint;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.Node;
-import ch.nolix.baseapi.net.level3server.ExecutorAndDataProvider;
+import ch.nolix.baseapi.net.executoranddataproviderserver.ExecutorAndDataProvider;
 
 /**
  * A {@link ClientDataProviderController} is a {@link ExecutorAndDataProvider}

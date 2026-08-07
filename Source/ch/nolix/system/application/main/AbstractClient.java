@@ -4,14 +4,14 @@
 package ch.nolix.system.application.main;
 
 import ch.nolix.base.document.chainednode.ChainedNode;
-import ch.nolix.base.net.level3server.AbstractEndPoint;
+import ch.nolix.base.net.executoranddataproviderserver.AbstractEndPoint;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnconnectedArgumentException;
-import ch.nolix.baseapi.net.level3server.IEndPoint;
+import ch.nolix.baseapi.net.executoranddataproviderserver.IEndPoint;
 import ch.nolix.baseapi.net.netproperty.SecurityMode;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.systemapi.application.client.Client;

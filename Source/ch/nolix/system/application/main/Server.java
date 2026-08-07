@@ -20,7 +20,7 @@ import ch.nolix.systemapi.application.main.IApplication;
 public final class Server extends AbstractServer<Server> implements SinglePortServer {
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.NONE;
 
-  private ch.nolix.base.net.level3server.Server internalServer;
+  private ch.nolix.base.net.executoranddataproviderserver.Server internalServer;
 
   /**
    * Creates a new {@link Server} that will listen to net {@link AbstractClient}s
@@ -31,7 +31,7 @@ public final class Server extends AbstractServer<Server> implements SinglePortSe
    */
   private Server(final int port) {
     // Creates the internalServer of the current Server.
-    internalServer = ch.nolix.base.net.level3server.Server.forPortAndHttpMessage(
+    internalServer = ch.nolix.base.net.executoranddataproviderserver.Server.forPortAndHttpMessage(
       port,
       new ServerHttpMessage(getIp(), port).toString());
 
