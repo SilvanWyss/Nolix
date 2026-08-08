@@ -38,8 +38,7 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
 /**
  * @author Silvan Wyss
  * @param <C> the type of a {@link AbstractControl}.
- * @param <S> the type of the {@link ControlStyle} of a
- *            {@link AbstractControl}.
+ * @param <S> the type of the {@link ControlStyle} of a {@link AbstractControl}.
  */
 public abstract class AbstractControl // NOSONAR: A AbstractControl is a principal object thus it has many methods.
 <C extends Control<C, S>, S extends ControlStyle<S>>

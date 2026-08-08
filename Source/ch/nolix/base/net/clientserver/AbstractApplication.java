@@ -26,10 +26,10 @@ import ch.nolix.baseapi.net.target.IServerTarget;
  * @author Silvan Wyss
  * @param <C> the type of the {@link AbstractBackendClient}s of a
  *            {@link AbstractApplication}.
- * @param <S> the type of the application service of a {@link AbstractApplication}.
+ * @param <S> the type of the application service of a
+ *            {@link AbstractApplication}.
  */
-public abstract class AbstractApplication
-<C extends AbstractBackendClient<C, S>, S>
+public abstract class AbstractApplication<C extends AbstractBackendClient<C, S>, S>
 implements Application<C, S> {
   private String instanceAddendix;
 
@@ -176,8 +176,8 @@ implements Application<C, S> {
    * @param nameAddendix
    * @throws RuntimeException if the given nameAddendix is null
    * @throws RuntimeException if the given nameAddendix is blank
-   * @throws RuntimeException if the current {@link AbstractApplication} has already an
-   *                          instance name.
+   * @throws RuntimeException if the current {@link AbstractApplication} has
+   *                          already an instance name.
    */
   final void setNameAppendix(final String nameAddendix) {
     Validator.assertThat(nameAddendix).thatIsNamed("instance name").isNotBlank();
@@ -188,11 +188,12 @@ implements Application<C, S> {
   }
 
   /**
-   * Sets the parent {@link AbstractServer} of the current {@link AbstractApplication}.
+   * Sets the parent {@link AbstractServer} of the current
+   * {@link AbstractApplication}.
    * 
    * @param parentServer
-   * @throws RuntimeException if the current {@link AbstractApplication} belongs already
-   *                          to a {@link AbstractServer}.
+   * @throws RuntimeException if the current {@link AbstractApplication} belongs
+   *                          already to a {@link AbstractServer}.
    */
   final void setParentServer(final AbstractServer<?> parentServer) {
     Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
@@ -202,8 +203,8 @@ implements Application<C, S> {
   }
 
   /**
-   * @throws RuntimeException if the current {@link AbstractApplication} does not belong
-   *                          to a {@link AbstractServer}.
+   * @throws RuntimeException if the current {@link AbstractApplication} does not
+   *                          belong to a {@link AbstractServer}.
    */
   private void assertBelongsToServer() {
     if (!belongsToServer()) {
@@ -212,8 +213,8 @@ implements Application<C, S> {
   }
 
   /**
-   * @throws RuntimeException if the current {@link AbstractApplication} belongs already
-   *                          to a {@link AbstractServer}.
+   * @throws RuntimeException if the current {@link AbstractApplication} belongs
+   *                          already to a {@link AbstractServer}.
    */
   private void assertDoesNotBelongToServer() {
     if (belongsToServer()) {
@@ -222,8 +223,8 @@ implements Application<C, S> {
   }
 
   /**
-   * @throws RuntimeException if the current {@link AbstractApplication} has already an
-   *                          instance name.
+   * @throws RuntimeException if the current {@link AbstractApplication} has
+   *                          already an instance name.
    */
   private void assertDoesNotHaveNameAddendum() {
     if (hasInstanceAppendix()) {
@@ -233,8 +234,8 @@ implements Application<C, S> {
 
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link AbstractApplication} does not
-   *                                               have a name addendum.
+   *                                               {@link AbstractApplication}
+   *                                               does not have a name addendum.
    */
   private void assertHasNameAddendum() {
     if (!hasInstanceAppendix()) {
@@ -278,9 +279,10 @@ implements Application<C, S> {
   }
 
   /**
-   * @return the parent {@link AbstractServer} of the current {@link AbstractApplication}
-   * @throws RuntimeException if the current {@link AbstractApplication} does not belong
-   *                          to a {@link AbstractServer}.
+   * @return the parent {@link AbstractServer} of the current
+   *         {@link AbstractApplication}
+   * @throws RuntimeException if the current {@link AbstractApplication} does not
+   *                          belong to a {@link AbstractServer}.
    */
   private AbstractServer<?> getStoredParentServer() {
     assertBelongsToServer();

@@ -170,8 +170,7 @@ public abstract class AbstractServer implements Server {
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractServer} does not
-   *                                               contain a default
-   *                                               {@link Slot}.
+   *                                               contain a default {@link Slot}.
    */
   private void assertContainsDefaultSlot() {
     if (!containsDefaultSlot()) {
@@ -196,8 +195,7 @@ public abstract class AbstractServer implements Server {
    * @return the default {@link Slot} of the current {@link AbstractServer}
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractServer} does not
-   *                                               contain a default
-   *                                               {@link Slot}.
+   *                                               contain a default {@link Slot}.
    */
   private Slot getStoredDefaultSlot() {
     assertContainsDefaultSlot();
@@ -212,8 +210,8 @@ public abstract class AbstractServer implements Server {
    *         {@link AbstractServer}
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractServer} does not
-   *                                               contain a {@link Slot} with
-   *                                               the given name.
+   *                                               contain a {@link Slot} with the
+   *                                               given name.
    */
   private Slot getStoredSlotByName(final String name) {
     return slots.getStoredFirst(ept -> ept.hasName(name));

@@ -10,8 +10,8 @@ import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.net.executoranddataproviderserver.ExecutorAndDataProvider;
 import ch.nolix.baseapi.net.executoranddataproviderserver.EndPoint;
+import ch.nolix.baseapi.net.executoranddataproviderserver.ExecutorAndDataProvider;
 
 /**
  * @author Silvan Wyss

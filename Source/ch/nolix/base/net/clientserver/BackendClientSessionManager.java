@@ -15,8 +15,9 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
  * @param <C> the type of the parent {@link AbstractBackendClient} of a
  *            {@link BackendClientSessionManager}.
  * @param <S> the type of the application service of the parent
- *            {@link AbstractApplication} of the parent {@link AbstractBackendClient} of
- *            a {@link BackendClientSessionManager}.
+ *            {@link AbstractApplication} of the parent
+ *            {@link AbstractBackendClient} of a
+ *            {@link BackendClientSessionManager}.
  */
 public final class BackendClientSessionManager<C extends AbstractBackendClient<C, S>, S> {
   private static final int MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS = 10_000;

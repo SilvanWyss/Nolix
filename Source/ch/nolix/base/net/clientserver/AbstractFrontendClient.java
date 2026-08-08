@@ -65,8 +65,8 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
 
   /**
    * Connects the current {@link AbstractFrontendClient} to the
-   * {@link AbstractApplication} with the given name on the given port on the local
-   * computer.
+   * {@link AbstractApplication} with the given name on the given port on the
+   * local computer.
    * 
    * @param port
    * @param name
@@ -101,7 +101,8 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
 
   /**
    * Connects the current {@link AbstractFrontendClient} to the default
-   * {@link AbstractApplication} on the HTTP port (80) on the computer with the given ip.
+   * {@link AbstractApplication} on the HTTP port (80) on the computer with the
+   * given ip.
    * 
    * @param ip
    * @throws RuntimeException if the current {@link AbstractFrontendClient} is
@@ -127,8 +128,8 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
 
   /**
    * Connects the current {@link AbstractFrontendClient} to the
-   * {@link AbstractApplication} with the given name on the given port on the computer
-   * with the given ip.
+   * {@link AbstractApplication} with the given name on the given port on the
+   * computer with the given ip.
    * 
    * @param ip
    * @param port
