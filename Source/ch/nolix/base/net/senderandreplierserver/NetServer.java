@@ -16,8 +16,8 @@ public final class NetServer extends AbstractServer {
   private final ch.nolix.base.net.senderandreceiverserver.NetServer internalNetServer;
 
   /**
-   * Creates a new {@link NetServer} that will listen to {@link NetEndPoint}s on the
-   * given port.
+   * Creates a new {@link NetServer} that will listen to {@link NetEndPoint}s on
+   * the given port.
    * 
    * @param port
    * @throws RuntimeException if the given port is not in [0, 65535]
@@ -32,11 +32,11 @@ public final class NetServer extends AbstractServer {
   }
 
   /**
-   * Creates a new {@link NetServer} that will listen to {@link NetEndPoint}s on the
-   * given port.
+   * Creates a new {@link NetServer} that will listen to {@link NetEndPoint}s on
+   * the given port.
    * 
-   * When a web browser connects to the {@link NetServer}, the {@link NetServer} will
-   * send the given httpMessage and close the connection.
+   * When a web browser connects to the {@link NetServer}, the {@link NetServer}
+   * will send the given httpMessage and close the connection.
    * 
    * @param port
    * @param httpMessage
@@ -45,18 +45,16 @@ public final class NetServer extends AbstractServer {
    * @throws RuntimeException if the given httpMessage is blank
    */
   private NetServer(final int port, final String httpMessage) {
-    // Creates the internal net server of the current net server.
-    internalNetServer = ch.nolix.base.net.senderandreceiverserver.NetServer.forPortAndInitialHttpMessage(port, httpMessage);
+    internalNetServer = //
+    ch.nolix.base.net.senderandreceiverserver.NetServer.forPortAndInitialHttpMessage(port, httpMessage);
 
-    // Creates a close dependency to the internal net server of the current net
-    // server.
     createCloseDependencyTo(internalNetServer);
   }
 
   /**
    * @param port
-   * @return a new {@link NetServer} that will listen to {@link NetEndPoint}s on the
-   *         given port
+   * @return a new {@link NetServer} that will listen to {@link NetEndPoint}s on
+   *         the given port
    * @throws RuntimeException if the given port is not in [0, 65535]
    */
   public static NetServer forPort(final int port) {
@@ -66,9 +64,9 @@ public final class NetServer extends AbstractServer {
   /**
    * @param port
    * @param httpMessage
-   * @return a new {@link NetServer} that will listen to {@link NetEndPoint}s on the
-   *         given port. When a web browser connects to the {@link NetServer}, the
-   *         {@link NetServer} will send the given httpMessage and close the
+   * @return a new {@link NetServer} that will listen to {@link NetEndPoint}s on
+   *         the given port. When a web browser connects to the {@link NetServer},
+   *         the {@link NetServer} will send the given httpMessage and close the
    *         connection
    * @throws RuntimeException if the given port is not in [0, 65535]
    * @throws RuntimeException if the given httpMessage is null

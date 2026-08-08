@@ -27,8 +27,11 @@ public final class SslServer extends AbstractServer<SslServer> {
     final var htmlPage = SslServerPage.forDomainAndPort(domain, port);
     final var htmlPageAsString = htmlPage.toString();
 
-    internalWebSocketServer = ch.nolix.base.net.executoranddataproviderserver.SslServer.forPortAndHtmlPageAndSSLCertificate(port,
-      htmlPageAsString, paramSSLCertificate);
+    internalWebSocketServer = //
+    ch.nolix.base.net.executoranddataproviderserver.SslServer.forPortAndHtmlPageAndSSLCertificate(
+      port,
+      htmlPageAsString,
+      paramSSLCertificate);
 
     this.domain = domain;
     this.port = port;
