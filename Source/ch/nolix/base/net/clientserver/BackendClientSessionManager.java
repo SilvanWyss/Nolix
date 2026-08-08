@@ -76,7 +76,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
   }
 
   public void popCurrentSessionAndForwardGivenResult(final Object result) {
-    getStoredCurrentSession().internalSetResult(result);
+    getStoredCurrentSession().setResult(result);
     popCurrentSessionFromStack();
   }
 
@@ -85,7 +85,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
     Validator.assertThat(session).isOfType(AbstractSession.class);
 
     // Sets the given session to the Client of the current ClientSessionManager.
-    session.internalSetParentClient(parentClient);
+    session.setParentClient(parentClient);
 
     // Pushes the given session to the current ClientSessionManager.
     sessionStack.addAtEnd(session);
@@ -103,7 +103,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
 
     ResourceValidator.assertIsOpen(parentClient);
 
-    return (R) session.internalGetStoredResult();
+    return (R) session.getStoredResult();
   }
 
   public void setCurrentSession(final AbstractSession<C, S> session) {
@@ -174,7 +174,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
 
   private void popTopSessionFromSessionStackWhenContainsCurrentSessionAsTopSession() {
     final var topSession = sessionStack.removeAndGetStoredLast();
-    topSession.internalRemoveParentClient();
+    topSession.removeParentClient();
   }
 
   private void setOrClearCurrentSessionAccordingToSessionStack() {

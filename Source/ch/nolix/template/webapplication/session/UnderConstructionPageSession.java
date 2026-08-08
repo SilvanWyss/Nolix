@@ -42,7 +42,7 @@ public final class UnderConstructionPageSession extends WebClientSession<Object>
                   .forStateSetTextSize(ControlState.BASE, 30)
                   .forStateSetTextColor(ControlState.BASE, X11ColorCatalog.GREY)),
             new Button()
-              .setVisibility(hasParentSession())
+              .setVisibility(hasUnderlyingSession())
               .setText("<-- Go back")
               .setLeftMouseButtonPressAction(() -> pop()))
           .editStyle(s -> s.setChildControlMarginForState(ControlState.BASE, 20)));

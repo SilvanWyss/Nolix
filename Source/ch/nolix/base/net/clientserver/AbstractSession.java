@@ -4,31 +4,28 @@
 package ch.nolix.base.net.clientserver;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.component.applicationcomponent.ClientComponent;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.programcontrol.refresh.IRefreshableSubscriber;
+import ch.nolix.baseapi.net.clientserver.BackendClient;
+import ch.nolix.baseapi.net.clientserver.Session;
 
 /**
- * A {@link AbstractSession} manages user run methods and user data methods.
- * 
  * @author Silvan Wyss
  * @param <C> the type of the {@link AbstractBackendClient} of a
- *            {@link AbstractSession}.
+ *            {@link AbstractSession}
  * @param <S> the type of the application service of the parent
- *            {@link AbstractApplication} of the parent {@link AbstractBackendClient} of
- *            a {@link AbstractSession}.
+ *            {@link AbstractApplication} of the parent
+ *            {@link AbstractBackendClient} of a {@link AbstractSession}
  */
-public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S>
-implements ClientComponent<C>, IRefreshableSubscriber {
+public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S> implements Session<C, S> {
   private C memberParentClient;
 
   private Object memberResult;
 
   /**
-   * @return true if the current {@link AbstractSession} belongs to a
-   *         {@link AbstractClient}, false otherwise
+   * {@inheritDoc}
    */
   @Override
   public final boolean belongsToClient() {
@@ -36,36 +33,37 @@ implements ClientComponent<C>, IRefreshableSubscriber {
   }
 
   /**
-   * @return the name of the parent {@link AbstractApplication} of the parent
-   *         {@link AbstractClient} of the current {@link AbstractSession}.
+   * {@inheritDoc}
    */
+  @Override
   public final String getApplicationName() {
     return getStoredParentClient().getApplicationName();
   }
 
   /**
-   * @return the context of the parent {@link AbstractApplication} of the parent
-   *         {@link AbstractClient} of the current {@link AbstractSession}.
+   * {@inheritDoc}
    */
+  @Override
   public final S getStoredApplicationService() {
     return getStoredParentClient().getStoredApplicationService();
   }
 
   /**
-   * @return the parent client of the current {@link AbstractSession}
-   * @throws RuntimeException if the current {@link AbstractSession} does not
-   *                          belong to a client.
+   * {@inheritDoc}
    */
   @Override
   public final C getStoredParentClient() {
-    // Asserts that the current {@link Session} belonts to a client.
     assertBelongsToClient();
 
     return memberParentClient;
   }
 
-  public final boolean hasParentSession() {
-    return (getStoredParentClient().internalGetSessionStackSize() > 1);
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final boolean hasUnderlyingSession() {
+    return getStoredParentClient().internalGetSessionStackSize() > 1;
   }
 
   // For a better performance, this implementation does not use all available comfort methods.
@@ -74,26 +72,24 @@ implements ClientComponent<C>, IRefreshableSubscriber {
    */
   @Override
   public final boolean isAlive() {
-    return memberParentClient != null
+    return //
+    memberParentClient != null
     && memberParentClient.isOpen();
   }
 
   /**
-   * Pops the current {@link AbstractSession} from its parent
-   * {@link AbstractClient}.
+   * {@inheritDoc}
    */
+  @Override
   public final void pop() {
     getStoredParentClient().internalPopCurrentSession();
   }
 
   /**
-   * Pops the current {@link AbstractSession} from its parent
-   * {@link AbstractClient} with the given result.
-   * 
-   * @param result
-   * @throws RuntimeException if the given result is null
+   * {@inheritDoc}
    */
-  public final void pop(final Object result) {
+  @Override
+  public final void popWithResult(final Object result) {
     getStoredParentClient().internalPopCurrentSessionAndForwardGivenResult(result);
   }
 
@@ -136,7 +132,7 @@ implements ClientComponent<C>, IRefreshableSubscriber {
   }
 
   /**
-   * Initializes the current {@link AbstractSession}.
+   * Initializes the current {@link AbstractSession} fully.
    */
   protected abstract void fullInitialize();
 
@@ -146,7 +142,7 @@ implements ClientComponent<C>, IRefreshableSubscriber {
    */
   protected abstract Class<?> getClientClass();
 
-  final Object internalGetStoredResult() {
+  final Object getStoredResult() {
     if (memberResult == null) {
       throw //
       ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.RESULT);
@@ -156,9 +152,9 @@ implements ClientComponent<C>, IRefreshableSubscriber {
   }
 
   /**
-   * Removes the parent client of the current {@link AbstractSession}.
+   * Removes the parent client from the current {@link AbstractSession}.
    */
-  final void internalRemoveParentClient() {
+  final void removeParentClient() {
     memberParentClient = null;
   }
 
@@ -170,18 +166,20 @@ implements ClientComponent<C>, IRefreshableSubscriber {
    * @throws RuntimeException if the current {@link AbstractSession} belongs to a
    *                          client.
    */
-  final void internalSetParentClient(C parentClient) {
-    // Asserts that the given client is not null.
+  final void setParentClient(C parentClient) {
     Validator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
-
-    // Asserts that the current session does not belong to a client.
     assertDoesNotBelongToClient();
 
-    // Sets the parent client of the current session.
     memberParentClient = parentClient;
   }
 
-  final void internalSetResult(final Object result) {
+  /**
+   * Sets the result of the current {@link AbstractSession}.
+   * 
+   * @param result
+   * @throws RuntimeException if the given result is null
+   */
+  final void setResult(final Object result) {
     Validator.assertThat(result).thatIsNamed(LowerCaseVariableNameCatalog.RESULT).isNotNull();
 
     memberResult = result;
@@ -192,9 +190,8 @@ implements ClientComponent<C>, IRefreshableSubscriber {
    *                          belong to a client.
    */
   private void assertBelongsToClient() {
-    // Asserts that the current {@link Session} belongs to a client.
     if (!belongsToClient()) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not belong to a client");
+      throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, BackendClient.class);
     }
   }
 
@@ -203,9 +200,8 @@ implements ClientComponent<C>, IRefreshableSubscriber {
    *                          client.
    */
   private void assertDoesNotBelongToClient() {
-    // Asserts that the current {@link Session} does not belong to a client.
     if (belongsToClient()) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "belongs to a client");
+      throw ArgumentBelongsToParentException.forArgumentAndParent(this, getStoredParentClient());
     }
   }
 }
