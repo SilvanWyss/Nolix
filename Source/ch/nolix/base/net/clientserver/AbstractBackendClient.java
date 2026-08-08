@@ -7,7 +7,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.net.clientserver.Application;
-import ch.nolix.baseapi.net.clientserver.IBackendClient;
+import ch.nolix.baseapi.net.clientserver.BackendClient;
 import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
 
 /**
@@ -18,7 +18,7 @@ import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
  */
 public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S>, S>
 extends AbstractClient<C>
-implements IBackendClient<S> {
+implements BackendClient<S> {
   @SuppressWarnings("unchecked")
   private final BackendClientSessionManager<C, S> sessionManager = BackendClientSessionManager.forClient((C) this);
 

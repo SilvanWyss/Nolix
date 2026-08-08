@@ -8,17 +8,17 @@ import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
 /**
  * @author Silvan Wyss
  * @param <S> the type of the application service of the parent application of a
- *            {@link IBackendClient}.
+ *            {@link BackendClient}.
  */
-public interface IBackendClient<S> extends Client {
+public interface BackendClient<S> extends Client {
   /**
-   * @return the application of the current {@link IBackendClient} as target.
+   * @return the application of the current {@link BackendClient} as target.
    */
   IApplicationInstanceTarget getApplicationAsTarget();
 
   /**
    * @return the application service of the parent application of the current
-   *         {@link IBackendClient}.
+   *         {@link BackendClient}.
    */
   S getStoredApplicationService();
 }

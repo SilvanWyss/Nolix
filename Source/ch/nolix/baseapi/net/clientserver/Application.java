@@ -9,9 +9,9 @@ import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
 /**
  * @author Silvan Wyss
  * @param <S> the type of the application service of a {@link Application}.
- * @param <C> the type of the {@link IBackendClient}s of a {@link Application}.
+ * @param <C> the type of the {@link BackendClient}s of a {@link Application}.
  */
-public interface Application<C extends IBackendClient<S>, S> extends ClientManager<C> {
+public interface Application<C extends BackendClient<S>, S> extends ClientManager<C> {
   /**
    * @return a target representation of the current {@link Application}.
    */
@@ -29,7 +29,7 @@ public interface Application<C extends IBackendClient<S>, S> extends ClientManag
   String getApplicationName();
 
   /**
-   * @return the class of the {@link IBackendClient}s of the current
+   * @return the class of the {@link BackendClient}s of the current
    *         {@link Application}.
    */
   Class<C> getClientClass();
@@ -57,7 +57,7 @@ public interface Application<C extends IBackendClient<S>, S> extends ClientManag
   String getUrlInstanceName();
 
   /**
-   * @return true if the current {@link Application} has a {@link IBackendClient}
+   * @return true if the current {@link Application} has a {@link BackendClient}
    *         connected, false otherwise
    */
   boolean hasClientConnected();
