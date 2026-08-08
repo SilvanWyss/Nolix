@@ -11,7 +11,7 @@ import ch.nolix.baseapi.net.endpoint.BaseEndPoint;
  * @author Silvan Wyss
  */
 public interface IEndPoint extends BaseEndPoint {
-  String getReplyForRequest(String request);
+  String getReplyForMessage(String message);
 
   boolean hasReplier();
 

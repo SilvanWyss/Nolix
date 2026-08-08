@@ -210,7 +210,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    *         stays connected, null otherwise.
    */
   @Override
-  public String getReplyForRequest(final String message) {
+  public String getReplyForMessage(final String message) {
     return sendAndWaitToReply(message);
   }
 

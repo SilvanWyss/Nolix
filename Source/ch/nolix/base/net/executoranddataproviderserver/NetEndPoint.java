@@ -222,7 +222,7 @@ public final class NetEndPoint extends AbstractEndPoint {
     final var message = MessageHeaderCatalog.MULTI_DATA_REQUEST_HEADER + '(' + requests.toString() + ')';
 
     // Sends message and receives reply.
-    final var reply = ImmutableNode.fromString(internalEndPoint.getReplyForRequest(message));
+    final var reply = ImmutableNode.fromString(internalEndPoint.getReplyForMessage(message));
 
     // Enumerates the header of the reply.
     return switch (reply.getHeader()) {
@@ -275,7 +275,7 @@ public final class NetEndPoint extends AbstractEndPoint {
     // Creates message.
     final var message = MessageHeaderCatalog.COMMANDS_HEADER + '(' + ExtendedIterableView.forIterable(commands) + ')';
 
-    final var replyAsString = internalEndPoint.getReplyForRequest(message);
+    final var replyAsString = internalEndPoint.getReplyForMessage(message);
 
     if (replyAsString == null) {
       // When one of the given commands is a redirect command, the counterpart will

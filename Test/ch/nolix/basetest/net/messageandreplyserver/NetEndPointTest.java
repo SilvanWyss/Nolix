@@ -46,7 +46,7 @@ final class NetEndPointTest extends StandardTest {
 
       try (final var testUnit = NetEndPoint.toLocalMachineAndGivenPortAndDefaultSlot(port)) {
         // execute
-        final var result = testUnit.getReplyForRequest("message");
+        final var result = testUnit.getReplyForMessage("message");
 
         // verify
         expect(slot.getLatestReceivedMessage()).isEqualTo("message");
