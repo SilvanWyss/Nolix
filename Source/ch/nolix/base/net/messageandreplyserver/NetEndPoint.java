@@ -10,10 +10,10 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.messageandreplyserverprotocol.MessageRole;
-import ch.nolix.baseapi.net.messageserver.IEndPoint;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
 import ch.nolix.baseapi.net.netproperty.SecurityMode;
+import ch.nolix.baseapi.net.senderandreceiverserver.EndPoint;
 
 /**
  * A {@link NetEndPoint} is a {@link AbstractEndPoint} that can send messages to
@@ -24,7 +24,7 @@ import ch.nolix.baseapi.net.netproperty.SecurityMode;
 public final class NetEndPoint extends AbstractEndPoint {
   private int nextSentPackageIndex = 1;
 
-  private final IEndPoint memberInternalEndPoint;
+  private final EndPoint memberInternalEndPoint;
 
   private final LinkedList<Package> receivedPackages = LinkedList.createEmpty();
 
@@ -36,7 +36,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws RuntimeException if the given port is not in [0, 65535]
    */
   private NetEndPoint(final int port) {
-    this(ch.nolix.base.net.messageserver.SocketEndPoint.toLocaleMachineAndGivenPortAndDefaultSlot(port));
+    this(ch.nolix.base.net.senderandreceiverserver.SocketEndPoint.toLocaleMachineAndGivenPortAndDefaultSlot(port));
   }
 
   /**
@@ -49,7 +49,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws RuntimeException if the given slot is null or blank
    */
   private NetEndPoint(final int port, final String slot) {
-    this(ch.nolix.base.net.messageserver.SocketEndPoint.toLocalMachineAndGivenPortAndGivenSlot(port, slot));
+    this(ch.nolix.base.net.senderandreceiverserver.SocketEndPoint.toLocalMachineAndGivenPortAndGivenSlot(port, slot));
   }
 
   /**
@@ -59,7 +59,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param host
    */
   private NetEndPoint(final String host) {
-    this(ch.nolix.base.net.messageserver.SocketEndPoint.toGivenHostAndHttpPortAndDefaultSlot(host));
+    this(ch.nolix.base.net.senderandreceiverserver.SocketEndPoint.toGivenHostAndHttpPortAndDefaultSlot(host));
   }
 
   /**
@@ -71,7 +71,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws RuntimeException if the given port is not in [0, 65535]
    */
   private NetEndPoint(final String host, final int port) {
-    this(ch.nolix.base.net.messageserver.SocketEndPoint.toGivenHostAndGivenPortAndDefaultSlot(host, port));
+    this(ch.nolix.base.net.senderandreceiverserver.SocketEndPoint.toGivenHostAndGivenPortAndDefaultSlot(host, port));
   }
 
   /**
@@ -86,7 +86,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws RuntimeException if the given slot is blank
    */
   private NetEndPoint(final String host, final int port, final String slot) {
-    this(ch.nolix.base.net.messageserver.SocketEndPoint.toGivenHostAndGivenPortAndGivenSlot(host, port, slot));
+    this(ch.nolix.base.net.senderandreceiverserver.SocketEndPoint.toGivenHostAndGivenPortAndGivenSlot(host, port, slot));
   }
 
   /**
@@ -95,7 +95,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param internalEndPoint
    * @throws RuntimeException if the given internalEndPoint is null
    */
-  private NetEndPoint(final IEndPoint internalEndPoint) {
+  private NetEndPoint(final EndPoint internalEndPoint) {
     Validator.assertThat(internalEndPoint).thatIsNamed("internal EndPoint").isNotNull();
 
     this.memberInternalEndPoint = internalEndPoint;
@@ -164,7 +164,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @return a new {@link NetEndPoint} with the given internalEndPoint
    * @throws RuntimeException if the given internalEndPoint is null
    */
-  static NetEndPoint withInternalEndPoint(final IEndPoint internalEndPoint) {
+  static NetEndPoint withInternalEndPoint(final EndPoint internalEndPoint) {
     return new NetEndPoint(internalEndPoint);
   }
 
@@ -225,7 +225,7 @@ public final class NetEndPoint extends AbstractEndPoint {
   /**
    * @return the internal end point of the current {@link NetEndPoint}.
    */
-  IEndPoint getStoredInternalEndPoint() {
+  EndPoint getStoredInternalEndPoint() {
     return memberInternalEndPoint;
   }
 

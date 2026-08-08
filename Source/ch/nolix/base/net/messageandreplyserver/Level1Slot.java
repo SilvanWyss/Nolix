@@ -5,13 +5,13 @@ package ch.nolix.base.net.messageandreplyserver;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.net.messageserver.IEndPoint;
-import ch.nolix.baseapi.net.messageserver.ISlot;
+import ch.nolix.baseapi.net.senderandreceiverserver.EndPoint;
+import ch.nolix.baseapi.net.senderandreceiverserver.Slot;
 
 /**
  * @author Silvan Wyss
  */
-public final class Level1Slot implements ISlot {
+public final class Level1Slot implements Slot {
   private final String name;
 
   private final AbstractServer parentServer;
@@ -57,7 +57,7 @@ public final class Level1Slot implements ISlot {
    * {@inheritDoc}
    */
   @Override
-  public void takeBackendEndPoint(final IEndPoint backendEndPoint) {
+  public void takeBackendEndPoint(final EndPoint backendEndPoint) {
     parentServer.internalTakeBackendEndPoint(NetEndPoint.withInternalEndPoint(backendEndPoint));
   }
 }
