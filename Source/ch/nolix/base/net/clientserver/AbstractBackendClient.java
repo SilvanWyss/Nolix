@@ -23,7 +23,8 @@ implements BackendClient<S> {
   private final BackendClientSessionManager<C, S> sessionManager = BackendClientSessionManager.forClient((C) this);
 
   /**
-   * The {@link AbstractApplication} the current {@link AbstractBackendClient} belongs to.
+   * The {@link AbstractApplication} the current {@link AbstractBackendClient}
+   * belongs to.
    */
   private AbstractApplication<C, S> memberParentApplication;
 
@@ -55,8 +56,16 @@ implements BackendClient<S> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean isOnBackend() {
+  public final boolean isBackendClient() {
     return true;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final boolean isFrontendClient() {
+    return false;
   }
 
   /**
@@ -160,13 +169,14 @@ implements BackendClient<S> {
   }
 
   /**
-   * Sets the {@link AbstractApplication} the current {@link AbstractBackendClient} will
-   * belong to.
+   * Sets the {@link AbstractApplication} the current
+   * {@link AbstractBackendClient} will belong to.
    * 
    * @param parentApplication
    * @throws RuntimeException if the given parentApplication is null
    * @throws RuntimeException if the current {@link AbstractBackendClient}
-   *                          references already its parent {@link AbstractApplication}.
+   *                          references already its parent
+   *                          {@link AbstractApplication}.
    */
   final void internalSetParentApplication(final AbstractApplication<C, S> parentApplication) {
     // Asserts that the given parent application is not null.
@@ -181,7 +191,8 @@ implements BackendClient<S> {
 
   /**
    * @throws RuntimeException if the current {@link AbstractBackendClient}
-   *                          references already its parent {@link AbstractApplication}.
+   *                          references already its parent
+   *                          {@link AbstractApplication}.
    */
   private void assertDoesNotReferenceParentApplication() {
     if (referencesParentApplication()) {
@@ -191,7 +202,8 @@ implements BackendClient<S> {
 
   /**
    * @throws RuntimeException if the current {@link AbstractBackendClient} does
-   *                          not reference its parent {@link AbstractApplication}.
+   *                          not reference its parent
+   *                          {@link AbstractApplication}.
    */
   private void assertReferencesParentApplication() {
     if (!referencesParentApplication()) {

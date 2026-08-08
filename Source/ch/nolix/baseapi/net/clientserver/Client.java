@@ -4,13 +4,12 @@
 package ch.nolix.baseapi.net.clientserver;
 
 import ch.nolix.baseapi.net.netattribute.SecurityModeHolder;
-import ch.nolix.baseapi.net.staterequest.ConnectionSideRequestable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 
 /**
  * @author Silvan Wyss
  */
-public interface Client extends ConnectionSideRequestable, GroupCloseable, SecurityModeHolder {
+public interface Client extends GroupCloseable, SecurityModeHolder {
   /**
    * @return the URL instance name of the target application of the current
    *         {@link Client}
@@ -24,6 +23,18 @@ public interface Client extends ConnectionSideRequestable, GroupCloseable, Secur
    *         false otherwise
    */
   boolean hasRequestedConnection();
+
+  /**
+   * @return true if the current {@link Client} is a back-end client, false
+   *         otherwise
+   */
+  boolean isBackendClient();
+
+  /**
+   * @return true if the current {@link Client} is a front-end client, false
+   *         otherwise
+   */
+  boolean isFrontendClient();
 
   /**
    * @return true if the current {@link Client} has the URL instance name of its

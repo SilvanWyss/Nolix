@@ -15,7 +15,7 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    * {@inheritDoc}
    */
   @Override
-  public final boolean isOnBackend() {
+  public final boolean isBackendClient() {
     return false;
   }
 
