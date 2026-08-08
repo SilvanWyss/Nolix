@@ -1,11 +1,11 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.net.sessionservertestutil;
+package ch.nolix.base.net.clientservertestutil;
 
-import ch.nolix.base.net.sessionserver.AbstractBackendClient;
-import ch.nolix.base.net.sessionserver.AbstractSession;
-import ch.nolix.base.net.sessionserver.Application;
+import ch.nolix.base.net.clientserver.AbstractBackendClient;
+import ch.nolix.base.net.clientserver.AbstractSession;
+import ch.nolix.base.net.clientserver.Application;
 import ch.nolix.base.validation.validator.Validator;
 
 /**

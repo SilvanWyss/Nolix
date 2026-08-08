@@ -1,13 +1,13 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.net.sessionserver;
+package ch.nolix.basetest.net.clientserver;
 
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.datamodel.dataobject.VoidObject;
-import ch.nolix.base.net.sessionserver.BasicApplication;
-import ch.nolix.base.net.sessionservertestutil.TestSession;
+import ch.nolix.base.net.clientserver.BasicApplication;
+import ch.nolix.base.net.clientservertestutil.TestSession;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.webapplication.main.WebClient;
 

@@ -1,14 +1,14 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.net.sessionserver;
+package ch.nolix.basetest.net.clientserver;
 
 import static org.mockito.Mockito.mock;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.net.sessionserver.Application;
-import ch.nolix.base.net.sessionserver.LocalServer;
+import ch.nolix.base.net.clientserver.Application;
+import ch.nolix.base.net.clientserver.LocalServer;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.net.netproperty.SecurityMode;

@@ -1,10 +1,10 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.net.sessionserver;
+package ch.nolix.basetest.net.clientserver;
 
 import ch.nolix.base.document.node.ImmutableNode;
-import ch.nolix.base.net.sessionserver.AbstractBackendClient;
+import ch.nolix.base.net.clientserver.AbstractBackendClient;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.Node;

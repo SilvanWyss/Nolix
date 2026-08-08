@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.net.sessionserver;
+package ch.nolix.baseapi.net.clientserver;
 
 import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
 

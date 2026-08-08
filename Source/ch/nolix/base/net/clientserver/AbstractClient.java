@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.net.sessionserver;
+package ch.nolix.base.net.clientserver;
 
 import ch.nolix.base.document.chainednode.ChainedNode;
 import ch.nolix.base.net.executoranddataproviderserver.AbstractEndPoint;
@@ -11,9 +11,9 @@ import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnconnectedArgumentException;
+import ch.nolix.baseapi.net.clientserver.Client;
 import ch.nolix.baseapi.net.executoranddataproviderserver.IEndPoint;
 import ch.nolix.baseapi.net.netproperty.SecurityMode;
-import ch.nolix.baseapi.net.sessionserver.Client;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 
 /**

@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.net.sessionserver;
+package ch.nolix.base.net.clientserver;
 
 import ch.nolix.base.datamodel.dataobject.VoidObject;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
@@ -11,9 +11,9 @@ import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.net.clientserver.IApplication;
+import ch.nolix.baseapi.net.clientserver.IServer;
 import ch.nolix.baseapi.net.executoranddataproviderserver.IEndPoint;
-import ch.nolix.baseapi.net.sessionserver.IApplication;
-import ch.nolix.baseapi.net.sessionserver.IServer;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 
 /**

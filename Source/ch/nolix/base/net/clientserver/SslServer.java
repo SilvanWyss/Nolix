@@ -1,13 +1,13 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.net.sessionserver;
+package ch.nolix.base.net.clientserver;
 
 import ch.nolix.base.net.ssl.NolixConfigurationSslCertificateReader;
 import ch.nolix.base.net.target.ServerTarget;
+import ch.nolix.baseapi.net.clientserver.IApplication;
 import ch.nolix.baseapi.net.netcatalog.PortCatalog;
 import ch.nolix.baseapi.net.netproperty.SecurityMode;
-import ch.nolix.baseapi.net.sessionserver.IApplication;
 import ch.nolix.baseapi.net.ssl.ISslCertificate;
 import ch.nolix.baseapi.net.target.IServerTarget;
 

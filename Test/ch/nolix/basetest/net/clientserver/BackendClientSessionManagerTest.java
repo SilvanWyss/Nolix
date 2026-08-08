@@ -1,11 +1,11 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.net.sessionserver;
+package ch.nolix.basetest.net.clientserver;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.net.sessionserver.BackendClientSessionManager;
+import ch.nolix.base.net.clientserver.BackendClientSessionManager;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;

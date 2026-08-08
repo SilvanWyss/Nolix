@@ -1,9 +1,9 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.net.sessionserver;
+package ch.nolix.basetest.net.clientserver;
 
-import ch.nolix.base.net.sessionserver.AbstractSession;
+import ch.nolix.base.net.clientserver.AbstractSession;
 
 /**
  * @author Silvan Wyss

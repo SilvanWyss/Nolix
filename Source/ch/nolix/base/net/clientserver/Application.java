@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.net.sessionserver;
+package ch.nolix.base.net.clientserver;
 
 import java.util.Locale;
 
@@ -17,8 +17,8 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBel
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
+import ch.nolix.baseapi.net.clientserver.IApplication;
 import ch.nolix.baseapi.net.executoranddataproviderserver.IEndPoint;
-import ch.nolix.baseapi.net.sessionserver.IApplication;
 import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
 import ch.nolix.baseapi.net.target.IServerTarget;
 

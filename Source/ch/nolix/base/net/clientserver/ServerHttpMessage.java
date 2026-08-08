@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.net.sessionserver;
+package ch.nolix.base.net.clientserver;
 
 import ch.nolix.base.environment.runningjar.RunningJar;
 import ch.nolix.base.foundation.resource.ResourcePathCatalog;
