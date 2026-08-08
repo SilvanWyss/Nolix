@@ -12,7 +12,7 @@ import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
-import ch.nolix.baseapi.net.clientserver.IApplication;
+import ch.nolix.baseapi.net.clientserver.Application;
 import ch.nolix.system.webapplication.main.WebClientSession;
 import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.system.webgui.main.ControlParent;
@@ -27,7 +27,7 @@ import ch.nolix.systemapi.webgui.main.Control;
  * @author Silvan Wyss
  * @param <C> the type of the {@link Controller} of a {@link Component}.
  * @param <S> the type of the application service of the parent
- *            {@link IApplication} of the parent web client of the parent web
+ *            {@link Application} of the parent web client of the parent web
  *            client session of the parent root GUI of a {@link Component}.
  * 
  */

@@ -4,7 +4,7 @@
 package ch.nolix.system.webapplication.main;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.net.clientserver.IApplication;
+import ch.nolix.baseapi.net.clientserver.Application;
 import ch.nolix.system.webapplication.base.AbstractWebClientSession;
 import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.webgui.main.Control;
@@ -12,7 +12,7 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
 
 /**
  * @author Silvan Wyss
- * @param <S> the type of the application service of the {@link IApplication} of
+ * @param <S> the type of the application service of the {@link Application} of
  *            the {@link WebClient} of a {@link WebClientSession}.
  */
 public abstract class WebClientSession<S> // NOSONAR: A web client session class is expected to be abstract.

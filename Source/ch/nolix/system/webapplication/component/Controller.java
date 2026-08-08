@@ -6,12 +6,12 @@ package ch.nolix.system.webapplication.component;
 import ch.nolix.base.net.clientserver.AbstractBackendClient;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.net.clientserver.IApplication;
+import ch.nolix.baseapi.net.clientserver.Application;
 import ch.nolix.system.webapplication.main.WebClientSession;
 
 /**
  * @author Silvan Wyss
- * @param <S> the type of the application service of the {@link IApplication} of
+ * @param <S> the type of the application service of the {@link Application} of
  *            the {@link AbstractBackendClient} of the {@link WebClientSession}
  *            of a {@link Controller}.
  */

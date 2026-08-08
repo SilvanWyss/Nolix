@@ -4,7 +4,7 @@
 package ch.nolix.base.net.clientserver;
 
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.baseapi.net.clientserver.IApplication;
+import ch.nolix.baseapi.net.clientserver.Application;
 import ch.nolix.baseapi.net.netproperty.SecurityMode;
 import ch.nolix.baseapi.net.target.IServerTarget;
 
@@ -40,7 +40,7 @@ public final class LocalServer extends AbstractServer<LocalServer> {
    * {@inheritDoc}
    */
   @Override
-  protected void noteAddedApplication(Application<?, ?> application) {
+  protected void noteAddedApplication(AbstractApplication<?, ?> application) {
     // Does nothing.
   }
 
@@ -48,7 +48,7 @@ public final class LocalServer extends AbstractServer<LocalServer> {
    * {@inheritDoc}
    */
   @Override
-  protected void noteAddedDefaultApplication(Application<?, ?> defaultApplication2) {
+  protected void noteAddedDefaultApplication(AbstractApplication<?, ?> defaultApplication2) {
     // Does nothing.
   }
 
@@ -56,7 +56,7 @@ public final class LocalServer extends AbstractServer<LocalServer> {
    * {@inheritDoc}
    */
   @Override
-  protected void noteRemovedApplication(IApplication<?, ?> application) {
+  protected void noteRemovedApplication(Application<?, ?> application) {
     // Does nothing.
   }
 }

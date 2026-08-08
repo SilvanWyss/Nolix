@@ -7,7 +7,7 @@ import static org.mockito.Mockito.mock;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.net.clientserver.Application;
+import ch.nolix.base.net.clientserver.AbstractApplication;
 import ch.nolix.base.net.clientserver.LocalServer;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
@@ -19,7 +19,7 @@ import ch.nolix.baseapi.net.netproperty.SecurityMode;
 final class LocalServerTest extends StandardTest {
   @Test
   void testCase_addApplication() {
-    final var applicationMock = mock(Application.class);
+    final var applicationMock = mock(AbstractApplication.class);
 
     try (final var testUnit = new LocalServer()) {
       // execute
@@ -34,7 +34,7 @@ final class LocalServerTest extends StandardTest {
   @Test
   @SuppressWarnings("unchecked")
   void testCase_addDefaultApplication() {
-    final var applicationMock = mock(Application.class);
+    final var applicationMock = mock(AbstractApplication.class);
 
     try (final var testUnit = new LocalServer()) {
       // execute

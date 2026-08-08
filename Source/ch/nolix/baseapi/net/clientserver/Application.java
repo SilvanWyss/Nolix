@@ -8,17 +8,17 @@ import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
 
 /**
  * @author Silvan Wyss
- * @param <S> the type of the application service of a {@link IApplication}.
- * @param <C> the type of the {@link IBackendClient}s of a {@link IApplication}.
+ * @param <S> the type of the application service of a {@link Application}.
+ * @param <C> the type of the {@link IBackendClient}s of a {@link Application}.
  */
-public interface IApplication<C extends IBackendClient<S>, S> extends ClientManager<C> {
+public interface Application<C extends IBackendClient<S>, S> extends ClientManager<C> {
   /**
-   * @return a target representation of the current {@link IApplication}.
+   * @return a target representation of the current {@link Application}.
    */
   IApplicationInstanceTarget asTarget();
 
   /**
-   * @return true if the current {@link IApplication} belongs to a server, false
+   * @return true if the current {@link Application} belongs to a server, false
    *         otherwise
    */
   boolean belongsToServer();
@@ -30,14 +30,14 @@ public interface IApplication<C extends IBackendClient<S>, S> extends ClientMana
 
   /**
    * @return the class of the {@link IBackendClient}s of the current
-   *         {@link IApplication}.
+   *         {@link Application}.
    */
   Class<C> getClientClass();
 
   /**
    * @return the appendix that forms the instance name of the current
-   *         {@link IApplication} when appended to the the application name of the
-   *         current {@link IApplication}.
+   *         {@link Application} when appended to the the application name of the
+   *         current {@link Application}.
    */
   String getInstanceAppendix();
 
@@ -47,23 +47,23 @@ public interface IApplication<C extends IBackendClient<S>, S> extends ClientMana
   String getInstanceName();
 
   /**
-   * @return the application service of the current {@link IApplication}.
+   * @return the application service of the current {@link Application}.
    */
   S getStoredApplicationService();
 
   /**
-   * @return the instance name of the current {@link IApplication} for URLs.
+   * @return the instance name of the current {@link Application} for URLs.
    */
   String getUrlInstanceName();
 
   /**
-   * @return true if the current {@link IApplication} has a {@link IBackendClient}
+   * @return true if the current {@link Application} has a {@link IBackendClient}
    *         connected, false otherwise
    */
   boolean hasClientConnected();
 
   /**
-   * @return true if the current {@link IApplication} has an instance appendix,
+   * @return true if the current {@link Application} has an instance appendix,
    *         false otherwise
    */
   boolean hasInstanceAppendix();

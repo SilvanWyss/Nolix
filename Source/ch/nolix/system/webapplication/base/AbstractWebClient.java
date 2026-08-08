@@ -10,7 +10,7 @@ import ch.nolix.base.net.clientserver.AbstractBackendClient;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.baseapi.net.clientserver.IApplication;
+import ch.nolix.baseapi.net.clientserver.Application;
 import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
 import ch.nolix.baseapi.web.cookie.ICookieManager;
 import ch.nolix.system.webapplication.protocol.ClientCommandCreator;
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.application.basewebapplicationprotocol.CommandProtocol
 /**
  * @author Silvan Wyss
  * @param <C> the type of a {@link AbstractWebClient}.
- * @param <S> the type of the application service of the {@link IApplication} of
+ * @param <S> the type of the application service of the {@link Application} of
  *            a {@link AbstractWebClient}.
  */
 public abstract class AbstractWebClient<C extends AbstractWebClient<C, S>, S>

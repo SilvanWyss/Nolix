@@ -5,7 +5,7 @@ package ch.nolix.base.net.clientserver;
 
 import ch.nolix.base.environment.localcomputer.LocalComputer;
 import ch.nolix.base.net.target.ServerTarget;
-import ch.nolix.baseapi.net.clientserver.IApplication;
+import ch.nolix.baseapi.net.clientserver.Application;
 import ch.nolix.baseapi.net.netcatalog.PortCatalog;
 import ch.nolix.baseapi.net.netproperty.SecurityMode;
 import ch.nolix.baseapi.net.server.SinglePortServer;
@@ -104,7 +104,7 @@ public final class Server extends AbstractServer<Server> implements SinglePortSe
    * {@inheritDoc}
    */
   @Override
-  protected void noteAddedApplication(final Application<?, ?> application) {
+  protected void noteAddedApplication(final AbstractApplication<?, ?> application) {
     internalServer.addSlot(Slot.withNameAndParentServer(application.getUrlInstanceName(), this));
   }
 
@@ -112,7 +112,7 @@ public final class Server extends AbstractServer<Server> implements SinglePortSe
    * {@inheritDoc}
    */
   @Override
-  protected void noteAddedDefaultApplication(final Application<?, ?> defaultApplication) {
+  protected void noteAddedDefaultApplication(final AbstractApplication<?, ?> defaultApplication) {
     internalServer.addDefaultSlot(Slot.withNameAndParentServer(defaultApplication.getUrlInstanceName(), this));
   }
 
@@ -120,7 +120,7 @@ public final class Server extends AbstractServer<Server> implements SinglePortSe
    * {@inheritDoc}
    */
   @Override
-  protected void noteRemovedApplication(final IApplication<?, ?> application) {
+  protected void noteRemovedApplication(final Application<?, ?> application) {
     internalServer.removeSlotByName(application.getUrlInstanceName());
   }
 }

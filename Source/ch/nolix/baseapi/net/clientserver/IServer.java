@@ -14,7 +14,7 @@ import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
  * @param <S> the type of a {@link IServer}.
  */
 public interface IServer<S extends IServer<S>>
-extends Clearable, GroupCloseable, ApplicationManager<IApplication<?, ?>>, SecurityModeHolder {
+extends Clearable, GroupCloseable, ApplicationManager<Application<?, ?>>, SecurityModeHolder {
   /**
    * Adds the given application to the current {@link IServer}.
    * 
@@ -22,10 +22,10 @@ extends Clearable, GroupCloseable, ApplicationManager<IApplication<?, ?>>, Secur
    * @return the current {@link IServer}
    * @throws RuntimeException if the given application is null
    * @throws RuntimeException if the current {@link IServer} contains already a
-   *                          {@link IApplication} with the same instanceName as
+   *                          {@link Application} with the same instanceName as
    *                          the given application.
    */
-  S addApplication(final IApplication<?, ?> application);
+  S addApplication(final Application<?, ?> application);
 
   /**
    * @return a target representation of the current {@link IServer}.
@@ -33,12 +33,12 @@ extends Clearable, GroupCloseable, ApplicationManager<IApplication<?, ?>>, Secur
   IServerTarget asTarget();
 
   /**
-   * Removes the {@link IApplication} with the given instanceName from the current
+   * Removes the {@link Application} with the given instanceName from the current
    * {@link IServer}.
    * 
    * @param instanceName
    * @throws RuntimeException if the current {@link IServer} does not contain a
-   *                          {@link IApplication} with the given instanceName.
+   *                          {@link Application} with the given instanceName.
    */
   void removeApplicationWithInstanceName(final String instanceName);
 }

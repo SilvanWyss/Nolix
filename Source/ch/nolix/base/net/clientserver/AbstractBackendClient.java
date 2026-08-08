@@ -6,14 +6,14 @@ package ch.nolix.base.net.clientserver;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.net.clientserver.IApplication;
+import ch.nolix.baseapi.net.clientserver.Application;
 import ch.nolix.baseapi.net.clientserver.IBackendClient;
 import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
 
 /**
  * @author Silvan Wyss
  * @param <C> the type of a {@link AbstractBackendClient}.
- * @param <S> the type of the application service of the {@link IApplication} of
+ * @param <S> the type of the application service of the {@link Application} of
  *            a {@link AbstractBackendClient}.
  */
 public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S>, S>
@@ -23,12 +23,12 @@ implements IBackendClient<S> {
   private final BackendClientSessionManager<C, S> sessionManager = BackendClientSessionManager.forClient((C) this);
 
   /**
-   * The {@link Application} the current {@link AbstractBackendClient} belongs to.
+   * The {@link AbstractApplication} the current {@link AbstractBackendClient} belongs to.
    */
-  private Application<C, S> memberParentApplication;
+  private AbstractApplication<C, S> memberParentApplication;
 
   /**
-   * @return the name of the parent {@link Application} of the current
+   * @return the name of the parent {@link AbstractApplication} of the current
    *         {@link AbstractBackendClient}.
    */
   public final String getApplicationName() {
@@ -160,15 +160,15 @@ implements IBackendClient<S> {
   }
 
   /**
-   * Sets the {@link Application} the current {@link AbstractBackendClient} will
+   * Sets the {@link AbstractApplication} the current {@link AbstractBackendClient} will
    * belong to.
    * 
    * @param parentApplication
    * @throws RuntimeException if the given parentApplication is null
    * @throws RuntimeException if the current {@link AbstractBackendClient}
-   *                          references already its parent {@link Application}.
+   *                          references already its parent {@link AbstractApplication}.
    */
-  final void internalSetParentApplication(final Application<C, S> parentApplication) {
+  final void internalSetParentApplication(final AbstractApplication<C, S> parentApplication) {
     // Asserts that the given parent application is not null.
     Validator.assertThat(parentApplication).thatIsNamed("parent application").isNotNull();
 
@@ -181,7 +181,7 @@ implements IBackendClient<S> {
 
   /**
    * @throws RuntimeException if the current {@link AbstractBackendClient}
-   *                          references already its parent {@link Application}.
+   *                          references already its parent {@link AbstractApplication}.
    */
   private void assertDoesNotReferenceParentApplication() {
     if (referencesParentApplication()) {
@@ -191,7 +191,7 @@ implements IBackendClient<S> {
 
   /**
    * @throws RuntimeException if the current {@link AbstractBackendClient} does
-   *                          not reference its parent {@link Application}.
+   *                          not reference its parent {@link AbstractApplication}.
    */
   private void assertReferencesParentApplication() {
     if (!referencesParentApplication()) {
@@ -200,12 +200,12 @@ implements IBackendClient<S> {
   }
 
   /**
-   * @return the parent {@link Application} of the current
+   * @return the parent {@link AbstractApplication} of the current
    *         {@link AbstractBackendClient}
    * @throws RuntimeException if the current {@link AbstractBackendClient} does
-   *                          not have a parent {@link Application}.
+   *                          not have a parent {@link AbstractApplication}.
    */
-  private Application<C, S> getStoredParentApplication() {
+  private AbstractApplication<C, S> getStoredParentApplication() {
     assertReferencesParentApplication();
 
     return memberParentApplication;
@@ -213,7 +213,7 @@ implements IBackendClient<S> {
 
   /**
    * @return true if the current {@link AbstractBackendClient} references its
-   *         parent {@link Application}, false otherwise
+   *         parent {@link AbstractApplication}, false otherwise
    */
   private boolean referencesParentApplication() {
     return (memberParentApplication != null);

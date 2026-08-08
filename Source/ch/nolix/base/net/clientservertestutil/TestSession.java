@@ -5,7 +5,7 @@ package ch.nolix.base.net.clientservertestutil;
 
 import ch.nolix.base.net.clientserver.AbstractBackendClient;
 import ch.nolix.base.net.clientserver.AbstractSession;
-import ch.nolix.base.net.clientserver.Application;
+import ch.nolix.base.net.clientserver.AbstractApplication;
 import ch.nolix.base.validation.validator.Validator;
 
 /**
@@ -13,7 +13,7 @@ import ch.nolix.base.validation.validator.Validator;
  * @param <C> the type of the parent {@link AbstractBackendClient} of a
  *            {@link TestSession}.
  * @param <S> the type of the application service of the parent
- *            {@link Application} of the parent {@link AbstractBackendClient} of
+ *            {@link AbstractApplication} of the parent {@link AbstractBackendClient} of
  *            a {@link TestSession}.
  */
 public final class TestSession<C extends AbstractBackendClient<C, S>, S> extends AbstractSession<C, S> {

@@ -17,7 +17,7 @@ import ch.nolix.baseapi.programcontrol.refresh.IRefreshableSubscriber;
  * @param <C> the type of the {@link AbstractBackendClient} of a
  *            {@link AbstractSession}.
  * @param <S> the type of the application service of the parent
- *            {@link Application} of the parent {@link AbstractBackendClient} of
+ *            {@link AbstractApplication} of the parent {@link AbstractBackendClient} of
  *            a {@link AbstractSession}.
  */
 public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S>
@@ -36,7 +36,7 @@ implements ClientComponent<C>, IRefreshableSubscriber {
   }
 
   /**
-   * @return the name of the parent {@link Application} of the parent
+   * @return the name of the parent {@link AbstractApplication} of the parent
    *         {@link AbstractClient} of the current {@link AbstractSession}.
    */
   public final String getApplicationName() {
@@ -44,7 +44,7 @@ implements ClientComponent<C>, IRefreshableSubscriber {
   }
 
   /**
-   * @return the context of the parent {@link Application} of the parent
+   * @return the context of the parent {@link AbstractApplication} of the parent
    *         {@link AbstractClient} of the current {@link AbstractSession}.
    */
   public final S getStoredApplicationService() {

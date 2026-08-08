@@ -5,7 +5,7 @@ package ch.nolix.base.net.clientserver;
 
 import ch.nolix.base.net.ssl.NolixConfigurationSslCertificateReader;
 import ch.nolix.base.net.target.ServerTarget;
-import ch.nolix.baseapi.net.clientserver.IApplication;
+import ch.nolix.baseapi.net.clientserver.Application;
 import ch.nolix.baseapi.net.netcatalog.PortCatalog;
 import ch.nolix.baseapi.net.netproperty.SecurityMode;
 import ch.nolix.baseapi.net.ssl.ISslCertificate;
@@ -93,7 +93,7 @@ public final class SslServer extends AbstractServer<SslServer> {
    * {@inheritDoc}
    */
   @Override
-  protected void noteAddedApplication(final Application<?, ?> application) {
+  protected void noteAddedApplication(final AbstractApplication<?, ?> application) {
     internalWebSocketServer.addSlot(Slot.withNameAndParentServer(application.getUrlInstanceName(), this));
   }
 
@@ -101,7 +101,7 @@ public final class SslServer extends AbstractServer<SslServer> {
    * {@inheritDoc}
    */
   @Override
-  protected void noteAddedDefaultApplication(final Application<?, ?> defaultApplication) {
+  protected void noteAddedDefaultApplication(final AbstractApplication<?, ?> defaultApplication) {
     internalWebSocketServer.addDefaultSlot(Slot.withNameAndParentServer(defaultApplication.getUrlInstanceName(), this));
   }
 
@@ -109,7 +109,7 @@ public final class SslServer extends AbstractServer<SslServer> {
    * {@inheritDoc}
    */
   @Override
-  protected void noteRemovedApplication(final IApplication<?, ?> application) {
+  protected void noteRemovedApplication(final Application<?, ?> application) {
     internalWebSocketServer.removeSlotByName(application.getUrlInstanceName());
   }
 }

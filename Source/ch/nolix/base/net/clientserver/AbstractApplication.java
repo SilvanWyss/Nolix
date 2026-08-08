@@ -17,7 +17,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBel
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
-import ch.nolix.baseapi.net.clientserver.IApplication;
+import ch.nolix.baseapi.net.clientserver.Application;
 import ch.nolix.baseapi.net.executoranddataproviderserver.IEndPoint;
 import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
 import ch.nolix.baseapi.net.target.IServerTarget;
@@ -25,12 +25,12 @@ import ch.nolix.baseapi.net.target.IServerTarget;
 /**
  * @author Silvan Wyss
  * @param <C> the type of the {@link AbstractBackendClient}s of a
- *            {@link Application}.
- * @param <S> the type of the application service of a {@link Application}.
+ *            {@link AbstractApplication}.
+ * @param <S> the type of the application service of a {@link AbstractApplication}.
  */
-public abstract class Application // NOSONAR: An application class is expected to be abstract.
+public abstract class AbstractApplication
 <C extends AbstractBackendClient<C, S>, S>
-implements IApplication<C, S> {
+implements Application<C, S> {
   private String instanceAddendix;
 
   private AbstractServer<?> parentServer;
@@ -40,12 +40,12 @@ implements IApplication<C, S> {
   private final ILinkedList<C> clients = LinkedList.createEmpty();
 
   /**
-   * Creates a new {@link Application} with the given applicationService.
+   * Creates a new {@link AbstractApplication} with the given applicationService.
    * 
    * @param applicationService
    * @throws RuntimeException if the given applicationService is null
    */
-  protected Application(final S applicationService) {
+  protected AbstractApplication(final S applicationService) {
     Validator.assertThat(applicationService).thatIsNamed("application service").isNotNull();
 
     this.applicationService = applicationService;
@@ -143,7 +143,7 @@ implements IApplication<C, S> {
   }
 
   /**
-   * Lets the current {@link Application} take the given client.
+   * Lets the current {@link AbstractApplication} take the given client.
    * 
    * @param client
    */
@@ -156,7 +156,7 @@ implements IApplication<C, S> {
   }
 
   /**
-   * Lets the current {@link Application} take the given endPoint.
+   * Lets the current {@link AbstractApplication} take the given endPoint.
    * 
    * @param endPoint
    */
@@ -166,17 +166,17 @@ implements IApplication<C, S> {
 
   /**
    * @return the initial {@link AbstractSession} class of the current
-   *         {@link Application}.
+   *         {@link AbstractApplication}.
    */
   protected abstract Class<?> getInitialSessionClass();
 
   /**
-   * Sets the given nameAddendix to the current {@link Application}.
+   * Sets the given nameAddendix to the current {@link AbstractApplication}.
    * 
    * @param nameAddendix
    * @throws RuntimeException if the given nameAddendix is null
    * @throws RuntimeException if the given nameAddendix is blank
-   * @throws RuntimeException if the current {@link Application} has already an
+   * @throws RuntimeException if the current {@link AbstractApplication} has already an
    *                          instance name.
    */
   final void setNameAppendix(final String nameAddendix) {
@@ -188,10 +188,10 @@ implements IApplication<C, S> {
   }
 
   /**
-   * Sets the parent {@link AbstractServer} of the current {@link Application}.
+   * Sets the parent {@link AbstractServer} of the current {@link AbstractApplication}.
    * 
    * @param parentServer
-   * @throws RuntimeException if the current {@link Application} belongs already
+   * @throws RuntimeException if the current {@link AbstractApplication} belongs already
    *                          to a {@link AbstractServer}.
    */
   final void setParentServer(final AbstractServer<?> parentServer) {
@@ -202,7 +202,7 @@ implements IApplication<C, S> {
   }
 
   /**
-   * @throws RuntimeException if the current {@link Application} does not belong
+   * @throws RuntimeException if the current {@link AbstractApplication} does not belong
    *                          to a {@link AbstractServer}.
    */
   private void assertBelongsToServer() {
@@ -212,7 +212,7 @@ implements IApplication<C, S> {
   }
 
   /**
-   * @throws RuntimeException if the current {@link Application} belongs already
+   * @throws RuntimeException if the current {@link AbstractApplication} belongs already
    *                          to a {@link AbstractServer}.
    */
   private void assertDoesNotBelongToServer() {
@@ -222,7 +222,7 @@ implements IApplication<C, S> {
   }
 
   /**
-   * @throws RuntimeException if the current {@link Application} has already an
+   * @throws RuntimeException if the current {@link AbstractApplication} has already an
    *                          instance name.
    */
   private void assertDoesNotHaveNameAddendum() {
@@ -233,7 +233,7 @@ implements IApplication<C, S> {
 
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link Application} does not
+   *                                               {@link AbstractApplication} does not
    *                                               have a name addendum.
    */
   private void assertHasNameAddendum() {
@@ -244,7 +244,7 @@ implements IApplication<C, S> {
 
   /**
    * @param serverTarget
-   * @return the current {@link Application} as target using the given
+   * @return the current {@link AbstractApplication} as target using the given
    *         serverTarget.
    */
   private IApplicationInstanceTarget asTargetWithServerTarget(final IServerTarget serverTarget) {
@@ -270,7 +270,7 @@ implements IApplication<C, S> {
 
   /**
    * @return a new initial {@link AbstractSession} for a {@link AbstractClient} of
-   *         the current {@link Application}.
+   *         the current {@link AbstractApplication}.
    */
   @SuppressWarnings("unchecked")
   private AbstractSession<C, S> createInitialSession() {
@@ -278,8 +278,8 @@ implements IApplication<C, S> {
   }
 
   /**
-   * @return the parent {@link AbstractServer} of the current {@link Application}
-   * @throws RuntimeException if the current {@link Application} does not belong
+   * @return the parent {@link AbstractServer} of the current {@link AbstractApplication}
+   * @throws RuntimeException if the current {@link AbstractApplication} does not belong
    *                          to a {@link AbstractServer}.
    */
   private AbstractServer<?> getStoredParentServer() {
@@ -290,7 +290,7 @@ implements IApplication<C, S> {
 
   /**
    * Removes the closed {@link AbstractClient}s of the current
-   * {@link Application}.
+   * {@link AbstractApplication}.
    */
   private void removeClosedClients() {
     clients.removeAll(AbstractClient::isClosed);

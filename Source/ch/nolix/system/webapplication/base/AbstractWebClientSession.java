@@ -4,7 +4,7 @@
 package ch.nolix.system.webapplication.base;
 
 import ch.nolix.base.net.clientserver.AbstractSession;
-import ch.nolix.baseapi.net.clientserver.IApplication;
+import ch.nolix.baseapi.net.clientserver.Application;
 import ch.nolix.systemapi.gui.frontend.IFrontEndReader;
 import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
 
@@ -12,7 +12,7 @@ import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
  * @author Silvan Wyss
  * @param <C> the type of the {@link AbstractWebClient} of a
  *            {@link AbstractWebClientSession}.
- * @param <S> the type of the application service of the {@link IApplication} of
+ * @param <S> the type of the application service of the {@link Application} of
  *            the {@link AbstractWebClient} of a
  *            {@link AbstractWebClientSession}.
  */

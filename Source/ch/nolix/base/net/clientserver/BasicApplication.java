@@ -11,7 +11,7 @@ import ch.nolix.base.validation.validator.Validator;
  *            {@link BasicApplication}.
  * @param <S> the type of the application service of a {@link BasicApplication}.
  */
-public final class BasicApplication<C extends AbstractBackendClient<C, S>, S> extends Application<C, S> {
+public final class BasicApplication<C extends AbstractBackendClient<C, S>, S> extends AbstractApplication<C, S> {
   private final String applicationName;
 
   private final Class<?> initialSessionClass;
