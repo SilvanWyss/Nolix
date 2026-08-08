@@ -31,6 +31,6 @@ public final class TestSlot implements ISlot {
   public void takeBackendEndPoint(final IEndPoint backendEndPoint) {
     latestCreatedReceivingDataProviderController = new TestReceivingDataProviderController();
 
-    backendEndPoint.setReceivingDataProviderController(latestCreatedReceivingDataProviderController);
+    backendEndPoint.setExecutorAndDataProvider(latestCreatedReceivingDataProviderController);
   }
 }

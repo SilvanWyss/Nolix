@@ -28,7 +28,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    * {@inheritDoc}
    */
   @Override
-  public final boolean hasReceivingDataProviderController() {
+  public final boolean hasExecutorAndDataProvider() {
     return (receiverController != null);
   }
 
@@ -54,7 +54,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    * {@inheritDoc}
    */
   @Override
-  public final void setReceivingDataProviderController(final ExecutorAndDataProvider receiverController) {
+  public final void setExecutorAndDataProvider(final ExecutorAndDataProvider receiverController) {
     // Asserts that the given receiverController is not null.
     Validator.assertThat(receiverController).thatIsNamed("receiver controller").isNotNull();
 
@@ -78,15 +78,15 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    *                                               not have a receiver controller.
    */
   ExecutorAndDataProvider getStoredReceiverController() {
-    if (hasReceivingDataProviderController()) {
+    if (hasExecutorAndDataProvider()) {
       return receiverController;
     }
 
     FlowController
       .forMaxMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS)
-      .waitUntil(this::hasReceivingDataProviderController);
+      .waitUntil(this::hasExecutorAndDataProvider);
 
-    if (!hasReceivingDataProviderController()) {
+    if (!hasExecutorAndDataProvider()) {
       throw //
       ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.RECEIVER);
     }

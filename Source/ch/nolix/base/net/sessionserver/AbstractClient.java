@@ -156,7 +156,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Cli
 
     final var clientDataProviderController = ClientDataProviderController.forClient(this);
 
-    endPoint.setReceivingDataProviderController(clientDataProviderController);
+    endPoint.setExecutorAndDataProvider(clientDataProviderController);
   }
 
   /**
