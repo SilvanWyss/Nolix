@@ -113,7 +113,10 @@ public final class Server extends AbstractServer<Server> implements SinglePortSe
    */
   @Override
   protected void noteAddedDefaultApplication(final AbstractApplication<?, ?> defaultApplication) {
-    internalServer.addDefaultSlot(ExecutorAndDataProviderSlot.withNameAndParentServer(defaultApplication.getUrlInstanceName(), this));
+    final var executorAndDataProviderSlot = //
+    ExecutorAndDataProviderSlot.withNameAndParentServer(defaultApplication.getUrlInstanceName(), this);
+
+    internalServer.addDefaultSlot(executorAndDataProviderSlot);
   }
 
   /**

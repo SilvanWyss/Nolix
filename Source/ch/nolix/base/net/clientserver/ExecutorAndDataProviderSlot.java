@@ -41,7 +41,9 @@ final class ExecutorAndDataProviderSlot implements Slot {
    * @throws RuntimeException if given name is null or blank
    * @throws RuntimeException if the given parentServer is null
    */
-  public static ExecutorAndDataProviderSlot withNameAndParentServer(final String name, final AbstractServer<?> parentServer) {
+  public static ExecutorAndDataProviderSlot withNameAndParentServer(
+    final String name,
+    final AbstractServer<?> parentServer) {
     return new ExecutorAndDataProviderSlot(name, parentServer);
   }
 

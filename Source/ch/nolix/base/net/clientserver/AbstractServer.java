@@ -61,7 +61,9 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    *                          already a {@link AbstractApplication} with the given
    *                          instanceName.
    */
-  public final S addApplicationWithNameAddendum(final AbstractApplication<?, ?> application, final String nameAddendum) {
+  public final S addApplicationWithNameAddendum(
+    final AbstractApplication<?, ?> application,
+    final String nameAddendum) {
     application.setParentServer(this);
     application.setNameAppendix(nameAddendum);
 
@@ -107,8 +109,8 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
   }
 
   /**
-   * Adds a new {@link AbstractApplication} with the given name, initialSessionClass and a
-   * void context to the current {@link AbstractServer}.
+   * Adds a new {@link AbstractApplication} with the given name,
+   * initialSessionClass and a void context to the current {@link AbstractServer}.
    * 
    * @param name
    * @param initialSessionClass
@@ -119,8 +121,8 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank
    * @throws RuntimeException if the current {@link AbstractServer} contains
-   *                          already a {@link AbstractApplication} with an instanceName
-   *                          that equals the given name
+   *                          already a {@link AbstractApplication} with an
+   *                          instanceName that equals the given name
    * @throws RuntimeException if the given initialSessionClass is null
    */
   public final <T extends AbstractSession<C, Object>, C extends AbstractBackendClient<C, Object>> S //
@@ -139,8 +141,8 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
 
   /**
    * Adds the given defaultApplication to the current {@link AbstractServer}. A
-   * default {@link AbstractApplication} takes all {@link AbstractClient}s that do not
-   * have a target.
+   * default {@link AbstractApplication} takes all {@link AbstractClient}s that do
+   * not have a target.
    * 
    * @param defaultApplication
    * @param <C>                the type of the {@link AbstractBackendClient} of
@@ -200,9 +202,9 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
   }
 
   /**
-   * Adds a new {@link AbstractApplication} with the given name, initialSessionClass and a
-   * void context as default {@link AbstractApplication} the current
-   * {@link AbstractServer}.
+   * Adds a new {@link AbstractApplication} with the given name,
+   * initialSessionClass and a void context as default {@link AbstractApplication}
+   * the current {@link AbstractServer}.
    * 
    * @param name
    * @param initialSessionClass
@@ -213,8 +215,8 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank
    * @throws RuntimeException if the current {@link AbstractServer} contains
-   *                          already a {@link AbstractApplication} with an instanceName
-   *                          that equals the given name
+   *                          already a {@link AbstractApplication} with an
+   *                          instanceName that equals the given name
    * @throws RuntimeException if the given initialSessionClass is null
    */
   public final <T extends AbstractSession<C, Object>, C extends AbstractBackendClient<C, Object>> S//
@@ -258,11 +260,12 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
 
   /**
    * @param instanceName
-   * @return the {@link AbstractApplication} with the given instanceName from the current
-   *         {@link AbstractServer}
+   * @return the {@link AbstractApplication} with the given instanceName from the
+   *         current {@link AbstractServer}
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractServer} does not
-   *                                               contain a {@link AbstractApplication}
+   *                                               contain a
+   *                                               {@link AbstractApplication}
    *                                               with the given instanceName.
    */
   public final AbstractApplication<?, ?> getStoredApplicationByInstanceName(final String instanceName) {
@@ -271,11 +274,12 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
 
   /**
    * @param urlInstanceName
-   * @return the {@link AbstractApplication} with the given urlInstanceName from the
-   *         current {@link AbstractServer}
+   * @return the {@link AbstractApplication} with the given urlInstanceName from
+   *         the current {@link AbstractServer}
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractServer} does not
-   *                                               contain a {@link AbstractApplication}
+   *                                               contain a
+   *                                               {@link AbstractApplication}
    *                                               with the given urlInstanceName.
    */
   public final AbstractApplication<?, ?> getStoredApplicationByUrlInstanceName(final String urlInstanceName) {
@@ -299,7 +303,8 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
   }
 
   /**
-   * @return the default {@link AbstractApplication} of the current {@link AbstractServer}
+   * @return the default {@link AbstractApplication} of the current
+   *         {@link AbstractServer}
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractServer} does not
    *                                               contain a default
@@ -358,7 +363,8 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @throws ArgumentDoesNotHaveAttributeException if the given client has a
    *                                               target and the current
    *                                               {@link AbstractServer} does not
-   *                                               contain a {@link AbstractApplication}
+   *                                               contain a
+   *                                               {@link AbstractApplication}
    *                                               with a name that equals the
    *                                               given target.
    */
@@ -421,13 +427,13 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
   }
 
   /**
-   * Adds the given application to the list of {@link AbstractApplication}s of the current
-   * {@link AbstractServer}.
+   * Adds the given application to the list of {@link AbstractApplication}s of the
+   * current {@link AbstractServer}.
    * 
    * @param application
    * @throws RuntimeException if the current {@link AbstractServer} contains
-   *                          already a {@link AbstractApplication} with the same name as
-   *                          one of the given applications.
+   *                          already a {@link AbstractApplication} with the same
+   *                          name as one of the given applications.
    */
   private void addApplicationToList(final AbstractApplication<?, ?> application) {
     // Asserts that the current Server does not contain already
@@ -454,8 +460,8 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
   /**
    * @param name
    * @throws RuntimeException if the current {@link AbstractServer} contains
-   *                          already a {@link AbstractApplication} with the same name as
-   *                          one of the given applications.
+   *                          already a {@link AbstractApplication} with the same
+   *                          name as one of the given applications.
    */
   private void assertDoesNotContainApplicationWithName(final String name) {
     if (containsApplicationWithName(name)) {

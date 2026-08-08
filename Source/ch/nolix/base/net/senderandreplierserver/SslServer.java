@@ -16,7 +16,10 @@ public final class SslServer extends AbstractServer {
 
   private SslServer(final int port, final String HtmlPage, final ISslCertificate paramSSLCertificate) {
     internalWebSocketServer = //
-    ch.nolix.base.net.senderandreceiverserver.SslServer.forPortAndHtmlPageAndSSLCertificate(port, HtmlPage, paramSSLCertificate);
+    ch.nolix.base.net.senderandreceiverserver.SslServer.forPortAndHtmlPageAndSSLCertificate(
+      port,
+      HtmlPage,
+      paramSSLCertificate);
 
     createCloseDependencyTo(internalWebSocketServer);
   }
