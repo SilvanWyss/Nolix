@@ -120,26 +120,25 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
   }
 
   /**
-   * Creates a new {@link AbstractNetEndPoint} with the given socket and target.
-   * The given socketInputStream and the given socketOutputStream belong to the
-   * given socket.
+   * Creates a new {@link AbstractNetEndPoint} with the given socket and slot. The
+   * given socketInputStream and the given socketOutputStream belong to the given
+   * socket.
    * 
    * @param socket
    * @param socketInputStream
    * @param socketOutputStream
-   * @param target
+   * @param slot
    * @throws RuntimeException if the given socket is null
    * @throws RuntimeException if the given socketInputStream is null
    * @throws RuntimeException if the given socketOutputStream is null
-   * @throws RuntimeException if the given target is null
-   * @throws RuntimeException if the given target is blank
+   * @throws RuntimeException if the given slot is null or blank
    */
   private SocketEndPoint(
     final Socket socket,
     final InputStream socketInputStream,
     final OutputStream socketOutputStream,
-    final String target) {
-    super(target);
+    final String slot) {
+    super(slot);
 
     Validator.assertThat(socket).thatIsNamed(Socket.class).isNotNull();
     Validator.assertThat(socketInputStream).thatIsNamed("socket input stream").isNotNull();
@@ -155,12 +154,21 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
 
   /**
    * @param host
+   * @return a new {@link SocketEndPoint} that will connect to the default slot on
+   *         the HTTP port on the given host.
+   */
+  public static SocketEndPoint toHostAndHttpPortAndDefaultSlot(final String host) {
+    return new SocketEndPoint(host, PortCatalog.HTTP);
+  }
+
+  /**
+   * @param host
    * @param port
    * @return a new {@link SocketEndPoint} that will connect to the default slot on
    *         the given port on the given host
    * @throws RuntimeException if the given port is not in [0, 65535]
    */
-  public static SocketEndPoint toGivenHostAndGivenPortAndDefaultSlot(final String host, final int port) {
+  public static SocketEndPoint toHostAndPortAndDefaultSlot(final String host, final int port) {
     return new SocketEndPoint(host, port);
   }
 
@@ -174,20 +182,11 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @throws RuntimeException if the given slot is null
    * @throws RuntimeException if the given slot is blank
    */
-  public static SocketEndPoint toGivenHostAndGivenPortAndGivenSlot(
+  public static SocketEndPoint toHostAndPortAndSlot(
     final String host,
     final int port,
     final String slot) {
     return new SocketEndPoint(host, port, slot);
-  }
-
-  /**
-   * @param host
-   * @return a new {@link SocketEndPoint} that will connect to the default slot on
-   *         the HTTP port on the given host.
-   */
-  public static SocketEndPoint toGivenHostAndHttpPortAndDefaultSlot(final String host) {
-    return new SocketEndPoint(host, PortCatalog.HTTP);
   }
 
   /**
@@ -196,7 +195,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    *         the given port on the locale machine
    * @throws RuntimeException if the given port is not in [0, 65535]
    */
-  public static SocketEndPoint toLocaleMachineAndGivenPortAndDefaultSlot(final int port) {
+  public static SocketEndPoint toLocalHostAndPortAndDefaultSlot(final int port) {
     return new SocketEndPoint(IPv6Catalog.LOOP_BACK_ADDRESS, port);
   }
 
@@ -206,10 +205,9 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    *         the given port on the local machine
    * @param slot
    * @throws RuntimeException if the given port is not in [0, 65535]
-   * @throws RuntimeException if the given target slot null
-   * @throws RuntimeException if the given target slot blank
+   * @throws RuntimeException if the given slot slot null or blank
    */
-  public static SocketEndPoint toLocalMachineAndGivenPortAndGivenSlot(final int port, final String slot) {
+  public static SocketEndPoint toLocalHostAndPortAndSlot(final int port, final String slot) {
     return new SocketEndPoint(IPv6Catalog.LOOP_BACK_ADDRESS, port, slot);
   }
 
@@ -235,22 +233,21 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @param socket
    * @param socketInputStream
    * @param socketOutputStream
-   * @param target
-   * @return a new {@link AbstractNetEndPoint} with the given socket and target.
-   *         The given socketInputStream and the given socketOutputStream belong
-   *         to the given socket
+   * @param slot
+   * @return a new {@link AbstractNetEndPoint} with the given socket and slot. The
+   *         given socketInputStream and the given socketOutputStream belong to
+   *         the given socket
    * @throws RuntimeException if the given socket is null
    * @throws RuntimeException if the given socketInputStream is null
    * @throws RuntimeException if the given socketOutputStream is null
-   * @throws RuntimeException if the given target is null
-   * @throws RuntimeException if the given target is blank
+   * @throws RuntimeException if the given slot is null or blank
    */
-  public static SocketEndPoint withSocketAndSocketInputStreamAndSocketOutputStreamAndTarget(
+  public static SocketEndPoint withSocketAndSocketInputStreamAndSocketOutputStreamAndSlot(
     final Socket socket,
     final InputStream socketInputStream,
     final OutputStream socketOutputStream,
-    final String target) {
-    return new SocketEndPoint(socket, socketInputStream, socketOutputStream, target);
+    final String slot) {
+    return new SocketEndPoint(socket, socketInputStream, socketOutputStream, slot);
   }
 
   /**

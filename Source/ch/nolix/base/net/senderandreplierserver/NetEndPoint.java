@@ -36,7 +36,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws RuntimeException if the given port is not in [0, 65535]
    */
   private NetEndPoint(final int port) {
-    this(ch.nolix.base.net.senderandreceiverserver.SocketEndPoint.toLocaleMachineAndGivenPortAndDefaultSlot(port));
+    this(ch.nolix.base.net.senderandreceiverserver.SocketEndPoint.toLocalHostAndPortAndDefaultSlot(port));
   }
 
   /**
@@ -49,7 +49,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws RuntimeException if the given slot is null or blank
    */
   private NetEndPoint(final int port, final String slot) {
-    this(ch.nolix.base.net.senderandreceiverserver.SocketEndPoint.toLocalMachineAndGivenPortAndGivenSlot(port, slot));
+    this(ch.nolix.base.net.senderandreceiverserver.SocketEndPoint.toLocalHostAndPortAndSlot(port, slot));
   }
 
   /**
@@ -59,7 +59,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param host
    */
   private NetEndPoint(final String host) {
-    this(ch.nolix.base.net.senderandreceiverserver.SocketEndPoint.toGivenHostAndHttpPortAndDefaultSlot(host));
+    this(ch.nolix.base.net.senderandreceiverserver.SocketEndPoint.toHostAndHttpPortAndDefaultSlot(host));
   }
 
   /**
@@ -71,7 +71,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws RuntimeException if the given port is not in [0, 65535]
    */
   private NetEndPoint(final String host, final int port) {
-    this(ch.nolix.base.net.senderandreceiverserver.SocketEndPoint.toGivenHostAndGivenPortAndDefaultSlot(host, port));
+    this(ch.nolix.base.net.senderandreceiverserver.SocketEndPoint.toHostAndPortAndDefaultSlot(host, port));
   }
 
   /**
@@ -86,7 +86,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws RuntimeException if the given slot is blank
    */
   private NetEndPoint(final String host, final int port, final String slot) {
-    this(ch.nolix.base.net.senderandreceiverserver.SocketEndPoint.toGivenHostAndGivenPortAndGivenSlot(host, port, slot));
+    this(ch.nolix.base.net.senderandreceiverserver.SocketEndPoint.toHostAndPortAndSlot(host, port, slot));
   }
 
   /**
