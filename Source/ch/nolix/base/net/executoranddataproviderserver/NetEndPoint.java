@@ -28,7 +28,7 @@ import ch.nolix.baseapi.net.netproperty.SecurityMode;
  * @author Silvan Wyss
  */
 public final class NetEndPoint extends AbstractEndPoint {
-  private final ch.nolix.baseapi.net.messageandreplyserver.IEndPoint internalEndPoint;
+  private final ch.nolix.baseapi.net.senderandreplierserver.EndPoint internalEndPoint;
 
   /**
    * Creates a new {@link NetEndPoint} that will connect to the default slot on
@@ -38,7 +38,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws RuntimeException if the given port is not in [0, 65535]
    */
   private NetEndPoint(final int port) {
-    this(ch.nolix.base.net.messageandreplyserver.NetEndPoint.toLocalMachineAndGivenPortAndDefaultSlot(port));
+    this(ch.nolix.base.net.senderandreplierserver.NetEndPoint.toLocalMachineAndGivenPortAndDefaultSlot(port));
   }
 
   /**
@@ -51,7 +51,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws RuntimeException if the given slot is null or blank
    */
   private NetEndPoint(final int port, final String slot) {
-    this(ch.nolix.base.net.messageandreplyserver.NetEndPoint.toLocalMachineAndGivenPortAndGivenSlot(port, slot));
+    this(ch.nolix.base.net.senderandreplierserver.NetEndPoint.toLocalMachineAndGivenPortAndGivenSlot(port, slot));
   }
 
   /**
@@ -61,7 +61,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param host
    */
   private NetEndPoint(final String host) {
-    this(ch.nolix.base.net.messageandreplyserver.NetEndPoint.toGivenHostAndHttpPortAndDefaultSlot(host));
+    this(ch.nolix.base.net.senderandreplierserver.NetEndPoint.toGivenHostAndHttpPortAndDefaultSlot(host));
   }
 
   /**
@@ -73,7 +73,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws RuntimeException if the given port is not in [0, 65535]
    */
   private NetEndPoint(final String host, final int port) {
-    this(ch.nolix.base.net.messageandreplyserver.NetEndPoint.toGivenHostAndGivenPortAndDefaultSlot(host, port));
+    this(ch.nolix.base.net.senderandreplierserver.NetEndPoint.toGivenHostAndGivenPortAndDefaultSlot(host, port));
   }
 
   /**
@@ -87,7 +87,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws RuntimeException if the given slot is null or blank
    */
   private NetEndPoint(final String host, final int port, final String slot) {
-    this(ch.nolix.base.net.messageandreplyserver.NetEndPoint.toGivenHostAndGivenPortAndGivenSlot(host, port, slot));
+    this(ch.nolix.base.net.senderandreplierserver.NetEndPoint.toGivenHostAndGivenPortAndGivenSlot(host, port, slot));
   }
 
   /**
@@ -97,7 +97,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws RuntimeException if the given internalEndPoint is null or not a net
    *                          end point.
    */
-  private NetEndPoint(final ch.nolix.baseapi.net.messageandreplyserver.IEndPoint internalEndPoint) {
+  private NetEndPoint(final ch.nolix.baseapi.net.senderandreplierserver.EndPoint internalEndPoint) {
     if (internalEndPoint.getConnectionType().getBaseType() != BaseConnectionType.NET) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(internalEndPoint, "is not a net end point");
     }
@@ -171,7 +171,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws RuntimeException if the given internalEndPoint is null or not a net
    *                          end point.
    */
-  static NetEndPoint withInternalEndPoint(final ch.nolix.baseapi.net.messageandreplyserver.IEndPoint internalEndPoint) {
+  static NetEndPoint withInternalEndPoint(final ch.nolix.baseapi.net.senderandreplierserver.EndPoint internalEndPoint) {
     return new NetEndPoint(internalEndPoint);
   }
 

@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.net.messageandreplyserver;
+package ch.nolix.base.net.senderandreplierserver;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
@@ -11,7 +11,7 @@ import ch.nolix.baseapi.net.senderandreceiverserver.Slot;
 /**
  * @author Silvan Wyss
  */
-public final class Level1Slot implements Slot {
+public final class SenderAndReceiverSlot implements Slot {
   private final String name;
 
   private final AbstractServer parentServer;
@@ -25,7 +25,7 @@ public final class Level1Slot implements Slot {
    * @throws RuntimeException if given name is null or blank
    * @throws RuntimeException if the given parentServer is null
    */
-  private Level1Slot(final String name, final AbstractServer parentServer) {
+  private SenderAndReceiverSlot(final String name, final AbstractServer parentServer) {
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableNameCatalog.NAME).isNotBlank();
     Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
 
@@ -36,13 +36,13 @@ public final class Level1Slot implements Slot {
   /**
    * @param name
    * @param parentServer
-   * @return a new {@link Level1Slot} with the given name and that will belong to the
+   * @return a new {@link SenderAndReceiverSlot} with the given name and that will belong to the
    *         given parentServer
    * @throws RuntimeException if given name is null or blank
    * @throws RuntimeException if the given parentServer is null
    */
-  public static Level1Slot withNameAndParentServer(final String name, final AbstractServer parentServer) {
-    return new Level1Slot(name, parentServer);
+  public static SenderAndReceiverSlot withNameAndParentServer(final String name, final AbstractServer parentServer) {
+    return new SenderAndReceiverSlot(name, parentServer);
   }
 
   /**

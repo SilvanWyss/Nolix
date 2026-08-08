@@ -1,12 +1,12 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.net.messageandreplyserver;
+package ch.nolix.basetest.net.senderandreplierserver;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.net.messageandreplyserver.NetEndPoint;
-import ch.nolix.base.net.messageandreplyserver.Server;
+import ch.nolix.base.net.senderandreplierserver.NetEndPoint;
+import ch.nolix.base.net.senderandreplierserver.NetServer;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.testing.standardtest.StandardTest;
 
@@ -19,7 +19,7 @@ final class NetEndPointTest extends StandardTest {
     // define test parameters
     final var port = 50000;
 
-    try (final var server = Server.forPort(50000)) {
+    try (final var server = NetServer.forPort(50000)) {
       // setup
       server.addDefaultSlot(new MockSlot());
 
@@ -39,7 +39,7 @@ final class NetEndPointTest extends StandardTest {
     // define test parameters
     final var port = 50000;
 
-    try (final var server = Server.forPort(50000)) {
+    try (final var server = NetServer.forPort(50000)) {
       // setup
       final var slot = new MockSlot();
       server.addDefaultSlot(slot);

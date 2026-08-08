@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.net.messageandreplyserver;
+package ch.nolix.base.net.senderandreplierserver;
 
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
@@ -10,12 +10,12 @@ import ch.nolix.base.net.baseendpoint.AbstractBaseEndPoint;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
-import ch.nolix.baseapi.net.messageandreplyserver.IEndPoint;
+import ch.nolix.baseapi.net.senderandreplierserver.EndPoint;
 
 /**
  * @author Silvan Wyss
  */
-public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements IEndPoint {
+public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements EndPoint {
   private static final long REPLIER_GETTING_DELAY_IN_MILLISECONDS = 5000;
 
   private Function<String, String> replier;

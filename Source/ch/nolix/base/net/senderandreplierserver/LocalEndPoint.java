@@ -1,14 +1,14 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.net.messageandreplyserver;
+package ch.nolix.base.net.senderandreplierserver;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.net.messageandreplyserver.ISlot;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
 import ch.nolix.baseapi.net.netproperty.SecurityMode;
+import ch.nolix.baseapi.net.senderandreplierserver.Slot;
 
 /**
  * A local end point can send messages to an other local end point.
@@ -28,7 +28,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @param slot
    * @throws NullPointerException if the given slot is null
    */
-  private LocalEndPoint(final ISlot slot) {
+  private LocalEndPoint(final Slot slot) {
     this.peerType = PeerType.FRONTEND;
     this.counterpart = new LocalEndPoint(this, slot.getName());
     this.target = null;
@@ -84,7 +84,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @return a new {@link LocalEndPoint} that will connect to the given slot
    * @throws NullPointerException if the given slot is null
    */
-  public static LocalEndPoint toSlot(final ISlot slot) {
+  public static LocalEndPoint toSlot(final Slot slot) {
     return new LocalEndPoint(slot);
   }
 

@@ -1,18 +1,18 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.net.messageandreplyserver;
+package ch.nolix.basetest.net.senderandreplierserver;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.net.messageandreplyserver.IEndPoint;
-import ch.nolix.baseapi.net.messageandreplyserver.ISlot;
+import ch.nolix.baseapi.net.senderandreplierserver.EndPoint;
+import ch.nolix.baseapi.net.senderandreplierserver.Slot;
 
 /**
  * @author Silvan Wyss
  */
-public final class MockSlot implements ISlot {
+public final class MockSlot implements Slot {
   public static final String REPLY = "reply";
 
   private static final String NAME = "slot";
@@ -38,7 +38,7 @@ public final class MockSlot implements ISlot {
    * {@inheritDoc}
    */
   @Override
-  public void takeBackendEndPoint(final IEndPoint endPoint) {
+  public void takeBackendEndPoint(final EndPoint endPoint) {
     endPoint.setReplier(this::getReply);
   }
 

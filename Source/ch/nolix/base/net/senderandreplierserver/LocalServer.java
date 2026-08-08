@@ -1,10 +1,10 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.net.messageandreplyserver;
+package ch.nolix.base.net.senderandreplierserver;
 
-import ch.nolix.baseapi.net.messageandreplyserver.ISlot;
 import ch.nolix.baseapi.net.netproperty.SecurityMode;
+import ch.nolix.baseapi.net.senderandreplierserver.Slot;
 
 /**
  * @author Silvan Wyss
@@ -22,7 +22,7 @@ public final class LocalServer extends AbstractServer {
    * {@inheritDoc}
    */
   @Override
-  protected void noteAddedDefaultSlot(final ISlot defaultSlot) {
+  protected void noteAddedDefaultSlot(final Slot defaultSlot) {
     // Does nothing.
   }
 
@@ -30,7 +30,7 @@ public final class LocalServer extends AbstractServer {
    * {@inheritDoc}
    */
   @Override
-  protected void noteAddedSlot(final ISlot slot) {
+  protected void noteAddedSlot(final Slot slot) {
     // Does nothing.
   }
 
@@ -38,7 +38,7 @@ public final class LocalServer extends AbstractServer {
    * {@inheritDoc}
    */
   @Override
-  protected void noteRemovedSlot(final ISlot slot) {
+  protected void noteRemovedSlot(final Slot slot) {
     // Does nothing.
   }
 }

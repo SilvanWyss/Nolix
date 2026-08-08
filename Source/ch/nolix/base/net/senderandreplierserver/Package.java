@@ -1,10 +1,10 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.net.messageandreplyserver;
+package ch.nolix.base.net.senderandreplierserver;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.net.messageandreplyserverprotocol.MessageRole;
+import ch.nolix.baseapi.net.senderandreplierserverprotocol.MessageRole;
 
 /**
  * A package in end point 3 is a package with a message role.
