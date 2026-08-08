@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.net.executoranddataproviderserver;
 
-import ch.nolix.baseapi.net.executoranddataproviderserver.ISlot;
+import ch.nolix.baseapi.net.executoranddataproviderserver.Slot;
 import ch.nolix.baseapi.net.netproperty.SecurityMode;
 
 /**
@@ -22,7 +22,7 @@ public final class LocalServer extends AbstractServer {
    * {@inheritDoc}
    */
   @Override
-  protected void noteAddedDefaultSlot(final ISlot defaultSlot) {
+  protected void noteAddedDefaultSlot(final Slot defaultSlot) {
     // Does nothing.
   }
 
@@ -30,7 +30,7 @@ public final class LocalServer extends AbstractServer {
    * {@inheritDoc}
    */
   @Override
-  protected void noteAddedSlot(final ISlot slot) {
+  protected void noteAddedSlot(final Slot slot) {
     // Does nothing.
   }
 
@@ -38,7 +38,7 @@ public final class LocalServer extends AbstractServer {
    * {@inheritDoc}
    */
   @Override
-  protected void noteRemovedSlot(final ISlot slot) {
+  protected void noteRemovedSlot(final Slot slot) {
     // Does nothing.
   }
 }

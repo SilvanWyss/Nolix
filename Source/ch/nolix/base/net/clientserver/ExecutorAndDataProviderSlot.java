@@ -5,13 +5,13 @@ package ch.nolix.base.net.clientserver;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.net.executoranddataproviderserver.IEndPoint;
-import ch.nolix.baseapi.net.executoranddataproviderserver.ISlot;
+import ch.nolix.baseapi.net.executoranddataproviderserver.EndPoint;
+import ch.nolix.baseapi.net.executoranddataproviderserver.Slot;
 
 /**
  * @author Silvan Wyss
  */
-final class Slot implements ISlot {
+final class ExecutorAndDataProviderSlot implements Slot {
   private final String name;
 
   private final AbstractServer<?> parentServer;
@@ -25,7 +25,7 @@ final class Slot implements ISlot {
    * @throws RuntimeException if given name is null or blank
    * @throws RuntimeException if the given parentServer is null
    */
-  private Slot(final String name, final AbstractServer<?> parentServer) {
+  private ExecutorAndDataProviderSlot(final String name, final AbstractServer<?> parentServer) {
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableNameCatalog.NAME).isNotBlank();
     Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
 
@@ -41,8 +41,8 @@ final class Slot implements ISlot {
    * @throws RuntimeException if given name is null or blank
    * @throws RuntimeException if the given parentServer is null
    */
-  public static Slot withNameAndParentServer(final String name, final AbstractServer<?> parentServer) {
-    return new Slot(name, parentServer);
+  public static ExecutorAndDataProviderSlot withNameAndParentServer(final String name, final AbstractServer<?> parentServer) {
+    return new ExecutorAndDataProviderSlot(name, parentServer);
   }
 
   /**
@@ -57,7 +57,7 @@ final class Slot implements ISlot {
    * {@inheritDoc}
    */
   @Override
-  public void takeBackendEndPoint(final IEndPoint endPoint) {
+  public void takeBackendEndPoint(final EndPoint endPoint) {
     parentServer.internalTakeEndPoint(endPoint);
   }
 }

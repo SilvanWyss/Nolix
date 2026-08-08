@@ -8,6 +8,6 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
 /**
  * @author Silvan Wyss
  */
-public interface ISlot extends NameHolder {
-  void takeBackendEndPoint(IEndPoint backendEndPoint);
+public interface Slot extends NameHolder {
+  void takeBackendEndPoint(EndPoint backendEndPoint);
 }

@@ -18,7 +18,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.net.clientserver.Application;
-import ch.nolix.baseapi.net.executoranddataproviderserver.IEndPoint;
+import ch.nolix.baseapi.net.executoranddataproviderserver.EndPoint;
 import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
 import ch.nolix.baseapi.net.target.IServerTarget;
 
@@ -160,7 +160,7 @@ implements Application<C, S> {
    * 
    * @param endPoint
    */
-  final void takeEndPoint(final IEndPoint endPoint) {
+  final void takeEndPoint(final EndPoint endPoint) {
     takeClient(createBackendClientWithEndPoint(endPoint));
   }
 
@@ -261,7 +261,7 @@ implements Application<C, S> {
    * @param endPoint
    * @return a new {@link AbstractBackendClient} with the given endPoint
    */
-  private C createBackendClientWithEndPoint(final IEndPoint endPoint) {
+  private C createBackendClientWithEndPoint(final EndPoint endPoint) {
     final C backendClient = ReflectionTool.createInstanceFromDefaultConstructorOfClass(getClientClass());
     backendClient.setEndPoint(endPoint);
 

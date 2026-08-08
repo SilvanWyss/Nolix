@@ -10,7 +10,7 @@ import ch.nolix.baseapi.net.senderandreplierserver.Slot;
 /**
  * @author Silvan Wyss
  */
-final class Level2Slot implements Slot {
+final class SenderAndReplierSlot implements Slot {
   private final String name;
 
   private final AbstractServer parentServer;
@@ -24,7 +24,7 @@ final class Level2Slot implements Slot {
    * @throws RuntimeException if given name is null or blank
    * @throws RuntimeException if the given parentServer is null
    */
-  private Level2Slot(final String name, final AbstractServer parentServer) {
+  private SenderAndReplierSlot(final String name, final AbstractServer parentServer) {
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableNameCatalog.NAME).isNotBlank();
     Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
 
@@ -40,8 +40,8 @@ final class Level2Slot implements Slot {
    * @throws RuntimeException if given name is null or blank
    * @throws RuntimeException if the given parentServer is null
    */
-  public static Level2Slot withNameAndParentServer(final String name, final AbstractServer parentServer) {
-    return new Level2Slot(name, parentServer);
+  public static SenderAndReplierSlot withNameAndParentServer(final String name, final AbstractServer parentServer) {
+    return new SenderAndReplierSlot(name, parentServer);
   }
 
   /**

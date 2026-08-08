@@ -8,7 +8,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.net.executoranddataproviderserver.ISlot;
+import ch.nolix.baseapi.net.executoranddataproviderserver.Slot;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
 import ch.nolix.baseapi.net.netproperty.SecurityMode;
@@ -45,7 +45,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @param slot
    * @throws RuntimeException if the given slot is null
    */
-  private LocalEndPoint(final ISlot slot) {
+  private LocalEndPoint(final Slot slot) {
     this.peerType = PeerType.FRONTEND;
     this.counterpart = new LocalEndPoint(this, slot.getName());
     this.customTargetSlot = null;
@@ -105,7 +105,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @return a new {@link LocalEndPoint} that will connect to the given slot
    * @throws RuntimeException if the given slot is null
    */
-  public static LocalEndPoint toSlot(final ISlot slot) {
+  public static LocalEndPoint toSlot(final Slot slot) {
     return new LocalEndPoint(slot);
   }
 

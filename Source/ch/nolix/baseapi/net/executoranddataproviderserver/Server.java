@@ -10,10 +10,10 @@ import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 /**
  * @author Silvan Wyss
  */
-public interface IServer extends Clearable, GroupCloseable, SecurityModeHolder {
-  void addDefaultSlot(ISlot defaultSlot);
+public interface Server extends Clearable, GroupCloseable, SecurityModeHolder {
+  void addDefaultSlot(Slot defaultSlot);
 
-  void addSlot(ISlot slot);
+  void addSlot(Slot slot);
 
   boolean containsDefaultSlot();
 

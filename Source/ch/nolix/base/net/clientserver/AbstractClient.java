@@ -12,7 +12,7 @@ import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnconnectedArgumentException;
 import ch.nolix.baseapi.net.clientserver.Client;
-import ch.nolix.baseapi.net.executoranddataproviderserver.IEndPoint;
+import ch.nolix.baseapi.net.executoranddataproviderserver.EndPoint;
 import ch.nolix.baseapi.net.netproperty.SecurityMode;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 
@@ -23,7 +23,7 @@ import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 public abstract class AbstractClient<C extends AbstractClient<C>> implements Client {
   private final ICloseController closeController = CloseController.forElement(this);
 
-  private IEndPoint nullableEndPoint;
+  private EndPoint nullableEndPoint;
 
   /**
    * {@inheritDoc}
@@ -144,7 +144,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Cli
    * @throws RuntimeException if the current {@link AbstractClient} is already
    *                          connected.
    */
-  final void setEndPoint(final IEndPoint endPoint) {
+  final void setEndPoint(final EndPoint endPoint) {
     Validator.assertThat(endPoint).thatIsNamed(AbstractEndPoint.class).isNotNull();
 
     assertIsNotConnected();
@@ -183,7 +183,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Cli
    * @throws RuntimeException if the current {@link AbstractClient} is not
    *                          connected.
    */
-  private IEndPoint getStoredEndPoint() {
+  private EndPoint getStoredEndPoint() {
     assertIsConnected();
 
     return nullableEndPoint;

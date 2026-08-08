@@ -13,7 +13,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.net.clientserver.Application;
 import ch.nolix.baseapi.net.clientserver.IServer;
-import ch.nolix.baseapi.net.executoranddataproviderserver.IEndPoint;
+import ch.nolix.baseapi.net.executoranddataproviderserver.EndPoint;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 
 /**
@@ -409,7 +409,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * 
    * @param endPoint
    */
-  void internalTakeEndPoint(final IEndPoint endPoint) {
+  void internalTakeEndPoint(final EndPoint endPoint) {
     // Handles the case that the given endPoint does not have a target.
     if (!endPoint.hasCustomTargetSlot()) {
       getStoredDefaultApplication().takeEndPoint(endPoint);

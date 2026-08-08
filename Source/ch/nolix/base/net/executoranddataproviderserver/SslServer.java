@@ -4,7 +4,7 @@
 package ch.nolix.base.net.executoranddataproviderserver;
 
 import ch.nolix.base.net.ssl.NolixConfigurationSslCertificateReader;
-import ch.nolix.baseapi.net.executoranddataproviderserver.ISlot;
+import ch.nolix.baseapi.net.executoranddataproviderserver.Slot;
 import ch.nolix.baseapi.net.netproperty.SecurityMode;
 import ch.nolix.baseapi.net.ssl.ISslCertificate;
 
@@ -49,23 +49,23 @@ public final class SslServer extends AbstractServer {
    * {@inheritDoc}
    */
   @Override
-  protected void noteAddedDefaultSlot(final ISlot defaultSlot) {
-    internalWebSocketServer.addDefaultSlot(Level2Slot.withNameAndParentServer(defaultSlot.getName(), this));
+  protected void noteAddedDefaultSlot(final Slot defaultSlot) {
+    internalWebSocketServer.addDefaultSlot(SenderAndReplierSlot.withNameAndParentServer(defaultSlot.getName(), this));
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  protected void noteAddedSlot(final ISlot slot) {
-    internalWebSocketServer.addSlot(Level2Slot.withNameAndParentServer(slot.getName(), this));
+  protected void noteAddedSlot(final Slot slot) {
+    internalWebSocketServer.addSlot(SenderAndReplierSlot.withNameAndParentServer(slot.getName(), this));
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  protected void noteRemovedSlot(final ISlot slot) {
+  protected void noteRemovedSlot(final Slot slot) {
     internalWebSocketServer.removeSlotByName(slot.getName());
   }
 }

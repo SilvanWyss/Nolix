@@ -9,26 +9,26 @@ import ch.nolix.base.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.net.executoranddataproviderserver.IEndPoint;
-import ch.nolix.baseapi.net.executoranddataproviderserver.IServer;
-import ch.nolix.baseapi.net.executoranddataproviderserver.ISlot;
+import ch.nolix.baseapi.net.executoranddataproviderserver.EndPoint;
+import ch.nolix.baseapi.net.executoranddataproviderserver.Server;
+import ch.nolix.baseapi.net.executoranddataproviderserver.Slot;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 
 /**
  * @author Silvan Wyss
  */
-public abstract class AbstractServer implements IServer {
+public abstract class AbstractServer implements Server {
   private final ICloseController closeController = CloseController.forElement(this);
 
-  private ISlot memberDefaultSlot;
+  private Slot memberDefaultSlot;
 
-  private final LinkedList<ISlot> slots = LinkedList.createEmpty();
+  private final LinkedList<Slot> slots = LinkedList.createEmpty();
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public final void addDefaultSlot(final ISlot defaultSlot) {
+  public final void addDefaultSlot(final Slot defaultSlot) {
     addSlotToList(defaultSlot);
 
     memberDefaultSlot = defaultSlot;
@@ -40,7 +40,7 @@ public abstract class AbstractServer implements IServer {
    * {@inheritDoc}
    */
   @Override
-  public final void addSlot(final ISlot slot) {
+  public final void addSlot(final Slot slot) {
     addSlotToList(slot);
 
     noteAddedSlot(slot);
@@ -108,7 +108,7 @@ public abstract class AbstractServer implements IServer {
    * 
    * @param defaultSlot
    */
-  protected abstract void noteAddedDefaultSlot(ISlot defaultSlot);
+  protected abstract void noteAddedDefaultSlot(Slot defaultSlot);
 
   /**
    * Notes that the given slot has been added to the current
@@ -116,7 +116,7 @@ public abstract class AbstractServer implements IServer {
    * 
    * @param slot
    */
-  protected abstract void noteAddedSlot(ISlot slot);
+  protected abstract void noteAddedSlot(Slot slot);
 
   /**
    * Notes that the given slot has been removed from the current
@@ -124,7 +124,7 @@ public abstract class AbstractServer implements IServer {
    * 
    * @param slot
    */
-  protected abstract void noteRemovedSlot(ISlot slot);
+  protected abstract void noteRemovedSlot(Slot slot);
 
   /**
    * Lets the current {@link AbstractServer} take the given endPoint.
@@ -134,15 +134,15 @@ public abstract class AbstractServer implements IServer {
    * @throws ArgumentDoesNotHaveAttributeException if the given endPoint does not
    *                                               have a target and the current
    *                                               {@link AbstractServer} does not
-   *                                               contain a default {@link ISlot}
+   *                                               contain a default {@link Slot}
    * @throws ArgumentDoesNotHaveAttributeException if the given endPoint has a
    *                                               target and the current
    *                                               {@link AbstractServer} does not
-   *                                               contain a {@link ISlot} with a
+   *                                               contain a {@link Slot} with a
    *                                               name that equals the target of
    *                                               the given endPoint.
    */
-  final void internalTakeBackendEndPoint(final IEndPoint endPoint) {
+  final void internalTakeBackendEndPoint(final EndPoint endPoint) {
     ResourceValidator.assertIsOpen(endPoint);
 
     if (!endPoint.hasCustomTargetSlot()) {
@@ -153,15 +153,15 @@ public abstract class AbstractServer implements IServer {
   }
 
   /**
-   * Adds the given slot to the list of {@link ISlot}s of the current
+   * Adds the given slot to the list of {@link Slot}s of the current
    * {@link AbstractServer}.
    * 
    * @param slot
    * @throws RuntimeException if the current {@link AbstractServer} contains
-   *                          already a {@link ISlot} with the same name like the
+   *                          already a {@link Slot} with the same name like the
    *                          given slot.
    */
-  private void addSlotToList(final ISlot slot) {
+  private void addSlotToList(final Slot slot) {
     assertDoesNotContainSlotWithName(slot.getName());
 
     this.slots.addAtEnd(slot);
@@ -171,7 +171,7 @@ public abstract class AbstractServer implements IServer {
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractServer} does not
    *                                               contain a default
-   *                                               {@link ISlot}.
+   *                                               {@link Slot}.
    */
   private void assertContainsDefaultSlot() {
     if (!containsDefaultSlot()) {
@@ -182,7 +182,7 @@ public abstract class AbstractServer implements IServer {
   /**
    * @param name
    * @throws RuntimeException if the current {@link AbstractServer} contains
-   *                          already a {@link ISlot} with the same name like the
+   *                          already a {@link Slot} with the same name like the
    *                          given slot.
    */
   private void assertDoesNotContainSlotWithName(final String name) {
@@ -193,13 +193,13 @@ public abstract class AbstractServer implements IServer {
   }
 
   /**
-   * @return the default {@link ISlot} of the current {@link AbstractServer}
+   * @return the default {@link Slot} of the current {@link AbstractServer}
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractServer} does not
    *                                               contain a default
-   *                                               {@link ISlot}.
+   *                                               {@link Slot}.
    */
-  private ISlot getStoredDefaultSlot() {
+  private Slot getStoredDefaultSlot() {
     assertContainsDefaultSlot();
 
     return memberDefaultSlot;
@@ -208,14 +208,14 @@ public abstract class AbstractServer implements IServer {
   /**
    * 
    * @param name
-   * @return the {@link ISlot} with the given name from the current
+   * @return the {@link Slot} with the given name from the current
    *         {@link AbstractServer}
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractServer} does not
-   *                                               contain a {@link ISlot} with
+   *                                               contain a {@link Slot} with
    *                                               the given name.
    */
-  private ISlot getStoredSlotByName(final String name) {
+  private Slot getStoredSlotByName(final String name) {
     return slots.getStoredFirst(ept -> ept.hasName(name));
   }
 
@@ -227,7 +227,7 @@ public abstract class AbstractServer implements IServer {
    *                                                {@link AbstractServer} does
    *                                                not contain the given slot.
    */
-  private void removeSlot(final ISlot slot) {
+  private void removeSlot(final Slot slot) {
     slots.removeStrictlyFirstOccurrenceOf(slot);
 
     if (slot == memberDefaultSlot) {

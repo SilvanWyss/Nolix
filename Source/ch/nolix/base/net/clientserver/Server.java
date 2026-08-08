@@ -20,7 +20,7 @@ import ch.nolix.baseapi.net.target.IServerTarget;
 public final class Server extends AbstractServer<Server> implements SinglePortServer {
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.NONE;
 
-  private ch.nolix.base.net.executoranddataproviderserver.Server internalServer;
+  private ch.nolix.base.net.executoranddataproviderserver.NetServer internalServer;
 
   /**
    * Creates a new {@link Server} that will listen to net {@link AbstractClient}s
@@ -31,7 +31,7 @@ public final class Server extends AbstractServer<Server> implements SinglePortSe
    */
   private Server(final int port) {
     // Creates the internalServer of the current Server.
-    internalServer = ch.nolix.base.net.executoranddataproviderserver.Server.forPortAndHttpMessage(
+    internalServer = ch.nolix.base.net.executoranddataproviderserver.NetServer.forPortAndHttpMessage(
       port,
       new ServerHttpMessage(getIp(), port).toString());
 
@@ -105,7 +105,7 @@ public final class Server extends AbstractServer<Server> implements SinglePortSe
    */
   @Override
   protected void noteAddedApplication(final AbstractApplication<?, ?> application) {
-    internalServer.addSlot(Slot.withNameAndParentServer(application.getUrlInstanceName(), this));
+    internalServer.addSlot(ExecutorAndDataProviderSlot.withNameAndParentServer(application.getUrlInstanceName(), this));
   }
 
   /**
@@ -113,7 +113,7 @@ public final class Server extends AbstractServer<Server> implements SinglePortSe
    */
   @Override
   protected void noteAddedDefaultApplication(final AbstractApplication<?, ?> defaultApplication) {
-    internalServer.addDefaultSlot(Slot.withNameAndParentServer(defaultApplication.getUrlInstanceName(), this));
+    internalServer.addDefaultSlot(ExecutorAndDataProviderSlot.withNameAndParentServer(defaultApplication.getUrlInstanceName(), this));
   }
 
   /**

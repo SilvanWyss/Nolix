@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.base.document.chainednode.ChainedNode;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.net.executoranddataproviderserver.NetEndPoint;
-import ch.nolix.base.net.executoranddataproviderserver.Server;
+import ch.nolix.base.net.executoranddataproviderserver.NetServer;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.testing.standardtest.StandardTest;
 
@@ -21,7 +21,7 @@ final class NetEndPointTest extends StandardTest {
     // define test parameters
     final var port = 50000;
 
-    try (final var server = Server.forPort(port)) {
+    try (final var server = NetServer.forPort(port)) {
       // setup
       server.addDefaultSlot(new TestSlot());
 
@@ -41,7 +41,7 @@ final class NetEndPointTest extends StandardTest {
     // define test parameters
     final var port = 50000;
 
-    try (final var server = Server.forPort(port)) {
+    try (final var server = NetServer.forPort(port)) {
       // setup
       final var slot = new TestSlot();
       server.addDefaultSlot(slot);
@@ -62,7 +62,7 @@ final class NetEndPointTest extends StandardTest {
     // define test parameters
     final var port = 50000;
 
-    try (final var server = Server.forPort(port)) {
+    try (final var server = NetServer.forPort(port)) {
       // setup
       final var slot = new TestSlot();
       server.addDefaultSlot(slot);

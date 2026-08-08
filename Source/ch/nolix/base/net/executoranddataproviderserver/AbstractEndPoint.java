@@ -11,12 +11,12 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.executoranddataproviderserver.ExecutorAndDataProvider;
-import ch.nolix.baseapi.net.executoranddataproviderserver.IEndPoint;
+import ch.nolix.baseapi.net.executoranddataproviderserver.EndPoint;
 
 /**
  * @author Silvan Wyss
  */
-public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements IEndPoint {
+public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements EndPoint {
   private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 
   private ExecutorAndDataProvider receiverController;

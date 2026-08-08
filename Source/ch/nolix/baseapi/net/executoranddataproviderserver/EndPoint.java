@@ -8,7 +8,7 @@ import ch.nolix.baseapi.net.endpoint.BaseEndPoint;
 /**
  * @author Silvan Wyss
  */
-public interface IEndPoint extends BaseEndPoint, ExecutorAndDataProvider {
+public interface EndPoint extends BaseEndPoint, ExecutorAndDataProvider {
   boolean hasExecutorAndDataProvider();
 
   void setExecutorAndDataProvider(ExecutorAndDataProvider executorAndDataProvider);
