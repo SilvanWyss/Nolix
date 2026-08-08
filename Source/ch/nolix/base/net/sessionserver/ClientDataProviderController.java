@@ -48,7 +48,7 @@ final class ClientDataProviderController implements ExecutorAndDataProvider {
    */
   @Override
   public Node<?> getDataForRequest(final IChainedNode request) {
-    return parentClient.getDataFromHere(request);
+    return parentClient.provideData(request);
   }
 
   /**
@@ -68,7 +68,7 @@ final class ClientDataProviderController implements ExecutorAndDataProvider {
    */
   @Override
   public ExtendedIterable<Node<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
-    return ExtendedIterableView.forIterable(requests).to(parentClient::getDataFromHere);
+    return ExtendedIterableView.forIterable(requests).to(parentClient::provideData);
   }
 
   /**
@@ -76,7 +76,7 @@ final class ClientDataProviderController implements ExecutorAndDataProvider {
    */
   @Override
   public void runCommand(final IChainedNode command) {
-    parentClient.runHere(command);
+    parentClient.provideRun(command);
   }
 
   /**
@@ -85,7 +85,7 @@ final class ClientDataProviderController implements ExecutorAndDataProvider {
   @Override
   public void runCommands(final IChainedNode... commands) {
     for (final var c : commands) {
-      parentClient.runHere(c);
+      parentClient.provideRun(c);
     }
   }
 
@@ -95,7 +95,7 @@ final class ClientDataProviderController implements ExecutorAndDataProvider {
   @Override
   public void runCommands(final Iterable<? extends IChainedNode> commands) {
     for (final var c : commands) {
-      parentClient.runHere(c);
+      parentClient.provideRun(c);
     }
   }
 }

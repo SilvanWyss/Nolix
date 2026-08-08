@@ -89,17 +89,16 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Cli
 
   /**
    * @param request
-   * @return the data the given request requests from the current
-   *         {@link AbstractClient}.
+   * @return the data the given request requests
    */
-  protected abstract Node<?> getDataFromHere(IChainedNode request);
+  protected abstract Node<?> provideData(IChainedNode request);
 
   /**
-   * Lets the current {@link AbstractClient} run the given command.
+   * Runs the given command.
    * 
    * @param command
    */
-  protected abstract void runHere(IChainedNode command);
+  protected abstract void provideRun(IChainedNode command);
 
   /**
    * Runs the given command on the counterpart of the current
@@ -195,6 +194,6 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Cli
    *         otherwise
    */
   private boolean isConnected() {
-    return (nullableEndPoint != null);
+    return nullableEndPoint != null;
   }
 }

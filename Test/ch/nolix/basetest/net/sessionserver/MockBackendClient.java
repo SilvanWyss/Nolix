@@ -19,7 +19,7 @@ public final class MockBackendClient extends AbstractBackendClient<MockBackendCl
   private IChainedNode latestGetDataFromHereRequest;
 
   @Override
-  protected Node<?> getDataFromHere(final IChainedNode request) {
+  protected Node<?> provideData(final IChainedNode request) {
     Validator.assertThat(request).thatIsNamed(LowerCaseVariableNameCatalog.REQUEST).isNotNull();
 
     latestGetDataFromHereRequest = request;
@@ -31,7 +31,7 @@ public final class MockBackendClient extends AbstractBackendClient<MockBackendCl
    * {@inheritDoc}
    */
   @Override
-  protected void runHere(final IChainedNode command) {
+  protected void provideRun(final IChainedNode command) {
     Validator.assertThat(command).thatIsNamed(LowerCaseVariableNameCatalog.COMMAND).isNotNull();
 
     latestRunHereCommand = command;

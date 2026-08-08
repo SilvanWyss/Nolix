@@ -29,7 +29,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
   WebClientRefreshQueue.forCounterpartRunnerAndOpenStateRequestable(this::runOnCounterpart, this::isOpen);
 
   @Override
-  protected Node<?> getDataFromHere(final IChainedNode request) {
+  protected Node<?> provideData(final IChainedNode request) {
     throw InvalidArgumentException.forArgumentAndArgumentName(request, LowerCaseVariableNameCatalog.REQUEST);
   }
 
