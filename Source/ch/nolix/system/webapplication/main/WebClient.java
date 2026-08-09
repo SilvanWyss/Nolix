@@ -14,9 +14,9 @@ import ch.nolix.system.webapplication.base.AbstractWebClient;
 import ch.nolix.system.webapplication.refreshqueue.WebClientRefreshQueue;
 import ch.nolix.systemapi.control.uploader.IUploader;
 import ch.nolix.systemapi.webapplication.component.IComponent;
-import ch.nolix.systemapi.webapplication.protocol.CommandProtocol;
-import ch.nolix.systemapi.webapplication.protocol.ControlCommandProtocol;
-import ch.nolix.systemapi.webapplication.protocol.ObjectProtocol;
+import ch.nolix.systemapi.webapplication.webclientprotocol.CommandProtocol;
+import ch.nolix.systemapi.webapplication.webclientprotocol.ControlCommandProtocol;
+import ch.nolix.systemapi.webapplication.webclientprotocol.ObjectProtocol;
 import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 

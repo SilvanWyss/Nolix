@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.webapplication.protocol;
+package ch.nolix.systemapi.webapplication.webclientprotocol;
 
 /**
  * @author Silvan Wyss

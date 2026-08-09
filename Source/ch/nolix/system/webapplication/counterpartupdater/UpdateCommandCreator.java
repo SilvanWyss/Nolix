@@ -14,8 +14,8 @@ import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PluralLowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.webapplication.counterpart.IUpdateCommandCreator;
-import ch.nolix.systemapi.webapplication.protocol.CommandProtocol;
-import ch.nolix.systemapi.webapplication.protocol.ObjectProtocol;
+import ch.nolix.systemapi.webapplication.webclientprotocol.CommandProtocol;
+import ch.nolix.systemapi.webapplication.webclientprotocol.ObjectProtocol;
 import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 

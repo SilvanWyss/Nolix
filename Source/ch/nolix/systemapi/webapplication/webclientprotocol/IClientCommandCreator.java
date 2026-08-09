@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.webapplication.protocol;
+package ch.nolix.systemapi.webapplication.webclientprotocol;
 
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.net.target.IServerTarget;

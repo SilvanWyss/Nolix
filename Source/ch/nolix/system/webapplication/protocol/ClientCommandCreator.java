@@ -12,7 +12,7 @@ import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.net.target.IServerTarget;
 import ch.nolix.systemapi.webapplication.basewebclientprotocol.CommandProtocol;
 import ch.nolix.systemapi.webapplication.basewebclientprotocol.ObjectProtocol;
-import ch.nolix.systemapi.webapplication.protocol.IClientCommandCreator;
+import ch.nolix.systemapi.webapplication.webclientprotocol.IClientCommandCreator;
 
 /**
  * @author Silvan Wyss
