@@ -8,13 +8,13 @@ import ch.nolix.baseapi.generalstate.statemutation.Resettable;
 import ch.nolix.systemapi.element.base.Element;
 
 /**
- * A {@link IMutableElement} has attributes that can be mutated.
+ * A {@link MutableElement} has attributes that can be mutated.
  * 
  * @author Silvan Wyss
  */
-public interface IMutableElement extends Resettable, Element {
+public interface MutableElement extends Resettable, Element {
   /**
-   * Adds or changes the given attribute to the current {@link IMutableElement}.
+   * Adds or changes the given attribute to the current {@link MutableElement}.
    * 
    * @param attribute
    * @throws RuntimeException if the given attribute is not valid
@@ -22,7 +22,7 @@ public interface IMutableElement extends Resettable, Element {
   void addOrChangeAttribute(Node<?> attribute);
 
   /**
-   * Adds or changes the given attribute to the current {@link IMutableElement}.
+   * Adds or changes the given attribute to the current {@link MutableElement}.
    * 
    * @param attribute
    * @throws RuntimeException if the given attribute is not valid
@@ -30,7 +30,7 @@ public interface IMutableElement extends Resettable, Element {
   void addOrChangeAttribute(String attribute);
 
   /**
-   * Adds or changes the given attributes to the current {@link IMutableElement}.
+   * Adds or changes the given attributes to the current {@link MutableElement}.
    * 
    * @param attributes
    * @throws RuntimeException if one of the given attributes is not valid
@@ -42,7 +42,7 @@ public interface IMutableElement extends Resettable, Element {
   }
 
   /**
-   * Resets the current {@link IMutableElement} from the given attributes.
+   * Resets the current {@link MutableElement} from the given attributes.
    * 
    * @param attributes
    * @throws RuntimeException if one of the given attributes is not valid
@@ -53,7 +53,7 @@ public interface IMutableElement extends Resettable, Element {
   }
 
   /**
-   * Resets the current {@link IMutableElement} from the given specification.
+   * Resets the current {@link MutableElement} from the given specification.
    * 
    * @param specification
    * @throws RuntimeException if the given specification is not valid

@@ -7,7 +7,7 @@ import ch.nolix.baseapi.attribute.fluentmutablemultiattribute.FluentMutableMulti
 import ch.nolix.baseapi.attribute.fluentmutableoptionalattribute.FluentMutableOptionalIdHolder;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.programcontrol.type.TypeRequestable;
-import ch.nolix.systemapi.element.mutableelement.IMutableElement;
+import ch.nolix.systemapi.element.mutableelement.MutableElement;
 
 /**
  * A {@link StylableElement} is configurable and can contain other
@@ -20,7 +20,7 @@ public interface StylableElement<E extends StylableElement<E>>
 extends
 FluentMutableMultiTokenHolder<E>,
 FluentMutableOptionalIdHolder<E>,
-IMutableElement,
+MutableElement,
 TypeRequestable {
   /**
    * @return the child {@link StylableElement}s of the current

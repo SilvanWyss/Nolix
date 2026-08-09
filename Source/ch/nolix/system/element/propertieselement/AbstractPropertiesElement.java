@@ -16,13 +16,13 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.systemapi.element.base.SpecificationRepresentable;
-import ch.nolix.systemapi.element.mutableelement.IMutableElement;
+import ch.nolix.systemapi.element.mutableelement.MutableElement;
 import ch.nolix.systemapi.property.base.Property;
 
 /**
  * @author Silvan Wyss
  */
-public abstract class AbstractPropertiesElement implements IMutableElement {
+public abstract class AbstractPropertiesElement implements MutableElement {
   private ArrayList<Property> properties;
 
   /**

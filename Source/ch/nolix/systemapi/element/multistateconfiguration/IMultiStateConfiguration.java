@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.element.multistateconfiguration;
 
-import ch.nolix.systemapi.element.mutableelement.IRespondingMutableElement;
+import ch.nolix.systemapi.element.mutableelement.RespondingMutableElement;
 
 /**
  * @author Silvan Wyss
@@ -11,7 +11,7 @@ import ch.nolix.systemapi.element.mutableelement.IRespondingMutableElement;
  * @param <S> the type of the states a {@link IMultiStateConfiguration} is for.
  */
 public interface IMultiStateConfiguration<C extends IMultiStateConfiguration<C, S>, S extends Enum<S>>
-extends IRespondingMutableElement<C> {
+extends RespondingMutableElement<C> {
   void addChild(IMultiStateConfiguration<?, S> multiStateConfiguration);
 
   S getBaseState();

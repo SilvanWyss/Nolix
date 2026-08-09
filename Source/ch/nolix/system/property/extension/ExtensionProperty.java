@@ -7,14 +7,14 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.systemapi.element.mutableelement.IRespondingMutableElement;
+import ch.nolix.systemapi.element.mutableelement.RespondingMutableElement;
 import ch.nolix.systemapi.property.exension.IExtensionProperty;
 
 /**
  * @author Silvan Wyss
  * @param <E> the type of the extension of a {@link ExtensionProperty}.
  */
-public final class ExtensionProperty<E extends IRespondingMutableElement<E>> implements IExtensionProperty<E> {
+public final class ExtensionProperty<E extends RespondingMutableElement<E>> implements IExtensionProperty<E> {
   private final E memberExtension;
 
   /**
@@ -36,7 +36,7 @@ public final class ExtensionProperty<E extends IRespondingMutableElement<E>> imp
    * @return a new {@link ExtensionProperty} with the given extension
    * @throws RuntimeException if the given extension is null
    */
-  public static <T extends IRespondingMutableElement<T>> ExtensionProperty<T> withExtension(final T extension) {
+  public static <T extends RespondingMutableElement<T>> ExtensionProperty<T> withExtension(final T extension) {
     return new ExtensionProperty<>(extension);
   }
 
