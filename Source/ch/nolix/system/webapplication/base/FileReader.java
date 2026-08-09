@@ -12,7 +12,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.systemapi.application.basewebapplicationprotocol.CommandProtocol;
+import ch.nolix.systemapi.webapplication.basewebclientprotocol.CommandProtocol;
 
 final class FileReader {
   private static final int MAX_WAITING_TIME_FOR_FILE_FROM_COUNTERPART_IN_SECONDS = 60;

@@ -10,8 +10,8 @@ import ch.nolix.base.document.chainednode.ChainedNode;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.net.target.IServerTarget;
-import ch.nolix.systemapi.application.basewebapplicationprotocol.CommandProtocol;
-import ch.nolix.systemapi.application.basewebapplicationprotocol.ObjectProtocol;
+import ch.nolix.systemapi.webapplication.basewebclientprotocol.CommandProtocol;
+import ch.nolix.systemapi.webapplication.basewebclientprotocol.ObjectProtocol;
 import ch.nolix.systemapi.webapplication.protocol.IClientCommandCreator;
 
 /**

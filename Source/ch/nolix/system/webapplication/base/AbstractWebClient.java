@@ -14,7 +14,7 @@ import ch.nolix.baseapi.net.clientserver.Application;
 import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
 import ch.nolix.baseapi.web.cookie.ICookieManager;
 import ch.nolix.system.webapplication.protocol.ClientCommandCreator;
-import ch.nolix.systemapi.application.basewebapplicationprotocol.CommandProtocol;
+import ch.nolix.systemapi.webapplication.basewebclientprotocol.CommandProtocol;
 
 /**
  * @author Silvan Wyss

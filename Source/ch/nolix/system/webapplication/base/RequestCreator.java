@@ -4,7 +4,7 @@
 package ch.nolix.system.webapplication.base;
 
 import ch.nolix.base.document.chainednode.ChainedNode;
-import ch.nolix.systemapi.application.basewebapplicationprotocol.RequestProtocol;
+import ch.nolix.systemapi.webapplication.basewebclientprotocol.RequestProtocol;
 
 /**
  * @author Silvan Wyss
