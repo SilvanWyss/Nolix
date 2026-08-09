@@ -15,7 +15,7 @@ import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.systemapi.gui.box.ISizeAdjustableBox;
 import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.gui.presence.PresenceSettable;
-import ch.nolix.systemapi.style.stylable.IStylableElement;
+import ch.nolix.systemapi.style.stylable.StylableElement;
 import ch.nolix.systemapi.webgui.controlstyle.ControlStyle;
 import ch.nolix.systemapi.webgui.html.HtmlGetter;
 import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
@@ -31,7 +31,7 @@ ControlComponent<Control<?, ?>>,
 GuiComponent<IWebGui<?>>,
 HtmlGetter,
 ISizeAdjustableBox<C>,
-IStylableElement<C>,
+StylableElement<C>,
 IUserInputCell<C>,
 LayerComponent<ILayer>,
 PresenceSettable<C> {

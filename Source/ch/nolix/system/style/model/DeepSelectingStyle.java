@@ -13,7 +13,7 @@ import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
-import ch.nolix.systemapi.style.stylable.IStylableElement;
+import ch.nolix.systemapi.style.stylable.StylableElement;
 
 /**
  * @author Silvan Wyss
@@ -122,7 +122,7 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
    * {@inheritDoc}
    */
   @Override
-  public void applyToElement(final IStylableElement<?> element) {
+  public void applyToElement(final StylableElement<?> element) {
     if (selectsElement(element)) {
       setAttachingAttributesToElement(element);
       letSubStylesStyleChildElementsOfElement(element);
@@ -298,7 +298,7 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
       allSubStyles);
   }
 
-  private void styleChildElementsOfElement(final IStylableElement<?> element) {
+  private void styleChildElementsOfElement(final StylableElement<?> element) {
     final var childElements = element.getStoredChildStylableElements();
 
     childElements.forEach(this::applyToElement);

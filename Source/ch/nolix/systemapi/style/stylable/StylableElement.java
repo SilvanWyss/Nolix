@@ -10,34 +10,34 @@ import ch.nolix.baseapi.programcontrol.type.TypeRequestable;
 import ch.nolix.systemapi.element.mutableelement.IMutableElement;
 
 /**
- * A {@link IStylableElement} is configurable and can contain other
- * {@link IStylableElement}s.
+ * A {@link StylableElement} is configurable and can contain other
+ * {@link StylableElement}s.
  * 
  * @author Silvan Wyss
- * @param <E> the type of a {@link IStylableElement}.
+ * @param <E> the type of a {@link StylableElement}.
  */
-public interface IStylableElement<E extends IStylableElement<E>>
+public interface StylableElement<E extends StylableElement<E>>
 extends
 FluentMutableMultiTokenHolder<E>,
 FluentMutableOptionalIdHolder<E>,
 IMutableElement,
 TypeRequestable {
   /**
-   * @return the child {@link IStylableElement}s of the current
-   *         {@link IStylableElement}.
+   * @return the child {@link StylableElement}s of the current
+   *         {@link StylableElement}.
    */
-  ExtendedIterable<? extends IStylableElement<?>> getStoredChildStylableElements();
+  ExtendedIterable<? extends StylableElement<?>> getStoredChildStylableElements();
 
   /**
    * @param role
-   * @return true if the current {@link IStylableElement} has the given role,
+   * @return true if the current {@link StylableElement} has the given role,
    *         false otherwise
    */
   boolean hasRole(String role);
 
   /**
-   * Resets the style of the current {@link IStylableElement} and the style of the
-   * child {@link IStylableElement}s of the current {@link IStylableElement}.
+   * Resets the style of the current {@link StylableElement} and the style of the
+   * child {@link StylableElement}s of the current {@link StylableElement}.
    */
   void resetStyleRecursively();
 }

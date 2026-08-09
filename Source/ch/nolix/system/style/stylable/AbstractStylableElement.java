@@ -10,15 +10,15 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNam
 import ch.nolix.system.element.propertieselement.AbstractPropertiesElement;
 import ch.nolix.system.property.value.MultiValue;
 import ch.nolix.system.property.value.OptionalValue;
-import ch.nolix.systemapi.style.stylable.IStylableElement;
+import ch.nolix.systemapi.style.stylable.StylableElement;
 
 /**
  * @author Silvan Wyss
  * @param <E> the type of a {@link AbstractStylableElement}.
  */
-public abstract class AbstractStylableElement<E extends IStylableElement<E>>
+public abstract class AbstractStylableElement<E extends StylableElement<E>>
 extends AbstractPropertiesElement
-implements IStylableElement<E> {
+implements StylableElement<E> {
   private static final String ID_HEADER = PascalCaseVariableNameCatalog.ID;
 
   private static final String TOKEN_HEADER = PascalCaseVariableNameCatalog.TOKEN;
@@ -104,7 +104,7 @@ implements IStylableElement<E> {
   public final void resetStyleRecursively() {
     resetStyle();
 
-    getStoredChildStylableElements().forEach(IStylableElement::resetStyleRecursively);
+    getStoredChildStylableElements().forEach(StylableElement::resetStyleRecursively);
   }
 
   /**

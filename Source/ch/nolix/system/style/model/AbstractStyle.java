@@ -10,7 +10,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.style.model.IBaseStyle;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
-import ch.nolix.systemapi.style.stylable.IStylableElement;
+import ch.nolix.systemapi.style.stylable.StylableElement;
 
 /**
  * @author Silvan Wyss
@@ -100,7 +100,7 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
    *                          {@link AbstractStyle} is not valid for the given
    *                          element.
    */
-  protected final void setAttachingAttributesToElement(IStylableElement<?> element) {
+  protected final void setAttachingAttributesToElement(StylableElement<?> element) {
     for (final var a : getAttachingAttributes()) {
       try {
         element.addOrChangeAttribute(a);
@@ -124,7 +124,7 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
    * 
    * @param element
    */
-  protected final void letSubStylesStyleChildElementsOfElement(final IStylableElement<?> element) {
+  protected final void letSubStylesStyleChildElementsOfElement(final StylableElement<?> element) {
     final var childElements = element.getStoredChildStylableElements();
 
     getSubStyles().forEach(ss -> childElements.forEach(ss::applyToElement));

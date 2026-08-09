@@ -3,11 +3,11 @@
  */
 package ch.nolix.systemapi.style.model;
 
-import ch.nolix.systemapi.style.stylable.IStylableElement;
+import ch.nolix.systemapi.style.stylable.StylableElement;
 
 /**
  * A {@link ISelectingStyle} is a {@link IBaseStyle} that can select or skip a
- * {@link IStylableElement} that is given to be styled.
+ * {@link StylableElement} that is given to be styled.
  * 
  * @author Silvan Wyss
  * @param <S> the type of a {@link ISelectingStyle}.
@@ -15,7 +15,7 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
 public interface ISelectingStyle<S extends ISelectingStyle<S>> extends IBaseStyle<S> {
   /**
    * @return true if the current {@link ISelectingStyle} would select the child
-   *         elements of a given {@link IStylableElement} to style, false
+   *         elements of a given {@link StylableElement} to style, false
    *         otherwise
    */
   boolean selectsChildElements();
@@ -25,11 +25,11 @@ public interface ISelectingStyle<S extends ISelectingStyle<S>> extends IBaseStyl
    * @return true if the current {@link ISelectingStyle} would select the given
    *         element to style, false otherwise
    */
-  boolean selectsElement(IStylableElement<?> element);
+  boolean selectsElement(StylableElement<?> element);
 
   /**
    * @return true if the current {@link ISelectingStyle} would not (!) select the
-   *         child elements of a given {@link IStylableElement} to style, false
+   *         child elements of a given {@link StylableElement} to style, false
    *         otherwise
    */
   default boolean skipsChildElements() {
@@ -41,7 +41,7 @@ public interface ISelectingStyle<S extends ISelectingStyle<S>> extends IBaseStyl
    * @return true if the current {@link ISelectingStyle} would not (!) select the
    *         given element to style, false otherwise
    */
-  default boolean skipsElement(final IStylableElement<?> element) {
+  default boolean skipsElement(final StylableElement<?> element) {
     return !selectsElement(element);
   }
 }

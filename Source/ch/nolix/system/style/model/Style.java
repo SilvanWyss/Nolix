@@ -15,7 +15,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 import ch.nolix.systemapi.style.model.ISelectingStyle;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.style.model.IStyle;
-import ch.nolix.systemapi.style.stylable.IStylableElement;
+import ch.nolix.systemapi.style.stylable.StylableElement;
 
 /**
  * @author Silvan Wyss
@@ -112,7 +112,7 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
    * {@inheritDoc}
    */
   @Override
-  public void applyToElement(final IStylableElement<?> element) {
+  public void applyToElement(final StylableElement<?> element) {
     setAttachingAttributesToElement(element);
     letSubStylesStyleChildElementsOfElement(element);
   }

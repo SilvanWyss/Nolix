@@ -8,7 +8,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.systemapi.gui.background.BackgroundHolder;
 import ch.nolix.systemapi.gui.box.ContentAlignment;
-import ch.nolix.systemapi.style.stylable.IStylableElement;
+import ch.nolix.systemapi.style.stylable.StylableElement;
 import ch.nolix.systemapi.webgui.html.HtmlGetter;
 
 /**
@@ -20,7 +20,7 @@ BackgroundHolder<ILayer>,
 GuiComponent<IWebGui<?>>,
 HtmlGetter,
 IRootControlOwner<ILayer>,
-IStylableElement<ILayer> {
+StylableElement<ILayer> {
   boolean containsControl(Control<?, ?> control);
 
   ContentAlignment getContentAlignment();

@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.style.styleholder;
 
 import ch.nolix.systemapi.style.model.IStyle;
-import ch.nolix.systemapi.style.stylable.IStylableElement;
+import ch.nolix.systemapi.style.stylable.StylableElement;
 
 /**
  * A {@link StyleHolder} can have a {@link IStyle} to apply to itself and to its
@@ -13,7 +13,7 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
  * @author Silvan Wyss
  * @param <E> the type of a {@link StyleHolder}.
  */
-public interface StyleHolder<E extends StyleHolder<E>> extends IStylableElement<E> {
+public interface StyleHolder<E extends StyleHolder<E>> extends StylableElement<E> {
   /**
    * Applies the {@link IStyle} of the current {@link StyleHolder} to the current
    * {@link StyleHolder} and its child elements if the current {@link StyleHolder}

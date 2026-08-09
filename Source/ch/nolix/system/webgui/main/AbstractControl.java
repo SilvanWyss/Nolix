@@ -26,7 +26,7 @@ import ch.nolix.system.style.stylable.AbstractStylableElement;
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.gui.presence.Presence;
-import ch.nolix.systemapi.style.stylable.IStylableElement;
+import ch.nolix.systemapi.style.stylable.StylableElement;
 import ch.nolix.systemapi.webgui.controlstyle.ControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
@@ -223,7 +223,7 @@ implements Control<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final ExtendedIterable<? extends IStylableElement<?>> getStoredChildStylableElements() {
+  public final ExtendedIterable<? extends StylableElement<?>> getStoredChildStylableElements() {
     return getStoredChildControls();
   }
 

@@ -13,7 +13,7 @@ import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
-import ch.nolix.systemapi.style.stylable.IStylableElement;
+import ch.nolix.systemapi.style.stylable.StylableElement;
 
 /**
  * @author Silvan Wyss
@@ -180,7 +180,7 @@ implements ISelectingStyleWithSelectors {
    * {@inheritDoc}
    */
   @Override
-  public final boolean selectsElement(IStylableElement<?> element) {
+  public final boolean selectsElement(StylableElement<?> element) {
     return selectorIdAllowsToSelectElement(element)
     && selectorTypeAllowsToSelectElement(element)
     && selectorRolesAllowToSelectElement(element)
@@ -265,19 +265,19 @@ implements ISelectingStyleWithSelectors {
     }
   }
 
-  private boolean selectorIdAllowsToSelectElement(final IStylableElement<?> element) {
+  private boolean selectorIdAllowsToSelectElement(final StylableElement<?> element) {
     return !hasSelectorId() || element.hasId(getSelectorId());
   }
 
-  private boolean selectorRolesAllowToSelectElement(IStylableElement<?> element) {
+  private boolean selectorRolesAllowToSelectElement(StylableElement<?> element) {
     return !containsSelectorRoles() || getSelectorRoles().containsMatching(element::hasRole);
   }
 
-  private boolean selectorTokensAllowToSelectElement(final IStylableElement<?> element) {
+  private boolean selectorTokensAllowToSelectElement(final StylableElement<?> element) {
     return !containsSelectorTokens() || getSelectorTokens().containsAny(element.getTokens());
   }
 
-  private boolean selectorTypeAllowsToSelectElement(final IStylableElement<?> element) {
+  private boolean selectorTypeAllowsToSelectElement(final StylableElement<?> element) {
     return !hasSelectorType() || element.isOfType(getSelectorType());
   }
 }

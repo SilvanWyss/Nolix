@@ -5,12 +5,12 @@ package ch.nolix.systemapi.style.model;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.element.base.Element;
-import ch.nolix.systemapi.style.stylable.IStylableElement;
+import ch.nolix.systemapi.style.stylable.StylableElement;
 
 /**
- * A {@link IBaseStyle} can style {@link IStylableElement}s. A
+ * A {@link IBaseStyle} can style {@link StylableElement}s. A
  * {@link IBaseStyle} can distinguish if it would style also the child elements
- * of a given {@link IStylableElement}.
+ * of a given {@link StylableElement}.
  * 
  * @author Silvan Wyss
  * @param <S> the type of a {@link IBaseStyle}.
@@ -21,7 +21,7 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends Element {
    * 
    * @param element
    */
-  void applyToElement(IStylableElement<?> element);
+  void applyToElement(StylableElement<?> element);
 
   /**
    * @return the attaching attributes of the current {@link IBaseStyle}.

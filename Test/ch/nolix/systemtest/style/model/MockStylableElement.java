@@ -8,7 +8,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.style.stylable.AbstractStylableElement;
-import ch.nolix.systemapi.style.stylable.IStylableElement;
+import ch.nolix.systemapi.style.stylable.StylableElement;
 
 /**
  * @author Silvan Wyss
@@ -26,7 +26,7 @@ public final class MockStylableElement extends AbstractStylableElement<MockStyla
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<? extends IStylableElement<?>> getStoredChildStylableElements() {
+  public ExtendedIterable<? extends StylableElement<?>> getStoredChildStylableElements() {
     return ImmutableList.createEmpty();
   }
 

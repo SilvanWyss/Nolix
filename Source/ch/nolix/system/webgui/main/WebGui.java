@@ -32,7 +32,7 @@ import ch.nolix.systemapi.gui.background.ImageApplication;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 import ch.nolix.systemapi.gui.frontend.IFrontEndReader;
 import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
-import ch.nolix.systemapi.style.stylable.IStylableElement;
+import ch.nolix.systemapi.style.stylable.StylableElement;
 import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
 import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.main.ILayer;
@@ -228,7 +228,7 @@ implements IWebGui<WebGui> {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<? extends IStylableElement<?>> getStoredChildStylableElements() {
+  public ExtendedIterable<? extends StylableElement<?>> getStoredChildStylableElements() {
     return getStoredLayers();
   }
 
