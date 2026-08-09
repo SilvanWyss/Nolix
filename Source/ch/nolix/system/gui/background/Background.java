@@ -19,7 +19,7 @@ import ch.nolix.system.graphic.image.ImmutableImage;
 import ch.nolix.system.gui.colorgradient.ColorGradient;
 import ch.nolix.system.gui.cssmapper.CssPropertyMapper;
 import ch.nolix.systemapi.graphic.color.IColor;
-import ch.nolix.systemapi.graphic.image.IImage;
+import ch.nolix.systemapi.graphic.image.Image;
 import ch.nolix.systemapi.gui.background.BackgroundType;
 import ch.nolix.systemapi.gui.background.IBackground;
 import ch.nolix.systemapi.gui.background.ImageApplication;
@@ -47,7 +47,7 @@ public final class Background extends AbstractElement implements IBackground {
 
   private final IColorGradient colorGradient;
 
-  private final IImage image;
+  private final Image image;
 
   private final ImageApplication imageApplication;
 
@@ -76,8 +76,8 @@ public final class Background extends AbstractElement implements IBackground {
     imageApplication = null;
   }
 
-  private Background(final IImage image, final ImageApplication imageApplication) {
-    Validator.assertThat(image).thatIsNamed(IImage.class).isNotNull();
+  private Background(final Image image, final ImageApplication imageApplication) {
+    Validator.assertThat(image).thatIsNamed(Image.class).isNotNull();
     Validator.assertThat(imageApplication).thatIsNamed(ImageApplication.class).isNotNull();
 
     color = null;
@@ -113,12 +113,12 @@ public final class Background extends AbstractElement implements IBackground {
     return new Background(colorGradient);
   }
 
-  public static Background withImage(final IImage image) {
+  public static Background withImage(final Image image) {
     return withImageAndImageApplication(image, DEFAULT_IMAGE_APPLICATION);
   }
 
   public static Background withImageAndImageApplication(
-    final IImage image,
+    final Image image,
     final ImageApplication imageApplication) {
     return new Background(image, imageApplication);
   }
@@ -177,7 +177,7 @@ public final class Background extends AbstractElement implements IBackground {
    * {@inheritDoc}
    */
   @Override
-  public IImage getImage() {
+  public Image getImage() {
     assertIsImage();
 
     return image;
@@ -252,7 +252,7 @@ public final class Background extends AbstractElement implements IBackground {
 
   private void assertIsImage() {
     if (!isImage()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(this, IImage.class);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(this, Image.class);
     }
   }
 }

@@ -6,7 +6,7 @@ package ch.nolix.systemapi.control.imagecontrol;
 import java.util.function.Consumer;
 
 import ch.nolix.baseapi.generalstate.statemutation.Clearable;
-import ch.nolix.systemapi.graphic.image.IImage;
+import ch.nolix.systemapi.graphic.image.Image;
 import ch.nolix.systemapi.graphic.image.IMutableImage;
 import ch.nolix.systemapi.webgui.main.Control;
 
@@ -28,7 +28,7 @@ public interface IImageControl extends Clearable, Control<IImageControl, IImageC
 
   IImageControl setAlternateText(String alternateText);
 
-  IImageControl setImage(IImage image);
+  IImageControl setImage(Image image);
 
   IImageControl setLeftMouseButtonPressAction(Runnable leftMouseButtonPressAction);
 

@@ -4,14 +4,14 @@
 package ch.nolix.system.webapplication.webapplicationservice;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.systemapi.graphic.image.IImage;
+import ch.nolix.systemapi.graphic.image.Image;
 import ch.nolix.systemapi.webapplication.webapplicationservice.WebApplicationService;
 
 /**
  * @author Silvan Wyss
  */
 public abstract class AbstractWebApplicationService implements WebApplicationService {
-  private IImage applicationLogo;
+  private Image applicationLogo;
 
   /**
    * Creates a new {@link AbstractWebApplicationService} with the given
@@ -20,7 +20,7 @@ public abstract class AbstractWebApplicationService implements WebApplicationSer
    * @param applicationLogo
    * @throws RuntimeException if the given applicationLogo is null
    */
-  protected AbstractWebApplicationService(final IImage applicationLogo) {
+  protected AbstractWebApplicationService(final Image applicationLogo) {
     Validator.assertThat(applicationLogo).thatIsNamed("application logo").isNotNull();
 
     this.applicationLogo = applicationLogo;
@@ -30,7 +30,7 @@ public abstract class AbstractWebApplicationService implements WebApplicationSer
    * {@inheritDoc}
    */
   @Override
-  public final IImage getApplicationLogo() {
+  public final Image getApplicationLogo() {
     return applicationLogo;
   }
 }

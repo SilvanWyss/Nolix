@@ -26,7 +26,7 @@ import ch.nolix.system.webgui.controltool.ControlAnalyser;
 import ch.nolix.system.webgui.controltool.ControlTool;
 import ch.nolix.system.webgui.mainvalidator.LayerValidator;
 import ch.nolix.systemapi.graphic.color.IColor;
-import ch.nolix.systemapi.graphic.image.IImage;
+import ch.nolix.systemapi.graphic.image.Image;
 import ch.nolix.systemapi.gui.background.BackgroundType;
 import ch.nolix.systemapi.gui.background.IBackground;
 import ch.nolix.systemapi.gui.background.ImageApplication;
@@ -169,7 +169,7 @@ implements ILayer {
    * {@inheritDoc}
    */
   @Override
-  public IImage getBackgroundImage() {
+  public Image getBackgroundImage() {
     return getBackground().getImage();
   }
 
@@ -410,7 +410,7 @@ implements ILayer {
    * {@inheritDoc}
    */
   @Override
-  public Layer setBackgroundImage(final IImage backgroundImage) {
+  public Layer setBackgroundImage(final Image backgroundImage) {
     return setBackground(Background.withImage(backgroundImage));
   }
 
@@ -418,7 +418,7 @@ implements ILayer {
    * {@inheritDoc}
    */
   @Override
-  public Layer setBackgroundImage(final IImage backgroundImage, final ImageApplication imageApplication) {
+  public Layer setBackgroundImage(final Image backgroundImage, final ImageApplication imageApplication) {
     return setBackground(Background.withImageAndImageApplication(backgroundImage, imageApplication));
   }
 

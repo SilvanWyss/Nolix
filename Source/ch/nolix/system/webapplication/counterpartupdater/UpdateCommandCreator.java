@@ -12,7 +12,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PluralLowerCaseVariableNameCatalog;
-import ch.nolix.systemapi.graphic.image.IImage;
+import ch.nolix.systemapi.graphic.image.Image;
 import ch.nolix.systemapi.webapplication.counterpart.IUpdateCommandCreator;
 import ch.nolix.systemapi.webapplication.webclientprotocol.CommandProtocol;
 import ch.nolix.systemapi.webapplication.webclientprotocol.ObjectProtocol;
@@ -57,7 +57,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createSetIconCommandForIcon(final IImage icon) {
+  public IChainedNode createSetIconCommandForIcon(final Image icon) {
     return //
     ChainedNode.withHeaderAndNextNode(
       ObjectProtocol.GUI,

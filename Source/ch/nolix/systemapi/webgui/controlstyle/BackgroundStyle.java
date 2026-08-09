@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.webgui.controlstyle;
 
 import ch.nolix.systemapi.graphic.color.IColor;
-import ch.nolix.systemapi.graphic.image.IImage;
+import ch.nolix.systemapi.graphic.image.Image;
 import ch.nolix.systemapi.gui.background.IBackground;
 import ch.nolix.systemapi.gui.background.ImageApplication;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
@@ -23,7 +23,7 @@ public interface BackgroundStyle<S extends BackgroundStyle<S>> {
 
   S forStateSetBackgroundColorGradient(ControlState state, IColorGradient backgroundColorGradient);
 
-  S forStateSetBackgroundImage(ControlState state, IImage backgroundImage, ImageApplication imageApplication);
+  S forStateSetBackgroundImage(ControlState state, Image backgroundImage, ImageApplication imageApplication);
 
   S forStateSetBackground(ControlState state, IBackground background);
 }

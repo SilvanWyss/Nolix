@@ -12,7 +12,7 @@ import ch.nolix.systemapi.graphic.color.IColor;
 /**
  * @author Silvan Wyss
  */
-public interface IImage extends IElement {
+public interface Image extends IElement {
   IColor getBottomLeftPixel();
 
   IColor getBottomRightPixel();
@@ -39,7 +39,7 @@ public interface IImage extends IElement {
 
   BufferedImage toBufferedImage();
 
-  IImage toImmutableImage();
+  Image toImmutableImage();
 
   byte[] toJpg();
 

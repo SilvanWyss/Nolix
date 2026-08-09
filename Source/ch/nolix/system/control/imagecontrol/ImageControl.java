@@ -21,7 +21,7 @@ import ch.nolix.system.webgui.html.HtmlElementEvent;
 import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.control.imagecontrol.IImageControl;
 import ch.nolix.systemapi.control.imagecontrol.IImageControlStyle;
-import ch.nolix.systemapi.graphic.image.IImage;
+import ch.nolix.systemapi.graphic.image.Image;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
@@ -204,7 +204,7 @@ public final class ImageControl extends AbstractControl<IImageControl, IImageCon
    * {@inheritDoc}
    */
   @Override
-  public IImageControl setImage(final IImage image) {
+  public IImageControl setImage(final Image image) {
     if (image instanceof final MutableImage mutableImage) {
       this.image.setValue(mutableImage);
     } else {

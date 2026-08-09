@@ -25,7 +25,7 @@ import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
 import ch.nolix.system.style.stylable.AbstractStyleElement;
 import ch.nolix.systemapi.graphic.color.IColor;
-import ch.nolix.systemapi.graphic.image.IImage;
+import ch.nolix.systemapi.graphic.image.Image;
 import ch.nolix.systemapi.gui.background.BackgroundType;
 import ch.nolix.systemapi.gui.background.IBackground;
 import ch.nolix.systemapi.gui.background.ImageApplication;
@@ -152,7 +152,7 @@ implements IWebGui<WebGui> {
    * {@inheritDoc}
    */
   @Override
-  public IImage getBackgroundImage() {
+  public Image getBackgroundImage() {
     return getBackground().getImage();
   }
 
@@ -192,7 +192,7 @@ implements IWebGui<WebGui> {
    * {@inheritDoc}
    */
   @Override
-  public IImage getIcon() {
+  public Image getIcon() {
     return icon.getStoredValue();
   }
 
@@ -371,7 +371,7 @@ implements IWebGui<WebGui> {
    * {@inheritDoc}
    */
   @Override
-  public WebGui setBackgroundImage(final IImage backgroundImage) {
+  public WebGui setBackgroundImage(final Image backgroundImage) {
     return setBackground(Background.withImage(backgroundImage));
   }
 
@@ -379,7 +379,7 @@ implements IWebGui<WebGui> {
    * {@inheritDoc}
    */
   @Override
-  public WebGui setBackgroundImage(final IImage backgroundImage, final ImageApplication imageApplication) {
+  public WebGui setBackgroundImage(final Image backgroundImage, final ImageApplication imageApplication) {
     return setBackground(Background.withImageAndImageApplication(backgroundImage, imageApplication));
   }
 
@@ -403,7 +403,7 @@ implements IWebGui<WebGui> {
    * {@inheritDoc}
    */
   @Override
-  public WebGui setIcon(final IImage icon) {
+  public WebGui setIcon(final Image icon) {
     this.icon.setValue(ImmutableImage.fromAnyImage(icon));
 
     return this;

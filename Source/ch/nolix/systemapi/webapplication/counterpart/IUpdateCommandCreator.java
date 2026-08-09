@@ -5,7 +5,7 @@ package ch.nolix.systemapi.webapplication.counterpart;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
-import ch.nolix.systemapi.graphic.image.IImage;
+import ch.nolix.systemapi.graphic.image.Image;
 import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
@@ -19,7 +19,7 @@ public interface IUpdateCommandCreator {
 
   IChainedNode createSetIconCommandForWebGui(IWebGui<?> webGui);
 
-  IChainedNode createSetIconCommandForIcon(IImage icon);
+  IChainedNode createSetIconCommandForIcon(Image icon);
 
   IChainedNode createSetRootHtmlElementCommandForControl(Control<?, ?> control);
 

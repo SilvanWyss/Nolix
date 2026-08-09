@@ -7,7 +7,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 import ch.nolix.systemapi.element.base.IElement;
 import ch.nolix.systemapi.graphic.color.IColor;
-import ch.nolix.systemapi.graphic.image.IImage;
+import ch.nolix.systemapi.graphic.image.Image;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 
 /**
@@ -18,7 +18,7 @@ public interface IBackground extends IElement {
 
   IColorGradient getColorGradient();
 
-  IImage getImage();
+  Image getImage();
 
   ImageApplication getImageApplication();
 

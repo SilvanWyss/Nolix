@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.gui.model;
 
 import ch.nolix.baseapi.attribute.fluentmutablemandatoryattribute.FluentMutableTitleHolder;
-import ch.nolix.systemapi.graphic.image.IImage;
+import ch.nolix.systemapi.graphic.image.Image;
 import ch.nolix.systemapi.gui.frontend.IFrontEndReader;
 import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
 
@@ -21,7 +21,7 @@ public interface IGui<G extends IGui<G>> extends FluentMutableTitleHolder<G> {
   /**
    * @return the icon of the current {@link IGui}.
    */
-  IImage getIcon();
+  Image getIcon();
 
   /**
    * @return the {@link IFrontEndWriter} of the current {@link IGui}.
@@ -34,5 +34,5 @@ public interface IGui<G extends IGui<G>> extends FluentMutableTitleHolder<G> {
    * @param icon
    * @return the current{@link IGui}.
    */
-  G setIcon(IImage icon);
+  G setIcon(Image icon);
 }

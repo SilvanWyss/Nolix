@@ -29,7 +29,7 @@ import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.property.proxy.ValueProxy;
 import ch.nolix.systemapi.graphic.color.IColor;
-import ch.nolix.systemapi.graphic.image.IImage;
+import ch.nolix.systemapi.graphic.image.Image;
 import ch.nolix.systemapi.graphic.image.IMutableImage;
 
 /**
@@ -62,7 +62,7 @@ extends AbstractPropertiesElement implements IMutableImage<MutableImage> {
     this.pixels = pixels;
   }
 
-  public static MutableImage fromAnyImage(final IImage image) {
+  public static MutableImage fromAnyImage(final Image image) {
     return withPixels(image.getPixels());
   }
 

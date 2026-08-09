@@ -20,7 +20,7 @@ import ch.nolix.system.gui.box.CornerShadow;
 import ch.nolix.systemapi.element.multistateconfiguration.IMultiStateConfiguration;
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.graphic.color.IColor;
-import ch.nolix.systemapi.graphic.image.IImage;
+import ch.nolix.systemapi.graphic.image.Image;
 import ch.nolix.systemapi.gui.background.IBackground;
 import ch.nolix.systemapi.gui.background.ImageApplication;
 import ch.nolix.systemapi.gui.box.ICornerShadow;
@@ -589,7 +589,7 @@ implements ControlStyle<S> {
   @Override
   public final S forStateSetBackgroundImage(
     final ControlState state,
-    final IImage backgroundImage,
+    final Image backgroundImage,
     final ImageApplication imageApplication) {
     return forStateSetBackground(
       state,

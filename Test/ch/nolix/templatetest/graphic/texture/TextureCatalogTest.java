@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.image.ImmutableImage;
-import ch.nolix.systemapi.graphic.image.IImage;
+import ch.nolix.systemapi.graphic.image.Image;
 import ch.nolix.template.graphic.texture.TextureCatalog;
 
 /**
@@ -23,7 +23,7 @@ final class TextureCatalogTest extends StandardTest {
     for (final var t : textures) {
       expect(t).isOfType(ImmutableImage.class);
 
-      final var texture = (IImage) t;
+      final var texture = (Image) t;
 
       expect(texture.getWidth()).isEqualTo(16);
       expect(texture.getHeight()).isEqualTo(16);
