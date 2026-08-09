@@ -5,14 +5,14 @@ package ch.nolix.systemapi.element.mutableelement;
 
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalstate.statemutation.Resettable;
-import ch.nolix.systemapi.element.base.IElement;
+import ch.nolix.systemapi.element.base.Element;
 
 /**
  * A {@link IMutableElement} has attributes that can be mutated.
  * 
  * @author Silvan Wyss
  */
-public interface IMutableElement extends Resettable, IElement {
+public interface IMutableElement extends Resettable, Element {
   /**
    * Adds or changes the given attribute to the current {@link IMutableElement}.
    * 

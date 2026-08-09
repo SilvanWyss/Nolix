@@ -6,13 +6,13 @@ package ch.nolix.system.element.base;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
-import ch.nolix.systemapi.element.base.IElement;
+import ch.nolix.systemapi.element.base.Element;
 import ch.nolix.systemapi.element.base.SpecificationRepresentable;
 
 /**
  * @author Silvan Wyss
  */
-public abstract class AbstractElement implements IElement {
+public abstract class AbstractElement implements Element {
   /**
    * {@inheritDoc}
    */

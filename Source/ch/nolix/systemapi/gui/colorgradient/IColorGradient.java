@@ -3,14 +3,14 @@
  */
 package ch.nolix.systemapi.gui.colorgradient;
 
-import ch.nolix.systemapi.element.base.IElement;
+import ch.nolix.systemapi.element.base.Element;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.gui.box.Direction;
 
 /**
  * @author Silvan Wyss
  */
-public interface IColorGradient extends IElement {
+public interface IColorGradient extends Element {
   /**
    * @return the color1 of the current {@link IColorGradient}.
    */

@@ -12,7 +12,7 @@ import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.systemapi.element.base.IElement;
+import ch.nolix.systemapi.element.base.Element;
 import ch.nolix.systemapi.property.value.IOptionalValue;
 
 /**
@@ -78,16 +78,16 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
    * @param valueMapper
    * @param <E>         the type of the value of a {@link OptionalValue}
    * @return a new {@link OptionalValue} with the given name, setter and
-   *         valueMapperand and that can store a {@link IElement}
+   *         valueMapperand and that can store a {@link Element}
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given setter is null
    * @throws RuntimeException if the given valueMapper is null
    */
-  public static <E extends IElement> OptionalValue<E> forElementWithNameAndSetterAndValueMapper(
+  public static <E extends Element> OptionalValue<E> forElementWithNameAndSetterAndValueMapper(
     final String name,
     final Consumer<E> setter,
     final Function<Node<?>, E> valueMapper) {
-    return new OptionalValue<>(name, setter, valueMapper, IElement::getSpecification);
+    return new OptionalValue<>(name, setter, valueMapper, Element::getSpecification);
   }
 
   /**

@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.style.model;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.systemapi.element.base.IElement;
+import ch.nolix.systemapi.element.base.Element;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
 
 /**
@@ -15,7 +15,7 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
  * @author Silvan Wyss
  * @param <S> the type of a {@link IBaseStyle}.
  */
-public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
+public interface IBaseStyle<S extends IBaseStyle<S>> extends Element {
   /**
    * Applies the current {@link IBaseStyle} to the given element.
    * 

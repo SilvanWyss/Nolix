@@ -13,7 +13,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.systemapi.element.base.IElement;
+import ch.nolix.systemapi.element.base.Element;
 import ch.nolix.systemapi.property.value.IMultiValue;
 
 /**
@@ -56,16 +56,16 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
    * @param valueMapper
    * @param <E>         the type of the values of a {@link MultiValue}
    * @return a new {@link MultiValue} with the given name, adder and valueMapper
-   *         that can store {@link IElement}s
+   *         that can store {@link Element}s
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given adder is null
    * @throws RuntimeException if the given valueMapper is null
    */
-  public static <E extends IElement> MultiValue<E> forElementsOfSameTypeWithNameAndAdderAndValueMapper(
+  public static <E extends Element> MultiValue<E> forElementsOfSameTypeWithNameAndAdderAndValueMapper(
     final String name,
     final Consumer<E> adder,
     final Function<Node<?>, E> valueMapper) {
-    return new MultiValue<>(name, adder, valueMapper, IElement::getSpecification);
+    return new MultiValue<>(name, adder, valueMapper, Element::getSpecification);
   }
 
   /**
@@ -74,12 +74,12 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
    * @param valueMapper
    * @param <E>         the type of the values of a {@link MultiValue}
    * @return a new {@link MultiValue} with the given name, adder and valueMapper
-   *         that can store {@link IElement}s
+   *         that can store {@link Element}s
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given adder is null
    * @throws RuntimeException if the given valueMapper is null
    */
-  public static <E extends IElement> MultiValue<E> forElementsWithNameAndAdderAndValueMapper(
+  public static <E extends Element> MultiValue<E> forElementsWithNameAndAdderAndValueMapper(
     final String name,
     final Consumer<E> adder,
     final Function<Node<?>, E> valueMapper) {

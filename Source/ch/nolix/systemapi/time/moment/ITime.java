@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.time.moment;
 
-import ch.nolix.systemapi.element.base.IElement;
+import ch.nolix.systemapi.element.base.Element;
 import ch.nolix.systemapi.time.timestructure.Month;
 import ch.nolix.systemapi.time.timestructure.TimeZone;
 import ch.nolix.systemapi.time.timestructure.Weekday;
@@ -13,7 +13,7 @@ import ch.nolix.systemapi.time.timestructure.Weekday;
  * 
  * @author Silvan Wyss
  */
-public interface ITime extends IElement {
+public interface ITime extends Element {
   /**
    * @return the day of the month of the current {@link ITime}.
    */

@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.graphic.color;
 
-import ch.nolix.systemapi.element.base.IElement;
+import ch.nolix.systemapi.element.base.Element;
 
 /**
  * A {@link IColor} represents a true color with an alpha value. A true color
@@ -13,7 +13,7 @@ import ch.nolix.systemapi.element.base.IElement;
  * 
  * @author Silvan
  */
-public interface IColor extends IElement {
+public interface IColor extends Element {
   /**
    * @return the alpha value of the current {@link IColor} as percentage. A
    *         percentage is a number in the range [0.0, 1.0].

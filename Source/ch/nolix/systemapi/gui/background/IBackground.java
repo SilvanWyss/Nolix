@@ -5,7 +5,7 @@ package ch.nolix.systemapi.gui.background;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
-import ch.nolix.systemapi.element.base.IElement;
+import ch.nolix.systemapi.element.base.Element;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.image.Image;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
@@ -13,7 +13,7 @@ import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 /**
  * @author Silvan Wyss
  */
-public interface IBackground extends IElement {
+public interface IBackground extends Element {
   IColor getColor();
 
   IColorGradient getColorGradient();

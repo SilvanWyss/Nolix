@@ -3,14 +3,14 @@
  */
 package ch.nolix.systemapi.element.relativevalue;
 
-import ch.nolix.systemapi.element.base.IElement;
+import ch.nolix.systemapi.element.base.Element;
 
 /**
  * A {@link IAbsoluteOrRelativeInt} stores either an integer or a percentage.
  * 
  * @author Silvan Wyss
  */
-public interface IAbsoluteOrRelativeInt extends IElement {
+public interface IAbsoluteOrRelativeInt extends Element {
   /**
    * @return the absolute value of the current {@link IAbsoluteOrRelativeInt}
    * @throws RuntimeException if the current {@link IAbsoluteOrRelativeInt} is not
