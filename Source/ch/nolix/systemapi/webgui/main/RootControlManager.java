@@ -10,9 +10,9 @@ import ch.nolix.baseapi.generalstate.statemutation.Clearable;
 
 /**
  * @author Silvan Wyss
- * @param <O> the type of a {@link IRootControlOwner}.
+ * @param <O> the type of a {@link RootControlManager}.
  */
-public interface IRootControlOwner<O extends IRootControlOwner<O>> extends Clearable {
+public interface RootControlManager<O extends RootControlManager<O>> extends Clearable {
   Optional<Control<?, ?>> getOptionalStoredControlByInternalId(String internalId);
 
   ExtendedIterable<Control<?, ?>> getStoredControls();

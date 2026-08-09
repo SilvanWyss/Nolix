@@ -19,7 +19,7 @@ extends
 BackgroundHolder<ILayer>,
 GuiComponent<IWebGui<?>>,
 HtmlGetter,
-IRootControlOwner<ILayer>,
+RootControlManager<ILayer>,
 StylableElement<ILayer> {
   boolean containsControl(Control<?, ?> control);
 
