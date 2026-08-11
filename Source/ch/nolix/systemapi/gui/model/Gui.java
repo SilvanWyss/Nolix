@@ -10,29 +10,29 @@ import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
 
 /**
  * @author Silvan Wyss
- * @param <G> the type of a {@link IGui}.
+ * @param <G> the type of a {@link Gui}.
  */
-public interface IGui<G extends IGui<G>> extends FluentMutableTitleHolder<G> {
+public interface Gui<G extends Gui<G>> extends FluentMutableTitleHolder<G> {
   /**
-   * @return the {@link IFrontEndReader} of the current {@link IGui}.
+   * @return the {@link IFrontEndReader} of the current {@link Gui}.
    */
   IFrontEndReader fromFrontEnd();
 
   /**
-   * @return the icon of the current {@link IGui}.
+   * @return the icon of the current {@link Gui}.
    */
   Image getIcon();
 
   /**
-   * @return the {@link IFrontEndWriter} of the current {@link IGui}.
+   * @return the {@link IFrontEndWriter} of the current {@link Gui}.
    */
   IFrontEndWriter onFrontEnd();
 
   /**
-   * Sets the icon of the current{@link IGui}.
+   * Sets the icon of the current{@link Gui}.
    * 
    * @param icon
-   * @return the current{@link IGui}.
+   * @return the current{@link Gui}.
    */
   G setIcon(Image icon);
 }
