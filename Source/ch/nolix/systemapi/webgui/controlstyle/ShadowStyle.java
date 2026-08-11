@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.webgui.controlstyle;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.systemapi.gui.box.ICornerShadow;
+import ch.nolix.systemapi.webgui.base.ICornerShadow;
 import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**

@@ -11,9 +11,9 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 import ch.nolix.baseapi.web.csscatalog.CssPropertyNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 import ch.nolix.systemapi.gui.background.IBackground;
-import ch.nolix.systemapi.gui.box.ICornerShadow;
 import ch.nolix.systemapi.gui.cssmapper.ICssPropertyMapper;
 import ch.nolix.systemapi.gui.font.LineDecoration;
+import ch.nolix.systemapi.webgui.base.ICornerShadow;
 
 /**
  * A {@link CssPropertyMapper} is not mutable.

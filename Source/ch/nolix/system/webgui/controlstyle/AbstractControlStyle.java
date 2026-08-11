@@ -16,15 +16,15 @@ import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeIntValidator;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.gui.background.Background;
-import ch.nolix.system.gui.box.CornerShadow;
+import ch.nolix.system.webgui.base.CornerShadow;
 import ch.nolix.systemapi.element.multistateconfiguration.MultiStateConfiguration;
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.color.IColorGradient;
 import ch.nolix.systemapi.graphic.image.Image;
 import ch.nolix.systemapi.gui.background.IBackground;
-import ch.nolix.systemapi.gui.box.ICornerShadow;
 import ch.nolix.systemapi.gui.guiproperty.ImageApplication;
+import ch.nolix.systemapi.webgui.base.ICornerShadow;
 import ch.nolix.systemapi.webgui.controlstyle.ControlStyle;
 import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 

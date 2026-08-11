@@ -8,8 +8,8 @@ import java.util.Optional;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 import ch.nolix.systemapi.gui.background.IBackground;
-import ch.nolix.systemapi.gui.box.ICornerShadow;
 import ch.nolix.systemapi.gui.font.LineDecoration;
+import ch.nolix.systemapi.webgui.base.ICornerShadow;
 
 /**
  * @author Silvan Wyss

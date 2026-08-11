@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.system.gui.box;
+package ch.nolix.system.webgui.base;
 
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.document.node.ImmutableNode;
@@ -15,9 +15,9 @@ import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.systemapi.graphic.color.IColor;
-import ch.nolix.systemapi.gui.box.ICornerShadow;
 import ch.nolix.systemapi.gui.guiproperty.Corner;
 import ch.nolix.systemapi.gui.guiproperty.Location;
+import ch.nolix.systemapi.webgui.base.ICornerShadow;
 
 /**
  * A {@link CornerShadow} is not mutable.

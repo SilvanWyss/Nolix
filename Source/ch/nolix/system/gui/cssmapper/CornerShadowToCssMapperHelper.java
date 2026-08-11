@@ -6,7 +6,7 @@ package ch.nolix.system.gui.cssmapper;
 import ch.nolix.base.web.cssmodel.CssProperty;
 import ch.nolix.baseapi.web.csscatalog.CssPropertyNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
-import ch.nolix.systemapi.gui.box.ICornerShadow;
+import ch.nolix.systemapi.webgui.base.ICornerShadow;
 
 /**
  * Of the {@link CornerShadowToCssMapperHelper} an instance cannot be created.

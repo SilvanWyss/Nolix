@@ -1,8 +1,9 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.gui.box;
+package ch.nolix.systemapi.webgui.base;
 
+import ch.nolix.systemapi.element.base.Element;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.gui.guiproperty.Corner;
 import ch.nolix.systemapi.gui.guiproperty.Location;
@@ -10,7 +11,7 @@ import ch.nolix.systemapi.gui.guiproperty.Location;
 /**
  * @author Silvan Wyss
  */
-public interface ICornerShadow {
+public interface ICornerShadow extends Element {
   /**
    * @return the blur radius of the current {ICornerShadow}.
    */
