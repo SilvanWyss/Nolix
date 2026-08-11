@@ -4,7 +4,6 @@
 package ch.nolix.systemapi.objectdata.model;
 
 import ch.nolix.baseapi.attribute.mandatoryattribute.IdHolder;
-import ch.nolix.baseapi.attribute.mandatoryattribute.ShortDescriptionHolder;
 import ch.nolix.baseapi.attribute.optionalattribute.OptionalSaveStampHolder;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.objectcomposition.datamodelcomponent.DatabaseComponent;
@@ -22,9 +21,10 @@ DatabaseComponent<IDatabase>,
 DatabaseObject,
 IdHolder,
 OptionalSaveStampHolder,
-ShortDescriptionHolder,
 TableComponent<ITable<? extends IEntity>> {
   String getParentTableName();
+
+  String getShortDescription();
 
   ExtendedIterable<? extends Field> internalGetStoredFields();
 
