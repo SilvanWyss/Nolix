@@ -13,7 +13,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
 /**
  * @author Silvan Wyss
  */
-final class ForIpOrDomainCaptorTest extends StandardTest {
+final class ForHostCaptorTest extends StandardTest {
   @Test
   void testCase_forIpOrDomain_whenDoesNotHaveSuccessor() {
     // setup
@@ -57,7 +57,7 @@ final class ForIpOrDomainCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_getIpOrDomain_whenDoesNotHaveIpOrDomain() {
+  void testCase_getHost_whenDoesNotHaveIpOrDomain() {
     // setup
     final var testUnit = new ForHostCaptor<>();
 
