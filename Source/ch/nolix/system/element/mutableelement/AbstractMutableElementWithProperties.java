@@ -119,9 +119,11 @@ public abstract class AbstractMutableElementWithProperties implements MutableEle
   }
 
   /**
-   * Adds the {@link Property}s from the current {@link AbstractMutableElementWithProperties}
-   * to the current {@link AbstractMutableElementWithProperties} if the current
-   * {@link AbstractMutableElementWithProperties} has not added its {@link Property}s.
+   * Adds the {@link Property}s from the current
+   * {@link AbstractMutableElementWithProperties} to the current
+   * {@link AbstractMutableElementWithProperties} if the current
+   * {@link AbstractMutableElementWithProperties} has not added its
+   * {@link Property}s.
    */
   private void addPropertiesIfNotAdded() {
     if (!hasAddedProperties()) {
@@ -130,16 +132,17 @@ public abstract class AbstractMutableElementWithProperties implements MutableEle
   }
 
   /**
-   * @return true if the current {@link AbstractMutableElementWithProperties}s has added its
-   *         {@link Property}s, false otherwise
+   * @return true if the current {@link AbstractMutableElementWithProperties}s has
+   *         added its {@link Property}s, false otherwise
    */
   private boolean hasAddedProperties() {
     return properties != null;
   }
 
   /**
-   * Adds the {@link Property}s from the current {@link AbstractMutableElementWithProperties}
-   * to the current {@link AbstractMutableElementWithProperties}.
+   * Adds the {@link Property}s from the current
+   * {@link AbstractMutableElementWithProperties} to the current
+   * {@link AbstractMutableElementWithProperties}.
    */
   private void addProperties() {
     properties = ArrayList.createEmpty();

@@ -15,8 +15,7 @@ import ch.nolix.systemapi.style.stylable.StylableElement;
 public interface ISelectingStyle<S extends ISelectingStyle<S>> extends IBaseStyle<S> {
   /**
    * @return true if the current {@link ISelectingStyle} would select the child
-   *         elements of a given {@link StylableElement} to style, false
-   *         otherwise
+   *         elements of a given {@link StylableElement} to style, false otherwise
    */
   boolean selectsChildElements();
 

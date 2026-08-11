@@ -8,9 +8,9 @@ import ch.nolix.systemapi.element.base.Element;
 import ch.nolix.systemapi.style.stylable.StylableElement;
 
 /**
- * A {@link IBaseStyle} can style {@link StylableElement}s. A
- * {@link IBaseStyle} can distinguish if it would style also the child elements
- * of a given {@link StylableElement}.
+ * A {@link IBaseStyle} can style {@link StylableElement}s. A {@link IBaseStyle}
+ * can distinguish if it would style also the child elements of a given
+ * {@link StylableElement}.
  * 
  * @author Silvan Wyss
  * @param <S> the type of a {@link IBaseStyle}.

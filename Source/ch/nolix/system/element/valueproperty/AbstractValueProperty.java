@@ -22,8 +22,8 @@ public abstract class AbstractValueProperty<V> implements BaseValueProperty {
   private final Function<V, Node<?>> specificationMapper;
 
   /**
-   * Creates a new {@link AbstractValueProperty} with the given name, valueMapper and
-   * specificationMapper.
+   * Creates a new {@link AbstractValueProperty} with the given name, valueMapper
+   * and specificationMapper.
    * 
    * @param name
    * @param valueMapper

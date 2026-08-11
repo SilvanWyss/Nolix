@@ -31,8 +31,8 @@ public final class MultiValueProxyProperty<V> implements IMultiValueProxyPropert
   private final Function<V, Node<?>> specificationMapper;
 
   /**
-   * Creates a new {@link MultiValueProxyProperty} with the given name, adder, getter,
-   * valueMapper and specificationMapper.
+   * Creates a new {@link MultiValueProxyProperty} with the given name, adder,
+   * getter, valueMapper and specificationMapper.
    * 
    * @param name
    * @param adder
@@ -72,8 +72,8 @@ public final class MultiValueProxyProperty<V> implements IMultiValueProxyPropert
    * @param specificationMapper
    * @param <T>                 the type of the values the created
    *                            {@link MultiValueProxyProperty} forwards
-   * @return a new {@link MultiValueProxyProperty} with the given name, adder, getter,
-   *         valueMapper and specificationMapper
+   * @return a new {@link MultiValueProxyProperty} with the given name, adder,
+   *         getter, valueMapper and specificationMapper
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given adder is null
    * @throws RuntimeException if the given getter is null

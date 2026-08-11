@@ -12,8 +12,8 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.graphic.color.IColor;
-import ch.nolix.systemapi.graphic.image.Image;
 import ch.nolix.systemapi.graphic.image.IMutableImage;
+import ch.nolix.systemapi.graphic.image.Image;
 
 /**
  * @author Silvan Wyss

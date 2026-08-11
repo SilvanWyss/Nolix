@@ -26,8 +26,8 @@ public final class MultiValueProperty<V> extends AbstractValueProperty<V> implem
   private final Consumer<V> adder;
 
   /**
-   * Creates a new {@link MultiValueProperty} with the given name, adder, valueMapper and
-   * specificationMapper.
+   * Creates a new {@link MultiValueProperty} with the given name, adder,
+   * valueMapper and specificationMapper.
    * 
    * @param name
    * @param valueMapper
@@ -55,8 +55,8 @@ public final class MultiValueProperty<V> extends AbstractValueProperty<V> implem
    * @param adder
    * @param valueMapper
    * @param <E>         the type of the values of a {@link MultiValueProperty}
-   * @return a new {@link MultiValueProperty} with the given name, adder and valueMapper
-   *         that can store {@link Element}s
+   * @return a new {@link MultiValueProperty} with the given name, adder and
+   *         valueMapper that can store {@link Element}s
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given adder is null
    * @throws RuntimeException if the given valueMapper is null
@@ -73,8 +73,8 @@ public final class MultiValueProperty<V> extends AbstractValueProperty<V> implem
    * @param adder
    * @param valueMapper
    * @param <E>         the type of the values of a {@link MultiValueProperty}
-   * @return a new {@link MultiValueProperty} with the given name, adder and valueMapper
-   *         that can store {@link Element}s
+   * @return a new {@link MultiValueProperty} with the given name, adder and
+   *         valueMapper that can store {@link Element}s
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given adder is null
    * @throws RuntimeException if the given valueMapper is null
@@ -89,8 +89,8 @@ public final class MultiValueProperty<V> extends AbstractValueProperty<V> implem
   /**
    * @param name
    * @param adder
-   * @return a new {@link MultiValueProperty} with the given name and adder and that can
-   *         store {@link Integer}s
+   * @return a new {@link MultiValueProperty} with the given name and adder and
+   *         that can store {@link Integer}s
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given adder is null
    */
@@ -101,8 +101,8 @@ public final class MultiValueProperty<V> extends AbstractValueProperty<V> implem
   /**
    * @param name
    * @param adder
-   * @return a new {@link MultiValueProperty} with the given name and adder and that can
-   *         store {@link String}s
+   * @return a new {@link MultiValueProperty} with the given name and adder and
+   *         that can store {@link String}s
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given adder is null
    */

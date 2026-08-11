@@ -29,8 +29,8 @@ import ch.nolix.system.element.proxyproperty.ValueProxyProperty;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.systemapi.graphic.color.IColor;
-import ch.nolix.systemapi.graphic.image.Image;
 import ch.nolix.systemapi.graphic.image.IMutableImage;
+import ch.nolix.systemapi.graphic.image.Image;
 
 /**
  * @author Silvan Wyss
