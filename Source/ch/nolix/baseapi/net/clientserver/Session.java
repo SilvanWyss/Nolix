@@ -3,8 +3,8 @@
  */
 package ch.nolix.baseapi.net.clientserver;
 
-import ch.nolix.baseapi.component.applicationcomponent.ClientComponent;
 import ch.nolix.baseapi.generalstate.staterequest.AlivenessRequestable;
+import ch.nolix.baseapi.objectcomposition.applicationcomponent.ClientComponent;
 import ch.nolix.baseapi.programcontrol.refresh.Refreshable;
 
 /**

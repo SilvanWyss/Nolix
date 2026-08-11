@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.component.datamodelcomponent;
+package ch.nolix.baseapi.objectcomposition.datamodelcomponent;
 
 /**
  * A {@link EntityComponent} can belong to an entity.

@@ -3,9 +3,9 @@
  */
 package ch.nolix.systemapi.webgui.main;
 
-import ch.nolix.baseapi.component.guicomponent.ControlComponent;
-import ch.nolix.baseapi.component.guicomponent.GuiComponent;
-import ch.nolix.baseapi.component.guicomponent.LayerComponent;
+import ch.nolix.baseapi.objectcomposition.guicomponent.ControlComponent;
+import ch.nolix.baseapi.objectcomposition.guicomponent.GuiComponent;
+import ch.nolix.baseapi.objectcomposition.guicomponent.LayerComponent;
 
 /**
  * @author Silvan Wyss

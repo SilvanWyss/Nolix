@@ -3,8 +3,8 @@
  */
 package ch.nolix.baseapi.net.clientserver;
 
-import ch.nolix.baseapi.manager.applicationmanager.ClientManager;
 import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
+import ch.nolix.baseapi.objectcomposition.applicationmanager.ClientManager;
 
 /**
  * @author Silvan Wyss

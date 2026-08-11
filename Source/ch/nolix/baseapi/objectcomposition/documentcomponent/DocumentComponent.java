@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.component.documentcomponent;
+package ch.nolix.baseapi.objectcomposition.documentcomponent;
 
 /**
  * A {@link DocumentComponent} can belong to a document.

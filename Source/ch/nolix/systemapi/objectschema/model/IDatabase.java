@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.objectschema.model;
 
 import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
-import ch.nolix.baseapi.manager.databasemanager.TableManager;
+import ch.nolix.baseapi.objectcomposition.databasemanager.TableManager;
 import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
 
 /**

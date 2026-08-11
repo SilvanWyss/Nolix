@@ -7,8 +7,8 @@ import java.util.Optional;
 
 import ch.nolix.baseapi.attribute.mandatoryattribute.IdHolder;
 import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
-import ch.nolix.baseapi.component.datamodelcomponent.DatabaseComponent;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.objectcomposition.datamodelcomponent.DatabaseComponent;
 import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
 
 /**

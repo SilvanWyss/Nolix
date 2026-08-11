@@ -5,8 +5,8 @@ package ch.nolix.systemapi.objectdata.model;
 
 import java.util.Optional;
 
-import ch.nolix.baseapi.component.datamodelcomponent.DatabaseComponent;
-import ch.nolix.baseapi.component.datamodelcomponent.TableComponent;
+import ch.nolix.baseapi.objectcomposition.datamodelcomponent.DatabaseComponent;
+import ch.nolix.baseapi.objectcomposition.datamodelcomponent.TableComponent;
 import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
 
 /**

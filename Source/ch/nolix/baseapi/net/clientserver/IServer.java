@@ -4,9 +4,9 @@
 package ch.nolix.baseapi.net.clientserver;
 
 import ch.nolix.baseapi.generalstate.statemutation.Clearable;
-import ch.nolix.baseapi.manager.applicationmanager.ApplicationManager;
 import ch.nolix.baseapi.net.netattribute.SecurityModeHolder;
 import ch.nolix.baseapi.net.target.IServerTarget;
+import ch.nolix.baseapi.objectcomposition.applicationmanager.ApplicationManager;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 
 /**

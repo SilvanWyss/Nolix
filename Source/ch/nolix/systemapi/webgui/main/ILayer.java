@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.webgui.main;
 
-import ch.nolix.baseapi.component.guicomponent.GuiComponent;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.objectcomposition.guicomponent.GuiComponent;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.systemapi.gui.background.BackgroundHolder;
 import ch.nolix.systemapi.gui.box.ContentAlignment;

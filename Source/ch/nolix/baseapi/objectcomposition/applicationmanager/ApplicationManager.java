@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.manager.applicationmanager;
+package ch.nolix.baseapi.objectcomposition.applicationmanager;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 

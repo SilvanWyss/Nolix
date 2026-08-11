@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.component.applicationcomponent;
+package ch.nolix.baseapi.objectcomposition.applicationcomponent;
 
 /**
  * A {@link ApplicationComponent} can belong to an application.

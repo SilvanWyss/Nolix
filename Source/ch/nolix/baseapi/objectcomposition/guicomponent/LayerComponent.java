@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.component.guicomponent;
+package ch.nolix.baseapi.objectcomposition.guicomponent;
 
 /**
  * A {@link LayerComponent} can belong to a layer.

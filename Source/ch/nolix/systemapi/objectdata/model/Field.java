@@ -4,12 +4,12 @@
 package ch.nolix.systemapi.objectdata.model;
 
 import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
-import ch.nolix.baseapi.component.datamodelcomponent.DatabaseComponent;
-import ch.nolix.baseapi.component.datamodelcomponent.EntityComponent;
-import ch.nolix.baseapi.component.datamodelcomponent.TableComponent;
 import ch.nolix.baseapi.datamodel.fieldrequest.MandatorynessRequestable;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.generalstate.staterequest.EmptinessRequestable;
+import ch.nolix.baseapi.objectcomposition.datamodelcomponent.DatabaseComponent;
+import ch.nolix.baseapi.objectcomposition.datamodelcomponent.EntityComponent;
+import ch.nolix.baseapi.objectcomposition.datamodelcomponent.TableComponent;
 import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
