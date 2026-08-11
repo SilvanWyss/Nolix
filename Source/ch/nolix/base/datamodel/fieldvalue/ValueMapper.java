@@ -35,7 +35,7 @@ public final class ValueMapper implements IValueMapper {
         Boolean.valueOf(string);
       case STRING ->
         string;
-      case BINARY_OBJECT ->
+      case BLOB ->
         Blob.fromString(string);
       default ->
         throw InvalidArgumentException.forArgument(dataType);

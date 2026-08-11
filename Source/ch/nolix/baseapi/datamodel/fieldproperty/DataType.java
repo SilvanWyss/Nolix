@@ -17,29 +17,43 @@ public enum DataType {
   FLOATING_POINT_NUMBER_8BYTE(Double.class),
   BOOLEAN(Boolean.class),
   STRING(String.class),
-  BINARY_OBJECT(IBlob.class);
+  BLOB(IBlob.class);
 
-  private final Class<?> dataTypeClass;
+  private final Class<?> memberClass;
 
-  <V> DataType(final Class<V> dataTypeClass) {
-    this.dataTypeClass = dataTypeClass;
+  /**
+   * Creates a new {@link DataType} for the given class.
+   * 
+   * @param <V>        the type of the created {@link DataType}
+   * @param paramClass
+   */
+  <V> DataType(final Class<V> paramClass) {
+    memberClass = paramClass;
   }
 
-  public static DataType forType(final Class<?> type) {
-    return switch (type.getSimpleName()) {
-      case "Byte" -> INTEGER_1BYTE;
-      case "Short" -> INTEGER_2BYTE;
-      case "Integer" -> INTEGER_4BYTE;
-      case "Long" -> INTEGER_8BYTE;
-      case "Float" -> FLOATING_POINT_NUMBER_4BYTE;
-      case "Double" -> FLOATING_POINT_NUMBER_8BYTE;
-      case "Boolean" -> BOOLEAN;
-      case "String" -> STRING;
-      default -> throw new IllegalArgumentException("The given type does not represent a DataType.");
+  /**
+   * @param paramClass
+   * @return the {@link DataType} for the given class.
+   */
+  public static DataType forClass(final Class<?> paramClass) {
+    return //
+    switch (paramClass.getName()) {
+      case "java.lang.Byte" -> INTEGER_1BYTE;
+      case "java.lang.Short" -> INTEGER_2BYTE;
+      case "java.lang.Integer" -> INTEGER_4BYTE;
+      case "java.lang.Long" -> INTEGER_8BYTE;
+      case "java.lang.Float" -> FLOATING_POINT_NUMBER_4BYTE;
+      case "java.lang.Double" -> FLOATING_POINT_NUMBER_8BYTE;
+      case "java.lang.Boolean" -> BOOLEAN;
+      case "java.lang.String" -> STRING;
+      default -> throw new IllegalArgumentException("The given Class does not represent a DataType.");
     };
   }
 
+  /**
+   * @return the class the current {@link DataType} is for.
+   */
   public Class<?> getDataTypeClass() {
-    return dataTypeClass;
+    return memberClass;
   }
 }

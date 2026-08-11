@@ -109,7 +109,7 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
    */
   @Override
   public void setValueFromString(final String string) {
-    final var dataType = DataType.forType(getValueType());
+    final var dataType = DataType.forClass(getValueType());
 
     @SuppressWarnings("unchecked")
     final var value = (V) VALUE_MAPPER.mapStringToValue(string, dataType);

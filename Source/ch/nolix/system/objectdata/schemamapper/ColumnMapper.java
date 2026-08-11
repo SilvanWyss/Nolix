@@ -28,7 +28,7 @@ public final class ColumnMapper implements IColumnMapper {
         columnId,
         field.getName(),
         field.getType(),
-        DataType.forType(baseValueField.getValueType()),
+        DataType.forClass(baseValueField.getValueType()),
         ImmutableList.createEmpty(),
         ImmutableList.createEmpty());
     }
