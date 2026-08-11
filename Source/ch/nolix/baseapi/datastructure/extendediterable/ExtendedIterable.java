@@ -55,5 +55,5 @@ SingleProvider<E>,
 IterableStringProvider,
 IterableWithCopyableIterator<E>,
 MaterializationRequestable {
-  //This interface is a dedicated union of other interfaces.
+  // This interface is a dedicated union of other interfaces.
 }

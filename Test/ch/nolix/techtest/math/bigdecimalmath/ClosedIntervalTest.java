@@ -49,8 +49,8 @@ final class ClosedIntervalTest extends StandardTest {
 
   @ParameterizedTest
   @CsvSource({
-  "0.0, 1.0, -1.0", //The given value is smaller than min.
-  "0.0, 1.0, 2.0", //The given value is bigger than max.
+  "0.0, 1.0, -1.0", // The given value is smaller than min.
+  "0.0, 1.0, 2.0", // The given value is bigger than max.
   })
   void testCase_containsValue_whenDoesNotContainTheGivenValue(final double min, final double max, final double value) {
     // setup

@@ -36,9 +36,9 @@ final class LongMediatorTest extends StandardTest {
 
   @ParameterizedTest
   @ValueSource(ints = {
-  0, //The argument is the min.
-  50, //The given argument is the midpoint.
-  100 //The argument is the max.
+  0, // The argument is the min.
+  50, // The given argument is the midpoint.
+  100 // The argument is the max.
   })
   void testCase_isBetween_whenTheGivenArgumentIsBetweenTheGivenMinAndMax(final int argument) {
     // setup
