@@ -63,7 +63,7 @@ public final class Server extends AbstractServer<Server> implements HostHolder, 
    */
   @Override
   public IServerTarget asTarget() {
-    return ServerTarget.forIpOrDomainAndPortAndSecurityModeForConnections(
+    return ServerTarget.forHostAndPortAndSecurityModeForConnections(
       getHost(),
       getPort(),
       SECURITY_MODE_FOR_CONNECTIONS);

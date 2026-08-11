@@ -19,7 +19,7 @@ public final class MsSqlDataAdapter extends AbstractDataAdapter {
   private final ResourcePool<? extends ISqlConnection> sqlConnectionPool;
 
   private MsSqlDataAdapter(
-    final String ipOrDomain,
+    final String host,
     final int port,
     final String databaseName,
     final String loginName,
@@ -30,7 +30,7 @@ public final class MsSqlDataAdapter extends AbstractDataAdapter {
       entityTypeSet,
       SqlConnectionPoolBuilder
         .createConnectionPool()
-        .forHost(ipOrDomain)
+        .forHost(host)
         .andPort(port)
         .andDatabase(databaseName)
         .withSqlDatabaseEngine(SqlDatabaseEngine.MS_SQL)

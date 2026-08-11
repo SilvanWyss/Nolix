@@ -250,7 +250,7 @@ implements Application<C, S> {
    */
   private IApplicationInstanceTarget asTargetWithServerTarget(final IServerTarget serverTarget) {
     return ApplicationInstanceTarget
-      .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
+      .forHostAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
         serverTarget.getHost(),
         serverTarget.getPort(),
         getInstanceName(),

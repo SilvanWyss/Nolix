@@ -70,7 +70,7 @@ public final class SslServer extends AbstractServer<SslServer> {
    */
   @Override
   public IServerTarget asTarget() {
-    return ServerTarget.forIpOrDomainAndPortAndSecurityModeForConnections(
+    return ServerTarget.forHostAndPortAndSecurityModeForConnections(
       domain,
       port,
       SECURITY_MODE_FOR_CONNECTIONS);

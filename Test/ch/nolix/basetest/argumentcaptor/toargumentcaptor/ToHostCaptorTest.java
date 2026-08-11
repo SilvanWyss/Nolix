@@ -15,7 +15,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
  */
 final class ToHostCaptorTest extends StandardTest {
   @Test
-  void testCase_getHost_whenDoesNotHaveIpOrDomain() {
+  void testCase_getHost_whenDoesNotHaveHost() {
     // setup
     final var testUnit = new ToHostCaptor<>();
 

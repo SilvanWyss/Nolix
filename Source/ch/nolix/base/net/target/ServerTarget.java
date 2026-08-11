@@ -13,17 +13,17 @@ import ch.nolix.baseapi.net.target.IServerTarget;
  * @author Silvan Wyss
  */
 public class ServerTarget implements IServerTarget {
-  private final String ipOrDomain;
+  private final String host;
 
   private final int port;
 
   private final SecurityMode securityModeForConnections;
 
   protected ServerTarget(
-    final String ipOrDomain,
+    final String host,
     final int port,
     final SecurityMode securityModeForConnections) {
-    Validator.assertThat(ipOrDomain).thatIsNamed("ip or address name").isNotBlank();
+    Validator.assertThat(host).thatIsNamed("ip or address name").isNotBlank();
     Validator.assertThat(port).thatIsNamed(LowerCaseVariableNameCatalog.PORT).isPort();
 
     Validator
@@ -31,16 +31,16 @@ public class ServerTarget implements IServerTarget {
       .thatIsNamed("security mode for connections")
       .isNotNull();
 
-    this.ipOrDomain = ipOrDomain;
+    this.host = host;
     this.port = port;
     this.securityModeForConnections = securityModeForConnections;
   }
 
-  public static ServerTarget forIpOrDomainAndPortAndSecurityModeForConnections(
-    final String ipOrDomain,
+  public static ServerTarget forHostAndPortAndSecurityModeForConnections(
+    final String host,
     final int port,
     final SecurityMode securityModeForConnections) {
-    return new ServerTarget(ipOrDomain, port, securityModeForConnections);
+    return new ServerTarget(host, port, securityModeForConnections);
   }
 
   /**
@@ -48,7 +48,7 @@ public class ServerTarget implements IServerTarget {
    */
   @Override
   public final String getHost() {
-    return ipOrDomain;
+    return host;
   }
 
   /**

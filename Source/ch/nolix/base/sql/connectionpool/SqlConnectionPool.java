@@ -21,7 +21,7 @@ extends AbstractResourcePool<WrapperSqlConnection, AbstractSqlConnection>
 implements ISqlDatabaseTarget {
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.NONE;
 
-  private final String ipOrDomain;
+  private final String host;
 
   private final int port;
 
@@ -32,18 +32,18 @@ implements ISqlDatabaseTarget {
   private final Credential credential;
 
   private SqlConnectionPool(
-    final String ipOrDomain,
+    final String host,
     final int port,
     final String databaseName,
     final SqlDatabaseEngine sqlDatabaseEngine,
     final String loginName,
     final String loginPassword) {
-    Validator.assertThat(ipOrDomain).thatIsNamed("ip or address name").isNotBlank();
+    Validator.assertThat(host).thatIsNamed("ip or address name").isNotBlank();
     Validator.assertThat(port).thatIsNamed(LowerCaseVariableNameCatalog.PORT).isBetween(0, 65_535);
     Validator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
     Validator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
 
-    this.ipOrDomain = ipOrDomain;
+    this.host = host;
     this.port = port;
     this.databaseName = databaseName;
     this.sqlDatabaseEngine = sqlDatabaseEngine;
@@ -51,13 +51,13 @@ implements ISqlDatabaseTarget {
   }
 
   public static SqlConnectionPool withHostAndPortAndDatabaseNameAndSqlDatabaseEngineAndLoginNameAndLoginPassword(
-    final String ipOrDomain,
+    final String host,
     final int port,
     final String databaseName,
     final SqlDatabaseEngine sqlDatabaseEngine,
     final String loginName,
     final String loginPassword) {
-    return new SqlConnectionPool(ipOrDomain, port, databaseName, sqlDatabaseEngine, loginName, loginPassword);
+    return new SqlConnectionPool(host, port, databaseName, sqlDatabaseEngine, loginName, loginPassword);
   }
 
   /**
@@ -73,7 +73,7 @@ implements ISqlDatabaseTarget {
    */
   @Override
   public String getHost() {
-    return ipOrDomain;
+    return host;
   }
 
   /**

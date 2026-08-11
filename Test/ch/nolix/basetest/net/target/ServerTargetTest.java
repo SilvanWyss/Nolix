@@ -14,14 +14,14 @@ import ch.nolix.baseapi.net.netproperty.SecurityMode;
  */
 final class ServerTargetTest extends StandardTest {
   @Test
-  void testCase_forIpOrDomainAndPortAndSecurityModeForConnections() {
+  void testCase_forHostAndPortAndSecurityModeForConnections() {
     // define test parameters
     final var domain = "nolix.ch";
     final var port = 443;
     final var securiyMode = SecurityMode.SSL;
 
     // execute
-    final var result = ServerTarget.forIpOrDomainAndPortAndSecurityModeForConnections(domain, port, securiyMode);
+    final var result = ServerTarget.forHostAndPortAndSecurityModeForConnections(domain, port, securiyMode);
 
     // verify
     expect(result.getHost()).isEqualTo(domain);

@@ -16,12 +16,12 @@ public class ApplicationInstanceTarget extends ServerTarget implements IApplicat
   private final String applicationUrlInstanceName;
 
   protected ApplicationInstanceTarget(
-    final String ipOrDomain,
+    final String host,
     final int port,
     final String applicationInstanceName,
     final String applicationUrlInstanceName,
     final SecurityMode securityModeForConnections) {
-    super(ipOrDomain, port, securityModeForConnections);
+    super(host, port, securityModeForConnections);
 
     Validator.assertThat(applicationInstanceName).thatIsNamed("application instance name").isNotBlank();
     Validator.assertThat(applicationUrlInstanceName).thatIsNamed("application url instance name").isNotBlank();
@@ -31,14 +31,14 @@ public class ApplicationInstanceTarget extends ServerTarget implements IApplicat
   }
 
   public static ApplicationInstanceTarget//
-  forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
-    final String ipOrDomain,
+  forHostAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
+    final String host,
     final int port,
     final String applicationInstanceName,
     final String applicationUrlInstanceName,
     final SecurityMode securityModeForConnections) {
     return new ApplicationInstanceTarget(
-      ipOrDomain,
+      host,
       port,
       applicationInstanceName,
       applicationUrlInstanceName,
