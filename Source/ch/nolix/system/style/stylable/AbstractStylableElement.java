@@ -23,9 +23,11 @@ implements StylableElement<E> {
 
   private static final String TOKEN_HEADER = PascalCaseVariableNameCatalog.TOKEN;
 
-  private final OptionalValueProperty<String> id = OptionalValueProperty.forStringWithNameAndSetter(ID_HEADER, this::setId);
+  private final OptionalValueProperty<String> id = //
+  OptionalValueProperty.forStringWithNameAndSetter(ID_HEADER, this::setId);
 
-  private final MultiValueProperty<String> tokens = MultiValueProperty.forStringsWithNameAndAdder(TOKEN_HEADER, this::addToken);
+  private final MultiValueProperty<String> tokens = //
+  MultiValueProperty.forStringsWithNameAndAdder(TOKEN_HEADER, this::addToken);
 
   @Override
   public final E addToken(final String token) {

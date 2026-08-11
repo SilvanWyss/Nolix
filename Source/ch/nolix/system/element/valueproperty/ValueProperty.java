@@ -24,8 +24,8 @@ public final class ValueProperty<V> extends AbstractValueProperty<V> implements 
   private V memberValue;
 
   /**
-   * Creates a new {@link ValueProperty} with the given name, defaultValue, setter,
-   * valueMapper and specificationMapper.
+   * Creates a new {@link ValueProperty} with the given name, defaultValue,
+   * setter, valueMapper and specificationMapper.
    * 
    * @param name
    * @param defaultValue
@@ -57,8 +57,8 @@ public final class ValueProperty<V> extends AbstractValueProperty<V> implements 
    * @param name
    * @param defaultValue
    * @param setter
-   * @return a new {@link ValueProperty} with the given name, defaultValue and setter and
-   *         that will store a {@link Boolean}
+   * @return a new {@link ValueProperty} with the given name, defaultValue and
+   *         setter and that will store a {@link Boolean}
    * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank
    * @throws RuntimeException if the given setter is null
@@ -75,8 +75,8 @@ public final class ValueProperty<V> extends AbstractValueProperty<V> implements 
    * @param name
    * @param defaultValue
    * @param setter
-   * @return a new {@link ValueProperty} with the given name, defaultValue and setter and
-   *         that will store a {@link Double}
+   * @return a new {@link ValueProperty} with the given name, defaultValue and
+   *         setter and that will store a {@link Double}
    * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank
    * @throws RuntimeException if the given setter is null
@@ -85,7 +85,8 @@ public final class ValueProperty<V> extends AbstractValueProperty<V> implements 
     final String name,
     final double defaultValue,
     final Consumer<Double> setter) {
-    return new ValueProperty<>(name, defaultValue, setter, Node::getSingleChildNodeAsDouble, ImmutableNode::withChildNode);
+    return //
+    new ValueProperty<>(name, defaultValue, setter, Node::getSingleChildNodeAsDouble, ImmutableNode::withChildNode);
   }
 
   /**
@@ -94,8 +95,8 @@ public final class ValueProperty<V> extends AbstractValueProperty<V> implements 
    * @param setter
    * @param valueMapper
    * @param <E>          the type of the value of a {@link ValueProperty}
-   * @return a new {@link ValueProperty} with the given name, defaultValue, setter and
-   *         valueMapper and and that can store a {@link Element}
+   * @return a new {@link ValueProperty} with the given name, defaultValue, setter
+   *         and valueMapper and and that can store a {@link Element}
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given defaultValue is null
    * @throws RuntimeException if the given setter is null
@@ -113,8 +114,8 @@ public final class ValueProperty<V> extends AbstractValueProperty<V> implements 
    * @param name
    * @param defaultValue
    * @param setter
-   * @return a new {@link ValueProperty} with the given name, defaultValue and setter and
-   *         that will store a {@link Integer}
+   * @return a new {@link ValueProperty} with the given name, defaultValue and
+   *         setter and that will store a {@link Integer}
    * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank
    * @throws RuntimeException if the given setter is null
@@ -130,8 +131,8 @@ public final class ValueProperty<V> extends AbstractValueProperty<V> implements 
    * @param name
    * @param defaultValue
    * @param setter
-   * @return a new {@link ValueProperty} with the given name, defaultValue and setter and
-   *         that will store a {@link String}
+   * @return a new {@link ValueProperty} with the given name, defaultValue and
+   *         setter and that will store a {@link String}
    * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank
    * @throws RuntimeException if the given setter is null
@@ -154,9 +155,10 @@ public final class ValueProperty<V> extends AbstractValueProperty<V> implements 
    * @param setter
    * @param valueMapper
    * @param specificationMapper
-   * @param <T>                 the type of the value of the created {@link ValueProperty}
-   * @return a new {@link ValueProperty} with the given name, defaultValue, setter,
-   *         valueMapper and specificationMapper
+   * @param <T>                 the type of the value of the created
+   *                            {@link ValueProperty}
+   * @return a new {@link ValueProperty} with the given name, defaultValue,
+   *         setter, valueMapper and specificationMapper
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given defaultValue is null
    * @throws RuntimeException if the given setter is null

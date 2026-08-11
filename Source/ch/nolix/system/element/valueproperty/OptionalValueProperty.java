@@ -25,8 +25,8 @@ public final class OptionalValueProperty<V> extends AbstractValueProperty<V> imp
   private V memberOptionalValue;
 
   /**
-   * Creates a new {@link OptionalValueProperty} with the given name, setter, valueMapper
-   * and specificationMapper.
+   * Creates a new {@link OptionalValueProperty} with the given name, setter,
+   * valueMapper and specificationMapper.
    * 
    * @param name
    * @param setter
@@ -51,24 +51,28 @@ public final class OptionalValueProperty<V> extends AbstractValueProperty<V> imp
   /**
    * @param name
    * @param setter
-   * @return a new {@link OptionalValueProperty} with the given name and setter and that
-   *         can store a {@link Boolean}
+   * @return a new {@link OptionalValueProperty} with the given name and setter
+   *         and that can store a {@link Boolean}
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given setter is null
    */
-  public static OptionalValueProperty<Boolean> forBooleanWithNameAndSetter(final String name, final Consumer<Boolean> setter) {
+  public static OptionalValueProperty<Boolean> forBooleanWithNameAndSetter(
+    final String name,
+    final Consumer<Boolean> setter) {
     return new OptionalValueProperty<>(name, setter, Node::getSingleChildNodeAsBoolean, ImmutableNode::withChildNode);
   }
 
   /**
    * @param name
    * @param setter
-   * @return a new {@link OptionalValueProperty} with the given name and setter and that
-   *         can store a {@link Double}
+   * @return a new {@link OptionalValueProperty} with the given name and setter
+   *         and that can store a {@link Double}
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given setter is null
    */
-  public static OptionalValueProperty<Double> forDoubleWithNameAndSetter(final String name, final Consumer<Double> setter) {
+  public static OptionalValueProperty<Double> forDoubleWithNameAndSetter(
+    final String name,
+    final Consumer<Double> setter) {
     return new OptionalValueProperty<>(name, setter, Node::getSingleChildNodeAsDouble, ImmutableNode::withChildNode);
   }
 
@@ -96,8 +100,8 @@ public final class OptionalValueProperty<V> extends AbstractValueProperty<V> imp
    * @param setter
    * @param <E>       the type of the {@link Enum} the created
    *                  {@link OptionalValueProperty} can store
-   * @return a new {@link OptionalValueProperty} with the given name and setter and that
-   *         can store an {@link Enum} of the given enumClass
+   * @return a new {@link OptionalValueProperty} with the given name and setter
+   *         and that can store an {@link Enum} of the given enumClass
    * @throws RuntimeException if the given enumClass is null
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given setter is null
@@ -119,24 +123,28 @@ public final class OptionalValueProperty<V> extends AbstractValueProperty<V> imp
   /**
    * @param name
    * @param setter
-   * @return a new {@link OptionalValueProperty} with the given name and setter and that
-   *         can store a {@link Integer}
+   * @return a new {@link OptionalValueProperty} with the given name and setter
+   *         and that can store a {@link Integer}
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given setter is null
    */
-  public static OptionalValueProperty<Integer> forIntWithNameAndSetter(final String name, final Consumer<Integer> setter) {
+  public static OptionalValueProperty<Integer> forIntWithNameAndSetter(
+    final String name,
+    final Consumer<Integer> setter) {
     return new OptionalValueProperty<>(name, setter, Node::getSingleChildNodeAsInt, ImmutableNode::withChildNode);
   }
 
   /**
    * @param name
    * @param setter
-   * @return a new {@link OptionalValueProperty} with the given name and setter and that
-   *         can store a {@link String}
+   * @return a new {@link OptionalValueProperty} with the given name and setter
+   *         and that can store a {@link String}
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given setter is null
    */
-  public static OptionalValueProperty<String> forStringWithNameAndSetter(final String name, final Consumer<String> setter) {
+  public static OptionalValueProperty<String> forStringWithNameAndSetter(
+    final String name,
+    final Consumer<String> setter) {
     return new OptionalValueProperty<>(
       name,
       setter,
@@ -149,9 +157,10 @@ public final class OptionalValueProperty<V> extends AbstractValueProperty<V> imp
    * @param setter
    * @param valueMapper
    * @param specificationMapper
-   * @param <T>                 the type of the value of a {@link OptionalValueProperty}
-   * @return a new {@link OptionalValueProperty} with the given name, setter, valueMapper
-   *         and specificationMapper
+   * @param <T>                 the type of the value of a
+   *                            {@link OptionalValueProperty}
+   * @return a new {@link OptionalValueProperty} with the given name, setter,
+   *         valueMapper and specificationMapper
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given valueMapper is null
    * @throws RuntimeException if the given specificationMapper is null

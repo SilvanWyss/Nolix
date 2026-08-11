@@ -31,7 +31,8 @@ public final class ItemMenuItem extends AbstractMutableElementWithProperties imp
 
   private IItemMenu<?, ?> nullableParentMenu;
 
-  private final OptionalValueProperty<String> id = OptionalValueProperty.forStringWithNameAndSetter(ID_HEADER, this::setId);
+  private final OptionalValueProperty<String> id = //
+  OptionalValueProperty.forStringWithNameAndSetter(ID_HEADER, this::setId);
 
   private final ValueProperty<String> text = //
   ValueProperty.forStringWithNameAndDefaultValueAndSetter(TEXT_HEADER, StringCatalog.EMPTY_STRING, this::setText);

@@ -64,7 +64,8 @@ public final class Link extends AbstractControl<ILink, ILinkStyle> implements IL
     s -> LinkTarget.valueOf(s.getSingleChildNodeHeader()),
     ImmutableNode::fromEnum);
 
-  private final OptionalValueProperty<String> url = OptionalValueProperty.forStringWithNameAndSetter(URL_HEADER, this::setUrl);
+  private final OptionalValueProperty<String> url = //
+  OptionalValueProperty.forStringWithNameAndSetter(URL_HEADER, this::setUrl);
 
   public Link() {
     // Info: Reset is technically optional, but required to achieve a well-defined initial state.
