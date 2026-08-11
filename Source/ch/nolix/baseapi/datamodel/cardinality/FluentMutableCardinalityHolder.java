@@ -10,8 +10,7 @@ package ch.nolix.baseapi.datamodel.cardinality;
  * @author Silvan Wyss
  * @param <H> the type of a {@link FluentMutableCardinalityHolder}
  */
-public interface FluentMutableCardinalityHolder<H extends FluentMutableCardinalityHolder<H>>
-extends CardinalityHolder {
+public interface FluentMutableCardinalityHolder<H extends FluentMutableCardinalityHolder<H>> extends CardinalityHolder {
   /**
    * Sets the {@link Cardinality} of the current
    * {@link FluentMutableCardinalityHolder}.
