@@ -5,11 +5,11 @@ package ch.nolix.basetest.net.clientserver;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.datamodel.dataobject.VoidObject;
 import ch.nolix.base.net.clientserver.BasicApplication;
 import ch.nolix.base.net.clientserver.LocalServer;
 import ch.nolix.base.net.clientservertestutil.TestSession;
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.base.testing.testutil.VoidObject;
 import ch.nolix.system.webapplication.main.WebClient;
 
 /**

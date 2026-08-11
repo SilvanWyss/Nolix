@@ -3,7 +3,6 @@
  */
 package ch.nolix.base.net.clientserver;
 
-import ch.nolix.base.datamodel.dataobject.VoidObject;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
@@ -133,7 +132,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
     final var application = BasicApplication.withNameAndInitialSessionClassAndContext(
       name,
       initialSessionClass,
-      new VoidObject());
+      new Object());
 
     // Calls other method.
     return addApplication(application);
@@ -227,7 +226,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
     final var localDefaultApplication = BasicApplication.withNameAndInitialSessionClassAndContext(
       name,
       initialSessionClass,
-      new VoidObject());
+      new Object());
 
     // Calls other method.
     return addDefaultApplication(localDefaultApplication);

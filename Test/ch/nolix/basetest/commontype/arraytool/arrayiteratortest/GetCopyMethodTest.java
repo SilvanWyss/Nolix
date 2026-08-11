@@ -6,9 +6,9 @@ package ch.nolix.basetest.commontype.arraytool.arrayiteratortest;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.commontype.arraytool.ArrayIterator;
-import ch.nolix.base.datamodel.dataobject.VoidObject;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.base.testing.testutil.VoidObject;
 
 /**
  * @author Silvan Wyss

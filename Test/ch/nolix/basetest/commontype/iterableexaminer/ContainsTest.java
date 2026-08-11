@@ -6,9 +6,9 @@ package ch.nolix.basetest.commontype.iterableexaminer;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.commontype.iterableexaminer.IterableExaminer;
-import ch.nolix.base.datamodel.dataobject.VoidObject;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.base.testing.testutil.VoidObject;
 
 /**
  * @author Silvan Wyss
