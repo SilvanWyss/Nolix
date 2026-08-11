@@ -3,8 +3,8 @@
  */
 package ch.nolix.basetest.datastructure.matrix;
 
-import ch.nolix.base.datastructure.matrix.MutableMatrix;
 import ch.nolix.base.datastructure.matrix.MatrixIterator;
+import ch.nolix.base.datastructure.matrix.MutableMatrix;
 import ch.nolix.baseapi.datastructure.copyableiterator.CopyableIterator;
 import ch.nolix.basetest.datastructure.iterator.CopyableIteratorTest;
 
