@@ -6,9 +6,10 @@ package ch.nolix.base.net.clientserver;
 import ch.nolix.base.environment.localcomputer.LocalComputer;
 import ch.nolix.base.net.target.ServerTarget;
 import ch.nolix.baseapi.net.clientserver.Application;
+import ch.nolix.baseapi.net.netattribute.HostHolder;
+import ch.nolix.baseapi.net.netattribute.PortHolder;
 import ch.nolix.baseapi.net.netcatalog.PortCatalog;
 import ch.nolix.baseapi.net.netproperty.SecurityMode;
-import ch.nolix.baseapi.net.server.SinglePortServer;
 import ch.nolix.baseapi.net.target.IServerTarget;
 
 /**
@@ -17,7 +18,7 @@ import ch.nolix.baseapi.net.target.IServerTarget;
  * 
  * @author Silvan Wyss
  */
-public final class Server extends AbstractServer<Server> implements SinglePortServer {
+public final class Server extends AbstractServer<Server> implements HostHolder, PortHolder {
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.NONE;
 
   private ch.nolix.base.net.executoranddataproviderserver.NetServer internalServer;
@@ -33,7 +34,7 @@ public final class Server extends AbstractServer<Server> implements SinglePortSe
     // Creates the internalServer of the current Server.
     internalServer = ch.nolix.base.net.executoranddataproviderserver.NetServer.forPortAndHttpMessage(
       port,
-      new ServerHttpMessage(getIp(), port).toString());
+      new ServerHttpMessage(getHost(), port).toString());
 
     // Creates a close dependency between the current Server and its internalServer.
     createCloseDependencyTo(internalServer);
@@ -63,7 +64,7 @@ public final class Server extends AbstractServer<Server> implements SinglePortSe
   @Override
   public IServerTarget asTarget() {
     return ServerTarget.forIpOrDomainAndPortAndSecurityModeForConnections(
-      getIp(),
+      getHost(),
       getPort(),
       SECURITY_MODE_FOR_CONNECTIONS);
   }
@@ -72,7 +73,7 @@ public final class Server extends AbstractServer<Server> implements SinglePortSe
    * {@inheritDoc}
    */
   @Override
-  public String getIp() {
+  public String getHost() {
     return LocalComputer.getLanIp();
   }
 

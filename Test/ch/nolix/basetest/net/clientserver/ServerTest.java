@@ -19,7 +19,7 @@ final class ServerTest extends StandardTest {
   void testCase_forHttpPort() {
     try (final var testUnit = Server.forHttpPort()) {
       // verify
-      expect(testUnit.getIp()).isEqualTo(LocalComputer.getLanIp());
+      expect(testUnit.getHost()).isEqualTo(LocalComputer.getLanIp());
       expect(testUnit.getPort()).isEqualTo(PortCatalog.HTTP);
       expect(testUnit.getSecurityMode()).is(SecurityMode.NONE);
       expect(testUnit.getStoredApplications()).isEmpty();
