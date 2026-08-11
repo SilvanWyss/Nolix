@@ -25,7 +25,6 @@ import ch.nolix.system.element.valueproperty.ValueProperty;
 import ch.nolix.system.style.stylable.AbstractStylableElement;
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.gui.guiproperty.CursorIcon;
-import ch.nolix.systemapi.gui.guiproperty.Presence;
 import ch.nolix.systemapi.style.stylable.StylableElement;
 import ch.nolix.systemapi.webgui.controlstyle.ControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
@@ -34,6 +33,7 @@ import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.main.IControlParent;
 import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.IWebGui;
+import ch.nolix.systemapi.webgui.webguiproperty.Presence;
 
 /**
  * @author Silvan Wyss

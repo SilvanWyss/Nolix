@@ -1,9 +1,9 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.gui.presence;
+package ch.nolix.systemapi.webgui.webguirequest;
 
-import ch.nolix.systemapi.gui.guiproperty.Presence;
+import ch.nolix.systemapi.webgui.webguiproperty.Presence;
 
 /**
  * @author Silvan Wyss

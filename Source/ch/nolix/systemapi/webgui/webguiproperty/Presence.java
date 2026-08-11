@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.gui.guiproperty;
+package ch.nolix.systemapi.webgui.webguiproperty;
 
 import ch.nolix.baseapi.document.node.Node;
 
