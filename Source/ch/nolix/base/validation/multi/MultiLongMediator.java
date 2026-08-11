@@ -4,7 +4,6 @@
 package ch.nolix.base.validation.multi;
 
 import ch.nolix.base.foundation.iterablemapper.SimpleIterableMapper;
-import ch.nolix.base.foundation.linkedlist.SimpleLinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
@@ -53,13 +52,9 @@ public final class MultiLongMediator extends AbstractMultiArgumentMediator<Long>
    * @throws RuntimeException if the given arguments is null
    */
   public static MultiLongMediator forArguments(final long[] arguments) {
-    final SimpleLinkedList<Long> longArguments = SimpleLinkedList.createEmpty();
+    final var argumentsIterable = ITERABLE_MAPPER.toIterable(arguments);
 
-    for (final var a : arguments) {
-      longArguments.addAtEnd(a);
-    }
-
-    return new MultiLongMediator(longArguments);
+    return new MultiLongMediator(argumentsIterable);
   }
 
   /**
