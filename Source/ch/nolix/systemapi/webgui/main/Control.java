@@ -12,10 +12,10 @@ import ch.nolix.baseapi.objectcomposition.guicomponent.ControlComponent;
 import ch.nolix.baseapi.objectcomposition.guicomponent.GuiComponent;
 import ch.nolix.baseapi.objectcomposition.guicomponent.LayerComponent;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
-import ch.nolix.systemapi.gui.box.ISizeAdjustableBox;
 import ch.nolix.systemapi.gui.guiproperty.CursorIcon;
 import ch.nolix.systemapi.style.stylable.StylableElement;
 import ch.nolix.systemapi.webgui.base.PresenceSettable;
+import ch.nolix.systemapi.webgui.base.SizeAdjustableRectangle;
 import ch.nolix.systemapi.webgui.controlstyle.ControlStyle;
 import ch.nolix.systemapi.webgui.html.HtmlGetter;
 import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
@@ -30,7 +30,7 @@ extends
 ControlComponent<Control<?, ?>>,
 GuiComponent<IWebGui<?>>,
 HtmlGetter,
-ISizeAdjustableBox<C>,
+SizeAdjustableRectangle<C>,
 StylableElement<C>,
 IUserInputCell<C>,
 LayerComponent<ILayer>,

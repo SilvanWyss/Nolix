@@ -1,15 +1,15 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.gui.box;
+package ch.nolix.systemapi.webgui.base;
 
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 
 /**
  * @author Silvan Wyss
- * @param <B> the type of a {@link ISizeAdjustableBox}.
+ * @param <B> the type of a {@link SizeAdjustableRectangle}.
  */
-public interface ISizeAdjustableBox<B extends ISizeAdjustableBox<B>> {
+public interface SizeAdjustableRectangle<B extends SizeAdjustableRectangle<B>> {
   IAbsoluteOrRelativeInt getMaxHeight();
 
   IAbsoluteOrRelativeInt getMaxWidth();
