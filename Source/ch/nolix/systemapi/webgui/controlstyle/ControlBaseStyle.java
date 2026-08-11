@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.webgui.controlstyle;
 
-import ch.nolix.systemapi.element.multistateconfiguration.IMultiStateConfiguration;
+import ch.nolix.systemapi.element.multistateconfiguration.MultiStateConfiguration;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.gui.font.Font;
 import ch.nolix.systemapi.gui.font.LineDecoration;
@@ -13,7 +13,7 @@ import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
  * @author Silvan Wyss
  * @param <S> the type of a {@link ControlBaseStyle}.
  */
-public interface ControlBaseStyle<S extends ControlBaseStyle<S>> extends IMultiStateConfiguration<S, ControlState> {
+public interface ControlBaseStyle<S extends ControlBaseStyle<S>> extends MultiStateConfiguration<S, ControlState> {
 
   boolean definesTextLineDecorationForState(ControlState state);
 

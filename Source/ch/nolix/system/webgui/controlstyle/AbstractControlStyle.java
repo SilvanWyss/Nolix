@@ -17,7 +17,7 @@ import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.system.gui.box.CornerShadow;
-import ch.nolix.systemapi.element.multistateconfiguration.IMultiStateConfiguration;
+import ch.nolix.systemapi.element.multistateconfiguration.MultiStateConfiguration;
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.image.Image;
@@ -30,7 +30,7 @@ import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 public abstract //
 class AbstractControlStyle< // NOSONAR: A AbstractControlStyle is a principal object thus it has many methods.
-S extends ControlStyle<S> & IMultiStateConfiguration<S, ControlState>>
+S extends ControlStyle<S> & MultiStateConfiguration<S, ControlState>>
 extends AbstractControlBaseStyle<S>
 implements ControlStyle<S> {
   public static final int DEFAULT_CORNER_RADIUS = 0;

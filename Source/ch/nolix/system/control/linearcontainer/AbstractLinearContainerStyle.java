@@ -7,7 +7,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.webgui.controlstyle.AbstractControlStyle;
 import ch.nolix.systemapi.control.linearcontainer.ILinearContainerStyle;
-import ch.nolix.systemapi.element.multistateconfiguration.IMultiStateConfiguration;
+import ch.nolix.systemapi.element.multistateconfiguration.MultiStateConfiguration;
 import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
@@ -15,7 +15,7 @@ import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
  * @param <S> the type of a {@link AbstractLinearContainerStyle}.
  */
 public abstract class AbstractLinearContainerStyle< //
-S extends ILinearContainerStyle<S> & IMultiStateConfiguration<S, ControlState> //
+S extends ILinearContainerStyle<S> & MultiStateConfiguration<S, ControlState> //
 >
 extends AbstractControlStyle<S>
 implements ILinearContainerStyle<S> {

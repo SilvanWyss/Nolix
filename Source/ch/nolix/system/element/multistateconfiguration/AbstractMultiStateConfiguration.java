@@ -15,7 +15,7 @@ import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.element.base.AbstractElement;
-import ch.nolix.systemapi.element.multistateconfiguration.IMultiStateConfiguration;
+import ch.nolix.systemapi.element.multistateconfiguration.MultiStateConfiguration;
 
 /**
  * @author Silvan Wyss
@@ -23,9 +23,9 @@ import ch.nolix.systemapi.element.multistateconfiguration.IMultiStateConfigurati
  * @param <S> the type of the {@link Enum} representation of the {@link State}s
  *            of a {@link AbstractMultiStateConfiguration}.
  */
-public abstract class AbstractMultiStateConfiguration<C extends IMultiStateConfiguration<C, S>, S extends Enum<S>>
+public abstract class AbstractMultiStateConfiguration<C extends MultiStateConfiguration<C, S>, S extends Enum<S>>
 extends AbstractElement
-implements IMultiStateConfiguration<C, S> {
+implements MultiStateConfiguration<C, S> {
   private final State<S> baseState;
 
   private final ExtendedIterable<State<S>> availableStates;
@@ -127,14 +127,14 @@ implements IMultiStateConfiguration<C, S> {
   }
 
   @Override
-  public final void addChild(final IMultiStateConfiguration<?, S> child) {
+  public final void addChild(final MultiStateConfiguration<?, S> child) {
     Validator.assertThat(child).thatIsNamed(LowerCaseVariableNameCatalog.CHILD).isNotNull();
 
     ((AbstractMultiStateConfiguration<?, S>) child).setParent(this);
   }
 
   @Override
-  public <T extends IMultiStateConfiguration<T, S>> void removeChild(final T multiStateConfiguration) {
+  public <T extends MultiStateConfiguration<T, S>> void removeChild(final T multiStateConfiguration) {
     @SuppressWarnings("unchecked")
     final var abstractMultiStateConfiguration = (AbstractMultiStateConfiguration<C, S>) multiStateConfiguration;
 
