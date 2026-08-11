@@ -5,7 +5,7 @@ package ch.nolix.systemapi.gui.colorgradient;
 
 import ch.nolix.systemapi.element.base.Element;
 import ch.nolix.systemapi.graphic.color.IColor;
-import ch.nolix.systemapi.gui.box.Direction;
+import ch.nolix.systemapi.graphic.graphicproperty.Direction;
 
 /**
  * @author Silvan Wyss

@@ -9,9 +9,9 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.web.csscatalog.CssPropertyNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
+import ch.nolix.systemapi.graphic.graphicproperty.Direction;
 import ch.nolix.systemapi.gui.background.IBackground;
 import ch.nolix.systemapi.gui.background.ImageApplication;
-import ch.nolix.systemapi.gui.box.Direction;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 
 /**

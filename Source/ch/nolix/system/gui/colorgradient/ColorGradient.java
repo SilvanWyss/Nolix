@@ -13,7 +13,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
-import ch.nolix.systemapi.gui.box.Direction;
+import ch.nolix.systemapi.graphic.graphicproperty.Direction;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 
 /**
