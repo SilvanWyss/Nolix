@@ -19,7 +19,7 @@ final class XmlAttributeTest extends StandardTest {
 
     // verify
     expect(result.getName()).isEqualTo("color");
-    expect(result.getStoredValue()).isEqualTo("green");
+    expect(result.getValue()).isEqualTo("green");
   }
 
   @Test

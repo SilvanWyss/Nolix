@@ -51,7 +51,7 @@ public final class XmlAttribute implements IXmlAttribute {
    * {@inheritDoc}
    */
   @Override
-  public String getStoredValue() {
+  public String getValue() {
     return value;
   }
 
@@ -60,6 +60,6 @@ public final class XmlAttribute implements IXmlAttribute {
    */
   @Override
   public String toString() {
-    return getName() + "='" + getStoredValue() + "'";
+    return getName() + "='" + getValue() + "'";
   }
 }
