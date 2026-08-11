@@ -17,10 +17,10 @@ import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
+import ch.nolix.system.element.valueproperty.OptionalValueProperty;
+import ch.nolix.system.element.valueproperty.ValueProperty;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.gui.background.Background;
-import ch.nolix.system.property.value.OptionalValue;
-import ch.nolix.system.property.value.Value;
 import ch.nolix.system.style.stylable.AbstractStylableElement;
 import ch.nolix.system.webgui.controltool.ControlAnalyser;
 import ch.nolix.system.webgui.controltool.ControlTool;
@@ -69,38 +69,38 @@ implements ILayer {
   // For CSS an id works only when it begins with a letter.
   private final String memberInternalId = "i" + IdCreator.createIdOf10HexadecimalCharacters();
 
-  private final OptionalValue<LayerRole> memberRole = //
-  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+  private final OptionalValueProperty<LayerRole> memberRole = //
+  OptionalValueProperty.withNameAndSetterAndValueMapperAndSpecificationMapper(
     ROLE_HEADER,
     this::setRole,
     LayerRole::fromSpecification,
     ImmutableNode::fromEnum);
 
-  private final Value<Double> opacity = //
-  Value.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
+  private final ValueProperty<Double> opacity = //
+  ValueProperty.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     OPACITY_HEADER,
     DEFAULT_OPACITY,
     this::setOpacity,
     s -> StringTool.toProportion(s.getSingleChildNodeHeader()),
     ImmutableNode::withChildNode);
 
-  private final OptionalValue<IBackground> background = //
-  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+  private final OptionalValueProperty<IBackground> background = //
+  OptionalValueProperty.withNameAndSetterAndValueMapperAndSpecificationMapper(
     BACKGROUND_HEADER,
     this::setBackground,
     Background::fromSpecification,
     IBackground::getSpecification);
 
-  private final Value<ContentAlignment> contentAlignment = //
-  Value.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
+  private final ValueProperty<ContentAlignment> contentAlignment = //
+  ValueProperty.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     CONTENT_ALIGNMENT_HEADER,
     DEFAULT_CONTENT_POSITION,
     this::setContentAlignment,
     ContentAlignment::fromSpecification,
     ImmutableNode::fromEnum);
 
-  private final OptionalValue<Control<?, ?>> memberRootControl = //
-  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+  private final OptionalValueProperty<Control<?, ?>> memberRootControl = //
+  OptionalValueProperty.withNameAndSetterAndValueMapperAndSpecificationMapper(
     ROOT_CONTROL_HEADER,
     this::setRootControl,
     ControlFactory::createControlFromSpecification,

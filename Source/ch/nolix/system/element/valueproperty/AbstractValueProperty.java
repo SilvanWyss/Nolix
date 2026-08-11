@@ -1,20 +1,20 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.system.property.value;
+package ch.nolix.system.element.valueproperty;
 
 import java.util.function.Function;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.systemapi.property.value.IBaseValue;
+import ch.nolix.systemapi.element.valueproperty.BaseValueProperty;
 
 /**
  * @author Silvan Wyss
- * @param <V> the type of the values of a {@link AbstractValue}.
+ * @param <V> the type of the values of a {@link AbstractValueProperty}.
  */
-public abstract class AbstractValue<V> implements IBaseValue {
+public abstract class AbstractValueProperty<V> implements BaseValueProperty {
   private final String name;
 
   private final Function<Node<?>, V> valueMapper;
@@ -22,7 +22,7 @@ public abstract class AbstractValue<V> implements IBaseValue {
   private final Function<V, Node<?>> specificationMapper;
 
   /**
-   * Creates a new {@link AbstractValue} with the given name, valueMapper and
+   * Creates a new {@link AbstractValueProperty} with the given name, valueMapper and
    * specificationMapper.
    * 
    * @param name
@@ -32,7 +32,7 @@ public abstract class AbstractValue<V> implements IBaseValue {
    * @throws RuntimeException if the given valueMapper is null
    * @throws RuntimeException if the given specificationMapper is null
    */
-  protected AbstractValue(
+  protected AbstractValueProperty(
     final String name,
     final Function<Node<?>, V> valueMapper,
     final Function<V, Node<?>> specificationMapper) {
@@ -78,7 +78,7 @@ public abstract class AbstractValue<V> implements IBaseValue {
   }
 
   /**
-   * Adds or change the given value to the current {@link AbstractValue}.
+   * Adds or change the given value to the current {@link AbstractValueProperty}.
    * 
    * @param value
    */

@@ -1,14 +1,14 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.property.proxy;
+package ch.nolix.systemapi.element.proxyproperty;
 
 import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
-import ch.nolix.systemapi.property.base.Property;
+import ch.nolix.systemapi.baseproperty.Property;
 
 /**
  * @author Silvan Wyss
  */
-public interface IValueProxy extends NameHolder, Property {
+public interface IValueProxyProperty extends NameHolder, Property {
   // This interface is a dedicated union of other interfaces.
 }

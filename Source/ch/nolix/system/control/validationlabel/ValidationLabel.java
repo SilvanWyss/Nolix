@@ -13,8 +13,8 @@ import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
+import ch.nolix.system.element.valueproperty.OptionalValueProperty;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
-import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.control.validationlabel.IValidationLabel;
 import ch.nolix.systemapi.control.validationlabel.IValidationLabelStyle;
@@ -32,8 +32,8 @@ extends AbstractControl<IValidationLabel, IValidationLabelStyle>
 implements IValidationLabel {
   private static final String ERROR_HEADER = PascalCaseVariableNameCatalog.ERROR;
 
-  private final OptionalValue<Throwable> memberError = //
-  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+  private final OptionalValueProperty<Throwable> memberError = //
+  OptionalValueProperty.withNameAndSetterAndValueMapperAndSpecificationMapper(
     ERROR_HEADER,
     this::showError,
     s -> GeneralException.withErrorMessage(s.getHeader()),

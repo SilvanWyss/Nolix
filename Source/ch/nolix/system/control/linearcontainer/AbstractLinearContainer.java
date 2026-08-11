@@ -6,7 +6,7 @@ package ch.nolix.system.control.linearcontainer;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.system.control.container.AbstractContainer;
-import ch.nolix.system.property.value.MultiValue;
+import ch.nolix.system.element.valueproperty.MultiValueProperty;
 import ch.nolix.system.webgui.main.ControlFactory;
 import ch.nolix.system.webgui.main.ControlParent;
 import ch.nolix.systemapi.control.linearcontainer.ILinearContainer;
@@ -25,8 +25,8 @@ extends AbstractContainer<C, S>
 implements ILinearContainer<C, S> {
   private static final String CHILD_CONTROL_HEADER = "ChildControl";
 
-  private final MultiValue<Control<?, ?>> childControls = //
-  MultiValue.forElementsWithNameAndAdderAndValueMapper(
+  private final MultiValueProperty<Control<?, ?>> childControls = //
+  MultiValueProperty.forElementsWithNameAndAdderAndValueMapper(
     CHILD_CONTROL_HEADER,
     this::addControl,
     ControlFactory::createControlFromSpecification);

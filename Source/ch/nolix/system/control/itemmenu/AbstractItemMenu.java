@@ -10,7 +10,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
-import ch.nolix.system.property.value.MultiValue;
+import ch.nolix.system.element.valueproperty.MultiValueProperty;
 import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.control.itemmenu.IItemMenu;
 import ch.nolix.systemapi.control.itemmenu.IItemMenuItem;
@@ -33,8 +33,8 @@ extends AbstractControl<M, S> implements IItemMenu<M, S> {
 
   private static final ItemMenuValidator ITEM_MENU_VALIDATOR = new ItemMenuValidator();
 
-  private final MultiValue<IItemMenuItem<?>> memberItems = //
-  MultiValue.forElementsOfSameTypeWithNameAndAdderAndValueMapper(
+  private final MultiValueProperty<IItemMenuItem<?>> memberItems = //
+  MultiValueProperty.forElementsOfSameTypeWithNameAndAdderAndValueMapper(
     ITEM_HEADER,
     this::addItem,
     ItemMenuItem::fromSpecification);

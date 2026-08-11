@@ -15,9 +15,9 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSup
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
+import ch.nolix.system.element.valueproperty.OptionalValueProperty;
+import ch.nolix.system.element.valueproperty.ValueProperty;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
-import ch.nolix.system.property.value.OptionalValue;
-import ch.nolix.system.property.value.Value;
 import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.control.link.ILink;
 import ch.nolix.systemapi.control.link.ILinkStyle;
@@ -50,21 +50,21 @@ public final class Link extends AbstractControl<ILink, ILinkStyle> implements IL
 
   private static final UrlTool URL_TOOL = new UrlTool();
 
-  private final Value<String> displayText = //
-  Value.forStringWithNameAndDefaultValueAndSetter(
+  private final ValueProperty<String> displayText = //
+  ValueProperty.forStringWithNameAndDefaultValueAndSetter(
     DISPLAY_TEXT_HEADER,
     DEFAULT_DISPLAY_TEXT,
     this::setDisplayText);
 
-  private final Value<LinkTarget> target = //
-  Value.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
+  private final ValueProperty<LinkTarget> target = //
+  ValueProperty.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     TARGET_HEADER,
     DEFAULT_TARGET,
     this::setTarget,
     s -> LinkTarget.valueOf(s.getSingleChildNodeHeader()),
     ImmutableNode::fromEnum);
 
-  private final OptionalValue<String> url = OptionalValue.forStringWithNameAndSetter(URL_HEADER, this::setUrl);
+  private final OptionalValueProperty<String> url = OptionalValueProperty.forStringWithNameAndSetter(URL_HEADER, this::setUrl);
 
   public Link() {
     // Info: Reset is technically optional, but required to achieve a well-defined initial state.

@@ -14,7 +14,7 @@ import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
-import ch.nolix.system.property.value.Value;
+import ch.nolix.system.element.valueproperty.ValueProperty;
 import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.control.textbox.ITextbox;
 import ch.nolix.systemapi.control.textbox.ITextboxStyle;
@@ -42,11 +42,11 @@ public final class Textbox extends AbstractControl<ITextbox, ITextboxStyle> impl
 
   private static final TextboxCssBuilder CSS_BUILDER = new TextboxCssBuilder();
 
-  private final Value<String> memberText = //
-  Value.forStringWithNameAndDefaultValueAndSetter(TEXT_HEADER, DEFAULT_TEXT, this::setText);
+  private final ValueProperty<String> memberText = //
+  ValueProperty.forStringWithNameAndDefaultValueAndSetter(TEXT_HEADER, DEFAULT_TEXT, this::setText);
 
-  private Value<TextMode> textMode = //
-  Value.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
+  private ValueProperty<TextMode> textMode = //
+  ValueProperty.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     TEXT_MODE_HEADER,
     DEFAULT_TEXT_MODE,
     this::setTextMode,

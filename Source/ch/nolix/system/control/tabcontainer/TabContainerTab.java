@@ -13,9 +13,9 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToP
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
-import ch.nolix.system.element.propertieselement.AbstractPropertiesElement;
-import ch.nolix.system.property.value.OptionalValue;
-import ch.nolix.system.property.value.Value;
+import ch.nolix.system.element.mutableelement.AbstractMutableElementWithProperties;
+import ch.nolix.system.element.valueproperty.OptionalValueProperty;
+import ch.nolix.system.element.valueproperty.ValueProperty;
 import ch.nolix.system.webgui.controltool.ControlTool;
 import ch.nolix.system.webgui.main.ControlFactory;
 import ch.nolix.system.webgui.main.ControlParent;
@@ -26,7 +26,7 @@ import ch.nolix.systemapi.webgui.main.Control;
 /**
  * @author Silvan Wyss
  */
-public final class TabContainerTab extends AbstractPropertiesElement implements ITabContainerTab {
+public final class TabContainerTab extends AbstractMutableElementWithProperties implements ITabContainerTab {
   public static final String DEFAULT_HEADER = PascalCaseVariableNameCatalog.HEADER;
 
   public static final boolean DEFAULT_SELECTION_FLAG = false;
@@ -41,17 +41,17 @@ public final class TabContainerTab extends AbstractPropertiesElement implements 
 
   private ITabContainer optionalParentTabContainer;
 
-  private final Value<String> header = //
-  Value.forStringWithNameAndDefaultValueAndSetter(HEADER_HEADER, DEFAULT_HEADER, this::setHeader);
+  private final ValueProperty<String> header = //
+  ValueProperty.forStringWithNameAndDefaultValueAndSetter(HEADER_HEADER, DEFAULT_HEADER, this::setHeader);
 
-  private final Value<Boolean> selectionFlag = //
-  Value.forBooleanWithNameAndDefaultValueAndSetter(
+  private final ValueProperty<Boolean> selectionFlag = //
+  ValueProperty.forBooleanWithNameAndDefaultValueAndSetter(
     SELECTION_FLAG_HEADER,
     DEFAULT_SELECTION_FLAG,
     this::setSelectionFlag);
 
-  private final OptionalValue<Control<?, ?>> memberRootControl = //
-  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+  private final OptionalValueProperty<Control<?, ?>> memberRootControl = //
+  OptionalValueProperty.withNameAndSetterAndValueMapperAndSpecificationMapper(
     ROOT_CONTROL_HEADER,
     this::setRootControl,
     ControlFactory::createControlFromSpecification,

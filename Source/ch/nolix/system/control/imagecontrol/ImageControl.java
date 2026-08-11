@@ -13,10 +13,10 @@ import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
+import ch.nolix.system.element.valueproperty.OptionalValueProperty;
+import ch.nolix.system.element.valueproperty.ValueProperty;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.MutableImage;
-import ch.nolix.system.property.value.OptionalValue;
-import ch.nolix.system.property.value.Value;
 import ch.nolix.system.webgui.html.HtmlElementEvent;
 import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.control.imagecontrol.IImageControl;
@@ -42,15 +42,15 @@ public final class ImageControl extends AbstractControl<IImageControl, IImageCon
 
   private static final ImageControlCssBuilder CSS_BUILDER = new ImageControlCssBuilder();
 
-  private final OptionalValue<MutableImage> image = //
-  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+  private final OptionalValueProperty<MutableImage> image = //
+  OptionalValueProperty.withNameAndSetterAndValueMapperAndSpecificationMapper(
     IMAGE_HEADER,
     this::setImage,
     MutableImage::fromSpecification,
     MutableImage::getSpecification);
 
-  private final Value<String> alternateText = //
-  Value.forStringWithNameAndDefaultValueAndSetter(
+  private final ValueProperty<String> alternateText = //
+  ValueProperty.forStringWithNameAndDefaultValueAndSetter(
     ALTERNATE_TEXT_HEADER,
     DEFAULT_ALTERNATE_TEXT,
     this::setAlternateText);

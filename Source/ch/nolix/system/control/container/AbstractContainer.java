@@ -9,7 +9,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSup
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
-import ch.nolix.system.property.value.OptionalValue;
+import ch.nolix.system.element.valueproperty.OptionalValueProperty;
 import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.system.webgui.main.ControlParent;
 import ch.nolix.systemapi.control.container.Container;
@@ -27,8 +27,8 @@ public abstract class AbstractContainer<C extends Container<C, S>, S extends Con
 extends AbstractControl<C, S> implements Container<C, S> {
   private static final String ROLE_HEADER = PascalCaseVariableNameCatalog.ROLE;
 
-  private final OptionalValue<ContainerRole> memberRole = //
-  OptionalValue.forEnumWithNameAndSetter(ContainerRole.class, ROLE_HEADER, this::setRole);
+  private final OptionalValueProperty<ContainerRole> memberRole = //
+  OptionalValueProperty.forEnumWithNameAndSetter(ContainerRole.class, ROLE_HEADER, this::setRole);
 
   /**
    * {@inheritDoc}

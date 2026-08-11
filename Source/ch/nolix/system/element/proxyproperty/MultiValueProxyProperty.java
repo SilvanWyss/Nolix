@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.system.property.proxy;
+package ch.nolix.system.element.proxyproperty;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -13,13 +13,13 @@ import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
-import ch.nolix.systemapi.property.proxy.IMultiValueProxy;
+import ch.nolix.systemapi.element.proxyproperty.IMultiValueProxyProperty;
 
 /**
  * @author Silvan Wyss
- * @param <V> the type of the values a {@link MultiValueProxy} forwards.
+ * @param <V> the type of the values a {@link MultiValueProxyProperty} forwards.
  */
-public final class MultiValueProxy<V> implements IMultiValueProxy {
+public final class MultiValueProxyProperty<V> implements IMultiValueProxyProperty {
   private final String name;
 
   private final Consumer<V> adder;
@@ -31,7 +31,7 @@ public final class MultiValueProxy<V> implements IMultiValueProxy {
   private final Function<V, Node<?>> specificationMapper;
 
   /**
-   * Creates a new {@link MultiValueProxy} with the given name, adder, getter,
+   * Creates a new {@link MultiValueProxyProperty} with the given name, adder, getter,
    * valueMapper and specificationMapper.
    * 
    * @param name
@@ -45,7 +45,7 @@ public final class MultiValueProxy<V> implements IMultiValueProxy {
    * @throws RuntimeException if the given valueMapper is null
    * @throws RuntimeException if the given specificationMapper is null
    */
-  private MultiValueProxy(
+  private MultiValueProxyProperty(
     final String name,
     final Consumer<V> adder,
     final Supplier<ExtendedIterable<V>> getter,
@@ -71,8 +71,8 @@ public final class MultiValueProxy<V> implements IMultiValueProxy {
    * @param valueMapper
    * @param specificationMapper
    * @param <T>                 the type of the values the created
-   *                            {@link MultiValueProxy} forwards
-   * @return a new {@link MultiValueProxy} with the given name, adder, getter,
+   *                            {@link MultiValueProxyProperty} forwards
+   * @return a new {@link MultiValueProxyProperty} with the given name, adder, getter,
    *         valueMapper and specificationMapper
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given adder is null
@@ -80,13 +80,13 @@ public final class MultiValueProxy<V> implements IMultiValueProxy {
    * @throws RuntimeException if the given valueMapper is null
    * @throws RuntimeException if the given specificationMapper is null
    */
-  public static <T> MultiValueProxy<T> withNameAndAdderAndGetterAndValueMapperAndSpecificationMapper(
+  public static <T> MultiValueProxyProperty<T> withNameAndAdderAndGetterAndValueMapperAndSpecificationMapper(
     final String name,
     final Consumer<T> adder,
     final Supplier<ExtendedIterable<T>> getter,
     final Function<Node<?>, T> valueMapper,
     final Function<T, Node<?>> specificationMapper) {
-    return new MultiValueProxy<>(name, adder, getter, valueMapper, specificationMapper);
+    return new MultiValueProxyProperty<>(name, adder, getter, valueMapper, specificationMapper);
   }
 
   /**

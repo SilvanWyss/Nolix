@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.system.property.value;
+package ch.nolix.system.element.valueproperty;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -12,19 +12,19 @@ import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.element.base.Element;
-import ch.nolix.systemapi.property.value.IValue;
+import ch.nolix.systemapi.element.valueproperty.IValueProperty;
 
 /**
  * @author Silvan Wyss
- * @param <V> the type of the value of a {@link Value}.
+ * @param <V> the type of the value of a {@link ValueProperty}.
  */
-public final class Value<V> extends AbstractValue<V> implements IValue<V> {
+public final class ValueProperty<V> extends AbstractValueProperty<V> implements IValueProperty<V> {
   private final Consumer<V> setter;
 
   private V memberValue;
 
   /**
-   * Creates a new {@link Value} with the given name, defaultValue, setter,
+   * Creates a new {@link ValueProperty} with the given name, defaultValue, setter,
    * valueMapper and specificationMapper.
    * 
    * @param name
@@ -38,7 +38,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @throws RuntimeException if the given valueMapper is null
    * @throws RuntimeException if the given specificationMapper is null
    */
-  private Value(
+  private ValueProperty(
     final String name,
     final V defaultValue,
     final Consumer<V> setter,
@@ -57,17 +57,17 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @param name
    * @param defaultValue
    * @param setter
-   * @return a new {@link Value} with the given name, defaultValue and setter and
+   * @return a new {@link ValueProperty} with the given name, defaultValue and setter and
    *         that will store a {@link Boolean}
    * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank
    * @throws RuntimeException if the given setter is null
    */
-  public static Value<Boolean> forBooleanWithNameAndDefaultValueAndSetter(
+  public static ValueProperty<Boolean> forBooleanWithNameAndDefaultValueAndSetter(
     final String name,
     final boolean defaultValue,
     final Consumer<Boolean> setter) {
-    return new Value<>(name, defaultValue, setter, Node::getSingleChildNodeAsBoolean,
+    return new ValueProperty<>(name, defaultValue, setter, Node::getSingleChildNodeAsBoolean,
       ImmutableNode::withChildNode);
   }
 
@@ -75,17 +75,17 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @param name
    * @param defaultValue
    * @param setter
-   * @return a new {@link Value} with the given name, defaultValue and setter and
+   * @return a new {@link ValueProperty} with the given name, defaultValue and setter and
    *         that will store a {@link Double}
    * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank
    * @throws RuntimeException if the given setter is null
    */
-  public static Value<Double> forDoubleWithNameAndDefaultValueAndSetter(
+  public static ValueProperty<Double> forDoubleWithNameAndDefaultValueAndSetter(
     final String name,
     final double defaultValue,
     final Consumer<Double> setter) {
-    return new Value<>(name, defaultValue, setter, Node::getSingleChildNodeAsDouble, ImmutableNode::withChildNode);
+    return new ValueProperty<>(name, defaultValue, setter, Node::getSingleChildNodeAsDouble, ImmutableNode::withChildNode);
   }
 
   /**
@@ -93,54 +93,54 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @param defaultValue
    * @param setter
    * @param valueMapper
-   * @param <E>          the type of the value of a {@link Value}
-   * @return a new {@link Value} with the given name, defaultValue, setter and
+   * @param <E>          the type of the value of a {@link ValueProperty}
+   * @return a new {@link ValueProperty} with the given name, defaultValue, setter and
    *         valueMapper and and that can store a {@link Element}
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given defaultValue is null
    * @throws RuntimeException if the given setter is null
    * @throws RuntimeException if the given valueMapper is null
    */
-  public static <E extends Element> Value<E> forElementWithNameAndDefaultValueAndSetterAndValueMapper(
+  public static <E extends Element> ValueProperty<E> forElementWithNameAndDefaultValueAndSetterAndValueMapper(
     final String name,
     final E defaultValue,
     final Consumer<E> setter,
     final Function<Node<?>, E> valueMapper) {
-    return new Value<>(name, defaultValue, setter, valueMapper, Element::getSpecification);
+    return new ValueProperty<>(name, defaultValue, setter, valueMapper, Element::getSpecification);
   }
 
   /**
    * @param name
    * @param defaultValue
    * @param setter
-   * @return a new {@link Value} with the given name, defaultValue and setter and
+   * @return a new {@link ValueProperty} with the given name, defaultValue and setter and
    *         that will store a {@link Integer}
    * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank
    * @throws RuntimeException if the given setter is null
    */
-  public static Value<Integer> forIntWithNameAndDefaultValueAndSetter(
+  public static ValueProperty<Integer> forIntWithNameAndDefaultValueAndSetter(
     final String name,
     final int defaultValue,
     final Consumer<Integer> setter) {
-    return new Value<>(name, defaultValue, setter, Node::getSingleChildNodeAsInt, ImmutableNode::withChildNode);
+    return new ValueProperty<>(name, defaultValue, setter, Node::getSingleChildNodeAsInt, ImmutableNode::withChildNode);
   }
 
   /**
    * @param name
    * @param defaultValue
    * @param setter
-   * @return a new {@link Value} with the given name, defaultValue and setter and
+   * @return a new {@link ValueProperty} with the given name, defaultValue and setter and
    *         that will store a {@link String}
    * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank
    * @throws RuntimeException if the given setter is null
    */
-  public static Value<String> forStringWithNameAndDefaultValueAndSetter(
+  public static ValueProperty<String> forStringWithNameAndDefaultValueAndSetter(
     final String name,
     final String defaultValue,
     final Consumer<String> setter) {
-    return new Value<>(
+    return new ValueProperty<>(
       name,
       defaultValue,
       setter,
@@ -154,8 +154,8 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @param setter
    * @param valueMapper
    * @param specificationMapper
-   * @param <T>                 the type of the value of the created {@link Value}
-   * @return a new {@link Value} with the given name, defaultValue, setter,
+   * @param <T>                 the type of the value of the created {@link ValueProperty}
+   * @return a new {@link ValueProperty} with the given name, defaultValue, setter,
    *         valueMapper and specificationMapper
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given defaultValue is null
@@ -163,13 +163,13 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @throws RuntimeException if the given valueMapper is null
    * @throws RuntimeException if the given specificationMapper is null
    */
-  public static <T> Value<T> withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
+  public static <T> ValueProperty<T> withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     final String name,
     final T defaultValue,
     final Consumer<T> setter,
     final Function<Node<?>, T> valueMapper,
     final Function<T, Node<?>> specificationMapper) {
-    return new Value<>(name, defaultValue, setter, valueMapper, specificationMapper);
+    return new ValueProperty<>(name, defaultValue, setter, valueMapper, specificationMapper);
   }
 
   /**

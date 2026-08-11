@@ -8,30 +8,30 @@ import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalstate.statemutation.Clearable;
-import ch.nolix.system.element.propertieselement.AbstractPropertiesElement;
-import ch.nolix.system.property.value.OptionalValue;
-import ch.nolix.system.property.value.Value;
+import ch.nolix.system.element.mutableelement.AbstractMutableElementWithProperties;
+import ch.nolix.system.element.valueproperty.OptionalValueProperty;
+import ch.nolix.system.element.valueproperty.ValueProperty;
 import ch.nolix.system.webgui.main.ControlFactory;
 import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
  */
-public final class GridCell extends AbstractPropertiesElement implements Clearable {
+public final class GridCell extends AbstractMutableElementWithProperties implements Clearable {
   private static final String ROW_INDEX_HEADER = PascalCaseVariableNameCatalog.ROW_INDEX;
 
   private static final String COLUMN_INDEX_HEADER = PascalCaseVariableNameCatalog.COLUMN_INDEX;
 
   private static final String CONTROL_HEADER = "Control";
 
-  private final Value<Integer> rowIndex = //
-  Value.forIntWithNameAndDefaultValueAndSetter(ROW_INDEX_HEADER, 1, this::setRowIndex);
+  private final ValueProperty<Integer> rowIndex = //
+  ValueProperty.forIntWithNameAndDefaultValueAndSetter(ROW_INDEX_HEADER, 1, this::setRowIndex);
 
-  private final Value<Integer> columnIndex = //
-  Value.forIntWithNameAndDefaultValueAndSetter(COLUMN_INDEX_HEADER, 1, this::setColumnIndex);
+  private final ValueProperty<Integer> columnIndex = //
+  ValueProperty.forIntWithNameAndDefaultValueAndSetter(COLUMN_INDEX_HEADER, 1, this::setColumnIndex);
 
-  private final OptionalValue<Control<?, ?>> control = //
-  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+  private final OptionalValueProperty<Control<?, ?>> control = //
+  OptionalValueProperty.withNameAndSetterAndValueMapperAndSpecificationMapper(
     CONTROL_HEADER,
     this::setControl,
     ControlFactory::createControlFromSpecification,

@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.system.property.value;
+package ch.nolix.system.element.valueproperty;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -14,19 +14,19 @@ import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.element.base.Element;
-import ch.nolix.systemapi.property.value.IMultiValue;
+import ch.nolix.systemapi.element.valueproperty.IMultiValueProperty;
 
 /**
  * @author Silvan Wyss
- * @param <V> the type of the values of a {@link MultiValue}.
+ * @param <V> the type of the values of a {@link MultiValueProperty}.
  */
-public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue<V> {
+public final class MultiValueProperty<V> extends AbstractValueProperty<V> implements IMultiValueProperty<V> {
   private final LinkedList<V> values = LinkedList.createEmpty();
 
   private final Consumer<V> adder;
 
   /**
-   * Creates a new {@link MultiValue} with the given name, adder, valueMapper and
+   * Creates a new {@link MultiValueProperty} with the given name, adder, valueMapper and
    * specificationMapper.
    * 
    * @param name
@@ -38,7 +38,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
    * @throws RuntimeException if the given valueMapper is null
    * @throws RuntimeException if the given specificationMapper is null
    */
-  private MultiValue(
+  private MultiValueProperty(
     final String name,
     final Consumer<V> adder,
     final Function<Node<?>, V> valueMapper,
@@ -54,60 +54,60 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
    * @param name
    * @param adder
    * @param valueMapper
-   * @param <E>         the type of the values of a {@link MultiValue}
-   * @return a new {@link MultiValue} with the given name, adder and valueMapper
+   * @param <E>         the type of the values of a {@link MultiValueProperty}
+   * @return a new {@link MultiValueProperty} with the given name, adder and valueMapper
    *         that can store {@link Element}s
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given adder is null
    * @throws RuntimeException if the given valueMapper is null
    */
-  public static <E extends Element> MultiValue<E> forElementsOfSameTypeWithNameAndAdderAndValueMapper(
+  public static <E extends Element> MultiValueProperty<E> forElementsOfSameTypeWithNameAndAdderAndValueMapper(
     final String name,
     final Consumer<E> adder,
     final Function<Node<?>, E> valueMapper) {
-    return new MultiValue<>(name, adder, valueMapper, Element::getSpecification);
+    return new MultiValueProperty<>(name, adder, valueMapper, Element::getSpecification);
   }
 
   /**
    * @param name
    * @param adder
    * @param valueMapper
-   * @param <E>         the type of the values of a {@link MultiValue}
-   * @return a new {@link MultiValue} with the given name, adder and valueMapper
+   * @param <E>         the type of the values of a {@link MultiValueProperty}
+   * @return a new {@link MultiValueProperty} with the given name, adder and valueMapper
    *         that can store {@link Element}s
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given adder is null
    * @throws RuntimeException if the given valueMapper is null
    */
-  public static <E extends Element> MultiValue<E> forElementsWithNameAndAdderAndValueMapper(
+  public static <E extends Element> MultiValueProperty<E> forElementsWithNameAndAdderAndValueMapper(
     final String name,
     final Consumer<E> adder,
     final Function<Node<?>, E> valueMapper) {
-    return new MultiValue<>(name, adder, valueMapper, e -> ImmutableNode.withChildNode(e.getSpecification()));
+    return new MultiValueProperty<>(name, adder, valueMapper, e -> ImmutableNode.withChildNode(e.getSpecification()));
   }
 
   /**
    * @param name
    * @param adder
-   * @return a new {@link MultiValue} with the given name and adder and that can
+   * @return a new {@link MultiValueProperty} with the given name and adder and that can
    *         store {@link Integer}s
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given adder is null
    */
-  public static MultiValue<Integer> forIntsWithNameAndAdder(final String name, final Consumer<Integer> adder) {
-    return new MultiValue<>(name, adder, Node::toInt, ImmutableNode::withHeader);
+  public static MultiValueProperty<Integer> forIntsWithNameAndAdder(final String name, final Consumer<Integer> adder) {
+    return new MultiValueProperty<>(name, adder, Node::toInt, ImmutableNode::withHeader);
   }
 
   /**
    * @param name
    * @param adder
-   * @return a new {@link MultiValue} with the given name and adder and that can
+   * @return a new {@link MultiValueProperty} with the given name and adder and that can
    *         store {@link String}s
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given adder is null
    */
-  public static MultiValue<String> forStringsWithNameAndAdder(final String name, final Consumer<String> adder) {
-    return new MultiValue<>(name, adder, Node::getHeader, ImmutableNode::withHeader);
+  public static MultiValueProperty<String> forStringsWithNameAndAdder(final String name, final Consumer<String> adder) {
+    return new MultiValueProperty<>(name, adder, Node::getHeader, ImmutableNode::withHeader);
   }
 
   /**

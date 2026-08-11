@@ -7,9 +7,9 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
-import ch.nolix.system.element.propertieselement.AbstractPropertiesElement;
-import ch.nolix.system.property.value.MultiValue;
-import ch.nolix.system.property.value.OptionalValue;
+import ch.nolix.system.element.mutableelement.AbstractMutableElementWithProperties;
+import ch.nolix.system.element.valueproperty.MultiValueProperty;
+import ch.nolix.system.element.valueproperty.OptionalValueProperty;
 import ch.nolix.systemapi.style.stylable.StylableElement;
 
 /**
@@ -17,15 +17,15 @@ import ch.nolix.systemapi.style.stylable.StylableElement;
  * @param <E> the type of a {@link AbstractStylableElement}.
  */
 public abstract class AbstractStylableElement<E extends StylableElement<E>>
-extends AbstractPropertiesElement
+extends AbstractMutableElementWithProperties
 implements StylableElement<E> {
   private static final String ID_HEADER = PascalCaseVariableNameCatalog.ID;
 
   private static final String TOKEN_HEADER = PascalCaseVariableNameCatalog.TOKEN;
 
-  private final OptionalValue<String> id = OptionalValue.forStringWithNameAndSetter(ID_HEADER, this::setId);
+  private final OptionalValueProperty<String> id = OptionalValueProperty.forStringWithNameAndSetter(ID_HEADER, this::setId);
 
-  private final MultiValue<String> tokens = MultiValue.forStringsWithNameAndAdder(TOKEN_HEADER, this::addToken);
+  private final MultiValueProperty<String> tokens = MultiValueProperty.forStringsWithNameAndAdder(TOKEN_HEADER, this::addToken);
 
   @Override
   public final E addToken(final String token) {

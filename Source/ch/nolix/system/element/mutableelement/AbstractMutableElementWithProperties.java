@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.system.element.propertieselement;
+package ch.nolix.system.element.mutableelement;
 
 import java.lang.reflect.Field;
 
@@ -15,14 +15,14 @@ import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
+import ch.nolix.systemapi.baseproperty.Property;
 import ch.nolix.systemapi.element.base.SpecificationRepresentable;
 import ch.nolix.systemapi.element.mutableelement.MutableElement;
-import ch.nolix.systemapi.property.base.Property;
 
 /**
  * @author Silvan Wyss
  */
-public abstract class AbstractPropertiesElement implements MutableElement {
+public abstract class AbstractMutableElementWithProperties implements MutableElement {
   private ArrayList<Property> properties;
 
   /**
@@ -106,7 +106,7 @@ public abstract class AbstractPropertiesElement implements MutableElement {
 
   /**
    * @return the header of the specification of the current
-   *         {@link AbstractPropertiesElement}
+   *         {@link AbstractMutableElementWithProperties}
    */
   private String getSpecificationHeader() {
     final var localClass = getClass();
@@ -119,9 +119,9 @@ public abstract class AbstractPropertiesElement implements MutableElement {
   }
 
   /**
-   * Adds the {@link Property}s from the current {@link AbstractPropertiesElement}
-   * to the current {@link AbstractPropertiesElement} if the current
-   * {@link AbstractPropertiesElement} has not added its {@link Property}s.
+   * Adds the {@link Property}s from the current {@link AbstractMutableElementWithProperties}
+   * to the current {@link AbstractMutableElementWithProperties} if the current
+   * {@link AbstractMutableElementWithProperties} has not added its {@link Property}s.
    */
   private void addPropertiesIfNotAdded() {
     if (!hasAddedProperties()) {
@@ -130,7 +130,7 @@ public abstract class AbstractPropertiesElement implements MutableElement {
   }
 
   /**
-   * @return true if the current {@link AbstractPropertiesElement}s has added its
+   * @return true if the current {@link AbstractMutableElementWithProperties}s has added its
    *         {@link Property}s, false otherwise
    */
   private boolean hasAddedProperties() {
@@ -138,8 +138,8 @@ public abstract class AbstractPropertiesElement implements MutableElement {
   }
 
   /**
-   * Adds the {@link Property}s from the current {@link AbstractPropertiesElement}
-   * to the current {@link AbstractPropertiesElement}.
+   * Adds the {@link Property}s from the current {@link AbstractMutableElementWithProperties}
+   * to the current {@link AbstractMutableElementWithProperties}.
    */
   private void addProperties() {
     properties = ArrayList.createEmpty();
@@ -153,7 +153,7 @@ public abstract class AbstractPropertiesElement implements MutableElement {
 
   /**
    * Adds the {@link Property}s from the given paramClass to the current
-   * {@link AbstractPropertiesElement}.
+   * {@link AbstractMutableElementWithProperties}.
    * 
    * @param paramClass
    * @throws RuntimeException if the given paramClass is null
@@ -166,7 +166,7 @@ public abstract class AbstractPropertiesElement implements MutableElement {
 
   /**
    * Adds the {@link Property} from the given field to the current
-   * {@link AbstractPropertiesElement} if the given field contains a
+   * {@link AbstractMutableElementWithProperties} if the given field contains a
    * {@link Property}.
    * 
    * @param field
@@ -180,7 +180,7 @@ public abstract class AbstractPropertiesElement implements MutableElement {
 
   /**
    * Adds the {@link Property} from the given field to the current
-   * {@link AbstractPropertiesElement}.
+   * {@link AbstractMutableElementWithProperties}.
    * 
    * @param field
    * @throws RuntimeException if the given field is null, not accessible or does
@@ -201,7 +201,7 @@ public abstract class AbstractPropertiesElement implements MutableElement {
 
   /**
    * @return the {@link Property}s of the current
-   *         {@link AbstractPropertiesElement}.
+   *         {@link AbstractMutableElementWithProperties}.
    */
   private ExtendedIterable<Property> getStoredProperties() {
     addPropertiesIfNotAdded();

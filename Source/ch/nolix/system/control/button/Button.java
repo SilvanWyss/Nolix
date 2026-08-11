@@ -15,9 +15,9 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSup
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.system.control.validationlabel.ValidationLabelTool;
+import ch.nolix.system.element.valueproperty.OptionalValueProperty;
+import ch.nolix.system.element.valueproperty.ValueProperty;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
-import ch.nolix.system.property.value.OptionalValue;
-import ch.nolix.system.property.value.Value;
 import ch.nolix.system.webgui.html.HtmlElementEvent;
 import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.control.button.ButtonRole;
@@ -42,15 +42,15 @@ public final class Button extends AbstractControl<IButton, IButtonStyle> impleme
 
   private static final ButtonCssBuilder CSS_BUILDER = new ButtonCssBuilder();
 
-  private final OptionalValue<ButtonRole> memberRole = //
-  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+  private final OptionalValueProperty<ButtonRole> memberRole = //
+  OptionalValueProperty.withNameAndSetterAndValueMapperAndSpecificationMapper(
     ButtonAttributeHeaderCatalog.ROLE_HEADER,
     this::setRole,
     ButtonRole::fromSpecification,
     ImmutableNode::fromEnum);
 
-  private final Value<String> text = //
-  Value.forStringWithNameAndDefaultValueAndSetter(
+  private final ValueProperty<String> text = //
+  ValueProperty.forStringWithNameAndDefaultValueAndSetter(
     ButtonAttributeHeaderCatalog.TEXT_HEADER,
     DEFAULT_TEXT,
     this::setText);

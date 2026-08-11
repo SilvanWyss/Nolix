@@ -1,15 +1,15 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.property.value;
+package ch.nolix.systemapi.element.valueproperty;
 
 import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
 import ch.nolix.baseapi.generalstate.staterequest.EmptinessRequestable;
-import ch.nolix.systemapi.property.base.Property;
+import ch.nolix.systemapi.baseproperty.Property;
 
 /**
  * @author Silvan Wyss
  */
-public interface IBaseValue extends EmptinessRequestable, NameHolder, Property {
+public interface BaseValueProperty extends EmptinessRequestable, NameHolder, Property {
   // This interface is a dedicated union of other interfaces.
 }

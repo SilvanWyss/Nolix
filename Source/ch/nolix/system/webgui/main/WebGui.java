@@ -15,14 +15,14 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICss;
 import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
+import ch.nolix.system.element.proxyproperty.MultiValueProxyProperty;
+import ch.nolix.system.element.valueproperty.OptionalValueProperty;
+import ch.nolix.system.element.valueproperty.ValueProperty;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.ImmutableImage;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.system.gui.iconresource.IconCatalog;
-import ch.nolix.system.property.proxy.MultiValueProxy;
-import ch.nolix.system.property.value.OptionalValue;
-import ch.nolix.system.property.value.Value;
 import ch.nolix.system.style.stylable.AbstractStyleElement;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.image.Image;
@@ -59,32 +59,32 @@ implements IWebGui<WebGui> {
 
   private static final String LAYER_HEADER = PascalCaseVariableNameCatalog.LAYER;
 
-  private final Value<String> title = //
-  Value.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
+  private final ValueProperty<String> title = //
+  ValueProperty.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     TITLE_HEADER,
     DEFAULT_TITLE,
     this::setTitle,
     Node::getSingleChildNodeHeader,
     ImmutableNode::withChildNodes);
 
-  private final Value<ImmutableImage> icon = //
-  Value.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
+  private final ValueProperty<ImmutableImage> icon = //
+  ValueProperty.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     ICON_HEADER,
     DEFAULT_ICON,
     this::setIcon,
     ImmutableImage::fromSpecification,
     ImmutableImage::getSpecification);
 
-  private final OptionalValue<IBackground> background = //
-  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+  private final OptionalValueProperty<IBackground> background = //
+  OptionalValueProperty.withNameAndSetterAndValueMapperAndSpecificationMapper(
     BACKGROUND_HEADER,
     this::setBackground,
     Background::fromSpecification,
     IBackground::getSpecification);
 
   @SuppressWarnings("unused")
-  private final MultiValueProxy<ILayer> layerExtractor = //
-  MultiValueProxy.withNameAndAdderAndGetterAndValueMapperAndSpecificationMapper(
+  private final MultiValueProxyProperty<ILayer> layerExtractor = //
+  MultiValueProxyProperty.withNameAndAdderAndGetterAndValueMapperAndSpecificationMapper(
     LAYER_HEADER,
     this::pushLayer,
     this::getStoredLayers,

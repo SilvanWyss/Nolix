@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.system.property.proxy;
+package ch.nolix.system.element.proxyproperty;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -10,12 +10,12 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.systemapi.property.proxy.IValueProxy;
+import ch.nolix.systemapi.element.proxyproperty.IValueProxyProperty;
 
 /**
  * @author Silvan Wyss
  */
-public final class ValueProxy implements IValueProxy {
+public final class ValueProxyProperty implements IValueProxyProperty {
   private final String name;
 
   private final Consumer<Node<?>> valueSpecificationConsumer;
@@ -23,7 +23,7 @@ public final class ValueProxy implements IValueProxy {
   private final Supplier<Node<?>> valueSpecificationSupplier;
 
   /**
-   * Creates a new {@link ValueProxy} with the given name,
+   * Creates a new {@link ValueProxyProperty} with the given name,
    * valueSpecificationConsumer and valueSpecificationSupplier.
    * 
    * @param name
@@ -33,7 +33,7 @@ public final class ValueProxy implements IValueProxy {
    * @throws RuntimeException if the given valueSpecificationConsumer is null
    * @throws RuntimeException if the given valueSpecificationSupplier is null
    */
-  private ValueProxy(
+  private ValueProxyProperty(
     final String name,
     final Consumer<Node<?>> valueSpecificationConsumer,
     final Supplier<Node<?>> valueSpecificationSupplier) {
@@ -50,17 +50,17 @@ public final class ValueProxy implements IValueProxy {
    * @param name
    * @param valueSpecificationConsumer
    * @param valueSpecificationSupplier
-   * @return a new {@link ValueProxy} with the given name,
+   * @return a new {@link ValueProxyProperty} with the given name,
    *         valueSpecificationConsumer and valueSpecificationSupplier
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given valueSpecificationConsumer is null
    * @throws RuntimeException if the given valueSpecificationSupplier is null
    */
-  public static ValueProxy withNameAndValueSpecificationConsumerAndValueSpecificationSupplier(
+  public static ValueProxyProperty withNameAndValueSpecificationConsumerAndValueSpecificationSupplier(
     final String name,
     final Consumer<Node<?>> valueSpecificationConsumer,
     final Supplier<Node<?>> valueSpecificationSupplier) {
-    return new ValueProxy(name, valueSpecificationConsumer, valueSpecificationSupplier);
+    return new ValueProxyProperty(name, valueSpecificationConsumer, valueSpecificationSupplier);
   }
 
   /**

@@ -4,7 +4,7 @@
 package ch.nolix.system.style.stylable;
 
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
-import ch.nolix.system.property.value.OptionalValue;
+import ch.nolix.system.element.valueproperty.OptionalValueProperty;
 import ch.nolix.system.style.model.Style;
 import ch.nolix.systemapi.style.model.IStyle;
 import ch.nolix.systemapi.style.styleholder.StyleHolder;
@@ -20,8 +20,8 @@ public abstract class AbstractStyleElement<E extends AbstractStyleElement<E>> ex
 implements StyleHolder<E> {
   private static final String CONFIGURATION_HEADER = PascalCaseVariableNameCatalog.CONFIGURATION;
 
-  private final OptionalValue<IStyle> style = //
-  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+  private final OptionalValueProperty<IStyle> style = //
+  OptionalValueProperty.withNameAndSetterAndValueMapperAndSpecificationMapper(
     CONFIGURATION_HEADER,
     this::setStyle,
     Style::fromSpecification,

@@ -12,7 +12,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.system.control.container.AbstractContainer;
 import ch.nolix.system.control.label.Label;
-import ch.nolix.system.property.proxy.MultiValueProxy;
+import ch.nolix.system.element.proxyproperty.MultiValueProxyProperty;
 import ch.nolix.system.webgui.main.ControlParent;
 import ch.nolix.systemapi.control.grid.IGrid;
 import ch.nolix.systemapi.control.grid.IGridStyle;
@@ -35,8 +35,8 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
   private Matrix<GridCell> cells = Matrix.createEmpty();
 
   @SuppressWarnings("unused")
-  private final MultiValueProxy<GridCell> cellExtractor = //
-  MultiValueProxy.withNameAndAdderAndGetterAndValueMapperAndSpecificationMapper(
+  private final MultiValueProxyProperty<GridCell> cellExtractor = //
+  MultiValueProxyProperty.withNameAndAdderAndGetterAndValueMapperAndSpecificationMapper(
     CELL_HEADER,
     this::addCell,
     () -> cells.getViewOfStoredSelected(GridCell::containsAny),

@@ -5,7 +5,7 @@ package ch.nolix.system.control.horizontalstack;
 
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.system.control.linearcontainer.AbstractLinearContainer;
-import ch.nolix.system.property.value.Value;
+import ch.nolix.system.element.valueproperty.ValueProperty;
 import ch.nolix.systemapi.control.horizontalstack.IHorizontalStack;
 import ch.nolix.systemapi.control.horizontalstack.IHorizontalStackStyle;
 import ch.nolix.systemapi.gui.box.VerticalContentAlignment;
@@ -26,8 +26,8 @@ implements IHorizontalStack {
 
   private static final HorizontalStackCssBuilder CSS_BUILDER = new HorizontalStackCssBuilder();
 
-  private final Value<VerticalContentAlignment> contentAlignment = //
-  Value.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
+  private final ValueProperty<VerticalContentAlignment> contentAlignment = //
+  ValueProperty.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     CONTENT_ALIGNMENT_HEADER,
     DEFAULT_CONTENT_ALIGNMENT,
     this::setContentAlignment,

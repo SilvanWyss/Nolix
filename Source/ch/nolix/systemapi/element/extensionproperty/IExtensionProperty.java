@@ -1,10 +1,10 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.property.exension;
+package ch.nolix.systemapi.element.extensionproperty;
 
+import ch.nolix.systemapi.baseproperty.Property;
 import ch.nolix.systemapi.element.mutableelement.RespondingMutableElement;
-import ch.nolix.systemapi.property.base.Property;
 
 /**
  * @author Silvan Wyss

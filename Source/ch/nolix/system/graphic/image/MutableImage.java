@@ -24,10 +24,10 @@ import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PluralPascalCaseVariableNameCatalog;
-import ch.nolix.system.element.propertieselement.AbstractPropertiesElement;
+import ch.nolix.system.element.mutableelement.AbstractMutableElementWithProperties;
+import ch.nolix.system.element.proxyproperty.ValueProxyProperty;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
-import ch.nolix.system.property.proxy.ValueProxy;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.image.Image;
 import ch.nolix.systemapi.graphic.image.IMutableImage;
@@ -36,7 +36,7 @@ import ch.nolix.systemapi.graphic.image.IMutableImage;
  * @author Silvan Wyss
  */
 public final class MutableImage // NOSONAR: A MutableImage is a principal object thus it has many methods.
-extends AbstractPropertiesElement implements IMutableImage<MutableImage> {
+extends AbstractMutableElementWithProperties implements IMutableImage<MutableImage> {
   private static final String PIXEL_ARRAY_HEADER = "PixelArray";
 
   private static final String JPG_STRING = "JPGString";
@@ -44,8 +44,8 @@ extends AbstractPropertiesElement implements IMutableImage<MutableImage> {
   private final Matrix<IColor> pixels;
 
   @SuppressWarnings("unused")
-  private final ValueProxy pixelsExtractor = //
-  ValueProxy.withNameAndValueSpecificationConsumerAndValueSpecificationSupplier(
+  private final ValueProxyProperty pixelsExtractor = //
+  ValueProxyProperty.withNameAndValueSpecificationConsumerAndValueSpecificationSupplier(
     PIXEL_ARRAY_HEADER,
     this::setPixelArray,
     this::getPixelArraySpecification);

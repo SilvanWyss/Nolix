@@ -16,9 +16,9 @@ import ch.nolix.system.control.container.AbstractContainer;
 import ch.nolix.system.control.horizontalstack.HorizontalStack;
 import ch.nolix.system.control.singlecontainer.SingleContainer;
 import ch.nolix.system.control.verticalstack.VerticalStack;
+import ch.nolix.system.element.valueproperty.MultiValueProperty;
+import ch.nolix.system.element.valueproperty.ValueProperty;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
-import ch.nolix.system.property.value.MultiValue;
-import ch.nolix.system.property.value.Value;
 import ch.nolix.system.webgui.main.ControlFactory;
 import ch.nolix.system.webgui.main.ControlParent;
 import ch.nolix.systemapi.control.button.IButton;
@@ -60,14 +60,14 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
 
   private final SingleContainer canvasSingleContainer = new SingleContainer();
 
-  private final MultiValue<ITabContainerTab> memberTabs = //
-  MultiValue.forElementsOfSameTypeWithNameAndAdderAndValueMapper(
+  private final MultiValueProperty<ITabContainerTab> memberTabs = //
+  MultiValueProperty.forElementsOfSameTypeWithNameAndAdderAndValueMapper(
     TAB_HEADER,
     this::addTab,
     TabContainerTab::fromSpecification);
 
-  private final Value<IButtonStyle> menuButtonStyle = //
-  Value.forElementWithNameAndDefaultValueAndSetterAndValueMapper(
+  private final ValueProperty<IButtonStyle> menuButtonStyle = //
+  ValueProperty.forElementWithNameAndDefaultValueAndSetterAndValueMapper(
     MENU_BUTTON_STYLE_HEADER,
     new ButtonStyle(),
     this::setMenuButtonStyle,

@@ -17,11 +17,11 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
+import ch.nolix.system.element.extensionproperty.ExtensionProperty;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeIntValidator;
-import ch.nolix.system.property.extension.ExtensionProperty;
-import ch.nolix.system.property.value.OptionalValue;
-import ch.nolix.system.property.value.Value;
+import ch.nolix.system.element.valueproperty.OptionalValueProperty;
+import ch.nolix.system.element.valueproperty.ValueProperty;
 import ch.nolix.system.style.stylable.AbstractStylableElement;
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.gui.model.CursorIcon;
@@ -63,40 +63,40 @@ implements Control<C, S> {
   // An id works correctly for CSS only when it begins with a letter.
   private final String memberInternalId = "i" + IdCreator.createIdOf10HexadecimalCharacters();
 
-  private final Value<Presence> presence = //
-  Value.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
+  private final ValueProperty<Presence> presence = //
+  ValueProperty.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     PRESENCE_HEADER,
     DEFAULT_PRESENCE,
     this::setPresence,
     Presence::fromSpecification,
     ImmutableNode::fromEnum);
 
-  private final OptionalValue<AbsoluteOrRelativeInt> minWidth = //
-  OptionalValue.forElementWithNameAndSetterAndValueMapper(
+  private final OptionalValueProperty<AbsoluteOrRelativeInt> minWidth = //
+  OptionalValueProperty.forElementWithNameAndSetterAndValueMapper(
     MIN_WIDTH_HEADER,
     this::setMinWidth,
     AbsoluteOrRelativeInt::fromSpecification);
 
-  private final OptionalValue<AbsoluteOrRelativeInt> minHeight = //
-  OptionalValue.forElementWithNameAndSetterAndValueMapper(
+  private final OptionalValueProperty<AbsoluteOrRelativeInt> minHeight = //
+  OptionalValueProperty.forElementWithNameAndSetterAndValueMapper(
     MIN_HEIGHT_HEADER,
     this::setMinHeight,
     AbsoluteOrRelativeInt::fromSpecification);
 
-  private final OptionalValue<AbsoluteOrRelativeInt> maxWidth = //
-  OptionalValue.forElementWithNameAndSetterAndValueMapper(
+  private final OptionalValueProperty<AbsoluteOrRelativeInt> maxWidth = //
+  OptionalValueProperty.forElementWithNameAndSetterAndValueMapper(
     MAX_WIDTH_HEADER,
     this::setMaxWidth,
     AbsoluteOrRelativeInt::fromSpecification);
 
-  private final OptionalValue<AbsoluteOrRelativeInt> maxHeight = //
-  OptionalValue.forElementWithNameAndSetterAndValueMapper(
+  private final OptionalValueProperty<AbsoluteOrRelativeInt> maxHeight = //
+  OptionalValueProperty.forElementWithNameAndSetterAndValueMapper(
     MAX_HEIGHT_HEADER,
     this::setMaxHeight,
     AbsoluteOrRelativeInt::fromSpecification);
 
-  private final Value<CursorIcon> cursorIcon = //
-  Value.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
+  private final ValueProperty<CursorIcon> cursorIcon = //
+  ValueProperty.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     CURSOR_ICON_HEADER,
     DEFAULT_CURSOR_ICON,
     this::setCursorIcon,

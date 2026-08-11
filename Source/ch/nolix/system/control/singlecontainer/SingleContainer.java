@@ -7,7 +7,7 @@ import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.system.control.container.AbstractContainer;
-import ch.nolix.system.property.value.OptionalValue;
+import ch.nolix.system.element.valueproperty.OptionalValueProperty;
 import ch.nolix.system.webgui.main.ControlFactory;
 import ch.nolix.systemapi.control.singlecontainer.ISingleContainer;
 import ch.nolix.systemapi.control.singlecontainer.ISingleContainerStyle;
@@ -28,8 +28,8 @@ implements ISingleContainer {
 
   private static final SingleContainerCssBuilder CSS_BUILDER = new SingleContainerCssBuilder();
 
-  private final OptionalValue<Control<?, ?>> memberControl = //
-  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+  private final OptionalValueProperty<Control<?, ?>> memberControl = //
+  OptionalValueProperty.withNameAndSetterAndValueMapperAndSpecificationMapper(
     CONTROL_HEADER,
     this::setControl,
     ControlFactory::createControlFromSpecification,

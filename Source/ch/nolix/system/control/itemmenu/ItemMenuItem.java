@@ -11,16 +11,16 @@ import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
-import ch.nolix.system.element.propertieselement.AbstractPropertiesElement;
-import ch.nolix.system.property.value.OptionalValue;
-import ch.nolix.system.property.value.Value;
+import ch.nolix.system.element.mutableelement.AbstractMutableElementWithProperties;
+import ch.nolix.system.element.valueproperty.OptionalValueProperty;
+import ch.nolix.system.element.valueproperty.ValueProperty;
 import ch.nolix.systemapi.control.itemmenu.IItemMenu;
 import ch.nolix.systemapi.control.itemmenu.IItemMenuItem;
 
 /**
  * @author Silvan Wyss
  */
-public final class ItemMenuItem extends AbstractPropertiesElement implements IItemMenuItem<ItemMenuItem> {
+public final class ItemMenuItem extends AbstractMutableElementWithProperties implements IItemMenuItem<ItemMenuItem> {
   public static final boolean DEFAULT_SELECTION_FLAG = false;
 
   private static final String ID_HEADER = PascalCaseVariableNameCatalog.ID;
@@ -31,13 +31,13 @@ public final class ItemMenuItem extends AbstractPropertiesElement implements IIt
 
   private IItemMenu<?, ?> nullableParentMenu;
 
-  private final OptionalValue<String> id = OptionalValue.forStringWithNameAndSetter(ID_HEADER, this::setId);
+  private final OptionalValueProperty<String> id = OptionalValueProperty.forStringWithNameAndSetter(ID_HEADER, this::setId);
 
-  private final Value<String> text = //
-  Value.forStringWithNameAndDefaultValueAndSetter(TEXT_HEADER, StringCatalog.EMPTY_STRING, this::setText);
+  private final ValueProperty<String> text = //
+  ValueProperty.forStringWithNameAndDefaultValueAndSetter(TEXT_HEADER, StringCatalog.EMPTY_STRING, this::setText);
 
-  private final Value<Boolean> selectionFlag = //
-  Value.forBooleanWithNameAndDefaultValueAndSetter(
+  private final ValueProperty<Boolean> selectionFlag = //
+  ValueProperty.forBooleanWithNameAndDefaultValueAndSetter(
     SELECTION_FLAG_HEADER,
     DEFAULT_SELECTION_FLAG,
     this::setSelectionFlag);

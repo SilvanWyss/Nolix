@@ -14,8 +14,8 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSup
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
-import ch.nolix.system.property.value.OptionalValue;
-import ch.nolix.system.property.value.Value;
+import ch.nolix.system.element.valueproperty.OptionalValueProperty;
+import ch.nolix.system.element.valueproperty.ValueProperty;
 import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.control.label.ILabel;
 import ch.nolix.systemapi.control.label.ILabelStyle;
@@ -40,15 +40,15 @@ public final class Label extends AbstractControl<ILabel, ILabelStyle> implements
 
   private static final LabelCssBuilder CSS_BUILDER = new LabelCssBuilder();
 
-  private final OptionalValue<LabelRole> memberRole = //
-  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+  private final OptionalValueProperty<LabelRole> memberRole = //
+  OptionalValueProperty.withNameAndSetterAndValueMapperAndSpecificationMapper(
     ROLE_HEADER,
     this::setRole,
     LabelRole::fromSpecification,
     ImmutableNode::fromEnum);
 
-  private final Value<String> text = //
-  Value.forStringWithNameAndDefaultValueAndSetter(TEXT_HEADER, DEFAULT_TEXT, this::setText);
+  private final ValueProperty<String> text = //
+  ValueProperty.forStringWithNameAndDefaultValueAndSetter(TEXT_HEADER, DEFAULT_TEXT, this::setText);
 
   public Label() {
     // A reset is required to achieve a well-defined initial state, although everything would work without a reset.

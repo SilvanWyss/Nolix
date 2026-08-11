@@ -1,14 +1,14 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.system.property.extension;
+package ch.nolix.system.element.extensionproperty;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.systemapi.element.extensionproperty.IExtensionProperty;
 import ch.nolix.systemapi.element.mutableelement.RespondingMutableElement;
-import ch.nolix.systemapi.property.exension.IExtensionProperty;
 
 /**
  * @author Silvan Wyss
