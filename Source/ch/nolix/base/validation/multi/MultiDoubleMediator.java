@@ -47,12 +47,12 @@ public final class MultiDoubleMediator extends AbstractMultiArgumentMediator<Dou
   }
 
   /**
-   * @param limit
+   * @param lowerBound
    * @throws RuntimeException if one of the arguments of the current
    *                          {@link MultiDoubleMediator} is null or not bigger
-   *                          than the given limit.
+   *                          than the given lowerBound.
    */
-  public void areBiggerThan(final double limit) {
+  public void areBiggerThan(final double lowerBound) {
     var index = 1;
 
     for (final var a : getStoredArguments()) {
@@ -60,12 +60,12 @@ public final class MultiDoubleMediator extends AbstractMultiArgumentMediator<Dou
         throw ArgumentIsNullException.forArgumentName(index + "th argument");
       }
 
-      if (a <= limit) {
+      if (a <= lowerBound) {
         throw //
         InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
           a,
           index + "th argument",
-          "is not bigger than " + limit);
+          "is not bigger than " + lowerBound);
       }
 
       index++;
@@ -93,12 +93,12 @@ public final class MultiDoubleMediator extends AbstractMultiArgumentMediator<Dou
   }
 
   /**
-   * @param limit
+   * @param upperBound
    * @throws RuntimeException if one of the arguments of the current
    *                          {@link MultiDoubleMediator} is null or not bigger
-   *                          than the given limit.
+   *                          than the given upperBound.
    */
-  public void areSmallerThan(final double limit) {
+  public void areSmallerThan(final double upperBound) {
     var index = 1;
 
     for (final var a : getStoredArguments()) {
@@ -106,12 +106,12 @@ public final class MultiDoubleMediator extends AbstractMultiArgumentMediator<Dou
         throw ArgumentIsNullException.forArgumentName(index + "th argument");
       }
 
-      if (a >= limit) {
+      if (a >= upperBound) {
         throw //
         InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
           a,
           index + "th argument",
-          "is not smaller than " + limit);
+          "is not smaller than " + upperBound);
       }
 
       index++;

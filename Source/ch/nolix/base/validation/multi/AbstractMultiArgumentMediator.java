@@ -45,7 +45,7 @@ public abstract class AbstractMultiArgumentMediator<A> { // NOSONAR: The Abstrac
   }
 
   /**
-   * @return the arguments of the current {@link AbstractMultiArgumentMediator}.
+   * @return the arguments of the current {@link AbstractMultiArgumentMediator}
    */
   protected final Iterable<A> getStoredArguments() {
     return arguments;

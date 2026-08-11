@@ -3,17 +3,15 @@
  */
 package ch.nolix.base.validation.multi;
 
-import ch.nolix.base.foundation.iterablemapper.SimpleIterableMapper;
+import ch.nolix.base.foundation.arrayiterableview.ArrayIterableView;
 
 /**
  * A {@link MultiArgumentMediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @param <A> the type of the arguments of a multi argument mediator.
+ * @param <A> the type of the arguments of a {@link MultiArgumentMediator}
  */
 public final class MultiArgumentMediator<A> extends AbstractMultiArgumentMediator<A> {
-  private static final SimpleIterableMapper ITERABLE_MAPPER = new SimpleIterableMapper();
-
   /**
    * Creates a new {@link MultiArgumentMediator} for the given arguments.
    * 
@@ -32,9 +30,9 @@ public final class MultiArgumentMediator<A> extends AbstractMultiArgumentMediato
    * @throws RuntimeException if the given arguments is null
    */
   public static <T> MultiArgumentMediator<T> forArguments(final T[] arguments) {
-    final var argumentsIterable = ITERABLE_MAPPER.toIterable(arguments);
+    final var argumentsIterableView = ArrayIterableView.forArray(arguments);
 
-    return new MultiArgumentMediator<>(argumentsIterable);
+    return new MultiArgumentMediator<>(argumentsIterableView);
   }
 
   /**

@@ -3,6 +3,7 @@
  */
 package ch.nolix.base.validation.multi;
 
+import ch.nolix.base.foundation.arrayiterableview.ArrayIterableView;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -30,6 +31,17 @@ public final class MultiStringMediator extends AbstractMultiArgumentMediator<Str
    */
   public static MultiStringMediator forArguments(final Iterable<String> arguments) {
     return new MultiStringMediator(arguments);
+  }
+
+  /**
+   * @param arguments
+   * @return a new {@link MultiStringMediator} for the given arguments
+   * @throws RuntimeException if the given arguments is null
+   */
+  public static MultiStringMediator forArguments(final String[] arguments) {
+    final var argumentsIterableView = ArrayIterableView.forArray(arguments);
+
+    return new MultiStringMediator(argumentsIterableView);
   }
 
   /**

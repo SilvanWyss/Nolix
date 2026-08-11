@@ -3,6 +3,7 @@
  */
 package ch.nolix.base.validation.multi;
 
+import ch.nolix.base.foundation.iterablemapper.SimpleIterableMapper;
 import ch.nolix.base.foundation.linkedlist.SimpleLinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
@@ -14,6 +15,8 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumen
  * @author Silvan Wyss
  */
 public final class MultiLongMediator extends AbstractMultiArgumentMediator<Long> {
+  private static final SimpleIterableMapper ITERABLE_MAPPER = new SimpleIterableMapper();
+
   /**
    * Creates a new {@link MultiLongMediator} for the given arguments.
    * 
@@ -30,13 +33,9 @@ public final class MultiLongMediator extends AbstractMultiArgumentMediator<Long>
    * @throws RuntimeException if the given arguments is null
    */
   public static MultiLongMediator forArguments(final int[] arguments) {
-    final SimpleLinkedList<Long> longArguments = SimpleLinkedList.createEmpty();
+    final var argumentsIterable = ITERABLE_MAPPER.toIterable(arguments);
 
-    for (final var a : arguments) {
-      longArguments.addAtEnd((long) a);
-    }
-
-    return new MultiLongMediator(longArguments);
+    return new MultiLongMediator(argumentsIterable);
   }
 
   /**
@@ -65,7 +64,7 @@ public final class MultiLongMediator extends AbstractMultiArgumentMediator<Long>
 
   /**
    * @throws RuntimeException if one of the arguments of the current
-   *                          {@link MultiLongMediator} is null or not positive.
+   *                          {@link MultiLongMediator} is null or not positive
    */
   public void arePositive() {
     var index = 1;
@@ -85,7 +84,7 @@ public final class MultiLongMediator extends AbstractMultiArgumentMediator<Long>
 
   /**
    * @throws RuntimeException if one of the arguments of the current
-   *                          {@link MultiLongMediator} is null or negative.
+   *                          {@link MultiLongMediator} is null or negative
    */
   public void areNotNegative() {
     var index = 1;
