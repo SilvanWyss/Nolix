@@ -1,10 +1,9 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.gui.colorgradient;
+package ch.nolix.systemapi.graphic.color;
 
 import ch.nolix.systemapi.element.base.Element;
-import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.graphicproperty.Direction;
 
 /**

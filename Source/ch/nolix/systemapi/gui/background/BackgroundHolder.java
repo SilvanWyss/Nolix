@@ -4,8 +4,8 @@
 package ch.nolix.systemapi.gui.background;
 
 import ch.nolix.systemapi.graphic.color.IColor;
+import ch.nolix.systemapi.graphic.color.IColorGradient;
 import ch.nolix.systemapi.graphic.image.Image;
-import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 
 /**
  * @author Silvan Wyss

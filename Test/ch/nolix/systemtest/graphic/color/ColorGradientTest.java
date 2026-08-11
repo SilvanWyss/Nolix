@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.system.graphic.color.ColorGradient;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
-import ch.nolix.system.gui.colorgradient.ColorGradient;
 import ch.nolix.systemapi.graphic.graphicproperty.Direction;
 
 /**

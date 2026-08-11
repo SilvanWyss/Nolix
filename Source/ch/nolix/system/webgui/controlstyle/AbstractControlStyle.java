@@ -20,11 +20,11 @@ import ch.nolix.system.gui.box.CornerShadow;
 import ch.nolix.systemapi.element.multistateconfiguration.MultiStateConfiguration;
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.graphic.color.IColor;
+import ch.nolix.systemapi.graphic.color.IColorGradient;
 import ch.nolix.systemapi.graphic.image.Image;
 import ch.nolix.systemapi.gui.background.IBackground;
 import ch.nolix.systemapi.gui.background.ImageApplication;
 import ch.nolix.systemapi.gui.box.ICornerShadow;
-import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 import ch.nolix.systemapi.webgui.controlstyle.ControlStyle;
 import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 

@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.system.gui.colorgradient;
+package ch.nolix.system.graphic.color;
 
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.document.node.ImmutableNode;
@@ -11,10 +11,8 @@ import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.element.base.AbstractElement;
-import ch.nolix.system.graphic.color.Color;
-import ch.nolix.system.graphic.color.X11ColorCatalog;
+import ch.nolix.systemapi.graphic.color.IColorGradient;
 import ch.nolix.systemapi.graphic.graphicproperty.Direction;
-import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 
 /**
  * A {@link ColorGradient} is not mutable.

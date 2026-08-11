@@ -3,8 +3,8 @@
  */
 package ch.nolix.template.gui.colorgradient;
 
+import ch.nolix.system.graphic.color.ColorGradient;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
-import ch.nolix.system.gui.colorgradient.ColorGradient;
 import ch.nolix.systemapi.graphic.graphicproperty.Direction;
 
 /**
