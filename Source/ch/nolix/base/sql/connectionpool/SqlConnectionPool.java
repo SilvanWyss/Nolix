@@ -72,7 +72,7 @@ implements ISqlDatabaseTarget {
    * {@inheritDoc}
    */
   @Override
-  public String getIpOrDomain() {
+  public String getHost() {
     return ipOrDomain;
   }
 
@@ -104,7 +104,7 @@ implements ISqlDatabaseTarget {
    * {@inheritDoc}
    */
   @Override
-  public SecurityMode getSecurityModeForConnection() {
+  public SecurityMode getSecurityMode() {
     return SECURITY_MODE_FOR_CONNECTIONS;
   }
 

@@ -24,8 +24,8 @@ final class ServerTargetTest extends StandardTest {
     final var result = ServerTarget.forIpOrDomainAndPortAndSecurityModeForConnections(domain, port, securiyMode);
 
     // verify
-    expect(result.getIpOrDomain()).isEqualTo(domain);
+    expect(result.getHost()).isEqualTo(domain);
     expect(result.getPort()).isEqualTo(port);
-    expect(result.getSecurityModeForConnection()).isEqualTo(securiyMode);
+    expect(result.getSecurityMode()).isEqualTo(securiyMode);
   }
 }

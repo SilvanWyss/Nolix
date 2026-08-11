@@ -251,11 +251,11 @@ implements Application<C, S> {
   private IApplicationInstanceTarget asTargetWithServerTarget(final IServerTarget serverTarget) {
     return ApplicationInstanceTarget
       .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
-        serverTarget.getIpOrDomain(),
+        serverTarget.getHost(),
         serverTarget.getPort(),
         getInstanceName(),
         getUrlInstanceName(),
-        serverTarget.getSecurityModeForConnection());
+        serverTarget.getSecurityMode());
   }
 
   /**

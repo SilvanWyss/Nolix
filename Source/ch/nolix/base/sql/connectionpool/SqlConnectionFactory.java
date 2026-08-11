@@ -30,7 +30,7 @@ public final class SqlConnectionFactory {
   private static MsSqlConnection createMsSqlConnectionForSqlConnectionPool(final SqlConnectionPool sqlConnectionPool) {
     return //
     MsSqlConnection.toHostAndPortAndWithUserNameAndUserPassword(
-      sqlConnectionPool.getIpOrDomain(),
+      sqlConnectionPool.getHost(),
       sqlConnectionPool.getPort(),
       sqlConnectionPool.getLoginName(),
       sqlConnectionPool.getLoginPassword());

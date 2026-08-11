@@ -3,17 +3,13 @@
  */
 package ch.nolix.baseapi.net.target;
 
-import ch.nolix.baseapi.net.netproperty.SecurityMode;
+import ch.nolix.baseapi.net.netattribute.HostHolder;
+import ch.nolix.baseapi.net.netattribute.PortHolder;
+import ch.nolix.baseapi.net.netattribute.SecurityModeHolder;
 
 /**
  * @author Silvan Wyss
  */
-public interface IServerTarget {
-  String getIpOrDomain();
-
-  int getPort();
-
-  SecurityMode getSecurityModeForConnection();
-
-  String toUrl();
+public interface IServerTarget extends HostHolder, PortHolder, SecurityModeHolder, UrlRepresentable {
+  // This interface is a dedicated union of other interfaces.
 }

@@ -47,7 +47,7 @@ public class ServerTarget implements IServerTarget {
    * {@inheritDoc}
    */
   @Override
-  public final String getIpOrDomain() {
+  public final String getHost() {
     return ipOrDomain;
   }
 
@@ -63,7 +63,7 @@ public class ServerTarget implements IServerTarget {
    * {@inheritDoc}
    */
   @Override
-  public final SecurityMode getSecurityModeForConnection() {
+  public final SecurityMode getSecurityMode() {
     return securityModeForConnections;
   }
 
@@ -72,7 +72,7 @@ public class ServerTarget implements IServerTarget {
    */
   @Override
   public String toUrl() {
-    return switch (getSecurityModeForConnection()) {
+    return switch (getSecurityMode()) {
       case NONE ->
         toHttpUrl();
       case SSL ->
@@ -82,17 +82,17 @@ public class ServerTarget implements IServerTarget {
 
   private String toHttpsUrl() {
     if (getPort() == PortCatalog.HTTPS) {
-      return String.format("https://%s", getIpOrDomain());
+      return String.format("https://%s", getHost());
     }
 
-    return String.format("https://%s:%s", getIpOrDomain(), getPort());
+    return String.format("https://%s:%s", getHost(), getPort());
   }
 
   private String toHttpUrl() {
     if (getPort() == PortCatalog.HTTP) {
-      return String.format("http://%s", getIpOrDomain());
+      return String.format("http://%s", getHost());
     }
 
-    return String.format("http://%s:%s", getIpOrDomain(), getPort());
+    return String.format("http://%s:%s", getHost(), getPort());
   }
 }
