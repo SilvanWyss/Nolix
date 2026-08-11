@@ -1,12 +1,12 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.datamodel.fieldvalue;
+package ch.nolix.system.objectdata.valuemapper;
 
 import ch.nolix.base.datamodel.dataobject.Blob;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
-import ch.nolix.baseapi.datamodel.fieldvalue.IValueMapper;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.systemapi.objectdata.valuemapper.IValueMapper;
 
 /**
  * @author Silvan Wyss

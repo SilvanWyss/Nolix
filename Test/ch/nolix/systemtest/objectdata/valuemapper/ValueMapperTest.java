@@ -1,13 +1,13 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.datamodel.fieldvalue;
+package ch.nolix.systemtest.objectdata.valuemapper;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.datamodel.fieldvalue.ValueMapper;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
+import ch.nolix.system.objectdata.valuemapper.ValueMapper;
 
 /**
  * @author Silvan Wyss

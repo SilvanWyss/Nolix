@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.datamodel.fieldvalue;
+package ch.nolix.systemapi.objectdata.valuemapper;
 
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 
