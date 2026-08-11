@@ -21,9 +21,9 @@ import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.control.container.ContainerRole;
 import ch.nolix.systemapi.control.label.LabelRole;
-import ch.nolix.systemapi.gui.background.ImageApplication;
-import ch.nolix.systemapi.gui.box.Corner;
-import ch.nolix.systemapi.gui.location.Location;
+import ch.nolix.systemapi.gui.guiproperty.Corner;
+import ch.nolix.systemapi.gui.guiproperty.ImageApplication;
+import ch.nolix.systemapi.gui.guiproperty.Location;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 

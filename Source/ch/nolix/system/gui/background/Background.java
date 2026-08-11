@@ -23,7 +23,7 @@ import ch.nolix.systemapi.graphic.color.IColorGradient;
 import ch.nolix.systemapi.graphic.image.Image;
 import ch.nolix.systemapi.gui.background.BackgroundType;
 import ch.nolix.systemapi.gui.background.IBackground;
-import ch.nolix.systemapi.gui.background.ImageApplication;
+import ch.nolix.systemapi.gui.guiproperty.ImageApplication;
 
 /**
  * @author Silvan Wyss

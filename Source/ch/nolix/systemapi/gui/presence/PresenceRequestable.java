@@ -3,6 +3,8 @@
  */
 package ch.nolix.systemapi.gui.presence;
 
+import ch.nolix.systemapi.gui.guiproperty.Presence;
+
 /**
  * @author Silvan Wyss
  */

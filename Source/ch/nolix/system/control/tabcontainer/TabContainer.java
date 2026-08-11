@@ -27,7 +27,7 @@ import ch.nolix.systemapi.control.tabcontainer.ITabContainer;
 import ch.nolix.systemapi.control.tabcontainer.ITabContainerStyle;
 import ch.nolix.systemapi.control.tabcontainer.ITabContainerTab;
 import ch.nolix.systemapi.control.verticalstack.IVerticalStack;
-import ch.nolix.systemapi.gui.box.HorizontalContentAlignment;
+import ch.nolix.systemapi.gui.guiproperty.HorizontalContentAlignment;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;

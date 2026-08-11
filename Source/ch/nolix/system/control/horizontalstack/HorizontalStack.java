@@ -8,7 +8,7 @@ import ch.nolix.system.control.linearcontainer.AbstractLinearContainer;
 import ch.nolix.system.element.valueproperty.ValueProperty;
 import ch.nolix.systemapi.control.horizontalstack.IHorizontalStack;
 import ch.nolix.systemapi.control.horizontalstack.IHorizontalStackStyle;
-import ch.nolix.systemapi.gui.box.VerticalContentAlignment;
+import ch.nolix.systemapi.gui.guiproperty.VerticalContentAlignment;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 

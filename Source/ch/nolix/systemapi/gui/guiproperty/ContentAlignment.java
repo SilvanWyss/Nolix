@@ -1,14 +1,14 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.gui.box;
+package ch.nolix.systemapi.gui.guiproperty;
 
 import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
  */
-public enum FreeableContentAlignment {
+public enum ContentAlignment {
   TOP_LEFT,
   TOP,
   TOP_RIGHT,
@@ -17,16 +17,15 @@ public enum FreeableContentAlignment {
   RIGHT,
   BOTTOM_LEFT,
   BOTTOM,
-  BOTTOM_RIGHT,
-  FREE;
+  BOTTOM_RIGHT;
 
   /**
    * @param specification
-   * @return a {@link FreeableContentAlignment} from the given specification
+   * @return a {@link ContentAlignment} from the given specification
    * @throws RuntimeException if the given specification does not represent a
-   *                          {@link FreeableContentAlignment}.
+   *                          {@link ContentAlignment}.
    */
-  public static FreeableContentAlignment fromSpecification(final Node<?> specification) {
+  public static ContentAlignment fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 }

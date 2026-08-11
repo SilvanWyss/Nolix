@@ -6,7 +6,7 @@ package ch.nolix.system.control.verticalstack;
 import ch.nolix.base.web.cssmodel.CssProperty;
 import ch.nolix.baseapi.web.csscatalog.CssPropertyNameCatalog;
 import ch.nolix.systemapi.control.verticalstack.IVerticalStack;
-import ch.nolix.systemapi.gui.box.HorizontalContentAlignment;
+import ch.nolix.systemapi.gui.guiproperty.HorizontalContentAlignment;
 
 /**
  * @author Silvan Wyss

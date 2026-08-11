@@ -9,6 +9,7 @@ import ch.nolix.systemapi.element.base.Element;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.color.IColorGradient;
 import ch.nolix.systemapi.graphic.image.Image;
+import ch.nolix.systemapi.gui.guiproperty.ImageApplication;
 
 /**
  * @author Silvan Wyss

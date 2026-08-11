@@ -15,9 +15,9 @@ import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.systemapi.graphic.color.IColor;
-import ch.nolix.systemapi.gui.box.Corner;
 import ch.nolix.systemapi.gui.box.ICornerShadow;
-import ch.nolix.systemapi.gui.location.Location;
+import ch.nolix.systemapi.gui.guiproperty.Corner;
+import ch.nolix.systemapi.gui.guiproperty.Location;
 
 /**
  * A {@link CornerShadow} is not mutable.

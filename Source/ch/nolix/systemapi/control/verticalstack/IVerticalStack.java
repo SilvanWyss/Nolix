@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.control.verticalstack;
 
 import ch.nolix.systemapi.control.linearcontainer.ILinearContainer;
-import ch.nolix.systemapi.gui.box.HorizontalContentAlignment;
+import ch.nolix.systemapi.gui.guiproperty.HorizontalContentAlignment;
 
 /**
  * @author Silvan Wyss

@@ -4,7 +4,8 @@
 package ch.nolix.systemapi.gui.box;
 
 import ch.nolix.systemapi.graphic.color.IColor;
-import ch.nolix.systemapi.gui.location.Location;
+import ch.nolix.systemapi.gui.guiproperty.Corner;
+import ch.nolix.systemapi.gui.guiproperty.Location;
 
 /**
  * @author Silvan Wyss

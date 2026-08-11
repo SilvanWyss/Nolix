@@ -7,7 +7,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.objectcomposition.guicomponent.GuiComponent;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.systemapi.gui.background.BackgroundHolder;
-import ch.nolix.systemapi.gui.box.ContentAlignment;
+import ch.nolix.systemapi.gui.guiproperty.ContentAlignment;
 import ch.nolix.systemapi.style.stylable.StylableElement;
 import ch.nolix.systemapi.webgui.html.HtmlGetter;
 
