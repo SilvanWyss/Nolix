@@ -23,7 +23,7 @@ import ch.nolix.systemapi.control.link.ILink;
 import ch.nolix.systemapi.control.link.ILinkStyle;
 import ch.nolix.systemapi.control.link.LinkTarget;
 import ch.nolix.systemapi.gui.font.LineDecoration;
-import ch.nolix.systemapi.gui.model.CursorIcon;
+import ch.nolix.systemapi.gui.guiproperty.CursorIcon;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;

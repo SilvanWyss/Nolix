@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.gui.model;
+package ch.nolix.systemapi.gui.guiproperty;
 
 import java.awt.Cursor;
 import java.util.Locale;

@@ -10,7 +10,7 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.control.floatcontainer.FloatContainer;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.main.WebGui;
-import ch.nolix.systemapi.gui.model.CursorIcon;
+import ch.nolix.systemapi.gui.guiproperty.CursorIcon;
 import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 

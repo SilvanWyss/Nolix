@@ -20,7 +20,7 @@ import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.control.label.ILabel;
 import ch.nolix.systemapi.control.label.ILabelStyle;
 import ch.nolix.systemapi.control.label.LabelRole;
-import ch.nolix.systemapi.gui.model.CursorIcon;
+import ch.nolix.systemapi.gui.guiproperty.CursorIcon;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;

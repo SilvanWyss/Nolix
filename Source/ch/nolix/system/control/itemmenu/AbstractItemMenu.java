@@ -15,7 +15,7 @@ import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.control.itemmenu.IItemMenu;
 import ch.nolix.systemapi.control.itemmenu.IItemMenuItem;
 import ch.nolix.systemapi.control.itemmenu.IItemMenuStyle;
-import ch.nolix.systemapi.gui.model.CursorIcon;
+import ch.nolix.systemapi.gui.guiproperty.CursorIcon;
 import ch.nolix.systemapi.webgui.main.Control;
 
 /**

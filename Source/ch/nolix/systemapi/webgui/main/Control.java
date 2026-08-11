@@ -13,7 +13,7 @@ import ch.nolix.baseapi.objectcomposition.guicomponent.GuiComponent;
 import ch.nolix.baseapi.objectcomposition.guicomponent.LayerComponent;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.systemapi.gui.box.ISizeAdjustableBox;
-import ch.nolix.systemapi.gui.model.CursorIcon;
+import ch.nolix.systemapi.gui.guiproperty.CursorIcon;
 import ch.nolix.systemapi.gui.presence.PresenceSettable;
 import ch.nolix.systemapi.style.stylable.StylableElement;
 import ch.nolix.systemapi.webgui.controlstyle.ControlStyle;
