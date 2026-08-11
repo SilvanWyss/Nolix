@@ -55,8 +55,8 @@ final class WebSocketFrameTest extends StandardTest {
     expect(resultMaskBit).isFalse();
     expect(resultOpcode).isEqualTo(WebSocketFrameOpcodeMeaning.TEXT_FRAME);
     expect(resultPayload.length).isEqualTo(2);
-    expect(UnsignedByte.fromByte(resultPayload[0]).toBitString()).isEqualTo("00010000");
-    expect(UnsignedByte.fromByte(resultPayload[1]).toBitString()).isEqualTo("00100000");
+    expect(UnsignedByte.fromByte(resultPayload[0])).hasStringRepresentation("00010000");
+    expect(UnsignedByte.fromByte(resultPayload[1])).hasStringRepresentation("00100000");
   }
 
   @Test
@@ -74,8 +74,8 @@ final class WebSocketFrameTest extends StandardTest {
 
     // verify
     expect(result.length).isEqualTo(2);
-    expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("00000001");
-    expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("00000000");
+    expect(UnsignedByte.fromByte(result[0])).hasStringRepresentation("00000001");
+    expect(UnsignedByte.fromByte(result[1])).hasStringRepresentation("00000000");
   }
 
   @Test
@@ -93,8 +93,8 @@ final class WebSocketFrameTest extends StandardTest {
 
     // verify
     expect(result.length).isEqualTo(2);
-    expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("10000001");
-    expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("00000000");
+    expect(UnsignedByte.fromByte(result[0])).hasStringRepresentation("10000001");
+    expect(UnsignedByte.fromByte(result[1])).hasStringRepresentation("00000000");
   }
 
   @Test
@@ -112,12 +112,12 @@ final class WebSocketFrameTest extends StandardTest {
 
     // verify
     expect(result.length).isEqualTo(6);
-    expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("10000001");
-    expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("00000100");
-    expect(UnsignedByte.fromByte(result[2]).toBitString()).isEqualTo("00000001");
-    expect(UnsignedByte.fromByte(result[3]).toBitString()).isEqualTo("00000010");
-    expect(UnsignedByte.fromByte(result[4]).toBitString()).isEqualTo("00000011");
-    expect(UnsignedByte.fromByte(result[5]).toBitString()).isEqualTo("00000100");
+    expect(UnsignedByte.fromByte(result[0])).hasStringRepresentation("10000001");
+    expect(UnsignedByte.fromByte(result[1])).hasStringRepresentation("00000100");
+    expect(UnsignedByte.fromByte(result[2])).hasStringRepresentation("00000001");
+    expect(UnsignedByte.fromByte(result[3])).hasStringRepresentation("00000010");
+    expect(UnsignedByte.fromByte(result[4])).hasStringRepresentation("00000011");
+    expect(UnsignedByte.fromByte(result[5])).hasStringRepresentation("00000100");
   }
 
   @Test
@@ -142,10 +142,10 @@ final class WebSocketFrameTest extends StandardTest {
 
     // verify
     expect(result.length).isEqualTo(65539);
-    expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("10000001");
-    expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("01111110");
-    expect(UnsignedByte.fromByte(result[2]).toBitString()).isEqualTo("11111111");
-    expect(UnsignedByte.fromByte(result[3]).toBitString()).isEqualTo("11111111");
+    expect(UnsignedByte.fromByte(result[0])).hasStringRepresentation("10000001");
+    expect(UnsignedByte.fromByte(result[1])).hasStringRepresentation("01111110");
+    expect(UnsignedByte.fromByte(result[2])).hasStringRepresentation("11111111");
+    expect(UnsignedByte.fromByte(result[3])).hasStringRepresentation("11111111");
     for (var i = 4; i < 65539; i++) {
       expect(result[i]).isEqualTo(lByte);
     }
@@ -173,16 +173,16 @@ final class WebSocketFrameTest extends StandardTest {
 
     // verify
     expect(result.length).isEqualTo(65546);
-    expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("10000001");
-    expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("01111111");
-    expect(UnsignedByte.fromByte(result[2]).toBitString()).isEqualTo("00000000");
-    expect(UnsignedByte.fromByte(result[3]).toBitString()).isEqualTo("00000000");
-    expect(UnsignedByte.fromByte(result[4]).toBitString()).isEqualTo("00000000");
-    expect(UnsignedByte.fromByte(result[5]).toBitString()).isEqualTo("00000000");
-    expect(UnsignedByte.fromByte(result[6]).toBitString()).isEqualTo("00000000");
-    expect(UnsignedByte.fromByte(result[7]).toBitString()).isEqualTo("00000001");
-    expect(UnsignedByte.fromByte(result[8]).toBitString()).isEqualTo("00000000");
-    expect(UnsignedByte.fromByte(result[9]).toBitString()).isEqualTo("00000000");
+    expect(UnsignedByte.fromByte(result[0])).hasStringRepresentation("10000001");
+    expect(UnsignedByte.fromByte(result[1])).hasStringRepresentation("01111111");
+    expect(UnsignedByte.fromByte(result[2])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[3])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[4])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[5])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[6])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[7])).hasStringRepresentation("00000001");
+    expect(UnsignedByte.fromByte(result[8])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[9])).hasStringRepresentation("00000000");
     for (var i = 10; i < 65546; i++) {
       expect(result[i]).isEqualTo(lByte);
     }
@@ -210,16 +210,16 @@ final class WebSocketFrameTest extends StandardTest {
 
     // verify
     expect(result.length).isEqualTo(1_000_010);
-    expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("10000001");
-    expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("01111111");
-    expect(UnsignedByte.fromByte(result[2]).toBitString()).isEqualTo("00000000");
-    expect(UnsignedByte.fromByte(result[3]).toBitString()).isEqualTo("00000000");
-    expect(UnsignedByte.fromByte(result[4]).toBitString()).isEqualTo("00000000");
-    expect(UnsignedByte.fromByte(result[5]).toBitString()).isEqualTo("00000000");
-    expect(UnsignedByte.fromByte(result[6]).toBitString()).isEqualTo("00000000");
-    expect(UnsignedByte.fromByte(result[7]).toBitString()).isEqualTo("00001111");
-    expect(UnsignedByte.fromByte(result[8]).toBitString()).isEqualTo("01000010");
-    expect(UnsignedByte.fromByte(result[9]).toBitString()).isEqualTo("01000000");
+    expect(UnsignedByte.fromByte(result[0])).hasStringRepresentation("10000001");
+    expect(UnsignedByte.fromByte(result[1])).hasStringRepresentation("01111111");
+    expect(UnsignedByte.fromByte(result[2])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[3])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[4])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[5])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[6])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[7])).hasStringRepresentation("00001111");
+    expect(UnsignedByte.fromByte(result[8])).hasStringRepresentation("01000010");
+    expect(UnsignedByte.fromByte(result[9])).hasStringRepresentation("01000000");
     for (var i = 10; i < 1_000_010; i++) {
       expect(result[i]).isEqualTo(lByte);
     }

@@ -96,7 +96,7 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
 
     // verify
     expect(result.length).isEqualTo(1);
-    expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("01111101");
+    expect(UnsignedByte.fromByte(result[0])).hasStringRepresentation("01111101");
   }
 
   @Test
@@ -109,8 +109,8 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
 
     // verify
     expect(result.length).isEqualTo(2);
-    expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("00000000");
-    expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("01111110");
+    expect(UnsignedByte.fromByte(result[0])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[1])).hasStringRepresentation("01111110");
   }
 
   @Test
@@ -123,8 +123,8 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
 
     // verify
     expect(result.length).isEqualTo(2);
-    expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("11111111");
-    expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("11111111");
+    expect(UnsignedByte.fromByte(result[0])).hasStringRepresentation("11111111");
+    expect(UnsignedByte.fromByte(result[1])).hasStringRepresentation("11111111");
   }
 
   @Test
@@ -137,14 +137,14 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
 
     // verify
     expect(result.length).isEqualTo(8);
-    expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("00000000");
-    expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("00000000");
-    expect(UnsignedByte.fromByte(result[2]).toBitString()).isEqualTo("00000000");
-    expect(UnsignedByte.fromByte(result[3]).toBitString()).isEqualTo("00000000");
-    expect(UnsignedByte.fromByte(result[4]).toBitString()).isEqualTo("00000000");
-    expect(UnsignedByte.fromByte(result[5]).toBitString()).isEqualTo("00000001");
-    expect(UnsignedByte.fromByte(result[6]).toBitString()).isEqualTo("00000000");
-    expect(UnsignedByte.fromByte(result[7]).toBitString()).isEqualTo("00000000");
+    expect(UnsignedByte.fromByte(result[0])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[1])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[2])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[3])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[4])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[5])).hasStringRepresentation("00000001");
+    expect(UnsignedByte.fromByte(result[6])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[7])).hasStringRepresentation("00000000");
   }
 
   @Test
@@ -157,13 +157,13 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
 
     // verify
     expect(result.length).isEqualTo(8);
-    expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("01111111");
-    expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("11111111");
-    expect(UnsignedByte.fromByte(result[2]).toBitString()).isEqualTo("11111111");
-    expect(UnsignedByte.fromByte(result[3]).toBitString()).isEqualTo("11111111");
-    expect(UnsignedByte.fromByte(result[4]).toBitString()).isEqualTo("11111111");
-    expect(UnsignedByte.fromByte(result[5]).toBitString()).isEqualTo("11111111");
-    expect(UnsignedByte.fromByte(result[6]).toBitString()).isEqualTo("11111111");
-    expect(UnsignedByte.fromByte(result[7]).toBitString()).isEqualTo("11111111");
+    expect(UnsignedByte.fromByte(result[0])).hasStringRepresentation("01111111");
+    expect(UnsignedByte.fromByte(result[1])).hasStringRepresentation("11111111");
+    expect(UnsignedByte.fromByte(result[2])).hasStringRepresentation("11111111");
+    expect(UnsignedByte.fromByte(result[3])).hasStringRepresentation("11111111");
+    expect(UnsignedByte.fromByte(result[4])).hasStringRepresentation("11111111");
+    expect(UnsignedByte.fromByte(result[5])).hasStringRepresentation("11111111");
+    expect(UnsignedByte.fromByte(result[6])).hasStringRepresentation("11111111");
+    expect(UnsignedByte.fromByte(result[7])).hasStringRepresentation("11111111");
   }
 }

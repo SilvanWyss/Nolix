@@ -114,22 +114,6 @@ public final class UnsignedByte {
   }
 
   /**
-   * @return a {@link String} with the bits of the current {@link UnsignedByte}
-   */
-  public String toBitString() {
-    return String.format(
-      "%d%d%d%d%d%d%d%d",
-      getBitAtAsInt(1),
-      getBitAtAsInt(2),
-      getBitAtAsInt(3),
-      getBitAtAsInt(4),
-      getBitAtAsInt(5),
-      getBitAtAsInt(6),
-      getBitAtAsInt(7),
-      getBitAtAsInt(8));
-  }
-
-  /**
    * @return the current {@link UnsignedByte} as byte.
    */
   public byte toByte() {
@@ -141,5 +125,23 @@ public final class UnsignedByte {
    */
   public int toInt() {
     return memberByte;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String toString() {
+    return //
+    String.format(
+      "%d%d%d%d%d%d%d%d",
+      getBitAtAsInt(1),
+      getBitAtAsInt(2),
+      getBitAtAsInt(3),
+      getBitAtAsInt(4),
+      getBitAtAsInt(5),
+      getBitAtAsInt(6),
+      getBitAtAsInt(7),
+      getBitAtAsInt(8));
   }
 }

@@ -117,48 +117,48 @@ final class UnsignedByteTest extends StandardTest {
   }
 
   @Test
-  void testCase_toBitString_1A() {
+  void testCase_toString_1A() {
     // setup
     final var testUnit = UnsignedByte.withBits(0, 0, 0, 0, 0, 0, 0, 0);
 
     // execute
-    final var result = testUnit.toBitString();
+    final var result = testUnit.toString();
 
     // verify
     expect(result).isEqualTo("00000000");
   }
 
   @Test
-  void testCase_toBitString_1B() {
+  void testCase_toString_1B() {
     // setup
     final var testUnit = UnsignedByte.withBits(0, 0, 0, 0, 0, 1, 1, 1);
 
     // execute
-    final var result = testUnit.toBitString();
+    final var result = testUnit.toString();
 
     // verify
     expect(result).isEqualTo("00000111");
   }
 
   @Test
-  void testCase_toBitString_1C() {
+  void testCase_toString_1C() {
     // setup
     final var testUnit = UnsignedByte.withBits(1, 1, 1, 0, 0, 0, 0, 0);
 
     // execute
-    final var result = testUnit.toBitString();
+    final var result = testUnit.toString();
 
     // verify
     expect(result).isEqualTo("11100000");
   }
 
   @Test
-  void testCase_toBitString_1D() {
+  void testCase_toString_1D() {
     // setup
     final var testUnit = UnsignedByte.withBits(1, 1, 1, 1, 1, 1, 1, 1);
 
     // execute
-    final var result = testUnit.toBitString();
+    final var result = testUnit.toString();
 
     // verify
     expect(result).isEqualTo("11111111");
