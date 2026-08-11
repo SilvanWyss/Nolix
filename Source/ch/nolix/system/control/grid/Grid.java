@@ -4,7 +4,7 @@
 package ch.nolix.system.control.grid;
 
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
-import ch.nolix.base.datastructure.matrix.Matrix;
+import ch.nolix.base.datastructure.matrix.MutableMatrix;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
@@ -32,7 +32,7 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
 
   private static final GridCssBuilder CSS_BUILDER = new GridCssBuilder();
 
-  private Matrix<GridCell> cells = Matrix.createEmpty();
+  private MutableMatrix<GridCell> cells = MutableMatrix.createEmpty();
 
   @SuppressWarnings("unused")
   private final MultiValueProxyProperty<GridCell> cellExtractor = //

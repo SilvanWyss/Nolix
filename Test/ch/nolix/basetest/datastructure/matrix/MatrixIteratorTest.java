@@ -3,7 +3,7 @@
  */
 package ch.nolix.basetest.datastructure.matrix;
 
-import ch.nolix.base.datastructure.matrix.Matrix;
+import ch.nolix.base.datastructure.matrix.MutableMatrix;
 import ch.nolix.base.datastructure.matrix.MatrixIterator;
 import ch.nolix.baseapi.datastructure.copyableiterator.CopyableIterator;
 import ch.nolix.basetest.datastructure.iterator.CopyableIteratorTest;
@@ -17,7 +17,7 @@ final class MatrixIteratorTest extends CopyableIteratorTest {
    */
   @Override
   protected <E> CopyableIterator<E> createIteratorForEmptyContainerForType(final Class<E> type) {
-    return MatrixIterator.forMatrix(Matrix.createEmpty());
+    return MatrixIterator.forMatrix(MutableMatrix.createEmpty());
   }
 
   /**
@@ -26,7 +26,7 @@ final class MatrixIteratorTest extends CopyableIteratorTest {
   @Override
   protected <E> CopyableIterator<E> createIteratorForContainerWithElements(
     @SuppressWarnings("unchecked") final E... elements) {
-    final Matrix<E> matrix = Matrix.createEmpty();
+    final MutableMatrix<E> matrix = MutableMatrix.createEmpty();
 
     matrix.addRow(elements);
 

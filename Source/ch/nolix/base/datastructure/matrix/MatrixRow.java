@@ -14,11 +14,11 @@ import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements of the parent {@link Matrix} of a
+ * @param <E> the type of the elements of the parent {@link MutableMatrix} of a
  *            {@link MatrixRow}.
  */
 public final class MatrixRow<E> extends AbstractExtendedIterable<E> implements IMatrixRow<E> {
-  private final Matrix<E> parentMatrix;
+  private final MutableMatrix<E> parentMatrix;
 
   private final int oneBasedRowIndex;
 
@@ -32,7 +32,7 @@ public final class MatrixRow<E> extends AbstractExtendedIterable<E> implements I
    *                          bigger than the number of rows of the given
    *                          parentMatrix.
    */
-  private MatrixRow(final Matrix<E> parentMatrix, final int oneBasedRowIndex) {
+  private MatrixRow(final MutableMatrix<E> parentMatrix, final int oneBasedRowIndex) {
     Validator.assertThat(parentMatrix).thatIsNamed("parent matrix").isNotNull();
     Validator.assertThat(oneBasedRowIndex).thatIsNamed("one based row index").isBetween(1, parentMatrix.getRowCount());
 
@@ -43,7 +43,7 @@ public final class MatrixRow<E> extends AbstractExtendedIterable<E> implements I
   /**
    * @param parentMatrix
    * @param oneBasedRowIndex
-   * @param <T>              the type of the elements of the parent {@link Matrix}
+   * @param <T>              the type of the elements of the parent {@link MutableMatrix}
    *                         of the created {@link MatrixRow}
    * @return a new {@link MatrixRow} for the given parentMatrix and
    *         oneBasedRowIndex
@@ -51,7 +51,7 @@ public final class MatrixRow<E> extends AbstractExtendedIterable<E> implements I
    *                          bigger than the number of rows of the given
    *                          parentMatrix.
    */
-  public static <T> MatrixRow<T> forMatrixAndOneBasedRowIndex(final Matrix<T> parentMatrix,
+  public static <T> MatrixRow<T> forMatrixAndOneBasedRowIndex(final MutableMatrix<T> parentMatrix,
     final int oneBasedRowIndex) {
     return new MatrixRow<>(parentMatrix, oneBasedRowIndex);
   }

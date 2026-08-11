@@ -14,11 +14,11 @@ import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements of the parent {@link Matrix} of a
+ * @param <E> the type of the elements of the parent {@link MutableMatrix} of a
  *            {@link MatrixColumn}.
  */
 public final class MatrixColumn<E> extends AbstractExtendedIterable<E> implements IMatrixColumn<E> {
-  private final Matrix<E> parentMatrix;
+  private final MutableMatrix<E> parentMatrix;
 
   private final int oneBasedColumnIndex;
 
@@ -32,7 +32,7 @@ public final class MatrixColumn<E> extends AbstractExtendedIterable<E> implement
    *                          bigger than the number of columns of the given
    *                          parentMatrix.
    */
-  private MatrixColumn(final Matrix<E> parentMatrix, final int oneBasedColumnIndex) {
+  private MatrixColumn(final MutableMatrix<E> parentMatrix, final int oneBasedColumnIndex) {
     Validator.assertThat(parentMatrix).thatIsNamed("parent matrix").isNotNull();
 
     Validator
@@ -48,14 +48,14 @@ public final class MatrixColumn<E> extends AbstractExtendedIterable<E> implement
    * @param parentMatrix
    * @param oneBasedColumnIndex
    * @param <T>                 the type of the elements of the parent
-   *                            {@link Matrix} of the created {@link MatrixColumn}
+   *                            {@link MutableMatrix} of the created {@link MatrixColumn}
    * @return a new {@link MatrixColumn} for the given parentMatrix and
    *         oneBasedColumnIndex
    * @throws RuntimeException if the given oneBasedColumnIndex is not positive or
    *                          bigger than the number of columns of the given
    *                          parentMatrix.
    */
-  public static <T> MatrixColumn<T> forMatrixAndOneBasedColumnIndex(final Matrix<T> parentMatrix,
+  public static <T> MatrixColumn<T> forMatrixAndOneBasedColumnIndex(final MutableMatrix<T> parentMatrix,
     final int oneBasedColumnIndex) {
     return new MatrixColumn<>(parentMatrix, oneBasedColumnIndex);
   }

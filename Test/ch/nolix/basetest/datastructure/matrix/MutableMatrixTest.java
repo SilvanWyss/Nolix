@@ -5,18 +5,18 @@ package ch.nolix.basetest.datastructure.matrix;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.datastructure.matrix.Matrix;
+import ch.nolix.base.datastructure.matrix.MutableMatrix;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.basetest.datastructure.extendediterable.ExtendedIterableTest;
 
 /**
  * @author Silvan Wyss
  */
-final class MatrixTest extends ExtendedIterableTest {
+final class MutableMatrixTest extends ExtendedIterableTest {
   @Test
   void testCase_addColumn() {
     // setup
-    final Matrix<String> matrix = Matrix.createEmpty();
+    final MutableMatrix<String> matrix = MutableMatrix.createEmpty();
 
     // execute
     matrix.addColumn("apple", "banana", "cerish");
@@ -30,7 +30,7 @@ final class MatrixTest extends ExtendedIterableTest {
   @Test
   void testCase_addRow() {
     // setup
-    final Matrix<String> matrix = Matrix.createEmpty();
+    final MutableMatrix<String> matrix = MutableMatrix.createEmpty();
 
     // execute
     matrix.addRow("apple", "banana", "cerish");
@@ -44,7 +44,7 @@ final class MatrixTest extends ExtendedIterableTest {
   @Test
   void testCase_getColumn() {
     // setup
-    final Matrix<String> matrix = Matrix.createEmpty();
+    final MutableMatrix<String> matrix = MutableMatrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("antelope", "baboon", "elephant");
     matrix.addRow("flower", "tree", "palm");
@@ -66,7 +66,7 @@ final class MatrixTest extends ExtendedIterableTest {
   @Test
   void testCase_getCopy() {
     // setup
-    final Matrix<String> matrix = Matrix.createEmpty();
+    final MutableMatrix<String> matrix = MutableMatrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("antelope", "baboon", "elephant");
     matrix.addRow("flower", "tree", "palm");
@@ -85,7 +85,7 @@ final class MatrixTest extends ExtendedIterableTest {
   @Test
   void testCase_getIndexOf() {
     // setup
-    final Matrix<String> matrix = Matrix.createEmpty();
+    final MutableMatrix<String> matrix = MutableMatrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("antelope", "baboon", "elephante");
     matrix.addRow("flower", "tree", "palm");
@@ -116,7 +116,7 @@ final class MatrixTest extends ExtendedIterableTest {
   @Test
   void testCase_getRow() {
     // setup
-    final Matrix<String> matrix = Matrix.createEmpty();
+    final MutableMatrix<String> matrix = MutableMatrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("antelope", "baboon", "elephant");
     matrix.addRow("flower", "tree", "palm");
@@ -138,7 +138,7 @@ final class MatrixTest extends ExtendedIterableTest {
   @Test
   void testCase_toLeftRotatedMatrix() {
     // setup
-    final Matrix<String> matrix = Matrix.createEmpty();
+    final MutableMatrix<String> matrix = MutableMatrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("antelope", "baboon", "elephant");
     matrix.addRow("flower", "tree", "palm");
@@ -157,7 +157,7 @@ final class MatrixTest extends ExtendedIterableTest {
   @Test
   void testCase_toRightRotatedMatrix() {
     // setup
-    final Matrix<String> matrix = Matrix.createEmpty();
+    final MutableMatrix<String> matrix = MutableMatrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("antelope", "elephant", "baboon");
     matrix.addRow("flower", "tree", "palm");
@@ -178,7 +178,7 @@ final class MatrixTest extends ExtendedIterableTest {
    */
   @Override
   protected <E> ExtendedIterable<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
-    final Matrix<E> matrix = Matrix.createEmpty();
+    final MutableMatrix<E> matrix = MutableMatrix.createEmpty();
 
     matrix.addRow(elements);
 
@@ -190,6 +190,6 @@ final class MatrixTest extends ExtendedIterableTest {
    */
   @Override
   protected <E> ExtendedIterable<E> createEmptyContainerForType(final Class<E> type) {
-    return Matrix.createEmpty();
+    return MutableMatrix.createEmpty();
   }
 }

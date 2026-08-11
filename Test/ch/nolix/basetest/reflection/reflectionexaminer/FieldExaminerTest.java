@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
-import ch.nolix.base.datastructure.matrix.Matrix;
+import ch.nolix.base.datastructure.matrix.MutableMatrix;
 import ch.nolix.base.reflection.reflectionexaminer.FieldExaminer;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
@@ -84,7 +84,7 @@ final class FieldExaminerTest extends StandardTest {
     final var testUnit = new FieldExaminer();
 
     // execute
-    final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, Matrix.class);
+    final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, MutableMatrix.class);
 
     // verify
     expect(result).isFalse();

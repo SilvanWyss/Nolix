@@ -15,7 +15,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
  * @param <E> the type of the elements of a {@link MatrixIterator}.
  */
 public final class MatrixIterator<E> implements CopyableIterator<E> {
-  private final Matrix<E> parentMatrix;
+  private final MutableMatrix<E> parentMatrix;
 
   private int nextElementOneBasedIndex;
 
@@ -25,7 +25,7 @@ public final class MatrixIterator<E> implements CopyableIterator<E> {
    * @param parentMatrix
    * @throws RuntimeException if the given parentMatrix is null
    */
-  private MatrixIterator(final Matrix<E> parentMatrix) {
+  private MatrixIterator(final MutableMatrix<E> parentMatrix) {
     Validator.assertThat(parentMatrix).thatIsNamed("parent Matrix").isNotNull();
 
     this.parentMatrix = parentMatrix;
@@ -42,7 +42,7 @@ public final class MatrixIterator<E> implements CopyableIterator<E> {
    * @throws RuntimeException if the given oneBasedStartIndex is bigger than the
    *                          element count of the given parentMatrix.
    */
-  private MatrixIterator(final Matrix<E> parentMatrix, final int oneBasedStartIndex) {
+  private MatrixIterator(final MutableMatrix<E> parentMatrix, final int oneBasedStartIndex) {
     Validator.assertThat(parentMatrix).thatIsNamed("parent Matrix").isNotNull();
 
     Validator
@@ -54,13 +54,13 @@ public final class MatrixIterator<E> implements CopyableIterator<E> {
     nextElementOneBasedIndex = oneBasedStartIndex;
   }
 
-  public static <T> MatrixIterator<T> forMatrix(final Matrix<T> matrix) {
+  public static <T> MatrixIterator<T> forMatrix(final MutableMatrix<T> matrix) {
     return new MatrixIterator<>(matrix);
   }
 
   // static mehtod
   public static <T> MatrixIterator<T> forMatrixAndOneBasedStartIndex(
-    final Matrix<T> matrix,
+    final MutableMatrix<T> matrix,
     final int oneBasedStartIndex) {
     return new MatrixIterator<>(matrix, oneBasedStartIndex);
   }

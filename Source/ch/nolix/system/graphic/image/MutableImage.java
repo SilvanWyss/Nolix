@@ -13,7 +13,7 @@ import javax.imageio.ImageIO;
 import javax.imageio.ImageWriteParam;
 
 import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
-import ch.nolix.base.datastructure.matrix.Matrix;
+import ch.nolix.base.datastructure.matrix.MutableMatrix;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.environment.runningjar.RunningJar;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
@@ -41,7 +41,7 @@ extends AbstractMutableElementWithProperties implements IMutableImage<MutableIma
 
   private static final String JPG_STRING = "JPGString";
 
-  private final Matrix<IColor> pixels;
+  private final MutableMatrix<IColor> pixels;
 
   @SuppressWarnings("unused")
   private final ValueProxyProperty pixelsExtractor = //
@@ -58,7 +58,7 @@ extends AbstractMutableElementWithProperties implements IMutableImage<MutableIma
 
   private BufferedImage nullableBufferedImage;
 
-  private MutableImage(final Matrix<IColor> pixels) {
+  private MutableImage(final MutableMatrix<IColor> pixels) {
     this.pixels = pixels;
   }
 
@@ -135,7 +135,7 @@ extends AbstractMutableElementWithProperties implements IMutableImage<MutableIma
   }
 
   public static MutableImage withPixels(final IMatrix<IColor> pixels) {
-    return new MutableImage(Matrix.fromMatrix(pixels));
+    return new MutableImage(MutableMatrix.fromMatrix(pixels));
   }
 
   public static MutableImage withWidthAndHeightAndColor(final int width, final int height, final IColor color) {
@@ -143,7 +143,7 @@ extends AbstractMutableElementWithProperties implements IMutableImage<MutableIma
     Validator.assertThat(height).thatIsNamed(LowerCaseVariableNameCatalog.HEIGHT).isPositive();
     Validator.assertThat(color).thatIsNamed(Color.class).isNotNull();
 
-    Matrix<IColor> pixels = Matrix.createEmpty();
+    MutableMatrix<IColor> pixels = MutableMatrix.createEmpty();
 
     if (width > 0 && height > 0) {
       final var row = new Color[width];
@@ -215,7 +215,7 @@ extends AbstractMutableElementWithProperties implements IMutableImage<MutableIma
    * {@inheritDoc}
    */
   @Override
-  public Matrix<IColor> getPixels() {
+  public MutableMatrix<IColor> getPixels() {
     return pixels.getCopy();
   }
 
@@ -493,7 +493,7 @@ extends AbstractMutableElementWithProperties implements IMutableImage<MutableIma
    */
   @Override
   public IMutableImage<?> withAlphaValue(final double alphaValue) {
-    final Matrix<IColor> localPixels = Matrix.createEmpty();
+    final MutableMatrix<IColor> localPixels = MutableMatrix.createEmpty();
     for (final var r : pixels.getRows()) {
       localPixels.addRow(r.getViewOf(p -> p.withFloatingPointAlphaValue(alphaValue)));
     }

@@ -25,36 +25,36 @@ import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
- * A {@link Matrix} is a {@link AbstractExtendedIterable} that stores its
- * elements in rows and columns. A {@link Matrix} is clearable.
+ * A {@link MutableMatrix} is a {@link AbstractExtendedIterable} that stores its
+ * elements in rows and columns. A {@link MutableMatrix} is clearable.
  * 
  * @author Silvan Wyss
- * @param <E> the type of the elements of a {@link Matrix}.
+ * @param <E> the type of the elements of a {@link MutableMatrix}.
  */
-public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMatrix<E> {
+public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implements IMatrix<E> {
   private Object[][] memberElements = new Object[0][0];
 
   /**
-   * Creates a new empty {@link Matrix}.
+   * Creates a new empty {@link MutableMatrix}.
    */
-  private Matrix() {
+  private MutableMatrix() {
   }
 
   /**
-   * @return a new empty {@link Matrix}
-   * @param <T> the type of the elements of the created {@link Matrix}.
+   * @return a new empty {@link MutableMatrix}
+   * @param <T> the type of the elements of the created {@link MutableMatrix}.
    */
-  public static <T> Matrix<T> createEmpty() {
-    return new Matrix<>();
+  public static <T> MutableMatrix<T> createEmpty() {
+    return new MutableMatrix<>();
   }
 
   /**
    * @param matrix
    * @param <T>    the type of the elements of the given matrix
-   * @return a new {@link Matrix} with the size and elements of the given matrix.
+   * @return a new {@link MutableMatrix} with the size and elements of the given matrix.
    */
-  public static <T> Matrix<T> fromMatrix(final IMatrix<T> matrix) {
-    final var newMatrix = new Matrix<T>();
+  public static <T> MutableMatrix<T> fromMatrix(final IMatrix<T> matrix) {
+    final var newMatrix = new MutableMatrix<T>();
 
     for (final var r : matrix.getRows()) {
       newMatrix.addRow(r);
@@ -64,24 +64,24 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   }
 
   /**
-   * Adds a new column to the current {@link Matrix} with the given elements. The
+   * Adds a new column to the current {@link MutableMatrix} with the given elements. The
    * complexity of this implementation is O(m + n) if:
    * 
-   * -The current {@link Matrix} contains m elements.
+   * -The current {@link MutableMatrix} contains m elements.
    * 
    * -n elements are given.
    * 
    * @param elements
-   * @return the current {@link Matrix}
+   * @return the current {@link MutableMatrix}
    * @throws RuntimeException         if the given elements is null
    * @throws RuntimeException         if one of the given elements is null
-   * @throws UnequalArgumentException if the current {@link Matrix} is not empty
+   * @throws UnequalArgumentException if the current {@link MutableMatrix} is not empty
    *                                  or not as many elements are given as the
    *                                  number of rows of the current
-   *                                  {@link Matrix}.
+   *                                  {@link MutableMatrix}.
    */
   @SuppressWarnings("unchecked")
-  public Matrix<E> addColumn(final E... elements) {
+  public MutableMatrix<E> addColumn(final E... elements) {
     // Collects allElements.
     final var elementContainer = ExtendedIterableView.forArray(elements);
 
@@ -90,20 +90,20 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   }
 
   /**
-   * Adds a new column to the current {@link Matrix} with the given elements. The
-   * complexity of this implementation is O(m + n) if: -The current {@link Matrix}
+   * Adds a new column to the current {@link MutableMatrix} with the given elements. The
+   * complexity of this implementation is O(m + n) if: -The current {@link MutableMatrix}
    * contains m elements. -n elements are given.
    * 
    * @param elements
-   * @return the current {@link Matrix}
+   * @return the current {@link MutableMatrix}
    * @throws RuntimeException         if the given elements is null
    * @throws RuntimeException         if one of the given elements is null
-   * @throws UnequalArgumentException if the current {@link Matrix} is not empty
+   * @throws UnequalArgumentException if the current {@link MutableMatrix} is not empty
    *                                  and if not as many elements are given as the
    *                                  number of rows of the current
-   *                                  {@link Matrix}.
+   *                                  {@link MutableMatrix}.
    */
-  public Matrix<E> addColumn(final Iterable<E> elements) {
+  public MutableMatrix<E> addColumn(final Iterable<E> elements) {
     // Asserts that the given elements are not null.
     Validator.assertThatTheElements(elements).areNotNull();
 
@@ -150,21 +150,21 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   }
 
   /**
-   * Adds a new row to the current {@link Matrix} with the given elements. The
-   * complexity of this implementation is O(m + n) if: -The current {@link Matrix}
+   * Adds a new row to the current {@link MutableMatrix} with the given elements. The
+   * complexity of this implementation is O(m + n) if: -The current {@link MutableMatrix}
    * contains m rows. -n elements are given.
    * 
    * @param elements
-   * @return the current {@link Matrix}
+   * @return the current {@link MutableMatrix}
    * @throws RuntimeException         if the given elements is null
    * @throws RuntimeException         if one of the given elements is null
-   * @throws UnequalArgumentException the current {@link Matrix} is not empty and
+   * @throws UnequalArgumentException the current {@link MutableMatrix} is not empty and
    *                                  if not as many elements are given as the
    *                                  number of columns of the current
-   *                                  {@link Matrix}.
+   *                                  {@link MutableMatrix}.
    */
   @SuppressWarnings("unchecked")
-  public Matrix<E> addRow(final E... elements) {
+  public MutableMatrix<E> addRow(final E... elements) {
     // Creates elementsContainerView.
     final var elementsContainerView = ExtendedIterableView.forArray(elements);
 
@@ -173,20 +173,20 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   }
 
   /**
-   * Adds a new row to the current {@link Matrix} with the given elements. The
-   * complexity of this implementation is O(m + n) if: -The current {@link Matrix}
+   * Adds a new row to the current {@link MutableMatrix} with the given elements. The
+   * complexity of this implementation is O(m + n) if: -The current {@link MutableMatrix}
    * contains m rows. -n elements are given.
    * 
    * @param elements
-   * @return the current {@link Matrix}
+   * @return the current {@link MutableMatrix}
    * @throws RuntimeException         if the given elements is null
    * @throws RuntimeException         if one of the given elements is null
-   * @throws UnequalArgumentException the current {@link Matrix} is not empty and
+   * @throws UnequalArgumentException the current {@link MutableMatrix} is not empty and
    *                                  if not as many elements are given as the
    *                                  number of columns of the current
-   *                                  {@link Matrix}.
+   *                                  {@link MutableMatrix}.
    */
-  public Matrix<E> addRow(final Iterable<E> elements) {
+  public MutableMatrix<E> addRow(final Iterable<E> elements) {
     // Asserts that the given elements are not null.
     Validator.assertThatTheElements(elements).areNotNull();
 
@@ -234,7 +234,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   }
 
   /**
-   * Removes all elements of the current {@link Matrix}. The complexity of this
+   * Removes all elements of the current {@link MutableMatrix}. The complexity of this
    * implementation is O(1).
    */
   @Override
@@ -244,11 +244,11 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
 
   /**
    * @param oneBasedColumnIndex
-   * @return the column of the current {@link Matrix} at the given
+   * @return the column of the current {@link MutableMatrix} at the given
    *         oneBasedColumnIndex
    * @throws RuntimeException if the given oneBasedColumnIndex is not positive or
    *                          bigger than the number of the columns of the current
-   *                          {@link Matrix}.
+   *                          {@link MutableMatrix}.
    */
   public IMatrixColumn<E> getColumn(final int oneBasedColumnIndex) {
     return MatrixColumn.forMatrixAndOneBasedColumnIndex(this, oneBasedColumnIndex);
@@ -257,7 +257,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   /**
    * The time complexity of this implementation is O(1).
    * 
-   * @return the number of columns of the current {@link Matrix}.
+   * @return the number of columns of the current {@link MutableMatrix}.
    */
   @Override
   public int getColumnCount() {
@@ -272,11 +272,11 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
 
   /**
    * @param index
-   * @return the index of the column of the element of the current {@link Matrix}
+   * @return the index of the column of the element of the current {@link MutableMatrix}
    *         at the given index
    * @throws RuntimeException if the given index is not positive
    * @throws RuntimeException if the given index is bigger than the number of
-   *                          elements of the current {@link Matrix}.
+   *                          elements of the current {@link MutableMatrix}.
    */
   public int getColumnIndexOf(final int index) {
     // Asserts that the current matrix contains an element at the given index.
@@ -292,7 +292,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   }
 
   /**
-   * @return the columns of the current {@link Matrix}.
+   * @return the columns of the current {@link MutableMatrix}.
    */
   @Override
   public ExtendedIterable<IMatrixColumn<E>> getColumns() {
@@ -310,10 +310,10 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    * The time complexity of this implementation is O(m * n) if: -This matrix
    * contains m rows. -This matrix contains n columns.
    * 
-   * @return a new {@link Matrix} with the elements of the current {@link Matrix}.
+   * @return a new {@link MutableMatrix} with the elements of the current {@link MutableMatrix}.
    */
-  public Matrix<E> getCopy() {
-    final var matrix = new Matrix<E>();
+  public MutableMatrix<E> getCopy() {
+    final var matrix = new MutableMatrix<E>();
 
     final var rowCounnt = getRowCount();
     final var columnCount = getColumnCount();
@@ -329,7 +329,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   /**
    * The time complexity of this implementation is O(1).
    * 
-   * @return the number of elements of the current {@link Matrix}.
+   * @return the number of elements of the current {@link MutableMatrix}.
    */
   @Override
   public int getCount() {
@@ -339,14 +339,14 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   /**
    * @param rowIndex
    * @param columnIndex
-   * @return the index of the element of the current {@link Matrix} at the given
+   * @return the index of the element of the current {@link MutableMatrix} at the given
    *         row index and column index
    * @throws RuntimeException if the given row index is not positive
    * @throws RuntimeException if the given row index is bigger than the number of
-   *                          rows of the current {@link Matrix}
+   *                          rows of the current {@link MutableMatrix}
    * @throws RuntimeException if the given column index is not positive
    * @throws RuntimeException if the given column index is bigger than the number
-   *                          of columns of the current {@link Matrix}.
+   *                          of columns of the current {@link MutableMatrix}.
    */
   public int getIndexOf(final int rowIndex, final int columnIndex) {
     // Asserts that the current matrix contains an element
@@ -357,10 +357,10 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   }
 
   /**
-   * @return the element of the current {@link Matrix} at the given index
+   * @return the element of the current {@link MutableMatrix} at the given index
    * @throws RuntimeException if the given index is not positive
    * @throws RuntimeException if the given index is bigger than the number of
-   *                          elements of the current {@link Matrix}.
+   *                          elements of the current {@link MutableMatrix}.
    */
   @Override
   public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
@@ -372,14 +372,14 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    * 
    * @param oneBasedRowIndex
    * @param oneBasedColumnIndex
-   * @return the element of the current {@link Matrix} at the given row index and
+   * @return the element of the current {@link MutableMatrix} at the given row index and
    *         column index
    * @throws RuntimeException if the given row index is not positive
    * @throws RuntimeException if the given row index is bigger than the number of
-   *                          rows of the current {@link Matrix}
+   *                          rows of the current {@link MutableMatrix}
    * @throws RuntimeException if the given column index is not positive
    * @throws RuntimeException if the given column index is bigger than the number
-   *                          of columns of the current {@link Matrix}.
+   *                          of columns of the current {@link MutableMatrix}.
    */
   @Override
   @SuppressWarnings("unchecked")
@@ -393,10 +393,10 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
 
   /**
    * @param oneBasedRowIndex
-   * @return the row of the current {@link Matrix} at the given oneBasedRowIndex
+   * @return the row of the current {@link MutableMatrix} at the given oneBasedRowIndex
    * @throws RuntimeException if the given oneBasedRowIndex is not positive or
    *                          bigger than the number of rows of the current
-   *                          {@link Matrix}.
+   *                          {@link MutableMatrix}.
    */
   public IMatrixRow<E> getRow(final int oneBasedRowIndex) {
     return MatrixRow.forMatrixAndOneBasedRowIndex(this, oneBasedRowIndex);
@@ -404,11 +404,11 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
 
   /**
    * @param index
-   * @return the index of the row of the element of the current {@link Matrix} at
+   * @return the index of the row of the element of the current {@link MutableMatrix} at
    *         the given index
    * @throws RuntimeException if the given index is not positive
    * @throws RuntimeException if the given index is bigger than the number of
-   *                          elements of the current {@link Matrix}.
+   *                          elements of the current {@link MutableMatrix}.
    */
   public int getRowIndexOf(final int index) {
     // Asserts that the current matrix contains an element at the given index.
@@ -424,7 +424,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   }
 
   /**
-   * @return the rows of the current {@link Matrix}.
+   * @return the rows of the current {@link MutableMatrix}.
    */
   @Override
   public ExtendedIterable<IMatrixRow<E>> getRows() {
@@ -440,7 +440,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   /**
    * The time complexity of this implementation is O(1).
    * 
-   * @return the number of rows of the current {@link Matrix}.
+   * @return the number of rows of the current {@link MutableMatrix}.
    */
   @Override
   public int getRowCount() {
@@ -464,7 +464,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   /**
    * The time complexity of this implementation is O(1).
    * 
-   * @return a new iterator for the current {@link Matrix}.
+   * @return a new iterator for the current {@link MutableMatrix}.
    */
   @Override
   public CopyableIterator<E> iterator() {
@@ -472,14 +472,14 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   }
 
   /**
-   * Sets the given element to the current {@link Matrix} at the given index. The
+   * Sets the given element to the current {@link MutableMatrix} at the given index. The
    * complexity of this implementation is O(1).
    * 
    * @param index
    * @param element
    * @throws RuntimeException if the given index is not positive
    * @throws RuntimeException if the given index is bigger than the number of
-   *                          elements of the current {@link Matrix}
+   *                          elements of the current {@link MutableMatrix}
    * @throws RuntimeException if the given element is null
    */
   public void setAt(final int index, final E element) {
@@ -494,7 +494,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   }
 
   /**
-   * Sets the given element to the current {@link Matrix} to the row with the
+   * Sets the given element to the current {@link MutableMatrix} to the row with the
    * given row index and the column with the given column index.
    * 
    * The time complexity of this implementation is O(1).
@@ -504,10 +504,10 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    * @param element
    * @throws RuntimeException if the given row index is not positive
    * @throws RuntimeException if the given row index is bigger than the number of
-   *                          rows of the current {@link Matrix}
+   *                          rows of the current {@link MutableMatrix}
    * @throws RuntimeException if the given column index is not positive
    * @throws RuntimeException if the given column index is bigger than the number
-   *                          of columns of the current {@link Matrix}
+   *                          of columns of the current {@link MutableMatrix}
    * @throws RuntimeException if the given element is null
    */
   @Override
@@ -535,12 +535,12 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    * @param transformer
    * @param <O>         the type of the elements the given transformer returns
    * @return a new matrix with the elements the given transformer transforms of
-   *         the elements of the current {@link Matrix}.
+   *         the elements of the current {@link MutableMatrix}.
    */
   @SuppressWarnings("unchecked")
-  public <O> Matrix<O> toMatrix(final Function<E, O> transformer) {
+  public <O> MutableMatrix<O> toMatrix(final Function<E, O> transformer) {
     // Creates matrix.
-    final var matrix = new Matrix<O>();
+    final var matrix = new MutableMatrix<O>();
 
     // Fills up the elements of the matrix.
     matrix.memberElements = new Object[getRowCount()][getColumnCount()];
@@ -557,12 +557,12 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   // For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Matrix} contains n elements.
+   * {@link MutableMatrix} contains n elements.
    * 
-   * @return a new left rotated {@link Matrix} of the current {@link Matrix}.
+   * @return a new left rotated {@link MutableMatrix} of the current {@link MutableMatrix}.
    */
-  public Matrix<E> toLeftRotatedMatrix() {
-    final var leftRotatedMatrix = new Matrix<E>();
+  public MutableMatrix<E> toLeftRotatedMatrix() {
+    final var leftRotatedMatrix = new MutableMatrix<E>();
     final var leftRotatedMatrixRowCount = getColumnCount();
     final var leftRotatedMatrixColumnCount = getRowCount();
 
@@ -584,12 +584,12 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   // For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Matrix} contains n elements.
+   * {@link MutableMatrix} contains n elements.
    * 
-   * @return a new right rotated {@link Matrix} of the current {@link Matrix}.
+   * @return a new right rotated {@link MutableMatrix} of the current {@link MutableMatrix}.
    */
-  public Matrix<E> toRightRotatedMatrix() {
-    final var rightRotatedMatrix = new Matrix<E>();
+  public MutableMatrix<E> toRightRotatedMatrix() {
+    final var rightRotatedMatrix = new MutableMatrix<E>();
     final var rightRotatedMatrixRowCount = getColumnCount();
     final var rightRotatedMatrixColumnCount = getRowCount();
 
@@ -610,10 +610,10 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
 
   /**
    * The time complexity of this implementation is O(n) if: -The current
-   * {@link Matrix} contains n elements. -The toString method of the elements of
-   * the current {@link Matrix} has a complexity of O(1).
+   * {@link MutableMatrix} contains n elements. -The toString method of the elements of
+   * the current {@link MutableMatrix} has a complexity of O(1).
    * 
-   * @return a {@link String} representation of the current {@link Matrix}.
+   * @return a {@link String} representation of the current {@link MutableMatrix}.
    */
   @Override
   public String toString() {
@@ -652,7 +652,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    * @param index
    * @throws RuntimeException if the given index is not positive
    * @throws RuntimeException if the given index is bigger than the number of
-   *                          elements of the current {@link Matrix}.
+   *                          elements of the current {@link MutableMatrix}.
    */
   private void assertContainsAt(final int index) {
     Validator
@@ -671,10 +671,10 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    * @param columnIndex
    * @throws RuntimeException if the given row index is not positive
    * @throws RuntimeException if the given row index is bigger than the number of
-   *                          rows of the current {@link Matrix}
+   *                          rows of the current {@link MutableMatrix}
    * @throws RuntimeException if the given column index is not positive
    * @throws RuntimeException if the given column index is bigger than the number
-   *                          of columns of the current {@link Matrix}.
+   *                          of columns of the current {@link MutableMatrix}.
    */
   private void assertContainsAt(final int rowIndex, final int columnIndex) {
     Validator

@@ -5,7 +5,7 @@ package ch.nolix.system.graphic.image;
 
 import java.awt.image.BufferedImage;
 
-import ch.nolix.base.datastructure.matrix.Matrix;
+import ch.nolix.base.datastructure.matrix.MutableMatrix;
 import ch.nolix.base.environment.runningjar.RunningJar;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
@@ -53,7 +53,7 @@ public final class ImmutableImage extends AbstractElement implements Image {
     return new ImmutableImage(MutableImage.fromSpecification(specification));
   }
 
-  public static ImmutableImage withPixels(Matrix<IColor> pixels) {
+  public static ImmutableImage withPixels(MutableMatrix<IColor> pixels) {
     return new ImmutableImage(MutableImage.withPixels(pixels));
   }
 
@@ -109,7 +109,7 @@ public final class ImmutableImage extends AbstractElement implements Image {
    * {@inheritDoc}
    */
   @Override
-  public Matrix<IColor> getPixels() {
+  public MutableMatrix<IColor> getPixels() {
     return internalImage.getPixels();
   }
 
