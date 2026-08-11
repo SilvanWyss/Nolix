@@ -6,27 +6,27 @@ package ch.nolix.basetest.argumentcaptor.toargumentcaptor;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndNameCaptor;
-import ch.nolix.base.argumentcaptor.toargumentcaptor.ToIpOrDomainCaptor;
+import ch.nolix.base.argumentcaptor.toargumentcaptor.ToHostCaptor;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 
 /**
  * @author Silvan Wyss
  */
-final class ToIpOrDomainCaptorTest extends StandardTest {
+final class ToHostCaptorTest extends StandardTest {
   @Test
-  void testCase_getIpOrDomain_whenDoesNotHaveIpOrDomain() {
+  void testCase_getHost_whenDoesNotHaveIpOrDomain() {
     // setup
-    final var testUnit = new ToIpOrDomainCaptor<>();
+    final var testUnit = new ToHostCaptor<>();
 
     // execute & verify
     expectRunning(testUnit::getHost).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
   @Test
-  void testCase_toIpOrDomain_whenDoesNotHaveSuccessor() {
+  void testCase_toHost_whenDoesNotHaveSuccessor() {
     // setup
-    final var testUnit = new ToIpOrDomainCaptor<>();
+    final var testUnit = new ToHostCaptor<>();
 
     // execute & verify
     expectRunning(() -> testUnit.toHost("nolix.ch"))
@@ -35,13 +35,13 @@ final class ToIpOrDomainCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_toIpOrDomain_whenHasSuccessor() {
+  void testCase_toHost_whenHasSuccessor() {
     // define test parameters
     final var domain = "nolix.ch";
 
     // setup
     final var andNameCaptor = new AndNameCaptor<>();
-    final var testUnit = new ToIpOrDomainCaptor<>(andNameCaptor);
+    final var testUnit = new ToHostCaptor<>(andNameCaptor);
 
     // execute
     final var result = testUnit.toHost(domain);
@@ -52,10 +52,10 @@ final class ToIpOrDomainCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_toLocalAddress_whenHasSuccessor() {
+  void testCase_toLocalHost_whenHasSuccessor() {
     // setup
     final var andNameCaptor = new AndNameCaptor<>();
-    final var testUnit = new ToIpOrDomainCaptor<>(andNameCaptor);
+    final var testUnit = new ToHostCaptor<>(andNameCaptor);
 
     // execute
     final var result = testUnit.toLocalHost();

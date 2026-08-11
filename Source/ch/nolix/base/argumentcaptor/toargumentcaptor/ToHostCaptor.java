@@ -11,13 +11,13 @@ import ch.nolix.baseapi.net.netcatalog.IPv4Catalog;
 
 /**
  * @author Silvan Wyss
- * @param <S> the type of the successor of a {@link ToIpOrDomainCaptor}
+ * @param <S> the type of the successor of a {@link ToHostCaptor}
  */
-public class ToIpOrDomainCaptor<S> extends AbstractArgumentCaptor<String, S> implements IToHostCaptor<S> {
-  public ToIpOrDomainCaptor() {
+public class ToHostCaptor<S> extends AbstractArgumentCaptor<String, S> implements IToHostCaptor<S> {
+  public ToHostCaptor() {
   }
 
-  public ToIpOrDomainCaptor(final S nextArgumentCaptor) {
+  public ToHostCaptor(final S nextArgumentCaptor) {
     super(nextArgumentCaptor);
   }
 

@@ -7,7 +7,7 @@ import ch.nolix.base.argumentcaptor.andargumentcaptor.AndDatabaseNameCaptor;
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndPasswordCaptor;
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndPortCaptor;
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndSchemaCaptor;
-import ch.nolix.base.argumentcaptor.toargumentcaptor.ToIpOrDomainCaptor;
+import ch.nolix.base.argumentcaptor.toargumentcaptor.ToHostCaptor;
 import ch.nolix.base.argumentcaptor.withargumentcaptor.WithLoginNameCaptor;
 import ch.nolix.baseapi.net.netcatalog.PortCatalog;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
@@ -17,7 +17,7 @@ import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
  */
 public final class MsSqlDataAdapterBuilder
 extends
-ToIpOrDomainCaptor< //
+ToHostCaptor< //
 AndPortCaptor< //
 AndDatabaseNameCaptor< //
 WithLoginNameCaptor< //
