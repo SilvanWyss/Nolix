@@ -5,7 +5,7 @@ package ch.nolix.systemapi.element.valueproperty;
 
 import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
 import ch.nolix.baseapi.generalstate.staterequest.EmptinessRequestable;
-import ch.nolix.systemapi.baseproperty.Property;
+import ch.nolix.systemapi.element.baseproperty.Property;
 
 /**
  * @author Silvan Wyss

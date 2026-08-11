@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.element.extensionproperty;
 
-import ch.nolix.systemapi.baseproperty.Property;
+import ch.nolix.systemapi.element.baseproperty.Property;
 import ch.nolix.systemapi.element.mutableelement.RespondingMutableElement;
 
 /**

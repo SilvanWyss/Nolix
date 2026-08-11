@@ -15,8 +15,8 @@ import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
-import ch.nolix.systemapi.baseproperty.Property;
 import ch.nolix.systemapi.element.base.SpecificationRepresentable;
+import ch.nolix.systemapi.element.baseproperty.Property;
 import ch.nolix.systemapi.element.mutableelement.MutableElement;
 
 /**

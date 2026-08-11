@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.element.proxyproperty;
 
 import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
-import ch.nolix.systemapi.baseproperty.Property;
+import ch.nolix.systemapi.element.baseproperty.Property;
 
 /**
  * @author Silvan Wyss
