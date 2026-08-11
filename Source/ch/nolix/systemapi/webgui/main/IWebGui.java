@@ -9,7 +9,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.generalstate.statemutation.Clearable;
 import ch.nolix.baseapi.web.cssmodel.ICss;
 import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
-import ch.nolix.systemapi.gui.background.BackgroundHolder;
+import ch.nolix.systemapi.gui.background.BackgroundManager;
 import ch.nolix.systemapi.gui.frontend.IFrontEndReader;
 import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
 import ch.nolix.systemapi.gui.model.Gui;
@@ -20,7 +20,7 @@ import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
  * @author Silvan Wyss
  * @param <G> the type of a {@link IWebGui}.
  */
-public interface IWebGui<G extends IWebGui<G>> extends Clearable, BackgroundHolder<G>, Gui<G>, StyleHolder<G> {
+public interface IWebGui<G extends IWebGui<G>> extends Clearable, BackgroundManager<G>, Gui<G>, StyleHolder<G> {
   boolean containsControl(Control<?, ?> control);
 
   ICss getCss();

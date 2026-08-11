@@ -10,9 +10,9 @@ import ch.nolix.systemapi.gui.guiproperty.ImageApplication;
 
 /**
  * @author Silvan Wyss
- * @param <B> the type of a {@link BackgroundHolder}.
+ * @param <B> the type of a {@link BackgroundManager}.
  */
-public interface BackgroundHolder<B extends BackgroundHolder<B>> {
+public interface BackgroundManager<B extends BackgroundManager<B>> {
   IBackground getBackground();
 
   IColor getBackgroundColor();
