@@ -5,8 +5,8 @@ package ch.nolix.basetest.validation.primitive;
 
 import org.junit.jupiter.api.Test;
 
+import ch.nolix.base.foundation.util.FunctionService;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.base.util.FunctionService;
 import ch.nolix.base.validation.object.MethodMediator;
 import ch.nolix.base.validation.object.NamableIterableMediator;
 import ch.nolix.base.validation.object.StringMediator;

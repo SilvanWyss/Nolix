@@ -6,9 +6,9 @@ package ch.nolix.baseperformancetest.container.linkedlist;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
+import ch.nolix.base.foundation.util.FunctionService;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.testing.performancetest.PerformanceTest;
-import ch.nolix.base.util.FunctionService;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 

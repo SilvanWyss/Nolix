@@ -5,7 +5,7 @@ package ch.nolix.system.control.itemmenu;
 
 import java.util.function.Consumer;
 
-import ch.nolix.base.util.IdCreator;
+import ch.nolix.base.foundation.util.IdCreator;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;

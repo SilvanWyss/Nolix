@@ -5,7 +5,7 @@ package ch.nolix.systemtest.control.validationlabel;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.util.FunctionService;
+import ch.nolix.base.foundation.util.FunctionService;
 import ch.nolix.system.control.button.Button;
 import ch.nolix.system.control.validationlabel.ValidationLabel;
 import ch.nolix.system.control.verticalstack.VerticalStack;

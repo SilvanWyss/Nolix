@@ -5,7 +5,7 @@ package ch.nolix.base.document.json;
 
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.ImmutableNode;
-import ch.nolix.base.util.FunctionService;
+import ch.nolix.base.foundation.util.FunctionService;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.json.JsonNameValuePair;
 import ch.nolix.baseapi.document.json.JsonObject;

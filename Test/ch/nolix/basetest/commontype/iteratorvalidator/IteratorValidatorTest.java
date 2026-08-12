@@ -8,8 +8,8 @@ import java.util.Iterator;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.commontype.iteratorvalidator.IteratorValidator;
+import ch.nolix.base.foundation.util.VoidObject;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.base.util.VoidObject;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;

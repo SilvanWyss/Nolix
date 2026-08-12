@@ -6,8 +6,8 @@ package ch.nolix.basetest.commontype.arraytool;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.commontype.arraytool.ArraySorter;
+import ch.nolix.base.foundation.util.FunctionService;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.base.util.FunctionService;
 
 /**
  * @author Silvan Wyss

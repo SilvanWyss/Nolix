@@ -11,9 +11,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
+import ch.nolix.base.foundation.util.FunctionService;
+import ch.nolix.base.foundation.util.VoidObject;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.base.util.FunctionService;
-import ch.nolix.base.util.VoidObject;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;

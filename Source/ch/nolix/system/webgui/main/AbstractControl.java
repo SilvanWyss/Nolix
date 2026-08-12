@@ -7,7 +7,7 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 import ch.nolix.base.document.node.ImmutableNode;
-import ch.nolix.base.util.IdCreator;
+import ch.nolix.base.foundation.util.IdCreator;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;

@@ -4,8 +4,8 @@
 package ch.nolix.base.net.clientserver;
 
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
+import ch.nolix.base.foundation.util.VoidObject;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
-import ch.nolix.base.util.VoidObject;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;

@@ -3,7 +3,7 @@
  */
 package ch.nolix.template.webgui.dialog;
 
-import ch.nolix.base.util.FunctionService;
+import ch.nolix.base.foundation.util.FunctionService;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.programcontrol.builder.Builder;
 import ch.nolix.system.control.button.Button;

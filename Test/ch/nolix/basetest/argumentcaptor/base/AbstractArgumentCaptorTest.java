@@ -9,8 +9,8 @@ import java.util.function.Supplier;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.argumentcaptor.base.AbstractArgumentCaptor;
+import ch.nolix.base.foundation.util.VoidObject;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.base.util.VoidObject;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;

@@ -5,8 +5,8 @@ package ch.nolix.basetest.programcontrol.function;
 
 import org.junit.jupiter.api.Test;
 
+import ch.nolix.base.foundation.util.FunctionService;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.base.util.FunctionService;
 
 /**
  * @author Silvan Wyss

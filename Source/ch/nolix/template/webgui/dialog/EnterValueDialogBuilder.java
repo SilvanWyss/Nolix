@@ -5,7 +5,7 @@ package ch.nolix.template.webgui.dialog;
 
 import java.util.function.Consumer;
 
-import ch.nolix.base.util.FunctionService;
+import ch.nolix.base.foundation.util.FunctionService;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.programcontrol.builder.Builder;

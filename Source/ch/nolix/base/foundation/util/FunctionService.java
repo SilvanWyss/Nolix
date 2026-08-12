@@ -1,11 +1,10 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.util;
+package ch.nolix.base.foundation.util;
 
 import java.util.Objects;
 
-import ch.nolix.base.errorcontrol.generalexception.GeneralException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 
 /**
@@ -131,7 +130,7 @@ public final class FunctionService {
   }
 
   /**
-   * @throws GeneralException
+   * @throws RuntimeException
    */
   public static void throwException() {
     throw new RuntimeException("An error was provoked."); // NOSONAR: The Exception has to be generic.
