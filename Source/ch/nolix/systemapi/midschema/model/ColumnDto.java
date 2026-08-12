@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.midschema.model;
 
-import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.systemapi.database.databaseproperty.DataType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 public record ColumnDto(

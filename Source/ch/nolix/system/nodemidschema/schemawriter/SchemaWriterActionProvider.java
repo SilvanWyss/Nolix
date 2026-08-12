@@ -4,7 +4,6 @@
 package ch.nolix.system.nodemidschema.schemawriter;
 
 import ch.nolix.base.document.node.ImmutableNode;
-import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.baseapi.document.node.Node;
@@ -14,6 +13,7 @@ import ch.nolix.system.nodemidschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.nodemidschema.nodesearcher.TableNodeSearcher;
+import ch.nolix.systemapi.database.databaseproperty.DataType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.TableDto;

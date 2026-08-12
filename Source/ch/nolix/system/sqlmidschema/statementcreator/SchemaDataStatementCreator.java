@@ -4,9 +4,9 @@
 package ch.nolix.system.sqlmidschema.statementcreator;
 
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
-import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
+import ch.nolix.systemapi.database.databaseproperty.DataType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.TableDto;

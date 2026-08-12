@@ -4,10 +4,10 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.objectdata.fieldvalidator.OptionalValueFieldValidator;
 import ch.nolix.system.objectdata.valuemapper.ValueMapper;
+import ch.nolix.systemapi.database.databaseproperty.DataType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
 

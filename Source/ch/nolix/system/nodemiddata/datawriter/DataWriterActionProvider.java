@@ -5,7 +5,6 @@ package ch.nolix.system.nodemiddata.datawriter;
 
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.errorcontrol.generalexception.ChangedResourceException;
-import ch.nolix.baseapi.datamodel.cardinality.BaseCardinality;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
@@ -20,6 +19,7 @@ import ch.nolix.system.nodemiddata.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.nodemiddata.nodevalidator.TableNodeValidator;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabasePropertiesNodeSearcher;
+import ch.nolix.systemapi.database.databaseproperty.BaseCardinality;
 import ch.nolix.systemapi.middata.model.EntityUpdateDto;
 import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
 import ch.nolix.systemapi.time.moment.ITime;

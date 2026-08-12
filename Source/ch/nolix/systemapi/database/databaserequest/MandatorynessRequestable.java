@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.datamodel.fieldrequest;
+package ch.nolix.systemapi.database.databaserequest;
 
 /**
  * A {@link MandatorynessRequestable} can be asked if it is mandatory.

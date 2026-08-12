@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.sqlmidschema.statementcreator;
 
-import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
+import ch.nolix.systemapi.database.databaseproperty.DataType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.structure.ColumnIdentification;

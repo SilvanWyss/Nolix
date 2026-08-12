@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.nodemidschema.nodesearcher;
 
-import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.IMutableNode;
+import ch.nolix.systemapi.database.databaseproperty.DataType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.IContentModelNodeSearcher;

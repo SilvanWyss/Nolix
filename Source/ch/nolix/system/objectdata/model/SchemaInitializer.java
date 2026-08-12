@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.base.datamodel.id.IdCreator;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
+import ch.nolix.base.util.IdCreator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.system.objectdata.entitytool.EntityCreator;
 import ch.nolix.system.objectdata.schemamapper.ColumnMapper;

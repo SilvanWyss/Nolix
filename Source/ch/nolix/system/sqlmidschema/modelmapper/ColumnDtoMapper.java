@@ -4,8 +4,8 @@
 package ch.nolix.system.sqlmidschema.modelmapper;
 
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
-import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.sql.model.ISqlRecord;
+import ch.nolix.systemapi.database.databaseproperty.DataType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlmiddatabasestructure.column.ColumnColumn;

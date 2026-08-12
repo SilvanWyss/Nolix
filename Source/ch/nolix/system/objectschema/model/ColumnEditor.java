@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.objectschema.model;
 
-import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.system.objectschema.modelmutationvalidator.ColumnMutationValidator;
+import ch.nolix.systemapi.database.databaseproperty.DataType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;

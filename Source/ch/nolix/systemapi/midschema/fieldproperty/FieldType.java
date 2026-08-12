@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.midschema.fieldproperty;
 
-import ch.nolix.baseapi.datamodel.cardinality.Cardinality;
 import ch.nolix.baseapi.document.node.Node;
+import ch.nolix.systemapi.database.databaseproperty.Cardinality;
 
 /**
  * @author Silvan Wyss

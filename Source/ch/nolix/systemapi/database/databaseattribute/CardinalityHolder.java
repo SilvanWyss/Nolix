@@ -1,7 +1,10 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.datamodel.cardinality;
+package ch.nolix.systemapi.database.databaseattribute;
+
+import ch.nolix.systemapi.database.databaseproperty.BaseCardinality;
+import ch.nolix.systemapi.database.databaseproperty.Cardinality;
 
 /**
  * A {@link CardinalityHolder} has a {@link Cardinality}.

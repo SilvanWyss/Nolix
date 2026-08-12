@@ -1,9 +1,9 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.datamodel.fieldproperty;
+package ch.nolix.systemapi.database.databaseproperty;
 
-import ch.nolix.baseapi.datamodel.dataobject.IBlob;
+import ch.nolix.systemapi.database.blob.IBlob;
 
 /**
  * @author Silvan Wyss

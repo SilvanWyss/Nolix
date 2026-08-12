@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.middata.valuemapper;
 
-import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
+import ch.nolix.systemapi.database.databaseproperty.DataType;
 
 /**
  * @author Silvan Wyss

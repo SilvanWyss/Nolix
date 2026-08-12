@@ -1,7 +1,9 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.datamodel.cardinality;
+package ch.nolix.systemapi.database.databaseattribute;
+
+import ch.nolix.systemapi.database.databaseproperty.Cardinality;
 
 /**
  * A {@link FluentMutableCardinalityHolder} is a {@link CardinalityHolder} whose

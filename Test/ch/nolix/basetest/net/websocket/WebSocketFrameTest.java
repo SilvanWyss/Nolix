@@ -8,7 +8,7 @@ import java.io.InputStream;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.datamodel.dataobject.UnsignedByte;
+import ch.nolix.base.net.websocket.UnsignedByte;
 import ch.nolix.base.net.websocket.WebSocketFrame;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.net.websocket.WebSocketFrameOpcodeMeaning;

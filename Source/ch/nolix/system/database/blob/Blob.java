@@ -1,13 +1,13 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.datamodel.dataobject;
+package ch.nolix.system.database.blob;
 
 import java.nio.charset.StandardCharsets;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.datamodel.dataobject.IBlob;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PluralLowerCaseVariableNameCatalog;
+import ch.nolix.systemapi.database.blob.IBlob;
 
 /**
  * @author Silvan Wyss

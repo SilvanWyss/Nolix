@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.objectdata.valuemapper;
 
-import ch.nolix.base.datamodel.dataobject.Blob;
-import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.system.database.blob.Blob;
+import ch.nolix.systemapi.database.databaseproperty.DataType;
 import ch.nolix.systemapi.objectdata.valuemapper.IValueMapper;
 
 /**

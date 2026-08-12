@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.objectdata.fieldexaminer;
 
-import ch.nolix.baseapi.datamodel.cardinality.BaseCardinality;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
+import ch.nolix.systemapi.database.databaseproperty.BaseCardinality;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.model.BaseBackReference;
 import ch.nolix.systemapi.objectdata.model.BaseReference;

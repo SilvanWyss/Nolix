@@ -6,8 +6,8 @@ package ch.nolix.systemtest.objectdata.valuemapper;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.objectdata.valuemapper.ValueMapper;
+import ch.nolix.systemapi.database.databaseproperty.DataType;
 
 /**
  * @author Silvan Wyss

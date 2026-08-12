@@ -6,10 +6,10 @@ package ch.nolix.system.midschema.adapter;
 import java.util.function.Supplier;
 
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
-import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
+import ch.nolix.systemapi.database.databaseproperty.DataType;
 import ch.nolix.systemapi.midschema.adapter.ISchemaReader;
 import ch.nolix.systemapi.midschema.adapter.ISchemaWriter;
 import ch.nolix.systemapi.midschema.adapter.SchemaAdapter;

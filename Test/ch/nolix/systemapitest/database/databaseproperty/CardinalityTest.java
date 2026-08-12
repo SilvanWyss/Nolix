@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapitest.datamodel.cardinality;
+package ch.nolix.systemapitest.database.databaseproperty;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -9,9 +9,9 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.datamodel.cardinality.BaseCardinality;
-import ch.nolix.baseapi.datamodel.cardinality.Cardinality;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.systemapi.database.databaseproperty.BaseCardinality;
+import ch.nolix.systemapi.database.databaseproperty.Cardinality;
 
 /**
  * @author Silvan Wyss

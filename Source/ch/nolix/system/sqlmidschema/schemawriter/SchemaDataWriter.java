@@ -5,11 +5,11 @@ package ch.nolix.system.sqlmidschema.schemawriter;
 
 import ch.nolix.base.sql.sqltool.SqlCollector;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.sql.sqltool.ISqlCollector;
 import ch.nolix.system.sqlmidschema.statementcreator.DatabasePropertiesStatementCreator;
 import ch.nolix.system.sqlmidschema.statementcreator.SchemaDataStatementCreator;
+import ch.nolix.systemapi.database.databaseproperty.DataType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.TableDto;

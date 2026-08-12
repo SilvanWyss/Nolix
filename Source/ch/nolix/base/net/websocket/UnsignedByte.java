@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.datamodel.dataobject;
+package ch.nolix.base.net.websocket;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;

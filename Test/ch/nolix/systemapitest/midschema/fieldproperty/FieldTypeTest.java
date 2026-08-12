@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.datamodel.cardinality.Cardinality;
+import ch.nolix.systemapi.database.databaseproperty.Cardinality;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 /**

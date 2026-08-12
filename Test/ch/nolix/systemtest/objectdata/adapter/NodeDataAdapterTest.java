@@ -9,12 +9,12 @@ import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.MutableNode;
 import ch.nolix.base.errorcontrol.generalexception.ChangedResourceException;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectschema.adapter.NodeSchemaAdapter;
 import ch.nolix.system.objectschema.model.Column;
+import ch.nolix.systemapi.database.databaseproperty.DataType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 /**
