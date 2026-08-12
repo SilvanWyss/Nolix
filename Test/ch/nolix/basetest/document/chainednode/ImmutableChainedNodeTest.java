@@ -14,7 +14,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgu
 /**
  * @author Silvan Wyss
  */
-final class ChainedNodeTest extends StandardTest {
+final class ImmutableChainedNodeTest extends StandardTest {
   @Test
   void testCase_equals_whenIsBlankAndAnUnequalChainedNodeIsGiven() {
     // setup

@@ -15,7 +15,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullExce
 /**
  * @author Silvan Wyss
  */
-final class ChainedNodeCreationTest extends StandardTest {
+final class ImmutableChainedNodeCreationTest extends StandardTest {
   @Test
   void testCase_fromNode_whenNodeIsBlank() {
     // setup
