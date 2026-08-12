@@ -129,7 +129,7 @@ final class ImmutableChainedNodeTest extends StandardTest {
     expectRunning(testUnit::toInt)
       .throwsException()
       .ofType(UnrepresentingArgumentException.class)
-      .withMessage("The given ChainedNode does not represent an Integer.");
+      .withMessage("The given ImmutableChainedNode does not represent an Integer.");
   }
 
   @Test
@@ -141,7 +141,7 @@ final class ImmutableChainedNodeTest extends StandardTest {
     expectRunning(testUnit::toInt)
       .throwsException()
       .ofType(UnrepresentingArgumentException.class)
-      .withMessage("The given ChainedNode '100(x)' does not represent an Integer.");
+      .withMessage("The given ImmutableChainedNode '100(x)' does not represent an Integer.");
   }
 
   @Test
@@ -213,6 +213,6 @@ final class ImmutableChainedNodeTest extends StandardTest {
     expectRunning(testUnit::toNode)
       .throwsException()
       .ofType(UnrepresentingArgumentException.class)
-      .withMessage("The given ChainedNode 'a.b' does not represent a Node.");
+      .withMessage("The given ImmutableChainedNode 'a.b' does not represent a Node.");
   }
 }
