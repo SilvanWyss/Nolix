@@ -51,7 +51,8 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
   /**
    * @param matrix
    * @param <T>    the type of the elements of the given matrix
-   * @return a new {@link MutableMatrix} with the size and elements of the given matrix.
+   * @return a new {@link MutableMatrix} with the size and elements of the given
+   *         matrix.
    */
   public static <T> MutableMatrix<T> fromMatrix(final IMatrix<T> matrix) {
     final var newMatrix = new MutableMatrix<T>();
@@ -64,8 +65,8 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
   }
 
   /**
-   * Adds a new column to the current {@link MutableMatrix} with the given elements. The
-   * complexity of this implementation is O(m + n) if:
+   * Adds a new column to the current {@link MutableMatrix} with the given
+   * elements. The complexity of this implementation is O(m + n) if:
    * 
    * -The current {@link MutableMatrix} contains m elements.
    * 
@@ -75,9 +76,9 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
    * @return the current {@link MutableMatrix}
    * @throws RuntimeException         if the given elements is null
    * @throws RuntimeException         if one of the given elements is null
-   * @throws UnequalArgumentException if the current {@link MutableMatrix} is not empty
-   *                                  or not as many elements are given as the
-   *                                  number of rows of the current
+   * @throws UnequalArgumentException if the current {@link MutableMatrix} is not
+   *                                  empty or not as many elements are given as
+   *                                  the number of rows of the current
    *                                  {@link MutableMatrix}.
    */
   @SuppressWarnings("unchecked")
@@ -90,17 +91,17 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
   }
 
   /**
-   * Adds a new column to the current {@link MutableMatrix} with the given elements. The
-   * complexity of this implementation is O(m + n) if: -The current {@link MutableMatrix}
-   * contains m elements. -n elements are given.
+   * Adds a new column to the current {@link MutableMatrix} with the given
+   * elements. The complexity of this implementation is O(m + n) if: -The current
+   * {@link MutableMatrix} contains m elements. -n elements are given.
    * 
    * @param elements
    * @return the current {@link MutableMatrix}
    * @throws RuntimeException         if the given elements is null
    * @throws RuntimeException         if one of the given elements is null
-   * @throws UnequalArgumentException if the current {@link MutableMatrix} is not empty
-   *                                  and if not as many elements are given as the
-   *                                  number of rows of the current
+   * @throws UnequalArgumentException if the current {@link MutableMatrix} is not
+   *                                  empty and if not as many elements are given
+   *                                  as the number of rows of the current
    *                                  {@link MutableMatrix}.
    */
   public MutableMatrix<E> addColumn(final Iterable<E> elements) {
@@ -150,17 +151,17 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
   }
 
   /**
-   * Adds a new row to the current {@link MutableMatrix} with the given elements. The
-   * complexity of this implementation is O(m + n) if: -The current {@link MutableMatrix}
-   * contains m rows. -n elements are given.
+   * Adds a new row to the current {@link MutableMatrix} with the given elements.
+   * The complexity of this implementation is O(m + n) if: -The current
+   * {@link MutableMatrix} contains m rows. -n elements are given.
    * 
    * @param elements
    * @return the current {@link MutableMatrix}
    * @throws RuntimeException         if the given elements is null
    * @throws RuntimeException         if one of the given elements is null
-   * @throws UnequalArgumentException the current {@link MutableMatrix} is not empty and
-   *                                  if not as many elements are given as the
-   *                                  number of columns of the current
+   * @throws UnequalArgumentException the current {@link MutableMatrix} is not
+   *                                  empty and if not as many elements are given
+   *                                  as the number of columns of the current
    *                                  {@link MutableMatrix}.
    */
   @SuppressWarnings("unchecked")
@@ -173,17 +174,17 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
   }
 
   /**
-   * Adds a new row to the current {@link MutableMatrix} with the given elements. The
-   * complexity of this implementation is O(m + n) if: -The current {@link MutableMatrix}
-   * contains m rows. -n elements are given.
+   * Adds a new row to the current {@link MutableMatrix} with the given elements.
+   * The complexity of this implementation is O(m + n) if: -The current
+   * {@link MutableMatrix} contains m rows. -n elements are given.
    * 
    * @param elements
    * @return the current {@link MutableMatrix}
    * @throws RuntimeException         if the given elements is null
    * @throws RuntimeException         if one of the given elements is null
-   * @throws UnequalArgumentException the current {@link MutableMatrix} is not empty and
-   *                                  if not as many elements are given as the
-   *                                  number of columns of the current
+   * @throws UnequalArgumentException the current {@link MutableMatrix} is not
+   *                                  empty and if not as many elements are given
+   *                                  as the number of columns of the current
    *                                  {@link MutableMatrix}.
    */
   public MutableMatrix<E> addRow(final Iterable<E> elements) {
@@ -234,8 +235,8 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
   }
 
   /**
-   * Removes all elements of the current {@link MutableMatrix}. The complexity of this
-   * implementation is O(1).
+   * Removes all elements of the current {@link MutableMatrix}. The complexity of
+   * this implementation is O(1).
    */
   @Override
   public void clear() {
@@ -272,8 +273,8 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
 
   /**
    * @param index
-   * @return the index of the column of the element of the current {@link MutableMatrix}
-   *         at the given index
+   * @return the index of the column of the element of the current
+   *         {@link MutableMatrix} at the given index
    * @throws RuntimeException if the given index is not positive
    * @throws RuntimeException if the given index is bigger than the number of
    *                          elements of the current {@link MutableMatrix}.
@@ -310,7 +311,8 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
    * The time complexity of this implementation is O(m * n) if: -This matrix
    * contains m rows. -This matrix contains n columns.
    * 
-   * @return a new {@link MutableMatrix} with the elements of the current {@link MutableMatrix}.
+   * @return a new {@link MutableMatrix} with the elements of the current
+   *         {@link MutableMatrix}.
    */
   public MutableMatrix<E> getCopy() {
     final var matrix = new MutableMatrix<E>();
@@ -339,8 +341,8 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
   /**
    * @param rowIndex
    * @param columnIndex
-   * @return the index of the element of the current {@link MutableMatrix} at the given
-   *         row index and column index
+   * @return the index of the element of the current {@link MutableMatrix} at the
+   *         given row index and column index
    * @throws RuntimeException if the given row index is not positive
    * @throws RuntimeException if the given row index is bigger than the number of
    *                          rows of the current {@link MutableMatrix}
@@ -372,8 +374,8 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
    * 
    * @param oneBasedRowIndex
    * @param oneBasedColumnIndex
-   * @return the element of the current {@link MutableMatrix} at the given row index and
-   *         column index
+   * @return the element of the current {@link MutableMatrix} at the given row
+   *         index and column index
    * @throws RuntimeException if the given row index is not positive
    * @throws RuntimeException if the given row index is bigger than the number of
    *                          rows of the current {@link MutableMatrix}
@@ -393,7 +395,8 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
 
   /**
    * @param oneBasedRowIndex
-   * @return the row of the current {@link MutableMatrix} at the given oneBasedRowIndex
+   * @return the row of the current {@link MutableMatrix} at the given
+   *         oneBasedRowIndex
    * @throws RuntimeException if the given oneBasedRowIndex is not positive or
    *                          bigger than the number of rows of the current
    *                          {@link MutableMatrix}.
@@ -404,8 +407,8 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
 
   /**
    * @param index
-   * @return the index of the row of the element of the current {@link MutableMatrix} at
-   *         the given index
+   * @return the index of the row of the element of the current
+   *         {@link MutableMatrix} at the given index
    * @throws RuntimeException if the given index is not positive
    * @throws RuntimeException if the given index is bigger than the number of
    *                          elements of the current {@link MutableMatrix}.
@@ -472,8 +475,8 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
   }
 
   /**
-   * Sets the given element to the current {@link MutableMatrix} at the given index. The
-   * complexity of this implementation is O(1).
+   * Sets the given element to the current {@link MutableMatrix} at the given
+   * index. The complexity of this implementation is O(1).
    * 
    * @param index
    * @param element
@@ -494,8 +497,8 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
   }
 
   /**
-   * Sets the given element to the current {@link MutableMatrix} to the row with the
-   * given row index and the column with the given column index.
+   * Sets the given element to the current {@link MutableMatrix} to the row with
+   * the given row index and the column with the given column index.
    * 
    * The time complexity of this implementation is O(1).
    * 
@@ -559,7 +562,8 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
    * The time complexity of this implementation is O(n) if the current
    * {@link MutableMatrix} contains n elements.
    * 
-   * @return a new left rotated {@link MutableMatrix} of the current {@link MutableMatrix}.
+   * @return a new left rotated {@link MutableMatrix} of the current
+   *         {@link MutableMatrix}.
    */
   public MutableMatrix<E> toLeftRotatedMatrix() {
     final var leftRotatedMatrix = new MutableMatrix<E>();
@@ -586,7 +590,8 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
    * The time complexity of this implementation is O(n) if the current
    * {@link MutableMatrix} contains n elements.
    * 
-   * @return a new right rotated {@link MutableMatrix} of the current {@link MutableMatrix}.
+   * @return a new right rotated {@link MutableMatrix} of the current
+   *         {@link MutableMatrix}.
    */
   public MutableMatrix<E> toRightRotatedMatrix() {
     final var rightRotatedMatrix = new MutableMatrix<E>();
@@ -610,8 +615,8 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
 
   /**
    * The time complexity of this implementation is O(n) if: -The current
-   * {@link MutableMatrix} contains n elements. -The toString method of the elements of
-   * the current {@link MutableMatrix} has a complexity of O(1).
+   * {@link MutableMatrix} contains n elements. -The toString method of the
+   * elements of the current {@link MutableMatrix} has a complexity of O(1).
    * 
    * @return a {@link String} representation of the current {@link MutableMatrix}.
    */
