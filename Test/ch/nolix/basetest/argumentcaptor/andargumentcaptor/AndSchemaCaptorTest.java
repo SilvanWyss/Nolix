@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndSchemaCaptor;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.base.testing.testutil.VoidObject;
+import ch.nolix.base.util.VoidObject;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 
 /**

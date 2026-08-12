@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.net.messaging.IndexedPackage;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.base.testing.testutil.VoidObject;
+import ch.nolix.base.util.VoidObject;
 
 /**
  * @author Silvan Wyss

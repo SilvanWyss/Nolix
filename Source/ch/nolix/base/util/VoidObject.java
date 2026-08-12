@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.testing.testutil;
+package ch.nolix.base.util;
 
 /**
  * A {@link VoidObject} is useful where just a {@link Object} is needed. A

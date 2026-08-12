@@ -5,6 +5,7 @@ package ch.nolix.base.document.json;
 
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.ImmutableNode;
+import ch.nolix.base.util.FunctionService;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.json.JsonNameValuePair;
 import ch.nolix.baseapi.document.json.JsonObject;
@@ -12,7 +13,6 @@ import ch.nolix.baseapi.document.json.JsonValueType;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
-import ch.nolix.baseapi.programcontrol.function.FunctionService;
 
 /**
  * @author Silvan Wyss

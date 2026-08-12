@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.programcontrol.function;
+package ch.nolix.base.util;
 
 import java.util.Objects;
 

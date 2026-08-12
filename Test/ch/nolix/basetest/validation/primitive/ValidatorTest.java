@@ -6,6 +6,7 @@ package ch.nolix.basetest.validation.primitive;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.base.util.FunctionService;
 import ch.nolix.base.validation.object.MethodMediator;
 import ch.nolix.base.validation.object.NamableIterableMediator;
 import ch.nolix.base.validation.object.StringMediator;
@@ -13,7 +14,6 @@ import ch.nolix.base.validation.primitive.AbstractLongMediator;
 import ch.nolix.base.validation.primitive.NamableByteMediator;
 import ch.nolix.base.validation.primitive.NamableDoubleMediator;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.programcontrol.function.FunctionService;
 
 /**
  * @author Silvan Wyss

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.base.errorcontrol.generalexception.GeneralException;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.programcontrol.function.FunctionService;
+import ch.nolix.base.util.FunctionService;
 
 /**
  * @author Silvan Wyss

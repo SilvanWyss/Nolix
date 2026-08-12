@@ -5,7 +5,7 @@ package ch.nolix.base.net.clientserver;
 
 import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.base.environment.runningjar.RunningJar;
-import ch.nolix.base.foundation.resource.ResourcePathCatalog;
+import ch.nolix.base.util.ResourcePathCatalog;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 

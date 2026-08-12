@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.base.commontype.arraytool.ArrayIterator;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.base.testing.testutil.VoidObject;
+import ch.nolix.base.util.VoidObject;
 
 /**
  * @author Silvan Wyss

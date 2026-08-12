@@ -6,7 +6,7 @@ package ch.nolix.basetest.datastructure.linkedlist.linkedlist;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
-import ch.nolix.base.testing.testutil.VoidObject;
+import ch.nolix.base.util.VoidObject;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
