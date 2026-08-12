@@ -7,7 +7,7 @@ import ch.nolix.base.document.chainednode.ImmutableChainedNode;
 import ch.nolix.base.net.executoranddataproviderserver.AbstractEndPoint;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.document.chainednode.ChainedNode;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnconnectedArgumentException;
@@ -83,7 +83,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Cli
    * @throws RuntimeException if the current {@link AbstractClient} is not
    *                          connected.
    */
-  protected final Node<?> getDataFromCounterpart(final IChainedNode request) {
+  protected final Node<?> getDataFromCounterpart(final ChainedNode request) {
     return getStoredEndPoint().getDataForRequest(request);
   }
 
@@ -91,14 +91,14 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Cli
    * @param request
    * @return the data the given request requests
    */
-  protected abstract Node<?> provideData(IChainedNode request);
+  protected abstract Node<?> provideData(ChainedNode request);
 
   /**
    * Runs the given command.
    * 
    * @param command
    */
-  protected abstract void provideRun(IChainedNode command);
+  protected abstract void provideRun(ChainedNode command);
 
   /**
    * Runs the given command on the counterpart of the current
@@ -108,7 +108,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Cli
    * @throws RuntimeException if the current {@link AbstractClient} is not
    *                          connected.
    */
-  protected final void runOnCounterpart(final IChainedNode command) {
+  protected final void runOnCounterpart(final ChainedNode command) {
     getStoredEndPoint().runCommand(command);
   }
 
@@ -132,7 +132,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Cli
    * @throws RuntimeException if the current {@link AbstractClient} is not
    *                          connected.
    */
-  protected final void runOnCounterpart(final Iterable<? extends IChainedNode> commands) {
+  protected final void runOnCounterpart(final Iterable<? extends ChainedNode> commands) {
     getStoredEndPoint().runCommands(commands);
   }
 

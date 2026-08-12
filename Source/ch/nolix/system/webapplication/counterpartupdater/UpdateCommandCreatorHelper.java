@@ -8,7 +8,7 @@ import ch.nolix.base.document.chainednode.ImmutableChainedNode;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.document.chainednode.ChainedNode;
 import ch.nolix.baseapi.web.cssmodel.ICss;
 import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
 import ch.nolix.systemapi.webapplication.webclientprotocol.CommandProtocol;
@@ -71,7 +71,7 @@ public final class UpdateCommandCreatorHelper {
 
   public static ImmutableChainedNode createSetUserInputFunctionsCommandForControls(
     final ExtendedIterable<Control<?, ?>> controls) {
-    final ILinkedList<IChainedNode> userInputFunctions = LinkedList.createEmpty();
+    final ILinkedList<ChainedNode> userInputFunctions = LinkedList.createEmpty();
 
     for (final var c : controls) {
       final var userInputFunction = c.getOptionalJavaScriptUserInputFunction();

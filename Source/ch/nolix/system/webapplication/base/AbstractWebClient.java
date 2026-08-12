@@ -8,7 +8,7 @@ import java.util.Optional;
 import ch.nolix.base.document.chainednode.ImmutableChainedNode;
 import ch.nolix.base.net.clientserver.AbstractBackendClient;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.document.chainednode.ChainedNode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.net.clientserver.Application;
 import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
@@ -70,7 +70,7 @@ implements ICookieManager {
    * {@inheritDoc}
    */
   @Override
-  protected final void provideRun(final IChainedNode command) {
+  protected final void provideRun(final ChainedNode command) {
     switch (command.getHeader()) { // NOSONAR: A switch-statement allows to add probable additional cases.
       case CommandProtocol.RECEIVE_OPTIONAL_FILE:
         receiveOptionalFileFromCounterpart(command);
@@ -80,7 +80,7 @@ implements ICookieManager {
     }
   }
 
-  protected abstract void runHereOnBaseBackendWebClient(IChainedNode command);
+  protected abstract void runHereOnBaseBackendWebClient(ChainedNode command);
 
   final ExtendedIterable<byte[]> internalGetFilesFromClipboardOfCounterpart() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "getFilesFromClipboard");
@@ -130,7 +130,7 @@ implements ICookieManager {
     runOnCounterpart(writeTextToClipboardCommand);
   }
 
-  private void receiveOptionalFileFromCounterpart(final IChainedNode receiveOptionalFileCommand) {
+  private void receiveOptionalFileFromCounterpart(final ChainedNode receiveOptionalFileCommand) {
     fileReader.receiveOptionalFileFromCounterpart(receiveOptionalFileCommand);
   }
 }

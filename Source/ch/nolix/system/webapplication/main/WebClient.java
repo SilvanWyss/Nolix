@@ -6,7 +6,7 @@ package ch.nolix.system.webapplication.main;
 import java.util.Base64;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.document.chainednode.ChainedNode;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
@@ -29,7 +29,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
   WebClientRefreshQueue.forCounterpartRunnerAndOpenStateRequestable(this::runOnCounterpart, this::isOpen);
 
   @Override
-  protected Node<?> provideData(final IChainedNode request) {
+  protected Node<?> provideData(final ChainedNode request) {
     throw InvalidArgumentException.forArgumentAndArgumentName(request, LowerCaseVariableNameCatalog.REQUEST);
   }
 
@@ -37,7 +37,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
    * {@inheritDoc}
    */
   @Override
-  protected void runHereOnBaseBackendWebClient(final IChainedNode command) {
+  protected void runHereOnBaseBackendWebClient(final ChainedNode command) {
     switch (command.getHeader()) { // NOSONAR: A switch-statement allows to add probable additional cases.
       case ObjectProtocol.GUI:
         runGuiCommand(command.getNextNode());
@@ -61,7 +61,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
     refreshQueue.updateWebGuiOfCounterpart(webGui, updateConstellationOrStyle);
   }
 
-  void internalRunOnCounterpart(final ExtendedIterable<? extends IChainedNode> updateCommands) {
+  void internalRunOnCounterpart(final ExtendedIterable<? extends ChainedNode> updateCommands) {
     runOnCounterpart(updateCommands);
   }
 
@@ -69,7 +69,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
     ((WebClientSession<C>) getStoredCurrentSession()).refresh();
   }
 
-  private void runCommandOnControl(final Control<?, ?> control, final IChainedNode command) {
+  private void runCommandOnControl(final Control<?, ?> control, final ChainedNode command) {
     switch (command.getHeader()) { // NOSONAR: A switch-statement allows to add probable additional cases.
       case ControlCommandProtocol.RUN_HTML_EVENT:
         runHtmlEventCommand(control, command);
@@ -91,7 +91,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
     }
   }
 
-  private void runControlCommand(final IChainedNode guiCommand) {
+  private void runControlCommand(final ChainedNode guiCommand) {
     final var command = guiCommand.getNextNode();
     final var internalControlId = guiCommand.getSingleChildNodeHeader();
     final var webClientSession = (WebClientSession<C>) getStoredCurrentSession();
@@ -105,7 +105,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
     }
   }
 
-  private void runGuiCommand(final IChainedNode guiCommand) {
+  private void runGuiCommand(final ChainedNode guiCommand) {
     switch (guiCommand.getHeader()) {
       case ObjectProtocol.CONTROL_BY_INTERNAL_ID:
         runControlCommand(guiCommand);
@@ -118,7 +118,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
     }
   }
 
-  private void runHtmlEventCommand(final Control<?, ?> triggeredControl, final IChainedNode htmlEventCommand) {
+  private void runHtmlEventCommand(final Control<?, ?> triggeredControl, final ChainedNode htmlEventCommand) {
     final var htmlEvent = htmlEventCommand.getSingleChildNodeHeader();
 
     WebClientHtmlEventExecutor.runHtmlEventOfTriggeredControlAndUpdateAccordingly(
@@ -129,7 +129,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
       this::updateCounterpartWhenOpen);
   }
 
-  private void runSetUserInputsCommand(final IChainedNode guiCommand) {
+  private void runSetUserInputsCommand(final ChainedNode guiCommand) {
     final var webClientSession = (WebClientSession<C>) getStoredCurrentSession();
     final var gui = webClientSession.getStoredGui();
     final var controls = gui.getStoredControls();

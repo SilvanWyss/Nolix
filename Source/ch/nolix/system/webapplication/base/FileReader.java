@@ -9,7 +9,7 @@ import java.util.Optional;
 import ch.nolix.base.document.chainednode.ImmutableChainedNode;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.document.chainednode.ChainedNode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.webapplication.basewebclientprotocol.CommandProtocol;
@@ -40,7 +40,7 @@ final class FileReader {
     return readOptionalFileFromCounterpartWhenIsNotWaitingForFileFromCounterpart();
   }
 
-  public void receiveOptionalFileFromCounterpart(final IChainedNode receiveOptionalFileCommand) {
+  public void receiveOptionalFileFromCounterpart(final ChainedNode receiveOptionalFileCommand) {
     switch (receiveOptionalFileCommand.getChildNodeCount()) {
       case 0:
         receiveEmptyFileSelectionFromCounterpart();

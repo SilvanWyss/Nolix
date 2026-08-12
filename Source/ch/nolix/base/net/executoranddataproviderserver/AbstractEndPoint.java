@@ -6,7 +6,7 @@ package ch.nolix.base.net.executoranddataproviderserver;
 import ch.nolix.base.net.baseendpoint.AbstractBaseEndPoint;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.document.chainednode.ChainedNode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
@@ -36,7 +36,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements E
    * {@inheritDoc}
    */
   @Override
-  public final void runCommands(IChainedNode... commands) {
+  public final void runCommands(ChainedNode... commands) {
     for (final var c : commands) {
       runCommand(c);
     }

@@ -6,7 +6,7 @@ package ch.nolix.basetest.net.clientserver;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.net.clientserver.AbstractBackendClient;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.document.chainednode.ChainedNode;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
@@ -14,12 +14,12 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
  * @author Silvan Wyss
  */
 public final class MockBackendClient extends AbstractBackendClient<MockBackendClient, Object> {
-  private IChainedNode latestRunHereCommand;
+  private ChainedNode latestRunHereCommand;
 
-  private IChainedNode latestGetDataFromHereRequest;
+  private ChainedNode latestGetDataFromHereRequest;
 
   @Override
-  protected Node<?> provideData(final IChainedNode request) {
+  protected Node<?> provideData(final ChainedNode request) {
     Validator.assertThat(request).thatIsNamed(LowerCaseVariableNameCatalog.REQUEST).isNotNull();
 
     latestGetDataFromHereRequest = request;
@@ -31,13 +31,13 @@ public final class MockBackendClient extends AbstractBackendClient<MockBackendCl
    * {@inheritDoc}
    */
   @Override
-  protected void provideRun(final IChainedNode command) {
+  protected void provideRun(final ChainedNode command) {
     Validator.assertThat(command).thatIsNamed(LowerCaseVariableNameCatalog.COMMAND).isNotNull();
 
     latestRunHereCommand = command;
   }
 
-  public IChainedNode getStoredLatestGetDataFromHereRequest() {
+  public ChainedNode getStoredLatestGetDataFromHereRequest() {
     Validator
       .assertThat(latestGetDataFromHereRequest)
       .thatIsNamed("latest received data from here command")
@@ -46,7 +46,7 @@ public final class MockBackendClient extends AbstractBackendClient<MockBackendCl
     return latestGetDataFromHereRequest;
   }
 
-  public IChainedNode getStoredLatestRunHereCommand() {
+  public ChainedNode getStoredLatestRunHereCommand() {
     Validator.assertThat(latestRunHereCommand).thatIsNamed("latest received run here command").isNotNull();
 
     return latestRunHereCommand;

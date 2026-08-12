@@ -7,7 +7,7 @@ import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.document.chainednode.ChainedNode;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.net.executoranddataproviderserver.ExecutorAndDataProvider;
 
@@ -15,12 +15,12 @@ import ch.nolix.baseapi.net.executoranddataproviderserver.ExecutorAndDataProvide
  * @author Silvan Wyss
  */
 public final class TestReceivingDataProviderController implements ExecutorAndDataProvider {
-  private IChainedNode latestReceivedCommand;
+  private ChainedNode latestReceivedCommand;
 
-  private IChainedNode latestReceivedRequest;
+  private ChainedNode latestReceivedRequest;
 
   @Override
-  public Node<?> getDataForRequest(final IChainedNode request) {
+  public Node<?> getDataForRequest(final ChainedNode request) {
     latestReceivedRequest = request;
 
     return ImmutableNode.withHeader("test_data");
@@ -30,7 +30,7 @@ public final class TestReceivingDataProviderController implements ExecutorAndDat
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<? extends Node<?>> getDataForRequests(final IChainedNode... requests) {
+  public ExtendedIterable<? extends Node<?>> getDataForRequests(final ChainedNode... requests) {
     return getDataForRequests(ImmutableList.fromArray(requests));
   }
 
@@ -38,15 +38,15 @@ public final class TestReceivingDataProviderController implements ExecutorAndDat
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<? extends Node<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
+  public ExtendedIterable<? extends Node<?>> getDataForRequests(final Iterable<? extends ChainedNode> requests) {
     return ExtendedIterableView.forIterable(requests).to(this::getDataForRequest);
   }
 
-  public IChainedNode getLatestReceivedCommand() {
+  public ChainedNode getLatestReceivedCommand() {
     return latestReceivedCommand;
   }
 
-  public IChainedNode getLatestReceivedRequest() {
+  public ChainedNode getLatestReceivedRequest() {
     return latestReceivedRequest;
   }
 
@@ -54,7 +54,7 @@ public final class TestReceivingDataProviderController implements ExecutorAndDat
    * {@inheritDoc}
    */
   @Override
-  public void runCommand(final IChainedNode command) {
+  public void runCommand(final ChainedNode command) {
     latestReceivedCommand = command;
   }
 
@@ -62,7 +62,7 @@ public final class TestReceivingDataProviderController implements ExecutorAndDat
    * {@inheritDoc}
    */
   @Override
-  public void runCommands(final IChainedNode... commands) {
+  public void runCommands(final ChainedNode... commands) {
     final var commandsList = ImmutableList.fromArray(commands);
 
     runCommands(commandsList);
@@ -72,7 +72,7 @@ public final class TestReceivingDataProviderController implements ExecutorAndDat
    * {@inheritDoc}
    */
   @Override
-  public void runCommands(Iterable<? extends IChainedNode> commands) {
+  public void runCommands(Iterable<? extends ChainedNode> commands) {
     commands.forEach(this::runCommand);
   }
 }

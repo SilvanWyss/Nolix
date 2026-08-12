@@ -4,16 +4,16 @@
 package ch.nolix.baseapi.net.executoranddataproviderserver;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.document.chainednode.ChainedNode;
 import ch.nolix.baseapi.document.node.Node;
 
 /**
  * @author Silvan Wyss
  */
 public interface DataProvider {
-  Node<?> getDataForRequest(IChainedNode request);
+  Node<?> getDataForRequest(ChainedNode request);
 
-  ExtendedIterable<? extends Node<?>> getDataForRequests(IChainedNode... requests);
+  ExtendedIterable<? extends Node<?>> getDataForRequests(ChainedNode... requests);
 
-  ExtendedIterable<? extends Node<?>> getDataForRequests(Iterable<? extends IChainedNode> requests);
+  ExtendedIterable<? extends Node<?>> getDataForRequests(Iterable<? extends ChainedNode> requests);
 }

@@ -3,24 +3,24 @@
  */
 package ch.nolix.systemapi.webapplication.webclientprotocol;
 
-import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.document.chainednode.ChainedNode;
 import ch.nolix.baseapi.net.target.IServerTarget;
 
 /**
  * @author Silvan Wyss
  */
 public interface IClientCommandCreator {
-  IChainedNode createAddOrSetCookieCommand(String cookieName, String cookieValue);
+  ChainedNode createAddOrSetCookieCommand(String cookieName, String cookieValue);
 
-  IChainedNode createDeleteCookieCommand(String cookieName);
+  ChainedNode createDeleteCookieCommand(String cookieName);
 
-  IChainedNode createOpenNewTabCommand(String url);
+  ChainedNode createOpenNewTabCommand(String url);
 
-  IChainedNode createRedirectCommand(IServerTarget serverTarget);
+  ChainedNode createRedirectCommand(IServerTarget serverTarget);
 
-  IChainedNode createRedirectCommand(String url);
+  ChainedNode createRedirectCommand(String url);
 
-  IChainedNode createSaveFileCommand(byte[] content);
+  ChainedNode createSaveFileCommand(byte[] content);
 
-  IChainedNode createWriteTextToClipBoardCommand(String text);
+  ChainedNode createWriteTextToClipBoardCommand(String text);
 }

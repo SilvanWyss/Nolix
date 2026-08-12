@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.document.chainednode.ImmutableChainedNode;
 import ch.nolix.base.document.node.ImmutableNode;
-import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.document.chainednode.ChainedNode;
 import ch.nolix.baseapi.net.target.IServerTarget;
 import ch.nolix.systemapi.webapplication.basewebclientprotocol.CommandProtocol;
 import ch.nolix.systemapi.webapplication.basewebclientprotocol.ObjectProtocol;
@@ -22,7 +22,7 @@ public final class ClientCommandCreator implements IClientCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createAddOrSetCookieCommand(final String name, final String value) {
+  public ChainedNode createAddOrSetCookieCommand(final String name, final String value) {
     return //
     ImmutableChainedNode.withHeaderAndChildNodes(
       CommandProtocol.SET_OR_ADD_COOKIE_WITH_NAME_AND_VALUE,
@@ -35,7 +35,7 @@ public final class ClientCommandCreator implements IClientCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createDeleteCookieCommand(final String cookieName) {
+  public ChainedNode createDeleteCookieCommand(final String cookieName) {
     return //
     ImmutableChainedNode.withHeaderAndChildNode(CommandProtocol.DELETE_COOKIE_BY_NAME, ImmutableChainedNode.withHeader(cookieName));
   }
@@ -44,7 +44,7 @@ public final class ClientCommandCreator implements IClientCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createOpenNewTabCommand(final String url) {
+  public ChainedNode createOpenNewTabCommand(final String url) {
     return //
     ImmutableChainedNode.withHeaderAndChildNode(
       CommandProtocol.OPEN_NEW_TAB,
@@ -57,7 +57,7 @@ public final class ClientCommandCreator implements IClientCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createRedirectCommand(final IServerTarget serverTarget) {
+  public ChainedNode createRedirectCommand(final IServerTarget serverTarget) {
     final var url = serverTarget.toUrl();
 
     return createRedirectCommand(url);
@@ -67,7 +67,7 @@ public final class ClientCommandCreator implements IClientCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createRedirectCommand(final String url) {
+  public ChainedNode createRedirectCommand(final String url) {
     return ImmutableChainedNode.withHeaderAndChildNode(CommandProtocol.REDIRECT, ImmutableChainedNode.withHeader(url));
   }
 
@@ -75,7 +75,7 @@ public final class ClientCommandCreator implements IClientCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createSaveFileCommand(final byte[] bytes) {
+  public ChainedNode createSaveFileCommand(final byte[] bytes) {
     return //
     ImmutableChainedNode.withHeaderAndChildNodes(
       CommandProtocol.SAVE_FILE,
@@ -86,7 +86,7 @@ public final class ClientCommandCreator implements IClientCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createWriteTextToClipBoardCommand(final String text) {
+  public ChainedNode createWriteTextToClipBoardCommand(final String text) {
     return ImmutableChainedNode.withHeaderAndChildNode(CommandProtocol.WRITE_TEXT_TO_CLIPBOARD, ImmutableChainedNode.withHeader(text));
   }
 }

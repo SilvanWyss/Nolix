@@ -10,7 +10,7 @@ import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.document.chainednode.ChainedNode;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PluralLowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.graphic.image.Image;
 import ch.nolix.systemapi.webapplication.counterpart.IUpdateCommandCreator;
@@ -27,7 +27,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createSetCssCommandForWebGui(final IWebGui<?> webGui) {
+  public ChainedNode createSetCssCommandForWebGui(final IWebGui<?> webGui) {
     final var css = webGui.getCss();
 
     return UpdateCommandCreatorHelper.createSetCssCommandFromCss(css);
@@ -37,7 +37,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createSetEventFunctionsCommandForWebGui(final IWebGui<?> webGui) {
+  public ChainedNode createSetEventFunctionsCommandForWebGui(final IWebGui<?> webGui) {
     final var htmlElementEventRegistrations = webGui.getHtmlElementEventRegistrations();
 
     return //
@@ -49,7 +49,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createSetIconCommandForWebGui(final IWebGui<?> webGui) {
+  public ChainedNode createSetIconCommandForWebGui(final IWebGui<?> webGui) {
     return createSetIconCommandForIcon(webGui.getIcon());
   }
 
@@ -57,7 +57,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createSetIconCommandForIcon(final Image icon) {
+  public ChainedNode createSetIconCommandForIcon(final Image icon) {
     return //
     ImmutableChainedNode.withHeaderAndNextNode(
       ObjectProtocol.GUI,
@@ -68,7 +68,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createSetRootHtmlElementCommandForControl(final Control<?, ?> control) {
+  public ChainedNode createSetRootHtmlElementCommandForControl(final Control<?, ?> control) {
     final var htmlElementId = control.getInternalId();
     final var htmlElement = control.getHtml();
 
@@ -79,7 +79,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createSetRootHtmlElementCommandForWebGui(final IWebGui<?> webGui) {
+  public ChainedNode createSetRootHtmlElementCommandForWebGui(final IWebGui<?> webGui) {
     final var htmlElement = webGui.getHtml();
 
     return UpdateCommandCreatorHelper.createSetRootHtmlElementCommandFromHtmlElement(htmlElement);
@@ -89,7 +89,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createSetTitleCommandForWebGui(final IWebGui<?> webGui) {
+  public ChainedNode createSetTitleCommandForWebGui(final IWebGui<?> webGui) {
     return createSetTitleCommandForTitle(webGui.getTitle());
   }
 
@@ -97,7 +97,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createSetTitleCommandForTitle(final String title) {
+  public ChainedNode createSetTitleCommandForTitle(final String title) {
     return //
     ImmutableChainedNode.withHeaderAndNextNode(
       ObjectProtocol.GUI,
@@ -110,7 +110,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createSetUserInputFunctionsCommandForWebGui(final IWebGui<?> webGui) {
+  public ChainedNode createSetUserInputFunctionsCommandForWebGui(final IWebGui<?> webGui) {
     return UpdateCommandCreatorHelper.createSetUserInputFunctionsCommandForControls(webGui.getStoredControls());
   }
 
@@ -118,14 +118,14 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<IChainedNode> createUpdateCommandsForControls(
+  public ExtendedIterable<ChainedNode> createUpdateCommandsForControls(
     final ExtendedIterable<Control<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
     Validator.assertThat(controls).thatIsNamed(PluralLowerCaseVariableNameCatalog.CONTROLS).isNotEmpty();
 
     final var webGui = controls.getStoredFirstNonNull().getStoredParentGui();
 
-    final ILinkedList<IChainedNode> updatedCommands = LinkedList.createEmpty();
+    final ILinkedList<ChainedNode> updatedCommands = LinkedList.createEmpty();
 
     updatedCommands.addAtEnd(controls.getViewOf(this::createSetRootHtmlElementCommandForControl));
 
@@ -143,7 +143,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<IChainedNode> createUpdateCommandsForWebGui(final IWebGui<?> webGui) {
+  public ExtendedIterable<ChainedNode> createUpdateCommandsForWebGui(final IWebGui<?> webGui) {
     return //
     ImmutableList.withElements(
       createSetTitleCommandForWebGui(webGui),

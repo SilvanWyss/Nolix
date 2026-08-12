@@ -11,7 +11,7 @@ import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.errorcontrol.generalexception.GeneralException;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.document.chainednode.ChainedNode;
 import ch.nolix.system.webapplication.counterpartupdater.WebClientCounterpartUpdater;
 import ch.nolix.system.webapplication.counterpartupdater.WebClientPartialCounterpartUpdater;
 import ch.nolix.systemapi.webgui.main.Control;
@@ -23,14 +23,14 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
 public final class WebClientRefreshQueue {
   private final BooleanSupplier openStateRequestable;
 
-  private final Consumer<ExtendedIterable<? extends IChainedNode>> counterpartRunner;
+  private final Consumer<ExtendedIterable<? extends ChainedNode>> counterpartRunner;
 
   private boolean updatingCounterpart;
 
   private UpdateTicket memberUpdateTicket;
 
   private WebClientRefreshQueue(
-    final Consumer<ExtendedIterable<? extends IChainedNode>> counterpartRunner,
+    final Consumer<ExtendedIterable<? extends ChainedNode>> counterpartRunner,
     final BooleanSupplier openStateRequestable) {
     Validator.assertThat(openStateRequestable).thatIsNamed("open state requestable").isNotNull();
     Validator.assertThat(counterpartRunner).thatIsNamed("counterpart runner").isNotNull();
@@ -40,7 +40,7 @@ public final class WebClientRefreshQueue {
   }
 
   public static WebClientRefreshQueue forCounterpartRunnerAndOpenStateRequestable(
-    final Consumer<ExtendedIterable<? extends IChainedNode>> counterpartRunner,
+    final Consumer<ExtendedIterable<? extends ChainedNode>> counterpartRunner,
     final BooleanSupplier openStateRequester) {
     return new WebClientRefreshQueue(counterpartRunner, openStateRequester);
   }

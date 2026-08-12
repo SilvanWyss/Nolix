@@ -5,7 +5,7 @@ package ch.nolix.base.net.executoranddataproviderserver;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.document.chainednode.ChainedNode;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.net.executoranddataproviderserver.Slot;
@@ -124,7 +124,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    *                                               controller.
    */
   @Override
-  public Node<?> getDataForRequest(final IChainedNode request) {
+  public Node<?> getDataForRequest(final ChainedNode request) {
     return counterpart.getStoredReceiverController().getDataForRequest(request);
   }
 
@@ -132,7 +132,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<? extends Node<?>> getDataForRequests(final IChainedNode... requests) {
+  public ExtendedIterable<? extends Node<?>> getDataForRequests(final ChainedNode... requests) {
     return counterpart.getStoredReceiverController().getDataForRequests(requests);
   }
 
@@ -140,7 +140,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<? extends Node<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
+  public ExtendedIterable<? extends Node<?>> getDataForRequests(final Iterable<? extends ChainedNode> requests) {
     return counterpart.getStoredReceiverController().getDataForRequests(requests);
   }
 
@@ -187,7 +187,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public void runCommand(final IChainedNode command) {
+  public void runCommand(final ChainedNode command) {
     assertIsOpen();
 
     counterpart.getStoredReceiverController().runCommand(command);
@@ -197,7 +197,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public void runCommands(final Iterable<? extends IChainedNode> commands) {
+  public void runCommands(final Iterable<? extends ChainedNode> commands) {
     assertIsOpen();
 
     commands.forEach(counterpart.getStoredReceiverController()::runCommand);

@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.webapplication.counterpart;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.document.chainednode.ChainedNode;
 import ch.nolix.systemapi.graphic.image.Image;
 import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.main.IWebGui;
@@ -13,27 +13,27 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
  * @author Silvan Wyss
  */
 public interface IUpdateCommandCreator {
-  IChainedNode createSetCssCommandForWebGui(IWebGui<?> webGui);
+  ChainedNode createSetCssCommandForWebGui(IWebGui<?> webGui);
 
-  IChainedNode createSetEventFunctionsCommandForWebGui(IWebGui<?> webGui);
+  ChainedNode createSetEventFunctionsCommandForWebGui(IWebGui<?> webGui);
 
-  IChainedNode createSetIconCommandForWebGui(IWebGui<?> webGui);
+  ChainedNode createSetIconCommandForWebGui(IWebGui<?> webGui);
 
-  IChainedNode createSetIconCommandForIcon(Image icon);
+  ChainedNode createSetIconCommandForIcon(Image icon);
 
-  IChainedNode createSetRootHtmlElementCommandForControl(Control<?, ?> control);
+  ChainedNode createSetRootHtmlElementCommandForControl(Control<?, ?> control);
 
-  IChainedNode createSetRootHtmlElementCommandForWebGui(IWebGui<?> webGui);
+  ChainedNode createSetRootHtmlElementCommandForWebGui(IWebGui<?> webGui);
 
-  IChainedNode createSetTitleCommandForWebGui(IWebGui<?> webGui);
+  ChainedNode createSetTitleCommandForWebGui(IWebGui<?> webGui);
 
-  IChainedNode createSetTitleCommandForTitle(String title);
+  ChainedNode createSetTitleCommandForTitle(String title);
 
-  IChainedNode createSetUserInputFunctionsCommandForWebGui(IWebGui<?> webGui);
+  ChainedNode createSetUserInputFunctionsCommandForWebGui(IWebGui<?> webGui);
 
-  ExtendedIterable<IChainedNode> createUpdateCommandsForControls(
+  ExtendedIterable<ChainedNode> createUpdateCommandsForControls(
     ExtendedIterable<Control<?, ?>> controls,
     boolean updateConstellationOrStyle);
 
-  ExtendedIterable<IChainedNode> createUpdateCommandsForWebGui(IWebGui<?> webGui);
+  ExtendedIterable<ChainedNode> createUpdateCommandsForWebGui(IWebGui<?> webGui);
 }

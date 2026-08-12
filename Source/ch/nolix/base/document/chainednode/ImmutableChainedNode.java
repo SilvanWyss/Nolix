@@ -6,7 +6,7 @@ package ch.nolix.base.document.chainednode;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.document.chainednode.ChainedNode;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -24,7 +24,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
  * 
  * @author Silvan Wyss
  */
-public final class ImmutableChainedNode implements IChainedNode {
+public final class ImmutableChainedNode implements ChainedNode {
   public static final ImmutableChainedNode EMPTY_CHAINED_NODE = new ImmutableChainedNode();
 
   public static final String DOT_CODE = "$D";
@@ -58,7 +58,7 @@ public final class ImmutableChainedNode implements IChainedNode {
    * @return a {@link ImmutableChainedNode} from the given chainedNode
    * @throws RuntimeException if the given chainedNode is null
    */
-  public static ImmutableChainedNode fromChainedNode(final IChainedNode chainedNode) {
+  public static ImmutableChainedNode fromChainedNode(final ChainedNode chainedNode) {
     if (chainedNode instanceof final ImmutableChainedNode localChainedNode) {
       return localChainedNode;
     }
@@ -187,7 +187,7 @@ public final class ImmutableChainedNode implements IChainedNode {
    * @throws RuntimeException if the given header is null or blank
    * @throws RuntimeException if the given childNode is null
    */
-  public static ImmutableChainedNode withHeaderAndChildNode(final String header, final IChainedNode childNode) {
+  public static ImmutableChainedNode withHeaderAndChildNode(final String header, final ChainedNode childNode) {
     final var chainedNode = new ImmutableChainedNode();
 
     chainedNode.setHeader(header);
@@ -206,7 +206,7 @@ public final class ImmutableChainedNode implements IChainedNode {
    * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes is null
    */
-  public static ImmutableChainedNode withHeaderAndChildNodes(final String header, final IChainedNode... childNodes) {
+  public static ImmutableChainedNode withHeaderAndChildNodes(final String header, final ChainedNode... childNodes) {
     final var chainedNode = new ImmutableChainedNode();
 
     chainedNode.setHeader(header);
@@ -243,7 +243,7 @@ public final class ImmutableChainedNode implements IChainedNode {
    */
   public static ImmutableChainedNode withHeaderAndChildNodes(
     final String header,
-    final Iterable<? extends IChainedNode> attributes) {
+    final Iterable<? extends ChainedNode> attributes) {
     final var chainedNode = new ImmutableChainedNode();
     chainedNode.setHeader(header);
     chainedNode.addChildNodes(attributes);
@@ -556,7 +556,7 @@ public final class ImmutableChainedNode implements IChainedNode {
    * @throws RuntimeException the given childNodes is null
    * @throws RuntimeException if one of the given childNodes is null
    */
-  private void addChildNodes(final IChainedNode... childNodes) {
+  private void addChildNodes(final ChainedNode... childNodes) {
     for (final var c : childNodes) {
       final var childNode = fromChainedNode(c);
 
@@ -583,7 +583,7 @@ public final class ImmutableChainedNode implements IChainedNode {
    * @param childNodes
    * @throws RuntimeException if one of the given attribute is null
    */
-  private void addChildNodes(final Iterable<? extends IChainedNode> childNodes) {
+  private void addChildNodes(final Iterable<? extends ChainedNode> childNodes) {
     for (final var c : childNodes) {
       if (c instanceof final ImmutableChainedNode immutableChainedNode) {
         memberChildNodes.addAtEnd(immutableChainedNode);
@@ -768,7 +768,7 @@ public final class ImmutableChainedNode implements IChainedNode {
    * @param nextNode
    * @throws RuntimeException if the given nextNode is null
    */
-  private void setNextNode(final IChainedNode nextNode) {
+  private void setNextNode(final ChainedNode nextNode) {
     // Asserts that the given nextNode is not null.
     if (nextNode == null) {
       throw ArgumentIsNullException.forArgumentName(NEXT_NODE_VARIABLE_NAME);

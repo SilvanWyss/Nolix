@@ -9,7 +9,7 @@ import java.util.function.Consumer;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.document.chainednode.ChainedNode;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PluralLowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.webgui.main.Control;
 
@@ -21,10 +21,10 @@ public final class WebClientPartialCounterpartUpdater {
 
   private final BooleanSupplier openStateRequestable;
 
-  private final Consumer<ExtendedIterable<? extends IChainedNode>> counterpartRunner;
+  private final Consumer<ExtendedIterable<? extends ChainedNode>> counterpartRunner;
 
   private WebClientPartialCounterpartUpdater(
-    final Consumer<ExtendedIterable<? extends IChainedNode>> counterpartRunner,
+    final Consumer<ExtendedIterable<? extends ChainedNode>> counterpartRunner,
     final BooleanSupplier openStateRequestable) {
     Validator.assertThat(openStateRequestable).thatIsNamed("open state requestable").isNotNull();
     Validator.assertThat(counterpartRunner).thatIsNamed("counterpart runner").isNotNull();
@@ -34,7 +34,7 @@ public final class WebClientPartialCounterpartUpdater {
   }
 
   public static WebClientPartialCounterpartUpdater forCounterpartRunnerAndOpenStateRequestable(
-    final Consumer<ExtendedIterable<? extends IChainedNode>> counterpartRunner,
+    final Consumer<ExtendedIterable<? extends ChainedNode>> counterpartRunner,
     final BooleanSupplier openStateRequester) {
     return new WebClientPartialCounterpartUpdater(counterpartRunner, openStateRequester);
   }

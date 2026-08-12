@@ -8,7 +8,7 @@ import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.net.executoranddataproviderserver.AbstractEndPoint;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.document.chainednode.ChainedNode;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.net.executoranddataproviderserver.ExecutorAndDataProvider;
 
@@ -47,7 +47,7 @@ final class ClientDataProviderController implements ExecutorAndDataProvider {
    * {@inheritDoc}
    */
   @Override
-  public Node<?> getDataForRequest(final IChainedNode request) {
+  public Node<?> getDataForRequest(final ChainedNode request) {
     return parentClient.provideData(request);
   }
 
@@ -55,7 +55,7 @@ final class ClientDataProviderController implements ExecutorAndDataProvider {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<Node<?>> getDataForRequests(final IChainedNode... requests) {
+  public ExtendedIterable<Node<?>> getDataForRequests(final ChainedNode... requests) {
     // Concatenates the given requests.
     final var concatenatedRequests = ImmutableList.withElements(requests);
 
@@ -67,7 +67,7 @@ final class ClientDataProviderController implements ExecutorAndDataProvider {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<Node<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
+  public ExtendedIterable<Node<?>> getDataForRequests(final Iterable<? extends ChainedNode> requests) {
     return ExtendedIterableView.forIterable(requests).to(parentClient::provideData);
   }
 
@@ -75,7 +75,7 @@ final class ClientDataProviderController implements ExecutorAndDataProvider {
    * {@inheritDoc}
    */
   @Override
-  public void runCommand(final IChainedNode command) {
+  public void runCommand(final ChainedNode command) {
     parentClient.provideRun(command);
   }
 
@@ -83,7 +83,7 @@ final class ClientDataProviderController implements ExecutorAndDataProvider {
    * {@inheritDoc}
    */
   @Override
-  public void runCommands(final IChainedNode... commands) {
+  public void runCommands(final ChainedNode... commands) {
     for (final var c : commands) {
       parentClient.provideRun(c);
     }
@@ -93,7 +93,7 @@ final class ClientDataProviderController implements ExecutorAndDataProvider {
    * {@inheritDoc}
    */
   @Override
-  public void runCommands(final Iterable<? extends IChainedNode> commands) {
+  public void runCommands(final Iterable<? extends ChainedNode> commands) {
     for (final var c : commands) {
       parentClient.provideRun(c);
     }
