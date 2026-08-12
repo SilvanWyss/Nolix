@@ -24,7 +24,8 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
  * 
  * @author Silvan Wyss
  */
-public final class ImmutableChainedNode implements ChainedNode {
+public final class ImmutableChainedNode // NOSONAR: A ImmutableChainedNode is a principal object thus it has many methods.
+implements ChainedNode {
   public static final ImmutableChainedNode EMPTY_CHAINED_NODE = new ImmutableChainedNode();
 
   public static final String DOT_CODE = "$D";
