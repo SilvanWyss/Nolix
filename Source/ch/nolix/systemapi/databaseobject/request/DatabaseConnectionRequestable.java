@@ -4,9 +4,6 @@
 package ch.nolix.systemapi.databaseobject.request;
 
 /**
- * A {@link DatabaseConnectionRequestable} can be asked if it is connected with
- * a real database.
- * 
  * @author Silvan Wyss
  */
 public interface DatabaseConnectionRequestable {
