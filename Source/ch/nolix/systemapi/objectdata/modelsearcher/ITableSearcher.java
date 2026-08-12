@@ -4,7 +4,6 @@
 package ch.nolix.systemapi.objectdata.modelsearcher;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
@@ -12,7 +11,7 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 /**
  * @author Silvan Wyss
  */
-public interface ITableSearcher extends IDatabaseObjectExaminer {
+public interface ITableSearcher {
   /**
    * @param table
    * @return the ids of the locally deleted {@link IEntity}s of the given table.

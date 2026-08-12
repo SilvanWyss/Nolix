@@ -10,7 +10,7 @@ import ch.nolix.systemapi.objectdata.model.IReference;
 /**
  * @author Silvan Wyss
  */
-public final class ReferenceExaminer extends FieldExaminer implements IReferenceExaminer {
+public final class ReferenceExaminer extends AbstractFieldExaminer<IReference<IEntity>> implements IReferenceExaminer {
   /**
    * {@inheritDoc}
    */

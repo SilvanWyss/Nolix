@@ -11,7 +11,7 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 /**
  * @author Silvan Wyss
  */
-public interface IColumnExaminer extends IDatabaseObjectExaminer {
+public interface IColumnExaminer extends IDatabaseObjectExaminer<IColumn> {
   /**
    * @param column
    * @param referenceableTable

@@ -10,7 +10,9 @@ import ch.nolix.systemapi.objectdata.model.IMultiReference;
 /**
  * @author Silvan Wyss
  */
-public final class MultiReferenceExaminer extends FieldExaminer implements IMultiReferenceExaminer {
+public final class MultiReferenceExaminer
+extends AbstractFieldExaminer<IMultiReference<IEntity>>
+implements IMultiReferenceExaminer {
   /**
    * {@inheritDoc}
    */

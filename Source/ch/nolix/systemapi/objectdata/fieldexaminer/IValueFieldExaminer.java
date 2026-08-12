@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectdata.model.IValueField;
 /**
  * @author Silvan Wyss
  */
-public interface IValueFieldExaminer extends IFieldExaminer {
+public interface IValueFieldExaminer extends IFieldExaminer<IValueField<?>> {
   boolean canSetValue(IValueField<?> valueField);
 
   boolean canSetValue(IValueField<?> valueField, Object value);

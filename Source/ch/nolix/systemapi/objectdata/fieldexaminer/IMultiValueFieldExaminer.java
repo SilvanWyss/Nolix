@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 /**
  * @author Silvan Wyss
  */
-public interface IMultiValueFieldExaminer extends IFieldExaminer {
+public interface IMultiValueFieldExaminer extends IFieldExaminer<IMultiValueField<?>> {
   boolean canAddValue(IMultiValueField<?> multiValueField);
 
   boolean canAddValue(IMultiValueField<?> multiValueField, Object value);

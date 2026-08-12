@@ -10,20 +10,21 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 
 /**
  * @author Silvan Wyss
+ * @param <F> the type of the {@link Field}s a {@link IFieldExaminer} is for
  */
-public interface IFieldExaminer extends IDatabaseObjectExaminer {
+public interface IFieldExaminer<F extends Field> extends IDatabaseObjectExaminer<F> {
   /**
    * @param field
    * @return true if the given field belongs to a {@link IEntity}, false otherwise
    */
-  boolean belongsToEntity(Field field);
+  boolean belongsToEntity(F field);
 
   /**
    * @param field
    * @return true if the given field belongs to a loaded {@link IEntity}, false
    *         otherwise
    */
-  boolean belongsToLoadedEntity(Field field);
+  boolean belongsToLoadedEntity(F field);
 
   /**
    * @param field
@@ -31,29 +32,29 @@ public interface IFieldExaminer extends IDatabaseObjectExaminer {
    * @return true if the given field can reference back the given baseReference,
    *         false otherwise
    */
-  boolean canReferenceBackBaseReference(Field field, BaseReference baseReference);
+  boolean canReferenceBackBaseReference(F field, BaseReference baseReference);
 
   /**
    * @param field
    * @return true if the given field is for multi content, false otherwise
    */
-  boolean isForMultiContent(Field field);
+  boolean isForMultiContent(F field);
 
   /**
    * @param field
    * @return true if the given field is for single content, false otherwise
    */
-  boolean isForSingleContent(Field field);
+  boolean isForSingleContent(F field);
 
   /**
    * @param field
    * @return true if the given field is mandatory but empty, false otherwise
    */
-  boolean isMandatoryButEmpty(Field field);
+  boolean isMandatoryButEmpty(F field);
 
   /**
    * @param field
    * @return true if the given field is new or edited but set, false otherwise
    */
-  boolean isSetForCaseWhenIsMandatoryAndNewOrEdited(Field field);
+  boolean isSetForCaseWhenIsMandatoryAndNewOrEdited(F field);
 }

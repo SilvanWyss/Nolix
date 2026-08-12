@@ -5,7 +5,6 @@ package ch.nolix.system.objectdata.modelsearcher;
 
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
@@ -14,7 +13,7 @@ import ch.nolix.systemapi.objectdata.modelsearcher.IDatabaseSearcher;
 /**
  * @author Silvan Wyss
  */
-public final class DatabaseSearcher extends DatabaseObjectExaminer implements IDatabaseSearcher {
+public final class DatabaseSearcher implements IDatabaseSearcher {
   /**
    * {@inheritDoc}
    */

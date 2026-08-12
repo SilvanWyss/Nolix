@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
 /**
  * @author Silvan Wyss
  */
-public interface IOptionalValueFieldExaminer extends IFieldExaminer {
+public interface IOptionalValueFieldExaminer extends IFieldExaminer<IOptionalValueField<?>> {
   boolean canSetValue(IOptionalValueField<?> optionalValueField);
 
   boolean canSetValue(IOptionalValueField<?> optionalValueField, Object value);

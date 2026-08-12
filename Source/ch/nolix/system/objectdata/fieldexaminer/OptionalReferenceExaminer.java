@@ -10,7 +10,8 @@ import ch.nolix.systemapi.objectdata.model.IOptionalReference;
 /**
  * @author Silvan Wyss
  */
-public final class OptionalReferenceExaminer extends FieldExaminer implements IOptionalReferenceExaminer {
+public final class OptionalReferenceExaminer extends AbstractFieldExaminer<IOptionalReference<IEntity>>
+implements IOptionalReferenceExaminer {
   /**
    * {@inheritDoc}
    */

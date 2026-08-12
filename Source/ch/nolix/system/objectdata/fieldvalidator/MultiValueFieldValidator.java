@@ -4,7 +4,7 @@
 package ch.nolix.system.objectdata.fieldvalidator;
 
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.objectdata.fieldexaminer.MultiValueFieldTool;
+import ch.nolix.system.objectdata.fieldexaminer.MultiValueFieldExaminer;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IMultiValueFieldValidator;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 
@@ -12,7 +12,7 @@ import ch.nolix.systemapi.objectdata.model.IMultiValueField;
  * @author Silvan Wyss
  */
 public final class MultiValueFieldValidator extends FieldValidator implements IMultiValueFieldValidator {
-  private static final MultiValueFieldTool MULTI_VALUE_EXAMINER = new MultiValueFieldTool();
+  private static final MultiValueFieldExaminer MULTI_VALUE_EXAMINER = new MultiValueFieldExaminer();
 
   @Override
   public <V> void assertCanAddValue(final IMultiValueField<V> multiValueField, final V value) {

@@ -7,15 +7,17 @@ import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
 
 /**
  * @author Silvan Wyss
+ * @param <O> the type of the {@link DatabaseObject}s a
+ *            {@link IDatabaseObjectExaminer} is for
  */
-public interface IDatabaseObjectExaminer {
-  boolean isNewOrDeleted(DatabaseObject databaseObject);
+public interface IDatabaseObjectExaminer<O extends DatabaseObject> {
+  boolean isNewOrDeleted(O databaseObject);
 
-  boolean isNewOrEdited(DatabaseObject databaseObject);
+  boolean isNewOrEdited(O databaseObject);
 
-  boolean isNewOrEditedOrDeleted(DatabaseObject databaseObject);
+  boolean isNewOrEditedOrDeleted(O databaseObject);
 
-  boolean isNewOrLoaded(DatabaseObject databaseObject);
+  boolean isNewOrLoaded(O databaseObject);
 
-  boolean isNewOrLoadedOrEdited(DatabaseObject databaseObject);
+  boolean isNewOrLoadedOrEdited(O databaseObject);
 }

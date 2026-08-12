@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectdata.model.IMultiReference;
 /**
  * @author Silvan Wyss
  */
-public interface IMultiReferenceExaminer extends IFieldExaminer {
+public interface IMultiReferenceExaminer extends IFieldExaminer<IMultiReference<IEntity>> {
   <E extends IEntity> boolean canAddEntity(IMultiReference<E> multiReference);
 
   <E extends IEntity> boolean canAddEntity(IMultiReference<E> multiReference, E entity);

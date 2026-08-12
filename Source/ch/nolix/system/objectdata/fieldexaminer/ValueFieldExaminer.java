@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectdata.model.IValueField;
 /**
  * @author Silvan Wyss
  */
-public final class ValueFieldExaminer extends FieldExaminer implements IValueFieldExaminer {
+public final class ValueFieldExaminer extends AbstractFieldExaminer<IValueField<?>> implements IValueFieldExaminer {
   /**
    * {@inheritDoc}
    */

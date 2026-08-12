@@ -13,7 +13,6 @@ import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
-import ch.nolix.system.objectdata.fieldexaminer.MultiReferenceExaminer;
 import ch.nolix.system.objectdata.fieldvalidator.MultiReferenceValidator;
 import ch.nolix.systemapi.databaseobject.model.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
@@ -31,8 +30,6 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   private static final DatabaseObjectExaminer DATABASE_OBJECT_EXAMINER = new DatabaseObjectExaminer();
 
   private static final TableNameExtractor TABLE_NAME_EXTRACTOR = new TableNameExtractor();
-
-  private static final MultiReferenceExaminer MULTI_REFERENCE_TOOL = new MultiReferenceExaminer();
 
   private static final MultiReferenceValidator MULTI_REFERENCE_VALIDATOR = new MultiReferenceValidator();
 
@@ -102,7 +99,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
 
     return //
     localEntries
-      .getViewOfStoredSelected(MULTI_REFERENCE_TOOL::isNewOrLoadedOrEdited)
+      .getViewOfStoredSelected(DATABASE_OBJECT_EXAMINER::isNewOrLoadedOrEdited)
       .to(IMultiReferenceEntry::getReferencedEntityId);
   }
 
@@ -115,7 +112,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
 
     return //
     localEntries
-      .getViewOfStoredSelected(MULTI_REFERENCE_TOOL::isNewOrLoadedOrEdited)
+      .getViewOfStoredSelected(DATABASE_OBJECT_EXAMINER::isNewOrLoadedOrEdited)
       .to(IMultiReferenceEntry::getStoredReferencedEntity);
   }
 

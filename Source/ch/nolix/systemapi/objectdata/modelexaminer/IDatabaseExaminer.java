@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectdata.model.IDatabase;
 /**
  * @author Silvan Wyss
  */
-public interface IDatabaseExaminer extends IDatabaseObjectExaminer {
+public interface IDatabaseExaminer extends IDatabaseObjectExaminer<IDatabase> {
   /**
    * @param database
    * @return true if all new and edited mandatory fields of the given database are

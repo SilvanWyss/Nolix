@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectdata.modelexaminer;
 
-import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
+import ch.nolix.system.databaseobject.modelexaminer.AbstractDatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
@@ -12,7 +12,7 @@ import ch.nolix.systemapi.objectdata.modelexaminer.IColumnExaminer;
 /**
  * @author Silvan Wyss
  */
-public final class ColumnExaminer extends DatabaseObjectExaminer implements IColumnExaminer {
+public final class ColumnExaminer extends AbstractDatabaseObjectExaminer<IColumn> implements IColumnExaminer {
   /**
    * {@inheritDoc}
    */

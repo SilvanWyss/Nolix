@@ -14,7 +14,7 @@ import ch.nolix.systemapi.databaseobject.model.DatabaseObjectState;
 /**
  * @author Silvan Wyss
  */
-final class DatabaseObjectToolTest extends StandardTest {
+final class DatabaseObjectExaminerTest extends StandardTest {
   @Test
   void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsNull() {
     // setup
