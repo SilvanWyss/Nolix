@@ -37,7 +37,8 @@ public final class ClientCommandCreator implements IClientCommandCreator {
   @Override
   public ChainedNode createDeleteCookieCommand(final String cookieName) {
     return //
-    ImmutableChainedNode.withHeaderAndChildNode(CommandProtocol.DELETE_COOKIE_BY_NAME, ImmutableChainedNode.withHeader(cookieName));
+    ImmutableChainedNode.withHeaderAndChildNode(CommandProtocol.DELETE_COOKIE_BY_NAME,
+      ImmutableChainedNode.withHeader(cookieName));
   }
 
   /**
@@ -87,6 +88,7 @@ public final class ClientCommandCreator implements IClientCommandCreator {
    */
   @Override
   public ChainedNode createWriteTextToClipBoardCommand(final String text) {
-    return ImmutableChainedNode.withHeaderAndChildNode(CommandProtocol.WRITE_TEXT_TO_CLIPBOARD, ImmutableChainedNode.withHeader(text));
+    return ImmutableChainedNode.withHeaderAndChildNode(CommandProtocol.WRITE_TEXT_TO_CLIPBOARD,
+      ImmutableChainedNode.withHeader(text));
   }
 }

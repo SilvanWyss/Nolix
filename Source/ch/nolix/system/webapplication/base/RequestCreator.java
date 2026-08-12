@@ -24,7 +24,8 @@ public final class RequestCreator {
     return ImmutableChainedNode.withHeader(RequestProtocol.GET_TEXT_FROM_CLIPBOARD);
   }
 
-  public static ImmutableChainedNode createGetUrlParameterValueRequestForUrlParameterName(final String urlParameterName) {
+  public static ImmutableChainedNode createGetUrlParameterValueRequestForUrlParameterName(
+    final String urlParameterName) {
     return //
     ImmutableChainedNode.withHeaderAndChildNode(
       RequestProtocol.GET_URL_PARARAMETER_VALUE,

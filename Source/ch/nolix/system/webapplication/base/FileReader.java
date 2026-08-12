@@ -84,7 +84,8 @@ final class FileReader {
     try {
       isWaitingForFileFromCounterpart = true;
 
-      parentBackendWebClient.internalRunOnCounterpart(ImmutableChainedNode.withHeader(CommandProtocol.SEND_OPTIONAL_FILE));
+      parentBackendWebClient
+        .internalRunOnCounterpart(ImmutableChainedNode.withHeader(CommandProtocol.SEND_OPTIONAL_FILE));
 
       FlowController
         .forMaxSeconds(MAX_WAITING_TIME_FOR_FILE_FROM_COUNTERPART_IN_SECONDS)

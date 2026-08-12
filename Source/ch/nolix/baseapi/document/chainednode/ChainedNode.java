@@ -135,9 +135,9 @@ public interface ChainedNode extends BlanknessRequestable, OptionalHeaderHolder 
   int toInt();
 
   /**
-   * A {@link ChainedNode} represents a {@link Node} if: -The
-   * {@link ChainedNode} does not have a next node. -Each child nodes of the
-   * {@link ChainedNode} represents a {@link Node}.
+   * A {@link ChainedNode} represents a {@link Node} if: -The {@link ChainedNode}
+   * does not have a next node. -Each child nodes of the {@link ChainedNode}
+   * represents a {@link Node}.
    * 
    * @return a {@link Node} representation of the current {@link ChainedNode}
    * @throws RuntimeException if the current {@link ChainedNode} does not

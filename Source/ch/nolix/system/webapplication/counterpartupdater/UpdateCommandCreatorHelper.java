@@ -92,6 +92,7 @@ public final class UpdateCommandCreatorHelper {
     final Control<?, ?> control,
     final String string) {
     return //
-    ImmutableChainedNode.withChildNodes(ImmutableNode.withHeader(control.getInternalId()), ImmutableNode.withHeader(string));
+    ImmutableChainedNode.withChildNodes(ImmutableNode.withHeader(control.getInternalId()),
+      ImmutableNode.withHeader(string));
   }
 }
