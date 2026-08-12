@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.webapplication.base;
 
-import ch.nolix.base.document.chainednode.ChainedNode;
+import ch.nolix.base.document.chainednode.ImmutableChainedNode;
 import ch.nolix.systemapi.webapplication.basewebclientprotocol.RequestProtocol;
 
 /**
@@ -13,21 +13,21 @@ public final class RequestCreator {
   private RequestCreator() {
   }
 
-  public static ChainedNode createGetCookieValueRequestForCookieName(final String cookieName) {
+  public static ImmutableChainedNode createGetCookieValueRequestForCookieName(final String cookieName) {
     return //
-    ChainedNode.withHeaderAndChildNode(
+    ImmutableChainedNode.withHeaderAndChildNode(
       RequestProtocol.GET_COOKIE_VALUE_BY_COOKIE_NAME,
-      ChainedNode.withHeader(cookieName));
+      ImmutableChainedNode.withHeader(cookieName));
   }
 
-  public static ChainedNode createGetTextFromClipboardRequest() {
-    return ChainedNode.withHeader(RequestProtocol.GET_TEXT_FROM_CLIPBOARD);
+  public static ImmutableChainedNode createGetTextFromClipboardRequest() {
+    return ImmutableChainedNode.withHeader(RequestProtocol.GET_TEXT_FROM_CLIPBOARD);
   }
 
-  public static ChainedNode createGetUrlParameterValueRequestForUrlParameterName(final String urlParameterName) {
+  public static ImmutableChainedNode createGetUrlParameterValueRequestForUrlParameterName(final String urlParameterName) {
     return //
-    ChainedNode.withHeaderAndChildNode(
+    ImmutableChainedNode.withHeaderAndChildNode(
       RequestProtocol.GET_URL_PARARAMETER_VALUE,
-      ChainedNode.withHeader(urlParameterName));
+      ImmutableChainedNode.withHeader(urlParameterName));
   }
 }

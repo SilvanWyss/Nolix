@@ -6,7 +6,7 @@ package ch.nolix.system.webapplication.protocol;
 import java.nio.charset.StandardCharsets;
 
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
-import ch.nolix.base.document.chainednode.ChainedNode;
+import ch.nolix.base.document.chainednode.ImmutableChainedNode;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.net.target.IServerTarget;
@@ -24,11 +24,11 @@ public final class ClientCommandCreator implements IClientCommandCreator {
   @Override
   public IChainedNode createAddOrSetCookieCommand(final String name, final String value) {
     return //
-    ChainedNode.withHeaderAndChildNodes(
+    ImmutableChainedNode.withHeaderAndChildNodes(
       CommandProtocol.SET_OR_ADD_COOKIE_WITH_NAME_AND_VALUE,
       ImmutableList.withElements(
-        ChainedNode.withHeader(name),
-        ChainedNode.withHeader(value)));
+        ImmutableChainedNode.withHeader(name),
+        ImmutableChainedNode.withHeader(value)));
   }
 
   /**
@@ -37,7 +37,7 @@ public final class ClientCommandCreator implements IClientCommandCreator {
   @Override
   public IChainedNode createDeleteCookieCommand(final String cookieName) {
     return //
-    ChainedNode.withHeaderAndChildNode(CommandProtocol.DELETE_COOKIE_BY_NAME, ChainedNode.withHeader(cookieName));
+    ImmutableChainedNode.withHeaderAndChildNode(CommandProtocol.DELETE_COOKIE_BY_NAME, ImmutableChainedNode.withHeader(cookieName));
   }
 
   /**
@@ -46,11 +46,11 @@ public final class ClientCommandCreator implements IClientCommandCreator {
   @Override
   public IChainedNode createOpenNewTabCommand(final String url) {
     return //
-    ChainedNode.withHeaderAndChildNode(
+    ImmutableChainedNode.withHeaderAndChildNode(
       CommandProtocol.OPEN_NEW_TAB,
-      ChainedNode.withHeaderAndChildNode(
+      ImmutableChainedNode.withHeaderAndChildNode(
         ObjectProtocol.URL,
-        ChainedNode.withHeader(url)));
+        ImmutableChainedNode.withHeader(url)));
   }
 
   /**
@@ -68,7 +68,7 @@ public final class ClientCommandCreator implements IClientCommandCreator {
    */
   @Override
   public IChainedNode createRedirectCommand(final String url) {
-    return ChainedNode.withHeaderAndChildNode(CommandProtocol.REDIRECT, ChainedNode.withHeader(url));
+    return ImmutableChainedNode.withHeaderAndChildNode(CommandProtocol.REDIRECT, ImmutableChainedNode.withHeader(url));
   }
 
   /**
@@ -77,7 +77,7 @@ public final class ClientCommandCreator implements IClientCommandCreator {
   @Override
   public IChainedNode createSaveFileCommand(final byte[] bytes) {
     return //
-    ChainedNode.withHeaderAndChildNodes(
+    ImmutableChainedNode.withHeaderAndChildNodes(
       CommandProtocol.SAVE_FILE,
       ImmutableNode.withHeader(new String(bytes, StandardCharsets.UTF_8)));
   }
@@ -87,6 +87,6 @@ public final class ClientCommandCreator implements IClientCommandCreator {
    */
   @Override
   public IChainedNode createWriteTextToClipBoardCommand(final String text) {
-    return ChainedNode.withHeaderAndChildNode(CommandProtocol.WRITE_TEXT_TO_CLIPBOARD, ChainedNode.withHeader(text));
+    return ImmutableChainedNode.withHeaderAndChildNode(CommandProtocol.WRITE_TEXT_TO_CLIPBOARD, ImmutableChainedNode.withHeader(text));
   }
 }

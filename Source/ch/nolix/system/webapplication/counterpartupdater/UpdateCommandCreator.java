@@ -5,7 +5,7 @@ package ch.nolix.system.webapplication.counterpartupdater;
 
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
-import ch.nolix.base.document.chainednode.ChainedNode;
+import ch.nolix.base.document.chainednode.ImmutableChainedNode;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
@@ -59,9 +59,9 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
   @Override
   public IChainedNode createSetIconCommandForIcon(final Image icon) {
     return //
-    ChainedNode.withHeaderAndNextNode(
+    ImmutableChainedNode.withHeaderAndNextNode(
       ObjectProtocol.GUI,
-      ChainedNode.withHeaderAndChildNode(CommandProtocol.SET_ICON, icon.getSpecification()));
+      ImmutableChainedNode.withHeaderAndChildNode(CommandProtocol.SET_ICON, icon.getSpecification()));
   }
 
   /**
@@ -99,9 +99,9 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
   @Override
   public IChainedNode createSetTitleCommandForTitle(final String title) {
     return //
-    ChainedNode.withHeaderAndNextNode(
+    ImmutableChainedNode.withHeaderAndNextNode(
       ObjectProtocol.GUI,
-      ChainedNode.withHeaderAndChildNodes(
+      ImmutableChainedNode.withHeaderAndChildNodes(
         CommandProtocol.SET_TITLE,
         ImmutableNode.withHeader(title)));
   }

@@ -5,7 +5,7 @@ package ch.nolix.system.webapplication.base;
 
 import java.util.Optional;
 
-import ch.nolix.base.document.chainednode.ChainedNode;
+import ch.nolix.base.document.chainednode.ImmutableChainedNode;
 import ch.nolix.base.net.clientserver.AbstractBackendClient;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
@@ -114,7 +114,7 @@ implements ICookieManager {
     runOnCounterpart(redirectToUrlCommand);
   }
 
-  final void internalRunOnCounterpart(final ChainedNode command) {
+  final void internalRunOnCounterpart(final ImmutableChainedNode command) {
     runOnCounterpart(command);
   }
 

@@ -5,7 +5,7 @@ package ch.nolix.basetest.net.executoranddataproviderserver;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.document.chainednode.ChainedNode;
+import ch.nolix.base.document.chainednode.ImmutableChainedNode;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.net.executoranddataproviderserver.NetEndPoint;
 import ch.nolix.base.net.executoranddataproviderserver.NetServer;
@@ -48,7 +48,7 @@ final class NetEndPointTest extends StandardTest {
 
       try (final var testUnit = NetEndPoint.toLocalMachineAndGivenPortAndDefaultSlot(port)) {
         // execute
-        testUnit.runCommand(ChainedNode.fromString("test_command"));
+        testUnit.runCommand(ImmutableChainedNode.fromString("test_command"));
 
         // verify
         expect(slot.getLatestCreatedReceivingDataProviderController().getLatestReceivedCommand())
@@ -69,7 +69,7 @@ final class NetEndPointTest extends StandardTest {
 
       try (final var testUnit = NetEndPoint.toLocalMachineAndGivenPortAndDefaultSlot(port)) {
         // execute
-        final var result = testUnit.getDataForRequest(ChainedNode.fromString("test_request"));
+        final var result = testUnit.getDataForRequest(ImmutableChainedNode.fromString("test_request"));
 
         // verify
         expect(slot.getLatestCreatedReceivingDataProviderController().getLatestReceivedRequest())

@@ -6,7 +6,7 @@ package ch.nolix.system.webapplication.base;
 import java.util.Base64;
 import java.util.Optional;
 
-import ch.nolix.base.document.chainednode.ChainedNode;
+import ch.nolix.base.document.chainednode.ImmutableChainedNode;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
@@ -84,7 +84,7 @@ final class FileReader {
     try {
       isWaitingForFileFromCounterpart = true;
 
-      parentBackendWebClient.internalRunOnCounterpart(ChainedNode.withHeader(CommandProtocol.SEND_OPTIONAL_FILE));
+      parentBackendWebClient.internalRunOnCounterpart(ImmutableChainedNode.withHeader(CommandProtocol.SEND_OPTIONAL_FILE));
 
       FlowController
         .forMaxSeconds(MAX_WAITING_TIME_FOR_FILE_FROM_COUNTERPART_IN_SECONDS)

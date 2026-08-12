@@ -5,7 +5,7 @@ package ch.nolix.basetest.document.chainednode;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.document.chainednode.ChainedNode;
+import ch.nolix.base.document.chainednode.ImmutableChainedNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -18,10 +18,10 @@ final class ChainedNodeTest extends StandardTest {
   @Test
   void testCase_equals_whenIsBlankAndAnUnequalChainedNodeIsGiven() {
     // setup
-    final var testUnit = ChainedNode.fromString("");
+    final var testUnit = ImmutableChainedNode.fromString("");
 
     // execute
-    final var result = testUnit.equals(ChainedNode.fromString("a"));
+    final var result = testUnit.equals(ImmutableChainedNode.fromString("a"));
 
     // verify
     expect(result).isFalse();
@@ -30,10 +30,10 @@ final class ChainedNodeTest extends StandardTest {
   @Test
   void testCase_equals_whenIsBlankAndAnEqualChainedNodeIsGiven() {
     // setup
-    final var testUnit = ChainedNode.fromString("");
+    final var testUnit = ImmutableChainedNode.fromString("");
 
     // execute
-    final var result = testUnit.equals(ChainedNode.fromString(""));
+    final var result = testUnit.equals(ImmutableChainedNode.fromString(""));
 
     // verify
     expect(result).isTrue();
@@ -42,7 +42,7 @@ final class ChainedNodeTest extends StandardTest {
   @Test
   void testCase_getOneAttributeAsInt_whenDoesNotContainAttributes() {
     // setup
-    final var testUnit = ChainedNode.withHeader("a");
+    final var testUnit = ImmutableChainedNode.withHeader("a");
 
     // setup verification
     expect(testUnit.containsChildNodes()).isFalse();
@@ -56,7 +56,7 @@ final class ChainedNodeTest extends StandardTest {
   @Test
   void testCase_getOneAttributeAsInt_whenContainsOneAttributeThatDoesNotRepresentAnInt() {
     // setup
-    final var testUnit = ChainedNode.fromString("a(b)");
+    final var testUnit = ImmutableChainedNode.fromString("a(b)");
 
     // setup verification
     expect(testUnit.getChildNodeCount()).isEqualTo(1);
@@ -70,7 +70,7 @@ final class ChainedNodeTest extends StandardTest {
   @Test
   void testCase_getOneAttributeAsInt_whenContainsOneAttributeThatRepresentsAnInt() {
     // setup
-    final var testUnit = ChainedNode.fromString("a(10)");
+    final var testUnit = ImmutableChainedNode.fromString("a(10)");
 
     // setup verification
     expect(testUnit.getChildNodeCount()).isEqualTo(1);
@@ -85,7 +85,7 @@ final class ChainedNodeTest extends StandardTest {
   @Test
   void testCase_getOneAttributeAsInt_whenContainsSeveralAttributes() {
     // setup
-    final var testUnit = ChainedNode.fromString("a(10, 20)");
+    final var testUnit = ImmutableChainedNode.fromString("a(10, 20)");
 
     // setup verification
     expect(testUnit.getChildNodeCount()).isEqualTo(2);
@@ -99,7 +99,7 @@ final class ChainedNodeTest extends StandardTest {
   @Test
   void testCase_isBlank_whenIsBlank() {
     // setup
-    final var testUnit = ChainedNode.fromString("");
+    final var testUnit = ImmutableChainedNode.fromString("");
 
     // execute
     final var result = testUnit.isBlank();
@@ -111,7 +111,7 @@ final class ChainedNodeTest extends StandardTest {
   @Test
   void testCase_isBlank_whenHasHeaderOnly() {
     // setup
-    final var testUnit = ChainedNode.withHeader("a");
+    final var testUnit = ImmutableChainedNode.withHeader("a");
 
     // execute
     final var result = testUnit.isBlank();
@@ -123,7 +123,7 @@ final class ChainedNodeTest extends StandardTest {
   @Test
   void testCase_toInt_whenDoesNotRepresentInt_A1() {
     // setup
-    final var testUnit = ChainedNode.EMPTY_CHAINED_NODE;
+    final var testUnit = ImmutableChainedNode.EMPTY_CHAINED_NODE;
 
     // execute & verify
     expectRunning(testUnit::toInt)
@@ -135,7 +135,7 @@ final class ChainedNodeTest extends StandardTest {
   @Test
   void testCase_toInt_whenDoesNotRepresentInt_A2() {
     // setup
-    final var testUnit = ChainedNode.fromString("100(x)");
+    final var testUnit = ImmutableChainedNode.fromString("100(x)");
 
     // execute & verify
     expectRunning(testUnit::toInt)
@@ -147,7 +147,7 @@ final class ChainedNodeTest extends StandardTest {
   @Test
   void testCase_toInt_whenRepresentsNegativeInt() {
     // setup
-    final var testUnit = ChainedNode.withHeader("-100");
+    final var testUnit = ImmutableChainedNode.withHeader("-100");
 
     // execute
     final var result = testUnit.toInt();
@@ -159,7 +159,7 @@ final class ChainedNodeTest extends StandardTest {
   @Test
   void testCase_toInt_whenRepresentsPositiveInt() {
     // setup
-    final var testUnit = ChainedNode.withHeader("100");
+    final var testUnit = ImmutableChainedNode.withHeader("100");
 
     // execute
     final var result = testUnit.toInt();
@@ -171,7 +171,7 @@ final class ChainedNodeTest extends StandardTest {
   @Test
   void testCase_toInt_whenRepresentsZeroInt() {
     // setup
-    final var testUnit = ChainedNode.withHeader("0");
+    final var testUnit = ImmutableChainedNode.withHeader("0");
 
     // execute
     final var result = testUnit.toInt();
@@ -183,7 +183,7 @@ final class ChainedNodeTest extends StandardTest {
   @Test
   void testCase_toNode_whenIsBlank() {
     // setup
-    final var testUnit = ChainedNode.fromString("");
+    final var testUnit = ImmutableChainedNode.fromString("");
 
     // execute
     final var result = testUnit.toNode();
@@ -195,7 +195,7 @@ final class ChainedNodeTest extends StandardTest {
   @Test
   void testCase_toNode_whenHasHeaderOnly() {
     // setup
-    final var testUnit = ChainedNode.withHeader("a");
+    final var testUnit = ImmutableChainedNode.withHeader("a");
 
     // execute
     final var result = testUnit.toNode();
@@ -207,7 +207,7 @@ final class ChainedNodeTest extends StandardTest {
   @Test
   void testCase_toNode_whenHasNextNode() {
     // setup
-    final var testUnit = ChainedNode.fromString("a.b");
+    final var testUnit = ImmutableChainedNode.fromString("a.b");
 
     // execute & verify
     expectRunning(testUnit::toNode)

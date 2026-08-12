@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.net.clientserver;
 
-import ch.nolix.base.document.chainednode.ChainedNode;
+import ch.nolix.base.document.chainednode.ImmutableChainedNode;
 import ch.nolix.base.net.executoranddataproviderserver.AbstractEndPoint;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.base.validation.validator.Validator;
@@ -120,7 +120,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Cli
    * @throws RuntimeException if the current {@link AbstractClient} is not
    *                          connected.
    */
-  protected final void runOnCounterpart(final ChainedNode... commands) {
+  protected final void runOnCounterpart(final ImmutableChainedNode... commands) {
     getStoredEndPoint().runCommands(commands);
   }
 

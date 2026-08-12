@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import ch.nolix.base.document.chainednode.ChainedNode;
+import ch.nolix.base.document.chainednode.ImmutableChainedNode;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -25,7 +25,7 @@ final class ChainedNodeCreationTest extends StandardTest {
     expect(node.isBlank()).isTrue();
 
     // execute
-    final var result = ChainedNode.fromNode(node);
+    final var result = ImmutableChainedNode.fromNode(node);
 
     // verify
     expect(result).hasStringRepresentation("");
@@ -37,7 +37,7 @@ final class ChainedNodeCreationTest extends StandardTest {
     final var node = ImmutableNode.withHeader("a");
 
     // execute
-    final var result = ChainedNode.fromNode(node);
+    final var result = ImmutableChainedNode.fromNode(node);
 
     // verify
     expect(result).hasStringRepresentation("a");
@@ -62,7 +62,7 @@ final class ChainedNodeCreationTest extends StandardTest {
   })
   void testCase_fromString(final String string) {
     // execute
-    final var result = ChainedNode.fromString(string);
+    final var result = ImmutableChainedNode.fromString(string);
 
     // verify
     expect(result).hasStringRepresentation(string);
@@ -71,7 +71,7 @@ final class ChainedNodeCreationTest extends StandardTest {
   @Test
   void testCase_withHeader_whenNullHeaderIsGiven() {
     // execute & verify
-    expectRunning(() -> ChainedNode.withHeader(null))
+    expectRunning(() -> ImmutableChainedNode.withHeader(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given header is null.");
@@ -80,7 +80,7 @@ final class ChainedNodeCreationTest extends StandardTest {
   @Test
   void testCase_withHeader_whenHeaderIsGiven() {
     // execute
-    final var result = ChainedNode.withHeader("a");
+    final var result = ImmutableChainedNode.withHeader("a");
 
     // verify
     expect(result).hasStringRepresentation("a");

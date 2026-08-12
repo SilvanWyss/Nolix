@@ -7,7 +7,7 @@ import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
-import ch.nolix.base.document.chainednode.ChainedNode;
+import ch.nolix.base.document.chainednode.ImmutableChainedNode;
 import ch.nolix.base.document.node.AbstractNode;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.errorcontrol.generalexception.GeneralException;
@@ -307,7 +307,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    */
   private String receiveAndGetReply(final String message) {
     try {
-      return receiveAndGetReply(ChainedNode.fromString(message));
+      return receiveAndGetReply(ImmutableChainedNode.fromString(message));
     } catch (final Throwable error) { // NOSONAR: All errors must be caught.
 
       Logger.logError(error);
@@ -329,7 +329,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    *                                               {@link NetEndPoint} does not
    *                                               have a receiver.
    */
-  private String receiveAndGetReply(final ChainedNode message) {
+  private String receiveAndGetReply(final ImmutableChainedNode message) {
     // Gets the receiver controller of the current NetEndPoint.
     final var receiverController = getStoredReceiverController();
 

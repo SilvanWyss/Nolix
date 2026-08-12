@@ -16,17 +16,16 @@ import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
- * A {@link ChainedNode} has the following attributes. -0 or 1 header -an
- * arbitrary number of child {@link ChainedNode}s -0 or 1 next
- * {@link ChainedNode}
+ * A {@link ImmutableChainedNode} has the following attributes. -0 or 1 header
+ * -an arbitrary number of child {@link ImmutableChainedNode}s -0 or 1 next
+ * {@link ImmutableChainedNode}
  * 
- * A {@link ChainedNode} is not mutable.
+ * A {@link ImmutableChainedNode} is not mutable.
  * 
  * @author Silvan Wyss
  */
-public final class ChainedNode // NOSONAR: A ChainedNode is a principal object thus it has many methods.
-implements IChainedNode {
-  public static final ChainedNode EMPTY_CHAINED_NODE = new ChainedNode();
+public final class ImmutableChainedNode implements IChainedNode {
+  public static final ImmutableChainedNode EMPTY_CHAINED_NODE = new ImmutableChainedNode();
 
   public static final String DOT_CODE = "$D";
 
@@ -42,29 +41,29 @@ implements IChainedNode {
 
   private String memberHeader;
 
-  private ChainedNode nextNode;
+  private ImmutableChainedNode nextNode;
 
-  private final LinkedList<ChainedNode> memberChildNodes = LinkedList.createEmpty();
+  private final LinkedList<ImmutableChainedNode> memberChildNodes = LinkedList.createEmpty();
 
   /**
-   * Creates a new empty {@link ChainedNode}.
+   * Creates a new empty {@link ImmutableChainedNode}.
    */
-  private ChainedNode() {
+  private ImmutableChainedNode() {
     memberHeader = null;
     nextNode = null;
   }
 
   /**
    * @param chainedNode
-   * @return a {@link ChainedNode} from the given chainedNode
+   * @return a {@link ImmutableChainedNode} from the given chainedNode
    * @throws RuntimeException if the given chainedNode is null
    */
-  public static ChainedNode fromChainedNode(final IChainedNode chainedNode) {
-    if (chainedNode instanceof final ChainedNode localChainedNode) {
+  public static ImmutableChainedNode fromChainedNode(final IChainedNode chainedNode) {
+    if (chainedNode instanceof final ImmutableChainedNode localChainedNode) {
       return localChainedNode;
     }
 
-    final var newChainedNode = new ChainedNode();
+    final var newChainedNode = new ImmutableChainedNode();
 
     if (chainedNode.hasHeader()) {
       newChainedNode.setHeader(chainedNode.getHeader());
@@ -81,10 +80,10 @@ implements IChainedNode {
 
   /**
    * @param node
-   * @return a new {@link ChainedNode} from the given node.
+   * @return a new {@link ImmutableChainedNode} from the given node.
    */
-  public static ChainedNode fromNode(final Node<?> node) {
-    final var chainedNode = new ChainedNode();
+  public static ImmutableChainedNode fromNode(final Node<?> node) {
+    final var chainedNode = new ImmutableChainedNode();
 
     if (node.hasHeader()) {
       chainedNode.setHeader(node.getHeader());
@@ -97,12 +96,12 @@ implements IChainedNode {
 
   /**
    * @param string
-   * @return a new {@link ChainedNode} the given string represents
+   * @return a new {@link ImmutableChainedNode} the given string represents
    * @throws RuntimeException if the given string does not represent a
-   *                          {@link ChainedNode}.
+   *                          {@link ImmutableChainedNode}.
    */
-  public static ChainedNode fromString(final String string) {
-    final var chainedNode = new ChainedNode();
+  public static ImmutableChainedNode fromString(final String string) {
+    final var chainedNode = new ImmutableChainedNode();
     chainedNode.resetFromString(string);
 
     return chainedNode;
@@ -141,12 +140,12 @@ implements IChainedNode {
 
   /**
    * @param nodes
-   * @return a new {@link ChainedNode} with the childNodes
+   * @return a new {@link ImmutableChainedNode} with the childNodes
    * @throws RuntimeException if the given nodes is null
    * @throws RuntimeException if one of the given nodes is null
    */
-  public static ChainedNode withChildNodes(final Node<?>... nodes) {
-    final var chainedNode = new ChainedNode();
+  public static ImmutableChainedNode withChildNodes(final Node<?>... nodes) {
+    final var chainedNode = new ImmutableChainedNode();
 
     chainedNode.addChildNodes(nodes);
 
@@ -154,14 +153,14 @@ implements IChainedNode {
   }
 
   /**
-   * Creates a new {@link ChainedNode} with the given attributes.
+   * Creates a new {@link ImmutableChainedNode} with the given attributes.
    * 
    * @param attributes
-   * @return a new {@link ChainedNode} with the given attributes
+   * @return a new {@link ImmutableChainedNode} with the given attributes
    * @throws RuntimeException if one of the given attributes is null
    */
-  public static ChainedNode withChildNodesFromNodes(final Iterable<? extends Node<?>> attributes) {
-    final var chainedNode = new ChainedNode();
+  public static ImmutableChainedNode withChildNodesFromNodes(final Iterable<? extends Node<?>> attributes) {
+    final var chainedNode = new ImmutableChainedNode();
     chainedNode.addChildNodesFromNodes(attributes);
 
     return chainedNode;
@@ -169,12 +168,12 @@ implements IChainedNode {
 
   /**
    * @param header
-   * @return a new {@link ChainedNode} with the given header
+   * @return a new {@link ImmutableChainedNode} with the given header
    * @throws RuntimeException if the given header is null
    * @throws RuntimeException if the given header is blank
    */
-  public static ChainedNode withHeader(final String header) {
-    final var chainedNode = new ChainedNode();
+  public static ImmutableChainedNode withHeader(final String header) {
+    final var chainedNode = new ImmutableChainedNode();
     chainedNode.setHeader(header);
 
     return chainedNode;
@@ -183,12 +182,13 @@ implements IChainedNode {
   /**
    * @param header
    * @param childNode
-   * @return a new {@link ChainedNode} with the given header and childNode
+   * @return a new {@link ImmutableChainedNode} with the given header and
+   *         childNode
    * @throws RuntimeException if the given header is null or blank
    * @throws RuntimeException if the given childNode is null
    */
-  public static ChainedNode withHeaderAndChildNode(final String header, final IChainedNode childNode) {
-    final var chainedNode = new ChainedNode();
+  public static ImmutableChainedNode withHeaderAndChildNode(final String header, final IChainedNode childNode) {
+    final var chainedNode = new ImmutableChainedNode();
 
     chainedNode.setHeader(header);
     chainedNode.addChildNodes(childNode);
@@ -199,14 +199,15 @@ implements IChainedNode {
   /**
    * @param header
    * @param childNodes
-   * @return a new {@link ChainedNode} with the given header and childNodes
+   * @return a new {@link ImmutableChainedNode} with the given header and
+   *         childNodes
    * @throws RuntimeException if the given header is null or blank
    * @throws RuntimeException if the given header is blank
    * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes is null
    */
-  public static ChainedNode withHeaderAndChildNodes(final String header, final IChainedNode... childNodes) {
-    final var chainedNode = new ChainedNode();
+  public static ImmutableChainedNode withHeaderAndChildNodes(final String header, final IChainedNode... childNodes) {
+    final var chainedNode = new ImmutableChainedNode();
 
     chainedNode.setHeader(header);
     chainedNode.addChildNodes(childNodes);
@@ -217,12 +218,13 @@ implements IChainedNode {
   /**
    * @param header
    * @param childNode
-   * @return a new {@link ChainedNode} with the given header and childNode
+   * @return a new {@link ImmutableChainedNode} with the given header and
+   *         childNode
    * @throws RuntimeException if the given header is null or blank
    * @throws RuntimeException if the given header is blank
    */
-  public static ChainedNode withHeaderAndChildNode(final String header, final Node<?> childNode) {
-    final var chainedNode = new ChainedNode();
+  public static ImmutableChainedNode withHeaderAndChildNode(final String header, final Node<?> childNode) {
+    final var chainedNode = new ImmutableChainedNode();
 
     chainedNode.setHeader(header);
     chainedNode.addChildNode(childNode);
@@ -233,15 +235,16 @@ implements IChainedNode {
   /**
    * @param header
    * @param attributes
-   * @return a new {@link ChainedNode} with the given header and attributes
+   * @return a new {@link ImmutableChainedNode} with the given header and
+   *         attributes
    * @throws RuntimeException if the given header is null
    * @throws RuntimeException if the given header is blank
    * @throws RuntimeException if one of the given attribute is null
    */
-  public static ChainedNode withHeaderAndChildNodes(
+  public static ImmutableChainedNode withHeaderAndChildNodes(
     final String header,
     final Iterable<? extends IChainedNode> attributes) {
-    final var chainedNode = new ChainedNode();
+    final var chainedNode = new ImmutableChainedNode();
     chainedNode.setHeader(header);
     chainedNode.addChildNodes(attributes);
 
@@ -251,13 +254,14 @@ implements IChainedNode {
   /**
    * @param header
    * @param childNodes
-   * @return a new {@link ChainedNode} with the given header and childNodes
+   * @return a new {@link ImmutableChainedNode} with the given header and
+   *         childNodes
    * @throws RuntimeException if the given header is null or blank
    * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes is null
    */
-  public static ChainedNode withHeaderAndChildNodes(final String header, final Node<?>... childNodes) {
-    final var chainedNode = new ChainedNode();
+  public static ImmutableChainedNode withHeaderAndChildNodes(final String header, final Node<?>... childNodes) {
+    final var chainedNode = new ImmutableChainedNode();
 
     chainedNode.setHeader(header);
     chainedNode.addChildNodes(childNodes);
@@ -266,19 +270,21 @@ implements IChainedNode {
   }
 
   /**
-   * Creates a new {@link ChainedNode} with the given header and attributes.
+   * Creates a new {@link ImmutableChainedNode} with the given header and
+   * attributes.
    * 
    * @param header
    * @param attributes
-   * @return a new {@link ChainedNode} with the given header and attributes
+   * @return a new {@link ImmutableChainedNode} with the given header and
+   *         attributes
    * @throws RuntimeException if the given header is null
    * @throws RuntimeException if the given header is blank
    * @throws RuntimeException if one of the given attributes is null
    */
-  public static ChainedNode withHeaderAndChildNodesFromNodes(
+  public static ImmutableChainedNode withHeaderAndChildNodesFromNodes(
     final String header,
     final Iterable<? extends Node<?>> attributes) {
-    final var chainedNode = new ChainedNode();
+    final var chainedNode = new ImmutableChainedNode();
     chainedNode.setHeader(header);
     chainedNode.addChildNodesFromNodes(attributes);
 
@@ -288,13 +294,13 @@ implements IChainedNode {
   /**
    * @param header
    * @param nextNode
-   * @return a new {@link ChainedNode} with the given header and nextNode
+   * @return a new {@link ImmutableChainedNode} with the given header and nextNode
    * @throws RuntimeException if the given header is null
    * @throws RuntimeException if the given header is blank
    * @throws RuntimeException if the given nextNode is null
    */
-  public static ChainedNode withHeaderAndNextNode(final String header, ChainedNode nextNode) {
-    final var chainedNode = new ChainedNode();
+  public static ImmutableChainedNode withHeaderAndNextNode(final String header, ImmutableChainedNode nextNode) {
+    final var chainedNode = new ImmutableChainedNode();
     chainedNode.setHeader(header);
     chainedNode.setNextNode(nextNode);
 
@@ -315,12 +321,12 @@ implements IChainedNode {
   @Override
   public boolean equals(final Object object) {
     return //
-    object instanceof final ChainedNode chainedNode
-    && ChainedNodeComparator.areEqual(this, chainedNode);
+    object instanceof final ImmutableChainedNode immutableChainedNode
+    && ChainedNodeComparator.areEqual(this, immutableChainedNode);
   }
 
   /**
-   * @return the number of attributes of the current {@link ChainedNode}.
+   * @return the number of attributes of the current {@link ImmutableChainedNode}.
    */
   @Override
   public int getChildNodeCount() {
@@ -329,46 +335,47 @@ implements IChainedNode {
 
   /**
    * @param index
-   * @return the attribute at the given index of the current {@link ChainedNode}
+   * @return the attribute at the given index of the current
+   *         {@link ImmutableChainedNode}
    * @throws RuntimeException                      if the given index is not
    *                                               positive
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link ChainedNode} does not
-   *                                               contain an attribute at the
-   *                                               given index.
+   *                                               {@link ImmutableChainedNode}
+   *                                               does not contain an attribute
+   *                                               at the given index.
    */
   @Override
-  public ChainedNode getChildNodeAtOneBasedIndex(final int index) {
+  public ImmutableChainedNode getChildNodeAtOneBasedIndex(final int index) {
     return memberChildNodes.getStoredAtOneBasedIndex(index);
   }
 
   /**
-   * @return the attributes of the current {@link ChainedNode}.
+   * @return the attributes of the current {@link ImmutableChainedNode}.
    */
   @Override
-  public ExtendedIterable<ChainedNode> getChildNodes() {
+  public ExtendedIterable<ImmutableChainedNode> getChildNodes() {
     return memberChildNodes;
   }
 
   /**
    * @param header
    * @return the first attribute with the given header from the current
-   *         {@link ChainedNode}
+   *         {@link ImmutableChainedNode}
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link ChainedNode} does not
-   *                                               contain an attribute with the
-   *                                               given header.
+   *                                               {@link ImmutableChainedNode}
+   *                                               does not contain an attribute
+   *                                               with the given header.
    */
   @Override
-  public ChainedNode getFirstChildNodeWithHeader(final String header) {
+  public ImmutableChainedNode getFirstChildNodeWithHeader(final String header) {
     return getChildNodes().getStoredFirst(a -> a.hasHeader(header));
   }
 
   /**
-   * @return the header of the current {@link ChainedNode}
+   * @return the header of the current {@link ImmutableChainedNode}
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link ChainedNode} does not
-   *                                               have a header.
+   *                                               {@link ImmutableChainedNode}
+   *                                               does not have a header.
    */
   @Override
   public String getHeader() {
@@ -382,13 +389,13 @@ implements IChainedNode {
   }
 
   /**
-   * @return the next node of the current {@link ChainedNode}
+   * @return the next node of the current {@link ImmutableChainedNode}
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link ChainedNode} does not
-   *                                               have a next node.
+   *                                               {@link ImmutableChainedNode}
+   *                                               does not have a next node.
    */
   @Override
-  public ChainedNode getNextNode() {
+  public ImmutableChainedNode getNextNode() {
     // Asserts that the current ChanedNode has a next node.
     if (nextNode == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, NEXT_NODE_VARIABLE_NAME);
@@ -398,14 +405,14 @@ implements IChainedNode {
   }
 
   /**
-   * @return the one attribute of the current {@link ChainedNode}
-   * @throws RuntimeException if the current {@link ChainedNode} does not contain
-   *                          an attribute
-   * @throws RuntimeException if the current {@link ChainedNode} contains several
-   *                          attributes.
+   * @return the one attribute of the current {@link ImmutableChainedNode}
+   * @throws RuntimeException if the current {@link ImmutableChainedNode} does not
+   *                          contain an attribute
+   * @throws RuntimeException if the current {@link ImmutableChainedNode} contains
+   *                          several attributes.
    */
   @Override
-  public ChainedNode getSingleChildNode() {
+  public ImmutableChainedNode getSingleChildNode() {
     return memberChildNodes.getStoredSingle();
   }
 
@@ -515,11 +522,11 @@ implements IChainedNode {
 
     // Handles the case that the current ChainedNode does not have a header.
     if (!hasHeader()) {
-      return ImmutableNode.withChildNodes(getChildNodes().getViewOf(ChainedNode::toNode));
+      return ImmutableNode.withChildNodes(getChildNodes().getViewOf(ImmutableChainedNode::toNode));
     }
 
     // Handles the case that the current ChainedNode has a header.
-    return ImmutableNode.withHeaderAndChildNodes(getHeader(), getChildNodes().getViewOf(ChainedNode::toNode));
+    return ImmutableNode.withHeaderAndChildNodes(getHeader(), getChildNodes().getViewOf(ImmutableChainedNode::toNode));
   }
 
   /**
@@ -533,7 +540,7 @@ implements IChainedNode {
   }
 
   /**
-   * Adds the given childNode to the current {@link ChainedNode}.
+   * Adds the given childNode to the current {@link ImmutableChainedNode}.
    * 
    * @param childNode
    * @throws RuntimeException if the given childNode is null
@@ -543,7 +550,7 @@ implements IChainedNode {
   }
 
   /**
-   * Adds the given childNodes to the current {@link ChainedNode}.
+   * Adds the given childNodes to the current {@link ImmutableChainedNode}.
    * 
    * @param childNodes
    * @throws RuntimeException the given childNodes is null
@@ -558,7 +565,7 @@ implements IChainedNode {
   }
 
   /**
-   * Adds the given childNodes to the current {@link ChainedNode}.
+   * Adds the given childNodes to the current {@link ImmutableChainedNode}.
    * 
    * @param childNodes
    * @throws RuntimeException if the given childNodes is null
@@ -571,15 +578,15 @@ implements IChainedNode {
   }
 
   /**
-   * Adds the given attributes to the current {@link ChainedNode}.
+   * Adds the given attributes to the current {@link ImmutableChainedNode}.
    * 
    * @param childNodes
    * @throws RuntimeException if one of the given attribute is null
    */
   private void addChildNodes(final Iterable<? extends IChainedNode> childNodes) {
     for (final var c : childNodes) {
-      if (c instanceof final ChainedNode chainedNode) {
-        memberChildNodes.addAtEnd(chainedNode);
+      if (c instanceof final ImmutableChainedNode immutableChainedNode) {
+        memberChildNodes.addAtEnd(immutableChainedNode);
       } else {
         memberChildNodes.addAtEnd(fromChainedNode(c));
       }
@@ -587,7 +594,7 @@ implements IChainedNode {
   }
 
   /**
-   * Adds the given attributes to the current {@link ChainedNode}.
+   * Adds the given attributes to the current {@link ImmutableChainedNode}.
    * 
    * @param attributes
    */
@@ -598,8 +605,8 @@ implements IChainedNode {
   }
 
   /**
-   * Appends the {@link String} representation of the current {@link ChainedNode}
-   * to the given stringBuilder.
+   * Appends the {@link String} representation of the current
+   * {@link ImmutableChainedNode} to the given stringBuilder.
    * 
    * @param stringBuilder
    */
@@ -639,7 +646,7 @@ implements IChainedNode {
     final int startIndex) {
     var nextIndex = startIndex;
 
-    final var node = new ChainedNode();
+    final var node = new ImmutableChainedNode();
     nextIndex = node.setFromStringAndStartIndexAndGetNextIndex(string, nextIndex);
     memberChildNodes.addAtEnd(node);
 
@@ -647,7 +654,7 @@ implements IChainedNode {
       final var character = string.charAt(nextIndex);
 
       if (character == ',') {
-        final var node2 = new ChainedNode();
+        final var node2 = new ImmutableChainedNode();
         nextIndex = node2.setFromStringAndStartIndexAndGetNextIndex(string, nextIndex + 1);
         memberChildNodes.addAtEnd(node2);
       } else if (character == ')') {
@@ -667,13 +674,13 @@ implements IChainedNode {
   }
 
   private int mapNextNodeFromStringAndStartIndexAndGetNextIndex(final String string, final int startIndex) {
-    nextNode = new ChainedNode();
+    nextNode = new ImmutableChainedNode();
 
     return nextNode.setFromStringAndStartIndexAndGetNextIndex(string, startIndex);
   }
 
   /**
-   * Resets the current {@link ChainedNode}.
+   * Resets the current {@link ImmutableChainedNode}.
    */
   private void reset() {
     memberHeader = null;
@@ -682,11 +689,11 @@ implements IChainedNode {
   }
 
   /**
-   * Resets the current {@link ChainedNode} from the given string.
+   * Resets the current {@link ImmutableChainedNode} from the given string.
    * 
    * @param string
    * @throws RuntimeException if the given string does nor represent a
-   *                          {@link ChainedNode}.
+   *                          {@link ImmutableChainedNode}.
    */
   private void resetFromString(final String string) {
     reset();
@@ -694,14 +701,14 @@ implements IChainedNode {
     if (setFromStringAndStartIndexAndGetNextIndex(string, 0) != string.length()) {
       reset();
 
-      throw UnrepresentingArgumentException.forArgumentAndType(string, ChainedNode.class);
+      throw UnrepresentingArgumentException.forArgumentAndType(string, ImmutableChainedNode.class);
     }
   }
 
   /**
-   * Sets the current {@link ChainedNode} from the given string starting from the
-   * given startIndex. The given startIndex and the returned next index are
-   * zero-based.
+   * Sets the current {@link ImmutableChainedNode} from the given string starting
+   * from the given startIndex. The given startIndex and the returned next index
+   * are zero-based.
    * 
    * @param string
    * @param startIndex
@@ -732,7 +739,7 @@ implements IChainedNode {
   }
 
   /**
-   * Sets the header of the current {@link ChainedNode}.
+   * Sets the header of the current {@link ImmutableChainedNode}.
    * 
    * @param header
    * @throws RuntimeException if the given header is null
@@ -756,7 +763,7 @@ implements IChainedNode {
   }
 
   /**
-   * Sets the next node of the current {@link ChainedNode}.
+   * Sets the next node of the current {@link ImmutableChainedNode}.
    * 
    * @param nextNode
    * @throws RuntimeException if the given nextNode is null
@@ -767,17 +774,17 @@ implements IChainedNode {
       throw ArgumentIsNullException.forArgumentName(NEXT_NODE_VARIABLE_NAME);
     }
 
-    if (nextNode instanceof final ChainedNode chainedNode) {
-      this.nextNode = chainedNode;
+    if (nextNode instanceof final ImmutableChainedNode immutableChainedNode) {
+      this.nextNode = immutableChainedNode;
     } else {
       this.nextNode = fromChainedNode(nextNode);
     }
   }
 
   /**
-   * Sets the probable header of the current {@link ChainedNode}. The header is in
-   * the given string starting from the given startIndex and has the given
-   * headerLength.
+   * Sets the probable header of the current {@link ImmutableChainedNode}. The
+   * header is in the given string starting from the given startIndex and has the
+   * given headerLength.
    * 
    * @param string
    * @param startIndex
