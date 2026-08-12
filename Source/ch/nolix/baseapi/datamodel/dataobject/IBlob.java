@@ -7,7 +7,7 @@ package ch.nolix.baseapi.datamodel.dataobject;
  * @author Silvan Wyss
  */
 public interface IBlob {
-  byte[] getStoredBytes();
+  int getSizeInBytes();
 
-  int getSize();
+  byte[] getStoredBytes();
 }
