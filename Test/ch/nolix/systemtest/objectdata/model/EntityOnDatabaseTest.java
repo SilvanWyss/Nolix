@@ -12,7 +12,7 @@ import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.ValueField;
-import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobject.model.DatabaseObjectState;
 
 /**
  * @author Silvan Wyss

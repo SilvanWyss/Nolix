@@ -8,7 +8,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.DeletedArgumentExc
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NewArgumentException;
 import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
-import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobject.model.DatabaseObjectState;
 
 abstract class AbstractSchemaObject implements DatabaseObject {
   private DatabaseObjectState state = DatabaseObjectState.NEW;

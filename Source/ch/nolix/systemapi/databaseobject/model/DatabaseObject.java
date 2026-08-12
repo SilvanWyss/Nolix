@@ -5,7 +5,6 @@ package ch.nolix.systemapi.databaseobject.model;
 
 import ch.nolix.baseapi.generalstate.staterequest.StateRequestable;
 import ch.nolix.baseapi.resourcecontrol.resourcerequest.OpennessRequestable;
-import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.databaseobject.request.CreationRequestable;
 import ch.nolix.systemapi.databaseobject.request.DatabaseConnectionRequestable;
 import ch.nolix.systemapi.databaseobject.request.DeletionRequestable;

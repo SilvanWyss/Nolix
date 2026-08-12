@@ -12,7 +12,7 @@ import ch.nolix.system.objectdata.model.AbstractField;
 import ch.nolix.system.objectdata.model.Column;
 import ch.nolix.system.objectdata.model.FieldMapper;
 import ch.nolix.system.objectdata.model.Table;
-import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobject.model.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 /**

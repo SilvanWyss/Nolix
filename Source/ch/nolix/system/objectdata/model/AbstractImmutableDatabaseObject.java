@@ -7,7 +7,7 @@ import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
-import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobject.model.DatabaseObjectState;
 
 abstract class AbstractImmutableDatabaseObject implements GroupCloseable, DatabaseObject {
   private final ICloseController closeController = CloseController.forElement(this);

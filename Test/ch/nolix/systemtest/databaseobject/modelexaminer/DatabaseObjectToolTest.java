@@ -9,7 +9,7 @@ import org.mockito.Mockito;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
-import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobject.model.DatabaseObjectState;
 
 /**
  * @author Silvan Wyss

@@ -15,7 +15,7 @@ import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.system.objectdata.fieldexaminer.MultiReferenceExaminer;
 import ch.nolix.system.objectdata.fieldvalidator.MultiReferenceValidator;
-import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobject.model.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.model.BaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
