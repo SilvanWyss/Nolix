@@ -13,7 +13,7 @@ import ch.nolix.baseapi.net.netproperty.SecurityMode;
  * @author Silvan Wyss
  */
 public final class Server extends AbstractServer {
-  private final ch.nolix.base.net.senderandreplierserver.NetServer internalServer;
+  private final ch.nolix.base.net.senderandreplierserver.Server internalServer;
 
   /**
    * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on
@@ -24,7 +24,7 @@ public final class Server extends AbstractServer {
    */
   private Server(final int port) {
     // Creates the internal net server of the current net server.
-    internalServer = ch.nolix.base.net.senderandreplierserver.NetServer.forPort(port);
+    internalServer = ch.nolix.base.net.senderandreplierserver.Server.forPort(port);
 
     // Creates a close dependency to the internal net server of the current net
     // server.
@@ -46,7 +46,7 @@ public final class Server extends AbstractServer {
    */
   private Server(final int port, final String httpMessage) {
     // Creates the internal net server of the current net server.
-    internalServer = ch.nolix.base.net.senderandreplierserver.NetServer.forPortAndHttpMessage(port, httpMessage);
+    internalServer = ch.nolix.base.net.senderandreplierserver.Server.forPortAndHttpMessage(port, httpMessage);
 
     // Creates a close dependency to the internal net server of the current net
     // server.
