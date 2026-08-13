@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectdata.modelexaminer;
 
-import ch.nolix.system.databaseobject.modelexaminer.AbstractDatabaseObjectExaminer;
+import ch.nolix.system.database.databaseobjectexaminer.AbstractDatabaseObjectExaminer;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;

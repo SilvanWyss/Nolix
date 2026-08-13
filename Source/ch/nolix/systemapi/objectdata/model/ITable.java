@@ -9,7 +9,7 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.IdHolder;
 import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.objectcomposition.datamodelcomponent.DatabaseComponent;
-import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
+import ch.nolix.systemapi.database.databaseobject.DatabaseObject;
 
 /**
  * @author Silvan Wyss

@@ -7,9 +7,9 @@ import ch.nolix.baseapi.attribute.fluentmutablemandatoryattribute.FluentMutableN
 import ch.nolix.baseapi.attribute.mandatoryattribute.IdHolder;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.objectcomposition.datamodelcomponent.DatabaseComponent;
+import ch.nolix.systemapi.database.databaseobject.DatabaseObject;
+import ch.nolix.systemapi.database.databaseobject.Deletable;
 import ch.nolix.systemapi.database.databaseproperty.DataType;
-import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
-import ch.nolix.systemapi.databaseobject.model.Deletable;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 /**

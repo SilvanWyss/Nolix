@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.modelexaminer;
 
-import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
+import ch.nolix.systemapi.database.databaseobjectexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 
 /**

@@ -4,9 +4,9 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
+import ch.nolix.system.database.databaseobjectvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
-import ch.nolix.systemapi.databaseobject.model.DatabaseObjectState;
+import ch.nolix.systemapi.database.databaseobject.DatabaseObjectState;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReference;

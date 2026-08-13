@@ -1,15 +1,15 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemtest.databaseobject.modelexaminer;
+package ch.nolix.systemtest.database.databaseobjectexaminer;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
-import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
-import ch.nolix.systemapi.databaseobject.model.DatabaseObjectState;
+import ch.nolix.system.database.databaseobjectexaminer.DatabaseObjectExaminer;
+import ch.nolix.systemapi.database.databaseobject.DatabaseObject;
+import ch.nolix.systemapi.database.databaseobject.DatabaseObjectState;
 
 /**
  * @author Silvan Wyss

@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.databaseobject.model;
+package ch.nolix.systemapi.database.databaseobject;
 
 /**
  * @author Silvan Wyss

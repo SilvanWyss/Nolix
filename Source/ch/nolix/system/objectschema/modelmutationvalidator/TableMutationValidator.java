@@ -5,7 +5,7 @@ package ch.nolix.system.objectschema.modelmutationvalidator;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
+import ch.nolix.system.database.databaseobjectvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectschema.modelexaminer.ColumnExaminer;
 import ch.nolix.system.objectschema.modelvalidator.DatabaseValidator;
 import ch.nolix.system.objectschema.modelvalidator.TableValidator;

@@ -6,7 +6,7 @@ package ch.nolix.systemapi.objectdata.model;
 import ch.nolix.baseapi.attribute.mandatoryattribute.IdHolder;
 import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
+import ch.nolix.systemapi.database.databaseobject.DatabaseObject;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 /**

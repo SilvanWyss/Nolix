@@ -7,7 +7,7 @@ import java.util.Optional;
 
 import ch.nolix.baseapi.objectcomposition.datamodelcomponent.DatabaseComponent;
 import ch.nolix.baseapi.objectcomposition.datamodelcomponent.TableComponent;
-import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
+import ch.nolix.systemapi.database.databaseobject.DatabaseObject;
 
 /**
  * @author Silvan Wyss

@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.model;
 
-import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
+import ch.nolix.systemapi.database.databaseobject.DatabaseObject;
 
 /**
  * @author Silvan Wyss

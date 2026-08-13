@@ -1,10 +1,10 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.databaseobject.modelvalidator;
+package ch.nolix.systemapi.database.databaseobjectvalidator;
 
 import ch.nolix.baseapi.resourcecontrol.resourcevalidator.IResourceValidator;
-import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
+import ch.nolix.systemapi.database.databaseobject.DatabaseObject;
 
 /**
  * @author Silvan Wyss

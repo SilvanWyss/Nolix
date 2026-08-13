@@ -1,9 +1,9 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.databaseobject.modelexaminer;
+package ch.nolix.systemapi.database.databaseobjectexaminer;
 
-import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
+import ch.nolix.systemapi.database.databaseobject.DatabaseObject;
 
 /**
  * @author Silvan Wyss

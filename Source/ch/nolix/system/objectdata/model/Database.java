@@ -8,7 +8,7 @@ import ch.nolix.base.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
-import ch.nolix.systemapi.databaseobject.model.DatabaseObjectState;
+import ch.nolix.systemapi.database.databaseobject.DatabaseObjectState;
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntity;

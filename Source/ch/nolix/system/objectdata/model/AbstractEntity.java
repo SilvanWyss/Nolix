@@ -10,11 +10,11 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentExce
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
+import ch.nolix.system.database.databaseobjectvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectdata.modelflyweight.EntityFlyWeight;
 import ch.nolix.system.objectdata.modelflyweight.VoidEntityFlyWeight;
 import ch.nolix.system.objectdata.modelvalidator.EntityValidator;
-import ch.nolix.systemapi.databaseobject.model.DatabaseObjectState;
+import ch.nolix.systemapi.database.databaseobject.DatabaseObjectState;
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.IDatabase;

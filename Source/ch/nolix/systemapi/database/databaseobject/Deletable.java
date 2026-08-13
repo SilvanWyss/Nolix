@@ -1,9 +1,9 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.databaseobject.model;
+package ch.nolix.systemapi.database.databaseobject;
 
-import ch.nolix.systemapi.databaseobject.request.DeletionRequestable;
+import ch.nolix.systemapi.database.databaserequest.DeletionRequestable;
 
 /**
  * @author Silvan Wyss

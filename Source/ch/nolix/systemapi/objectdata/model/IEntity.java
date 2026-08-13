@@ -8,8 +8,8 @@ import ch.nolix.baseapi.attribute.optionalattribute.OptionalSaveStampHolder;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.objectcomposition.datamodelcomponent.DatabaseComponent;
 import ch.nolix.baseapi.objectcomposition.datamodelcomponent.TableComponent;
-import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
-import ch.nolix.systemapi.databaseobject.model.Deletable;
+import ch.nolix.systemapi.database.databaseobject.DatabaseObject;
+import ch.nolix.systemapi.database.databaseobject.Deletable;
 
 /**
  * @author Silvan Wyss
