@@ -12,7 +12,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotCon
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.net.clientserver.Application;
-import ch.nolix.baseapi.net.clientserver.IServer;
+import ch.nolix.baseapi.net.clientserver.Server;
 import ch.nolix.baseapi.net.executoranddataproviderserver.EndPoint;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 
@@ -23,7 +23,7 @@ import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
  * @param <S> the type of a {@link AbstractServer}.
  * @author Silvan Wyss
  */
-public abstract class AbstractServer<S extends AbstractServer<S>> implements IServer<S> {
+public abstract class AbstractServer<S extends AbstractServer<S>> implements Server<S> {
   private final ICloseController closeController = CloseController.forElement(this);
 
   private AbstractApplication<?, ?> memberDefaultApplication;
