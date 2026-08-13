@@ -10,7 +10,7 @@ import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.system.midschema.databaseinitializer.AbstractDatabaseInitializer;
 import ch.nolix.system.sqlschema.adapter.SchemaWriter;
 import ch.nolix.systemapi.midschema.databaseinitializer.DatabaseState;
-import ch.nolix.systemapi.time.moment.ITime;
+import ch.nolix.systemapi.time.main.ITime;
 
 /**
  * @author Silvan Wyss

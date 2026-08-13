@@ -12,7 +12,7 @@ import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDto;
 import ch.nolix.systemapi.middata.model.MultiReferenceEntryDeletionDto;
 import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
 import ch.nolix.systemapi.middata.model.MultiValueEntryDto;
-import ch.nolix.systemapi.time.moment.ITime;
+import ch.nolix.systemapi.time.main.ITime;
 
 /**
  * @author Silvan Wyss

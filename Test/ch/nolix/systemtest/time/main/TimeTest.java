@@ -1,13 +1,13 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemtest.time.moment;
+package ch.nolix.systemtest.time.main;
 
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.time.timestructure.Weekday;
+import ch.nolix.system.time.main.Time;
+import ch.nolix.systemapi.time.main.Weekday;
 
 /**
  * @author Silvan Wyss

@@ -22,7 +22,7 @@ import ch.nolix.system.nodemidschema.nodesearcher.DatabasePropertiesNodeSearcher
 import ch.nolix.systemapi.database.databaseproperty.BaseCardinality;
 import ch.nolix.systemapi.middata.model.EntityUpdateDto;
 import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
-import ch.nolix.systemapi.time.moment.ITime;
+import ch.nolix.systemapi.time.main.ITime;
 
 /**
  * @author Silvan Wyss

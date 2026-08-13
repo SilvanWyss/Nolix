@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.nodemidschema.nodesearcher;
 
 import ch.nolix.baseapi.document.node.IMutableNode;
-import ch.nolix.systemapi.time.moment.ITime;
+import ch.nolix.systemapi.time.main.ITime;
 
 /**
  * @author Silvan Wyss

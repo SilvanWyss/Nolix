@@ -6,7 +6,7 @@ package ch.nolix.systemapi.midschema.adapter;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.systemapi.midschema.model.TableDto;
-import ch.nolix.systemapi.time.moment.ITime;
+import ch.nolix.systemapi.time.main.ITime;
 
 /**
  * @author Silvan Wyss

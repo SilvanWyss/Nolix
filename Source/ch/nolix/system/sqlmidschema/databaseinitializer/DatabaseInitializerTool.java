@@ -18,7 +18,7 @@ import ch.nolix.system.sqlmidschema.sqlschemadtocatalog.TableTableSqlSchemaDtoCa
 import ch.nolix.system.sqlmidschema.statementcreator.DatabaseInitializationStatementCreator;
 import ch.nolix.systemapi.sqlmidschema.databaseinitializer.IDatabaseInitializerTool;
 import ch.nolix.systemapi.sqlschema.adapter.ISchemaWriter;
-import ch.nolix.systemapi.time.moment.ITime;
+import ch.nolix.systemapi.time.main.ITime;
 
 /**
  * A {@link DatabaseInitializerTool} is not mutable.

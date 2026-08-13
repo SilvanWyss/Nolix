@@ -1,9 +1,11 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.time.moment;
+package ch.nolix.systemapi.time.timetool;
 
 import java.time.ZonedDateTime;
+
+import ch.nolix.systemapi.time.main.ITime;
 
 /**
  * The {@link ZonedDateTime#now()} method delivers {@link ZonedDateTime} with a

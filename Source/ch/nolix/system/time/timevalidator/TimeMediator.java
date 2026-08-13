@@ -4,7 +4,7 @@
 package ch.nolix.system.time.timevalidator;
 
 import ch.nolix.base.validation.object.AbstractObjectMediator;
-import ch.nolix.systemapi.time.moment.ITime;
+import ch.nolix.systemapi.time.main.ITime;
 
 /**
  * @author Silvan Wyss

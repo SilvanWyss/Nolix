@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.system.time.moment;
+package ch.nolix.system.time.main;
 
 import java.time.Year;
 import java.time.ZoneId;
@@ -15,10 +15,12 @@ import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.baseapi.generalcatalog.unitconversioncatalog.TimeUnitConversionCatalog;
 import ch.nolix.system.element.base.AbstractElement;
-import ch.nolix.systemapi.time.moment.ITime;
-import ch.nolix.systemapi.time.timestructure.Month;
-import ch.nolix.systemapi.time.timestructure.TimeZone;
-import ch.nolix.systemapi.time.timestructure.Weekday;
+import ch.nolix.system.time.timemapper.TimeZoneMapper;
+import ch.nolix.system.time.timemapper.ZoneOffsetMapper;
+import ch.nolix.systemapi.time.main.ITime;
+import ch.nolix.systemapi.time.main.Month;
+import ch.nolix.systemapi.time.main.TimeZone;
+import ch.nolix.systemapi.time.main.Weekday;
 
 /**
  * A {@link Time} is not mutable. Technically, a {@link Time} is a wrapper

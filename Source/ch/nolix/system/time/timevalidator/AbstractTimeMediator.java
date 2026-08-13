@@ -5,7 +5,7 @@ package ch.nolix.system.time.timevalidator;
 
 import ch.nolix.base.validation.object.AbstractObjectMediator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.time.moment.ITime;
+import ch.nolix.systemapi.time.main.ITime;
 
 public abstract class AbstractTimeMediator extends AbstractObjectMediator<ITime> {
   protected AbstractTimeMediator(final ITime argument) {

@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.sqlmidschema.statementcreator;
 
-import ch.nolix.systemapi.time.moment.ITime;
+import ch.nolix.systemapi.time.main.ITime;
 
 /**
  * @author Silvan Wyss

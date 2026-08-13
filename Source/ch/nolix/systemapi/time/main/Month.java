@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.time.timestructure;
+package ch.nolix.systemapi.time.main;
 
 import ch.nolix.baseapi.document.node.Node;
 

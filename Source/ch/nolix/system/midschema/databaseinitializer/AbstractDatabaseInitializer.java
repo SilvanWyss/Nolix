@@ -5,10 +5,10 @@ package ch.nolix.system.midschema.databaseinitializer;
 
 import ch.nolix.base.errorcontrol.generalexception.GeneralException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.time.moment.Time;
+import ch.nolix.system.time.main.Time;
 import ch.nolix.systemapi.midschema.databaseinitializer.IDatabaseInitializer;
-import ch.nolix.systemapi.time.moment.ITime;
-import ch.nolix.systemapi.time.timestructure.TimeZone;
+import ch.nolix.systemapi.time.main.ITime;
+import ch.nolix.systemapi.time.main.TimeZone;
 
 /**
  * @author Silvan Wyss

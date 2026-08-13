@@ -5,7 +5,7 @@ package ch.nolix.systemapi.sqlmidschema.databaseinitializer;
 
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.systemapi.sqlschema.adapter.ISchemaWriter;
-import ch.nolix.systemapi.time.moment.ITime;
+import ch.nolix.systemapi.time.main.ITime;
 
 /**
  * @author Silvan Wyss

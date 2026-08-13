@@ -1,13 +1,13 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.system.time.moment;
+package ch.nolix.system.time.timemapper;
 
 import java.time.ZoneOffset;
 
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.time.moment.ITimeZoneMapper;
-import ch.nolix.systemapi.time.timestructure.TimeZone;
+import ch.nolix.systemapi.time.main.TimeZone;
+import ch.nolix.systemapi.time.timemapper.ITimeZoneMapper;
 
 /**
  * @author Silvan Wyss

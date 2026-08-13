@@ -8,7 +8,7 @@ import ch.nolix.systemapi.midschema.databasestructure.DatabaseProperty;
 import ch.nolix.systemapi.sqlmiddatabasestructure.column.DatabasePropertyColumn;
 import ch.nolix.systemapi.sqlmiddatabasestructure.table.MetaDataTable;
 import ch.nolix.systemapi.sqlmidschema.statementcreator.IDatabasePropertiesStatementCreator;
-import ch.nolix.systemapi.time.moment.ITime;
+import ch.nolix.systemapi.time.main.ITime;
 
 /**
  * @author Silvan Wyss

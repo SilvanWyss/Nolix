@@ -1,12 +1,9 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.time.moment;
+package ch.nolix.systemapi.time.main;
 
 import ch.nolix.systemapi.element.base.Element;
-import ch.nolix.systemapi.time.timestructure.Month;
-import ch.nolix.systemapi.time.timestructure.TimeZone;
-import ch.nolix.systemapi.time.timestructure.Weekday;
 
 /**
  * A {@link ITime} stores a time with a precision of 1 microsecond.

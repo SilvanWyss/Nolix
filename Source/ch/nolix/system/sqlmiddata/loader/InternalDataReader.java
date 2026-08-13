@@ -15,7 +15,7 @@ import ch.nolix.system.sqlmiddata.querycreator.EntityQueryCreator;
 import ch.nolix.system.sqlmiddata.querycreator.MultiBackReferenceQueryCreator;
 import ch.nolix.system.sqlmiddata.querycreator.MultiReferenceQueryCreator;
 import ch.nolix.system.sqlmiddata.querycreator.MultiValueQueryCreator;
-import ch.nolix.system.time.moment.Time;
+import ch.nolix.system.time.main.Time;
 import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDto;
 import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
