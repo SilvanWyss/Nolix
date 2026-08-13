@@ -28,8 +28,6 @@ final class TemplateArchitectureTest {
         "ch.nolix.baseapi..",
         "ch.nolix.system..",
         "ch.nolix.systemapi..",
-        "ch.nolix.tech..",
-        "ch.nolix.techapi..",
         "ch.nolix.template..",
         "java..");
 

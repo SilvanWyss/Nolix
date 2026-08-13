@@ -3,10 +3,10 @@
  */
 package ch.nolix.template.math.sequence;
 
-import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
-import ch.nolix.tech.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
-import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
-import ch.nolix.techapi.math.bigdecimalmath.ISequenceDefinedBy1Predecessor;
+import ch.nolix.system.math.bigdecimalmath.ComplexNumber;
+import ch.nolix.system.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
+import ch.nolix.systemapi.math.bigdecimalmath.IComplexNumber;
+import ch.nolix.systemapi.math.bigdecimalmath.ISequenceDefinedBy1Predecessor;
 
 /**
  * @author Silvan Wyss
