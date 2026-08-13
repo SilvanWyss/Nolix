@@ -28,6 +28,19 @@ extends Clearable, GroupCloseable, ApplicationManager<Application<?, ?>>, Securi
   S addApplication(final Application<?, ?> application);
 
   /**
+   * Adds the given defaultApplication to the current {@link Server}.
+   * 
+   * @param defaultApplication
+   * @param <C>                the type of the {@link BackendClient} of the given
+   *                           defaultApplication
+   * @param <T>                the type of the application context of the given
+   *                           defaultApplication
+   * @return the current {@link Server}
+   * @throws RuntimeException if the given defaultApplication is null
+   */
+  <C extends BackendClient<T>, T> S addDefaultApplication(Application<C, T> defaultApplication);
+
+  /**
    * @return a target representation of the current {@link Server}.
    */
   IServerTarget asTarget();

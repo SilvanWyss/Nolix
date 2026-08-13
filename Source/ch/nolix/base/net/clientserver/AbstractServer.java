@@ -12,6 +12,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotCon
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.net.clientserver.Application;
+import ch.nolix.baseapi.net.clientserver.BackendClient;
 import ch.nolix.baseapi.net.clientserver.Server;
 import ch.nolix.baseapi.net.executoranddataproviderserver.EndPoint;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
@@ -140,26 +141,18 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
   }
 
   /**
-   * Adds the given defaultApplication to the current {@link AbstractServer}. A
-   * default {@link AbstractApplication} takes all {@link AbstractClient}s that do
-   * not have a target.
-   * 
-   * @param defaultApplication
-   * @param <C>                the type of the {@link AbstractBackendClient} of
-   *                           the given defaultApplication
-   * @param <U>                the type of the context of the given
-   *                           defaultApplication
-   * @return the current {@link AbstractServer}
-   * @throws RuntimeException if the given defaultApplication is null
+   * {@inheritDoc}
    */
-  public final <C extends AbstractBackendClient<C, U>, U> S addDefaultApplication(
-    final AbstractApplication<C, U> defaultApplication) {
-    defaultApplication.setParentServer(this);
+  @Override
+  public <C extends BackendClient<T>, T> S addDefaultApplication(Application<C, T> defaultApplication) {
+    final var localDefaultApplication = (AbstractApplication<?, ?>) defaultApplication;
 
-    addApplicationToList(defaultApplication);
-    memberDefaultApplication = defaultApplication;
+    localDefaultApplication.setParentServer(this);
 
-    noteAddedDefaultApplication(defaultApplication);
+    addApplicationToList(localDefaultApplication);
+    memberDefaultApplication = localDefaultApplication;
+
+    noteAddedDefaultApplication(localDefaultApplication);
 
     return asConcrete();
   }
