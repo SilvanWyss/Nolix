@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.webgui.controltool;
 
-import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.graphic.color.IColor;
+import ch.nolix.systemapi.webgui.base.IAbsoluteOrRelativeInt;
 
 /**
  * @author Silvan Wyss

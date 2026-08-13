@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemtest.element.relativevalue;
+package ch.nolix.systemtest.webgui.base;
 
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +9,7 @@ import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
+import ch.nolix.system.webgui.base.AbsoluteOrRelativeInt;
 
 /**
  * @author Silvan Wyss

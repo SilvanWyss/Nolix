@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.system.element.relativevalue;
+package ch.nolix.system.webgui.base;
 
 import java.text.DecimalFormat;
 
@@ -15,7 +15,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.element.base.AbstractElement;
-import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
+import ch.nolix.systemapi.webgui.base.IAbsoluteOrRelativeInt;
 
 /**
  * A {@link AbsoluteOrRelativeInt} stores either an integer or a percentage. A

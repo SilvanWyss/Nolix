@@ -18,14 +18,14 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNam
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
 import ch.nolix.system.element.extensionproperty.ExtensionProperty;
-import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
-import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeIntValidator;
 import ch.nolix.system.element.valueproperty.OptionalValueProperty;
 import ch.nolix.system.element.valueproperty.ValueProperty;
 import ch.nolix.system.style.stylable.AbstractStylableElement;
-import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
+import ch.nolix.system.webgui.base.AbsoluteOrRelativeInt;
+import ch.nolix.system.webgui.base.AbsoluteOrRelativeIntValidator;
 import ch.nolix.systemapi.gui.guiproperty.CursorIcon;
 import ch.nolix.systemapi.style.stylable.StylableElement;
+import ch.nolix.systemapi.webgui.base.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.webgui.controlstyle.ControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;

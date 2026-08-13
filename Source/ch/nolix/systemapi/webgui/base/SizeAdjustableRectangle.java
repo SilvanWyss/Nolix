@@ -3,8 +3,6 @@
  */
 package ch.nolix.systemapi.webgui.base;
 
-import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
-
 /**
  * @author Silvan Wyss
  * @param <B> the type of a {@link SizeAdjustableRectangle}.

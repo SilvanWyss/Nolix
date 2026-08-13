@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.webgui.controlstyle;
 
-import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
+import ch.nolix.systemapi.webgui.base.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
 
 /**
