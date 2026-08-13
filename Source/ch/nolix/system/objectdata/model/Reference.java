@@ -8,8 +8,6 @@ import java.util.Optional;
 import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.system.objectdata.fieldvalidator.ReferenceValidator;
@@ -26,7 +24,7 @@ import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the {@link IEntity} a {@link Reference} references.
+ * @param <E> the type of the {@link IEntity} a {@link Reference} references
  */
 public final class Reference<E extends IEntity> extends AbstractBaseReference<E> implements IReference<E> {
   private static final DatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
@@ -169,21 +167,13 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   }
 
   // For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void internalSetNullableValue(final Object nullableValue, final String nullableAdditionalValue) {
-    final var id = (String) nullableValue;
-
-    if (id == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.ID);
-    }
-
-    final var tableId = nullableAdditionalValue;
-
-    if (tableId == null) {
-      throw ArgumentIsNullException.forArgumentName("table id");
-    }
-
-    nullableReferencedEntityCache = new EntityCache<>(id, tableId, null);
+    nullableReferencedEntityCache = //
+    ReferenceHelper.createEntityCacheFromIdAndTableId(nullableValue, nullableAdditionalValue);
   }
 
   /**
