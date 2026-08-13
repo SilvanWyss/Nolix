@@ -13,7 +13,7 @@ import ch.nolix.baseapi.net.senderandreplierserver.Slot;
  * @author Silvan Wyss
  */
 public final class NetServer extends AbstractServer {
-  private final ch.nolix.base.net.senderandreceiverserver.NetServer internalNetServer;
+  private final ch.nolix.base.net.senderandreceiverserver.Server internalNetServer;
 
   /**
    * Creates a new {@link NetServer} that will listen to {@link NetEndPoint}s on
@@ -24,7 +24,7 @@ public final class NetServer extends AbstractServer {
    */
   private NetServer(final int port) {
     // Creates the internal net server of the current net server.
-    internalNetServer = ch.nolix.base.net.senderandreceiverserver.NetServer.forPort(port);
+    internalNetServer = ch.nolix.base.net.senderandreceiverserver.Server.forPort(port);
 
     // Creates a close dependency to the internal net server of the current net
     // server.
@@ -46,7 +46,7 @@ public final class NetServer extends AbstractServer {
    */
   private NetServer(final int port, final String httpMessage) {
     internalNetServer = //
-    ch.nolix.base.net.senderandreceiverserver.NetServer.forPortAndInitialHttpMessage(port, httpMessage);
+    ch.nolix.base.net.senderandreceiverserver.Server.forPortAndInitialHttpMessage(port, httpMessage);
 
     createCloseDependencyTo(internalNetServer);
   }

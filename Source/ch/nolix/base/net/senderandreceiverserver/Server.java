@@ -12,15 +12,15 @@ import ch.nolix.baseapi.net.netcatalog.PortCatalog;
 import ch.nolix.baseapi.net.netproperty.SecurityMode;
 
 /**
- * A {@link NetServer} is a {@link AbstractServer} that listens to
+ * A {@link Server} is a {@link AbstractServer} that listens to
  * {@link AbstractNetEndPoint} on a specific port.
  * 
- * A {@link NetServer} supports the WebSocket protocol and can communicate with
+ * A {@link Server} supports the WebSocket protocol and can communicate with
  * a WebSocket.
  * 
  * @author Silvan Wyss
  */
-public final class NetServer extends AbstractServer {
+public final class Server extends AbstractServer {
   public static final String DEFAULT_INITIAL_HTTP_MESSAGE = //
   """
   HTTP/1.1 200 OK
@@ -46,10 +46,10 @@ public final class NetServer extends AbstractServer {
   private final ServerSocket serverSocket;
 
   /**
-   * Creates a new {@link NetServer} that will listen to
+   * Creates a new {@link Server} that will listen to
    * {@link AbstractNetEndPoint}s on the given port.
    * 
-   * When a web browser connects to the {@link NetServer}, the {@link NetServer}
+   * When a web browser connects to the {@link Server}, the {@link Server}
    * will send the given initialHttpMessageForWebBrowsers to the web browser and
    * close the connection.
    * 
@@ -59,7 +59,7 @@ public final class NetServer extends AbstractServer {
    * @throws RuntimeException if the given initialHttpMessage is null
    * @throws RuntimeException if the given initialHttpMessage is blank
    */
-  private NetServer(final int port, final String initialHttpMessage) {
+  private Server(final int port, final String initialHttpMessage) {
     // Asserts that the given port is in [0,65535].
     Validator.assertThat(port).isBetween(PortCatalog.MIN_PORT, PortCatalog.MAX_PORT);
 
@@ -87,44 +87,44 @@ public final class NetServer extends AbstractServer {
   }
 
   /**
-   * @return a new {@link NetServer} that will listen to
+   * @return a new {@link Server} that will listen to
    *         {@link AbstractNetEndPoint}s on the HTTP port (80).
    */
-  public static NetServer forHttpPort() {
+  public static Server forHttpPort() {
     return forPort(PortCatalog.HTTP);
   }
 
   /**
    * @param port
-   * @return a new {@link NetServer} that will listen to
+   * @return a new {@link Server} that will listen to
    *         {@link AbstractNetEndPoint}s on the given port
    * @throws RuntimeException if the given port is not in [0, 65535]
    */
-  public static NetServer forPort(final int port) {
-    return new NetServer(port, DEFAULT_INITIAL_HTTP_MESSAGE);
+  public static Server forPort(final int port) {
+    return new Server(port, DEFAULT_INITIAL_HTTP_MESSAGE);
   }
 
   /**
    * @param port
    * @param initialHttpMessage
-   * @return a new {@link NetServer} that will listen to
+   * @return a new {@link Server} that will listen to
    *         {@link AbstractNetEndPoint}s on the given port. When a web browser
-   *         connects to the {@link NetServer}, the {@link NetServer} will send
+   *         connects to the {@link Server}, the {@link Server} will send
    *         the given initialHttpMessage to the web browser and close the
    *         connection
    * @throws RuntimeException if the given port is not in [0, 65535]
    * @throws RuntimeException if the given initialHttpMessage is null
    * @throws RuntimeException if the given initialHttpMessage is blank
    */
-  public static NetServer forPortAndInitialHttpMessage(final int port, final String initialHttpMessage) {
-    return new NetServer(port, initialHttpMessage);
+  public static Server forPortAndInitialHttpMessage(final int port, final String initialHttpMessage) {
+    return new Server(port, initialHttpMessage);
   }
 
   /**
-   * The HTTP message of a {@link NetServer} is the message a {@link NetServer}
+   * The HTTP message of a {@link Server} is the message a {@link Server}
    * sends to web browsers.
    * 
-   * @return the initial HTTP message the current {@link NetServer} will send to
+   * @return the initial HTTP message the current {@link Server} will send to
    *         web browsers.
    */
   public String getInitialHttpMessage() {
@@ -132,7 +132,7 @@ public final class NetServer extends AbstractServer {
   }
 
   /**
-   * @return the port of the current {@link NetServer}.
+   * @return the port of the current {@link Server}.
    */
   public int getPort() {
     return port;
@@ -159,16 +159,16 @@ public final class NetServer extends AbstractServer {
   }
 
   /**
-   * @return the {@link ServerSocket} of the current {@link NetServer}.
+   * @return the {@link ServerSocket} of the current {@link Server}.
    */
   ServerSocket internalGetStoredServerSocket() {
     return serverSocket;
   }
 
   /**
-   * Creates a {@link NetServerListener} for the current {@link NetServer}.
+   * Creates a {@link ServerListener} for the current {@link Server}.
    */
   private void createServerListener() {
-    NetServerListener.forServer(this);
+    ServerListener.forServer(this);
   }
 }

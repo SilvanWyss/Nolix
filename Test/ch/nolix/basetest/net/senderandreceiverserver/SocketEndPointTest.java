@@ -5,7 +5,7 @@ package ch.nolix.basetest.net.senderandreceiverserver;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.net.senderandreceiverserver.NetServer;
+import ch.nolix.base.net.senderandreceiverserver.Server;
 import ch.nolix.base.net.senderandreceiverserver.SocketEndPoint;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.testing.standardtest.StandardTest;
@@ -22,7 +22,7 @@ final class SocketEndPointTest extends StandardTest {
     final var port = 50000;
 
     // setup
-    try (final var server = NetServer.forPort(port)) {
+    try (final var server = Server.forPort(port)) {
       // setup
       server.addDefaultSlot(new MockSlot());
 
@@ -42,7 +42,7 @@ final class SocketEndPointTest extends StandardTest {
     // define test parameters
     final var port = 50000;
 
-    try (final var server = NetServer.forPort(port)) {
+    try (final var server = Server.forPort(port)) {
       // setup
       final var slot = new MockSlot();
       server.addDefaultSlot(slot);

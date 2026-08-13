@@ -6,7 +6,7 @@ package ch.nolix.basetest.net.senderandreceiverserver;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import ch.nolix.base.net.senderandreceiverserver.NetServer;
+import ch.nolix.base.net.senderandreceiverserver.Server;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.net.netproperty.SecurityMode;
@@ -24,7 +24,7 @@ final class ServerTest extends StandardTest {
     // setup
     final var mockSlot = new MockSlot();
 
-    try (final var testUnit = NetServer.forPort(port)) {
+    try (final var testUnit = Server.forPort(port)) {
       // execute
       testUnit.addDefaultSlot(mockSlot);
 
@@ -39,7 +39,7 @@ final class ServerTest extends StandardTest {
     // define test parameters
     final var port = 50000;
 
-    try (final var testUnit = NetServer.forPort(port)) {
+    try (final var testUnit = Server.forPort(port)) {
       // setup verification
       expect(testUnit.isEmpty()).isTrue();
 
@@ -56,7 +56,7 @@ final class ServerTest extends StandardTest {
     // define test parameters
     final var port = 50000;
 
-    try (final var testUnit = NetServer.forPort(port)) {
+    try (final var testUnit = Server.forPort(port)) {
       // setup
       FlowController.forCount(5).run(() -> testUnit.addDefaultSlot(Mockito.mock(Slot.class)));
 
@@ -77,7 +77,7 @@ final class ServerTest extends StandardTest {
     final var port = 50000;
 
     // setup
-    try (final var testUnit = NetServer.forPort(port)) {
+    try (final var testUnit = Server.forPort(port)) {
       // execute
       testUnit.close(); // NOSONAR: This test case tests the close method.
 
@@ -88,11 +88,11 @@ final class ServerTest extends StandardTest {
 
   @Test
   void testCase_forHttpPort() {
-    try (final var result = NetServer.forHttpPort()) {
+    try (final var result = Server.forHttpPort()) {
       // verify
       expect(result.getPort()).isEqualTo(80);
       expect(result.getSecurityMode()).is(SecurityMode.NONE);
-      expect(result.getInitialHttpMessage()).is(NetServer.DEFAULT_INITIAL_HTTP_MESSAGE);
+      expect(result.getInitialHttpMessage()).is(Server.DEFAULT_INITIAL_HTTP_MESSAGE);
       expect(result.isOpen()).isTrue();
       expect(result.isEmpty()).isTrue();
       expect(result.containsDefaultSlot()).isFalse();
@@ -104,11 +104,11 @@ final class ServerTest extends StandardTest {
     // define test parameters
     final var port = 50000;
 
-    try (final var result = NetServer.forPort(port)) {
+    try (final var result = Server.forPort(port)) {
       // verify
       expect(result.getPort()).isEqualTo(port);
       expect(result.getSecurityMode()).is(SecurityMode.NONE);
-      expect(result.getInitialHttpMessage()).is(NetServer.DEFAULT_INITIAL_HTTP_MESSAGE);
+      expect(result.getInitialHttpMessage()).is(Server.DEFAULT_INITIAL_HTTP_MESSAGE);
       expect(result.isOpen());
       expect(result.isEmpty()).isTrue();
       expect(result.containsDefaultSlot()).isFalse();

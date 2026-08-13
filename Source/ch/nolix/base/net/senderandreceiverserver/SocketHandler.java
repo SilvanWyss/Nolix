@@ -33,13 +33,13 @@ public final class SocketHandler {
   private SocketHandler() {
   }
 
-  public static void handleSocketForServer(final Socket socket, final NetServer netServer) {
-    final var backendNetEndPoint = createOptionalBackendNetEndPointForSocketAndServer(socket, netServer);
+  public static void handleSocketForServer(final Socket socket, final Server server) {
+    final var backendNetEndPoint = createOptionalBackendNetEndPointForSocketAndServer(socket, server);
 
     if (backendNetEndPoint.isEmpty()) {
       closeSocket(socket);
     } else {
-      netServer.internalTakeBackendEndPoint(backendNetEndPoint.get());
+      server.internalTakeBackendEndPoint(backendNetEndPoint.get());
     }
   }
 
@@ -57,7 +57,7 @@ public final class SocketHandler {
     final OutputStream socketOutputStream,
     final String firstReveivedLine,
     final SocketType socketType,
-    final NetServer netServer) {
+    final Server server) {
     return switch (socketType) {
       case NET_SOCKET_WITH_DEFAULT_TARGET ->
         Optional.of(createSocketEndPointWithDefaultTarget(socket, socketInputStream, socketOutputStream));
@@ -66,13 +66,13 @@ public final class SocketHandler {
           createSocketEndPointWithCustomTarget(socket, socketInputStream, socketOutputStream, firstReveivedLine));
       case HTTP_SOCKET_OR_WEB_SOCKET ->
         createOptionalBackendNetEndPointForSocketAndServerWhenIsHttpSocketOrWebSocket(socket, socketInputStream,
-          socketOutputStream, firstReveivedLine, netServer);
+          socketOutputStream, firstReveivedLine, server);
     };
   }
 
   private static Optional<EndPoint> createOptionalBackendNetEndPointForSocketAndServer(
     final Socket socket,
-    final NetServer netServer) {
+    final Server server) {
     final var socketInputStream = getOptionalInputStreamOfSocket(socket);
     final var socketOutputStream = getOptionalOutputStreamOfSocket(socket);
 
@@ -98,7 +98,7 @@ public final class SocketHandler {
       socketOutputStream.get(),
       firstReveivedLine,
       socketType.get(),
-      netServer);
+      server);
   }
 
   private static Optional<EndPoint> createOptionalBackendNetEndPointForSocketAndServerWhenIsHttpSocketOrWebSocket(
@@ -106,7 +106,7 @@ public final class SocketHandler {
     final InputStream socketInputStream,
     final OutputStream socketOutputStream,
     final String firstReveivedLine,
-    final NetServer netServer) {
+    final Server server) {
     final var lines = LinkedList.withElement(firstReveivedLine);
     fillUpLinesIntoListUntilReceivesEmptyLine(lines, socketInputStream);
 
@@ -137,7 +137,7 @@ public final class SocketHandler {
     }
 
     if (HttpRequest.canBe(lines)) {
-      sendRawMessageToOutputStream(socketOutputStream, netServer.getInitialHttpMessage());
+      sendRawMessageToOutputStream(socketOutputStream, server.getInitialHttpMessage());
     }
 
     return Optional.empty();

@@ -14,25 +14,25 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.resourcecontrol.resourcerequest.OpennessRequestable;
 
 /**
- * A {@link NetServerListener} listens to {@link SocketEndPoint}s for a
- * {@link NetServer}.
+ * A {@link ServerListener} listens to {@link SocketEndPoint}s for a
+ * {@link Server}.
  * 
  * @author Silvan Wyss
  */
-public final class NetServerListener extends AbstractWorker implements OpennessRequestable {
+public final class ServerListener extends AbstractWorker implements OpennessRequestable {
   /**
-   * The {@link NetServer} the current {@link NetServerListener} is for.
+   * The {@link Server} the current {@link ServerListener} is for.
    */
-  private final NetServer parentServer;
+  private final Server parentServer;
 
   /**
-   * Creates a new {@link NetServerListener} that will belong to the given
-   * parentServer. The {@link NetServerListener} will start automatically.
+   * Creates a new {@link ServerListener} that will belong to the given
+   * parentServer. The {@link ServerListener} will start automatically.
    * 
    * @param parentServer
    * @throws RuntimeException if the given parentServer is null
    */
-  private NetServerListener(final NetServer parentServer) {
+  private ServerListener(final Server parentServer) {
     // Asserts that the given parentServer is not null.
     Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
 
@@ -44,13 +44,13 @@ public final class NetServerListener extends AbstractWorker implements OpennessR
   }
 
   /**
-   * @param netServer
-   * @return a new {@link NetServerListener} for the given server. The
-   *         {@link NetServerListener} will start automatically
+   * @param server
+   * @return a new {@link ServerListener} for the given server. The
+   *         {@link ServerListener} will start automatically
    * @throws RuntimeException if the given server is null
    */
-  public static NetServerListener forServer(final NetServer netServer) {
-    return new NetServerListener(netServer);
+  public static ServerListener forServer(final Server server) {
+    return new ServerListener(server);
   }
 
   /**
@@ -84,7 +84,7 @@ public final class NetServerListener extends AbstractWorker implements OpennessR
   }
 
   /**
-   * Lets the current {@link NetServerListener} handle the given socket.
+   * Lets the current {@link ServerListener} handle the given socket.
    * 
    * @param socket
    */
