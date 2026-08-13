@@ -3,16 +3,20 @@
  */
 package ch.nolix.system.gui.iconresource;
 
+import ch.nolix.base.foundation.resource.ResourcePathCatalog;
 import ch.nolix.system.graphic.image.ImmutableImage;
 
 /**
+ * Of the {@link IconCatalog} an instance cannot be created.
+ * 
  * @author Silvan Wyss
  */
 public final class IconCatalog {
-  private static final String NOLIX_ICON_RESOURCE_PATH = "icon/nolix_icon.png";
+  public static final ImmutableImage NOLIX_ICON = ImmutableImage.fromResource(ResourcePathCatalog.NOLIX_ICON);
 
-  public static final ImmutableImage NOLIX_ICON = ImmutableImage.fromResource(NOLIX_ICON_RESOURCE_PATH);
-
+  /**
+   * Prevents that an instance of the {@link IconCatalog} can be created.
+   */
   private IconCatalog() {
   }
 }

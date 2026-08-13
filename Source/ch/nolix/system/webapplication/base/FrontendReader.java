@@ -7,7 +7,7 @@ import java.util.Optional;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.systemapi.gui.frontend.IFrontEndReader;
+import ch.nolix.systemapi.gui.main.IFrontEndReader;
 
 final class FrontendReader implements IFrontEndReader {
   private final AbstractWebClient<?, ?> parentBackendWebClient;

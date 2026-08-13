@@ -5,7 +5,7 @@ package ch.nolix.system.webapplication.base;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
-import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
+import ch.nolix.systemapi.gui.main.IFrontEndWriter;
 
 final class FrontendWriter implements IFrontEndWriter {
   private final AbstractWebClient<?, ?> parentBackendWebClient;

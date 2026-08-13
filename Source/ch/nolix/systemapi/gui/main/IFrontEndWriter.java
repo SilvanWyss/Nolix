@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.gui.frontend;
+package ch.nolix.systemapi.gui.main;
 
 import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
 

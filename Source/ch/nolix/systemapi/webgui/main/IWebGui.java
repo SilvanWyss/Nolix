@@ -10,9 +10,9 @@ import ch.nolix.baseapi.generalstate.statemutation.Clearable;
 import ch.nolix.baseapi.web.cssmodel.ICss;
 import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
 import ch.nolix.systemapi.gui.background.BackgroundManager;
-import ch.nolix.systemapi.gui.frontend.IFrontEndReader;
-import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
-import ch.nolix.systemapi.gui.model.Gui;
+import ch.nolix.systemapi.gui.main.Gui;
+import ch.nolix.systemapi.gui.main.IFrontEndReader;
+import ch.nolix.systemapi.gui.main.IFrontEndWriter;
 import ch.nolix.systemapi.style.styleholder.StyleHolder;
 import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
 

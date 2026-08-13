@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.control.accordion;
 
 import ch.nolix.baseapi.attribute.fluentmutablemandatoryattribute.FluentMutableHeaderHolder;
-import ch.nolix.systemapi.gui.selection.Selectable;
+import ch.nolix.systemapi.gui.guicontrol.Selectable;
 import ch.nolix.systemapi.webgui.main.RootControlManager;
 
 /**

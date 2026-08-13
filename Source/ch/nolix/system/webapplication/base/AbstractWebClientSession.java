@@ -5,8 +5,8 @@ package ch.nolix.system.webapplication.base;
 
 import ch.nolix.base.net.clientserver.AbstractSession;
 import ch.nolix.baseapi.net.clientserver.Application;
-import ch.nolix.systemapi.gui.frontend.IFrontEndReader;
-import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
+import ch.nolix.systemapi.gui.main.IFrontEndReader;
+import ch.nolix.systemapi.gui.main.IFrontEndWriter;
 
 /**
  * @author Silvan Wyss

@@ -6,7 +6,7 @@ package ch.nolix.systemapi.control.itemmenu;
 import ch.nolix.baseapi.attribute.mandatoryattribute.IdHolder;
 import ch.nolix.baseapi.generalstate.staterequest.BlanknessRequestable;
 import ch.nolix.systemapi.element.mutableelement.MutableElement;
-import ch.nolix.systemapi.gui.selection.Selectable;
+import ch.nolix.systemapi.gui.guicontrol.Selectable;
 
 /**
  * @author Silvan Wyss
