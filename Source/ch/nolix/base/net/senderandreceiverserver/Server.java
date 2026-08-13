@@ -15,8 +15,8 @@ import ch.nolix.baseapi.net.netproperty.SecurityMode;
  * A {@link Server} is a {@link AbstractServer} that listens to
  * {@link AbstractNetEndPoint} on a specific port.
  * 
- * A {@link Server} supports the WebSocket protocol and can communicate with
- * a WebSocket.
+ * A {@link Server} supports the WebSocket protocol and can communicate with a
+ * WebSocket.
  * 
  * @author Silvan Wyss
  */
@@ -46,12 +46,12 @@ public final class Server extends AbstractServer {
   private final ServerSocket serverSocket;
 
   /**
-   * Creates a new {@link Server} that will listen to
-   * {@link AbstractNetEndPoint}s on the given port.
+   * Creates a new {@link Server} that will listen to {@link AbstractNetEndPoint}s
+   * on the given port.
    * 
-   * When a web browser connects to the {@link Server}, the {@link Server}
-   * will send the given initialHttpMessageForWebBrowsers to the web browser and
-   * close the connection.
+   * When a web browser connects to the {@link Server}, the {@link Server} will
+   * send the given initialHttpMessageForWebBrowsers to the web browser and close
+   * the connection.
    * 
    * @param port
    * @param initialHttpMessage
@@ -87,8 +87,8 @@ public final class Server extends AbstractServer {
   }
 
   /**
-   * @return a new {@link Server} that will listen to
-   *         {@link AbstractNetEndPoint}s on the HTTP port (80).
+   * @return a new {@link Server} that will listen to {@link AbstractNetEndPoint}s
+   *         on the HTTP port (80).
    */
   public static Server forHttpPort() {
     return forPort(PortCatalog.HTTP);
@@ -96,8 +96,8 @@ public final class Server extends AbstractServer {
 
   /**
    * @param port
-   * @return a new {@link Server} that will listen to
-   *         {@link AbstractNetEndPoint}s on the given port
+   * @return a new {@link Server} that will listen to {@link AbstractNetEndPoint}s
+   *         on the given port
    * @throws RuntimeException if the given port is not in [0, 65535]
    */
   public static Server forPort(final int port) {
@@ -107,11 +107,10 @@ public final class Server extends AbstractServer {
   /**
    * @param port
    * @param initialHttpMessage
-   * @return a new {@link Server} that will listen to
-   *         {@link AbstractNetEndPoint}s on the given port. When a web browser
-   *         connects to the {@link Server}, the {@link Server} will send
-   *         the given initialHttpMessage to the web browser and close the
-   *         connection
+   * @return a new {@link Server} that will listen to {@link AbstractNetEndPoint}s
+   *         on the given port. When a web browser connects to the {@link Server},
+   *         the {@link Server} will send the given initialHttpMessage to the web
+   *         browser and close the connection
    * @throws RuntimeException if the given port is not in [0, 65535]
    * @throws RuntimeException if the given initialHttpMessage is null
    * @throws RuntimeException if the given initialHttpMessage is blank
@@ -121,11 +120,11 @@ public final class Server extends AbstractServer {
   }
 
   /**
-   * The HTTP message of a {@link Server} is the message a {@link Server}
-   * sends to web browsers.
+   * The HTTP message of a {@link Server} is the message a {@link Server} sends to
+   * web browsers.
    * 
-   * @return the initial HTTP message the current {@link Server} will send to
-   *         web browsers.
+   * @return the initial HTTP message the current {@link Server} will send to web
+   *         browsers.
    */
   public String getInitialHttpMessage() {
     return initialHttpMessage;

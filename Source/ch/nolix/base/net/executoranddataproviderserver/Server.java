@@ -16,8 +16,8 @@ public final class Server extends AbstractServer {
   private final ch.nolix.base.net.senderandreplierserver.Server internalServer;
 
   /**
-   * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on
-   * the given port.
+   * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on the
+   * given port.
    * 
    * @param port
    * @throws RuntimeException if the given port is not in [0, 65535]
@@ -32,11 +32,11 @@ public final class Server extends AbstractServer {
   }
 
   /**
-   * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on
-   * the given port.
+   * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on the
+   * given port.
    * 
-   * When a web browser connects to the {@link Server}, the {@link Server}
-   * will send the given httpMessage and close the connection.
+   * When a web browser connects to the {@link Server}, the {@link Server} will
+   * send the given httpMessage and close the connection.
    * 
    * @param port
    * @param httpMessage
@@ -55,8 +55,8 @@ public final class Server extends AbstractServer {
 
   /**
    * @param port
-   * @return a new {@link Server} that will listen to {@link NetEndPoint}s on
-   *         the given port
+   * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the
+   *         given port
    * @throws RuntimeException if the given port is not in [0, 65535]
    */
   public static Server forPort(final int port) {
@@ -66,9 +66,9 @@ public final class Server extends AbstractServer {
   /**
    * @param port
    * @param httpMessage
-   * @return a new {@link Server} that will listen to {@link NetEndPoint}s on
-   *         the given port. When a web browser connects to the {@link Server},
-   *         the {@link Server} will send the given httpMessage and close the
+   * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the
+   *         given port. When a web browser connects to the {@link Server}, the
+   *         {@link Server} will send the given httpMessage and close the
    *         connection
    * @throws RuntimeException if the given port is not in [0, 65535]
    * @throws RuntimeException if the given httpMessage is null
