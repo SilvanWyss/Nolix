@@ -21,7 +21,7 @@ import ch.nolix.baseapi.net.target.IServerTarget;
 public final class Server extends AbstractServer<Server> implements HostHolder, PortHolder {
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.NONE;
 
-  private ch.nolix.base.net.executoranddataproviderserver.NetServer internalServer;
+  private ch.nolix.base.net.executoranddataproviderserver.Server internalServer;
 
   /**
    * Creates a new {@link Server} that will listen to net {@link AbstractClient}s
@@ -32,7 +32,7 @@ public final class Server extends AbstractServer<Server> implements HostHolder, 
    */
   private Server(final int port) {
     // Creates the internalServer of the current Server.
-    internalServer = ch.nolix.base.net.executoranddataproviderserver.NetServer.forPortAndHttpMessage(
+    internalServer = ch.nolix.base.net.executoranddataproviderserver.Server.forPortAndHttpMessage(
       port,
       new ServerHttpMessage(getHost(), port).toString());
 
