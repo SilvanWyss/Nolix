@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.commontype.arraymapper.ArrayMapper;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
+import ch.nolix.base.foundation.linkedlist.SimpleLinkedList;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
@@ -51,5 +52,24 @@ final class ToIntArrayTest extends StandardTest {
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessageThatMatches("The given int mapper is null.");
+  }
+
+  @Test
+  void testCase_toIntArray_whenGivenIterableContainsNonNullAndNullElements() {
+    // setup
+    final Iterable<String> iterable = SimpleLinkedList.withElements("x", "xx", "xxx", null, null, null);
+    final var testUnit = new ArrayMapper();
+
+    // execute
+    final var result = testUnit.toIntArray(iterable, 6, String::length);
+
+    // verify
+    expect(result.length).isEqualTo(6);
+    expect(result[0]).isEqualTo(1);
+    expect(result[1]).isEqualTo(2);
+    expect(result[2]).isEqualTo(3);
+    expect(result[3]).isEqualTo(0);
+    expect(result[4]).isEqualTo(0);
+    expect(result[5]).isEqualTo(0);
   }
 }
