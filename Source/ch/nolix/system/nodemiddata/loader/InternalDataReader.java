@@ -59,7 +59,7 @@ public final class InternalDataReader {
   public int getEntityCount(String tableName) {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
-    return TABLE_NODE_SEARCHER.getEntityNodeCountOfTableNode(tableNode);
+    return TABLE_NODE_SEARCHER.getEntityNodeCount(tableNode);
   }
 
   public ITime getSchemaTimestamp() {
@@ -74,7 +74,7 @@ public final class InternalDataReader {
       tableView.name());
 
     return TABLE_NODE_SEARCHER
-      .getStoredEntityNodesFromTableNode(tableNode)
+      .getStoredEntityNodes(tableNode)
       .to(rn -> ENTITY_LOADING_DTO_MAPPER.mapEntityNodeToEntityLoadingDto(rn, tableView));
   }
 
@@ -83,7 +83,7 @@ public final class InternalDataReader {
     final String entityId,
     final ColumnInfoDto multiBackReferenceColumnView) {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
-    final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
+    final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNode(tableNode, entityId);
     final var multiBackReferenceColumnOneBasedOrdinalIndex = multiBackReferenceColumnView.oneBasedOrdinalIndex();
 
     final var multiBackReferenceNode = //
@@ -99,7 +99,7 @@ public final class InternalDataReader {
     final String entityId,
     final ColumnInfoDto multiBackReferenceColumn) {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
-    final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
+    final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNode(tableNode, entityId);
     final var oneBasedMultiBackReferenceColumnOrdinalIndex = multiBackReferenceColumn.oneBasedOrdinalIndex();
     final var multiBackReferenceColumnId = multiBackReferenceColumn.id();
 
@@ -119,7 +119,7 @@ public final class InternalDataReader {
     final String entityId,
     final ColumnInfoDto multiReferenceColumnView) {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
-    final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
+    final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNode(tableNode, entityId);
     final var multiReferenceColumnOneBasedOrdinalIndex = multiReferenceColumnView.oneBasedOrdinalIndex();
     final var multiReferenceColumnId = multiReferenceColumnView.id();
 
@@ -145,7 +145,7 @@ public final class InternalDataReader {
     final String entityId,
     final ColumnInfoDto multiValueColumnView) {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
-    final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
+    final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNode(tableNode, entityId);
     final var multiValueColumnOneBasedOrdinalIndex = multiValueColumnView.oneBasedOrdinalIndex();
     final var multiValueNode = entityNode.getStoredChildNodeAtOneBasedIndex(multiValueColumnOneBasedOrdinalIndex);
 
@@ -158,7 +158,7 @@ public final class InternalDataReader {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableView.name());
 
-    final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, id);
+    final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNode(tableNode, id);
 
     return ENTITY_LOADING_DTO_MAPPER.mapEntityNodeToEntityLoadingDto(entityNode, tableView);
   }

@@ -12,23 +12,21 @@ import ch.nolix.baseapi.document.node.IMutableNode;
  * @author Silvan Wyss
  */
 public interface ITableNodeSearcher {
-  int getEntityNodeCountOfTableNode(IMutableNode<?> tableNode);
+  int getEntityNodeCount(IMutableNode<?> tableNode);
 
-  Optional<? extends IMutableNode<?>> getOptionalStoredEntityNodeFromTableNode(
-    IMutableNode<?> tableNode,
-    String id);
+  Optional<? extends IMutableNode<?>> getOptionalStoredEntity(IMutableNode<?> tableNode, String entityId);
 
-  ExtendedIterable<? extends IMutableNode<?>> getStoredColumnNodesFromTableNode(IMutableNode<?> tableNode);
+  ExtendedIterable<? extends IMutableNode<?>> getStoredColumnNodes(IMutableNode<?> tableNode);
 
-  IMutableNode<?> getStoredEntityNodeFromTableNode(IMutableNode<?> tableNode, String id);
+  IMutableNode<?> getStoredEntityNode(IMutableNode<?> tableNode, String id);
 
-  ExtendedIterable<? extends IMutableNode<?>> getStoredEntityNodesFromTableNode(IMutableNode<?> tableNode);
+  ExtendedIterable<? extends IMutableNode<?>> getStoredEntityNodes(IMutableNode<?> tableNode);
 
-  IMutableNode<?> getStoredIdNodeFromTableNode(IMutableNode<?> tableNode);
+  IMutableNode<?> getStoredIdNode(IMutableNode<?> tableNode);
 
-  IMutableNode<?> getStoredNameNodeFromTableNode(IMutableNode<?> tableNode);
+  IMutableNode<?> getStoredNameNode(IMutableNode<?> tableNode);
 
-  String getTableIdFromTableNode(IMutableNode<?> tableNode);
+  String getTableId(IMutableNode<?> tableNode);
 
-  String getTableNameFromTableNode(IMutableNode<?> tableNode);
+  String getTableName(IMutableNode<?> tableNode);
 }

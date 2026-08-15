@@ -22,9 +22,9 @@ public final class TableSchemaViewDtoMapper implements ITableSchemaViewDtoMapper
    */
   @Override
   public TableInfoDto mapTableNodeToTableViewDto(final IMutableNode<?> tableNode) {
-    final var id = TABLE_NODE_SEARCHER.getTableIdFromTableNode(tableNode);
-    final var name = TABLE_NODE_SEARCHER.getTableNameFromTableNode(tableNode);
-    final var columnNodes = TABLE_NODE_SEARCHER.getStoredColumnNodesFromTableNode(tableNode);
+    final var id = TABLE_NODE_SEARCHER.getTableId(tableNode);
+    final var name = TABLE_NODE_SEARCHER.getTableName(tableNode);
+    final var columnNodes = TABLE_NODE_SEARCHER.getStoredColumnNodes(tableNode);
 
     final var columnViews = //
     columnNodes.toWithOneBasedIndex(

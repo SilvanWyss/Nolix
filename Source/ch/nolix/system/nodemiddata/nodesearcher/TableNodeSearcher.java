@@ -19,7 +19,7 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
    * {@inheritDoc}
    */
   @Override
-  public int getEntityNodeCountOfTableNode(final IMutableNode<?> tableNode) {
+  public int getEntityNodeCount(final IMutableNode<?> tableNode) {
     return tableNode.getChildNodeCount(c -> c.hasHeader(NodeHeaderCatalog.ENTITY));
   }
 
@@ -27,20 +27,20 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
    * {@inheritDoc}
    */
   @Override
-  public Optional<? extends IMutableNode<?>> getOptionalStoredEntityNodeFromTableNode(
+  public Optional<? extends IMutableNode<?>> getOptionalStoredEntity(
     final IMutableNode<?> tableNode,
-    final String id) {
-    return tableNode.getOptionalStoredFirstChildNode(
+    final String entityId) {
+    return //
+    tableNode.getOptionalStoredFirstChildNode(
       a -> a.hasHeader(NodeHeaderCatalog.ENTITY)
-      && a.getStoredChildNodeAtOneBasedIndex(FieldIndexCatalog.ID_INDEX).hasHeader(id));
+      && a.getStoredChildNodeAtOneBasedIndex(FieldIndexCatalog.ID_INDEX).hasHeader(entityId));
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<? extends IMutableNode<?>> getStoredColumnNodesFromTableNode(
-    final IMutableNode<?> tableNode) {
+  public ExtendedIterable<? extends IMutableNode<?>> getStoredColumnNodes(final IMutableNode<?> tableNode) {
     return tableNode.getStoredChildNodesWithHeader(NodeHeaderCatalog.COLUMN);
   }
 
@@ -48,8 +48,9 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
    * {@inheritDoc}
    */
   @Override
-  public IMutableNode<?> getStoredEntityNodeFromTableNode(final IMutableNode<?> tableNode, final String id) {
-    return tableNode.getStoredFirstChildNode(
+  public IMutableNode<?> getStoredEntityNode(final IMutableNode<?> tableNode, final String id) {
+    return //
+    tableNode.getStoredFirstChildNode(
       a -> a.hasHeader(NodeHeaderCatalog.ENTITY)
       && a.getStoredChildNodeAtOneBasedIndex(FieldIndexCatalog.ID_INDEX).hasHeader(id));
   }
@@ -58,8 +59,7 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<? extends IMutableNode<?>> getStoredEntityNodesFromTableNode(
-    final IMutableNode<?> tableNode) {
+  public ExtendedIterable<? extends IMutableNode<?>> getStoredEntityNodes(final IMutableNode<?> tableNode) {
     return tableNode.getStoredChildNodesWithHeader(NodeHeaderCatalog.ENTITY);
   }
 
@@ -67,7 +67,7 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
    * {@inheritDoc}
    */
   @Override
-  public IMutableNode<?> getStoredIdNodeFromTableNode(final IMutableNode<?> tableNode) {
+  public IMutableNode<?> getStoredIdNode(final IMutableNode<?> tableNode) {
     return tableNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.ID);
   }
 
@@ -75,7 +75,7 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
    * {@inheritDoc}
    */
   @Override
-  public IMutableNode<?> getStoredNameNodeFromTableNode(final IMutableNode<?> tableNode) {
+  public IMutableNode<?> getStoredNameNode(final IMutableNode<?> tableNode) {
     return tableNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.NAME);
   }
 
@@ -83,8 +83,8 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
    * {@inheritDoc}
    */
   @Override
-  public String getTableIdFromTableNode(final IMutableNode<?> tableNode) {
-    final var idNode = getStoredIdNodeFromTableNode(tableNode);
+  public String getTableId(final IMutableNode<?> tableNode) {
+    final var idNode = getStoredIdNode(tableNode);
 
     return idNode.getSingleChildNodeHeader();
   }
@@ -93,8 +93,8 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
    * {@inheritDoc}
    */
   @Override
-  public String getTableNameFromTableNode(final IMutableNode<?> tableNode) {
-    final var nameNode = getStoredNameNodeFromTableNode(tableNode);
+  public String getTableName(final IMutableNode<?> tableNode) {
+    final var nameNode = getStoredNameNode(tableNode);
 
     return nameNode.getSingleChildNodeHeader();
   }
