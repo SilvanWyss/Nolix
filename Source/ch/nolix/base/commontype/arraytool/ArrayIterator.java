@@ -5,7 +5,6 @@ package ch.nolix.base.commontype.arraytool;
 
 import java.util.NoSuchElementException;
 
-import ch.nolix.base.commontype.iteratorvalidator.IteratorValidator;
 import ch.nolix.baseapi.datastructure.copyableiterator.CopyableIterator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
@@ -13,35 +12,33 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements of the parent array of a
- *            {@link ArrayIterator}
+ * @param <E> the type of the elements of the array of a {@link ArrayIterator}
  */
 public final class ArrayIterator<E> implements CopyableIterator<E> {
-  private static final IteratorValidator ITERATOR_VALIDATOR = new IteratorValidator();
-
-  private final E[] parentArray;
+  private final E[] array;
 
   private int nextIndex;
 
-  private ArrayIterator(final E[] parrentArray) {
-    if (parrentArray == null) {
-      throw ArgumentIsNullException.forArgumentName("parent array");
+  private ArrayIterator(final E[] array) {
+    if (array == null) {
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.ARRAY);
     }
 
-    this.parentArray = parrentArray; // NOSONAR: An ArrayIterator operates on the original instance.
-    nextIndex = 0;
+    this.array = array; // NOSONAR: The current ArrayIterator operates on the given original array.
+    this.nextIndex = 0;
   }
 
-  private ArrayIterator(final E[] parrentArray, final int startIndex) {
-    if (parrentArray == null) {
-      throw ArgumentIsNullException.forArgumentName("parent array");
+  private ArrayIterator(final E[] array, final int startIndex) {
+    if (array == null) {
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.ARRAY);
     }
+
     if (startIndex < 0) {
       throw NegativeArgumentException.forArgumentAndArgumentName(startIndex, LowerCaseVariableNameCatalog.START_INDEX);
     }
 
-    this.parentArray = parrentArray; // NOSONAR: An ArrayIterator operates on the original instance.
-    nextIndex = startIndex;
+    this.array = array; // NOSONAR: The current ArrayIterator operates on the given original array.
+    this.nextIndex = startIndex;
   }
 
   public static <T> ArrayIterator<T> forArray(final T[] array) {
@@ -57,7 +54,7 @@ public final class ArrayIterator<E> implements CopyableIterator<E> {
    */
   @Override
   public CopyableIterator<E> getCopy() {
-    return forArrayAndStartIndex(parentArray, nextIndex);
+    return forArrayAndStartIndex(array, nextIndex);
   }
 
   /**
@@ -65,25 +62,20 @@ public final class ArrayIterator<E> implements CopyableIterator<E> {
    */
   @Override
   public boolean hasNext() {
-    return (nextIndex < parentArray.length);
+    return (nextIndex < array.length);
   }
 
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
   @Override
   public E next() {
-    assertHasNext();
+    if (nextIndex >= array.length) {
+      throw new NoSuchElementException("The current ArrayIterator does not have a next element.");
+    }
 
-    return nextWhenHasNext();
-  }
-
-  private void assertHasNext() throws NoSuchElementException {
-    ITERATOR_VALIDATOR.assertHasNext(this);
-  }
-
-  private E nextWhenHasNext() {
-    final var element = parentArray[nextIndex];
+    final var element = array[nextIndex];
 
     nextIndex++;
 
