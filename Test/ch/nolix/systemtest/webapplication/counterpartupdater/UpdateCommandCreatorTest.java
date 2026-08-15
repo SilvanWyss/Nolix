@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemtest.application.webapplicationcounterpartupdater;
+package ch.nolix.systemtest.webapplication.counterpartupdater;
 
 import org.junit.jupiter.api.Test;
 
