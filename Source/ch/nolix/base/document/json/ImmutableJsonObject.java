@@ -5,6 +5,7 @@ package ch.nolix.base.document.json;
 
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.ImmutableNode;
+import ch.nolix.base.foundation.arrayiterableview.ArrayIterableView;
 import ch.nolix.base.foundation.util.FunctionService;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.json.JsonNameValuePair;
@@ -77,6 +78,20 @@ public final class ImmutableJsonObject implements JsonObject {
    */
   public static ImmutableJsonObject withNameValuePairs(final Iterable<JsonNameValuePair> nameValuePairs) {
     return new ImmutableJsonObject(nameValuePairs, false);
+  }
+
+  /**
+   * @param nameValuePairs
+   * @return a new {@link ImmutableJsonObject} with the given nameValuePairs
+   * @throws RuntimeException if the given nameValuePairs is null
+   * @throws RuntimeException if one of the given nameValuePairs is null
+   * @throws RuntimeException if several of the given nameValuePairs have the same
+   *                          name
+   */
+  public static ImmutableJsonObject withNameValuePairs(final JsonNameValuePair... nameValuePairs) {
+    final var nameValuePairsIterableView = ArrayIterableView.forArray(nameValuePairs);
+
+    return new ImmutableJsonObject(nameValuePairsIterableView, false);
   }
 
   //For a better performance, this implementation does not use all available comfort methods.
