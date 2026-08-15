@@ -45,13 +45,14 @@ public final class ArrayIterableViewIterator<E> implements Iterator<E> {
     return nextIndex < array.length;
   }
 
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
   @Override
   public E next() throws NoSuchElementException {
     if (nextIndex >= array.length) {
-      throw new NoSuchElementException("The current Iterator does not have a next element.");
+      throw new NoSuchElementException("The current ArrayIterableViewIterator does not have a next element.");
     }
 
     final var element = array[nextIndex];
