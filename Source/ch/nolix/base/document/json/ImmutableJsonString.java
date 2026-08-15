@@ -64,7 +64,6 @@ public final class ImmutableJsonString implements JsonString {
     return JsonValueType.STRING;
   }
 
-  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -73,9 +72,7 @@ public final class ImmutableJsonString implements JsonString {
     final int indentationLevel,
     final String indentationSymbol,
     final boolean startMultiLinerWithIndentation) {
-    final var indentation = indentationSymbol.repeat(indentationLevel);
-
-    return indentation + StringCatalog.DOUBLE_QUOTE + string + StringCatalog.DOUBLE_QUOTE;
+    return StringCatalog.DOUBLE_QUOTE + string + StringCatalog.DOUBLE_QUOTE;
   }
 
   // For a better performance, this implementation does not use all available comfort methods.
