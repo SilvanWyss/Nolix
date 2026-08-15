@@ -11,10 +11,6 @@ final class SimpleLinkedListNode<E> {
   private SimpleLinkedListNode<E> nextNode;
 
   private SimpleLinkedListNode(final E element) {
-    if (element == null) {
-      throw new IllegalArgumentException("The given element is null.");
-    }
-
     memberElement = element;
   }
 
