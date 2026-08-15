@@ -13,7 +13,6 @@ import ch.nolix.base.testing.standardtest.StandardTest;
  * @author Silvan Wyss
  */
 final class ToFormattedStringTest extends StandardTest {
-
   @Test
   void testCase_toFormattedString() {
     // setup
