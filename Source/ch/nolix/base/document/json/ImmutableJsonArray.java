@@ -5,6 +5,7 @@ package ch.nolix.base.document.json;
 
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.ImmutableNode;
+import ch.nolix.base.foundation.arrayiterableview.ArrayIterableView;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.json.JsonArray;
 import ch.nolix.baseapi.document.json.JsonObject;
@@ -49,6 +50,18 @@ public final class ImmutableJsonArray implements JsonArray {
    */
   public static ImmutableJsonArray withObjects(final Iterable<JsonObject> objects) {
     return new ImmutableJsonArray(objects);
+  }
+
+  /**
+   * @param objects
+   * @return a new {@link ImmutableJsonArray} with the given objects
+   * @throws RuntimeException if the given objects is null
+   * @throws RuntimeException if one of the given objects is null
+   */
+  public static ImmutableJsonArray withObjects(final JsonObject... objects) {
+    final var objectsIterableView = ArrayIterableView.forArray(objects);
+
+    return new ImmutableJsonArray(objectsIterableView);
   }
 
   //For a better performance, this implementation does not use all available comfort methods.
