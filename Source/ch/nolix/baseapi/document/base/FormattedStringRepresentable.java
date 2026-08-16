@@ -13,7 +13,7 @@ public interface FormattedStringRepresentable {
 
   String DEFAULT_IDENTTATION_SYMBOL = StringCatalog.DOUBLE_SPACE;
 
-  boolean DEFAULT_START_MULTILINER_WITH_IDENTATION_FLAG = false;
+  boolean DEFAULT_START_MULTILINER_WITH_IDENTATION_FLAG = true;
 
   /**
    * @return true if a formatted {@link String} representation of the current
