@@ -12,7 +12,7 @@ import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
  */
 public final class ExceptionArgumentStringRepresentaionPreparator
 implements IExceptionArgumentStringRepresentaionPreparator {
-  private static final int MAX_STRING_REPRESENTATION_LENGTH = 200;
+  private static final int MAX_STRING_REPRESENTATION_LENGTH = 10_000;
 
   /**
    * {@inheritDoc}
