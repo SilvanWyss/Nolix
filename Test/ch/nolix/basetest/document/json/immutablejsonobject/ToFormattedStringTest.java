@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.document.json;
+package ch.nolix.basetest.document.json.immutablejsonobject;
 
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +15,7 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 /**
  * @author Silvan Wyss
  */
-final class ImmutableJsonObjectTest extends StandardTest {
+final class ToFormattedStringTest extends StandardTest {
   @Test
   void testCase_toFormattedString() {
     // setup
