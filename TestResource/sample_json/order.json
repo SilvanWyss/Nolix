@@ -1,0 +1,29 @@
+{
+  "date": "2030-01-01",
+  "customer": {
+    "firstName": "Donald",
+    "lastName": "Duck",
+    "deliveryAddress": {
+      "housenumber": "13",
+      "street": "Quack Street",
+      "city": "Duckburg"
+    }
+  },
+  "positions": [
+    {
+      "product": "desk",
+      "amount": 1,
+      "pricePerPiece": 513
+    },
+    {
+      "product": "chair",
+      "amount": 4,
+      "pricePerPiece": 113
+    },
+    {
+      "product": "lamp",
+      "amount": 1,
+      "pricePerPiece": 213
+    }
+  ]
+}
