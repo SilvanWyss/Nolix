@@ -83,16 +83,14 @@ public final class ImmutableJsonNameValuePair implements JsonNameValuePair {
     final String indentationSymbol,
     final boolean startMultiLinerWithIndentation) {
     final var indentation = indentationSymbol.repeat(indentationLevel);
-    final var incrementedIndentationLevel = indentationLevel + 1;
 
-    final var formattedValueString = //
-    value.toFormattedStringWithIndentationLevelAndIndentationSymbol(
-      incrementedIndentationLevel,
-      indentationSymbol,
-      startMultiLinerWithIndentation);
+    if (startMultiLinerWithIndentation && value.formattedStringWillHaveMultipleLines()) {
+      final var formattedValueString = //
+      value.toFormattedStringWithIndentationLevelAndIndentationSymbol(
+        indentationLevel,
+        indentationSymbol,
+        true);
 
-    // Handle the case that the formatted String of the current ImmutableJsonNameValuePair has multiple lines.
-    if (value.formattedStringWillHaveMultipleLines()) {
       return //
       indentation
       + StringCatalog.DOUBLE_QUOTE
@@ -103,7 +101,12 @@ public final class ImmutableJsonNameValuePair implements JsonNameValuePair {
       + formattedValueString;
     }
 
-    // Handle the case that the formatted String of the current ImmutableJsonNameValuePair is a single line.
+    final var formattedValueString = //
+    value.toFormattedStringWithIndentationLevelAndIndentationSymbol(
+      indentationLevel,
+      indentationSymbol,
+      false);
+
     return //
     indentation
     + StringCatalog.DOUBLE_QUOTE

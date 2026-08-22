@@ -158,22 +158,21 @@ public final class ImmutableJsonObject implements JsonObject {
     }
 
     final var incrementedIndentationLevel = indentationLevel + 1;
-    final var incrementedIndentation = indentation + indentationSymbol;
 
     final var nameValuePairsFormattedStrings = //
     nameValuePairs.getViewOf(
       p -> p.toFormattedStringWithIndentationLevelAndIndentationSymbol(
         incrementedIndentationLevel,
         indentationSymbol,
-        startMultiLinerWithIndentation));
+        false));
 
     final var formattedDelimiter = StringCatalog.COMMA + StringCatalog.NEW_LINE;
     final var nameValuePairsFormattedString = nameValuePairsFormattedStrings.toStringWithDelimiter(formattedDelimiter);
 
-    if (startMultiLinerWithIndentation) {
+    if (formattedStringWillHaveMultipleLines() && startMultiLinerWithIndentation) {
       return //
       StringCatalog.OPEN_BRACE + StringCatalog.NEW_LINE // first line
-      + incrementedIndentation + nameValuePairsFormattedString + StringCatalog.NEW_LINE // middle lines
+      + nameValuePairsFormattedString + StringCatalog.NEW_LINE // middle lines
       + indentation + StringCatalog.CLOSED_BRACE; // last line
     }
 
