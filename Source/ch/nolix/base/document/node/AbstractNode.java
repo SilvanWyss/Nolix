@@ -14,6 +14,7 @@ import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.document.xml.IMutableXmlNode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
+import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.programcontrol.processproperty.WriteMode;
 
 /**
@@ -308,6 +309,14 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements Node<N>
   @Override
   public final double toDouble() {
     return StringTool.toDouble(toString());
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final String toFormattedString() {
+    return toFormattedStringWithIndentationLevelAndIndentationSymbol(0, StringCatalog.TAB);
   }
 
   /**
