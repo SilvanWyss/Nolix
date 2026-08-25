@@ -17,7 +17,7 @@ import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
  *            a {@link AbstractBackendClient}.
  */
 public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S>, S>
-extends AbstractClient<C>
+extends AbstractClient
 implements BackendClient<S> {
   @SuppressWarnings("unchecked")
   private final BackendClientSessionManager<C, S> sessionManager = BackendClientSessionManager.forClient((C) this);

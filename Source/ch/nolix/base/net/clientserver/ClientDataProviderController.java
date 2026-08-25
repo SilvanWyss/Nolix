@@ -19,7 +19,7 @@ import ch.nolix.baseapi.net.executoranddataproviderserver.ExecutorAndDataProvide
  * @author Silvan Wyss
  */
 final class ClientDataProviderController implements ExecutorAndDataProvider {
-  private final AbstractClient<?> parentClient;
+  private final AbstractClient parentClient;
 
   /**
    * Creates a new {@link ClientDataProviderController} with the given
@@ -28,7 +28,7 @@ final class ClientDataProviderController implements ExecutorAndDataProvider {
    * @param parentClient
    * @throws RuntimeException if the given parentClient is null
    */
-  private ClientDataProviderController(final AbstractClient<?> parentClient) {
+  private ClientDataProviderController(final AbstractClient parentClient) {
     Validator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
 
     this.parentClient = parentClient;
@@ -39,7 +39,7 @@ final class ClientDataProviderController implements ExecutorAndDataProvider {
    * @return a new {@link ClientDataProviderController} for the given client
    * @throws RuntimeException if the given client is null
    */
-  public static ClientDataProviderController forClient(final AbstractClient<?> client) {
+  public static ClientDataProviderController forClient(final AbstractClient client) {
     return new ClientDataProviderController(client);
   }
 

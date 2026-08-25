@@ -10,7 +10,7 @@ import ch.nolix.base.net.executoranddataproviderserver.NetEndPoint;
  * @author Silvan Wyss
  * @param <C> the type of a {@link AbstractFrontendClient}.
  */
-public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>> extends AbstractClient<C> {
+public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>> extends AbstractClient {
   /**
    * {@inheritDoc}
    */

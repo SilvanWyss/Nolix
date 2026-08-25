@@ -18,9 +18,8 @@ import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 
 /**
  * @author Silvan Wyss
- * @param <C> the type of a {@link AbstractClient}.
  */
-public abstract class AbstractClient<C extends AbstractClient<C>> implements Client {
+public abstract class AbstractClient implements Client {
   private final ICloseController closeController = CloseController.forElement(this);
 
   private EndPoint nullableEndPoint;
