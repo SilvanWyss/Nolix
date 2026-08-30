@@ -30,7 +30,7 @@ final class InvalidArgumentExceptionTest extends StandardTest {
   @Test
   void testCase_forArgument_whenArgumentIsANode() {
     // setup
-    final var node = ImmutableNode.fromString("Parking(Slot(Id(A)), Slot(Id(B)))");
+    final var node = ImmutableNode.fromString("Parking(Slot(Id(A)),Slot(Id(B)))");
 
     // execute
     final var result = InvalidArgumentException.forArgument(node);
@@ -39,7 +39,7 @@ final class InvalidArgumentExceptionTest extends StandardTest {
     expect(result.getArgumentName()).isEqualTo("ImmutableNode");
     expect(result.getStoredArgument()).is(node);
     expect(result.getErrorPredicate()).isEqualTo("is not valid");
-    expect(result.getMessage()).isEqualTo("The given ImmutableNode 'Parking(Slot(Id(A)), Slot(Id(B)))' is not valid.");
+    expect(result.getMessage()).isEqualTo("The given ImmutableNode 'Parking(Slot(Id(A)),Slot(Id(B)))' is not valid.");
   }
 
   @Test

@@ -10,11 +10,11 @@ import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.base.document.xml.MutableXmlNode;
 import ch.nolix.base.environment.filesystem.FileSystemAccessor;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.document.node.EscapeSymbolCodeCatalog;
 import ch.nolix.baseapi.document.node.Node;
 import ch.nolix.baseapi.document.xml.IMutableXmlNode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
-import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.programcontrol.processproperty.WriteMode;
 
 /**
@@ -22,13 +22,6 @@ import ch.nolix.baseapi.programcontrol.processproperty.WriteMode;
  * @param <N> the type of a {@link AbstractNode}.
  */
 public abstract class AbstractNode<N extends AbstractNode<N>> implements Node<N> {
-  public static final String COMMA_CODE = "$M";
-
-  public static final String DOLLAR_SYMBOL_CODE = "$X";
-
-  public static final String OPEN_BRACKET_CODE = "$O";
-
-  public static final String CLOSED_BRACKET_CODE = "$C";
 
   private static final NodeComparator NODE_COMPARATOR = new NodeComparator();
 
@@ -41,17 +34,20 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements Node<N>
 
     for (var i = 0; i < string.length(); i++) {
       switch (string.charAt(i)) {
-        case CharacterCatalog.COMMA:
-          stringBuilder.append(COMMA_CODE);
-          break;
-        case CharacterCatalog.DOLLAR:
-          stringBuilder.append(DOLLAR_SYMBOL_CODE);
-          break;
         case CharacterCatalog.OPEN_BRACKET:
-          stringBuilder.append(OPEN_BRACKET_CODE);
+          stringBuilder.append(EscapeSymbolCodeCatalog.OPEN_BRACKET);
           break;
         case CharacterCatalog.CLOSED_BRACKET:
-          stringBuilder.append(CLOSED_BRACKET_CODE);
+          stringBuilder.append(EscapeSymbolCodeCatalog.CLOSED_BRACKET);
+          break;
+        case CharacterCatalog.COMMA:
+          stringBuilder.append(EscapeSymbolCodeCatalog.COMMA);
+          break;
+        case CharacterCatalog.DOLLAR:
+          stringBuilder.append(EscapeSymbolCodeCatalog.DOLLAR);
+          break;
+        case CharacterCatalog.SPACE:
+          stringBuilder.append(EscapeSymbolCodeCatalog.SPACE);
           break;
         default:
           stringBuilder.append(string.charAt(i));
@@ -69,12 +65,13 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements Node<N>
   public static String getOriginStringFromEscapeString(final String escapeString) {
     return //
     escapeString
-      .replace(COMMA_CODE, String.valueOf(CharacterCatalog.COMMA))
-      .replace(OPEN_BRACKET_CODE, String.valueOf(CharacterCatalog.OPEN_BRACKET))
-      .replace(CLOSED_BRACKET_CODE, String.valueOf(CharacterCatalog.CLOSED_BRACKET))
+      .replace(EscapeSymbolCodeCatalog.OPEN_BRACKET, String.valueOf(CharacterCatalog.OPEN_BRACKET))
+      .replace(EscapeSymbolCodeCatalog.CLOSED_BRACKET, String.valueOf(CharacterCatalog.CLOSED_BRACKET))
+      .replace(EscapeSymbolCodeCatalog.COMMA, String.valueOf(CharacterCatalog.COMMA))
+      .replace(EscapeSymbolCodeCatalog.SPACE, String.valueOf(CharacterCatalog.SPACE))
 
-      // It is essential to replace the dollar symbol code at last.
-      .replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalog.DOLLAR));
+      // There is essential to replace the dollar symbol code at last.
+      .replace(EscapeSymbolCodeCatalog.DOLLAR, String.valueOf(CharacterCatalog.DOLLAR));
   }
 
   /**
@@ -315,14 +312,6 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements Node<N>
    * {@inheritDoc}
    */
   @Override
-  public final String toFormattedString() {
-    return toFormattedStringWithIndentationLevelAndIndentationSymbol(0, StringCatalog.TAB);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public final String toFormattedStringWithIndentationLevelAndIndentationSymbol(
     final int indentationLevel,
     final String indentationSymbol,
@@ -370,16 +359,14 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements Node<N>
   public final String toString() {
     final var stringBuilder = new StringBuilder();
 
-    // Handles the case that the current specification has a header.
     if (hasHeader()) {
       stringBuilder.append(getReproducingHeader());
     }
 
-    // Handles the case that the current BaseNode contains child nodes.
     if (containsChildNodes()) {
       stringBuilder
         .append(CharacterCatalog.OPEN_BRACKET)
-        .append(getStoredChildNodes().toString())
+        .append(getStoredChildNodes())
         .append(CharacterCatalog.CLOSED_BRACKET);
     }
 
