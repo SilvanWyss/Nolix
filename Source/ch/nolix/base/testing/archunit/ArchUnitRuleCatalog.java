@@ -28,6 +28,32 @@ public final class ArchUnitRuleCatalog {
     .orShould()
     .haveModifier(JavaModifier.FINAL);
 
+  public static final ArchRule PUBLIC_AND_PACKAGE_VISIBLE_CONSTRUCTORS_DO_NOT_CONTAIN_PARAMETERS = //
+  ArchRuleDefinition
+    .constructors()
+    .that()
+    .arePublic()
+    .or()
+    .arePackagePrivate()
+    .and()
+    .areDeclaredInClassesThat()
+    .areNotRecords()
+    .and()
+    .areDeclaredInClassesThat()
+    .haveModifier(JavaModifier.FINAL)
+    .should(
+      new ArchCondition<JavaConstructor>("should not contain parameters.") {
+        @Override
+        public void check(final JavaConstructor item, final ConditionEvents events) {
+          if (!item.getParameters().isEmpty()) {
+            final var message = //
+            "The public or package-visible constructor '" + item.getFullName() + "' contains parameters.";
+  
+            events.add(new SimpleConditionEvent(item, false, message));
+          }
+        }
+      });
+
   public static final ArchRule PUBLIC_CLASSES_DO_NOT_CONTAIN_NESTED_CLASSES = //
   ArchRuleDefinition
     .classes()
@@ -51,32 +77,6 @@ public final class ArchUnitRuleCatalog {
         }
       }
     });
-
-  public static final ArchRule PUBLIC_AND_PACKAGE_VISIBLE_CONSTRUCTORS_DO_NOT_CONTAIN_PARAMETERS = //
-  ArchRuleDefinition
-    .constructors()
-    .that()
-    .arePublic()
-    .or()
-    .arePackagePrivate()
-    .and()
-    .areDeclaredInClassesThat()
-    .areNotRecords()
-    .and()
-    .areDeclaredInClassesThat()
-    .haveModifier(JavaModifier.FINAL)
-    .should(
-      new ArchCondition<JavaConstructor>("should not contain parameters.") {
-        @Override
-        public void check(final JavaConstructor item, final ConditionEvents events) {
-          if (!item.getParameters().isEmpty()) {
-            final var message = //
-            "The public or package-visible constructor '" + item.getFullName() + "' contains parameters.";
-
-            events.add(new SimpleConditionEvent(item, false, message));
-          }
-        }
-      });
 
   public static final ArchRule PUBLIC_NON_STATIC_METHODS_RETURN_A_PRIMITIVE_BOOLEAN = //
   ArchRuleDefinition
