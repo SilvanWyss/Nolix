@@ -10,7 +10,7 @@ import ch.nolix.baseapi.sql.syntax.SqlKeywordCatalog;
 /**
  * @author Silvan Wyss
  */
-public class SqlLiteralMapper implements ISqlLiteralMapper {
+public final class SqlLiteralMapper implements ISqlLiteralMapper {
   /**
    * {@inheritDoc}
    */
