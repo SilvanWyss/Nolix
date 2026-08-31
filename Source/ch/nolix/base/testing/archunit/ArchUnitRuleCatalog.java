@@ -48,7 +48,7 @@ public final class ArchUnitRuleCatalog {
           if (!item.getParameters().isEmpty()) {
             final var message = //
             "The public or package-visible constructor '" + item.getFullName() + "' contains parameters.";
-  
+
             events.add(new SimpleConditionEvent(item, false, message));
           }
         }
@@ -78,7 +78,7 @@ public final class ArchUnitRuleCatalog {
       }
     });
 
-  public static final ArchRule PUBLIC_NON_STATIC_METHODS_RETURN_A_PRIMITIVE_BOOLEAN = //
+  public static final ArchRule PUBLIC_MEMBER_METHODS_RETURN_A_PRIMITIVE_BOOLEAN = //
   ArchRuleDefinition
     .methods()
     .that()

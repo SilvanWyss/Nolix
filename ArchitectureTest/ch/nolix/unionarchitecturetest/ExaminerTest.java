@@ -28,8 +28,8 @@ final class ExaminerTest {
       });
 
   @Test
-  void testCase() {
+  void testCase_publicMemberMethodsOfExaminerClassesReturnAPrimitiveBoolean() {
     // execute & verify
-    ArchUnitRuleCatalog.PUBLIC_NON_STATIC_METHODS_RETURN_A_PRIMITIVE_BOOLEAN.check(TEST_UNIT);
+    ArchUnitRuleCatalog.PUBLIC_MEMBER_METHODS_RETURN_A_PRIMITIVE_BOOLEAN.check(TEST_UNIT);
   }
 }
