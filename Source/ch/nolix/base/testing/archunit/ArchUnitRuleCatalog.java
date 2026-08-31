@@ -18,6 +18,16 @@ import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
  * @author Silvan Wyss
  */
 public final class ArchUnitRuleCatalog {
+  public static final ArchRule NON_ANONYMOUS_CLASSES_ARE_ABSTRACT_OR_FINAL = //
+  ArchRuleDefinition
+    .classes()
+    .that()
+    .areNotAnonymousClasses()
+    .should()
+    .haveModifier(JavaModifier.ABSTRACT)
+    .orShould()
+    .haveModifier(JavaModifier.FINAL);
+
   public static final ArchRule PUBLIC_CLASSES_DO_NOT_CONTAIN_NESTED_CLASSES = //
   ArchRuleDefinition
     .classes()
