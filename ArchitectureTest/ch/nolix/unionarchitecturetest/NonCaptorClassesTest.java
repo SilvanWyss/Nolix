@@ -28,7 +28,7 @@ final class NonCaptorClassesTest {
       });
 
   @Test
-  void testCase_nonAnonymousCaptorsAreAbstractOrFinal() {
+  void testCase_nonAnonymousCaptorClassesAreAbstractOrFinal() {
     // execute & verify
     ArchUnitRuleCatalog.NON_ANONYMOUS_CLASSES_ARE_ABSTRACT_OR_FINAL.check(TEST_UNIT);
   }
