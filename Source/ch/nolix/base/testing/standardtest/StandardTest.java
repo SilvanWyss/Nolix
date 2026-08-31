@@ -9,8 +9,8 @@ import ch.nolix.base.validation.multi.MultiDoubleMediator;
 import ch.nolix.base.validation.multi.MultiLongMediator;
 import ch.nolix.base.validation.object.NamableIterableMediator;
 import ch.nolix.base.validation.object.NamableObjectMediator;
+import ch.nolix.base.validation.object.NamableStringMediator;
 import ch.nolix.base.validation.object.OptionalMediator;
-import ch.nolix.base.validation.object.StringMediator;
 import ch.nolix.base.validation.primitive.BooleanMediator;
 import ch.nolix.base.validation.primitive.ByteMediator;
 import ch.nolix.base.validation.primitive.LongMediator;
@@ -127,8 +127,8 @@ public abstract class StandardTest { // NOSONAR: StandardTest does not have abst
    * @return a new string mediator that belongs to this nolix test and has the
    *         given argument.
    */
-  protected static final StringMediator expect(final String argument) {
-    return StringMediator.forArgument(argument);
+  protected static final NamableStringMediator expect(final String argument) {
+    return NamableStringMediator.forArgument(argument);
   }
 
   /**

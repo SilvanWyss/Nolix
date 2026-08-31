@@ -6,7 +6,7 @@ package ch.nolix.basetest.validation.object;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.base.validation.object.ExtendedStringMediator;
+import ch.nolix.base.validation.object.NamableStringMediator;
 
 /**
  * @author Silvan Wyss
@@ -16,7 +16,7 @@ final class ExtendedStringMediatorTest extends StandardTest {
   void testCase_thatIsNamed() {
     // setup
     final var argument = "Tom";
-    final var testUnit = ExtendedStringMediator.forArgument(argument);
+    final var testUnit = NamableStringMediator.forArgument(argument);
 
     // execute
     final var result = testUnit.thatIsNamed("name");

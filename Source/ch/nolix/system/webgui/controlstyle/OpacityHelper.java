@@ -13,7 +13,7 @@ public final class OpacityHelper {
   }
 
   public static double getOpacityFromString(final String string) {
-    Validator.assertThat(string).thatIsNamed(String.class).isNotBlank();
+    Validator.assertThat(string).isNotBlank();
 
     if (!string.endsWith("%")) {
       return Double.valueOf(string);
