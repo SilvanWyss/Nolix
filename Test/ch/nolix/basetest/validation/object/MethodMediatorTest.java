@@ -16,7 +16,7 @@ final class MethodMediatorTest extends StandardTest {
   @Test
   void testCase_hasReturnType_whenIsNull() {
     // setup
-    final var testUnit = MethodMediator.forArgument(null);
+    final var testUnit = MethodMediator.forArgumentAndArgumentName(null, "method");
 
     // execute & verify
     expectRunning(() -> testUnit.hasReturnType(String.class))

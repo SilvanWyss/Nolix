@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.foundation.util.FunctionService;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.base.validation.object.MethodMediator;
+import ch.nolix.base.validation.object.AbstractMethodMediator;
 import ch.nolix.base.validation.object.NamableIterableMediator;
 import ch.nolix.base.validation.object.StringMediator;
 import ch.nolix.base.validation.primitive.AbstractLongMediator;
@@ -124,7 +124,7 @@ final class ValidatorTest extends StandardTest {
     final var result = Validator.assertThat(argument);
 
     // verify
-    expect(result).isOfType(MethodMediator.class);
+    expect(result).isOfType(AbstractMethodMediator.class);
   }
 
   @Test
