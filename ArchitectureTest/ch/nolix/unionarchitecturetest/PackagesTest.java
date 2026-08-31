@@ -13,7 +13,7 @@ import com.tngtech.archunit.library.dependencies.SlicesRuleDefinition;
 /**
  * @author Silvan Wyss
  */
-final class PackageTest {
+final class PackagesTest {
   private static final JavaClasses TEST_UNIT = new ClassFileImporter().importPackages("ch.nolix..");
 
   @Test
