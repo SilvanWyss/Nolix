@@ -13,7 +13,7 @@ import ch.nolix.base.testing.archunit.ArchUnitRuleCatalog;
 /**
  * @author Silvan Wyss
  */
-final class ConstructorTest {
+final class ConstructorsTest {
   private static final JavaClasses TEST_UNIT = new ClassFileImporter().importPackages("ch.nolix..");
 
   @Test
