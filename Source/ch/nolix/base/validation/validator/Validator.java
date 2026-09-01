@@ -13,7 +13,7 @@ import ch.nolix.base.validation.multi.MultiDoubleMediator;
 import ch.nolix.base.validation.multi.MultiLongMediator;
 import ch.nolix.base.validation.multi.MultiStringMediator;
 import ch.nolix.base.validation.object.NamableMethodMediator;
-import ch.nolix.base.validation.object.ExtendedOptionalMediator;
+import ch.nolix.base.validation.object.NamableOptionalMediator;
 import ch.nolix.base.validation.object.NamableStringMediator;
 import ch.nolix.base.validation.object.NamableTypeMediator;
 import ch.nolix.base.validation.object.NamableBigDecimalMediator;
@@ -176,12 +176,12 @@ public final class Validator { // NOSONAR: The GlobalValidator bundles all valid
    * @param argument
    * @param <T>      the type of the element of the given {@link Optional}
    *                 argument
-   * @return a new {@link ExtendedOptionalMediator} for the given argument.
+   * @return a new {@link NamableOptionalMediator} for the given argument.
    */
-  public static <T> ExtendedOptionalMediator<T> assertThat(
+  public static <T> NamableOptionalMediator<T> assertThat(
     final Optional<T> argument // NOSONAR: An Optional is the argument of an ExtendedOptionalMediator.
   ) {
-    return ExtendedOptionalMediator.forArgument(argument);
+    return NamableOptionalMediator.forArgument(argument);
   }
 
   /**

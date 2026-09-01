@@ -8,26 +8,28 @@ import java.util.Optional;
 /**
  * @author Silvan Wyss
  * @param <T> the type of the element of the {@link Optional} of a
- *            {@link ExtendedOptionalMediator}.
+ *            {@link NamableOptionalMediator}.
  */
-public final class ExtendedOptionalMediator<T> extends OptionalMediator<T> {
-  private ExtendedOptionalMediator(
+public final class NamableOptionalMediator<T> extends AbstractOptionalMediator<T> {
+  private NamableOptionalMediator(
     final Optional<T> argument // NOSONAR: An Optional is the argument of an ExtendedOptionalMediator.
   ) {
     super(argument);
   }
 
-  public static <T2> ExtendedOptionalMediator<T2> forArgument(
+  public static <T2> NamableOptionalMediator<T2> forArgument(
     final Optional<T2> argument // NOSONAR: An Optional is the argument of an ExtendedOptionalMediator.
   ) {
-    return new ExtendedOptionalMediator<>(argument);
+    return new NamableOptionalMediator<>(argument);
   }
 
   public OptionalMediator<T> thatIsNamed(final Class<?> type) {
-    return OptionalMediator.forArgumentNameAndArgument(type.getSimpleName(), getStoredArgument());
+    final var argumentName = type.getSimpleName();
+
+    return OptionalMediator.forArgumentAndArgumentName(getStoredArgument(), argumentName);
   }
 
   public OptionalMediator<T> thatIsNamed(final String argumentName) {
-    return OptionalMediator.forArgumentNameAndArgument(argumentName, getStoredArgument());
+    return OptionalMediator.forArgumentAndArgumentName(getStoredArgument(), argumentName);
   }
 }

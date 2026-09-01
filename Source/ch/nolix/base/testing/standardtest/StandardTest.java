@@ -110,7 +110,7 @@ public abstract class StandardTest { // NOSONAR: StandardTest does not have abst
   protected static final <T> IOptionalMediator expect(
     final Optional<T> argument // NOSONAR: An Optional is the argument of an OptionalMediator.
   ) {
-    return OptionalMediator.forArgument(argument);
+    return OptionalMediator.forArgumentAndArgumentName(argument, Optional.class.getSimpleName());
   }
 
   /**
