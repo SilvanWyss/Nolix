@@ -10,7 +10,7 @@ import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
 /**
  * @author Silvan Wyss
  */
-public class ApplicationInstanceTarget extends AbstractServerTarget implements IApplicationInstanceTarget {
+public final class ApplicationInstanceTarget extends AbstractServerTarget implements IApplicationInstanceTarget {
   private final String applicationInstanceName;
 
   private final String applicationUrlInstanceName;
@@ -49,7 +49,7 @@ public class ApplicationInstanceTarget extends AbstractServerTarget implements I
    * {@inheritDoc}
    */
   @Override
-  public final String getApplicationInstanceName() {
+  public String getApplicationInstanceName() {
     return applicationInstanceName;
   }
 
@@ -57,7 +57,7 @@ public class ApplicationInstanceTarget extends AbstractServerTarget implements I
    * {@inheritDoc}
    */
   @Override
-  public final String getApplicationUrlInstanceName() {
+  public String getApplicationUrlInstanceName() {
     return applicationUrlInstanceName;
   }
 
