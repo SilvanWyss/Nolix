@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemtest.objectdata.fieldtool;
+package ch.nolix.systemtest.objectdata.fieldexaminer;
 
 import org.junit.jupiter.api.Test;
 
@@ -15,8 +15,8 @@ import ch.nolix.system.objectdata.model.ValueField;
 /**
  * @author Silvan Wyss
  */
-final class ValueToolTest extends StandardTest {
-  private static class Pet extends Entity {
+final class ValueFieldExaminerTest extends StandardTest {
+  private static final class Pet extends Entity {
     private final ValueField<String> name = ValueField.withValueType(String.class);
 
     public Pet() {
