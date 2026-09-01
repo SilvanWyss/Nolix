@@ -46,10 +46,9 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
         return new FieldDto(columnName, value2, additionalValue2);
       case OPTIONAL_VALUE_FIELD:
         if (contentFieldNode.hasHeader()) {
-          final var valueAsString3 = contentFieldNode.getHeader();
-          final var value3 = VALUE_MAPPER.mapStringToValue(valueAsString3, dataType);
+          final var optionalValueFieldValue = VALUE_MAPPER.mapStringToValue(contentFieldNode.getHeader(), dataType);
 
-          return new FieldDto(columnName, value3, null);
+          return new FieldDto(columnName, optionalValueFieldValue, null);
         }
 
         return new FieldDto(columnName, null, null);
