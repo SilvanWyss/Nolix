@@ -11,7 +11,7 @@ import ch.nolix.baseapi.net.senderandreplierserverprotocol.MessageRole;
  * 
  * @author Silvan Wyss
  */
-final class Package extends ch.nolix.base.net.messaging.IndexedPackage<String> {
+final class Package extends ch.nolix.base.net.messaging.AbstractIndexedPackage<String> {
   private final MessageRole messageRole;
 
   /**
