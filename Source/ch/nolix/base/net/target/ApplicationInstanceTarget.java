@@ -10,7 +10,7 @@ import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
 /**
  * @author Silvan Wyss
  */
-public class ApplicationInstanceTarget extends ServerTarget implements IApplicationInstanceTarget {
+public class ApplicationInstanceTarget extends AbstractServerTarget implements IApplicationInstanceTarget {
   private final String applicationInstanceName;
 
   private final String applicationUrlInstanceName;
