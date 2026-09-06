@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.database.databaseobjectvalidator;
 
-import ch.nolix.base.resourcecontrol.resourcevalidator.ResourceValidatorUnit;
+import ch.nolix.base.resourcecontrol.resourcevalidator.AbstractResourceValidator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.database.databaseobject.DatabaseObject;
@@ -12,7 +12,7 @@ import ch.nolix.systemapi.database.databaseobjectvalidator.IDatabaseObjectValida
 /**
  * @author Silvan Wyss
  */
-public final class DatabaseObjectValidator extends ResourceValidatorUnit implements IDatabaseObjectValidator {
+public final class DatabaseObjectValidator extends AbstractResourceValidator implements IDatabaseObjectValidator {
   /**
    * {@inheritDoc}
    */

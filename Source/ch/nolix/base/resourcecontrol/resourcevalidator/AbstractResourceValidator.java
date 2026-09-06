@@ -9,7 +9,7 @@ import ch.nolix.baseapi.resourcecontrol.resourcevalidator.IResourceValidator;
 /**
  * @author Silvan Wyss
  */
-public class ResourceValidatorUnit implements IResourceValidator {
+public abstract class AbstractResourceValidator implements IResourceValidator {
   /**
    * {@inheritDoc}
    */
