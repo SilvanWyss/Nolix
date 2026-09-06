@@ -12,7 +12,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
  * 
  * @author Silvan Wyss
  */
-public final class FolderAccessor extends FileSystemItemAccessor {
+public final class FolderAccessor extends AbstractFileSystemItemAccessor {
   /**
    * Creates a new {@link FolderAccessor} for the folder with the given
    * folderPath.
@@ -125,10 +125,10 @@ public final class FolderAccessor extends FileSystemItemAccessor {
   }
 
   /**
-   * @return new {@link FileSystemItemAccessor}s to the file system items in the
+   * @return new {@link AbstractFileSystemItemAccessor}s to the file system items in the
    *         folder of the current {@link FolderAccessor}.
    */
-  public ExtendedIterable<FileSystemItemAccessor> getFileSystemItemAccessors() {
+  public ExtendedIterable<AbstractFileSystemItemAccessor> getFileSystemItemAccessors() {
     return FileSystemAccessor.getFileSystemItemAccessors(getPath());
   }
 
