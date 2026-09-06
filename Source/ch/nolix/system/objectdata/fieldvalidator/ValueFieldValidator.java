@@ -11,7 +11,9 @@ import ch.nolix.systemapi.objectdata.model.IValueField;
 /**
  * @author Silvan Wyss
  */
-public final class ValueFieldValidator extends FieldValidator implements IValueFieldValidator {
+public final class ValueFieldValidator
+extends AbstractFieldValidator<IValueField<?>>
+implements IValueFieldValidator {
   private static final ValueFieldExaminer VALUE_TOOL = new ValueFieldExaminer();
 
   @Override

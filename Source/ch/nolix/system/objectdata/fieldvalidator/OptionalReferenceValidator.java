@@ -3,7 +3,6 @@
  */
 package ch.nolix.system.objectdata.fieldvalidator;
 
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.fieldexaminer.OptionalReferenceExaminer;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IOptionalReferenceValidator;
@@ -13,11 +12,12 @@ import ch.nolix.systemapi.objectdata.model.IOptionalReference;
 /**
  * @author Silvan Wyss
  */
-public final class OptionalReferenceValidator extends FieldValidator implements IOptionalReferenceValidator {
+public final class OptionalReferenceValidator extends AbstractFieldValidator<IOptionalReference<IEntity>>
+implements IOptionalReferenceValidator {
   private static final OptionalReferenceExaminer OPTIONAL_REFERENCE_EXAMINER = new OptionalReferenceExaminer();
 
   @Override
-  public void assertCanBeCleared(final IOptionalReference<?> optionalReference) {
+  public void assertCanBeCleared(final IOptionalReference<? extends IEntity> optionalReference) {
     if (!OPTIONAL_REFERENCE_EXAMINER.canBeCleared(optionalReference)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalReference, "cannot be cleared");
     }
@@ -33,16 +33,6 @@ public final class OptionalReferenceValidator extends FieldValidator implements 
       InvalidArgumentException.forArgumentAndErrorPredicate(
         optionalReference,
         "cannot set the given entity '" + entity + "'");
-    }
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public void assertIsNotEmpty(final IOptionalReference<?> optionalReference) {
-    if (optionalReference.isEmpty()) {
-      throw EmptyArgumentException.forArgument(optionalReference);
     }
   }
 }

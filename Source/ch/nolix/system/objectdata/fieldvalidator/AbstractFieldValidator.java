@@ -7,6 +7,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToP
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.system.database.databaseobjectvalidator.AbstractDatabaseObjectValidator;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IFieldValidator;
 import ch.nolix.systemapi.objectdata.model.Field;
@@ -14,8 +15,12 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 
 /**
  * @author Silvan Wyss
+ * @param <F> the type of the {@link Field}s a {@link AbstractFieldValidator}
+ *            validates
  */
-public class FieldValidator implements IFieldValidator {
+public abstract class AbstractFieldValidator<F extends Field>
+extends AbstractDatabaseObjectValidator<F>
+implements IFieldValidator<F> {
   private static final FieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
   @Override

@@ -9,10 +9,8 @@ import ch.nolix.systemapi.objectdata.model.IOptionalReference;
 /**
  * @author Silvan Wyss
  */
-public interface IOptionalReferenceValidator extends IFieldValidator {
-  void assertCanBeCleared(IOptionalReference<?> optionalReference);
+public interface IOptionalReferenceValidator extends IFieldValidator<IOptionalReference<IEntity>> {
+  void assertCanBeCleared(IOptionalReference<? extends IEntity> optionalReference);
 
   <E extends IEntity> void assertCanSetEntity(IOptionalReference<E> optionalReference, E entity);
-
-  void assertIsNotEmpty(IOptionalReference<?> optionalReference);
 }

@@ -3,7 +3,6 @@
  */
 package ch.nolix.system.objectdata.fieldvalidator;
 
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.fieldexaminer.OptionalValueFieldExaminer;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IOptionalValueFieldValidator;
@@ -12,7 +11,8 @@ import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
 /**
  * @author Silvan Wyss
  */
-public final class OptionalValueFieldValidator extends FieldValidator implements IOptionalValueFieldValidator {
+public final class OptionalValueFieldValidator extends AbstractFieldValidator<IOptionalValueField<?>>
+implements IOptionalValueFieldValidator {
   private static final OptionalValueFieldExaminer OPTIONAL_VALUE_TOOL = new OptionalValueFieldExaminer();
 
   @Override
@@ -22,16 +22,6 @@ public final class OptionalValueFieldValidator extends FieldValidator implements
       InvalidArgumentException.forArgumentAndErrorPredicate(
         optionalValueField,
         "cannot set the given value '" + value + "'");
-    }
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public void assertIsNotEmpty(final IOptionalValueField<?> optionalValueField) {
-    if (optionalValueField.isEmpty()) {
-      throw EmptyArgumentException.forArgument(optionalValueField);
     }
   }
 }

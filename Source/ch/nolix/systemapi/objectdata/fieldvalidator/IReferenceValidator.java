@@ -9,6 +9,6 @@ import ch.nolix.systemapi.objectdata.model.IReference;
 /**
  * @author Silvan Wyss
  */
-public interface IReferenceValidator extends IFieldValidator {
+public interface IReferenceValidator extends IFieldValidator<IReference<IEntity>> {
   <E extends IEntity> void assertCanSetEntity(IReference<E> reference, E entity);
 }

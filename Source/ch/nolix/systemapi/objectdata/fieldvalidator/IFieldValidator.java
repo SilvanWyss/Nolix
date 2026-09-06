@@ -3,19 +3,21 @@
  */
 package ch.nolix.systemapi.objectdata.fieldvalidator;
 
+import ch.nolix.systemapi.database.databaseobjectvalidator.DatabaseObjectValidator;
 import ch.nolix.systemapi.objectdata.model.Field;
 
 /**
  * @author Silvan Wyss
+ * @param <F> the type of the {@link Field}s a {@link IFieldValidator} validates
  */
-public interface IFieldValidator {
-  void assertBelongsToEntity(Field field);
+public interface IFieldValidator<F extends Field> extends DatabaseObjectValidator<F> {
+  void assertBelongsToEntity(F field);
 
-  void assertDoesNotBelongToEntity(Field field);
+  void assertDoesNotBelongToEntity(F field);
 
-  void assertIsNotEmpty(Field field);
+  void assertIsNotEmpty(F field);
 
-  void assertIsNotMandatoryAndEmptyBoth(Field field);
+  void assertIsNotMandatoryAndEmptyBoth(F field);
 
-  void assertKnowsParentColumn(Field field);
+  void assertKnowsParentColumn(F field);
 }

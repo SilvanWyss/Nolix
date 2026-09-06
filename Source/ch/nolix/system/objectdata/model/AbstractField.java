@@ -7,7 +7,7 @@ import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.system.objectdata.fieldvalidator.FieldValidator;
+import ch.nolix.system.objectdata.fieldvalidator.StandardFieldValidator;
 import ch.nolix.system.objectdata.modelflyweight.FieldFlyWeight;
 import ch.nolix.system.objectdata.modelflyweight.VoidFieldFlyWeight;
 import ch.nolix.systemapi.database.databaseobject.DatabaseObjectState;
@@ -23,7 +23,7 @@ import ch.nolix.systemapi.objectdata.modelflyweight.IFieldFlyWeight;
  * @author Silvan Wyss
  */
 public abstract class AbstractField implements Field {
-  private static final FieldValidator FIELD_VALIDATOR = new FieldValidator();
+  private static final StandardFieldValidator FIELD_VALIDATOR = new StandardFieldValidator();
 
   private static final VoidFieldFlyWeight VOID_FIELD_FLY_WEIGHT = new VoidFieldFlyWeight();
 

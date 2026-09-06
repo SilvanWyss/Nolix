@@ -11,7 +11,9 @@ import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 /**
  * @author Silvan Wyss
  */
-public final class MultiValueFieldValidator extends FieldValidator implements IMultiValueFieldValidator {
+public final class MultiValueFieldValidator
+extends AbstractFieldValidator<IMultiValueField<?>>
+implements IMultiValueFieldValidator {
   private static final MultiValueFieldExaminer MULTI_VALUE_EXAMINER = new MultiValueFieldExaminer();
 
   @Override

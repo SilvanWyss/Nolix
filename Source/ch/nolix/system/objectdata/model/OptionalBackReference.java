@@ -8,7 +8,7 @@ import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
-import ch.nolix.system.objectdata.fieldvalidator.FieldValidator;
+import ch.nolix.system.objectdata.fieldvalidator.StandardFieldValidator;
 import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
@@ -33,7 +33,7 @@ implements IOptionalBackReference<E> {
 
   private static final EntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
-  private static final FieldValidator FIELD_VALIDATOR = new FieldValidator();
+  private static final StandardFieldValidator FIELD_VALIDATOR = new StandardFieldValidator();
 
   private EntityCache<E> nullableBackReferencedEntityCache;
 
