@@ -20,7 +20,8 @@ import ch.nolix.systemapi.objectdata.structure.EntityCache;
  *            references back.
  */
 public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiBackReferenceEntry<E> {
-  private static final StandardDatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new StandardDatabaseObjectValidator();
+  private static final StandardDatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = //
+  new StandardDatabaseObjectValidator();
 
   private static final DatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
 
