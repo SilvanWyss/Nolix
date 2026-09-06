@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.system.database.databaseobjectvalidator.DatabaseObjectValidator;
+import ch.nolix.system.database.databaseobjectvalidator.AbstractDatabaseObjectValidator;
 import ch.nolix.systemapi.database.databaseobject.DatabaseObjectState;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 import ch.nolix.systemapi.objectdata.model.IMultiValueFieldEntry;
@@ -14,9 +14,9 @@ import ch.nolix.systemapi.objectdata.model.IMultiValueFieldEntry;
  * @author Silvan Wyss
  * @param <V> the type of the value of a {@link MultiValueFieldEntry}.
  */
-public final class MultiValueFieldEntry<V> implements IMultiValueFieldEntry<V> {
-  private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
-
+public final class MultiValueFieldEntry<V>
+extends AbstractDatabaseObjectValidator<MultiValueFieldEntry<V>>
+implements IMultiValueFieldEntry<V> {
   private final IMultiValueField<V> parentMultiValue;
 
   private DatabaseObjectState state;
@@ -127,13 +127,9 @@ public final class MultiValueFieldEntry<V> implements IMultiValueFieldEntry<V> {
     return (getState() == DatabaseObjectState.NEW);
   }
 
-  void internalSetDeleted() {
-    assertIsLoaded();
+  void setDeleted() {
+    assertIsLoaded(this);
 
     state = DatabaseObjectState.DELETED;
-  }
-
-  private void assertIsLoaded() {
-    DATABASE_OBJECT_VALIDATOR.assertIsLoaded(this);
   }
 }

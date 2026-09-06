@@ -8,6 +8,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentContainsEl
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ReferencedArgumentException;
+import ch.nolix.system.database.databaseobjectvalidator.AbstractDatabaseObjectValidator;
 import ch.nolix.system.objectschema.modelexaminer.TableExaminer;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
@@ -16,7 +17,7 @@ import ch.nolix.systemapi.objectschema.modelvalidator.ITableValidator;
 /**
  * @author Silvan Wyss
  */
-public final class TableValidator implements ITableValidator {
+public final class TableValidator extends AbstractDatabaseObjectValidator<ITable> implements ITableValidator {
   private static final TableExaminer TABLE_EXAMINER = new TableExaminer();
 
   @Override

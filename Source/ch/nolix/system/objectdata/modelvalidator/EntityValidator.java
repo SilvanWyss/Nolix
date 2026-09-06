@@ -9,6 +9,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ReferencedArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.system.database.databaseobjectvalidator.AbstractDatabaseObjectValidator;
 import ch.nolix.system.objectdata.modelexaminer.EntityExaminer;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
@@ -17,7 +18,7 @@ import ch.nolix.systemapi.objectdata.modelvalidator.IEntityValidator;
 /**
  * @author Silvan Wyss
  */
-public final class EntityValidator implements IEntityValidator {
+public final class EntityValidator extends AbstractDatabaseObjectValidator<IEntity> implements IEntityValidator {
   private static final EntityExaminer ENTITY_EXAMINER = new EntityExaminer();
 
   @Override

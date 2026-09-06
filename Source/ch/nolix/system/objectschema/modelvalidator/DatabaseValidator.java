@@ -8,6 +8,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotCon
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.system.database.databaseobjectvalidator.AbstractDatabaseObjectValidator;
 import ch.nolix.system.objectschema.modelexaminer.DatabaseExaminer;
 import ch.nolix.system.objectschema.modelmutationexaminer.DatabaseMutationExaminer;
 import ch.nolix.systemapi.objectschema.model.IColumn;
@@ -18,7 +19,7 @@ import ch.nolix.systemapi.objectschema.modelvalidator.IDatabaseValidator;
 /**
  * @author Silvan Wyss
  */
-public final class DatabaseValidator implements IDatabaseValidator {
+public final class DatabaseValidator extends AbstractDatabaseObjectValidator<IDatabase> implements IDatabaseValidator {
   private static final DatabaseExaminer DATABASE_EXAMINER = new DatabaseExaminer();
 
   private static final DatabaseMutationExaminer DATABASE_MUTATION_EXAMINER = new DatabaseMutationExaminer();

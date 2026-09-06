@@ -7,17 +7,21 @@ import ch.nolix.base.resourcecontrol.resourcevalidator.AbstractResourceValidator
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.database.databaseobject.DatabaseObject;
-import ch.nolix.systemapi.database.databaseobjectvalidator.IDatabaseObjectValidator;
+import ch.nolix.systemapi.database.databaseobjectvalidator.DatabaseObjectValidator;
 
 /**
  * @author Silvan Wyss
+ * @param <O> the type of the {@link DatabaseObject}s a
+ *            {@link AbstractDatabaseObjectValidator} validates
  */
-public final class DatabaseObjectValidator extends AbstractResourceValidator implements IDatabaseObjectValidator {
+public abstract class AbstractDatabaseObjectValidator<O extends DatabaseObject>
+extends AbstractResourceValidator
+implements DatabaseObjectValidator<O> {
   /**
    * {@inheritDoc}
    */
   @Override
-  public void assertIsConnectedWithRealDatabase(final DatabaseObject databaseObject) {
+  public final void assertIsConnectedWithRealDatabase(final O databaseObject) {
     if (!databaseObject.isConnectedWithRealDatabase()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is not linked with a real database");
     }
@@ -27,7 +31,7 @@ public final class DatabaseObjectValidator extends AbstractResourceValidator imp
    * {@inheritDoc}
    */
   @Override
-  public void assertIsLoaded(final DatabaseObject databaseObject) {
+  public final void assertIsLoaded(final O databaseObject) {
     if (!databaseObject.isLoaded()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is not loaded");
     }
@@ -37,7 +41,7 @@ public final class DatabaseObjectValidator extends AbstractResourceValidator imp
    * {@inheritDoc}
    */
   @Override
-  public void assertIsNew(final DatabaseObject databaseObject) {
+  public final void assertIsNew(final O databaseObject) {
     if (!databaseObject.isNew()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is not new");
     }
@@ -47,7 +51,7 @@ public final class DatabaseObjectValidator extends AbstractResourceValidator imp
    * {@inheritDoc}
    */
   @Override
-  public void assertIsNotDeleted(final DatabaseObject databaseObject) {
+  public final void assertIsNotDeleted(final O databaseObject) {
     if (databaseObject.isDeleted()) {
       throw DeletedArgumentException.forArgument(databaseObject);
     }
@@ -57,7 +61,7 @@ public final class DatabaseObjectValidator extends AbstractResourceValidator imp
    * {@inheritDoc}
    */
   @Override
-  public void assertIsNotConnectedWithRealDatabase(final DatabaseObject databaseObject) {
+  public final void assertIsNotConnectedWithRealDatabase(final O databaseObject) {
     if (databaseObject.isConnectedWithRealDatabase()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is linked with a real database");
     }
@@ -67,7 +71,7 @@ public final class DatabaseObjectValidator extends AbstractResourceValidator imp
    * {@inheritDoc}
    */
   @Override
-  public void assertIsNotNew(final DatabaseObject databaseObject) {
+  public final void assertIsNotNew(final DatabaseObject databaseObject) {
     if (databaseObject.isNew()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is new");
     }

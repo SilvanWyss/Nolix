@@ -3,6 +3,7 @@
  */
 package ch.nolix.systemapi.objectschema.modelvalidator;
 
+import ch.nolix.systemapi.database.databaseobjectvalidator.DatabaseObjectValidator;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
@@ -10,7 +11,7 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 /**
  * @author Silvan Wyss
  */
-public interface ITableValidator {
+public interface ITableValidator extends DatabaseObjectValidator<ITable> {
   /**
    * @param table
    * @param column

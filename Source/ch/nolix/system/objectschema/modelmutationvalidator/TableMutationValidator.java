@@ -5,8 +5,8 @@ package ch.nolix.system.objectschema.modelmutationvalidator;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.system.database.databaseobjectvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectschema.modelexaminer.ColumnExaminer;
+import ch.nolix.system.objectschema.modelvalidator.ColumnValidator;
 import ch.nolix.system.objectschema.modelvalidator.DatabaseValidator;
 import ch.nolix.system.objectschema.modelvalidator.TableValidator;
 import ch.nolix.systemapi.objectschema.model.IColumn;
@@ -17,11 +17,11 @@ import ch.nolix.systemapi.objectschema.modelmutationvalidator.ITableMutationVali
  * @author Silvan Wyss
  */
 public final class TableMutationValidator implements ITableMutationValidator {
-  private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
-
   private static final DatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();
 
   private static final TableValidator TABLE_VALIDATOR = new TableValidator();
+
+  private static final ColumnValidator COLUMN_VALIDATOR = new ColumnValidator();
 
   private static final ColumnExaminer COLUMN_EXAMINER = new ColumnExaminer();
 
@@ -30,11 +30,11 @@ public final class TableMutationValidator implements ITableMutationValidator {
    */
   @Override
   public void assertCanAddColumnToTable(final ITable table, final IColumn column) {
-    DATABASE_OBJECT_VALIDATOR.assertIsOpen(table);
+    TABLE_VALIDATOR.assertIsOpen(table);
     TABLE_VALIDATOR.assertDoesNotContainColumnWithName(table, column.getName());
 
-    DATABASE_OBJECT_VALIDATOR.assertIsOpen(column);
-    DATABASE_OBJECT_VALIDATOR.assertIsNew(column);
+    COLUMN_VALIDATOR.assertIsOpen(column);
+    COLUMN_VALIDATOR.assertIsNew(column);
 
     if (COLUMN_EXAMINER.isBaseReferenceColumn(column) && table.belongsToDatabase()) {
       final var referencedTables = column.getStoredReferenceableTables();
@@ -56,9 +56,9 @@ public final class TableMutationValidator implements ITableMutationValidator {
    */
   @Override
   public void assertCanDeleteTable(final ITable table) {
-    DATABASE_OBJECT_VALIDATOR.assertIsOpen(table);
-    DATABASE_OBJECT_VALIDATOR.assertIsNotNew(table);
-    DATABASE_OBJECT_VALIDATOR.assertIsNotDeleted(table);
+    TABLE_VALIDATOR.assertIsOpen(table);
+    TABLE_VALIDATOR.assertIsNotNew(table);
+    TABLE_VALIDATOR.assertIsNotDeleted(table);
     TABLE_VALIDATOR.assertIsNotReferenced(table);
   }
 
@@ -67,7 +67,7 @@ public final class TableMutationValidator implements ITableMutationValidator {
    */
   @Override
   public void assertCanSetNameToTable(final ITable table, final String name) {
-    DATABASE_OBJECT_VALIDATOR.assertIsOpen(table);
+    TABLE_VALIDATOR.assertIsOpen(table);
 
     if (table.belongsToDatabase()) {
       DATABASE_VALIDATOR.assertDoesNotContainTableWithGivenName(table.getStoredParentDatabase(), name);

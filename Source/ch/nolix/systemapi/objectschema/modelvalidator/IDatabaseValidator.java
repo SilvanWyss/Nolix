@@ -4,6 +4,7 @@
 package ch.nolix.systemapi.objectschema.modelvalidator;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.systemapi.database.databaseobjectvalidator.DatabaseObjectValidator;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
@@ -11,7 +12,7 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 /**
  * @author Silvan Wyss
  */
-public interface IDatabaseValidator {
+public interface IDatabaseValidator extends DatabaseObjectValidator<IDatabase> {
   void assertContainsTable(IDatabase database, ITable tables);
 
   void assertContainsTables(IDatabase database, ExtendedIterable<ITable> tables);

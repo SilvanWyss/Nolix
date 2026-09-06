@@ -4,6 +4,7 @@
 package ch.nolix.systemapi.objectschema.modelvalidator;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.systemapi.database.databaseobjectvalidator.DatabaseObjectValidator;
 import ch.nolix.systemapi.database.databaseproperty.DataType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IColumn;
@@ -12,7 +13,7 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 /**
  * @author Silvan Wyss
  */
-public interface IColumnValidator {
+public interface IColumnValidator extends DatabaseObjectValidator<IColumn> {
   /**
    * @param column
    * @throws RuntimeException if the given column does not belong to a table

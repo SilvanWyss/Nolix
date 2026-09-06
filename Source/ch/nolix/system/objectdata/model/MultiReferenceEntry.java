@@ -6,7 +6,7 @@ package ch.nolix.system.objectdata.model;
 import java.util.Optional;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.system.database.databaseobjectvalidator.DatabaseObjectValidator;
+import ch.nolix.system.database.databaseobjectvalidator.StandardDatabaseObjectValidator;
 import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
 import ch.nolix.systemapi.database.databaseobject.DatabaseObjectState;
 import ch.nolix.systemapi.objectdata.model.Field;
@@ -20,7 +20,7 @@ import ch.nolix.systemapi.objectdata.structure.EntityCache;
 final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEntry<E> {
   private static final DatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
 
-  private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
+  private static final StandardDatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new StandardDatabaseObjectValidator();
 
   private final IMultiReference<E> parentMultiReference;
 

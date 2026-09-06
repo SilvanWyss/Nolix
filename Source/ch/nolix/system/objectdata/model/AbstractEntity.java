@@ -10,7 +10,6 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentExce
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.system.database.databaseobjectvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectdata.modelflyweight.EntityFlyWeight;
 import ch.nolix.system.objectdata.modelflyweight.VoidEntityFlyWeight;
 import ch.nolix.system.objectdata.modelvalidator.EntityValidator;
@@ -27,8 +26,6 @@ import ch.nolix.systemapi.objectdata.modelflyweight.IEntityFlyWeight;
  */
 public abstract class AbstractEntity implements IEntity {
   private static final VoidEntityFlyWeight VOID_ENTITY_FLY_WEIGHT = new VoidEntityFlyWeight();
-
-  private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 
   private static final EntityValidator ENTITY_VALIDATOR = new EntityValidator();
 
@@ -149,7 +146,7 @@ public abstract class AbstractEntity implements IEntity {
    */
   @Override
   public final void internalSetLoadedAndIdAndSaveStamp(final String id, final String saveStamp) {
-    DATABASE_OBJECT_VALIDATOR.assertIsNew(this);
+    ENTITY_VALIDATOR.assertIsNew(this);
 
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableNameCatalog.ID).isNotBlank();
     Validator.assertThat(saveStamp).thatIsNamed(LowerCaseVariableNameCatalog.SAVE_STAMP).isNotBlank();

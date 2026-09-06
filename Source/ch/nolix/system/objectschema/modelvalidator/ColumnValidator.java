@@ -6,6 +6,7 @@ package ch.nolix.system.objectschema.modelvalidator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.system.database.databaseobjectvalidator.AbstractDatabaseObjectValidator;
 import ch.nolix.system.objectschema.modelexaminer.ColumnExaminer;
 import ch.nolix.system.objectschema.modelmutationexaminer.ColumnMutationExaminer;
 import ch.nolix.systemapi.database.databaseproperty.DataType;
@@ -17,7 +18,7 @@ import ch.nolix.systemapi.objectschema.modelvalidator.IColumnValidator;
 /**
  * @author Silvan Wyss
  */
-public final class ColumnValidator implements IColumnValidator {
+public final class ColumnValidator extends AbstractDatabaseObjectValidator<IColumn> implements IColumnValidator {
   private static final ColumnExaminer COLUMN_EXAMINER = new ColumnExaminer();
 
   private static final ColumnMutationExaminer COLUMN_MUTATION_EXAMINER = new ColumnMutationExaminer();

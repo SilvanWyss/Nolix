@@ -201,6 +201,6 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
   private void updateStateForRemoveValue(final V value) {
     final var entry = localEntries.getStoredFirst(e -> e.getStoredValue() == value);
 
-    entry.internalSetDeleted();
+    entry.setDeleted();
   }
 }
