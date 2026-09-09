@@ -49,9 +49,9 @@ extends Clearable, GroupCloseable, ApplicationManager<Application<?, ?>>, Securi
    * Removes the {@link Application} with the given instanceName from the current
    * {@link Server}.
    * 
-   * @param instanceName
+   * @param name
    * @throws RuntimeException if the current {@link Server} does not contain a
    *                          {@link Application} with the given instanceName.
    */
-  void removeApplicationWithInstanceName(final String instanceName);
+  void removeApplicationByName(final String name);
 }

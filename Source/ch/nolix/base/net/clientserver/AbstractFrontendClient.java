@@ -96,7 +96,9 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
 
     setEndPoint(endPoint);
 
-    server.getStoredApplicationByInstanceName(instanceName).takeEndPoint(endPoint.getStoredCounterpart());
+    final var application = server.getStoredApplicationByName(instanceName);
+
+    application.takeEndPoint(endPoint.getStoredCounterpart());
   }
 
   /**

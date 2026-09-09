@@ -8,7 +8,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.net.clientserver.Application;
 import ch.nolix.baseapi.net.clientserver.BackendClient;
-import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
+import ch.nolix.baseapi.net.target.IApplicationTarget;
 
 /**
  * @author Silvan Wyss
@@ -33,14 +33,14 @@ implements BackendClient<S> {
    *         {@link AbstractBackendClient}.
    */
   public final String getApplicationName() {
-    return getStoredParentApplication().getInstanceName();
+    return getStoredParentApplication().getApplicationName();
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public final IApplicationInstanceTarget getApplicationAsTarget() {
+  public final IApplicationTarget getApplicationAsTarget() {
     return getStoredParentApplication().asTarget();
   }
 

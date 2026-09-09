@@ -4,7 +4,7 @@
 package ch.nolix.system.webapplication.base;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
+import ch.nolix.baseapi.net.target.IApplicationTarget;
 import ch.nolix.systemapi.gui.main.IFrontEndWriter;
 
 final class FrontendWriter implements IFrontEndWriter {
@@ -33,8 +33,8 @@ final class FrontendWriter implements IFrontEndWriter {
    * {@inheritDoc}
    */
   @Override
-  public void redirectTo(final IApplicationInstanceTarget applicationInstanceTarget) {
-    parentBackendWebClient.internalRedirectCounterpartTo(applicationInstanceTarget);
+  public void redirectTo(final IApplicationTarget applicationTarget) {
+    parentBackendWebClient.internalRedirectCounterpartTo(applicationTarget);
   }
 
   /**

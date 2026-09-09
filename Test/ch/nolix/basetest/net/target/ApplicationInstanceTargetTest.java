@@ -28,8 +28,8 @@ final class ApplicationInstanceTargetTest extends StandardTest {
     // verify
     expect(result.getHost()).isEqualTo("nolix.tech");
     expect(result.getPort()).isEqualTo(PortCatalog.HTTPS);
-    expect(result.getApplicationInstanceName()).isEqualTo("Demo Application");
-    expect(result.getApplicationUrlInstanceName()).isEqualTo("demo_application");
+    expect(result.getApplicationname()).isEqualTo("Demo Application");
+    expect(result.getUrlApplicationName()).isEqualTo("demo_application");
     expect(result.getSecurityMode()).isEqualTo(SecurityMode.SSL);
   }
 

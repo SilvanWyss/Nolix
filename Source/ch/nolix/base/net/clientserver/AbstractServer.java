@@ -47,34 +47,6 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
   }
 
   /**
-   * Adds the given application with the given instanceName to the current
-   * {@link AbstractServer}.
-   * 
-   * @param application
-   * @param nameAddendum
-   * @return the current {@link AbstractServer}
-   * @throws RuntimeException if the given application is null
-   * @throws RuntimeException if the given application belongs already to a
-   *                          {@link AbstractServer}
-   * @throws RuntimeException if the given instanceName is null
-   * @throws RuntimeException if the given instanceName is blank
-   * @throws RuntimeException if the current {@link AbstractServer} contains
-   *                          already a {@link AbstractApplication} with the given
-   *                          instanceName.
-   */
-  public final S addApplicationWithNameAddendum(
-    final AbstractApplication<?, ?> application,
-    final String nameAddendum) {
-    application.setParentServer(this);
-    application.setNameAppendix(nameAddendum);
-
-    addApplicationToList(application);
-    noteAddedApplication(application);
-
-    return asConcrete();
-  }
-
-  /**
    * Adds a new {@link AbstractApplication} with the given instanceName,
    * initialSessionClass and applicationService to the current
    * {@link AbstractServer}.
@@ -248,11 +220,11 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
    *         {@link AbstractApplication} with the given name, false otherwise
    */
   public final boolean containsApplicationWithName(final String name) {
-    return abstractApplications.containsMatching(a -> a.getInstanceName().equals(name));
+    return abstractApplications.containsMatching(a -> a.getApplicationName().equals(name));
   }
 
   /**
-   * @param instanceName
+   * @param name
    * @return the {@link AbstractApplication} with the given instanceName from the
    *         current {@link AbstractServer}
    * @throws ArgumentDoesNotHaveAttributeException if the current
@@ -261,8 +233,8 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
    *                                               {@link AbstractApplication}
    *                                               with the given instanceName.
    */
-  public final AbstractApplication<?, ?> getStoredApplicationByInstanceName(final String instanceName) {
-    return abstractApplications.getStoredFirst(a -> a.getInstanceName().equals(instanceName));
+  public final AbstractApplication<?, ?> getStoredApplicationByName(final String name) {
+    return abstractApplications.getStoredFirst(a -> a.getApplicationName().equals(name));
   }
 
   /**
@@ -276,7 +248,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
    *                                               with the given urlInstanceName.
    */
   public final AbstractApplication<?, ?> getStoredApplicationByUrlInstanceName(final String urlInstanceName) {
-    return abstractApplications.getStoredFirst(a -> a.getUrlInstanceName().equals(urlInstanceName));
+    return abstractApplications.getStoredFirst(a -> a.getUrlApplicationName().equals(urlInstanceName));
   }
 
   /**
@@ -338,8 +310,8 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
    * {@inheritDoc}
    */
   @Override
-  public final void removeApplicationWithInstanceName(final String instanceName) {
-    final var application = getStoredApplicationByInstanceName(instanceName);
+  public final void removeApplicationByName(final String name) {
+    final var application = getStoredApplicationByName(name);
 
     removeApplication(application);
   }
@@ -429,9 +401,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
    *                          name as one of the given applications.
    */
   private void addApplicationToList(final AbstractApplication<?, ?> application) {
-    // Asserts that the current Server does not contain already
-    // an Application with the same name as the given application..
-    assertDoesNotContainApplicationWithName(application.getInstanceName());
+    assertDoesNotContainApplicationWithName(application.getApplicationName());
 
     // Adds the given application to the list of Applications of the current
     // BaseServer.

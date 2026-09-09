@@ -5,29 +5,29 @@ package ch.nolix.base.net.target;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.net.netproperty.SecurityMode;
-import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
+import ch.nolix.baseapi.net.target.IApplicationTarget;
 
 /**
  * @author Silvan Wyss
  */
-public final class ApplicationInstanceTarget extends AbstractServerTarget implements IApplicationInstanceTarget {
-  private final String applicationInstanceName;
+public final class ApplicationInstanceTarget extends AbstractServerTarget implements IApplicationTarget {
+  private final String applicationName;
 
-  private final String applicationUrlInstanceName;
+  private final String urlApplicationName;
 
   protected ApplicationInstanceTarget(
     final String host,
     final int port,
-    final String applicationInstanceName,
-    final String applicationUrlInstanceName,
+    final String applicationName,
+    final String urlApplicationName,
     final SecurityMode securityModeForConnections) {
     super(host, port, securityModeForConnections);
 
-    Validator.assertThat(applicationInstanceName).thatIsNamed("application instance name").isNotBlank();
-    Validator.assertThat(applicationUrlInstanceName).thatIsNamed("application url instance name").isNotBlank();
+    Validator.assertThat(applicationName).thatIsNamed("application instance name").isNotBlank();
+    Validator.assertThat(urlApplicationName).thatIsNamed("application url instance name").isNotBlank();
 
-    this.applicationInstanceName = applicationInstanceName;
-    this.applicationUrlInstanceName = applicationUrlInstanceName;
+    this.applicationName = applicationName;
+    this.urlApplicationName = urlApplicationName;
   }
 
   public static ApplicationInstanceTarget//
@@ -49,16 +49,16 @@ public final class ApplicationInstanceTarget extends AbstractServerTarget implem
    * {@inheritDoc}
    */
   @Override
-  public String getApplicationInstanceName() {
-    return applicationInstanceName;
+  public String getApplicationname() {
+    return applicationName;
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public String getApplicationUrlInstanceName() {
-    return applicationUrlInstanceName;
+  public String getUrlApplicationName() {
+    return urlApplicationName;
   }
 
   /**
@@ -66,6 +66,6 @@ public final class ApplicationInstanceTarget extends AbstractServerTarget implem
    */
   @Override
   public String toUrl() {
-    return (super.toUrl() + "?app=" + getApplicationUrlInstanceName());
+    return (super.toUrl() + "?app=" + getUrlApplicationName());
   }
 }

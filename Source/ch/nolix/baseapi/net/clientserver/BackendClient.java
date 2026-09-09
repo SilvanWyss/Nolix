@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.net.clientserver;
 
-import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
+import ch.nolix.baseapi.net.target.IApplicationTarget;
 
 /**
  * @author Silvan Wyss
@@ -14,7 +14,7 @@ public interface BackendClient<S> extends Client {
   /**
    * @return the application of the current {@link BackendClient} as target.
    */
-  IApplicationInstanceTarget getApplicationAsTarget();
+  IApplicationTarget getApplicationAsTarget();
 
   /**
    * @return the size of the session stack of the current {@link BackendClient}

@@ -14,12 +14,10 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.net.clientserver.Application;
 import ch.nolix.baseapi.net.executoranddataproviderserver.EndPoint;
-import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
+import ch.nolix.baseapi.net.target.IApplicationTarget;
 import ch.nolix.baseapi.net.target.IServerTarget;
 
 /**
@@ -31,8 +29,6 @@ import ch.nolix.baseapi.net.target.IServerTarget;
  */
 public abstract class AbstractApplication<C extends AbstractBackendClient<C, S>, S>
 implements Application<C, S> {
-  private String instanceAddendix;
-
   private AbstractServer<?> parentServer;
 
   private final S applicationService;
@@ -55,7 +51,7 @@ implements Application<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final IApplicationInstanceTarget asTarget() {
+  public final IApplicationTarget asTarget() {
     final var serverTarget = getStoredParentServer().asTarget();
 
     return asTargetWithServerTarget(serverTarget);
@@ -82,28 +78,6 @@ implements Application<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final String getInstanceAppendix() {
-    assertHasNameAddendum();
-
-    return instanceAddendix;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final String getInstanceName() {
-    if (!hasInstanceAppendix()) {
-      return getApplicationName();
-    }
-
-    return String.format("%s %s", getApplicationName(), getInstanceAppendix());
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public final S getStoredApplicationService() {
     return applicationService;
   }
@@ -122,8 +96,8 @@ implements Application<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final String getUrlInstanceName() {
-    return getInstanceName().replace(StringCatalog.SPACE, StringCatalog.UNDERSCORE).toLowerCase(Locale.ENGLISH);
+  public final String getUrlApplicationName() {
+    return getApplicationName().replace(StringCatalog.SPACE, StringCatalog.UNDERSCORE).toLowerCase(Locale.ENGLISH);
   }
 
   /**
@@ -132,14 +106,6 @@ implements Application<C, S> {
   @Override
   public final boolean hasClientConnected() {
     return getStoredClients().containsAny();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final boolean hasInstanceAppendix() {
-    return (instanceAddendix != null);
   }
 
   /**
@@ -169,23 +135,6 @@ implements Application<C, S> {
    *         {@link AbstractApplication}.
    */
   protected abstract Class<?> getInitialSessionClass();
-
-  /**
-   * Sets the given nameAddendix to the current {@link AbstractApplication}.
-   * 
-   * @param nameAddendix
-   * @throws RuntimeException if the given nameAddendix is null
-   * @throws RuntimeException if the given nameAddendix is blank
-   * @throws RuntimeException if the current {@link AbstractApplication} has
-   *                          already an instance name.
-   */
-  final void setNameAppendix(final String nameAddendix) {
-    Validator.assertThat(nameAddendix).thatIsNamed("instance name").isNotBlank();
-
-    assertDoesNotHaveNameAddendum();
-
-    this.instanceAddendix = nameAddendix;
-  }
 
   /**
    * Sets the parent {@link AbstractServer} of the current
@@ -223,38 +172,17 @@ implements Application<C, S> {
   }
 
   /**
-   * @throws RuntimeException if the current {@link AbstractApplication} has
-   *                          already an instance name.
-   */
-  private void assertDoesNotHaveNameAddendum() {
-    if (hasInstanceAppendix()) {
-      throw ArgumentHasAttributeException.forArgumentAndAttributeName(this, "instance name");
-    }
-  }
-
-  /**
-   * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link AbstractApplication}
-   *                                               does not have a name addendum.
-   */
-  private void assertHasNameAddendum() {
-    if (!hasInstanceAppendix()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "name addendum");
-    }
-  }
-
-  /**
    * @param serverTarget
    * @return the current {@link AbstractApplication} as target using the given
    *         serverTarget.
    */
-  private IApplicationInstanceTarget asTargetWithServerTarget(final IServerTarget serverTarget) {
+  private IApplicationTarget asTargetWithServerTarget(final IServerTarget serverTarget) {
     return ApplicationInstanceTarget
       .forHostAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
         serverTarget.getHost(),
         serverTarget.getPort(),
-        getInstanceName(),
-        getUrlInstanceName(),
+        getApplicationName(),
+        getUrlApplicationName(),
         serverTarget.getSecurityMode());
   }
 

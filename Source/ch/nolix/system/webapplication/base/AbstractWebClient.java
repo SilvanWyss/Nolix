@@ -11,7 +11,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.ChainedNode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.net.clientserver.Application;
-import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
+import ch.nolix.baseapi.net.target.IApplicationTarget;
 import ch.nolix.baseapi.web.cookie.ICookieManager;
 import ch.nolix.system.webapplication.protocol.ClientCommandCreator;
 import ch.nolix.systemapi.webapplication.basewebclientprotocol.CommandProtocol;
@@ -102,8 +102,8 @@ implements ICookieManager {
     return fileReader.readOptionalFileFromCounterpart();
   }
 
-  final void internalRedirectCounterpartTo(final IApplicationInstanceTarget applicationInstanceTarget) {
-    final var redirectCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createRedirectCommand(applicationInstanceTarget);
+  final void internalRedirectCounterpartTo(final IApplicationTarget applicationTarget) {
+    final var redirectCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createRedirectCommand(applicationTarget);
 
     runOnCounterpart(redirectCommand);
   }

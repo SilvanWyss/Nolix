@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.gui.main;
 
-import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
+import ch.nolix.baseapi.net.target.IApplicationTarget;
 
 /**
  * @author Silvan Wyss
@@ -11,7 +11,7 @@ import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
 public interface IFrontEndWriter {
   void openNewTabWithUrl(String url);
 
-  void redirectTo(IApplicationInstanceTarget applicationInstanceTarget);
+  void redirectTo(IApplicationTarget applicationTarget);
 
   void redirectToUrl(String url);
 
