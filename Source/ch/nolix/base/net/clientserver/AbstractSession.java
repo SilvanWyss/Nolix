@@ -63,7 +63,7 @@ public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S> 
    */
   @Override
   public final boolean hasUnderlyingSession() {
-    return getStoredParentClient().internalGetSessionStackSize() > 1;
+    return getStoredParentClient().getSessionStackSize() > 1;
   }
 
   // For a better performance, this implementation does not use all available comfort methods.

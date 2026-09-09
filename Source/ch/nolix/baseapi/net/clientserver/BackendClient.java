@@ -17,6 +17,11 @@ public interface BackendClient<S> extends Client {
   IApplicationInstanceTarget getApplicationAsTarget();
 
   /**
+   * @return the size of the session stack of the current {@link BackendClient}
+   */
+  int getSessionStackSize();
+
+  /**
    * @return the application service of the parent application of the current
    *         {@link BackendClient}.
    */

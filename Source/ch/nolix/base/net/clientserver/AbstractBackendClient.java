@@ -48,6 +48,14 @@ implements BackendClient<S> {
    * {@inheritDoc}
    */
   @Override
+  public final int getSessionStackSize() {
+    return sessionManager.getSessionStackSize();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final S getStoredApplicationService() {
     return getStoredParentApplication().getStoredApplicationService();
   }
@@ -88,14 +96,6 @@ implements BackendClient<S> {
    */
   protected final AbstractSession<C, S> getStoredCurrentSession() {
     return sessionManager.getStoredCurrentSession();
-  }
-
-  /**
-   * @return the size of the {@link AbstractSession} stack of the current
-   *         {@link AbstractBackendClient}.
-   */
-  final int internalGetSessionStackSize() {
-    return sessionManager.getSessionStackSize();
   }
 
   /**
