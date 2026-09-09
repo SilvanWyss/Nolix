@@ -220,7 +220,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
    *         {@link AbstractApplication} with the given name, false otherwise
    */
   public final boolean containsApplicationWithName(final String name) {
-    return abstractApplications.containsMatching(a -> a.getApplicationName().equals(name));
+    return abstractApplications.containsMatching(a -> a.getName().equals(name));
   }
 
   /**
@@ -234,7 +234,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
    *                                               with the given instanceName.
    */
   public final AbstractApplication<?, ?> getStoredApplicationByName(final String name) {
-    return abstractApplications.getStoredFirst(a -> a.getApplicationName().equals(name));
+    return abstractApplications.getStoredFirst(a -> a.getName().equals(name));
   }
 
   /**
@@ -401,7 +401,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
    *                          name as one of the given applications.
    */
   private void addApplicationToList(final AbstractApplication<?, ?> application) {
-    assertDoesNotContainApplicationWithName(application.getApplicationName());
+    assertDoesNotContainApplicationWithName(application.getName());
 
     // Adds the given application to the list of Applications of the current
     // BaseServer.

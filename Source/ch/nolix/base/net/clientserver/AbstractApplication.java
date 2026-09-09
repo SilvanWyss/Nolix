@@ -51,7 +51,7 @@ implements Application<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final IApplicationTarget asTarget() {
+  public final IApplicationTarget toTarget() {
     final var serverTarget = getStoredParentServer().asTarget();
 
     return asTargetWithServerTarget(serverTarget);
@@ -97,7 +97,7 @@ implements Application<C, S> {
    */
   @Override
   public final String getUrlApplicationName() {
-    return getApplicationName().replace(StringCatalog.SPACE, StringCatalog.UNDERSCORE).toLowerCase(Locale.ENGLISH);
+    return getName().replace(StringCatalog.SPACE, StringCatalog.UNDERSCORE).toLowerCase(Locale.ENGLISH);
   }
 
   /**
@@ -181,7 +181,7 @@ implements Application<C, S> {
       .forHostAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
         serverTarget.getHost(),
         serverTarget.getPort(),
-        getApplicationName(),
+        getName(),
         getUrlApplicationName(),
         serverTarget.getSecurityMode());
   }

@@ -33,7 +33,7 @@ implements BackendClient<S> {
    *         {@link AbstractBackendClient}.
    */
   public final String getApplicationName() {
-    return getStoredParentApplication().getApplicationName();
+    return getStoredParentApplication().getName();
   }
 
   /**
@@ -41,7 +41,7 @@ implements BackendClient<S> {
    */
   @Override
   public final IApplicationTarget getApplicationAsTarget() {
-    return getStoredParentApplication().asTarget();
+    return getStoredParentApplication().toTarget();
   }
 
   /**

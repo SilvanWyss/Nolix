@@ -42,7 +42,7 @@ public final class BasicApplication<C extends AbstractBackendClient<C, S>, S> ex
    * {@inheritDoc}
    */
   @Override
-  public String getApplicationName() {
+  public String getName() {
     return applicationName;
   }
 
