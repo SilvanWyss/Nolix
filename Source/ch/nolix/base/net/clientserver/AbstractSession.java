@@ -62,7 +62,7 @@ public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S> 
    * {@inheritDoc}
    */
   @Override
-  public final boolean hasUnderlyingSession() {
+  public final boolean hasFrameSession() {
     return getStoredParentClient().getSessionStackSize() > 1;
   }
 

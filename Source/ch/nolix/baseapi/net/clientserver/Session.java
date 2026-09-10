@@ -9,7 +9,7 @@ import ch.nolix.baseapi.programcontrol.refresh.Refreshable;
 
 /**
  * @author Silvan Wyss
- * @param <C> the type of the {@link BackendClient} of a {@link Session}
+ * @param <C> the type of the parent {@link BackendClient} of a {@link Session}
  * @param <S> the type of the application service of the parent
  *            {@link Application} of the parent {@link BackendClient} of a
  *            {@link Session}
@@ -17,21 +17,21 @@ import ch.nolix.baseapi.programcontrol.refresh.Refreshable;
 public interface Session<C extends BackendClient<S>, S> extends AlivenessRequestable, ClientComponent<C>, Refreshable {
   /**
    * @return the name of the parent {@link Application} of the parent
-   *         {@link BackendClient} of the current {@link Session}.
+   *         {@link BackendClient} of the current {@link Session}
    */
   String getApplicationName();
 
   /**
    * @return the application service of the parent {@link Application} of the
-   *         parent {@link BackendClient} of the current {@link Session}.
+   *         parent {@link BackendClient} of the current {@link Session}
    */
   S getStoredApplicationService();
 
   /**
-   * @return true if the current {@link Session} has a underlying {@link Session},
+   * @return true if the current {@link Session} has a frame {@link Session},
    *         false otherwise
    */
-  boolean hasUnderlyingSession();
+  boolean hasFrameSession();
 
   /**
    * Pops the current {@link Session} from its parent {@link BackendClient}.
