@@ -66,6 +66,17 @@ public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S> 
     return getStoredParentClient().getSessionStackSize() > 1;
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void internalSetParentClient(final C parentClient) {
+    Validator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
+    assertDoesNotBelongToClient();
+
+    memberParentClient = parentClient;
+  }
+
   // For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
@@ -156,21 +167,6 @@ public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S> 
    */
   final void removeParentClient() {
     memberParentClient = null;
-  }
-
-  /**
-   * Sets the parent client of the current {@link AbstractSession}.
-   * 
-   * @param parentClient
-   * @throws RuntimeException if the given parent client is null
-   * @throws RuntimeException if the current {@link AbstractSession} belongs to a
-   *                          client.
-   */
-  final void setParentClient(C parentClient) {
-    Validator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
-    assertDoesNotBelongToClient();
-
-    memberParentClient = parentClient;
   }
 
   /**

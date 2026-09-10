@@ -34,6 +34,16 @@ public interface Session<C extends BackendClient<S>, S> extends AlivenessRequest
   boolean hasFrameSession();
 
   /**
+   * Sets the parent {@link BackendClient} of the current {@link Session}.
+   * 
+   * @param parentClient
+   * @throws RuntimeException if the given parentClient is null
+   * @throws RuntimeException if the current {@link Session} belongs already to a
+   *                          {@link BackendClient}.
+   */
+  void internalSetParentClient(C parentClient);
+
+  /**
    * Pops the current {@link Session} from its parent {@link BackendClient}.
    */
   void pop();

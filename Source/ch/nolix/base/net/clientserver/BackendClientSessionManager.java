@@ -86,7 +86,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
     Validator.assertThat(session).isOfType(AbstractSession.class);
 
     // Sets the given session to the Client of the current ClientSessionManager.
-    session.setParentClient(parentClient);
+    session.internalSetParentClient(parentClient);
 
     // Pushes the given session to the current ClientSessionManager.
     sessionStack.addAtEnd(session);
