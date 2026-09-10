@@ -21,7 +21,7 @@ public interface Application<C extends BackendClient<S>, S> extends ClientManage
 
   /**
    * @return the class of the {@link BackendClient}s of the current
-   *         {@link Application}.
+   *         {@link Application}
    */
   Class<C> getClientClass();
 
