@@ -52,14 +52,6 @@ public abstract class AbstractClient implements Client {
    * {@inheritDoc}
    */
   @Override
-  public final boolean hasRequestedConnection() {
-    return getStoredEndPoint().isFrontendEndPoint();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public final boolean hasUrlInstanceNameOfTargetApplication() {
     return getStoredEndPoint().hasCustomTargetSlot();
   }

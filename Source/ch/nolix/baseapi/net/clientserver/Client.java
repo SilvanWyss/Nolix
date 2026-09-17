@@ -19,12 +19,6 @@ public interface Client extends GroupCloseable, SecurityModeHolder {
   String getTargetApplicationUrlName();
 
   /**
-   * @return true if the current {@link Client} has requested the connection,
-   *         false otherwise
-   */
-  boolean hasRequestedConnection();
-
-  /**
    * @return true if the current {@link Client} is a back-end client, false
    *         otherwise
    */
