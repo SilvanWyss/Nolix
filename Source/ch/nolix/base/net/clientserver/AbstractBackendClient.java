@@ -64,6 +64,14 @@ implements BackendClient<S> {
    * {@inheritDoc}
    */
   @Override
+  public final void internalPopCurrentSession() {
+    sessionManager.popCurrentSession();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final boolean isBackendClient() {
     return true;
   }
@@ -96,22 +104,6 @@ implements BackendClient<S> {
    */
   protected final AbstractSession<C, S> getStoredCurrentSession() {
     return sessionManager.getStoredCurrentSession();
-  }
-
-  /**
-   * Pops the current {@link AbstractSession} of the current
-   * {@link AbstractBackendClient} from the current {@link AbstractBackendClient}.
-   * Closes the current {@link AbstractBackendClient} if the current
-   * {@link AbstractSession} of the current {@link AbstractBackendClient} was the
-   * last {@link AbstractSession} of the current {@link AbstractBackendClient}.
-   * 
-   * @InvalidArgumentException if the current {@link AbstractSession} of the
-   *                           current {@link AbstractBackendClient} is not the
-   *                           top {@link AbstractSession} of the current
-   *                           {@link AbstractBackendClient}.
-   */
-  final void internalPopCurrentSession() {
-    sessionManager.popCurrentSession();
   }
 
   /**

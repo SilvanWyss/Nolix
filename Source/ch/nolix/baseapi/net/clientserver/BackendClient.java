@@ -26,4 +26,17 @@ public interface BackendClient<S> extends Client {
    *         {@link BackendClient}.
    */
   S getStoredApplicationService();
+
+  /**
+   * Pops the current {@link Session} of the current {@link BackendClient} from
+   * the current {@link BackendClient}. Closes the current {@link BackendClient}
+   * if the current {@link Session} of the current {@link BackendClient} was the
+   * last {@link Session} of the current {@link BackendClient}.
+   * 
+   * @InvalidArgumentException if the current {@link Session} of the current
+   *                           {@link BackendClient} is not the top
+   *                           {@link Session} of the current
+   *                           {@link BackendClient}.
+   */
+  void internalPopCurrentSession();
 }
