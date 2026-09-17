@@ -11,12 +11,12 @@ import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
  */
 public interface Client extends GroupCloseable, SecurityModeHolder {
   /**
-   * @return the URL instance name of the target application of the current
-   *         {@link Client}
-   * @throws RuntimeException if the current {@link Client} does not know the URL
-   *                          instance name of its target application.
+   * @return the name of the target application of the current {@link Client} for
+   *         URLs
+   * @throws RuntimeException if the name of the target application of the current
+   *                          {@link Client} is unknown
    */
-  String getUrlInstanceNameOfTargetApplication();
+  String getTargetApplicationUrlName();
 
   /**
    * @return true if the current {@link Client} has requested the connection,

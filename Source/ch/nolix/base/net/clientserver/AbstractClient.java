@@ -44,7 +44,7 @@ public abstract class AbstractClient implements Client {
    * {@inheritDoc}
    */
   @Override
-  public final String getUrlInstanceNameOfTargetApplication() {
+  public final String getTargetApplicationUrlName() {
     return getStoredEndPoint().getCustomTargetSlot();
   }
 

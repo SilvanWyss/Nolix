@@ -340,7 +340,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
 
       // Handles the case that the given client has a target.
     } else {
-      final var targetApplicaitonUrlInstanceName = client.getUrlInstanceNameOfTargetApplication();
+      final var targetApplicaitonUrlInstanceName = client.getTargetApplicationUrlName();
 
       getStoredApplicationByUrlInstanceName(targetApplicaitonUrlInstanceName).takeClient(client);
     }
