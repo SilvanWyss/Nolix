@@ -20,7 +20,7 @@ public interface Application<C extends BackendClient<S>, S> extends ClientManage
   boolean belongsToServer();
 
   /**
-   * @return the class of the {@link BackendClient}s of the current
+   * @return the {@link Class} of the {@link BackendClient}s of the current
    *         {@link Application}
    */
   Class<C> getClientClass();
