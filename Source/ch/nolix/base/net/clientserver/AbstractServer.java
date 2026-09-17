@@ -335,7 +335,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
    */
   public final void takeClient(final AbstractBackendClient<?, ?> client) {
     // Handles the case that the given client does not have a target.
-    if (!client.hasUrlInstanceNameOfTargetApplication()) {
+    if (!client.hasTargetApplicationUrlName()) {
       getStoredDefaultApplication().takeClient(client);
 
       // Handles the case that the given client has a target.

@@ -52,7 +52,7 @@ public abstract class AbstractClient implements Client {
    * {@inheritDoc}
    */
   @Override
-  public final boolean hasUrlInstanceNameOfTargetApplication() {
+  public final boolean hasTargetApplicationUrlName() {
     return getStoredEndPoint().hasCustomTargetSlot();
   }
 

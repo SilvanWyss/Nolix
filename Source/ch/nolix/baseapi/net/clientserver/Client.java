@@ -13,10 +13,16 @@ public interface Client extends GroupCloseable, SecurityModeHolder {
   /**
    * @return the name of the target application of the current {@link Client} for
    *         URLs
-   * @throws RuntimeException if the name of the target application of the current
-   *                          {@link Client} is unknown
+   * @throws RuntimeException if the current {@link Client} does not have a name
+   *                          of a target application for URLs
    */
   String getTargetApplicationUrlName();
+
+  /**
+   * @return true if the current {@link Client} has a name of a target application
+   *         for URLs, false otherwise
+   */
+  boolean hasTargetApplicationUrlName();
 
   /**
    * @return true if the current {@link Client} is a back-end client, false
@@ -29,10 +35,4 @@ public interface Client extends GroupCloseable, SecurityModeHolder {
    *         otherwise
    */
   boolean isFrontendClient();
-
-  /**
-   * @return true if the current {@link Client} has the URL instance name of its
-   *         target application, false otherwise
-   */
-  boolean hasUrlInstanceNameOfTargetApplication();
 }
