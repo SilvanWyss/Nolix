@@ -96,7 +96,7 @@ implements Application<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final String getUrlApplicationName() {
+  public final String getUrlName() {
     return getName().replace(StringCatalog.SPACE, StringCatalog.UNDERSCORE).toLowerCase(Locale.ENGLISH);
   }
 
@@ -182,7 +182,7 @@ implements Application<C, S> {
         serverTarget.getHost(),
         serverTarget.getPort(),
         getName(),
-        getUrlApplicationName(),
+        getUrlName(),
         serverTarget.getSecurityMode());
   }
 

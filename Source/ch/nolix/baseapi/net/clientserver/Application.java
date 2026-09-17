@@ -33,7 +33,7 @@ public interface Application<C extends BackendClient<S>, S> extends ClientManage
   /**
    * @return the name of the current {@link Application} for URLs
    */
-  String getUrlApplicationName();
+  String getUrlName();
 
   /**
    * @return true if the current {@link Application} has a client connected, false

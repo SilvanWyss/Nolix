@@ -98,7 +98,7 @@ public final class SslServer extends AbstractServer<SslServer> {
   @Override
   protected void noteAddedApplication(final AbstractApplication<?, ?> application) {
     final var executorAndDataProviderSlot = //
-    ExecutorAndDataProviderSlot.withNameAndParentServer(application.getUrlApplicationName(), this);
+    ExecutorAndDataProviderSlot.withNameAndParentServer(application.getUrlName(), this);
 
     internalWebSocketServer.addSlot(executorAndDataProviderSlot);
   }
@@ -109,7 +109,7 @@ public final class SslServer extends AbstractServer<SslServer> {
   @Override
   protected void noteAddedDefaultApplication(final AbstractApplication<?, ?> defaultApplication) {
     final var executorAndDataProviderSlot = //
-    ExecutorAndDataProviderSlot.withNameAndParentServer(defaultApplication.getUrlApplicationName(), this);
+    ExecutorAndDataProviderSlot.withNameAndParentServer(defaultApplication.getUrlName(), this);
 
     internalWebSocketServer.addDefaultSlot(executorAndDataProviderSlot);
   }
@@ -119,6 +119,6 @@ public final class SslServer extends AbstractServer<SslServer> {
    */
   @Override
   protected void noteRemovedApplication(final Application<?, ?> application) {
-    internalWebSocketServer.removeSlotByName(application.getUrlApplicationName());
+    internalWebSocketServer.removeSlotByName(application.getUrlName());
   }
 }

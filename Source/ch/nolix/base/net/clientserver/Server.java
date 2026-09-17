@@ -106,7 +106,7 @@ public final class Server extends AbstractServer<Server> implements HostHolder, 
    */
   @Override
   protected void noteAddedApplication(final AbstractApplication<?, ?> application) {
-    internalServer.addSlot(ExecutorAndDataProviderSlot.withNameAndParentServer(application.getUrlApplicationName(), this));
+    internalServer.addSlot(ExecutorAndDataProviderSlot.withNameAndParentServer(application.getUrlName(), this));
   }
 
   /**
@@ -115,7 +115,7 @@ public final class Server extends AbstractServer<Server> implements HostHolder, 
   @Override
   protected void noteAddedDefaultApplication(final AbstractApplication<?, ?> defaultApplication) {
     final var executorAndDataProviderSlot = //
-    ExecutorAndDataProviderSlot.withNameAndParentServer(defaultApplication.getUrlApplicationName(), this);
+    ExecutorAndDataProviderSlot.withNameAndParentServer(defaultApplication.getUrlName(), this);
 
     internalServer.addDefaultSlot(executorAndDataProviderSlot);
   }
@@ -125,6 +125,6 @@ public final class Server extends AbstractServer<Server> implements HostHolder, 
    */
   @Override
   protected void noteRemovedApplication(final Application<?, ?> application) {
-    internalServer.removeSlotByName(application.getUrlApplicationName());
+    internalServer.removeSlotByName(application.getUrlName());
   }
 }

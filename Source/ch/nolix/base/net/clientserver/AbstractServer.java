@@ -248,7 +248,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
    *                                               with the given urlInstanceName.
    */
   public final AbstractApplication<?, ?> getStoredApplicationByUrlInstanceName(final String urlInstanceName) {
-    return abstractApplications.getStoredFirst(a -> a.getUrlApplicationName().equals(urlInstanceName));
+    return abstractApplications.getStoredFirst(a -> a.getUrlName().equals(urlInstanceName));
   }
 
   /**
