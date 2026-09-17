@@ -3,8 +3,10 @@
  */
 package ch.nolix.base.net.clientserver;
 
+import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.net.clientserver.Application;
 import ch.nolix.baseapi.net.executoranddataproviderserver.EndPoint;
 import ch.nolix.baseapi.net.executoranddataproviderserver.Slot;
 
@@ -59,7 +61,22 @@ final class ExecutorAndDataProviderSlot implements Slot {
    * {@inheritDoc}
    */
   @Override
-  public void takeBackendEndPoint(final EndPoint endPoint) {
-    parentServer.internalTakeEndPoint(endPoint);
+  public void takeBackendEndPoint(final EndPoint backendEndPoint) {
+    final var targetApplication = (AbstractApplication<?, ?>) getTargetApplicationOfBackendEndPoint(backendEndPoint);
+    final var clientClass = targetApplication.getClientClass();
+    final var backendClient = ReflectionTool.createInstanceFromDefaultConstructorOfClass(clientClass);
+
+    backendClient.setEndPoint(backendEndPoint);
+    targetApplication.takeClient(backendClient);
+  }
+
+  private Application<?, ?> getTargetApplicationOfBackendEndPoint(final EndPoint endPoint) {
+    if (endPoint.hasCustomTargetSlot()) {
+      final var urlApplicationName = endPoint.getCustomTargetSlot();
+
+      return parentServer.getStoredApplicationByUrlInstanceName(urlApplicationName);
+    }
+
+    return parentServer.getStoredDefaultApplication();
   }
 }

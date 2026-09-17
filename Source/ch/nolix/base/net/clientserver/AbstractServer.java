@@ -14,7 +14,6 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 import ch.nolix.baseapi.net.clientserver.Application;
 import ch.nolix.baseapi.net.clientserver.BackendClient;
 import ch.nolix.baseapi.net.clientserver.Server;
-import ch.nolix.baseapi.net.executoranddataproviderserver.EndPoint;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 
 /**
@@ -317,36 +316,6 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
   }
 
   /**
-   * Lets the current {@link AbstractServer} take the given client.
-   * 
-   * @param client
-   * @throws ArgumentDoesNotHaveAttributeException if the given client does not
-   *                                               have a target and the current
-   *                                               {@link AbstractServer} does not
-   *                                               contain a default
-   *                                               {@link AbstractApplication}
-   * @throws ArgumentDoesNotHaveAttributeException if the given client has a
-   *                                               target and the current
-   *                                               {@link AbstractServer} does not
-   *                                               contain a
-   *                                               {@link AbstractApplication}
-   *                                               with a name that equals the
-   *                                               given target.
-   */
-  public final void takeClient(final AbstractBackendClient<?, ?> client) {
-    // Handles the case that the given client does not have a target.
-    if (!client.hasTargetApplicationUrlName()) {
-      getStoredDefaultApplication().takeClient(client);
-
-      // Handles the case that the given client has a target.
-    } else {
-      final var targetApplicaitonUrlInstanceName = client.getTargetApplicationUrlName();
-
-      getStoredApplicationByUrlInstanceName(targetApplicaitonUrlInstanceName).takeClient(client);
-    }
-  }
-
-  /**
    * @return the current {@link AbstractServer}.
    */
   protected abstract S asConcrete();
@@ -374,22 +343,6 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
    * @param application
    */
   protected abstract void noteRemovedApplication(Application<?, ?> application);
-
-  /**
-   * Lets the current {@link Server} take the given endPoint.
-   * 
-   * @param endPoint
-   */
-  void internalTakeEndPoint(final EndPoint endPoint) {
-    // Handles the case that the given endPoint does not have a target.
-    if (!endPoint.hasCustomTargetSlot()) {
-      getStoredDefaultApplication().takeEndPoint(endPoint);
-
-      // Handles the case that the given endPoint has a target.
-    } else {
-      getStoredApplicationByUrlInstanceName(endPoint.getCustomTargetSlot()).takeEndPoint(endPoint);
-    }
-  }
 
   /**
    * Adds the given application to the list of {@link AbstractApplication}s of the

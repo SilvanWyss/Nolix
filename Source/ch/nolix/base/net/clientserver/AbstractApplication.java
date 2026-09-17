@@ -16,7 +16,6 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToP
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.net.clientserver.Application;
-import ch.nolix.baseapi.net.executoranddataproviderserver.EndPoint;
 import ch.nolix.baseapi.net.target.IApplicationTarget;
 import ch.nolix.baseapi.net.target.IServerTarget;
 
@@ -122,15 +121,6 @@ implements Application<C, S> {
   }
 
   /**
-   * Lets the current {@link AbstractApplication} take the given endPoint.
-   * 
-   * @param endPoint
-   */
-  final void takeEndPoint(final EndPoint endPoint) {
-    takeClient(createBackendClientWithEndPoint(endPoint));
-  }
-
-  /**
    * @return the initial {@link AbstractSession} class of the current
    *         {@link AbstractApplication}.
    */
@@ -184,17 +174,6 @@ implements Application<C, S> {
         getName(),
         getUrlName(),
         serverTarget.getSecurityMode());
-  }
-
-  /**
-   * @param endPoint
-   * @return a new {@link AbstractBackendClient} with the given endPoint
-   */
-  private C createBackendClientWithEndPoint(final EndPoint endPoint) {
-    final C backendClient = ReflectionTool.createInstanceFromDefaultConstructorOfClass(getClientClass());
-    backendClient.setEndPoint(endPoint);
-
-    return backendClient;
   }
 
   /**
