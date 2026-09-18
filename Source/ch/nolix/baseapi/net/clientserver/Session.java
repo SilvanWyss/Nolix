@@ -41,6 +41,12 @@ public interface Session<C extends BackendClient<S>, S> extends AlivenessRequest
   Object internalGetStoredResult();
 
   /**
+   * Removes the parent client from the current {@link Session} if the current
+   * {@link Session} has a parent client.
+   */
+  void internalRemoveParentClient();
+
+  /**
    * Sets the parent {@link BackendClient} of the current {@link Session}.
    * 
    * @param parentClient

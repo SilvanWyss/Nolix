@@ -83,6 +83,14 @@ public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S> 
    * {@inheritDoc}
    */
   @Override
+  public final void internalRemoveParentClient() {
+    memberParentClient = null;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final void internalSetParentClient(final C parentClient) {
     Validator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
     assertDoesNotBelongToClient();
@@ -175,13 +183,6 @@ public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S> 
    *         {@link AbstractSession}.
    */
   protected abstract Class<?> getClientClass();
-
-  /**
-   * Removes the parent client from the current {@link AbstractSession}.
-   */
-  final void removeParentClient() {
-    memberParentClient = null;
-  }
 
   /**
    * @throws RuntimeException if the current {@link AbstractSession} does not
