@@ -48,6 +48,15 @@ extends ApplicationManager<Application<?, ?>>, Clearable, GroupCloseable, Securi
   <C extends BackendClient<T>, T> S addDefaultApplication(Application<C, T> defaultApplication);
 
   /**
+   * @param name
+   * @return the {@link Application} with the given name from the current
+   *         {@link Server}
+   * @throws RuntimeException if the current {@link Server} does not contain a
+   *                          {@link Application} with the given name.
+   */
+  Application<?, ?> getStoredApplicationByName(String name);
+
+  /**
    * @return true if the current {@link Server} has a {@link Client} connected,
    *         false otherwise
    */
