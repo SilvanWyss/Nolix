@@ -67,7 +67,7 @@ final class ExecutorAndDataProviderSlot implements Slot {
     final var backendClient = ReflectionTool.createInstanceFromDefaultConstructorOfClass(clientClass);
 
     backendClient.setEndPoint(backendEndPoint);
-    targetApplication.takeClient(backendClient);
+    targetApplication.takeBackendClient(backendClient);
   }
 
   private Application<?, ?> getTargetApplicationOfBackendEndPoint(final EndPoint endPoint) {

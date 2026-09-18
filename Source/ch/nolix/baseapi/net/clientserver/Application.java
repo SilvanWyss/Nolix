@@ -42,6 +42,13 @@ public interface Application<C extends BackendClient<S>, S> extends ClientManage
   boolean hasClientConnected();
 
   /**
+   * Takes the given backendClient.
+   * 
+   * @param backendClient
+   */
+  void takeBackendClient(BackendClient<?> backendClient);
+
+  /**
    * @return a {@link IApplicationTarget} representation of the current
    *         {@link Application}
    */

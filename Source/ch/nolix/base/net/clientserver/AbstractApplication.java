@@ -16,6 +16,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToP
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.net.clientserver.Application;
+import ch.nolix.baseapi.net.clientserver.BackendClient;
 import ch.nolix.baseapi.net.target.IApplicationTarget;
 import ch.nolix.baseapi.net.target.IServerTarget;
 
@@ -108,16 +109,16 @@ implements Application<C, S> {
   }
 
   /**
-   * Lets the current {@link AbstractApplication} take the given client.
-   * 
-   * @param client
+   * {@inheritDoc}
    */
-  @SuppressWarnings("unchecked")
-  final void takeClient(final AbstractBackendClient<?, ?> client) {
-    final var localClient = (C) client;
-    localClient.internalSetParentApplication(this);
-    clients.addAtEnd(localClient);
-    FlowController.runInBackground(() -> localClient.internalPush(createInitialSession()));
+  @Override
+  public final void takeBackendClient(final BackendClient<?> backendClient) {
+    @SuppressWarnings("unchecked")
+    final var castedBackendClient = (C) backendClient;
+
+    castedBackendClient.internalSetParentApplication(this);
+    clients.addAtEnd(castedBackendClient);
+    FlowController.runInBackground(() -> castedBackendClient.internalPush(createInitialSession()));
   }
 
   /**
