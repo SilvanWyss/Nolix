@@ -22,9 +22,9 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
 
 /**
  * @author Silvan Wyss
- * @param <C> the type of a {@link WebClient}.
+ * @param <S> the type of the application service of a {@link WebClient}
  */
-public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
+public final class WebClient<S> extends AbstractWebClient<WebClient<S>, S> {
   private final WebClientRefreshQueue refreshQueue = //
   WebClientRefreshQueue.forCounterpartRunnerAndOpenStateRequestable(this::runOnCounterpart, this::isOpen);
 
@@ -66,7 +66,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
   }
 
   private void refreshCounterpartGui() {
-    ((WebClientSession<C>) getStoredCurrentSession()).refresh();
+    ((WebClientSession<S>) getStoredCurrentSession()).refresh();
   }
 
   private void runCommandOnControl(final Control<?, ?> control, final ChainedNode command) {
@@ -94,7 +94,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
   private void runControlCommand(final ChainedNode guiCommand) {
     final var command = guiCommand.getNextNode();
     final var internalControlId = guiCommand.getSingleChildNodeHeader();
-    final var webClientSession = (WebClientSession<C>) getStoredCurrentSession();
+    final var webClientSession = (WebClientSession<S>) getStoredCurrentSession();
     final var gui = webClientSession.getStoredGui();
     final var controls = gui.getStoredStructureControls();
     final var control = controls.getOptionalStoredFirst(c -> c.hasInternalId(internalControlId));
@@ -130,7 +130,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
   }
 
   private void runSetUserInputsCommand(final ChainedNode guiCommand) {
-    final var webClientSession = (WebClientSession<C>) getStoredCurrentSession();
+    final var webClientSession = (WebClientSession<S>) getStoredCurrentSession();
     final var gui = webClientSession.getStoredGui();
     final var controls = gui.getStoredControls();
 
@@ -156,7 +156,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
         refreshCounterpartGui();
         break;
       case REFRESH_COMPONENT:
-        ((WebClientSession<C>) getStoredCurrentSession()).updateControlOnCounterpart(component, true);
+        ((WebClientSession<S>) getStoredCurrentSession()).updateControlOnCounterpart(component, true);
         break;
       default:
         throw InvalidArgumentException.forArgument(refreshBehavior);
