@@ -34,6 +34,13 @@ public interface Session<C extends BackendClient<S>, S> extends AlivenessRequest
   boolean hasFrameSession();
 
   /**
+   * @return the result of the current {@link Session}
+   * @throws RuntimeException if the current {@link Session} does not have a
+   *                          result
+   */
+  Object internalGetStoredResult();
+
+  /**
    * Sets the parent {@link BackendClient} of the current {@link Session}.
    * 
    * @param parentClient

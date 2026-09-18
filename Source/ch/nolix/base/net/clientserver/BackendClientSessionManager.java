@@ -104,7 +104,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
 
     ResourceValidator.assertIsOpen(parentClient);
 
-    return (R) session.getStoredResult();
+    return (R) session.internalGetStoredResult();
   }
 
   public void setCurrentSession(final AbstractSession<C, S> session) {
