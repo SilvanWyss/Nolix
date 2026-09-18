@@ -9,6 +9,7 @@ import ch.nolix.base.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.net.clientserver.Session;
 
 /**
  * @author Silvan Wyss
@@ -24,9 +25,9 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
 
   private final C parentClient;
 
-  private AbstractSession<C, S> currentSession;
+  private Session<C, S> currentSession;
 
-  private final LinkedList<AbstractSession<C, S>> sessionStack = LinkedList.createEmpty();
+  private final LinkedList<Session<C, S>> sessionStack = LinkedList.createEmpty();
 
   private BackendClientSessionManager(final C parentClient) {
     // Asserts that the given parentClient is not null.
@@ -57,7 +58,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
     return (containsCurrentSession() && getStoredCurrentSession() == getStoredTopSession());
   }
 
-  public AbstractSession<C, S> getStoredCurrentSession() {
+  public Session<C, S> getStoredCurrentSession() {
     FlowController
       .forMaxMilliseconds(MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS)
       .waitUntil(this::containsCurrentSession);
@@ -81,23 +82,17 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
     popCurrentSessionFromStack();
   }
 
-  public void pushSession(final AbstractSession<C, S> session) {
-    // Asserts that the given session is not null.
-    Validator.assertThat(session).isOfType(AbstractSession.class);
+  public void pushSession(final Session<C, S> session) {
+    Validator.assertThat(session).thatIsNamed(Session.class).isNotNull();
 
-    // Sets the given session to the Client of the current ClientSessionManager.
     session.internalSetParentClient(parentClient);
-
-    // Pushes the given session to the current ClientSessionManager.
     sessionStack.addAtEnd(session);
     currentSession = session;
-
-    // Initializes the given session.
     initializeSession(session);
   }
 
   @SuppressWarnings("unchecked")
-  public <R> R pushSessionAndGetResult(final AbstractSession<C, S> session) {
+  public <R> R pushSessionAndGetResult(final Session<C, S> session) {
     pushSession(session);
 
     FlowController.waitUntil(() -> (parentClient.isClosed() || !session.belongsToClient()));
@@ -107,7 +102,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
     return (R) session.internalGetStoredResult();
   }
 
-  public void setCurrentSession(final AbstractSession<C, S> session) {
+  public void setCurrentSession(final Session<C, S> session) {
     popCurrentSessionFromStack();
     pushSession(session);
   }
@@ -142,11 +137,11 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
     return sessionStack.getOneBasedIndexOfFirstOccurrenceOf(getStoredCurrentSession());
   }
 
-  private AbstractSession<C, S> getStoredTopSession() {
+  private Session<C, S> getStoredTopSession() {
     return sessionStack.getStoredLast();
   }
 
-  private void initializeSession(final AbstractSession<C, S> session) {
+  private void initializeSession(final Session<C, S> session) {
     // Check if the parentClient is open because it could be closed before.
     if (parentClient.isOpen()) {
       session.internalFullInitialize();

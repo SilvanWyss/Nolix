@@ -8,6 +8,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.net.clientserver.Application;
 import ch.nolix.baseapi.net.clientserver.BackendClient;
+import ch.nolix.baseapi.net.clientserver.Session;
 import ch.nolix.baseapi.net.target.IApplicationTarget;
 
 /**
@@ -102,7 +103,7 @@ implements BackendClient<S> {
    *                                               does not have a current
    *                                               {@link AbstractSession}.
    */
-  protected final AbstractSession<C, S> getStoredCurrentSession() {
+  protected final Session<C, S> getStoredCurrentSession() {
     return sessionManager.getStoredCurrentSession();
   }
 
