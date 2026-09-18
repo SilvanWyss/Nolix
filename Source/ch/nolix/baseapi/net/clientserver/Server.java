@@ -48,6 +48,12 @@ extends ApplicationManager<Application<?, ?>>, Clearable, GroupCloseable, Securi
   <C extends BackendClient<T>, T> S addDefaultApplication(Application<C, T> defaultApplication);
 
   /**
+   * @return true if the current {@link Server} has a {@link Client} connected,
+   *         false otherwise
+   */
+  boolean hasClientConnected();
+
+  /**
    * Removes the {@link Application} with the given name from the current
    * {@link Server}.
    * 

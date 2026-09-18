@@ -287,9 +287,9 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
   }
 
   /**
-   * @return true if the current {@link AbstractServer} has a
-   *         {@link AbstractClient} connected, false otherwise
+   * {@inheritDoc}
    */
+  @Override
   public final boolean hasClientConnected() {
     return abstractApplications.containsMatching(Application::hasClientConnected);
   }
