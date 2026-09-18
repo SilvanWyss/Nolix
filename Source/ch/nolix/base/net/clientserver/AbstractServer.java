@@ -37,7 +37,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
   public final S addApplication(final Application<?, ?> application) {
     final var localApplication = (AbstractApplication<?, ?>) application;
 
-    localApplication.setParentServer(this);
+    localApplication.internalSetParentServer(this);
 
     addApplicationToList(localApplication);
     noteAddedApplication(localApplication);
@@ -118,7 +118,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
   public <C extends BackendClient<T>, T> S addDefaultApplication(Application<C, T> defaultApplication) {
     final var localDefaultApplication = (AbstractApplication<?, ?>) defaultApplication;
 
-    localDefaultApplication.setParentServer(this);
+    localDefaultApplication.internalSetParentServer(this);
 
     addApplicationToList(localDefaultApplication);
     memberDefaultApplication = localDefaultApplication;

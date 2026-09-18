@@ -42,6 +42,15 @@ public interface Application<C extends BackendClient<S>, S> extends ClientManage
   boolean hasClientConnected();
 
   /**
+   * Sets the parent {@link Server} of the current {@link Application}.
+   * 
+   * @param parentServer
+   * @throws RuntimeException if the current {@link Application} belongs already
+   *                          to a {@link Server}
+   */
+  void internalSetParentServer(final Server<?> parentServer);
+
+  /**
    * Takes the given backendClient.
    * 
    * @param backendClient

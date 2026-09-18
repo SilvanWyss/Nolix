@@ -29,7 +29,7 @@ import ch.nolix.baseapi.net.target.IServerTarget;
  */
 public abstract class AbstractApplication<C extends AbstractBackendClient<C, S>, S>
 implements Application<C, S> {
-  private AbstractServer<?> parentServer;
+  private ch.nolix.baseapi.net.clientserver.Server<?> memberParentServer;
 
   private final S applicationService;
 
@@ -62,7 +62,7 @@ implements Application<C, S> {
    */
   @Override
   public final boolean belongsToServer() {
-    return (parentServer != null);
+    return (memberParentServer != null);
   }
 
   /**
@@ -112,6 +112,17 @@ implements Application<C, S> {
    * {@inheritDoc}
    */
   @Override
+  public final void internalSetParentServer(ch.nolix.baseapi.net.clientserver.Server<?> parentServer) {
+    Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
+    assertDoesNotBelongToServer();
+
+    memberParentServer = parentServer;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final void takeBackendClient(final BackendClient<?> backendClient) {
     @SuppressWarnings("unchecked")
     final var castedBackendClient = (C) backendClient;
@@ -126,21 +137,6 @@ implements Application<C, S> {
    *         {@link AbstractApplication}.
    */
   protected abstract Class<?> getInitialSessionClass();
-
-  /**
-   * Sets the parent {@link AbstractServer} of the current
-   * {@link AbstractApplication}.
-   * 
-   * @param parentServer
-   * @throws RuntimeException if the current {@link AbstractApplication} belongs
-   *                          already to a {@link AbstractServer}.
-   */
-  final void setParentServer(final AbstractServer<?> parentServer) {
-    Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
-    assertDoesNotBelongToServer();
-
-    this.parentServer = parentServer;
-  }
 
   /**
    * @throws RuntimeException if the current {@link AbstractApplication} does not
@@ -192,10 +188,10 @@ implements Application<C, S> {
    * @throws RuntimeException if the current {@link AbstractApplication} does not
    *                          belong to a {@link AbstractServer}.
    */
-  private AbstractServer<?> getStoredParentServer() {
+  private ch.nolix.baseapi.net.clientserver.Server<?> getStoredParentServer() {
     assertBelongsToServer();
 
-    return parentServer;
+    return memberParentServer;
   }
 
   /**
