@@ -44,6 +44,14 @@ public interface Session<C extends BackendClient<S>, S> extends AlivenessRequest
   void internalSetParentClient(C parentClient);
 
   /**
+   * Sets the result of the current {@link Session}.
+   * 
+   * @param result
+   * @throws RuntimeException if the given result is null
+   */
+  void internalSetResult(Object result);
+
+  /**
    * Pops the current {@link Session} from its parent {@link BackendClient}.
    */
   void pop();

@@ -77,7 +77,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
   }
 
   public void popCurrentSessionAndForwardGivenResult(final Object result) {
-    getStoredCurrentSession().setResult(result);
+    getStoredCurrentSession().internalSetResult(result);
     popCurrentSessionFromStack();
   }
 

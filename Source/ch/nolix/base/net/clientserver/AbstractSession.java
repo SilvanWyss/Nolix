@@ -77,6 +77,16 @@ public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S> 
     memberParentClient = parentClient;
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void internalSetResult(final Object result) {
+    Validator.assertThat(result).thatIsNamed(LowerCaseVariableNameCatalog.RESULT).isNotNull();
+
+    memberResult = result;
+  }
+
   // For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
@@ -167,18 +177,6 @@ public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S> 
    */
   final void removeParentClient() {
     memberParentClient = null;
-  }
-
-  /**
-   * Sets the result of the current {@link AbstractSession}.
-   * 
-   * @param result
-   * @throws RuntimeException if the given result is null
-   */
-  final void setResult(final Object result) {
-    Validator.assertThat(result).thatIsNamed(LowerCaseVariableNameCatalog.RESULT).isNotNull();
-
-    memberResult = result;
   }
 
   /**
