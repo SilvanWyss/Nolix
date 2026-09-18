@@ -19,6 +19,11 @@ public abstract class WebClientSession<S> // NOSONAR: A web client session class
 extends AbstractWebClientSession<WebClient<S>, S> {
   private final IWebGui<?> webGui = new WebGui();
 
+  @Override
+  public final Class<?> getClientClass() {
+    return WebClient.class;
+  }
+
   public final IWebGui<?> getStoredGui() {
     return webGui;
   }
@@ -31,7 +36,7 @@ extends AbstractWebClientSession<WebClient<S>, S> {
     getStoredGui()
       .setTitle(getApplicationName())
       .setFrontEndReaderAndFrontEndWriter(createFrontendReader(), createFrontendWriter());
-  
+
     initialize();
   }
 
@@ -54,9 +59,4 @@ extends AbstractWebClientSession<WebClient<S>, S> {
   }
 
   protected abstract void initialize();
-
-  @Override
-  protected final Class<?> getClientClass() {
-    return WebClient.class;
-  }
 }

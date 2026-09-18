@@ -23,6 +23,11 @@ public interface Session<C extends BackendClient<S>, S> extends AlivenessRequest
   String getApplicationName();
 
   /**
+   * @return the client class of the current {@link Session}
+   */
+  Class<?> getClientClass();
+
+  /**
    * @return the application service of the parent {@link Application} of the
    *         parent {@link BackendClient} of the current {@link Session}
    */

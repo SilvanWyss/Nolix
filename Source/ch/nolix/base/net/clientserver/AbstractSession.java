@@ -174,12 +174,6 @@ public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S> 
   }
 
   /**
-   * @return the {@link AbstractClient} class of the current
-   *         {@link AbstractSession}.
-   */
-  protected abstract Class<?> getClientClass();
-
-  /**
    * @throws RuntimeException if the current {@link AbstractSession} does not
    *                          belong to a client.
    */

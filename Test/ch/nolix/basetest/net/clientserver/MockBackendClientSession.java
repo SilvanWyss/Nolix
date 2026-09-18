@@ -13,8 +13,8 @@ public final class MockBackendClientSession extends AbstractSession<MockBackendC
    * {@inheritDoc}
    */
   @Override
-  public void refresh() {
-    // Does nothing.
+  public Class<MockBackendClient> getClientClass() {
+    return MockBackendClient.class;
   }
 
   /**
@@ -29,7 +29,7 @@ public final class MockBackendClientSession extends AbstractSession<MockBackendC
    * {@inheritDoc}
    */
   @Override
-  protected Class<?> getClientClass() {
-    return MockBackendClient.class;
+  public void refresh() {
+    // Does nothing.
   }
 }

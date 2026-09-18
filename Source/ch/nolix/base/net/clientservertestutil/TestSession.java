@@ -34,6 +34,14 @@ public final class TestSession<C extends AbstractBackendClient<C, S>, S> extends
    * {@inheritDoc}
    */
   @Override
+  public Class<?> getClientClass() {
+    return clientClass;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void internalFullInitialize() {
     // Does nothing.
   }
@@ -44,13 +52,5 @@ public final class TestSession<C extends AbstractBackendClient<C, S>, S> extends
   @Override
   public void refresh() {
     // Does nothing.
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  protected Class<?> getClientClass() {
-    return clientClass;
   }
 }
