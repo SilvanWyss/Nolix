@@ -34,7 +34,7 @@ public final class TestSession<C extends AbstractBackendClient<C, S>, S> extends
    * {@inheritDoc}
    */
   @Override
-  public void refresh() {
+  public void internalFullInitialize() {
     // Does nothing.
   }
 
@@ -42,7 +42,7 @@ public final class TestSession<C extends AbstractBackendClient<C, S>, S> extends
    * {@inheritDoc}
    */
   @Override
-  protected void fullInitialize() {
+  public void refresh() {
     // Does nothing.
   }
 

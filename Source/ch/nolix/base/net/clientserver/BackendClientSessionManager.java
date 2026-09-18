@@ -149,7 +149,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
   private void initializeSession(final AbstractSession<C, S> session) {
     // Check if the parentClient is open because it could be closed before.
     if (parentClient.isOpen()) {
-      session.fullInitialize();
+      session.internalFullInitialize();
     }
 
     /*

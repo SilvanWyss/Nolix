@@ -174,11 +174,6 @@ public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S> 
   }
 
   /**
-   * Initializes the current {@link AbstractSession} fully.
-   */
-  protected abstract void fullInitialize();
-
-  /**
    * @return the {@link AbstractClient} class of the current
    *         {@link AbstractSession}.
    */

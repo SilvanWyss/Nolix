@@ -21,7 +21,7 @@ public final class MockBackendClientSession extends AbstractSession<MockBackendC
    * {@inheritDoc}
    */
   @Override
-  protected void fullInitialize() {
+  public void internalFullInitialize() {
     // Does nothing.
   }
 

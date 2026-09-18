@@ -3,6 +3,7 @@
  */
 package ch.nolix.baseapi.net.clientserver;
 
+import ch.nolix.base.net.clientserver.AbstractSession;
 import ch.nolix.baseapi.generalstate.staterequest.AlivenessRequestable;
 import ch.nolix.baseapi.objectcomposition.applicationcomponent.ClientComponent;
 import ch.nolix.baseapi.programcontrol.refresh.Refreshable;
@@ -32,6 +33,11 @@ public interface Session<C extends BackendClient<S>, S> extends AlivenessRequest
    *         false otherwise
    */
   boolean hasFrameSession();
+
+  /**
+   * Initializes the current {@link AbstractSession} fully.
+   */
+  void internalFullInitialize();
 
   /**
    * @return the result of the current {@link Session}

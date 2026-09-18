@@ -27,6 +27,18 @@ extends AbstractWebClientSession<WebClient<S>, S> {
    * {@inheritDoc}
    */
   @Override
+  public final void internalFullInitialize() {
+    getStoredGui()
+      .setTitle(getApplicationName())
+      .setFrontEndReaderAndFrontEndWriter(createFrontendReader(), createFrontendWriter());
+  
+    initialize();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final void refresh() {
     getStoredParentClient().internalUpdateCounterpartFromWebGui(getStoredGui(), true);
   }
@@ -39,18 +51,6 @@ extends AbstractWebClientSession<WebClient<S>, S> {
     final ExtendedIterable<Control<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
     getStoredParentClient().internalUpdateControlsOnCounterpart(controls, updateConstellationOrStyle);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  protected final void fullInitialize() {
-    getStoredGui()
-      .setTitle(getApplicationName())
-      .setFrontEndReaderAndFrontEndWriter(createFrontendReader(), createFrontendWriter());
-
-    initialize();
   }
 
   protected abstract void initialize();
