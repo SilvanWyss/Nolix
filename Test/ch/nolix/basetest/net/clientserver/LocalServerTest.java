@@ -18,6 +18,7 @@ import ch.nolix.baseapi.net.netproperty.SecurityMode;
  */
 final class LocalServerTest extends StandardTest {
   @Test
+  @SuppressWarnings("unchecked")
   void testCase_addApplication() {
     final var applicationMock = mock(AbstractApplication.class);
 
@@ -50,7 +51,7 @@ final class LocalServerTest extends StandardTest {
   void testCase_asTarget() {
     try (final var testUnit = new LocalServer()) {
       // verify & execution
-      expectRunning(testUnit::asTarget).throwsException().ofType(ArgumentDoesNotSupportMethodException.class);
+      expectRunning(testUnit::toTarget).throwsException().ofType(ArgumentDoesNotSupportMethodException.class);
     }
   }
 

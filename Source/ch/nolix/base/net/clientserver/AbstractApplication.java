@@ -52,7 +52,7 @@ implements Application<C, S> {
    */
   @Override
   public final IApplicationTarget toTarget() {
-    final var serverTarget = getStoredParentServer().asTarget();
+    final var serverTarget = getStoredParentServer().toTarget();
 
     return asTargetWithServerTarget(serverTarget);
   }

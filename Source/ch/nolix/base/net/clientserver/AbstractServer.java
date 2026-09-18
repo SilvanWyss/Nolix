@@ -28,19 +28,16 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
 
   private AbstractApplication<?, ?> memberDefaultApplication;
 
-  private final ILinkedList<AbstractApplication<?, ?>> abstractApplications = LinkedList.createEmpty();
+  private final ILinkedList<Application<?, ?>> abstractApplications = LinkedList.createEmpty();
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public final S addApplication(final Application<?, ?> application) {
-    final var localApplication = (AbstractApplication<?, ?>) application;
-
-    localApplication.internalSetParentServer(this);
-
-    addApplicationToList(localApplication);
-    noteAddedApplication(localApplication);
+  public final <C extends BackendClient<T>, T> S addApplication(final Application<C, T> application) {
+    application.internalSetParentServer(this);
+    addApplicationToList(application);
+    noteAddedApplication(application);
 
     return asConcrete();
   }
@@ -232,7 +229,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
    *                                               {@link AbstractApplication}
    *                                               with the given instanceName.
    */
-  public final AbstractApplication<?, ?> getStoredApplicationByName(final String name) {
+  public final Application<?, ?> getStoredApplicationByName(final String name) {
     return abstractApplications.getStoredFirst(a -> a.getName().equals(name));
   }
 
@@ -246,7 +243,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
    *                                               {@link AbstractApplication}
    *                                               with the given urlInstanceName.
    */
-  public final AbstractApplication<?, ?> getStoredApplicationByUrlInstanceName(final String urlInstanceName) {
+  public final Application<?, ?> getStoredApplicationByUrlInstanceName(final String urlInstanceName) {
     return abstractApplications.getStoredFirst(a -> a.getUrlName().equals(urlInstanceName));
   }
 
@@ -294,7 +291,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
    *         {@link AbstractClient} connected, false otherwise
    */
   public final boolean hasClientConnected() {
-    return abstractApplications.containsMatching(AbstractApplication::hasClientConnected);
+    return abstractApplications.containsMatching(Application::hasClientConnected);
   }
 
   /**
@@ -326,7 +323,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
    * 
    * @param application
    */
-  protected abstract void noteAddedApplication(AbstractApplication<?, ?> application);
+  protected abstract void noteAddedApplication(Application<?, ?> application);
 
   /**
    * Notes that the given defaultApplication has been added to the current
@@ -353,7 +350,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
    *                          already a {@link AbstractApplication} with the same
    *                          name as one of the given applications.
    */
-  private void addApplicationToList(final AbstractApplication<?, ?> application) {
+  private void addApplicationToList(final Application<?, ?> application) {
     assertDoesNotContainApplicationWithName(application.getName());
 
     // Adds the given application to the list of Applications of the current

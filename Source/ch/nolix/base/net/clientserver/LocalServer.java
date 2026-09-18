@@ -16,7 +16,7 @@ public final class LocalServer extends AbstractServer<LocalServer> {
    * {@inheritDoc}
    */
   @Override
-  public IServerTarget asTarget() {
+  public IServerTarget toTarget() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asTarget");
   }
 
@@ -40,7 +40,7 @@ public final class LocalServer extends AbstractServer<LocalServer> {
    * {@inheritDoc}
    */
   @Override
-  protected void noteAddedApplication(AbstractApplication<?, ?> application) {
+  protected void noteAddedApplication(Application<?, ?> application) {
     // Does nothing.
   }
 

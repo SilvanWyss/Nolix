@@ -11,47 +11,54 @@ import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 
 /**
  * @author Silvan Wyss
- * @param <S> the type of a {@link Server}.
+ * @param <S> the type of a {@link Server}
  */
 public interface Server<S extends Server<S>>
-extends Clearable, GroupCloseable, ApplicationManager<Application<?, ?>>, SecurityModeHolder {
+extends ApplicationManager<Application<?, ?>>, Clearable, GroupCloseable, SecurityModeHolder {
   /**
    * Adds the given application to the current {@link Server}.
    * 
    * @param application
+   * @param <C>         the type of the {@link BackendClient}s of the given
+   *                    application
+   * @param <T>         the type of the application service of the given
+   *                    application
    * @return the current {@link Server}
    * @throws RuntimeException if the given application is null
    * @throws RuntimeException if the current {@link Server} contains already a
-   *                          {@link Application} with the same instanceName as
-   *                          the given application.
+   *                          {@link Application} with the same name or URL name
+   *                          as the given application
    */
-  S addApplication(final Application<?, ?> application);
+  <C extends BackendClient<T>, T> S addApplication(Application<C, T> application);
 
   /**
    * Adds the given defaultApplication to the current {@link Server}.
    * 
    * @param defaultApplication
-   * @param <C>                the type of the {@link BackendClient} of the given
+   * @param <C>                the type of the {@link BackendClient}s of the given
    *                           defaultApplication
-   * @param <T>                the type of the application context of the given
+   * @param <T>                the type of the application service of the given
    *                           defaultApplication
    * @return the current {@link Server}
    * @throws RuntimeException if the given defaultApplication is null
+   * @throws RuntimeException if the current {@link Server} contains already a
+   *                          {@link Application} with the same name or URL name
+   *                          as the given defaultApplication
    */
   <C extends BackendClient<T>, T> S addDefaultApplication(Application<C, T> defaultApplication);
 
   /**
-   * @return a target representation of the current {@link Server}.
-   */
-  IServerTarget asTarget();
-
-  /**
-   * Removes the {@link Application} with the given instanceName from the current
+   * Removes the {@link Application} with the given name from the current
    * {@link Server}.
    * 
    * @param name
    * @throws RuntimeException if the current {@link Server} does not contain a
-   *                          {@link Application} with the given instanceName.
+   *                          {@link Application} with the given instanceName
    */
   void removeApplicationByName(final String name);
+
+  /**
+   * @return a {@link IServerTarget} representation of the current {@link Server}
+   */
+  IServerTarget toTarget();
 }

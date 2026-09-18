@@ -62,7 +62,7 @@ public final class Server extends AbstractServer<Server> implements HostHolder, 
    * @return the current {@link Server} as {@link IServerTarget}.
    */
   @Override
-  public IServerTarget asTarget() {
+  public IServerTarget toTarget() {
     return ServerTarget.forHostAndPortAndSecurityModeForConnections(
       getHost(),
       getPort(),
@@ -105,7 +105,7 @@ public final class Server extends AbstractServer<Server> implements HostHolder, 
    * {@inheritDoc}
    */
   @Override
-  protected void noteAddedApplication(final AbstractApplication<?, ?> application) {
+  protected void noteAddedApplication(final Application<?, ?> application) {
     internalServer.addSlot(ExecutorAndDataProviderSlot.withNameAndParentServer(application.getUrlName(), this));
   }
 

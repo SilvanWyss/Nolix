@@ -69,7 +69,7 @@ public final class SslServer extends AbstractServer<SslServer> {
    * {@inheritDoc}
    */
   @Override
-  public IServerTarget asTarget() {
+  public IServerTarget toTarget() {
     return ServerTarget.forHostAndPortAndSecurityModeForConnections(
       domain,
       port,
@@ -96,7 +96,7 @@ public final class SslServer extends AbstractServer<SslServer> {
    * {@inheritDoc}
    */
   @Override
-  protected void noteAddedApplication(final AbstractApplication<?, ?> application) {
+  protected void noteAddedApplication(final Application<?, ?> application) {
     final var executorAndDataProviderSlot = //
     ExecutorAndDataProviderSlot.withNameAndParentServer(application.getUrlName(), this);
 
