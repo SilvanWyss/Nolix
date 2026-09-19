@@ -29,7 +29,7 @@ extends ApplicationManager<Application<?, ?>>, Clearable, GroupCloseable, Securi
    *                          {@link Application} with the same name or URL name
    *                          as the given application
    */
-  <C extends BackendClient<T>, T> S addApplication(Application<C, T> application);
+  <C extends BackendClient<C, T>, T> S addApplication(Application<C, T> application);
 
   /**
    * Adds the given defaultApplication to the current {@link Server}.
@@ -45,7 +45,7 @@ extends ApplicationManager<Application<?, ?>>, Clearable, GroupCloseable, Securi
    *                          {@link Application} with the same name or URL name
    *                          as the given defaultApplication
    */
-  <C extends BackendClient<T>, T> S addDefaultApplication(Application<C, T> defaultApplication);
+  <C extends BackendClient<C, T>, T> S addDefaultApplication(Application<C, T> defaultApplication);
 
   /**
    * @param name

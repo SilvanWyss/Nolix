@@ -7,10 +7,11 @@ import ch.nolix.baseapi.net.target.IApplicationTarget;
 
 /**
  * @author Silvan Wyss
+ * @param <C> the type of a {@link BackendClient}
  * @param <S> the type of the application service of the parent application of a
  *            {@link BackendClient}.
  */
-public interface BackendClient<S> extends Client {
+public interface BackendClient<C extends BackendClient<C, S>, S> extends Client {
   /**
    * @return the application of the current {@link BackendClient} as target.
    */
@@ -39,4 +40,12 @@ public interface BackendClient<S> extends Client {
    *                           {@link BackendClient}.
    */
   void internalPopCurrentSession();
+
+  /**
+   * Pushes the given session to the current {@link BackendClient}.
+   * 
+   * @param session
+   * @throws RuntimeException if the given session is null
+   */
+  void internalPushSession(Session<C, S> session);
 }

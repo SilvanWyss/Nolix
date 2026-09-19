@@ -19,7 +19,7 @@ import ch.nolix.baseapi.net.target.IApplicationTarget;
  */
 public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S>, S>
 extends AbstractClient
-implements BackendClient<S> {
+implements BackendClient<C, S> {
   @SuppressWarnings("unchecked")
   private final BackendClientSessionManager<C, S> sessionManager = BackendClientSessionManager.forClient((C) this);
 
@@ -67,6 +67,14 @@ implements BackendClient<S> {
   @Override
   public final void internalPopCurrentSession() {
     sessionManager.popCurrentSession();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void internalPushSession(final Session<C, S> session) {
+    sessionManager.pushSession(session);
   }
 
   /**
@@ -123,16 +131,6 @@ implements BackendClient<S> {
    */
   final void internalPopCurrentSessionAndForwardGivenResult(final Object result) {
     sessionManager.popCurrentSessionAndForwardGivenResult(result);
-  }
-
-  /**
-   * Pushes the given session to the current {@link AbstractBackendClient}.
-   * 
-   * @param session
-   * @throws RuntimeException if the given session is null
-   */
-  final void internalPush(final AbstractSession<C, S> session) {
-    sessionManager.pushSession(session);
   }
 
   /**

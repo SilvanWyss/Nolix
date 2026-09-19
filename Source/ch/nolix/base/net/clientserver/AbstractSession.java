@@ -143,7 +143,7 @@ public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S> 
    * @throws RuntimeException if the given session is null
    */
   public final void push(final AbstractSession<C, S> session) {
-    getStoredParentClient().internalPush(session);
+    getStoredParentClient().internalPushSession(session);
   }
 
   /**

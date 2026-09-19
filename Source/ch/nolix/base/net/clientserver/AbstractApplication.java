@@ -123,13 +123,14 @@ implements Application<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final void takeBackendClient(final BackendClient<?> backendClient) {
+  public final void takeBackendClient(final BackendClient<?, ?> backendClient) {
     @SuppressWarnings("unchecked")
     final var castedBackendClient = (C) backendClient;
+    final var initialSession = createInitialSession();
 
     castedBackendClient.internalSetParentApplication(this);
     clients.addAtEnd(castedBackendClient);
-    FlowController.runInBackground(() -> castedBackendClient.internalPush(createInitialSession()));
+    FlowController.runInBackground(() -> castedBackendClient.internalPushSession(initialSession));
   }
 
   /**

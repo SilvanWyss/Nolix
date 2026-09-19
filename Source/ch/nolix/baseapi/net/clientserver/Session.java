@@ -15,7 +15,8 @@ import ch.nolix.baseapi.programcontrol.refresh.Refreshable;
  *            {@link Application} of the parent {@link BackendClient} of a
  *            {@link Session}
  */
-public interface Session<C extends BackendClient<S>, S> extends AlivenessRequestable, ClientComponent<C>, Refreshable {
+public interface Session<C extends BackendClient<C, S>, S>
+extends AlivenessRequestable, ClientComponent<C>, Refreshable {
   /**
    * @return the name of the parent {@link Application} of the parent
    *         {@link BackendClient} of the current {@link Session}

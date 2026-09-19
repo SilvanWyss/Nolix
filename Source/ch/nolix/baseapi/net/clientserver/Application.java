@@ -12,7 +12,7 @@ import ch.nolix.baseapi.objectcomposition.applicationmanager.ClientManager;
  * @param <S> the type of the application service of a {@link Application}
  * @param <C> the type of the {@link BackendClient}s of a {@link Application}
  */
-public interface Application<C extends BackendClient<S>, S> extends ClientManager<C>, NameHolder {
+public interface Application<C extends BackendClient<C, S>, S> extends ClientManager<C>, NameHolder {
   /**
    * @return true if the current {@link Application} belongs to a server, false
    *         otherwise
@@ -55,7 +55,7 @@ public interface Application<C extends BackendClient<S>, S> extends ClientManage
    * 
    * @param backendClient
    */
-  void takeBackendClient(BackendClient<?> backendClient);
+  void takeBackendClient(BackendClient<?, ?> backendClient);
 
   /**
    * @return a {@link IApplicationTarget} representation of the current
