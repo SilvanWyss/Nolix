@@ -83,11 +83,11 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
   }
 
   public void pushSession(final Session<C, S> session) {
-    Validator.assertThat(session).thatIsNamed(Session.class).isNotNull();
-
     session.internalSetParentClient(parentClient);
+
     sessionStack.addAtEnd(session);
     currentSession = session;
+
     initializeSession(session);
   }
 
