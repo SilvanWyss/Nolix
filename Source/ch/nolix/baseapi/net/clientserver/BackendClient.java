@@ -42,6 +42,21 @@ public interface BackendClient<C extends BackendClient<C, S>, S> extends Client 
   void internalPopCurrentSession();
 
   /**
+   * Pops the current {@link Session} of the current {@link BackendClient} from
+   * the current {@link BackendClient} with the given result. Closes the current
+   * {@link BackendClient} if the current {@link Session} of the current
+   * {@link BackendClient} was the last {@link Session} of the current
+   * {@link BackendClient}.
+   * 
+   * @param result
+   * @InvalidArgumentException if the current {@link Session} of the current
+   *                           {@link BackendClient} is not the top
+   *                           {@link Session} of the current
+   *                           {@link BackendClient}
+   */
+  void internalPopCurrentSessionWithResult(Object result);
+
+  /**
    * Pushes the given session to the current {@link BackendClient}.
    * 
    * @param session

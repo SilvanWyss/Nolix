@@ -132,7 +132,7 @@ public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S> 
    */
   @Override
   public final void popWithResult(final Object result) {
-    getStoredParentClient().internalPopCurrentSessionAndForwardGivenResult(result);
+    getStoredParentClient().internalPopCurrentSessionWithResult(result);
   }
 
   /**

@@ -73,6 +73,14 @@ implements BackendClient<C, S> {
    * {@inheritDoc}
    */
   @Override
+  public final void internalPopCurrentSessionWithResult(final Object result) {
+    sessionManager.popCurrentSessionAndForwardGivenResult(result);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final void internalPushSession(final Session<C, S> session) {
     sessionManager.pushSession(session);
   }
@@ -113,24 +121,6 @@ implements BackendClient<C, S> {
    */
   protected final Session<C, S> getStoredCurrentSession() {
     return sessionManager.getStoredCurrentSession();
-  }
-
-  /**
-   * Pops the current {@link AbstractSession} of the current
-   * {@link AbstractBackendClient} from the current {@link AbstractBackendClient}
-   * Forwards the given result. Closes the current {@link AbstractBackendClient}
-   * if the current {@link AbstractSession} of the current
-   * {@link AbstractBackendClient} was the last {@link AbstractSession} of the
-   * current {@link AbstractBackendClient}.
-   * 
-   * @param result
-   * @InvalidArgumentException if the current {@link AbstractSession} of the
-   *                           current {@link AbstractBackendClient} is not the
-   *                           top {@link AbstractSession} of the current
-   *                           {@link AbstractBackendClient}.
-   */
-  final void internalPopCurrentSessionAndForwardGivenResult(final Object result) {
-    sessionManager.popCurrentSessionAndForwardGivenResult(result);
   }
 
   /**
