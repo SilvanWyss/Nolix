@@ -151,12 +151,11 @@ public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S> 
    * {@link AbstractSession}.
    * 
    * @param session
-   * @param <R>     the type of the returned result
    * @return the result from the given session
    * @throws RuntimeException if the given session is null
    */
-  public final <R> R pushAndGetResult(final AbstractSession<C, S> session) {
-    return getStoredParentClient().internalPushAndGetResult(session);
+  public final Object pushAndGetResult(final AbstractSession<C, S> session) {
+    return getStoredParentClient().internalPushSessionAndGetResult(session);
   }
 
   /**

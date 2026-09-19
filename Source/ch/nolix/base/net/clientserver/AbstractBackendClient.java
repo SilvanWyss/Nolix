@@ -89,6 +89,14 @@ implements BackendClient<C, S> {
    * {@inheritDoc}
    */
   @Override
+  public final Object internalPushSessionAndGetResult(final Session<C, S> session) {
+    return sessionManager.pushSessionAndGetResult(session);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final void internalSetNextSession(final Session<C, S> session) {
     sessionManager.setCurrentSession(session);
   }
@@ -129,18 +137,6 @@ implements BackendClient<C, S> {
    */
   protected final Session<C, S> getStoredCurrentSession() {
     return sessionManager.getStoredCurrentSession();
-  }
-
-  /**
-   * Pushes the given session to the current {@link AbstractBackendClient}.
-   * 
-   * @param session
-   * @param <R>     the type of the returned result
-   * @return the result from the given session
-   * @throws RuntimeException if the given session is null
-   */
-  final <R> R internalPushAndGetResult(final AbstractSession<C, S> session) {
-    return sessionManager.pushSessionAndGetResult(session);
   }
 
   /**
