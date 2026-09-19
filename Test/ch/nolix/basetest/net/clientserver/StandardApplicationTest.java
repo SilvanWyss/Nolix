@@ -14,7 +14,7 @@ import ch.nolix.system.webapplication.main.WebClient;
 /**
  * @author Silvan Wyss
  */
-final class BasicApplicationTest extends StandardTest {
+final class StandardApplicationTest extends StandardTest {
   @Test
   void testCase_withNameAndApplicationServiceAndInitialSessionClass() {
     // setup
