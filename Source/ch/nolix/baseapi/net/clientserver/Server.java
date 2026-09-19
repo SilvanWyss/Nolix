@@ -70,6 +70,15 @@ extends ApplicationManager<Application<?, ?>>, Clearable, GroupCloseable, Securi
   Application<?, ?> getStoredApplicationByName(String name);
 
   /**
+   * @param urlName
+   * @return the {@link Application} with the given urlName from the current
+   *         {@linkServer}
+   * @throws RuntimeException if the current {@link Server} does not contain a
+   *                          {@link Application} with the given urlName.
+   */
+  Application<?, ?> getStoredApplicationByUrlName(final String urlName);
+
+  /**
    * @return true if the current {@link Server} has a {@link Client} connected,
    *         false otherwise
    */

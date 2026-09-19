@@ -72,9 +72,9 @@ final class ExecutorAndDataProviderSlot implements Slot {
 
   private Application<?, ?> getTargetApplicationOfBackendEndPoint(final EndPoint endPoint) {
     if (endPoint.hasCustomTargetSlot()) {
-      final var urlApplicationName = endPoint.getCustomTargetSlot();
+      final var applicationUrlName = endPoint.getCustomTargetSlot();
 
-      return parentServer.getStoredApplicationByUrlInstanceName(urlApplicationName);
+      return parentServer.getStoredApplicationByUrlName(applicationUrlName);
     }
 
     return parentServer.getStoredDefaultApplication();

@@ -220,21 +220,15 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
    */
   @Override
   public final Application<?, ?> getStoredApplicationByName(final String name) {
-    return applications.getStoredFirst(a -> a.getName().equals(name));
+    return applications.getStoredFirst(a -> a.hasName(name));
   }
 
   /**
-   * @param urlInstanceName
-   * @return the {@link AbstractApplication} with the given urlInstanceName from
-   *         the current {@link AbstractServer}
-   * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link AbstractServer} does not
-   *                                               contain a
-   *                                               {@link AbstractApplication}
-   *                                               with the given urlInstanceName.
+   * {@inheritDoc}
    */
-  public final Application<?, ?> getStoredApplicationByUrlInstanceName(final String urlInstanceName) {
-    return applications.getStoredFirst(a -> a.getUrlName().equals(urlInstanceName));
+  @Override
+  public final Application<?, ?> getStoredApplicationByUrlName(final String urlName) {
+    return applications.getStoredFirst(a -> a.getUrlName().equals(urlName));
   }
 
   /**
