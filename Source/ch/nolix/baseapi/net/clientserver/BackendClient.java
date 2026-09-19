@@ -83,4 +83,14 @@ public interface BackendClient<C extends BackendClient<C, S>, S> extends Client 
    * @throws RuntimeException if the given session is null
    */
   void internalSetNextSession(Session<C, S> session);
+
+  /**
+   * Sets the parent {@link Application} of the current {@link BackendClient}.
+   * 
+   * @param parentApplication
+   * @throws RuntimeException if the given parentApplication is null
+   * @throws RuntimeException if the current {@link BackendClient} has already to
+   *                          a parent {@link Application}
+   */
+  void internalSetParentApplication(final Application<C, S> parentApplication);
 }

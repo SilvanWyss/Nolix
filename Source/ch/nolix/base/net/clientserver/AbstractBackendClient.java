@@ -4,8 +4,9 @@
 package ch.nolix.base.net.clientserver;
 
 import ch.nolix.base.validation.validator.Validator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.net.clientserver.Application;
 import ch.nolix.baseapi.net.clientserver.BackendClient;
 import ch.nolix.baseapi.net.clientserver.Session;
@@ -23,11 +24,7 @@ implements BackendClient<C, S> {
   @SuppressWarnings("unchecked")
   private final BackendClientSessionManager<C, S> sessionManager = BackendClientSessionManager.forClient((C) this);
 
-  /**
-   * The {@link AbstractApplication} the current {@link AbstractBackendClient}
-   * belongs to.
-   */
-  private AbstractApplication<C, S> memberParentApplication;
+  private Application<C, S> optionalParentApplication;
 
   /**
    * @return the name of the parent {@link AbstractApplication} of the current
@@ -105,6 +102,18 @@ implements BackendClient<C, S> {
    * {@inheritDoc}
    */
   @Override
+  public final void internalSetParentApplication(final Application<C, S> parentApplication) {
+    Validator.assertThat(parentApplication).thatIsNamed("parent application").isNotNull();
+    assertDoesNotBelongToApplication();
+
+    // Sets the parent Application of the current Client.
+    optionalParentApplication = parentApplication;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final boolean isBackendClient() {
     return true;
   }
@@ -140,65 +149,42 @@ implements BackendClient<C, S> {
   }
 
   /**
-   * Sets the {@link AbstractApplication} the current
-   * {@link AbstractBackendClient} will belong to.
-   * 
-   * @param parentApplication
-   * @throws RuntimeException if the given parentApplication is null
-   * @throws RuntimeException if the current {@link AbstractBackendClient}
-   *                          references already its parent
-   *                          {@link AbstractApplication}.
+   * @throws RuntimeException if the current {@link AbstractBackendClient} does
+   *                          not have a parent {@link Application}
    */
-  final void internalSetParentApplication(final AbstractApplication<C, S> parentApplication) {
-    // Asserts that the given parent application is not null.
-    Validator.assertThat(parentApplication).thatIsNamed("parent application").isNotNull();
-
-    // Asserts that the current client does not reference its parent application.
-    assertDoesNotReferenceParentApplication();
-
-    // Sets the parent Application of the current Client.
-    memberParentApplication = parentApplication;
-  }
-
-  /**
-   * @throws RuntimeException if the current {@link AbstractBackendClient}
-   *                          references already its parent
-   *                          {@link AbstractApplication}.
-   */
-  private void assertDoesNotReferenceParentApplication() {
-    if (referencesParentApplication()) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "references already its parent application");
+  private void assertBelongsToApplication() {
+    if (!belongsToApplication()) {
+      throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, Application.class);
     }
   }
 
   /**
-   * @throws RuntimeException if the current {@link AbstractBackendClient} does
-   *                          not reference its parent
-   *                          {@link AbstractApplication}.
+   * @throws RuntimeException if the current {@link AbstractBackendClient} belongs
+   *                          to an {@link Application}
    */
-  private void assertReferencesParentApplication() {
-    if (!referencesParentApplication()) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not reference its parent application");
+  private void assertDoesNotBelongToApplication() {
+    if (belongsToApplication()) {
+      throw ArgumentBelongsToParentException.forArgumentAndParent(this, getStoredParentApplication());
     }
-  }
-
-  /**
-   * @return the parent {@link AbstractApplication} of the current
-   *         {@link AbstractBackendClient}
-   * @throws RuntimeException if the current {@link AbstractBackendClient} does
-   *                          not have a parent {@link AbstractApplication}.
-   */
-  private AbstractApplication<C, S> getStoredParentApplication() {
-    assertReferencesParentApplication();
-
-    return memberParentApplication;
   }
 
   /**
    * @return true if the current {@link AbstractBackendClient} references its
    *         parent {@link AbstractApplication}, false otherwise
    */
-  private boolean referencesParentApplication() {
-    return (memberParentApplication != null);
+  private boolean belongsToApplication() {
+    return (optionalParentApplication != null);
+  }
+
+  /**
+   * @return the parent {@link Application} of the current
+   *         {@link AbstractBackendClient}
+   * @throws RuntimeException if the current {@link AbstractBackendClient} does
+   *                          not have a parent {@link AbstractApplication}
+   */
+  private Application<C, S> getStoredParentApplication() {
+    assertBelongsToApplication();
+
+    return optionalParentApplication;
   }
 }
