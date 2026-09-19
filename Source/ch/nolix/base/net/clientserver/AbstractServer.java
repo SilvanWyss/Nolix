@@ -68,7 +68,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
     final Class<T> initialSessionClass,
     final U applicationService) {
     // Creates Application.
-    final var application = BasicApplication.withNameAndInitialSessionClassAndContext(
+    final var application = StandardApplication.withNameAndInitialSessionClassAndContext(
       applicationName,
       initialSessionClass,
       applicationService);
@@ -99,7 +99,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
     final String name,
     final Class<T> initialSessionClass) {
     // Creates Application.
-    final var application = BasicApplication.withNameAndInitialSessionClassAndContext(
+    final var application = StandardApplication.withNameAndInitialSessionClassAndContext(
       name,
       initialSessionClass,
       new VoidObject());
@@ -153,7 +153,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
     final Class<T> initialSessionClass,
     final U applicationService) {
     // Creates default Application.
-    final var localDefaultApplication = BasicApplication.withNameAndInitialSessionClassAndContext(
+    final var localDefaultApplication = StandardApplication.withNameAndInitialSessionClassAndContext(
       applicationName,
       initialSessionClass,
       applicationService);
@@ -185,7 +185,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
     final String name,
     final Class<T> initialSessionClass) {
     // Creates a default Application.
-    final var localDefaultApplication = BasicApplication.withNameAndInitialSessionClassAndContext(
+    final var localDefaultApplication = StandardApplication.withNameAndInitialSessionClassAndContext(
       name,
       initialSessionClass,
       new VoidObject());

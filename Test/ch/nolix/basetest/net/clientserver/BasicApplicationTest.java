@@ -6,7 +6,7 @@ package ch.nolix.basetest.net.clientserver;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.foundation.util.VoidObject;
-import ch.nolix.base.net.clientserver.BasicApplication;
+import ch.nolix.base.net.clientserver.StandardApplication;
 import ch.nolix.base.net.clientservertestutil.TestSession;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.webapplication.main.WebClient;
@@ -22,7 +22,7 @@ final class BasicApplicationTest extends StandardTest {
 
     // execute
     @SuppressWarnings("unchecked")
-    final var result = BasicApplication.withNameAndInitialSessionClassAndContext(
+    final var result = StandardApplication.withNameAndInitialSessionClassAndContext(
       "My application",
       TestSession.withClientClass(WebClient.class).getClass(),
       applicationService);

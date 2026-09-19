@@ -8,15 +8,15 @@ import ch.nolix.base.validation.validator.Validator;
 /**
  * @author Silvan Wyss
  * @param <C> the type of the {@link AbstractBackendClient}s of a
- *            {@link BasicApplication}.
- * @param <S> the type of the application service of a {@link BasicApplication}.
+ *            {@link StandardApplication}.
+ * @param <S> the type of the application service of a {@link StandardApplication}.
  */
-public final class BasicApplication<C extends AbstractBackendClient<C, S>, S> extends AbstractApplication<C, S> {
+public final class StandardApplication<C extends AbstractBackendClient<C, S>, S> extends AbstractApplication<C, S> {
   private final String applicationName;
 
   private final Class<?> initialSessionClass;
 
-  private <T extends AbstractSession<C, S>> BasicApplication(
+  private <T extends AbstractSession<C, S>> StandardApplication(
     final String applicationName,
     final Class<T> initialSessionClass,
     final S applicationService) {
@@ -30,12 +30,12 @@ public final class BasicApplication<C extends AbstractBackendClient<C, S>, S> ex
   }
 
   public static <C2 extends AbstractBackendClient<C2, S2>, T extends AbstractSession<C2, S2>, S2> //
-  BasicApplication<C2, S2> //
+  StandardApplication<C2, S2> //
   withNameAndInitialSessionClassAndContext(
     final String applicationName,
     final Class<T> initialSessionClass,
     final S2 applicationService) {
-    return new BasicApplication<>(applicationName, initialSessionClass, applicationService);
+    return new StandardApplication<>(applicationName, initialSessionClass, applicationService);
   }
 
   /**
