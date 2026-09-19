@@ -55,6 +55,12 @@ extends ApplicationManager<Application<?, ?>>, Clearable, GroupCloseable, Securi
   boolean containsApplicationWithName(String name);
 
   /**
+   * @return true if the current {@link Server} contains a default
+   *         {@link Application}, false otherwise
+   */
+  boolean containsDefaultApplication();
+
+  /**
    * @param name
    * @return the {@link Application} with the given name from the current
    *         {@link Server}

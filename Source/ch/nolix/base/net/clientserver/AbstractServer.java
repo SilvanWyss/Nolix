@@ -211,11 +211,11 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
   }
 
   /**
-   * @return true if the current {@link AbstractServer} contains a default
-   *         {@link AbstractApplication}, false otherwise
+   * {@inheritDoc}
    */
+  @Override
   public final boolean containsDefaultApplication() {
-    return (memberDefaultApplication != null);
+    return memberDefaultApplication != null;
   }
 
   /**
