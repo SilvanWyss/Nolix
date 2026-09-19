@@ -237,7 +237,8 @@ public abstract class AbstractField implements Field {
   private DatabaseObjectState getStateWhenBelongsToEntity() {
     final var parentEntityState = getStoredParentEntity().getState();
 
-    return switch (parentEntityState) {
+    return //
+    switch (parentEntityState) {
       case NEW ->
         DatabaseObjectState.NEW;
       case UNEDITED ->
@@ -250,9 +251,7 @@ public abstract class AbstractField implements Field {
         DatabaseObjectState.CLOSED;
       default ->
         throw //
-        InvalidArgumentException.forArgumentAndArgumentName(
-          getStoredParentEntity().getState(),
-          LowerCaseVariableNameCatalog.STATE);
+        InvalidArgumentException.forArgumentAndArgumentName(parentEntityState, LowerCaseVariableNameCatalog.STATE);
     };
   }
 
