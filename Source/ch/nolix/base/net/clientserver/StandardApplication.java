@@ -4,38 +4,40 @@
 package ch.nolix.base.net.clientserver;
 
 import ch.nolix.base.validation.validator.Validator;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
  * @param <C> the type of the {@link AbstractBackendClient}s of a
- *            {@link StandardApplication}.
- * @param <S> the type of the application service of a {@link StandardApplication}.
+ *            {@link StandardApplication}
+ * @param <S> the type of the application service of a
+ *            {@link StandardApplication}
  */
 public final class StandardApplication<C extends AbstractBackendClient<C, S>, S> extends AbstractApplication<C, S> {
-  private final String applicationName;
+  private final String name;
 
   private final Class<?> initialSessionClass;
 
   private <T extends AbstractSession<C, S>> StandardApplication(
-    final String applicationName,
-    final Class<T> initialSessionClass,
-    final S applicationService) {
+    final String name,
+    final S applicationService,
+    final Class<T> initialSessionClass) {
     super(applicationService);
 
-    Validator.assertThat(applicationName).thatIsNamed("application name").isNotBlank();
+    Validator.assertThat(name).thatIsNamed(LowerCaseVariableNameCatalog.NAME).isNotBlank();
     Validator.assertThat(initialSessionClass).thatIsNamed("initial session class").isNotNull();
 
-    this.applicationName = applicationName;
+    this.name = name;
     this.initialSessionClass = initialSessionClass;
   }
 
   public static <C2 extends AbstractBackendClient<C2, S2>, T extends AbstractSession<C2, S2>, S2> //
   StandardApplication<C2, S2> //
-  withNameAndInitialSessionClassAndContext(
+  withNameAndApplicationServiceAndInitialSessionClass(
     final String applicationName,
-    final Class<T> initialSessionClass,
-    final S2 applicationService) {
-    return new StandardApplication<>(applicationName, initialSessionClass, applicationService);
+    final S2 applicationService,
+    final Class<T> initialSessionClass) {
+    return new StandardApplication<>(applicationName, applicationService, initialSessionClass);
   }
 
   /**
@@ -43,7 +45,7 @@ public final class StandardApplication<C extends AbstractBackendClient<C, S>, S>
    */
   @Override
   public String getName() {
-    return applicationName;
+    return name;
   }
 
   /**
