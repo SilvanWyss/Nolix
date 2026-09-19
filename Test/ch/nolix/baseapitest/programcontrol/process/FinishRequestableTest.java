@@ -15,12 +15,7 @@ final class FinishRequestableTest extends StandardTest {
   @Test
   void testCase_isRunning_whenIsNotFinished() {
     // setup
-    final var testUnit = new FinishRequestable() {
-      @Override
-      public boolean isFinished() {
-        return false;
-      }
-    };
+    final FinishRequestable testUnit = () -> false;
 
     // execute
     final var result = testUnit.isRunning();
@@ -32,12 +27,7 @@ final class FinishRequestableTest extends StandardTest {
   @Test
   void testCase_isRunning_whenIsFinished() {
     // setup
-    final var testUnit = new FinishRequestable() {
-      @Override
-      public boolean isFinished() {
-        return true;
-      }
-    };
+    final FinishRequestable testUnit = () -> true;
 
     // execute
     final var result = testUnit.isRunning();
