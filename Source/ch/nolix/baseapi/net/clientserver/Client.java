@@ -3,6 +3,8 @@
  */
 package ch.nolix.baseapi.net.clientserver;
 
+import ch.nolix.base.net.clientserver.AbstractClient;
+import ch.nolix.baseapi.net.executoranddataproviderserver.EndPoint;
 import ch.nolix.baseapi.net.netattribute.SecurityModeHolder;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 
@@ -23,6 +25,16 @@ public interface Client extends GroupCloseable, SecurityModeHolder {
    *         for URLs, false otherwise
    */
   boolean hasTargetApplicationUrlName();
+
+  /**
+   * Sets the {@link EndPoint} of the current {@link Client}.
+   * 
+   * @param endPoint
+   * @throws RuntimeException if the given endPoint is null
+   * @throws RuntimeException if the current {@link AbstractClient} is already
+   *                          connected
+   */
+  void internalSetEndPoint(EndPoint endPoint);
 
   /**
    * @return true if the current {@link Client} is a back-end client, false

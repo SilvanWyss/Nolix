@@ -57,6 +57,29 @@ public abstract class AbstractClient implements Client {
   }
 
   /**
+   * Sets the {@link AbstractEndPoint} of the current {@link AbstractClient}.
+   * 
+   * @param endPoint
+   * @throws RuntimeException if the given endPoint is null
+   * @throws RuntimeException if the current {@link AbstractClient} is already
+   *                          connected.
+   */
+  @Override
+  public final void internalSetEndPoint(final EndPoint endPoint) {
+    Validator.assertThat(endPoint).thatIsNamed(AbstractEndPoint.class).isNotNull();
+
+    assertIsNotConnected();
+
+    this.nullableEndPoint = endPoint;
+
+    createCloseDependencyTo(endPoint);
+
+    final var clientDataProviderController = ClientDataProviderController.forClient(this);
+
+    endPoint.setExecutorAndDataProvider(clientDataProviderController);
+  }
+
+  /**
    * {@inheritDoc}
    */
   @Override
@@ -125,28 +148,6 @@ public abstract class AbstractClient implements Client {
    */
   protected final void runOnCounterpart(final Iterable<? extends ChainedNode> commands) {
     getStoredEndPoint().runCommands(commands);
-  }
-
-  /**
-   * Sets the {@link AbstractEndPoint} of the current {@link AbstractClient}.
-   * 
-   * @param endPoint
-   * @throws RuntimeException if the given endPoint is null
-   * @throws RuntimeException if the current {@link AbstractClient} is already
-   *                          connected.
-   */
-  final void setEndPoint(final EndPoint endPoint) {
-    Validator.assertThat(endPoint).thatIsNamed(AbstractEndPoint.class).isNotNull();
-
-    assertIsNotConnected();
-
-    this.nullableEndPoint = endPoint;
-
-    createCloseDependencyTo(endPoint);
-
-    final var clientDataProviderController = ClientDataProviderController.forClient(this);
-
-    endPoint.setExecutorAndDataProvider(clientDataProviderController);
   }
 
   /**

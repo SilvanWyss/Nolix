@@ -17,17 +17,18 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBel
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.net.clientserver.Application;
 import ch.nolix.baseapi.net.clientserver.BackendClient;
+import ch.nolix.baseapi.net.clientserver.Session;
 import ch.nolix.baseapi.net.target.IApplicationTarget;
 import ch.nolix.baseapi.net.target.IServerTarget;
 
 /**
  * @author Silvan Wyss
- * @param <C> the type of the {@link AbstractBackendClient}s of a
+ * @param <C> the type of the {@link BackendClient}s of a
  *            {@link AbstractApplication}.
  * @param <S> the type of the application service of a
  *            {@link AbstractApplication}.
  */
-public abstract class AbstractApplication<C extends AbstractBackendClient<C, S>, S>
+public abstract class AbstractApplication<C extends BackendClient<C, S>, S>
 implements Application<C, S> {
   private ch.nolix.baseapi.net.clientserver.Server<?> memberParentServer;
 
@@ -179,8 +180,8 @@ implements Application<C, S> {
    *         the current {@link AbstractApplication}.
    */
   @SuppressWarnings("unchecked")
-  private AbstractSession<C, S> createInitialSession() {
-    return (AbstractSession<C, S>) ReflectionTool.createInstanceFromDefaultConstructorOfClass(getInitialSessionClass());
+  private Session<C, S> createInitialSession() {
+    return (Session<C, S>) ReflectionTool.createInstanceFromDefaultConstructorOfClass(getInitialSessionClass());
   }
 
   /**
@@ -200,6 +201,6 @@ implements Application<C, S> {
    * {@link AbstractApplication}.
    */
   private void removeClosedClients() {
-    clients.removeAll(AbstractClient::isClosed);
+    clients.removeAll(BackendClient::isClosed);
   }
 }
