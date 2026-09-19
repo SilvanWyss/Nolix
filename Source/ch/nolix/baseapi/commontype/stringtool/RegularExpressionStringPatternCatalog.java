@@ -16,7 +16,7 @@ import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 public final class RegularExpressionStringPatternCatalog {
   public static final String DOLLAR_PATTERN = Pattern.quote(StringCatalog.DOLLAR);
 
-  public static final String DOT_PATTERN = ".";
+  public static final String DOT_PATTERN = "\\.";
 
   public static final String DOUBLE_PATTERN = "[-]?\\d+.\\d+";
 
