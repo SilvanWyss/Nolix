@@ -203,20 +203,19 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
   }
 
   /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final boolean containsApplicationWithName(final String name) {
+    return applications.containsMatching(a -> a.hasName(name));
+  }
+
+  /**
    * @return true if the current {@link AbstractServer} contains a default
    *         {@link AbstractApplication}, false otherwise
    */
   public final boolean containsDefaultApplication() {
     return (memberDefaultApplication != null);
-  }
-
-  /**
-   * @param name
-   * @return true if the current {@link AbstractServer} contains a
-   *         {@link AbstractApplication} with the given name, false otherwise
-   */
-  public final boolean containsApplicationWithName(final String name) {
-    return applications.containsMatching(a -> a.getName().equals(name));
   }
 
   /**
