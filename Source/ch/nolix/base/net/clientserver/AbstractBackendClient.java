@@ -89,6 +89,14 @@ implements BackendClient<C, S> {
    * {@inheritDoc}
    */
   @Override
+  public final void internalSetNextSession(final Session<C, S> session) {
+    sessionManager.setCurrentSession(session);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final boolean isBackendClient() {
     return true;
   }
@@ -133,20 +141,6 @@ implements BackendClient<C, S> {
    */
   final <R> R internalPushAndGetResult(final AbstractSession<C, S> session) {
     return sessionManager.pushSessionAndGetResult(session);
-  }
-
-  /**
-   * Sets the current {@link AbstractSession} of the current
-   * {@link AbstractBackendClient}. That means the current {@link AbstractSession}
-   * of the current {@link AbstractBackendClient} will be popped from the current
-   * {@link AbstractBackendClient} and the given session will be pushed to the
-   * current {@link AbstractBackendClient}.
-   * 
-   * @param session
-   * @throws RuntimeException if the given session is null
-   */
-  final void internalSetCurrentSession(final AbstractSession<C, S> session) {
-    sessionManager.setCurrentSession(session);
   }
 
   /**

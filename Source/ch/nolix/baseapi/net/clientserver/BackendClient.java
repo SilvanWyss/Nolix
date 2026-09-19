@@ -63,4 +63,15 @@ public interface BackendClient<C extends BackendClient<C, S>, S> extends Client 
    * @throws RuntimeException if the given session is null
    */
   void internalPushSession(Session<C, S> session);
+
+  /**
+   * Sets the next {@link Session} of the current {@link BackendClient}. The
+   * current {@link Session} of the current {@link BackendClient} will be popped
+   * from the current {@link BackendClient} and the given session will be pushed
+   * to the current {@link BackendClient}.
+   * 
+   * @param session
+   * @throws RuntimeException if the given session is null
+   */
+  void internalSetNextSession(Session<C, S> session);
 }
