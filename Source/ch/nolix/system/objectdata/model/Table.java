@@ -312,11 +312,6 @@ public final class Table<E extends Entity> implements ITable<E> {
     return columnsThatReferenceCurrentTable.getStoredValue();
   }
 
-  void internalSetColumns(final ExtendedIterable<IColumn> columns) {
-    memberColumns.clear();
-    memberColumns.addAtEnd(columns);
-  }
-
   private void addEntityWithIdWhenIsNotAdded(final String id) {
     final var entity = EntityLoader.loadEntityById(this, id, getStoredMidDataDataAdapterAndSchemaReader());
 
