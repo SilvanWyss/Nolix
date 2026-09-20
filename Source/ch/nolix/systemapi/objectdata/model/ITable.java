@@ -27,6 +27,8 @@ extends DatabaseComponent<IDatabase>, DatabaseObject, IdHolder, NameHolder {
 
   ExtendedIterable<IColumn> getStoredColumns();
 
+  ExtendedIterable<IColumn> getStoredColumnsThatReferenceMe();
+
   ExtendedIterable<E> getStoredEntities();
 
   E getStoredEntityById(String id);

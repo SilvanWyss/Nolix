@@ -15,9 +15,9 @@ import ch.nolix.system.objectdata.modelflyweight.VoidEntityFlyWeight;
 import ch.nolix.system.objectdata.modelvalidator.EntityValidator;
 import ch.nolix.systemapi.database.databaseobject.DatabaseObjectState;
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
-import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelflyweight.IEntityFlyWeight;
 
@@ -322,8 +322,8 @@ public abstract class AbstractBaseEntity implements Entity {
     final var localId = getId();
 
     return //
-    ((Table<?>) getStoredParentTable())
-      .internalGetColumnsThatReferencesCurrentTable()
+    getStoredParentTable()
+      .getStoredColumnsThatReferenceMe()
       .containsMatching(c -> c.containsValueInPersistedData(localId));
   }
 
@@ -332,8 +332,8 @@ public abstract class AbstractBaseEntity implements Entity {
     final var localId = getId();
 
     return //
-    ((Table<?>) getStoredParentTable())
-      .internalGetColumnsThatReferencesCurrentTable()
+    getStoredParentTable()
+      .getStoredColumnsThatReferenceMe()
       .containsMatching(c -> c.containsValueInPersistedDataIgnoringEntities(localId, entitiesToIgnoreIds));
   }
 }

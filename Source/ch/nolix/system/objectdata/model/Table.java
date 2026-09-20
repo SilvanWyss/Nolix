@@ -173,6 +173,14 @@ public final class Table<E extends Entity> implements ITable<E> {
    * {@inheritDoc}
    */
   @Override
+  public ExtendedIterable<IColumn> getStoredColumnsThatReferenceMe() {
+    return columnsThatReferenceCurrentTable.getStoredValue();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public ExtendedIterable<E> getStoredEntities() {
     loadAllEntitiesInLocalDataIfNotLoaded();
 
@@ -306,10 +314,6 @@ public final class Table<E extends Entity> implements ITable<E> {
 
   void internalAddColumn(final IColumn column) {
     memberColumns.addAtEnd(column);
-  }
-
-  ExtendedIterable<IColumn> internalGetColumnsThatReferencesCurrentTable() {
-    return columnsThatReferenceCurrentTable.getStoredValue();
   }
 
   private void addEntityWithIdWhenIsNotAdded(final String id) {
