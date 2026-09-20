@@ -79,6 +79,13 @@ extends ApplicationManager<Application<?, ?>>, Clearable, GroupCloseable, Securi
   Application<?, ?> getStoredApplicationByUrlName(final String urlName);
 
   /**
+   * @return the default {@link Application} of the current {@link Server}
+   * @throws RuntimeException if the current {@link Server} does not contain a
+   *                          default {@link Application}.
+   */
+  Application<?, ?> getStoredDefaultApplication();
+
+  /**
    * @return true if the current {@link Server} has a {@link Client} connected,
    *         false otherwise
    */

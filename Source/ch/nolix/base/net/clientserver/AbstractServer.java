@@ -248,15 +248,10 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
   }
 
   /**
-   * @return the default {@link AbstractApplication} of the current
-   *         {@link AbstractServer}
-   * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link AbstractServer} does not
-   *                                               contain a default
-   *                                               {@link AbstractApplication}.
+   * {@inheritDoc}
    */
+  @Override
   public final AbstractApplication<?, ?> getStoredDefaultApplication() {
-    // Asserts that the current Server contains a default Application.
     assertContainsDefaultApplication();
 
     return memberDefaultApplication;
