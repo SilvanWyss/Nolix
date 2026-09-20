@@ -35,6 +35,8 @@ MandatorynessRequestable {
 
   void internalSetNullableValue(Object nullableValue, String nullableAdditionalValue);
 
+  void internalSetParentColumn(IColumn parentColumn);
+
   boolean knowsParentColumn();
 
   boolean referencesBackEntity(Entity entity);

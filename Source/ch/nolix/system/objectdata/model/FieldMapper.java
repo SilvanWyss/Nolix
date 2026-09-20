@@ -16,7 +16,7 @@ public final class FieldMapper {
   public static AbstractField mapColumnToField(final IColumn column) {
     final var field = mapColumnToUnlinkedField(column);
 
-    field.setParentColumn(column);
+    field.internalSetParentColumn(column);
 
     return field;
   }

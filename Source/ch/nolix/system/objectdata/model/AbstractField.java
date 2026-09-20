@@ -12,10 +12,10 @@ import ch.nolix.system.objectdata.modelflyweight.FieldFlyWeight;
 import ch.nolix.system.objectdata.modelflyweight.VoidFieldFlyWeight;
 import ch.nolix.systemapi.database.databaseobject.DatabaseObjectState;
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
-import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelflyweight.IFieldFlyWeight;
 
@@ -29,7 +29,7 @@ public abstract class AbstractField implements Field {
 
   private AbstractBaseEntity parentEntity;
 
-  private IColumn parentColumn;
+  private IColumn memberParentColumn;
 
   private IFieldFlyWeight fieldFlyWeight = VOID_FIELD_FLY_WEIGHT;
 
@@ -94,7 +94,7 @@ public abstract class AbstractField implements Field {
   public final IColumn getStoredParentColumn() {
     FIELD_VALIDATOR.assertKnowsParentColumn(this);
 
-    return parentColumn;
+    return memberParentColumn;
   }
 
   /**
@@ -121,6 +121,16 @@ public abstract class AbstractField implements Field {
   @Override
   public final ITable<? extends Entity> getStoredParentTable() {
     return getStoredParentEntity().getStoredParentTable();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void internalSetParentColumn(final IColumn parentColumn) {
+    Validator.assertThat(parentColumn).thatIsNamed("parent column").isNotNull();
+
+    memberParentColumn = parentColumn;
   }
 
   /**
@@ -184,7 +194,7 @@ public abstract class AbstractField implements Field {
    */
   @Override
   public final boolean knowsParentColumn() {
-    return (parentColumn != null);
+    return (memberParentColumn != null);
   }
 
   /**
@@ -211,19 +221,13 @@ public abstract class AbstractField implements Field {
 
   protected abstract void noteInsertIntoDatabase();
 
-  final void setParentColumn(final IColumn parentColumn) {
-    Validator.assertThat(parentColumn).thatIsNamed("parent column").isNotNull();
-
-    this.parentColumn = parentColumn;
-  }
-
   final void setParentColumnFromParentTable() {
     final var name = getName();
 
     final var localParentColumn = //
     getStoredParentEntity().getStoredParentTable().getStoredColumns().getStoredFirst(c -> c.hasName(name));
 
-    setParentColumn(localParentColumn);
+    internalSetParentColumn(localParentColumn);
   }
 
   final void setParentEntity(final AbstractBaseEntity parentEntity) {
