@@ -6,7 +6,7 @@ package ch.nolix.base.net.clientserver;
 import java.util.Locale;
 
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
-import ch.nolix.base.net.target.ApplicationInstanceTarget;
+import ch.nolix.base.net.target.ApplicationTarget;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.base.validation.validator.Validator;
@@ -166,7 +166,7 @@ implements Application<C, S> {
    *         serverTarget.
    */
   private IApplicationTarget asTargetWithServerTarget(final IServerTarget serverTarget) {
-    return ApplicationInstanceTarget
+    return ApplicationTarget
       .forHostAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
         serverTarget.getHost(),
         serverTarget.getPort(),

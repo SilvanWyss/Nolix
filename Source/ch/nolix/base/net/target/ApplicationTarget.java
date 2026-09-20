@@ -10,12 +10,12 @@ import ch.nolix.baseapi.net.target.IApplicationTarget;
 /**
  * @author Silvan Wyss
  */
-public final class ApplicationInstanceTarget extends AbstractServerTarget implements IApplicationTarget {
+public final class ApplicationTarget extends AbstractServerTarget implements IApplicationTarget {
   private final String applicationName;
 
   private final String urlApplicationName;
 
-  protected ApplicationInstanceTarget(
+  protected ApplicationTarget(
     final String host,
     final int port,
     final String applicationName,
@@ -30,14 +30,14 @@ public final class ApplicationInstanceTarget extends AbstractServerTarget implem
     this.urlApplicationName = urlApplicationName;
   }
 
-  public static ApplicationInstanceTarget//
+  public static ApplicationTarget//
   forHostAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
     final String host,
     final int port,
     final String applicationInstanceName,
     final String applicationUrlInstanceName,
     final SecurityMode securityModeForConnections) {
-    return new ApplicationInstanceTarget(
+    return new ApplicationTarget(
       host,
       port,
       applicationInstanceName,

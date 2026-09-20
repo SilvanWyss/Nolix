@@ -5,7 +5,7 @@ package ch.nolix.basetest.net.target;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.net.target.ApplicationInstanceTarget;
+import ch.nolix.base.net.target.ApplicationTarget;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.net.netcatalog.PortCatalog;
 import ch.nolix.baseapi.net.netproperty.SecurityMode;
@@ -17,7 +17,7 @@ final class ApplicationInstanceTargetTest extends StandardTest {
   @Test
   void testCase_forHostAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections() {
     // execute
-    final var result = ApplicationInstanceTarget
+    final var result = ApplicationTarget
       .forHostAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
         "nolix.tech",
         PortCatalog.HTTPS,
@@ -36,7 +36,7 @@ final class ApplicationInstanceTargetTest extends StandardTest {
   @Test
   void testCase_toUrl_forHttpPortAndNoneSecurityMode() {
     // setup
-    final var testUnit = ApplicationInstanceTarget
+    final var testUnit = ApplicationTarget
       .forHostAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
         "nolix.tech",
         PortCatalog.HTTP,
@@ -54,7 +54,7 @@ final class ApplicationInstanceTargetTest extends StandardTest {
   @Test
   void testCase_toUrl_forHttpsPortAndSSLSecurityMode() {
     // setup
-    final var testUnit = ApplicationInstanceTarget
+    final var testUnit = ApplicationTarget
       .forHostAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
         "nolix.tech",
         PortCatalog.HTTPS,
@@ -72,7 +72,7 @@ final class ApplicationInstanceTargetTest extends StandardTest {
   @Test
   void testCase_toUrl_forCustomPortAndNoneSecurityMode() {
     // setup
-    final var testUnit = ApplicationInstanceTarget
+    final var testUnit = ApplicationTarget
       .forHostAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
         "nolix.tech",
         50000,
@@ -90,7 +90,7 @@ final class ApplicationInstanceTargetTest extends StandardTest {
   @Test
   void testCase_toUrl_forCustomPortAndSslSecurityMode() {
     // setup
-    final var testUnit = ApplicationInstanceTarget
+    final var testUnit = ApplicationTarget
       .forHostAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
         "nolix.tech",
         50000,
