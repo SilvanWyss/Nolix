@@ -322,7 +322,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
   private void executeInsertEntity(final E entity) {
     entitiesInLocalData.addAtEnd(entity);
 
-    ((AbstractEntity) entity).noteInsertIntoDatabase();
+    ((AbstractBaseEntity) entity).noteInsertIntoDatabase();
   }
 
   private E getStoredEntityByIdWhenIsInLocalData(final String id) {

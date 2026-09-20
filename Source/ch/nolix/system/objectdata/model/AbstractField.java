@@ -27,7 +27,7 @@ public abstract class AbstractField implements Field {
 
   private static final VoidFieldFlyWeight VOID_FIELD_FLY_WEIGHT = new VoidFieldFlyWeight();
 
-  private AbstractEntity parentEntity;
+  private AbstractBaseEntity parentEntity;
 
   private IColumn parentColumn;
 
@@ -109,7 +109,7 @@ public abstract class AbstractField implements Field {
    * {@inheritDoc}
    */
   @Override
-  public final AbstractEntity getStoredParentEntity() {
+  public final AbstractBaseEntity getStoredParentEntity() {
     FIELD_VALIDATOR.assertBelongsToEntity(this);
 
     return parentEntity;
@@ -226,7 +226,7 @@ public abstract class AbstractField implements Field {
     setParentColumn(localParentColumn);
   }
 
-  final void setParentEntity(final AbstractEntity parentEntity) {
+  final void setParentEntity(final AbstractBaseEntity parentEntity) {
     Validator.assertThat(parentEntity).thatIsNamed("parent entity").isNotNull();
     FIELD_VALIDATOR.assertDoesNotBelongToEntity(this);
 
@@ -263,7 +263,7 @@ public abstract class AbstractField implements Field {
     return DatabaseObjectState.EDITED;
   }
 
-  private void setParentColumnFromParentTableIfParentEntityBelongsToTable(final AbstractEntity parentEntity) {
+  private void setParentColumnFromParentTableIfParentEntityBelongsToTable(final AbstractBaseEntity parentEntity) {
     if (parentEntity.belongsToTable()) {
       setParentColumnFromParentTable();
     }

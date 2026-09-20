@@ -47,28 +47,28 @@ public final class FieldMapper {
     };
   }
 
-  private static Reference<AbstractEntity> createReferenceFromAbstractReferenceModelView(
+  private static Reference<AbstractBaseEntity> createReferenceFromAbstractReferenceModelView(
     final IColumn column) {
     final var referenceableTableNames = column.getStoredReferenceableTables().to(ITable::getName);
 
     return Reference.forReferenceableTableNames(referenceableTableNames);
   }
 
-  private static OptionalReference<AbstractEntity> createOptionalReferenceFromAbstractReferenceModelView(
+  private static OptionalReference<AbstractBaseEntity> createOptionalReferenceFromAbstractReferenceModelView(
     final IColumn column) {
     final var referenceableTableNames = column.getStoredReferenceableTables().to(ITable::getName);
 
     return OptionalReference.forReferenceableTableNames(referenceableTableNames);
   }
 
-  private static MultiReference<AbstractEntity> createMultiReferenceFromAbstractReferenceModelView(
+  private static MultiReference<AbstractBaseEntity> createMultiReferenceFromAbstractReferenceModelView(
     final IColumn column) {
     final var referenceableTableNames = column.getStoredReferenceableTables().to(ITable::getName);
 
     return MultiReference.forReferenceableTableNames(referenceableTableNames);
   }
 
-  private static BackReference<AbstractEntity> createBackReferenceFromAbstractBackReferenceModelView(
+  private static BackReference<AbstractBaseEntity> createBackReferenceFromAbstractBackReferenceModelView(
     final IColumn column) {
 
     final var backReferenceableColumns = column.getStoredBackReferenceableColumns();
@@ -82,7 +82,7 @@ public final class FieldMapper {
       backReferenceableTableNames);
   }
 
-  private static OptionalBackReference<AbstractEntity> createOptionalBackReferenceFromAbstractBackReferenceModelView(
+  private static OptionalBackReference<AbstractBaseEntity> createOptionalBackReferenceFromAbstractBackReferenceModelView(
     final IColumn column) {
 
     final var backReferenceableColumns = column.getStoredBackReferenceableColumns();
@@ -96,7 +96,7 @@ public final class FieldMapper {
       backReferenceableTableNamesView);
   }
 
-  private static MultiBackReference<AbstractEntity> createMultiBackReferenceFromAbstractBackReferenceModelView(
+  private static MultiBackReference<AbstractBaseEntity> createMultiBackReferenceFromAbstractBackReferenceModelView(
     final IColumn column) {
 
     final var backReferenceableColumns = column.getStoredBackReferenceableColumns();

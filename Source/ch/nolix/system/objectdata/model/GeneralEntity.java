@@ -8,7 +8,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 /**
  * @author Silvan Wyss
  */
-public final class GeneralEntity extends AbstractEntity {
+public final class GeneralEntity extends AbstractBaseEntity {
   private final String tableName;
 
   private GeneralEntity(final Table<GeneralEntity> table) {

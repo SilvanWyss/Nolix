@@ -24,7 +24,7 @@ import ch.nolix.systemapi.objectdata.modelflyweight.IEntityFlyWeight;
 /**
  * @author Silvan Wyss
  */
-public abstract class AbstractEntity implements IEntity {
+public abstract class AbstractBaseEntity implements IEntity {
   private static final VoidEntityFlyWeight VOID_ENTITY_FLY_WEIGHT = new VoidEntityFlyWeight();
 
   private static final EntityValidator ENTITY_VALIDATOR = new EntityValidator();
