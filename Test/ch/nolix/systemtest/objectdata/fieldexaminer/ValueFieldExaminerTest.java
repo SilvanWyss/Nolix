@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.fieldexaminer.ValueFieldExaminer;
-import ch.nolix.system.objectdata.model.Entity;
+import ch.nolix.system.objectdata.model.AbstractEntity;
 import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.ValueField;
 
@@ -16,7 +16,7 @@ import ch.nolix.system.objectdata.model.ValueField;
  * @author Silvan Wyss
  */
 final class ValueFieldExaminerTest extends StandardTest {
-  private static final class Pet extends Entity {
+  private static final class Pet extends AbstractEntity {
     private final ValueField<String> name = ValueField.withValueType(String.class);
 
     public Pet() {

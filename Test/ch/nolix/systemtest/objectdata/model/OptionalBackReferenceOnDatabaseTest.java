@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.base.document.node.MutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
-import ch.nolix.system.objectdata.model.Entity;
+import ch.nolix.system.objectdata.model.AbstractEntity;
 import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.OptionalBackReference;
 import ch.nolix.system.objectdata.model.OptionalReference;
@@ -17,7 +17,7 @@ import ch.nolix.system.objectdata.model.OptionalReference;
  * @author Silvan Wyss
  */
 final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
-  private static final class Person extends Entity {
+  private static final class Person extends AbstractEntity {
     final OptionalReference<Pet> pet = OptionalReference.forEntityTypes(Pet.class);
 
     Person() {
@@ -25,7 +25,7 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
     }
   }
 
-  private static final class Pet extends Entity {
+  private static final class Pet extends AbstractEntity {
     final OptionalBackReference<Person> owner = //
     OptionalBackReference.forBackReferencedFieldNameAndBackReferenceableEntityTypes("pet", Person.class);
 

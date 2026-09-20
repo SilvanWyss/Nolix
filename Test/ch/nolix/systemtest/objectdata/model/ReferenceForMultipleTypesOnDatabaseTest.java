@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.base.document.node.MutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
-import ch.nolix.system.objectdata.model.Entity;
+import ch.nolix.system.objectdata.model.AbstractEntity;
 import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.Reference;
 
@@ -16,7 +16,7 @@ import ch.nolix.system.objectdata.model.Reference;
  * @author Silvan Wyss
  */
 final class ReferenceForMultipleTypesOnDatabaseTest extends StandardTest {
-  private abstract static class Pet extends Entity {
+  private abstract static class Pet extends AbstractEntity {
     // This class is a sub class without additional methods.
   }
 
@@ -28,7 +28,7 @@ final class ReferenceForMultipleTypesOnDatabaseTest extends StandardTest {
     // This class is a sub class without additional methods.
   }
 
-  private static final class Person extends Entity {
+  private static final class Person extends AbstractEntity {
     public final Reference<Pet> pet = Reference.forEntityTypes(Cat.class, Dog.class);
 
     public Person() {

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.base.document.node.MutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
-import ch.nolix.system.objectdata.model.Entity;
+import ch.nolix.system.objectdata.model.AbstractEntity;
 import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.MultiBackReference;
 import ch.nolix.system.objectdata.model.Reference;
@@ -17,7 +17,7 @@ import ch.nolix.system.objectdata.model.Reference;
  * @author Silvan Wyss
  */
 final class MultiBackReferenceOnDatabaseTest extends StandardTest {
-  private static final class Plane extends Entity {
+  private static final class Plane extends AbstractEntity {
     public final MultiBackReference<Flight> flights = //
     MultiBackReference.forBackReferencedFieldNameAndBackReferenceableEntityTypes("plane", Flight.class);
 
@@ -26,7 +26,7 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
     }
   }
 
-  private static final class Flight extends Entity {
+  private static final class Flight extends AbstractEntity {
     public final Reference<Plane> plane = Reference.forEntityTypes(Plane.class);
 
     public Flight() {

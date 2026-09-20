@@ -6,14 +6,14 @@ package ch.nolix.systemtest.objectdata.model;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.system.objectdata.model.Entity;
+import ch.nolix.system.objectdata.model.AbstractEntity;
 import ch.nolix.systemapi.database.databaseobject.DatabaseObjectState;
 
 /**
  * @author Silvan Wyss
  */
 final class EntityTest extends StandardTest {
-  private static final class Thing extends Entity {
+  private static final class Thing extends AbstractEntity {
     // This class is a sub class without additional methods.
   }
 

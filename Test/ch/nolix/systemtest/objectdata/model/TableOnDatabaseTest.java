@@ -8,14 +8,14 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.base.document.node.MutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
-import ch.nolix.system.objectdata.model.Entity;
+import ch.nolix.system.objectdata.model.AbstractEntity;
 import ch.nolix.system.objectdata.model.EntityTypeSet;
 
 /**
  * @author Silvan Wyss
  */
 final class TableOnDatabaseTest extends StandardTest {
-  private static final class Thing extends Entity {
+  private static final class Thing extends AbstractEntity {
     Thing() {
       initialize();
     }

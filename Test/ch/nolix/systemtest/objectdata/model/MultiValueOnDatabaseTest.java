@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.base.document.node.MutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
-import ch.nolix.system.objectdata.model.Entity;
+import ch.nolix.system.objectdata.model.AbstractEntity;
 import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.MultiValueField;
 
@@ -16,7 +16,7 @@ import ch.nolix.system.objectdata.model.MultiValueField;
  * @author Silvan Wyss
  */
 final class MultiValueOnDatabaseTest extends StandardTest {
-  private static final class Round extends Entity {
+  private static final class Round extends AbstractEntity {
     final MultiValueField<Integer> amounts = MultiValueField.withValueType(Integer.class);
 
     Round() {

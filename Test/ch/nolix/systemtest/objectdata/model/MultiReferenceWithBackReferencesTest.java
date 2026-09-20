@@ -9,7 +9,7 @@ import ch.nolix.base.document.node.MutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.model.BackReference;
-import ch.nolix.system.objectdata.model.Entity;
+import ch.nolix.system.objectdata.model.AbstractEntity;
 import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.MultiReference;
 
@@ -17,7 +17,7 @@ import ch.nolix.system.objectdata.model.MultiReference;
  * @author Silvan Wyss
  */
 final class MultiReferenceWithBackReferencesTest extends StandardTest {
-  private static final class Person extends Entity {
+  private static final class Person extends AbstractEntity {
     final MultiReference<Pet> pets = MultiReference.forEntityTypes(Pet.class);
 
     Person() {
@@ -25,7 +25,7 @@ final class MultiReferenceWithBackReferencesTest extends StandardTest {
     }
   }
 
-  private static final class Pet extends Entity {
+  private static final class Pet extends AbstractEntity {
     final BackReference<Person> owner = //
     BackReference.forBackReferencedFieldNameAndBackReferenceableEntityTypes("pets", Person.class);
 
