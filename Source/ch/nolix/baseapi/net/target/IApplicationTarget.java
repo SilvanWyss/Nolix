@@ -7,7 +7,7 @@ package ch.nolix.baseapi.net.target;
  * @author Silvan Wyss
  */
 public interface IApplicationTarget extends IServerTarget {
-  String getApplicationname();
+  String getApplicationName();
 
   String getUrlApplicationName();
 }

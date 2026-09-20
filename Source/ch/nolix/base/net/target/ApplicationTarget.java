@@ -49,7 +49,7 @@ public final class ApplicationTarget extends AbstractServerTarget implements IAp
    * {@inheritDoc}
    */
   @Override
-  public String getApplicationname() {
+  public String getApplicationName() {
     return applicationName;
   }
 
