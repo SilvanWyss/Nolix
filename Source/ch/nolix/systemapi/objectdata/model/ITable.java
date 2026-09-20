@@ -13,9 +13,9 @@ import ch.nolix.systemapi.database.databaseobject.DatabaseObject;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the {@link IEntity}s of a {@link ITable}.
+ * @param <E> the type of the {@link Entity}s of a {@link ITable}.
  */
-public interface ITable<E extends IEntity>
+public interface ITable<E extends Entity>
 extends DatabaseComponent<IDatabase>, DatabaseObject, IdHolder, NameHolder {
   boolean containsEntityWithId(String id);
 

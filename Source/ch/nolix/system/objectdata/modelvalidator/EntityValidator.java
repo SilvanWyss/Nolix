@@ -11,18 +11,18 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ReferencedArgument
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.database.databaseobjectvalidator.AbstractDatabaseObjectValidator;
 import ch.nolix.system.objectdata.modelexaminer.EntityExaminer;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelvalidator.IEntityValidator;
 
 /**
  * @author Silvan Wyss
  */
-public final class EntityValidator extends AbstractDatabaseObjectValidator<IEntity> implements IEntityValidator {
+public final class EntityValidator extends AbstractDatabaseObjectValidator<Entity> implements IEntityValidator {
   private static final EntityExaminer ENTITY_EXAMINER = new EntityExaminer();
 
   @Override
-  public void assertBelongsToTable(final IEntity entity) {
+  public void assertBelongsToTable(final Entity entity) {
     if (!entity.belongsToTable()) {
       throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(entity, ITable.class);
     }
@@ -32,7 +32,7 @@ public final class EntityValidator extends AbstractDatabaseObjectValidator<IEnti
    * {@inheritDoc}
    */
   @Override
-  public void assertCanBeDeleted(final IEntity entity) {
+  public void assertCanBeDeleted(final Entity entity) {
     if (!ENTITY_EXAMINER.canBeDeleted(entity)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(entity, "cannot be deleted");
     }
@@ -42,7 +42,7 @@ public final class EntityValidator extends AbstractDatabaseObjectValidator<IEnti
    * {@inheritDoc}
    */
   @Override
-  public void assertCanSetParentTable(final IEntity entity, final ITable<? extends IEntity> table) {
+  public void assertCanSetParentTable(final Entity entity, final ITable<? extends Entity> table) {
     if (!ENTITY_EXAMINER.canSetParentTable(entity, table)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(table, "cannot be set to the Entity");
     }
@@ -52,7 +52,7 @@ public final class EntityValidator extends AbstractDatabaseObjectValidator<IEnti
    * {@inheritDoc}
    */
   @Override
-  public void assertDoesNotBelongToTable(final IEntity entity) {
+  public void assertDoesNotBelongToTable(final Entity entity) {
     if (entity.belongsToTable()) {
       throw ArgumentBelongsToParentException.forArgumentAndParent(entity, entity.getStoredParentTable());
     }
@@ -62,7 +62,7 @@ public final class EntityValidator extends AbstractDatabaseObjectValidator<IEnti
    * {@inheritDoc}
    */
   @Override
-  public void assertHasSaveStamp(final IEntity entity) {
+  public void assertHasSaveStamp(final Entity entity) {
     if (!entity.hasSaveStamp()) {
       throw //
       ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(
@@ -75,7 +75,7 @@ public final class EntityValidator extends AbstractDatabaseObjectValidator<IEnti
    * {@inheritDoc}
    */
   @Override
-  public void assertIsNotReferencedIgnoringLocallyDeletedEntities(final IEntity entity) {
+  public void assertIsNotReferencedIgnoringLocallyDeletedEntities(final Entity entity) {
     if (ENTITY_EXAMINER.isReferencedIgnoringLocallyDeletedEntities(entity)) {
       throw ReferencedArgumentException.forArgument(entity);
     }

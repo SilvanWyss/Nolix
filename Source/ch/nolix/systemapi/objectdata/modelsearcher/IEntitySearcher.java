@@ -9,7 +9,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.objectdata.model.BaseBackReference;
 import ch.nolix.systemapi.objectdata.model.BaseReference;
 import ch.nolix.systemapi.objectdata.model.Field;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 
 /**
  * @author Silvan Wyss
@@ -23,20 +23,20 @@ public interface IEntitySearcher {
    *         {@link Optional} otherwise.
    */
   Optional<BaseBackReference> getOptionalStoredBaseBackReferenceWhoCanBackReferenceTheBaseReference(
-    IEntity entity,
+    Entity entity,
     BaseReference baseReference);
 
   /**
    * @param entity
    * @return the {@link BaseBackReference}s that reference back the given entity.
    */
-  ExtendedIterable<BaseBackReference> getStoredBaseBackReferencesThatReferenceBackEntity(IEntity entity);
+  ExtendedIterable<BaseBackReference> getStoredBaseBackReferencesThatReferenceBackEntity(Entity entity);
 
   /**
    * @param entity
    * @return the edited {@link Field}s of the given entity.
    */
-  ExtendedIterable<? extends Field> getStoredEditedFields(IEntity entity);
+  ExtendedIterable<? extends Field> getStoredEditedFields(Entity entity);
 
   /**
    * @param entity
@@ -45,11 +45,11 @@ public interface IEntitySearcher {
    * @throws RuntimeException if the given entity does not have a field with the
    *                          given name.
    */
-  Field getStoredFieldByName(IEntity entity, String name);
+  Field getStoredFieldByName(Entity entity, String name);
 
   /**
    * @param entity
    * @return the {@link Field}s the given entity references back.
    */
-  ExtendedIterable<BaseReference> getStoredFieldsWhoAreBackReferencedFromEntity(IEntity entity);
+  ExtendedIterable<BaseReference> getStoredFieldsWhoAreBackReferencedFromEntity(Entity entity);
 }

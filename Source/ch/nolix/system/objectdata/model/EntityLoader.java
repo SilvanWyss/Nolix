@@ -6,7 +6,7 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.system.objectdata.entitytool.EntityCreator;
 import ch.nolix.system.objectdata.entitytool.EntityFiller;
 import ch.nolix.systemapi.middata.loader.IDataReader;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
 /**
@@ -20,7 +20,7 @@ public final class EntityLoader {
   private EntityLoader() {
   }
 
-  public static <E extends IEntity> E loadEntityById(
+  public static <E extends Entity> E loadEntityById(
     final ITable<E> table,
     final String id,
     final IDataReader dataReader) {

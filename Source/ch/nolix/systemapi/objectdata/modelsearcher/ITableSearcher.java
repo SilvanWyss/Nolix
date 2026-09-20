@@ -5,7 +5,7 @@ package ch.nolix.systemapi.objectdata.modelsearcher;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.objectdata.model.IColumn;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
 /**
@@ -14,7 +14,7 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 public interface ITableSearcher {
   /**
    * @param table
-   * @return the ids of the locally deleted {@link IEntity}s of the given table.
+   * @return the ids of the locally deleted {@link Entity}s of the given table.
    */
   ExtendedIterable<String> getLocallyDeletedEntityIds(final ITable<?> table);
 
@@ -23,5 +23,5 @@ public interface ITableSearcher {
    * @param table
    * @return the {@link IColumn}s that references the given table.
    */
-  <E extends IEntity> ExtendedIterable<IColumn> getStoredColumsThatReferencesTable(ITable<E> table);
+  <E extends Entity> ExtendedIterable<IColumn> getStoredColumsThatReferencesTable(ITable<E> table);
 }

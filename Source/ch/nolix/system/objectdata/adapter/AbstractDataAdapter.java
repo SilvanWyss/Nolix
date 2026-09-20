@@ -14,7 +14,7 @@ import ch.nolix.system.objectdata.model.SchemaInitializer;
 import ch.nolix.system.objectdata.persistence.DatabasePersister;
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.adapter.DataAdapter;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectschema.schemaadapter.SchemaAdapter;
@@ -95,7 +95,7 @@ public abstract class AbstractDataAdapter implements DataAdapter {
    * {@inheritDoc}
    */
   @Override
-  public final <E extends IEntity> E getStoredEntityByTypeAndId(Class<E> type, String id) {
+  public final <E extends Entity> E getStoredEntityByTypeAndId(Class<E> type, String id) {
     final var table = getStoredTableByEntityType(type);
 
     return table.getStoredEntityById(id);
@@ -105,7 +105,7 @@ public abstract class AbstractDataAdapter implements DataAdapter {
    * {@inheritDoc}
    */
   @Override
-  public final <E extends IEntity> ITable<E> getStoredTableByEntityType(
+  public final <E extends Entity> ITable<E> getStoredTableByEntityType(
     final Class<E> entityType) {
     return database.getStoredTableByEntityType(entityType);
   }
@@ -122,7 +122,7 @@ public abstract class AbstractDataAdapter implements DataAdapter {
    * {@inheritDoc}
    */
   @Override
-  public final DataAdapter insertEntity(final IEntity entity) {
+  public final DataAdapter insertEntity(final Entity entity) {
     database.insertEntity(entity);
 
     return this;

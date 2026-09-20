@@ -18,16 +18,16 @@ import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.objectdata.model.BaseReference;
 import ch.nolix.systemapi.objectdata.model.Field;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReferenceEntry;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the {@link IEntity}s a {@link MultiBackReference} can
+ * @param <E> the type of the {@link Entity}s a {@link MultiBackReference} can
  *            reference back.
  */
-public final class MultiBackReference<E extends IEntity>
+public final class MultiBackReference<E extends Entity>
 extends AbstractBaseBackReference
 implements IMultiBackReference<E> {
   private static final TableNameExtractor TABLE_NAME_EXTRACTOR = new TableNameExtractor();
@@ -49,7 +49,7 @@ implements IMultiBackReference<E> {
   }
 
   @SafeVarargs
-  public static <T extends IEntity> MultiBackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
+  public static <T extends Entity> MultiBackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
     final String backReferencedFieldName,
     final Class<T>... backReferenceableEntityTypes) {
     final var backReferenceableEntityTypesContainerView = ExtendedIterableView.forArray(backReferenceableEntityTypes);
@@ -59,7 +59,7 @@ implements IMultiBackReference<E> {
     return new MultiBackReference<>(backReferenceableTableNamesView, backReferencedFieldName);
   }
 
-  public static <T extends IEntity> MultiBackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
+  public static <T extends Entity> MultiBackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
     final String backReferencedFieldName,
     final ExtendedIterable<Class<? extends T>> backReferenceableEntityTypes) {
     final var backReferenceableTableNamesView = //
@@ -68,7 +68,7 @@ implements IMultiBackReference<E> {
     return new MultiBackReference<>(backReferenceableTableNamesView, backReferencedFieldName);
   }
 
-  public static <T extends IEntity> MultiBackReference<T> forBackReferencedFieldNameAndBackReferenceableTableNames(
+  public static <T extends Entity> MultiBackReference<T> forBackReferencedFieldNameAndBackReferenceableTableNames(
     final String backReferencedFieldName,
     final ExtendedIterable<String> backReferenceableTableNames) {
     return new MultiBackReference<>(backReferenceableTableNames, backReferencedFieldName);
@@ -191,7 +191,7 @@ implements IMultiBackReference<E> {
    * {@inheritDoc}
    */
   @Override
-  public boolean referencesBackEntity(final IEntity entity) {
+  public boolean referencesBackEntity(final Entity entity) {
     final var entityId = entity.getId();
 
     return referencesBackEntityWithId(entityId);
@@ -205,7 +205,7 @@ implements IMultiBackReference<E> {
     return getAllBackReferencedEntityIds().containsEqual(id);
   }
 
-  void internalAddBackReferencedEntity(final IEntity backReferencedEntity) {
+  void internalAddBackReferencedEntity(final Entity backReferencedEntity) {
     @SuppressWarnings("unchecked")
     final var newEntry = //
     MultiBackReferenceEntry.createNewEntryForMultiBackReferenceAndBackReferencedEntity(

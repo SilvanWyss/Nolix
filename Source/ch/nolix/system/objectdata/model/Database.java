@@ -11,7 +11,7 @@ import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.systemapi.database.databaseobject.DatabaseObjectState;
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.time.main.ITime;
@@ -24,7 +24,7 @@ public final class Database implements IDatabase {
 
   private final ITime schemaTimestamp;
 
-  private final ExtendedIterable<? extends ITable<IEntity>> tables;
+  private final ExtendedIterable<? extends ITable<Entity>> tables;
 
   private final DataAdapterAndSchemaReader midDataAdapterAndSchemaReader;
 
@@ -101,7 +101,7 @@ public final class Database implements IDatabase {
    * {@inheritDoc}
    */
   @Override
-  public <E extends IEntity> ExtendedIterable<E> getStoredEntitiesByType(final Class<E> type) {
+  public <E extends Entity> ExtendedIterable<E> getStoredEntitiesByType(final Class<E> type) {
     final var table = getStoredTableByEntityType(type);
 
     return table.getStoredEntities();
@@ -112,7 +112,7 @@ public final class Database implements IDatabase {
    */
   @Override
   @SuppressWarnings("unchecked")
-  public <E extends IEntity> ITable<E> getStoredTableByEntityType(final Class<E> entityType) {
+  public <E extends Entity> ITable<E> getStoredTableByEntityType(final Class<E> entityType) {
     final var tableName = entityType.getSimpleName();
 
     return (ITable<E>) getStoredTableByName(tableName);
@@ -122,7 +122,7 @@ public final class Database implements IDatabase {
    * {@inheritDoc}
    */
   @Override
-  public ITable<IEntity> getStoredTableByName(final String name) {
+  public ITable<Entity> getStoredTableByName(final String name) {
     return getStoredTables().getStoredFirst(t -> t.hasName(name));
   }
 
@@ -130,7 +130,7 @@ public final class Database implements IDatabase {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<? extends ITable<IEntity>> getStoredTables() {
+  public ExtendedIterable<? extends ITable<Entity>> getStoredTables() {
     return tables;
   }
 
@@ -139,7 +139,7 @@ public final class Database implements IDatabase {
    */
   @Override
   @SuppressWarnings("unchecked")
-  public <E extends IEntity> IDatabase insertEntity(final E entity) {
+  public <E extends Entity> IDatabase insertEntity(final E entity) {
     final var entityType = (Class<E>) entity.getClass();
     final var table = getStoredTableByEntityType(entityType);
 

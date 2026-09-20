@@ -17,16 +17,16 @@ import ch.nolix.system.objectdata.fieldvalidator.MultiReferenceValidator;
 import ch.nolix.systemapi.database.databaseobject.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.model.BaseBackReference;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the {@link IEntity}s a {@link MultiReference} can
+ * @param <E> the type of the {@link Entity}s a {@link MultiReference} can
  *            reference.
  */
-public final class MultiReference<E extends IEntity> extends AbstractBaseReference<E> implements IMultiReference<E> {
+public final class MultiReference<E extends Entity> extends AbstractBaseReference<E> implements IMultiReference<E> {
   private static final DatabaseObjectExaminer DATABASE_OBJECT_EXAMINER = new DatabaseObjectExaminer();
 
   private static final TableNameExtractor TABLE_NAME_EXTRACTOR = new TableNameExtractor();
@@ -44,7 +44,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   }
 
   @SafeVarargs
-  public static <T extends IEntity> MultiReference<T> forEntityTypes(
+  public static <T extends Entity> MultiReference<T> forEntityTypes(
     final Class<? extends T>... entityTypes) {
     final var entityTypesView = ExtendedIterableView.forArray(entityTypes);
     final var referenceableTableNamesView = entityTypesView.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
@@ -52,19 +52,19 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
     return new MultiReference<>(referenceableTableNamesView);
   }
 
-  public static <T extends IEntity> MultiReference<T> forEntityTypes(
+  public static <T extends Entity> MultiReference<T> forEntityTypes(
     final ExtendedIterable<Class<? extends T>> entityTypes) {
     final var referenceableTableNamesView = entityTypes.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
 
     return new MultiReference<>(referenceableTableNamesView);
   }
 
-  public static <T extends IEntity> MultiReference<T> forReferenceableTableNames(
+  public static <T extends Entity> MultiReference<T> forReferenceableTableNames(
     final ExtendedIterable<String> referenceableTableNames) {
     return new MultiReference<>(referenceableTableNames);
   }
 
-  public static <T extends IEntity> MultiReference<T> forReferenceableTableNames(
+  public static <T extends Entity> MultiReference<T> forReferenceableTableNames(
     final String... referenceableTableNames) {
     final var referenceableTableNamesView = ExtendedIterableView.forArray(referenceableTableNames);
 
@@ -198,7 +198,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
    * {@inheritDoc}
    */
   @Override
-  public boolean referencesEntity(final IEntity entity) {
+  public boolean referencesEntity(final Entity entity) {
     if (entity == null) {
       return false;
     }

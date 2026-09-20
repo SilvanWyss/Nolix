@@ -8,7 +8,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.midschema.fieldproperty.BaseFieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
 /**
@@ -18,7 +18,7 @@ public final class TableLoader {
   private TableLoader() {
   }
 
-  public static ImmutableList<Table<IEntity>> loadTablesForDatabase(final Database database) {
+  public static ImmutableList<Table<Entity>> loadTablesForDatabase(final Database database) {
     final var midTables = database.getStoredMidDataAdapterAndSchemaReader().loadTables();
     final var tables = midTables.to(t -> TableMapper.mapMidSchemaTableDtoToTableWithoutColumns(t, database));
 
@@ -30,7 +30,7 @@ public final class TableLoader {
   }
 
   private static void addBaseValueColumnsToTablesFromMidTables(
-    final ExtendedIterable<Table<IEntity>> tables,
+    final ExtendedIterable<Table<Entity>> tables,
     final ExtendedIterable<TableDto> midTables) {
     for (final var t : tables) {
       final var tableName = t.getName();
@@ -40,7 +40,7 @@ public final class TableLoader {
   }
 
   private static void addBaseValueColumnsToTableFromMidTable(
-    final Table<IEntity> table,
+    final Table<Entity> table,
     final TableDto midTable) {
     final var midBaseValueColumnsView = midTable.columns().getViewOfStoredSelected(TableLoader::isBaseValue);
 
@@ -55,9 +55,9 @@ public final class TableLoader {
   }
 
   private static void addBaseReferenceColumnsToTablesFromMidTables(
-    final ExtendedIterable<Table<IEntity>> tables,
+    final ExtendedIterable<Table<Entity>> tables,
     final ExtendedIterable<TableDto> midTables,
-    final ExtendedIterable<? extends ITable<IEntity>> referencableTables) {
+    final ExtendedIterable<? extends ITable<Entity>> referencableTables) {
     for (final var t : tables) {
       final var tableName = t.getName();
       final var midTable = midTables.getStoredFirst(rt -> rt.name().equals(tableName));
@@ -66,9 +66,9 @@ public final class TableLoader {
   }
 
   private static void addBaseReferenceColumnsToTableFromMidTable(
-    final Table<IEntity> table,
+    final Table<Entity> table,
     final TableDto midTable,
-    final ExtendedIterable<? extends ITable<IEntity>> referencableTables) {
+    final ExtendedIterable<? extends ITable<Entity>> referencableTables) {
     final var midBaseReferenceColumnsView = midTable.columns().getViewOfStoredSelected(TableLoader::isBaseReference);
 
     for (final var c : midBaseReferenceColumnsView) {
@@ -82,9 +82,9 @@ public final class TableLoader {
   }
 
   private static void addBaseBackReferenceColumnsToTablesFromMidTables(
-    final ExtendedIterable<Table<IEntity>> tables,
+    final ExtendedIterable<Table<Entity>> tables,
     final ExtendedIterable<TableDto> midTables,
-    final ExtendedIterable<? extends ITable<IEntity>> referencableTables) {
+    final ExtendedIterable<? extends ITable<Entity>> referencableTables) {
     for (final var t : tables) {
       final var tableName = t.getName();
       final var midTable = midTables.getStoredFirst(rt -> rt.name().equals(tableName));
@@ -93,9 +93,9 @@ public final class TableLoader {
   }
 
   private static void addBaseBackReferenceColumnsToTableFromMidTable(
-    final Table<IEntity> table,
+    final Table<Entity> table,
     final TableDto midTable,
-    final ExtendedIterable<? extends ITable<IEntity>> referencableTables) {
+    final ExtendedIterable<? extends ITable<Entity>> referencableTables) {
     final var midBaseValueColumnsView = midTable.columns().getViewOfStoredSelected(TableLoader::isBaseBackReference);
 
     for (final var c : midBaseValueColumnsView) {

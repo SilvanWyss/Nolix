@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.schemamapper;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.system.objectschema.model.Table;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 import ch.nolix.systemapi.objectdata.schemamapper.ITableMapper;
 import ch.nolix.systemapi.objectschema.model.ITable;
@@ -18,7 +18,7 @@ public final class TableMapper implements ITableMapper {
    * {@inheritDoc}
    */
   @Override
-  public ITable mapEntityTypeToEmptyTable(final Class<? extends IEntity> entityType) {
+  public ITable mapEntityTypeToEmptyTable(final Class<? extends Entity> entityType) {
     final var name = entityType.getSimpleName();
 
     return Table.withName(name);

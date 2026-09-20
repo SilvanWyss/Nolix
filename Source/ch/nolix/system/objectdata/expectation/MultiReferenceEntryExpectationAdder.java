@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.expectation;
 
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.expectation.IMultiReferenceEntryExpectationAdder;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
 
 /**
@@ -18,7 +18,7 @@ public final class MultiReferenceEntryExpectationAdder implements IMultiReferenc
    */
   @Override
   public void addExpectationThatNewlyReferencedEntitiesExist(
-    final IMultiReferenceEntry<? extends IEntity> multiReferenceEntry,
+    final IMultiReferenceEntry<? extends Entity> multiReferenceEntry,
     final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var referencedTableName = multiReferenceEntry.getReferencedTableName();
     final var referencedEntityId = multiReferenceEntry.getReferencedEntityId();
@@ -31,7 +31,7 @@ public final class MultiReferenceEntryExpectationAdder implements IMultiReferenc
    */
   @Override
   public void addExpectationThatNewlyReferencedEntitiesExistIfMultiReferenceEntryIsNew(
-    final IMultiReferenceEntry<? extends IEntity> multiReferenceEntry,
+    final IMultiReferenceEntry<? extends Entity> multiReferenceEntry,
     final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     if (multiReferenceEntry.isNew()) {
       addExpectationThatNewlyReferencedEntitiesExist(multiReferenceEntry, dataAndSchemaAdapter);

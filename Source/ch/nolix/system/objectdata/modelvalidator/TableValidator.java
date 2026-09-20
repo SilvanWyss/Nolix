@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.modelvalidator;
 
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.modelexaminer.TableExaminer;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelvalidator.ITableValidator;
 
@@ -16,7 +16,7 @@ public final class TableValidator implements ITableValidator {
   private static final TableExaminer TABLE_EXAMINER = new TableExaminer();
 
   @Override
-  public void assertCanInsertEntity(final ITable<? extends IEntity> table, final IEntity entity) {
+  public void assertCanInsertEntity(final ITable<? extends Entity> table, final Entity entity) {
     if (!TABLE_EXAMINER.canInsertGivenEntity(table, entity)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
         entity,

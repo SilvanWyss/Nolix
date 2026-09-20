@@ -9,7 +9,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PluralLowerCaseVariableNameCatalog;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 
 /**
@@ -18,9 +18,9 @@ import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 public final class EntityTypeSet implements IEntityTypeSet {
   public static final EntityTypeSet EMPTY_SCHEMA = new EntityTypeSet(ImmutableList.createEmpty());
 
-  private final ImmutableList<Class<? extends IEntity>> entityTypes;
+  private final ImmutableList<Class<? extends Entity>> entityTypes;
 
-  private EntityTypeSet(final ExtendedIterable<Class<? extends IEntity>> entityTypes) {
+  private EntityTypeSet(final ExtendedIterable<Class<? extends Entity>> entityTypes) {
     Validator.assertThat(entityTypes)
       .thatIsNamed(PluralLowerCaseVariableNameCatalog.ENTITY_TYPES)
       .containsDistinctNonNullElemensOnly();
@@ -32,18 +32,18 @@ public final class EntityTypeSet implements IEntityTypeSet {
   public static EntityTypeSet withEntityType(
     final Class<?> entityType,
     final Class<?>... entityTypes) {
-    final ILinkedList<Class<? extends IEntity>> allEntityTypes = LinkedList.createEmpty();
+    final ILinkedList<Class<? extends Entity>> allEntityTypes = LinkedList.createEmpty();
 
-    allEntityTypes.addAtEnd((Class<IEntity>) entityType);
+    allEntityTypes.addAtEnd((Class<Entity>) entityType);
 
     for (final var t : entityTypes) {
-      allEntityTypes.addAtEnd((Class<IEntity>) t);
+      allEntityTypes.addAtEnd((Class<Entity>) t);
     }
 
     return new EntityTypeSet(allEntityTypes);
   }
 
-  public static EntityTypeSet withEntityTypes(ExtendedIterable<Class<? extends IEntity>> entityTypes) {
+  public static EntityTypeSet withEntityTypes(ExtendedIterable<Class<? extends Entity>> entityTypes) {
     return new EntityTypeSet(entityTypes);
   }
 
@@ -51,7 +51,7 @@ public final class EntityTypeSet implements IEntityTypeSet {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<Class<? extends IEntity>> getEntityTypes() {
+  public ExtendedIterable<Class<? extends Entity>> getEntityTypes() {
     return entityTypes;
   }
 }

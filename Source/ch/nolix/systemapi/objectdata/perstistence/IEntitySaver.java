@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.objectdata.perstistence;
 
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 
 /**
  * @author Silvan Wyss
@@ -16,7 +16,7 @@ public interface IEntitySaver {
    * @param entity
    * @param dataAndSchemaAdapter
    */
-  void saveEntityChanges(IEntity entity, DataAdapterAndSchemaReader dataAndSchemaAdapter);
+  void saveEntityChanges(Entity entity, DataAdapterAndSchemaReader dataAndSchemaAdapter);
 
   /**
    * Saves the creation of the given entity.
@@ -24,7 +24,7 @@ public interface IEntitySaver {
    * @param entity
    * @param dataAndSchemaAdapter
    */
-  void saveEntityCreation(IEntity entity, DataAdapterAndSchemaReader dataAndSchemaAdapter);
+  void saveEntityCreation(Entity entity, DataAdapterAndSchemaReader dataAndSchemaAdapter);
 
   /**
    * Saves the deletion of the given entity.
@@ -32,7 +32,7 @@ public interface IEntitySaver {
    * @param entity
    * @param dataAndSchemaAdapter
    */
-  void saveEntityDeletion(IEntity entity, DataAdapterAndSchemaReader dataAndSchemaAdapter);
+  void saveEntityDeletion(Entity entity, DataAdapterAndSchemaReader dataAndSchemaAdapter);
 
   /**
    * Saves the updates of the given entity.
@@ -40,5 +40,5 @@ public interface IEntitySaver {
    * @param entity
    * @param dataAndSchemaAdapter
    */
-  void saveEntityUpdates(IEntity entity, DataAdapterAndSchemaReader dataAndSchemaAdapter);
+  void saveEntityUpdates(Entity entity, DataAdapterAndSchemaReader dataAndSchemaAdapter);
 }

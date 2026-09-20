@@ -8,7 +8,7 @@ import ch.nolix.system.database.databaseobjectvalidator.StandardDatabaseObjectVa
 import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
 import ch.nolix.systemapi.database.databaseobject.DatabaseObjectState;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReferenceEntry;
 import ch.nolix.systemapi.objectdata.model.ITable;
@@ -16,10 +16,10 @@ import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the {@link IEntity} a {@link MultiBackReferenceEntry}
+ * @param <E> the type of the {@link Entity} a {@link MultiBackReferenceEntry}
  *            references back.
  */
-public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiBackReferenceEntry<E> {
+public final class MultiBackReferenceEntry<E extends Entity> implements IMultiBackReferenceEntry<E> {
   private static final StandardDatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = //
   new StandardDatabaseObjectValidator();
 
@@ -61,7 +61,7 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
     this.backReferencedEntityCache = new EntityCache<>(backReferencedEntityId, backReferencedTableId, null);
   }
 
-  public static <T extends IEntity> MultiBackReferenceEntry<T> //
+  public static <T extends Entity> MultiBackReferenceEntry<T> //
   createLoadedEntryForMultiBackReferenceAndBackReferencedEntityIdAndBackReferencedTableId(
     final IMultiBackReference<T> multiBackReference,
     final String backReferencedEntityId,
@@ -74,7 +74,7 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
       backReferencedTableId);
   }
 
-  public static <T extends IEntity> MultiBackReferenceEntry<T> //
+  public static <T extends Entity> MultiBackReferenceEntry<T> //
   createNewEntryForMultiBackReferenceAndBackReferencedEntityIdAndBackReferencedTableId(
     final IMultiBackReference<T> multiBackReference,
     final String backReferencedEntityId,
@@ -87,7 +87,7 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
       backReferencedTableId);
   }
 
-  public static <T extends IEntity> MultiBackReferenceEntry<T> //
+  public static <T extends Entity> MultiBackReferenceEntry<T> //
   createNewEntryForMultiBackReferenceAndBackReferencedEntity(
     final IMultiBackReference<T> multiBackReference,
     final T backReferencedEntity) {
@@ -200,7 +200,7 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
    * {@inheritDoc}
    */
   @Override
-  public ITable<? extends IEntity> getStoredParentTable() {
+  public ITable<? extends Entity> getStoredParentTable() {
     return getStoredParentMultiBackReference().getStoredParentTable();
   }
 

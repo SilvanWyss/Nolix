@@ -5,7 +5,7 @@ package ch.nolix.systemapi.objectdata.perstistence;
 
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.Field;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 
 /**
  * @author Silvan Wyss
@@ -25,5 +25,5 @@ public interface IMultiFieldSaver {
    * @param entity
    * @param dataAndSchemaAdapter
    */
-  void saveMultiFieldChangesOfEntity(IEntity entity, DataAdapterAndSchemaReader dataAndSchemaAdapter);
+  void saveMultiFieldChangesOfEntity(Entity entity, DataAdapterAndSchemaReader dataAndSchemaAdapter);
 }

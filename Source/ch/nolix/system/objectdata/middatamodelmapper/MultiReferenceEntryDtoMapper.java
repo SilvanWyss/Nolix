@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.middatamodelmapper;
 
 import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
 import ch.nolix.systemapi.objectdata.middatamodelmapper.IMultiReferenceEntryDtoMapper;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
 
 /**
@@ -17,7 +17,7 @@ public final class MultiReferenceEntryDtoMapper implements IMultiReferenceEntryD
    */
   @Override
   public MultiReferenceEntryDto mapMultiReferenceEntryToMultiReferenceEntryDto(
-    final IMultiReferenceEntry<? extends IEntity> multiReferenceEntry) {
+    final IMultiReferenceEntry<? extends Entity> multiReferenceEntry) {
     final var multiReference = multiReferenceEntry.getStoredParentMultiReference();
     final var entity = multiReference.getStoredParentEntity();
     final var tableName = entity.getParentTableName();

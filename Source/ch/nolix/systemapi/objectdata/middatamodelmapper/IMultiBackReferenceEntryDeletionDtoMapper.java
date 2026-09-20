@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.objectdata.middatamodelmapper;
 
 import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDeletionDto;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReferenceEntry;
 
 /**
@@ -18,5 +18,5 @@ public interface IMultiBackReferenceEntryDeletionDtoMapper {
    * @throws RuntimeException if the given multiBackReferenceEntry is null
    */
   MultiBackReferenceEntryDeletionDto mapMultiBackReferenceEntryToMultiBackReferenceEntryDeletionDto(
-    IMultiBackReferenceEntry<? extends IEntity> multiBackReferenceEntry);
+    IMultiBackReferenceEntry<? extends Entity> multiBackReferenceEntry);
 }

@@ -23,7 +23,7 @@ public interface IColumn extends DatabaseObject, IdHolder, NameHolder {
 
   ExtendedIterable<? extends IColumn> getStoredBackReferenceableColumns();
 
-  ITable<IEntity> getStoredParentTable();
+  ITable<Entity> getStoredParentTable();
 
-  ExtendedIterable<? extends ITable<IEntity>> getStoredReferenceableTables();
+  ExtendedIterable<? extends ITable<Entity>> getStoredReferenceableTables();
 }

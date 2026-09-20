@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.objectdata.expectation;
 
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 
 /**
  * @author Silvan Wyss
@@ -17,7 +17,7 @@ public interface IEntityExpectationAdder {
    * @param entity
    * @param dataAndSchemaAdapter
    */
-  void addExpectationThatNewlyReferencedEntitiesExist(IEntity entity, DataAdapterAndSchemaReader dataAndSchemaAdapter);
+  void addExpectationThatNewlyReferencedEntitiesExist(Entity entity, DataAdapterAndSchemaReader dataAndSchemaAdapter);
 
   /**
    * Adds expectation to the given entity that its newly referenced entities
@@ -27,6 +27,6 @@ public interface IEntityExpectationAdder {
    * @param dataAndSchemaAdapter
    */
   void addExpectationThatNewlyReferencedEntitiesExistIfEntityIsNewOrEdited(
-    IEntity entity,
+    Entity entity,
     DataAdapterAndSchemaReader dataAndSchemaAdapter);
 }

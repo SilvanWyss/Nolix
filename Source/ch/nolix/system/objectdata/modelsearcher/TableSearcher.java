@@ -9,7 +9,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.system.objectdata.modelexaminer.ColumnExaminer;
 import ch.nolix.systemapi.objectdata.model.IColumn;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelsearcher.ITableSearcher;
 
@@ -28,14 +28,14 @@ public final class TableSearcher implements ITableSearcher {
       return ImmutableList.createEmpty();
     }
 
-    return table.internalGetStoredEntitiesInLocalData().getViewOfStoredSelected(IEntity::isDeleted).to(IEntity::getId);
+    return table.internalGetStoredEntitiesInLocalData().getViewOfStoredSelected(Entity::isDeleted).to(Entity::getId);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public <E extends IEntity> ExtendedIterable<IColumn> getStoredColumsThatReferencesTable(
+  public <E extends Entity> ExtendedIterable<IColumn> getStoredColumsThatReferencesTable(
     final ITable<E> table) {
     if (table == null) {
       return ImmutableList.createEmpty();

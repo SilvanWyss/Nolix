@@ -7,7 +7,7 @@ import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.objectdata.model.BaseBackReference;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 
 /**
  * @author Silvan Wyss
@@ -60,7 +60,7 @@ public abstract class AbstractBaseBackReference extends AbstractField implements
    * {@inheritDoc}
    */
   @Override
-  public final boolean referencesEntity(final IEntity entity) {
+  public final boolean referencesEntity(final Entity entity) {
     return false;
   }
 

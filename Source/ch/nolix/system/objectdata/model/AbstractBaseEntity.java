@@ -17,19 +17,19 @@ import ch.nolix.systemapi.database.databaseobject.DatabaseObjectState;
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelflyweight.IEntityFlyWeight;
 
 /**
  * @author Silvan Wyss
  */
-public abstract class AbstractBaseEntity implements IEntity {
+public abstract class AbstractBaseEntity implements Entity {
   private static final VoidEntityFlyWeight VOID_ENTITY_FLY_WEIGHT = new VoidEntityFlyWeight();
 
   private static final EntityValidator ENTITY_VALIDATOR = new EntityValidator();
 
-  private ITable<? extends IEntity> memberParentTable;
+  private ITable<? extends Entity> memberParentTable;
 
   private String memberId = IdCreator.createIdOf10HexadecimalCharacters();
 
@@ -93,7 +93,7 @@ public abstract class AbstractBaseEntity implements IEntity {
    * {@inheritDoc}
    */
   @Override
-  public final ITable<? extends IEntity> getStoredParentTable() {
+  public final ITable<? extends Entity> getStoredParentTable() {
     ENTITY_VALIDATOR.assertBelongsToTable(this);
 
     return memberParentTable;
@@ -168,7 +168,7 @@ public abstract class AbstractBaseEntity implements IEntity {
    * {@inheritDoc}
    */
   @Override
-  public final void internalSetParentTable(final ITable<? extends IEntity> parentTable) {
+  public final void internalSetParentTable(final ITable<? extends Entity> parentTable) {
     ENTITY_VALIDATOR.assertCanSetParentTable(this, parentTable);
 
     memberParentTable = parentTable;

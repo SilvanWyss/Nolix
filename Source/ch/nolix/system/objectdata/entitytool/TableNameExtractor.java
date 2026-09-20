@@ -4,7 +4,7 @@
 package ch.nolix.system.objectdata.entitytool;
 
 import ch.nolix.systemapi.objectdata.entitytool.ITableNameExtractor;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 
 /**
  * @author Silvan Wyss
@@ -14,7 +14,7 @@ public final class TableNameExtractor implements ITableNameExtractor {
    * {@inheritDoc}
    */
   @Override
-  public String getTableNameOfEntity(final IEntity entity) {
+  public String getTableNameOfEntity(final Entity entity) {
     final var entityType = entity.getClass();
 
     return getTableNameOfEntityType(entityType);
@@ -24,7 +24,7 @@ public final class TableNameExtractor implements ITableNameExtractor {
    * {@inheritDoc}
    */
   @Override
-  public String getTableNameOfEntityType(final Class<? extends IEntity> entityType) {
+  public String getTableNameOfEntityType(final Class<? extends Entity> entityType) {
     return entityType.getSimpleName();
   }
 }

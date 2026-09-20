@@ -11,11 +11,11 @@ import ch.nolix.systemapi.database.databaseobject.DatabaseObject;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the {@link IEntity} a {@link IMultiReferenceEntry}
+ * @param <E> the type of the {@link Entity} a {@link IMultiReferenceEntry}
  *            references.
  */
-public interface IMultiReferenceEntry<E extends IEntity>
-extends DatabaseComponent<IDatabase>, DatabaseObject, TableComponent<ITable<? extends IEntity>> {
+public interface IMultiReferenceEntry<E extends Entity>
+extends DatabaseComponent<IDatabase>, DatabaseObject, TableComponent<ITable<? extends Entity>> {
   Optional<? extends Field> getOptionalStoredBaseBackReferenceWhoReferencesBackTheParentMultiReferenceOfThis();
 
   String getReferencedEntityId();

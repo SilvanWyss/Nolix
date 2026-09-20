@@ -10,7 +10,7 @@ import ch.nolix.systemapi.objectdata.model.BaseBackReference;
 import ch.nolix.systemapi.objectdata.model.BaseReference;
 import ch.nolix.systemapi.objectdata.model.BaseValueField;
 import ch.nolix.systemapi.objectdata.model.Field;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 
 /**
  * @author Silvan Wyss
@@ -53,7 +53,7 @@ public abstract class AbstractBaseValueField<V> extends AbstractField implements
    * {@inheritDoc}
    */
   @Override
-  public final boolean referencesEntity(final IEntity entity) {
+  public final boolean referencesEntity(final Entity entity) {
     return false;
   }
 
@@ -61,7 +61,7 @@ public abstract class AbstractBaseValueField<V> extends AbstractField implements
    * {@inheritDoc}
    */
   @Override
-  public final boolean referencesBackEntity(final IEntity entity) {
+  public final boolean referencesBackEntity(final Entity entity) {
     return false;
   }
 

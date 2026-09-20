@@ -3,16 +3,16 @@
  */
 package ch.nolix.systemapi.objectdata.fieldvalidator;
 
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 
 /**
  * @author Silvan Wyss
  */
-public interface IMultiReferenceValidator extends IFieldValidator<IMultiReference<IEntity>> {
-  <E extends IEntity> void assertCanAddEntity(IMultiReference<E> multiReference, E entity);
+public interface IMultiReferenceValidator extends IFieldValidator<IMultiReference<Entity>> {
+  <E extends Entity> void assertCanAddEntity(IMultiReference<E> multiReference, E entity);
 
   void assertCanBeCleared(IMultiReference<?> multiReference);
 
-  <E extends IEntity> void assertCanRemoveEntity(IMultiReference<E> multiReference, E entity);
+  <E extends Entity> void assertCanRemoveEntity(IMultiReference<E> multiReference, E entity);
 }

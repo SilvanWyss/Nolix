@@ -6,7 +6,7 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.objectdata.model.BaseBackReference;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 
 /**
  * @author Silvan Wyss
@@ -21,11 +21,11 @@ public final class BaseBackReferenceUpdater {
     final BaseBackReference baseBackReference,
     final String backReferencedEntityId) {
     switch (baseBackReference) {
-      case BackReference<? extends IEntity> backReference ->
+      case BackReference<? extends Entity> backReference ->
         backReference.clear();
-      case OptionalBackReference<? extends IEntity> optionalBackReference ->
+      case OptionalBackReference<? extends Entity> optionalBackReference ->
         optionalBackReference.clear();
-      case MultiBackReference<? extends IEntity> multiBackReference ->
+      case MultiBackReference<? extends Entity> multiBackReference ->
         multiBackReference.deleteEntryByBackReferencedEntityId(backReferencedEntityId);
       default ->
         throw InvalidArgumentException.forArgument(baseBackReference);
@@ -34,13 +34,13 @@ public final class BaseBackReferenceUpdater {
 
   public static void updateBaseBackReferenceThatReferencesBackEntityForDeleteEntity(
     final BaseBackReference baseBackReference,
-    final IEntity entity) {
+    final Entity entity) {
     switch (baseBackReference) {
-      case BackReference<? extends IEntity> backReference ->
+      case BackReference<? extends Entity> backReference ->
         backReference.clear();
-      case OptionalBackReference<? extends IEntity> optionalBackReference ->
+      case OptionalBackReference<? extends Entity> optionalBackReference ->
         optionalBackReference.clear();
-      case MultiBackReference<? extends IEntity> multiBackReference -> {
+      case MultiBackReference<? extends Entity> multiBackReference -> {
         final var backReferencedEntityId = entity.getId();
         multiBackReference.deleteEntryByBackReferencedEntityId(backReferencedEntityId);
       }
@@ -49,7 +49,7 @@ public final class BaseBackReferenceUpdater {
     }
   }
 
-  public static void updateBaseBackReferencesThatReferencesBackEntityForDeleteEntity(final IEntity entity) {
+  public static void updateBaseBackReferencesThatReferencesBackEntityForDeleteEntity(final Entity entity) {
     final var baseBackReferences = ENTITY_SEARCHER.getStoredBaseBackReferencesThatReferenceBackEntity(entity);
 
     for (final var b : baseBackReferences) {

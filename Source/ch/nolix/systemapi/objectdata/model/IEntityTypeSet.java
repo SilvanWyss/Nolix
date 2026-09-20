@@ -9,5 +9,5 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
  * @author Silvan Wyss
  */
 public interface IEntityTypeSet {
-  ExtendedIterable<Class<? extends IEntity>> getEntityTypes();
+  ExtendedIterable<Class<? extends Entity>> getEntityTypes();
 }

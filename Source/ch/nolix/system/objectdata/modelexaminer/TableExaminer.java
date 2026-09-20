@@ -4,14 +4,14 @@
 package ch.nolix.system.objectdata.modelexaminer;
 
 import ch.nolix.system.database.databaseobjectexaminer.AbstractDatabaseObjectExaminer;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelexaminer.ITableExaminer;
 
 /**
  * @author Silvan Wyss
  */
-public final class TableExaminer extends AbstractDatabaseObjectExaminer<ITable<IEntity>> implements ITableExaminer {
+public final class TableExaminer extends AbstractDatabaseObjectExaminer<ITable<Entity>> implements ITableExaminer {
   private static final EntityExaminer ENTITY_EXAMINER = new EntityExaminer();
 
   /**
@@ -38,7 +38,7 @@ public final class TableExaminer extends AbstractDatabaseObjectExaminer<ITable<I
    * {@inheritDoc}
    */
   @Override
-  public boolean canInsertGivenEntity(ITable<?> table, IEntity entity) {
+  public boolean canInsertGivenEntity(ITable<?> table, Entity entity) {
     return canInsertEntity(table)
     && ENTITY_EXAMINER.canBeInsertedIntoTable(entity)
     && !hasInsertedGivenEntityInLocalData(table, entity);
@@ -56,7 +56,7 @@ public final class TableExaminer extends AbstractDatabaseObjectExaminer<ITable<I
    * {@inheritDoc}
    */
   @Override
-  public boolean hasInsertedGivenEntityInLocalData(final ITable<?> table, final IEntity entity) {
+  public boolean hasInsertedGivenEntityInLocalData(final ITable<?> table, final Entity entity) {
     return containsEntityWithGivenIdInLocalData(table, entity.getId());
   }
 }

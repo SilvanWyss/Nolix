@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.modelexaminer;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelexaminer.IEntityExaminerHelper;
 
@@ -22,7 +22,7 @@ public final class EntityExaminerHelper implements IEntityExaminerHelper {
     database
       .getStoredTables()
       .toMultiples(ITable::internalGetStoredEntitiesInLocalData)
-      .getViewOfStoredSelected(IEntity::isDeleted)
-      .to(IEntity::getId);
+      .getViewOfStoredSelected(Entity::isDeleted)
+      .to(Entity::getId);
   }
 }

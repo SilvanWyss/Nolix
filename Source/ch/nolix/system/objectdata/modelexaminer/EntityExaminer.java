@@ -5,14 +5,14 @@ package ch.nolix.system.objectdata.modelexaminer;
 
 import ch.nolix.system.database.databaseobjectexaminer.AbstractDatabaseObjectExaminer;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelexaminer.IEntityExaminer;
 
 /**
  * @author Silvan Wyss
  */
-public final class EntityExaminer extends AbstractDatabaseObjectExaminer<IEntity> implements IEntityExaminer {
+public final class EntityExaminer extends AbstractDatabaseObjectExaminer<Entity> implements IEntityExaminer {
   private static final EntityExaminerHelper ENTITY_EXAMINER_HELPER = new EntityExaminerHelper();
 
   private static final FieldExaminer FIELD_EXAMINER = new FieldExaminer();
@@ -21,7 +21,7 @@ public final class EntityExaminer extends AbstractDatabaseObjectExaminer<IEntity
    * {@inheritDoc}
    */
   @Override
-  public boolean allNewAndEditedMandatoryFieldsAreSet(final IEntity entity) {
+  public boolean allNewAndEditedMandatoryFieldsAreSet(final Entity entity) {
     if (isNewOrEdited(entity)) {
       return //
       entity.internalGetStoredFields().containsMatchingOnly(FIELD_EXAMINER::isSetForCaseWhenIsMandatoryAndNewOrEdited);
@@ -34,7 +34,7 @@ public final class EntityExaminer extends AbstractDatabaseObjectExaminer<IEntity
    * {@inheritDoc}
    */
   @Override
-  public boolean canBeDeleted(final IEntity entity) {
+  public boolean canBeDeleted(final Entity entity) {
     return //
     entity != null
     && entity.isLoaded()
@@ -45,7 +45,7 @@ public final class EntityExaminer extends AbstractDatabaseObjectExaminer<IEntity
    * {@inheritDoc}
    */
   @Override
-  public boolean canBeInsertedIntoTable(final IEntity entity) {
+  public boolean canBeInsertedIntoTable(final Entity entity) {
     return //
     entity != null
     && entity.isNew()
@@ -56,7 +56,7 @@ public final class EntityExaminer extends AbstractDatabaseObjectExaminer<IEntity
    * {@inheritDoc}
    */
   @Override
-  public boolean canSetParentTable(final IEntity entity) {
+  public boolean canSetParentTable(final Entity entity) {
     return //
     entity != null
     && entity.isOpen()
@@ -67,7 +67,7 @@ public final class EntityExaminer extends AbstractDatabaseObjectExaminer<IEntity
    * {@inheritDoc}
    */
   @Override
-  public boolean canSetParentTable(final IEntity entity, final ITable<? extends IEntity> table) {
+  public boolean canSetParentTable(final Entity entity, final ITable<? extends Entity> table) {
     return //
     canSetParentTable(entity)
     && table != null
@@ -79,7 +79,7 @@ public final class EntityExaminer extends AbstractDatabaseObjectExaminer<IEntity
    * {@inheritDoc}
    */
   @Override
-  public boolean isReferencedIgnoringLocallyDeletedEntities(IEntity entity) {
+  public boolean isReferencedIgnoringLocallyDeletedEntities(Entity entity) {
     return //
     isReferencedInLocalDataIgnoringLocallyDeletedEntities(entity)
     || isReferencedInPersistedDataIgnoringLocallyDeletedEntities(entity);
@@ -89,7 +89,7 @@ public final class EntityExaminer extends AbstractDatabaseObjectExaminer<IEntity
    * {@inheritDoc}
    */
   @Override
-  public boolean isReferencedInLocalDataIgnoringLocallyDeletedEntities(final IEntity entity) {
+  public boolean isReferencedInLocalDataIgnoringLocallyDeletedEntities(final Entity entity) {
     if (entity.belongsToDatabase()) {
       final var tables = entity.getStoredParentDatabase().getStoredTables();
 
@@ -108,7 +108,7 @@ public final class EntityExaminer extends AbstractDatabaseObjectExaminer<IEntity
    * {@inheritDoc}
    */
   @Override
-  public boolean isReferencedInPersistedDataIgnoringLocallyDeletedEntities(final IEntity entity) {
+  public boolean isReferencedInPersistedDataIgnoringLocallyDeletedEntities(final Entity entity) {
     if (entity.isReferencedInPersistedData()) {
       final var locallyDeletedEntities = //
       ENTITY_EXAMINER_HELPER.getLocallyDeletedEntitiesIds(entity.getStoredParentDatabase());
@@ -123,7 +123,7 @@ public final class EntityExaminer extends AbstractDatabaseObjectExaminer<IEntity
    * {@inheritDoc}
    */
   @Override
-  public boolean referencesGivenEntity(final IEntity sourceEntity, final IEntity entity) {
+  public boolean referencesGivenEntity(final Entity sourceEntity, final Entity entity) {
     return sourceEntity.internalGetStoredFields().containsMatching(p -> p.referencesEntity(entity));
   }
 }

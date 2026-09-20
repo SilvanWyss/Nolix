@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.middatamodelmapper;
 
 import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDeletionDto;
 import ch.nolix.systemapi.objectdata.middatamodelmapper.IMultiBackReferenceEntryDeletionDtoMapper;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReferenceEntry;
 
 /**
@@ -17,7 +17,7 @@ public final class MultiBackReferenceEntryDeletionDtoMapper implements IMultiBac
    */
   @Override
   public MultiBackReferenceEntryDeletionDto mapMultiBackReferenceEntryToMultiBackReferenceEntryDeletionDto(
-    final IMultiBackReferenceEntry<? extends IEntity> multiBackReferenceEntry) {
+    final IMultiBackReferenceEntry<? extends Entity> multiBackReferenceEntry) {
     final var multiBackReference = multiBackReferenceEntry.getStoredParentMultiBackReference();
     final var entity = multiBackReference.getStoredParentEntity();
     final var tableName = entity.getParentTableName();

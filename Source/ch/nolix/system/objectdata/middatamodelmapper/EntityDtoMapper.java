@@ -8,7 +8,7 @@ import ch.nolix.systemapi.middata.model.EntityCreationDto;
 import ch.nolix.systemapi.middata.model.EntityDeletionDto;
 import ch.nolix.systemapi.middata.model.EntityUpdateDto;
 import ch.nolix.systemapi.objectdata.middatamodelmapper.IEntityDtoMapper;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 
 /**
  * @author Silvan Wyss
@@ -23,7 +23,7 @@ public final class EntityDtoMapper implements IEntityDtoMapper {
    * {@inheritDoc}
    */
   @Override
-  public EntityCreationDto mapEntityToEntityCreationDto(final IEntity entity) {
+  public EntityCreationDto mapEntityToEntityCreationDto(final Entity entity) {
     final var id = entity.getId();
     final var entityFields = entity.internalGetStoredFields();
     final var contentFields = STRING_REPRESENTED_FIELD_DTO_MAPPER.mapFieldsToStringRepresentedFieldDtos(entityFields);
@@ -35,7 +35,7 @@ public final class EntityDtoMapper implements IEntityDtoMapper {
    * {@inheritDoc}
    */
   @Override
-  public EntityDeletionDto mapEntityToEntityDeletionDto(final IEntity entity) {
+  public EntityDeletionDto mapEntityToEntityDeletionDto(final Entity entity) {
     final var id = entity.getId();
     final var saveStamp = entity.getSaveStamp();
 
@@ -46,7 +46,7 @@ public final class EntityDtoMapper implements IEntityDtoMapper {
    * {@inheritDoc}
    */
   @Override
-  public EntityUpdateDto mapEntityToEntityUpdateDto(final IEntity entity) {
+  public EntityUpdateDto mapEntityToEntityUpdateDto(final Entity entity) {
     final var id = entity.getId();
     final var saveStamp = entity.getSaveStamp();
     final var editedFields = ENTITY_SEARCHER.getStoredEditedFields(entity);

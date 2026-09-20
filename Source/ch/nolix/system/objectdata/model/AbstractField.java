@@ -15,7 +15,7 @@ import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelflyweight.IFieldFlyWeight;
 
@@ -119,7 +119,7 @@ public abstract class AbstractField implements Field {
    * {@inheritDoc}
    */
   @Override
-  public final ITable<? extends IEntity> getStoredParentTable() {
+  public final ITable<? extends Entity> getStoredParentTable() {
     return getStoredParentEntity().getStoredParentTable();
   }
 

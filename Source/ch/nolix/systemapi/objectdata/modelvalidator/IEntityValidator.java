@@ -3,22 +3,22 @@
  */
 package ch.nolix.systemapi.objectdata.modelvalidator;
 
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
 /**
  * @author Silvan Wyss
  */
 public interface IEntityValidator {
-  void assertBelongsToTable(IEntity entity);
+  void assertBelongsToTable(Entity entity);
 
-  void assertCanBeDeleted(IEntity entity);
+  void assertCanBeDeleted(Entity entity);
 
-  void assertCanSetParentTable(IEntity entity, ITable<? extends IEntity> table);
+  void assertCanSetParentTable(Entity entity, ITable<? extends Entity> table);
 
-  void assertDoesNotBelongToTable(IEntity entity);
+  void assertDoesNotBelongToTable(Entity entity);
 
-  void assertHasSaveStamp(IEntity entity);
+  void assertHasSaveStamp(Entity entity);
 
-  void assertIsNotReferencedIgnoringLocallyDeletedEntities(IEntity entity);
+  void assertIsNotReferencedIgnoringLocallyDeletedEntities(Entity entity);
 }

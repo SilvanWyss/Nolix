@@ -4,18 +4,18 @@
 package ch.nolix.system.objectdata.fieldexaminer;
 
 import ch.nolix.systemapi.objectdata.fieldexaminer.IReferenceExaminer;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IReference;
 
 /**
  * @author Silvan Wyss
  */
-public final class ReferenceExaminer extends AbstractFieldExaminer<IReference<IEntity>> implements IReferenceExaminer {
+public final class ReferenceExaminer extends AbstractFieldExaminer<IReference<Entity>> implements IReferenceExaminer {
   /**
    * {@inheritDoc}
    */
   @Override
-  public <E extends IEntity> boolean canSetEntity(final IReference<E> reference) {
+  public <E extends Entity> boolean canSetEntity(final IReference<E> reference) {
     return //
     reference != null
     && reference.isOpen()
@@ -26,7 +26,7 @@ public final class ReferenceExaminer extends AbstractFieldExaminer<IReference<IE
    * {@inheritDoc}
    */
   @Override
-  public <E extends IEntity> boolean canSetEntity(final IReference<E> reference, final E entity) {
+  public <E extends Entity> boolean canSetEntity(final IReference<E> reference, final E entity) {
     return //
     canSetEntity(reference)
     && entity != null

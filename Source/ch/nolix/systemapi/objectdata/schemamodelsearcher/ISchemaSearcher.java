@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.schemamodelsearcher;
 
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 
 /**
@@ -17,5 +17,5 @@ public interface ISchemaSearcher {
    * @throws RuntimeException if the given schema does not contain an entity type
    *                          with the given name.
    */
-  Class<? extends IEntity> getEntityTypeByName(IEntityTypeSet entityTypeSet, String name);
+  Class<? extends Entity> getEntityTypeByName(IEntityTypeSet entityTypeSet, String name);
 }

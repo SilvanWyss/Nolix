@@ -11,7 +11,7 @@ import ch.nolix.system.database.databaseobjectvalidator.AbstractDatabaseObjectVa
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IFieldValidator;
 import ch.nolix.systemapi.objectdata.model.Field;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 
 /**
  * @author Silvan Wyss
@@ -26,7 +26,7 @@ implements IFieldValidator<F> {
   @Override
   public final void assertBelongsToEntity(final Field field) {
     if (!field.belongsToEntity()) {
-      throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(field, IEntity.class);
+      throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(field, Entity.class);
     }
   }
 

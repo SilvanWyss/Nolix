@@ -5,7 +5,7 @@ package ch.nolix.systemapi.objectdata.modelexaminer;
 
 import ch.nolix.systemapi.database.databaseobjectexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdata.model.IColumn;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
 /**
@@ -18,5 +18,5 @@ public interface IColumnExaminer extends IDatabaseObjectExaminer<IColumn> {
    * @return true if the given column contains the given referenceableTable, false
    *         otherwise
    */
-  boolean containsReferenceableTable(IColumn column, ITable<IEntity> referenceableTable);
+  boolean containsReferenceableTable(IColumn column, ITable<Entity> referenceableTable);
 }

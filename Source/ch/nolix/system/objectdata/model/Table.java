@@ -21,14 +21,14 @@ import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
 import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the {@link IEntity}s of a {@link Table}.
+ * @param <E> the type of the {@link Entity}s of a {@link Table}.
  */
-public final class Table<E extends IEntity> implements ITable<E> {
+public final class Table<E extends Entity> implements ITable<E> {
   private static final TableSearcher TABLE_TOOL = new TableSearcher();
 
   private static final TableExaminer TABLE_EXAMINER = new TableExaminer();
@@ -74,7 +74,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
     this.entityClass = entityClass;
   }
 
-  static <T extends IEntity> Table<T> withParentDatabaseAndNameAndIdAndEntityType(
+  static <T extends Entity> Table<T> withParentDatabaseAndNameAndIdAndEntityType(
     final Database parentDatabase,
     final String name,
     final String id,

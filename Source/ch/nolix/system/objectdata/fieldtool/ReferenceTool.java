@@ -7,7 +7,7 @@ import java.util.Optional;
 
 import ch.nolix.systemapi.objectdata.fieldtool.IReferenceTool;
 import ch.nolix.systemapi.objectdata.model.BaseBackReference;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IReference;
 
 /**
@@ -18,7 +18,7 @@ public final class ReferenceTool implements IReferenceTool {
    * {@inheritDoc}
    */
   @Override
-  public Optional<BaseBackReference> getOptionalStoredBaseBackReference(final IReference<IEntity> reference) {
+  public Optional<BaseBackReference> getOptionalStoredBaseBackReference(final IReference<Entity> reference) {
     if (reference.containsAny()) {
       final var referencedEntity = reference.getStoredReferencedEntity();
 

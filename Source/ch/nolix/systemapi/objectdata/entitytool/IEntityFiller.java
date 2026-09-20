@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.objectdata.entitytool;
 
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 
 /**
  * @author Silvan Wyss
@@ -18,5 +18,5 @@ public interface IEntityFiller {
    * @throws RuntimeException if the given entity is not valid
    * @throws RuntimeException if the given entityLoadingDto is not valid
    */
-  void fillUpEntityFromEntityLoadingDto(IEntity entity, EntityLoadingDto entityLoadingDto);
+  void fillUpEntityFromEntityLoadingDto(Entity entity, EntityLoadingDto entityLoadingDto);
 }

@@ -4,19 +4,19 @@
 package ch.nolix.system.objectdata.fieldexaminer;
 
 import ch.nolix.systemapi.objectdata.fieldexaminer.IOptionalReferenceExaminer;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IOptionalReference;
 
 /**
  * @author Silvan Wyss
  */
-public final class OptionalReferenceExaminer extends AbstractFieldExaminer<IOptionalReference<IEntity>>
+public final class OptionalReferenceExaminer extends AbstractFieldExaminer<IOptionalReference<Entity>>
 implements IOptionalReferenceExaminer {
   /**
    * {@inheritDoc}
    */
   @Override
-  public <E extends IEntity> boolean canBeCleared(final IOptionalReference<E> optionalReference) {
+  public <E extends Entity> boolean canBeCleared(final IOptionalReference<E> optionalReference) {
     return //
     optionalReference != null
     && optionalReference.belongsToEntity()
@@ -27,7 +27,7 @@ implements IOptionalReferenceExaminer {
    * {@inheritDoc}
    */
   @Override
-  public <E extends IEntity> boolean canSetEntity(final IOptionalReference<E> optionalReference) {
+  public <E extends Entity> boolean canSetEntity(final IOptionalReference<E> optionalReference) {
     return //
     optionalReference != null
     && optionalReference.isOpen()
@@ -38,7 +38,7 @@ implements IOptionalReferenceExaminer {
    * {@inheritDoc}
    */
   @Override
-  public <E extends IEntity> boolean canSetEntity(final IOptionalReference<E> optionalReference, final E entity) {
+  public <E extends Entity> boolean canSetEntity(final IOptionalReference<E> optionalReference, final E entity) {
     return //
     canSetEntity(optionalReference)
     && entity != null

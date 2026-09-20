@@ -10,10 +10,10 @@ import ch.nolix.baseapi.generalstate.statemutation.Clearable;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the {@link IEntity}s a {@link IMultiReference} can
+ * @param <E> the type of the {@link Entity}s a {@link IMultiReference} can
  *            reference.
  */
-public interface IMultiReference<E extends IEntity> extends Clearable, BaseReference, Iterable<E> {
+public interface IMultiReference<E extends Entity> extends Clearable, BaseReference, Iterable<E> {
   void addEntity(Object entity);
 
   ExtendedIterable<String> getAllReferencedEntityIds();

@@ -10,7 +10,7 @@ import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.systemapi.objectdata.model.BaseBackReference;
 import ch.nolix.systemapi.objectdata.model.BaseReference;
 import ch.nolix.systemapi.objectdata.model.Field;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
 /**
@@ -25,7 +25,7 @@ public final class EntitySearcher implements IEntitySearcher {
   @Override
   public Optional<BaseBackReference> //
   getOptionalStoredBaseBackReferenceWhoCanBackReferenceTheBaseReference(
-    final IEntity entity,
+    final Entity entity,
     final BaseReference baseReference) {
     if (entity != null && baseReference != null) {
       for (final var f : entity.internalGetStoredFields()) {
@@ -43,7 +43,7 @@ public final class EntitySearcher implements IEntitySearcher {
    */
   @Override
   public ExtendedIterable<BaseBackReference> getStoredBaseBackReferencesThatReferenceBackEntity(
-    final IEntity entity) {
+    final Entity entity) {
     final var fields = entity.internalGetStoredFields();
 
     return fields.toMultiples(Field::getStoredBaseBackReferencesWhoReferencesBackThis);
@@ -53,7 +53,7 @@ public final class EntitySearcher implements IEntitySearcher {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<? extends Field> getStoredEditedFields(final IEntity entity) {
+  public ExtendedIterable<? extends Field> getStoredEditedFields(final Entity entity) {
     return entity.internalGetStoredFields().getStoredSelected(Field::isEdited);
   }
 
@@ -61,7 +61,7 @@ public final class EntitySearcher implements IEntitySearcher {
    * {@inheritDoc}
    */
   @Override
-  public Field getStoredFieldByName(final IEntity entity, final String name) {
+  public Field getStoredFieldByName(final Entity entity, final String name) {
     final var fields = entity.internalGetStoredFields();
 
     return fields.getStoredFirst(f -> f.hasName(name));
@@ -71,7 +71,7 @@ public final class EntitySearcher implements IEntitySearcher {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<BaseReference> getStoredFieldsWhoAreBackReferencedFromEntity(final IEntity entity) {
+  public ExtendedIterable<BaseReference> getStoredFieldsWhoAreBackReferencedFromEntity(final Entity entity) {
     final var fields = entity.internalGetStoredFields();
 
     return fields.toMultiples(Field::getStoredBackReferencedBaseReferences);

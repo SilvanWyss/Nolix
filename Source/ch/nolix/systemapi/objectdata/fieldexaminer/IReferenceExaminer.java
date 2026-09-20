@@ -3,14 +3,14 @@
  */
 package ch.nolix.systemapi.objectdata.fieldexaminer;
 
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IReference;
 
 /**
  * @author Silvan Wyss
  */
-public interface IReferenceExaminer extends IFieldExaminer<IReference<IEntity>> {
-  <E extends IEntity> boolean canSetEntity(IReference<E> reference);
+public interface IReferenceExaminer extends IFieldExaminer<IReference<Entity>> {
+  <E extends Entity> boolean canSetEntity(IReference<E> reference);
 
-  <E extends IEntity> boolean canSetEntity(final IReference<E> reference, E entity);
+  <E extends Entity> boolean canSetEntity(final IReference<E> reference, E entity);
 }

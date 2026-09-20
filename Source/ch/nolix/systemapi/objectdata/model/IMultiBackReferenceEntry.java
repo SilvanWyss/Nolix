@@ -9,11 +9,11 @@ import ch.nolix.systemapi.database.databaseobject.DatabaseObject;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the {@link IEntity} a {@link IMultiBackReferenceEntry}
+ * @param <E> the type of the {@link Entity} a {@link IMultiBackReferenceEntry}
  *            references back.
  */
-public interface IMultiBackReferenceEntry<E extends IEntity>
-extends DatabaseComponent<IDatabase>, DatabaseObject, TableComponent<ITable<? extends IEntity>> {
+public interface IMultiBackReferenceEntry<E extends Entity>
+extends DatabaseComponent<IDatabase>, DatabaseObject, TableComponent<ITable<? extends Entity>> {
   String getBackReferencedEntityId();
 
   String getBackReferencedTableId();

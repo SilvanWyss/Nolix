@@ -14,14 +14,14 @@ import ch.nolix.systemapi.database.databaseobject.Deletable;
 /**
  * @author Silvan Wyss
  */
-public interface IEntity
+public interface Entity
 extends
 Deletable,
 DatabaseComponent<IDatabase>,
 DatabaseObject,
 IdHolder,
 OptionalSaveStampHolder,
-TableComponent<ITable<? extends IEntity>> {
+TableComponent<ITable<? extends Entity>> {
   String getParentTableName();
 
   String getShortDescription();
@@ -32,7 +32,7 @@ TableComponent<ITable<? extends IEntity>> {
 
   void internalSetLoadedAndIdAndSaveStamp(String loadedId, String saveStamp);
 
-  void internalSetParentTable(ITable<? extends IEntity> parentTable);
+  void internalSetParentTable(ITable<? extends Entity> parentTable);
 
   boolean isReferencedInPersistedData();
 

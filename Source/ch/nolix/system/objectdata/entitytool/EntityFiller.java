@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.entitytool;
 
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
 import ch.nolix.systemapi.objectdata.entitytool.IEntityFiller;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 
 /**
  * @author Silvan Wyss
@@ -17,7 +17,7 @@ public final class EntityFiller implements IEntityFiller {
    * {@inheritDoc}
    */
   @Override
-  public void fillUpEntityFromEntityLoadingDto(final IEntity entity, final EntityLoadingDto entityLoadingDto) {
+  public void fillUpEntityFromEntityLoadingDto(final Entity entity, final EntityLoadingDto entityLoadingDto) {
     final var id = entityLoadingDto.id();
     final var saveStamp = entityLoadingDto.saveStamp();
     final var contentFields = entityLoadingDto.contentFields();

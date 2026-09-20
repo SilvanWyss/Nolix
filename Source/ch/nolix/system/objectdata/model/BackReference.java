@@ -16,16 +16,16 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.model.BaseReference;
 import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.IBackReference;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the {@link IEntity} a {@link BackReference} references
+ * @param <E> the type of the {@link Entity} a {@link BackReference} references
  *            back
  */
-public final class BackReference<E extends IEntity> extends AbstractBaseBackReference implements IBackReference<E> {
+public final class BackReference<E extends Entity> extends AbstractBaseBackReference implements IBackReference<E> {
   private static final DatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
 
   private static final TableNameExtractor TABLE_NAME_EXTRACTOR = new TableNameExtractor();
@@ -43,7 +43,7 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
   }
 
   @SafeVarargs
-  public static <T extends IEntity> BackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
+  public static <T extends Entity> BackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
     final String backReferencedFieldName,
     final Class<T>... backReferenceableEntityTypes) {
     final var backReferenceableEntityTypesContainerView = ExtendedIterableView.forArray(backReferenceableEntityTypes);
@@ -53,7 +53,7 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
     return new BackReference<>(backReferenceableTableNamesView, backReferencedFieldName);
   }
 
-  public static <T extends IEntity> BackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
+  public static <T extends Entity> BackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
     final String backReferencedFieldName,
     final ExtendedIterable<Class<? extends T>> backReferenceableEntityTypes) {
     final var backReferenceableTableNamesView = //
@@ -62,7 +62,7 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
     return new BackReference<>(backReferenceableTableNamesView, backReferencedFieldName);
   }
 
-  public static <T extends IEntity> BackReference<T> forBackReferencedFieldNameAndBackReferenceableTableNames(
+  public static <T extends Entity> BackReference<T> forBackReferencedFieldNameAndBackReferenceableTableNames(
     final String backReferencedFieldName,
     final ExtendedIterable<String> backReferenceableTableNames) {
     return new BackReference<>(backReferenceableTableNames, backReferencedFieldName);
@@ -197,7 +197,7 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
    * {@inheritDoc}
    */
   @Override
-  public boolean referencesBackEntity(final IEntity entity) {
+  public boolean referencesBackEntity(final Entity entity) {
     return //
     containsAny()
     && entity != null
@@ -242,7 +242,7 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
   }
 
   @SuppressWarnings("unchecked")
-  void setBackReferencedEntityOnly(final IEntity entity) {
+  void setBackReferencedEntityOnly(final Entity entity) {
     final var entityId = entity.getId();
     final var castedEntity = (E) entity;
     if (entity.belongsToTable()) {

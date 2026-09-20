@@ -21,9 +21,9 @@ extends
 EmptinessRequestable,
 DatabaseComponent<IDatabase>,
 DatabaseObject,
-EntityComponent<IEntity>,
+EntityComponent<Entity>,
 NameHolder,
-TableComponent<ITable<? extends IEntity>>,
+TableComponent<ITable<? extends Entity>>,
 MandatorynessRequestable {
   ExtendedIterable<BaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis();
 
@@ -37,13 +37,13 @@ MandatorynessRequestable {
 
   boolean knowsParentColumn();
 
-  boolean referencesBackEntity(IEntity entity);
+  boolean referencesBackEntity(Entity entity);
 
   boolean referencesBackEntityWithId(String id);
 
   boolean referencesBackField(Field field);
 
-  boolean referencesEntity(IEntity entity);
+  boolean referencesEntity(Entity entity);
 
   boolean referencesUninsertedEntity();
 

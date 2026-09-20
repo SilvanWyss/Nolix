@@ -6,7 +6,7 @@ package ch.nolix.systemapi.objectdata.fieldexaminer;
 import ch.nolix.systemapi.database.databaseobjectexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdata.model.BaseReference;
 import ch.nolix.systemapi.objectdata.model.Field;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 
 /**
  * @author Silvan Wyss
@@ -15,13 +15,13 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 public interface IFieldExaminer<F extends Field> extends IDatabaseObjectExaminer<F> {
   /**
    * @param field
-   * @return true if the given field belongs to a {@link IEntity}, false otherwise
+   * @return true if the given field belongs to a {@link Entity}, false otherwise
    */
   boolean belongsToEntity(F field);
 
   /**
    * @param field
-   * @return true if the given field belongs to a loaded {@link IEntity}, false
+   * @return true if the given field belongs to a loaded {@link Entity}, false
    *         otherwise
    */
   boolean belongsToLoadedEntity(F field);

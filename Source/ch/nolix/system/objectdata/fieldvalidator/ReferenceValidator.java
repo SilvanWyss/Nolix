@@ -6,19 +6,19 @@ package ch.nolix.system.objectdata.fieldvalidator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.fieldexaminer.ReferenceExaminer;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IReferenceValidator;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IReference;
 
 /**
  * @author Silvan Wyss
  */
 public final class ReferenceValidator
-extends AbstractFieldValidator<IReference<IEntity>>
+extends AbstractFieldValidator<IReference<Entity>>
 implements IReferenceValidator {
   private static final ReferenceExaminer REFERENCE_EXAMINER = new ReferenceExaminer();
 
   @Override
-  public <E extends IEntity> void assertCanSetEntity(final IReference<E> reference, final E entity) {
+  public <E extends Entity> void assertCanSetEntity(final IReference<E> reference, final E entity) {
     if (!REFERENCE_EXAMINER.canSetEntity(reference, entity)) {
       throw //
       InvalidArgumentException.forArgumentAndErrorPredicate(reference, "cannot set the given entity '" + entity + "'");

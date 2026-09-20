@@ -7,7 +7,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
 import ch.nolix.systemapi.middata.model.FieldDto;
 import ch.nolix.systemapi.objectdata.entitytool.IEntityContentFieldsFiller;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 
 /**
  * @author Silvan Wyss
@@ -18,7 +18,7 @@ public final class EntityContentFieldsFiller implements IEntityContentFieldsFill
    */
   @Override
   public void fillUpEntityContentFieldsFromContentFieldDtos(
-    final IEntity entity,
+    final Entity entity,
     final ExtendedIterable<FieldDto> contentFieldDtos) {
     final var entityFields = entity.internalGetStoredFields();
 
@@ -34,7 +34,7 @@ public final class EntityContentFieldsFiller implements IEntityContentFieldsFill
    */
   @Override
   public void fillUpEntityContentFieldsFromEntityLoadingDto(
-    final IEntity entity,
+    final Entity entity,
     final EntityLoadingDto entityLoadingDto) {
     final var contentFields = entityLoadingDto.contentFields();
 

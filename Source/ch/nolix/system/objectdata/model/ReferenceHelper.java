@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
 /**
@@ -17,7 +17,7 @@ public final class ReferenceHelper {
   private ReferenceHelper() {
   }
 
-  public static <E extends IEntity> EntityCache<E> createEntityCacheFromIdAndTableId(
+  public static <E extends Entity> EntityCache<E> createEntityCacheFromIdAndTableId(
     final Object id,
     final String tableId) {
 

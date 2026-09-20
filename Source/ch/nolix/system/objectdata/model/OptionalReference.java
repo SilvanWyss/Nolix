@@ -18,17 +18,17 @@ import ch.nolix.systemapi.database.databaseobject.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.model.BaseBackReference;
 import ch.nolix.systemapi.objectdata.model.Field;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IOptionalReference;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the {@link IEntity} a {@link OptionalReference} can
+ * @param <E> the type of the {@link Entity} a {@link OptionalReference} can
  *            reference.
  */
-public final class OptionalReference<E extends IEntity>
+public final class OptionalReference<E extends Entity>
 extends AbstractBaseReference<E>
 implements IOptionalReference<E> {
   private static final DatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
@@ -48,7 +48,7 @@ implements IOptionalReference<E> {
   }
 
   @SafeVarargs
-  public static <T extends IEntity> OptionalReference<T> forEntityTypes(
+  public static <T extends Entity> OptionalReference<T> forEntityTypes(
     final Class<? extends T>... entityTypes) {
     final var entityTypesView = ExtendedIterableView.forArray(entityTypes);
     final var referenceableTableNamesView = entityTypesView.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
@@ -56,19 +56,19 @@ implements IOptionalReference<E> {
     return new OptionalReference<>(referenceableTableNamesView);
   }
 
-  public static <T extends IEntity> OptionalReference<T> forEntityTypes(
+  public static <T extends Entity> OptionalReference<T> forEntityTypes(
     final ExtendedIterable<Class<? extends T>> entityTypes) {
     final var referenceableTableNamesView = entityTypes.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
 
     return new OptionalReference<>(referenceableTableNamesView);
   }
 
-  public static <T extends IEntity> OptionalReference<T> forReferenceableTableNames(
+  public static <T extends Entity> OptionalReference<T> forReferenceableTableNames(
     final ExtendedIterable<String> referenceableTableNames) {
     return new OptionalReference<>(referenceableTableNames);
   }
 
-  public static <T extends IEntity> OptionalReference<T> forReferenceableTableNames(
+  public static <T extends Entity> OptionalReference<T> forReferenceableTableNames(
     final String... referenceableTableNames) {
     final var referenceableTableNamesView = ExtendedIterableView.forArray(referenceableTableNames);
 
@@ -223,7 +223,7 @@ implements IOptionalReference<E> {
    * {@inheritDoc}
    */
   @Override
-  public boolean referencesEntity(IEntity entity) {
+  public boolean referencesEntity(Entity entity) {
     return containsAny()
     && entity != null
     && getReferencedEntityId().equals(entity.getId());

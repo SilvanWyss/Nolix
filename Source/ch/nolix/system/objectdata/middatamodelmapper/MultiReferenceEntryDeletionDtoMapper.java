@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.middatamodelmapper;
 
 import ch.nolix.systemapi.middata.model.MultiReferenceEntryDeletionDto;
 import ch.nolix.systemapi.objectdata.middatamodelmapper.IMultiReferenceEntryDeletionDtoMapper;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
 
 /**
@@ -17,7 +17,7 @@ public final class MultiReferenceEntryDeletionDtoMapper implements IMultiReferen
    */
   @Override
   public MultiReferenceEntryDeletionDto mapMultiReferenceEntryToMultiReferenceEntryDeletionDto(
-    final IMultiReferenceEntry<? extends IEntity> multiReferenceEntry) {
+    final IMultiReferenceEntry<? extends Entity> multiReferenceEntry) {
     final var multiReference = multiReferenceEntry.getStoredParentMultiReference();
     final var entity = multiReference.getStoredParentEntity();
     final var tableName = entity.getParentTableName();

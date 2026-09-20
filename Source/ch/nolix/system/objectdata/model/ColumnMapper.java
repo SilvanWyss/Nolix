@@ -6,7 +6,7 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.objectdata.model.IColumn;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
 /**
@@ -19,8 +19,8 @@ public final class ColumnMapper {
 
   public static IColumn mapMidSchemaColumnDtoToColumn(
     final ColumnDto midSchemaColumnDto,
-    final Table<IEntity> parentTable,
-    final ExtendedIterable<? extends ITable<IEntity>> tables) {
+    final Table<Entity> parentTable,
+    final ExtendedIterable<? extends ITable<Entity>> tables) {
     final var id = midSchemaColumnDto.id();
     final var name = midSchemaColumnDto.name();
     final var fieldType = midSchemaColumnDto.fieldType();

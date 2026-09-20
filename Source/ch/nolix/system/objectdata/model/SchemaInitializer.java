@@ -10,7 +10,7 @@ import ch.nolix.system.objectdata.entitytool.EntityCreator;
 import ch.nolix.system.objectdata.schemamapper.ColumnMapper;
 import ch.nolix.system.objectdata.schemasearcher.SchemaSearcher;
 import ch.nolix.systemapi.midschema.fieldproperty.BaseFieldType;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.schemaadapter.SchemaAdapter;
@@ -64,7 +64,7 @@ public final class SchemaInitializer {
 
   private static void addBaseValueColumnsToTable(
     final ITable table,
-    final Class<? extends IEntity> entityType) {
+    final Class<? extends Entity> entityType) {
     final var entity = ENTITY_CREATOR.createEmptyEntityForEntityType(entityType);
 
     final var baseValuesView = //
@@ -92,7 +92,7 @@ public final class SchemaInitializer {
 
   private static void addBaseReferenceColumnsToTable(
     final ITable table,
-    final Class<? extends IEntity> entityType,
+    final Class<? extends Entity> entityType,
     final ExtendedIterable<ITable> referencableTables) {
     final var entity = ENTITY_CREATOR.createEmptyEntityForEntityType(entityType);
 
@@ -121,7 +121,7 @@ public final class SchemaInitializer {
 
   private static void addBaseBackReferenceColumnsToTable(
     final ITable table,
-    final Class<? extends IEntity> entityType,
+    final Class<? extends Entity> entityType,
     final ExtendedIterable<ITable> referencableTables) {
     final var entity = ENTITY_CREATOR.createEmptyEntityForEntityType(entityType);
 

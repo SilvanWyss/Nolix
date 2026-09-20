@@ -5,10 +5,10 @@ package ch.nolix.systemapi.objectdata.model;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the {@link IEntity} a {@link IOptionalBackReference}
+ * @param <E> the type of the {@link Entity} a {@link IOptionalBackReference}
  *            can reference back.
  */
-public interface IOptionalBackReference<E extends IEntity> extends BaseBackReference {
+public interface IOptionalBackReference<E extends Entity> extends BaseBackReference {
   String getBackReferencedEntityId();
 
   String getBackReferencedTableId();

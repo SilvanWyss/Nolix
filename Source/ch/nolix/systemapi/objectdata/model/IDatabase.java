@@ -17,13 +17,13 @@ public interface IDatabase extends GroupCloseable, DatabaseObject, NameHolder {
 
   ITime getSchemaTimestamp();
 
-  <E extends IEntity> ExtendedIterable<E> getStoredEntitiesByType(Class<E> type);
+  <E extends Entity> ExtendedIterable<E> getStoredEntitiesByType(Class<E> type);
 
-  <E extends IEntity> ITable<E> getStoredTableByEntityType(Class<E> entityType);
+  <E extends Entity> ITable<E> getStoredTableByEntityType(Class<E> entityType);
 
-  ITable<IEntity> getStoredTableByName(String name);
+  ITable<Entity> getStoredTableByName(String name);
 
-  ExtendedIterable<? extends ITable<IEntity>> getStoredTables();
+  ExtendedIterable<? extends ITable<Entity>> getStoredTables();
 
-  <E extends IEntity> IDatabase insertEntity(E entity);
+  <E extends Entity> IDatabase insertEntity(E entity);
 }

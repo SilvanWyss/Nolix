@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.system.objectdata.schemasearcher.SchemaSearcher;
 import ch.nolix.systemapi.midschema.model.TableDto;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 
 /**
  * @author Silvan Wyss
@@ -17,13 +17,13 @@ public final class TableMapper {
   }
 
   @SuppressWarnings("unchecked")
-  public static Table<IEntity> mapMidSchemaTableDtoToTableWithoutColumns(
+  public static Table<Entity> mapMidSchemaTableDtoToTableWithoutColumns(
     final TableDto midTableDto,
     final Database database) {
     final var tableName = midTableDto.name();
     final var tableId = midTableDto.id();
     final var entityTypeSet = database.getEntityTypeSet();
-    final var entityType = (Class<IEntity>) (SCHEMA_SEARCHER.getEntityTypeByName(entityTypeSet, tableName));
+    final var entityType = (Class<Entity>) (SCHEMA_SEARCHER.getEntityTypeByName(entityTypeSet, tableName));
 
     return Table.withParentDatabaseAndNameAndIdAndEntityType(database, tableName, tableId, entityType);
   }

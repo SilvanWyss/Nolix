@@ -17,16 +17,16 @@ import ch.nolix.systemapi.database.databaseobject.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.model.BaseBackReference;
 import ch.nolix.systemapi.objectdata.model.Field;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IReference;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the {@link IEntity} a {@link Reference} references
+ * @param <E> the type of the {@link Entity} a {@link Reference} references
  */
-public final class Reference<E extends IEntity> extends AbstractBaseReference<E> implements IReference<E> {
+public final class Reference<E extends Entity> extends AbstractBaseReference<E> implements IReference<E> {
   private static final DatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
 
   private static final TableNameExtractor TABLE_NAME_EXTRACTOR = new TableNameExtractor();
@@ -44,7 +44,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   }
 
   @SafeVarargs
-  public static <T extends IEntity> Reference<T> forEntityTypes(
+  public static <T extends Entity> Reference<T> forEntityTypes(
     final Class<? extends T>... entityTypes) {
     final var entityTypesView = ExtendedIterableView.forArray(entityTypes);
     final var referenceableTableNamesView = entityTypesView.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
@@ -52,19 +52,19 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     return new Reference<>(referenceableTableNamesView);
   }
 
-  public static <T extends IEntity> Reference<T> forEntityTypes(
+  public static <T extends Entity> Reference<T> forEntityTypes(
     final ExtendedIterable<Class<? extends T>> entityTypes) {
     final var referenceableTableNamesView = entityTypes.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
 
     return new Reference<>(referenceableTableNamesView);
   }
 
-  public static <T extends IEntity> Reference<T> forReferenceableTableNames(
+  public static <T extends Entity> Reference<T> forReferenceableTableNames(
     final ExtendedIterable<String> referenceableTableNames) {
     return new Reference<>(referenceableTableNames);
   }
 
-  public static <T extends IEntity> Reference<T> forReferenceableTableNames(final String... referenceableTableNames) {
+  public static <T extends Entity> Reference<T> forReferenceableTableNames(final String... referenceableTableNames) {
     final var referenceableTableNamesView = ExtendedIterableView.forArray(referenceableTableNames);
 
     return new Reference<>(referenceableTableNamesView);
@@ -196,7 +196,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
    * {@inheritDoc}
    */
   @Override
-  public boolean referencesEntity(final IEntity entity) {
+  public boolean referencesEntity(final Entity entity) {
     return //
     containsAny()
     && entity != null

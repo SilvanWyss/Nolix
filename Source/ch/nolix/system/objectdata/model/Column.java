@@ -10,7 +10,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 import ch.nolix.systemapi.database.databaseobject.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.model.IColumn;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
 /**
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 public final class Column implements IColumn {
   private static final String DATA_TYPE_CLASS_VARIABLE = "data type class";
 
-  private final Table<IEntity> parentTable;
+  private final Table<Entity> parentTable;
 
   private final String id;
 
@@ -29,16 +29,16 @@ public final class Column implements IColumn {
 
   private final Class<?> dataTypeClass;
 
-  private final ImmutableList<? extends ITable<IEntity>> referenceableTables;
+  private final ImmutableList<? extends ITable<Entity>> referenceableTables;
 
   private final ImmutableList<? extends IColumn> backReferenceableColumns;
 
   private Column(
-    final Table<IEntity> parentTable,
+    final Table<Entity> parentTable,
     final String id, final String name,
     final FieldType fieldType,
     final Class<?> dataTypeClass,
-    final ExtendedIterable<? extends ITable<IEntity>> referenceableTables,
+    final ExtendedIterable<? extends ITable<Entity>> referenceableTables,
     final ExtendedIterable<? extends IColumn> backReferenceableColumns) {
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableNameCatalog.ID).isNotBlank();
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableNameCatalog.NAME).isNotBlank();
@@ -56,12 +56,12 @@ public final class Column implements IColumn {
 
   public static Column //
   withParentTableAndIdAndNameAndFieldTypeAndDataTypeClassAndReferenceableTablesAndBackReferenceableColumns(
-    final Table<IEntity> parentTable,
+    final Table<Entity> parentTable,
     final String id,
     final String name,
     final FieldType fieldType,
     final Class<?> dataTypeClass,
-    final ExtendedIterable<? extends ITable<IEntity>> referenceableTables,
+    final ExtendedIterable<? extends ITable<Entity>> referenceableTables,
     final ExtendedIterable<? extends IColumn> backReferenceableColumns) {
     return new Column(parentTable, id, name, fieldType, dataTypeClass, referenceableTables, backReferenceableColumns);
   }
@@ -152,7 +152,7 @@ public final class Column implements IColumn {
    * {@inheritDoc}
    */
   @Override
-  public ITable<IEntity> getStoredParentTable() {
+  public ITable<Entity> getStoredParentTable() {
     return parentTable;
   }
 
@@ -160,7 +160,7 @@ public final class Column implements IColumn {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<? extends ITable<IEntity>> getStoredReferenceableTables() {
+  public ExtendedIterable<? extends ITable<Entity>> getStoredReferenceableTables() {
     return referenceableTables;
   }
 

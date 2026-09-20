@@ -3,13 +3,13 @@
  */
 package ch.nolix.systemapi.objectdata.entitytool;
 
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 
 /**
  * @author Silvan Wyss
  */
 public interface ITableNameExtractor {
-  String getTableNameOfEntity(IEntity entity);
+  String getTableNameOfEntity(Entity entity);
 
-  String getTableNameOfEntityType(Class<? extends IEntity> entityType);
+  String getTableNameOfEntityType(Class<? extends Entity> entityType);
 }

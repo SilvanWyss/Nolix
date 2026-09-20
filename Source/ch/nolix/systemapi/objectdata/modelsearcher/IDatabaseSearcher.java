@@ -5,7 +5,7 @@ package ch.nolix.systemapi.objectdata.modelsearcher;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
 /**
@@ -14,9 +14,9 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 public interface IDatabaseSearcher {
   /**
    * @param database
-   * @return the {@link IEntity}s of the given database in the local data.
+   * @return the {@link Entity}s of the given database in the local data.
    */
-  ExtendedIterable<IEntity> getStoredEntitiesInLocalData(IDatabase database);
+  ExtendedIterable<Entity> getStoredEntitiesInLocalData(IDatabase database);
 
   /**
    * @param database
@@ -25,5 +25,5 @@ public interface IDatabaseSearcher {
    * @throws RuntimeException if the given database does not contain a table with
    *                          the given tableId.
    */
-  ITable<IEntity> getStoredTableById(IDatabase database, String tableId);
+  ITable<Entity> getStoredTableById(IDatabase database, String tableId);
 }

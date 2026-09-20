@@ -7,7 +7,7 @@ import ch.nolix.base.foundation.util.FunctionService;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.Field;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
@@ -35,9 +35,9 @@ public final class MultiFieldSaver implements IMultiFieldSaver {
     switch (field) {
       case IMultiValueField<?> multiValueField ->
         MULTI_VALUE_FIELD_SAVER.saveMultiValueFieldChanges(multiValueField, dataAndSchemaAdapter);
-      case IMultiReference<? extends IEntity> multiReference ->
+      case IMultiReference<? extends Entity> multiReference ->
         MULTI_REFERENCE_SAVER.saveMultiReferenceChanges(multiReference, dataAndSchemaAdapter);
-      case IMultiBackReference<? extends IEntity> multiBackReference ->
+      case IMultiBackReference<? extends Entity> multiBackReference ->
         MULTI_BACK_REFERENCE_SAVER.saveMultiBackReferenceChanges(multiBackReference, dataAndSchemaAdapter);
       default ->
         FunctionService.doNothing();
@@ -49,7 +49,7 @@ public final class MultiFieldSaver implements IMultiFieldSaver {
    */
   @Override
   public void saveMultiFieldChangesOfEntity(
-    final IEntity entity,
+    final Entity entity,
     final DataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var entityState = entity.getState();
 

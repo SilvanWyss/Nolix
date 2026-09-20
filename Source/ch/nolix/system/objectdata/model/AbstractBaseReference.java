@@ -8,14 +8,14 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.objectdata.model.BaseReference;
 import ch.nolix.systemapi.objectdata.model.Field;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the {@link IEntity}s of a
+ * @param <E> the type of the {@link Entity}s of a
  *            {@link AbstractBaseReference}.
  */
-public abstract class AbstractBaseReference<E extends IEntity> extends AbstractField implements BaseReference {
+public abstract class AbstractBaseReference<E extends Entity> extends AbstractField implements BaseReference {
   private final ImmutableList<String> referenceableTableNames;
 
   protected AbstractBaseReference(final ExtendedIterable<String> referenceableTableNames) {
@@ -43,7 +43,7 @@ public abstract class AbstractBaseReference<E extends IEntity> extends AbstractF
    * {@inheritDoc}
    */
   @Override
-  public final boolean referencesBackEntity(final IEntity entity) {
+  public final boolean referencesBackEntity(final Entity entity) {
     return false;
   }
 

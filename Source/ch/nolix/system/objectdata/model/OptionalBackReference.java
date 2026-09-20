@@ -14,17 +14,17 @@ import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.model.BaseReference;
 import ch.nolix.systemapi.objectdata.model.Field;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IOptionalBackReference;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the {@link IEntity} a {@link OptionalBackReference}
+ * @param <E> the type of the {@link Entity} a {@link OptionalBackReference}
  *            can references back
  */
-public final class OptionalBackReference<E extends IEntity>
+public final class OptionalBackReference<E extends Entity>
 extends AbstractBaseBackReference
 implements IOptionalBackReference<E> {
   private static final DatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
@@ -44,7 +44,7 @@ implements IOptionalBackReference<E> {
   }
 
   @SafeVarargs
-  public static <T extends IEntity> OptionalBackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
+  public static <T extends Entity> OptionalBackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
     final String backReferencedFieldName,
     final Class<T>... backReferenceableEntityTypes) {
     final var backReferenceableEntityTypesContainerView = ExtendedIterableView.forArray(backReferenceableEntityTypes);
@@ -55,7 +55,7 @@ implements IOptionalBackReference<E> {
     return new OptionalBackReference<>(backReferenceableTableNamesView, backReferencedFieldName);
   }
 
-  public static <T extends IEntity> OptionalBackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
+  public static <T extends Entity> OptionalBackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
     final String backReferencedFieldName,
     final ExtendedIterable<Class<? extends T>> backReferenceableEntityTypes) {
     final var backReferenceableTableNamesView = //
@@ -64,7 +64,7 @@ implements IOptionalBackReference<E> {
     return new OptionalBackReference<>(backReferenceableTableNamesView, backReferencedFieldName);
   }
 
-  public static <T extends IEntity> OptionalBackReference<T> forBackReferencedFieldNameAndBackReferenceableTableNames(
+  public static <T extends Entity> OptionalBackReference<T> forBackReferencedFieldNameAndBackReferenceableTableNames(
     final String backReferencedFieldName,
     final ExtendedIterable<String> backReferenceableTableNames) {
     return new OptionalBackReference<>(backReferenceableTableNames, backReferencedFieldName);
@@ -201,7 +201,7 @@ implements IOptionalBackReference<E> {
    * {@inheritDoc}
    */
   @Override
-  public boolean referencesBackEntity(IEntity entity) {
+  public boolean referencesBackEntity(Entity entity) {
     return containsAny()
     && entity != null
     && getBackReferencedEntityId().equals(entity.getId());
@@ -235,7 +235,7 @@ implements IOptionalBackReference<E> {
   }
 
   @SuppressWarnings("unchecked")
-  void setBackReferencedEntityOnly(final IEntity entity) {
+  void setBackReferencedEntityOnly(final Entity entity) {
     final var entityId = entity.getId();
     final var castedEntity = (E) entity;
     if (entity.belongsToTable()) {

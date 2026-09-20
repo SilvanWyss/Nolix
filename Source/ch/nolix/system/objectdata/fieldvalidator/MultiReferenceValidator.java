@@ -6,19 +6,19 @@ package ch.nolix.system.objectdata.fieldvalidator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.fieldexaminer.MultiReferenceExaminer;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IMultiReferenceValidator;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 
 /**
  * @author Silvan Wyss
  */
 public final class MultiReferenceValidator
-extends AbstractFieldValidator<IMultiReference<IEntity>>
+extends AbstractFieldValidator<IMultiReference<Entity>>
 implements IMultiReferenceValidator {
   private static final MultiReferenceExaminer MULTI_REFERENCE_EXAMINER = new MultiReferenceExaminer();
 
   @Override
-  public <E extends IEntity> void assertCanAddEntity(final IMultiReference<E> multiReference, final E entity) {
+  public <E extends Entity> void assertCanAddEntity(final IMultiReference<E> multiReference, final E entity) {
     if (!MULTI_REFERENCE_EXAMINER.canAddEntity(multiReference, entity)) {
       throw //
       InvalidArgumentException.forArgumentAndErrorPredicate(
@@ -41,7 +41,7 @@ implements IMultiReferenceValidator {
    * {@inheritDoc}
    */
   @Override
-  public <E extends IEntity> void assertCanRemoveEntity(final IMultiReference<E> multiReference, final E entity) {
+  public <E extends Entity> void assertCanRemoveEntity(final IMultiReference<E> multiReference, final E entity) {
     if (!MULTI_REFERENCE_EXAMINER.canRemoveEntity(multiReference, entity)) {
       throw //
       InvalidArgumentException.forArgumentAndErrorPredicate(multiReference, "cannot remove the given '" + entity + "'");

@@ -11,13 +11,13 @@ import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
 import ch.nolix.systemapi.database.databaseobject.DatabaseObjectState;
 import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
-final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEntry<E> {
+final class MultiReferenceEntry<E extends Entity> implements IMultiReferenceEntry<E> {
   private static final DatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
 
   private static final StandardDatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = //
@@ -59,7 +59,7 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     this.referencedEntityCache = new EntityCache<>(referencedEntityId, referencedTableId, null);
   }
 
-  public static <T extends IEntity> MultiReferenceEntry<T> //
+  public static <T extends Entity> MultiReferenceEntry<T> //
   createLoadedEntryForMultiReferenceAndReferencedEntityIdAndReferencedTableId(
     final IMultiReference<T> multiReference,
     final String referencedEntityId,
@@ -72,13 +72,13 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
       referencedTableId);
   }
 
-  public static <T extends IEntity> MultiReferenceEntry<T> createNewEntryForMultiReferenceAndReferencedEntity(
+  public static <T extends Entity> MultiReferenceEntry<T> createNewEntryForMultiReferenceAndReferencedEntity(
     final IMultiReference<T> multiReference,
     final T referencedEntity) {
     return new MultiReferenceEntry<>(multiReference, DatabaseObjectState.NEW, referencedEntity);
   }
 
-  public static <T extends IEntity> MultiReferenceEntry<T> //
+  public static <T extends Entity> MultiReferenceEntry<T> //
   createNewEntryForMultiReferenceAndReferencedEntityIdAndReferencedTableId(
     final IMultiReference<T> multiReference,
     final String referencedEntityId,
@@ -176,7 +176,7 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
    * {@inheritDoc}
    */
   @Override
-  public ITable<? extends IEntity> getStoredParentTable() {
+  public ITable<? extends Entity> getStoredParentTable() {
     return getStoredParentMultiReference().getStoredParentTable();
   }
 

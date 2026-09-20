@@ -5,7 +5,7 @@ package ch.nolix.systemapi.objectdata.expectation;
 
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.Field;
-import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 import ch.nolix.systemapi.objectdata.model.IOptionalReference;
 import ch.nolix.systemapi.objectdata.model.IReference;
@@ -31,7 +31,7 @@ public interface IFieldExpectationAdder {
    * @param dataAndSchemaAdapter
    */
   void addExpectationThatNewlyReferencedEntitiesExist(
-    IMultiReference<? extends IEntity> multiReference,
+    IMultiReference<? extends Entity> multiReference,
     DataAdapterAndSchemaReader dataAndSchemaAdapter);
 
   /**
@@ -42,7 +42,7 @@ public interface IFieldExpectationAdder {
    * @param dataAndSchemaAdapter
    */
   void addExpectationThatNewlyReferencedEntitiesExist(
-    IOptionalReference<? extends IEntity> optionalReference,
+    IOptionalReference<? extends Entity> optionalReference,
     DataAdapterAndSchemaReader dataAndSchemaAdapter);
 
   /**
@@ -53,7 +53,7 @@ public interface IFieldExpectationAdder {
    * @param dataAndSchemaAdapter
    */
   void addExpectationThatNewlyReferencedEntitiesExist(
-    IReference<? extends IEntity> reference,
+    IReference<? extends Entity> reference,
     DataAdapterAndSchemaReader dataAndSchemaAdapter);
 
   /**
