@@ -13,7 +13,7 @@ import ch.nolix.baseapi.net.executoranddataproviderserver.Slot;
 /**
  * @author Silvan Wyss
  */
-final class ExecutorAndDataProviderSlot implements Slot {
+final class ServerSlot implements Slot {
   private final String name;
 
   private final AbstractServer<?> parentServer;
@@ -27,7 +27,7 @@ final class ExecutorAndDataProviderSlot implements Slot {
    * @throws RuntimeException if given name is null or blank
    * @throws RuntimeException if the given parentServer is null
    */
-  private ExecutorAndDataProviderSlot(final String name, final AbstractServer<?> parentServer) {
+  private ServerSlot(final String name, final AbstractServer<?> parentServer) {
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableNameCatalog.NAME).isNotBlank();
     Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
 
@@ -43,10 +43,10 @@ final class ExecutorAndDataProviderSlot implements Slot {
    * @throws RuntimeException if given name is null or blank
    * @throws RuntimeException if the given parentServer is null
    */
-  public static ExecutorAndDataProviderSlot withNameAndParentServer(
+  public static ServerSlot withNameAndParentServer(
     final String name,
     final AbstractServer<?> parentServer) {
-    return new ExecutorAndDataProviderSlot(name, parentServer);
+    return new ServerSlot(name, parentServer);
   }
 
   /**
