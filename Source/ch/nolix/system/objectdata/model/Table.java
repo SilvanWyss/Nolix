@@ -19,9 +19,9 @@ import ch.nolix.system.objectdata.modelvalidator.TableValidator;
 import ch.nolix.systemapi.database.databaseobject.DatabaseObjectState;
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
+import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
-import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
 /**
@@ -238,6 +238,16 @@ public final class Table<E extends Entity> implements ITable<E> {
    * {@inheritDoc}
    */
   @Override
+  public void internalClose() {
+    for (final var e : internalGetStoredEntitiesInLocalData()) {
+      e.internalClose();
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean isClosed() {
     return parentDatabase.isClosed();
   }
@@ -288,12 +298,6 @@ public final class Table<E extends Entity> implements ITable<E> {
   @Override
   public ExtendedIterable<E> internalGetStoredEntitiesInLocalData() {
     return entitiesInLocalData;
-  }
-
-  void close() {
-    for (final var e : internalGetStoredEntitiesInLocalData()) {
-      e.internalClose();
-    }
   }
 
   DataAdapterAndSchemaReader getStoredMidDataDataAdapterAndSchemaReader() {

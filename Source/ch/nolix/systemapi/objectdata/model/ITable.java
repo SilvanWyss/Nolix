@@ -33,5 +33,7 @@ extends DatabaseComponent<IDatabase>, DatabaseObject, IdHolder, NameHolder {
 
   ITable<E> insertEntity(E entity);
 
+  void internalClose();
+
   ExtendedIterable<E> internalGetStoredEntitiesInLocalData();
 }

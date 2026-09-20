@@ -10,8 +10,8 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.systemapi.database.databaseobject.DatabaseObjectState;
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.Entity;
+import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.time.main.ITime;
@@ -202,7 +202,7 @@ public final class Database implements IDatabase {
   @Override
   public void noteClose() {
     for (final var t : getStoredTables()) {
-      ((Table<?>) t).close();
+      t.internalClose();
     }
 
     midDataAdapterAndSchemaReader.close();
