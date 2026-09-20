@@ -153,6 +153,32 @@ public abstract class AbstractBaseEntity implements Entity {
    * {@inheritDoc}
    */
   @Override
+  public final void internalSetEdited() {
+    final var localState = getState();
+
+    switch (state) {
+      case NEW:
+        // Does nothing.
+        break;
+      case UNEDITED:
+        state = DatabaseObjectState.EDITED;
+        break;
+      case EDITED:
+        // Does nothing.
+        break;
+      case DELETED:
+        throw DeletedArgumentException.forArgument(this);
+      case CLOSED:
+        throw ClosedArgumentException.forArgument(this);
+      default:
+        throw InvalidArgumentException.forArgument(localState);
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final void internalSetLoadedAndIdAndSaveStamp(final String id, final String saveStamp) {
     ENTITY_VALIDATOR.assertIsNew(this);
 
@@ -272,28 +298,6 @@ public abstract class AbstractBaseEntity implements Entity {
     getStoredFields().forEach(AbstractField::noteInsertIntoDatabase);
 
     entityFlyweight.noteInsertIntoDatabase();
-  }
-
-  final void setEdited() {
-    final var localState = getState();
-
-    switch (state) {
-      case NEW:
-        // Does nothing.
-        break;
-      case UNEDITED:
-        state = DatabaseObjectState.EDITED;
-        break;
-      case EDITED:
-        // Does nothing.
-        break;
-      case DELETED:
-        throw DeletedArgumentException.forArgument(this);
-      case CLOSED:
-        throw ClosedArgumentException.forArgument(this);
-      default:
-        throw InvalidArgumentException.forArgument(localState);
-    }
   }
 
   private boolean extractedFields() {

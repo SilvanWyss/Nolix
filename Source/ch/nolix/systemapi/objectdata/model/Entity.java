@@ -30,6 +30,8 @@ TableComponent<ITable<? extends Entity>> {
 
   void internalClose();
 
+  void internalSetEdited();
+
   void internalSetLoadedAndIdAndSaveStamp(String loadedId, String saveStamp);
 
   void internalSetParentTable(ITable<? extends Entity> parentTable);

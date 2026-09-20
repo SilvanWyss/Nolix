@@ -223,7 +223,7 @@ public abstract class AbstractField implements Field {
 
   protected final void setAsEditedAndRunPossibleUpdateAction() {
     if (belongsToEntity()) {
-      getStoredParentEntity().setEdited();
+      getStoredParentEntity().internalSetEdited();
     }
 
     edited = true;
