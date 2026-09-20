@@ -13,13 +13,13 @@ import ch.nolix.baseapi.net.executoranddataproviderserver.Slot;
 /**
  * @author Silvan Wyss
  */
-final class ServerSlot implements Slot {
+public final class ServerSlot implements Slot {
   private final String name;
 
-  private final AbstractServer<?> parentServer;
+  private final ch.nolix.baseapi.net.clientserver.Server<?> parentServer;
 
   /**
-   * Creates a new {Slot} with the given name that will belong to the given
+   * Creates a new {ServerSlot} with the given name that will belong to the given
    * parentServer.
    * 
    * @param name
@@ -27,7 +27,7 @@ final class ServerSlot implements Slot {
    * @throws RuntimeException if given name is null or blank
    * @throws RuntimeException if the given parentServer is null
    */
-  private ServerSlot(final String name, final AbstractServer<?> parentServer) {
+  private ServerSlot(final String name, final ch.nolix.baseapi.net.clientserver.Server<?> parentServer) {
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableNameCatalog.NAME).isNotBlank();
     Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
 
@@ -38,14 +38,14 @@ final class ServerSlot implements Slot {
   /**
    * @param name
    * @param parentServer
-   * @return a new {@ServerSlot} with the given name and that will belong to the
+   * @return a new {@link ServerSlot} with the given name that will belong to the
    *         given parentServer
    * @throws RuntimeException if given name is null or blank
    * @throws RuntimeException if the given parentServer is null
    */
   public static ServerSlot withNameAndParentServer(
     final String name,
-    final AbstractServer<?> parentServer) {
+    final ch.nolix.baseapi.net.clientserver.Server<?> parentServer) {
     return new ServerSlot(name, parentServer);
   }
 
@@ -62,7 +62,7 @@ final class ServerSlot implements Slot {
    */
   @Override
   public void takeBackendEndPoint(final EndPoint backendEndPoint) {
-    final var targetApplication = (AbstractApplication<?, ?>) getTargetApplicationOfBackendEndPoint(backendEndPoint);
+    final var targetApplication = getTargetApplicationOfBackendEndPoint(backendEndPoint);
     final var clientClass = targetApplication.getClientClass();
     final var backendClient = ReflectionTool.createInstanceFromDefaultConstructorOfClass(clientClass);
 
@@ -70,6 +70,12 @@ final class ServerSlot implements Slot {
     targetApplication.takeBackendClient(backendClient);
   }
 
+  /**
+   * @param endPoint
+   * @return the target {@link Application} of the given endPoint
+   * @throws RuntimeException if the target {@link Application} of the given
+   *                          endPoint is not available
+   */
   private Application<?, ?> getTargetApplicationOfBackendEndPoint(final EndPoint endPoint) {
     if (endPoint.hasCustomTargetSlot()) {
       final var applicationUrlName = endPoint.getCustomTargetSlot();
