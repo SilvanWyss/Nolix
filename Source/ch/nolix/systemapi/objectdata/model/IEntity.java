@@ -28,6 +28,8 @@ TableComponent<ITable<? extends IEntity>> {
 
   ExtendedIterable<? extends Field> internalGetStoredFields();
 
+  void internalClose();
+
   void internalSetLoadedAndIdAndSaveStamp(String loadedId, String saveStamp);
 
   void internalSetParentTable(ITable<? extends IEntity> parentTable);

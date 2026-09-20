@@ -292,7 +292,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   void close() {
     for (final var e : internalGetStoredEntitiesInLocalData()) {
-      ((AbstractEntity) e).close();
+      e.internalClose();
     }
   }
 

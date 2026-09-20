@@ -137,6 +137,14 @@ public abstract class AbstractEntity implements IEntity {
    * {@inheritDoc}
    */
   @Override
+  public final void internalClose() {
+    state = DatabaseObjectState.CLOSED;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final ExtendedIterable<? extends Field> internalGetStoredFields() {
     return getStoredFields();
   }
@@ -252,12 +260,6 @@ public abstract class AbstractEntity implements IEntity {
 
   protected final void setInsertAction(final Runnable insertAction) {
     entityFlyweight = EntityFlyWeight.withInsertAction(insertAction);
-  }
-
-  final void close() {
-    if (isOpen()) {
-      state = DatabaseObjectState.CLOSED;
-    }
   }
 
   abstract ExtendedIterable<AbstractField> findFields();
