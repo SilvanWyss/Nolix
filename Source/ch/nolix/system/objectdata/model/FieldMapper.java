@@ -82,7 +82,8 @@ public final class FieldMapper {
       backReferenceableTableNames);
   }
 
-  private static OptionalBackReference<AbstractBaseEntity> createOptionalBackReferenceFromAbstractBackReferenceModelView(
+  private static OptionalBackReference<AbstractBaseEntity> //
+  createOptionalBackReferenceFromAbstractBackReferenceModelView(
     final IColumn column) {
 
     final var backReferenceableColumns = column.getStoredBackReferenceableColumns();
