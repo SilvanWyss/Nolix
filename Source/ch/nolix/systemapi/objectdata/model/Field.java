@@ -37,6 +37,8 @@ MandatorynessRequestable {
 
   void internalSetParentColumn(IColumn parentColumn);
 
+  void internalSetParentEntity(Entity parentEntity);
+
   boolean knowsParentColumn();
 
   boolean referencesBackEntity(Entity entity);

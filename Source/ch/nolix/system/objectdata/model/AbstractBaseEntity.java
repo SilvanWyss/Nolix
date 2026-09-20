@@ -309,7 +309,7 @@ public abstract class AbstractBaseEntity implements Entity {
   private void extractFieldsWhenNotExtracted() {
     fields = findFields();
 
-    fields.forEach(f -> f.setParentEntity(this));
+    fields.forEach(f -> f.internalSetParentEntity(this));
   }
 
   private ExtendedIterable<AbstractField> getStoredFields() {

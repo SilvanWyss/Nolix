@@ -27,7 +27,7 @@ public abstract class AbstractField implements Field {
 
   private static final VoidFieldFlyWeight VOID_FIELD_FLY_WEIGHT = new VoidFieldFlyWeight();
 
-  private AbstractBaseEntity parentEntity;
+  private Entity memberParentEntity;
 
   private IColumn memberParentColumn;
 
@@ -39,8 +39,8 @@ public abstract class AbstractField implements Field {
   @Override
   public final boolean belongsToDatabase() {
     return //
-    parentEntity != null
-    && parentEntity.belongsToDatabase();
+    memberParentEntity != null
+    && memberParentEntity.belongsToDatabase();
   }
 
   /**
@@ -48,15 +48,15 @@ public abstract class AbstractField implements Field {
    */
   @Override
   public final boolean belongsToEntity() {
-    return (parentEntity != null);
+    return (memberParentEntity != null);
   }
 
   // For a better performance, this implementation does not use all available comfort methods.
   @Override
   public final boolean belongsToTable() {
     return //
-    parentEntity != null
-    && parentEntity.belongsToTable();
+    memberParentEntity != null
+    && memberParentEntity.belongsToTable();
   }
 
   /**
@@ -112,7 +112,7 @@ public abstract class AbstractField implements Field {
   public final AbstractBaseEntity getStoredParentEntity() {
     FIELD_VALIDATOR.assertBelongsToEntity(this);
 
-    return parentEntity;
+    return (AbstractBaseEntity) memberParentEntity;
   }
 
   /**
@@ -131,6 +131,18 @@ public abstract class AbstractField implements Field {
     Validator.assertThat(parentColumn).thatIsNamed("parent column").isNotNull();
 
     memberParentColumn = parentColumn;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void internalSetParentEntity(final Entity parentEntity) {
+    Validator.assertThat(parentEntity).thatIsNamed("parent entity").isNotNull();
+    FIELD_VALIDATOR.assertDoesNotBelongToEntity(this);
+
+    memberParentEntity = parentEntity;
+    setParentColumnFromParentTableIfParentEntityBelongsToTable(parentEntity);
   }
 
   /**
@@ -230,14 +242,6 @@ public abstract class AbstractField implements Field {
     internalSetParentColumn(localParentColumn);
   }
 
-  final void setParentEntity(final AbstractBaseEntity parentEntity) {
-    Validator.assertThat(parentEntity).thatIsNamed("parent entity").isNotNull();
-    FIELD_VALIDATOR.assertDoesNotBelongToEntity(this);
-
-    this.parentEntity = parentEntity;
-    setParentColumnFromParentTableIfParentEntityBelongsToTable(parentEntity);
-  }
-
   private DatabaseObjectState getStateWhenBelongsToEntity() {
     final var parentEntityState = getStoredParentEntity().getState();
 
@@ -267,7 +271,7 @@ public abstract class AbstractField implements Field {
     return DatabaseObjectState.EDITED;
   }
 
-  private void setParentColumnFromParentTableIfParentEntityBelongsToTable(final AbstractBaseEntity parentEntity) {
+  private void setParentColumnFromParentTableIfParentEntityBelongsToTable(final Entity parentEntity) {
     if (parentEntity.belongsToTable()) {
       setParentColumnFromParentTable();
     }
