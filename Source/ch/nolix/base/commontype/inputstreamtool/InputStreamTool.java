@@ -25,23 +25,20 @@ public final class InputStreamTool implements IInputStreamTool {
 
     while (true) {
       try {
-        final var lByte = inputStream.read();
+        final var localByte = inputStream.read();
 
-        if (lByte == -1) {
-          return null;
+        switch (localByte) {
+          case -1:
+            return null;
+          case '\r':
+            break;
+          case '\n':
+            final var byteArray = ARRAY_MAPPER.toByteArray(bytes, bytes.getElementCount(), Byte::byteValue);
+
+            return new String(byteArray, StandardCharsets.UTF_8);
+          default:
+            bytes.addAtEnd((byte) localByte);
         }
-
-        if (lByte == '\r') {
-          continue;
-        }
-
-        if (lByte == '\n') {
-          final var byteArray = ARRAY_MAPPER.toByteArray(bytes, bytes.getElementCount(), Byte::byteValue);
-
-          return new String(byteArray, StandardCharsets.UTF_8);
-        }
-
-        bytes.addAtEnd((byte) lByte);
       } catch (final Exception _) { // NOSONAR: All Exception must be caught.
         return null;
       }
