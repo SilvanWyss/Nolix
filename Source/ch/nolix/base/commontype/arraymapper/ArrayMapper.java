@@ -19,7 +19,7 @@ public final class ArrayMapper implements IArrayMapper {
    * {@inheritDoc}
    */
   @Override
-  public <E> byte[] toByteArray(Iterable<E> iterable, int n, Function<E, Byte> byteMapper) {
+  public <E> byte[] toByteArray(final Iterable<E> iterable, final int n, final Function<E, Byte> byteMapper) {
     if (byteMapper == null) {
       throw ArgumentIsNullException.forArgumentName("byte mapper");
     }
