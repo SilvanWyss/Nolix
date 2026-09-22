@@ -14,5 +14,5 @@ public interface ArgumentCaptor<S> {
    * @throws RuntimeException if the current {@link ArgumentCaptor} does not have
    *                          a successor {@link ArgumentCaptor}
    */
-  S scsArgCpt();
+  S suArCa();
 }

@@ -46,7 +46,7 @@ public abstract class AbstractArgumentCaptor<A, S> implements ArgumentCaptor<S> 
    * {@inheritDoc}
    */
   @Override
-  public final S scsArgCpt() {
+  public final S suArCa() {
     assertHasNextArgumentCaptor();
 
     return successorArgumentCaptorAsSuccessor;

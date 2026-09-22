@@ -44,10 +44,10 @@ AndSchemaCaptor<IEntityTypeSet, MsSqlDataAdapter>>>>>> {
     return //
     MsSqlDataAdapter.toHostAndPortAndWithDatabaseNameAndUserNameAndUserPasswordAndEntityTypeSet(
       getHost(),
-      scsArgCpt().getPort(),
-      scsArgCpt().scsArgCpt().getDatabase(),
-      scsArgCpt().scsArgCpt().scsArgCpt().getLoginName(),
-      scsArgCpt().scsArgCpt().scsArgCpt().scsArgCpt().getPassword(),
-      scsArgCpt().scsArgCpt().scsArgCpt().scsArgCpt().scsArgCpt().getStoredSchema());
+      suArCa().getPort(),
+      suArCa().suArCa().getDatabase(),
+      suArCa().suArCa().suArCa().getLoginName(),
+      suArCa().suArCa().suArCa().suArCa().getPassword(),
+      suArCa().suArCa().suArCa().suArCa().suArCa().getStoredSchema());
   }
 }

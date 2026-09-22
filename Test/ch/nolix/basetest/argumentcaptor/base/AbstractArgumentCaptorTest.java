@@ -61,7 +61,7 @@ final class AbstractArgumentCaptorTest extends StandardTest {
     };
 
     // execute & verify
-    expectRunning(testUnit::scsArgCpt)
+    expectRunning(testUnit::suArCa)
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);
   }

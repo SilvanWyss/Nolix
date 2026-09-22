@@ -40,10 +40,10 @@ AndPasswordCaptor<SqlConnectionPool>>>>>> {
     return //
     SqlConnectionPool.withHostAndPortAndDatabaseNameAndSqlDatabaseEngineAndLoginNameAndLoginPassword(
       getHost(),
-      scsArgCpt().getPort(),
-      scsArgCpt().scsArgCpt().getDatabase(),
-      scsArgCpt().scsArgCpt().scsArgCpt().getSqlDatabaseEngine(),
-      scsArgCpt().scsArgCpt().scsArgCpt().scsArgCpt().getLoginName(),
-      scsArgCpt().scsArgCpt().scsArgCpt().scsArgCpt().scsArgCpt().getPassword());
+      suArCa().getPort(),
+      suArCa().suArCa().getDatabase(),
+      suArCa().suArCa().suArCa().getSqlDatabaseEngine(),
+      suArCa().suArCa().suArCa().suArCa().getLoginName(),
+      suArCa().suArCa().suArCa().suArCa().suArCa().getPassword());
   }
 }
