@@ -5,14 +5,14 @@ package ch.nolix.base.argumentcaptor.andargumentcaptor;
 
 import ch.nolix.base.argumentcaptor.base.AbstractArgumentCaptor;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.argumentcaptor.andargumentcaptor.IAndDatabaseNameCaptor;
+import ch.nolix.baseapi.argumentcaptor.andargumentcaptor.IAndDatabaseCaptor;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
  * @param <S> the type of the successor of a {@link AndDatabaseNameCaptor}
  */
-public class AndDatabaseNameCaptor<S> extends AbstractArgumentCaptor<String, S> implements IAndDatabaseNameCaptor<S> {
+public class AndDatabaseNameCaptor<S> extends AbstractArgumentCaptor<String, S> implements IAndDatabaseCaptor<S> {
   public AndDatabaseNameCaptor() {
   }
 
