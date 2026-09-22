@@ -7,9 +7,9 @@ import ch.nolix.baseapi.argumentcaptor.base.ArgumentCaptor;
 
 /**
  * @author Silvan Wyss
- * @param <S> the type of the successor of a {@link IToDatabaseNameCaptor}
+ * @param <S> the type of the successor of a {@link IToDatabaseCaptor}
  */
-public interface IToDatabaseNameCaptor<S> extends ArgumentCaptor<S> {
+public interface IToDatabaseCaptor<S> extends ArgumentCaptor<S> {
   String getDatabaseName();
 
   S toDatabase(final String databaseName);
