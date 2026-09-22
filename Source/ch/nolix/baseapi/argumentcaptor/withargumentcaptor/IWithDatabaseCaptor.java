@@ -13,5 +13,5 @@ import ch.nolix.baseapi.argumentcaptor.base.ArgumentCaptor;
 public interface IWithDatabaseCaptor<D, S> extends ArgumentCaptor<S> {
   D getStoredDatabase();
 
-  S withDatabase(final D database);
+  S withDatabase(D database);
 }

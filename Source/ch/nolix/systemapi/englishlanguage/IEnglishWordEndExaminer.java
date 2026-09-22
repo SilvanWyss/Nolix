@@ -11,5 +11,5 @@ public interface IEnglishWordEndExaminer {
    * @param word
    * @return true if the given word ends with a vocal and y, false otherwise
    */
-  boolean endsWithVocalAndY(final String word);
+  boolean endsWithVocalAndY(String word);
 }

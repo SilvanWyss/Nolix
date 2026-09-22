@@ -21,5 +21,5 @@ public interface IExceptionArgumentNamePreparator {
    * @return a validated argument name from the given argumentName
    * @throws RuntimeException if the given argumentName is null or blank
    */
-  String getValidatedArgumentNameFromArgumentName(final String argumentName);
+  String getValidatedArgumentNameFromArgumentName(String argumentName);
 }

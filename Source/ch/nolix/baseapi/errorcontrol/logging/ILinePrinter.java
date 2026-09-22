@@ -9,11 +9,11 @@ package ch.nolix.baseapi.errorcontrol.logging;
 public interface ILinePrinter {
   void printEmptyLine();
 
-  void printErrorLine(final String errorLine);
+  void printErrorLine(String errorLine);
 
-  void printErrorLines(final Iterable<String> errorLines);
+  void printErrorLines(Iterable<String> errorLines);
 
-  void printInfoLine(final String infoLine);
+  void printInfoLine(String infoLine);
 
-  void printInfoLines(final Iterable<String> infoLines);
+  void printInfoLines(Iterable<String> infoLines);
 }

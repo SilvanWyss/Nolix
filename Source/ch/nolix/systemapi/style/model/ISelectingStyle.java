@@ -40,7 +40,7 @@ public interface ISelectingStyle<S extends ISelectingStyle<S>> extends IBaseStyl
    * @return true if the current {@link ISelectingStyle} would not (!) select the
    *         given element to style, false otherwise
    */
-  default boolean skipsElement(final StylableElement<?> element) {
+  default boolean skipsElement(StylableElement<?> element) {
     return !selectsElement(element);
   }
 }

@@ -15,5 +15,5 @@ public interface IColumnNodeMapper {
    * @return a new {@link Node} from the given columnDto
    * @throws RuntimeException if the given columnDto is null
    */
-  Node<?> mapColumnDtoToColumnNode(final ColumnDto columnDto);
+  Node<?> mapColumnDtoToColumnNode(ColumnDto columnDto);
 }

@@ -12,7 +12,7 @@ import ch.nolix.baseapi.argumentcaptor.base.ArgumentCaptor;
 public interface IToHostCaptor<S> extends ArgumentCaptor<S> {
   String getHost();
 
-  S toHost(final String host);
+  S toHost(String host);
 
   S toLocalHost();
 }

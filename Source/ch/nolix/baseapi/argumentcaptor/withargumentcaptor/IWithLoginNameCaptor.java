@@ -12,5 +12,5 @@ import ch.nolix.baseapi.argumentcaptor.base.ArgumentCaptor;
 public interface IWithLoginNameCaptor<S> extends ArgumentCaptor<S> {
   String getLoginName();
 
-  S withLoginName(final String loginName);
+  S withLoginName(String loginName);
 }

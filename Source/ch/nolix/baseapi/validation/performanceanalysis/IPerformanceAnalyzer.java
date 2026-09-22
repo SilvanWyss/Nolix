@@ -14,5 +14,5 @@ public interface IPerformanceAnalyzer {
   <O> boolean onObjectsFromObjectSupplierActionHasGivenOrLowerTimeComplexity(
     IntFunction<O> objectSupplier,
     Consumer<O> action,
-    final LongToDoubleFunction timeComplexityFunction);
+    LongToDoubleFunction timeComplexityFunction);
 }

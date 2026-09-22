@@ -12,5 +12,5 @@ import ch.nolix.baseapi.argumentcaptor.base.ArgumentCaptor;
 public interface IAndNameCaptor<S> extends ArgumentCaptor<S> {
   String getName();
 
-  S andName(final String name);
+  S andName(String name);
 }

@@ -14,5 +14,5 @@ import ch.nolix.baseapi.sql.sqlproperty.SqlDatabaseEngine;
 public interface IWithSqlDatabaseEngineCaptor<S> extends ArgumentCaptor<S> {
   SqlDatabaseEngine getSqlDatabaseEngine();
 
-  S withSqlDatabaseEngine(final SqlDatabaseEngine sqlDatabaseEngine);
+  S withSqlDatabaseEngine(SqlDatabaseEngine sqlDatabaseEngine);
 }

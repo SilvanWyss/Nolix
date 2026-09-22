@@ -12,5 +12,5 @@ import ch.nolix.systemapi.objectdata.model.IReference;
 public interface IReferenceExaminer extends IFieldExaminer<IReference<Entity>> {
   <E extends Entity> boolean canSetEntity(IReference<E> reference);
 
-  <E extends Entity> boolean canSetEntity(final IReference<E> reference, E entity);
+  <E extends Entity> boolean canSetEntity(IReference<E> reference, E entity);
 }

@@ -148,7 +148,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    *         {@link ISelectingStyleWithSelectors} with the given selectorType set
    * @throws RuntimeException if the given selectorType is null
    */
-  ISelectingStyleWithSelectors withSelectorType(final Class<?> selectorType);
+  ISelectingStyleWithSelectors withSelectorType(Class<?> selectorType);
 
   /**
    * @param selectorType

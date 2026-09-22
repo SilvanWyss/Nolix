@@ -21,5 +21,5 @@ public interface IterableMappedViewProvider<E> {
    * @throws RuntimeException if one of the mapped elements of the current
    *                          {@link IterableMappedViewProvider} is null
    */
-  <T> ExtendedIterable<T> getViewOf(final Function<E, T> mapper);
+  <T> ExtendedIterable<T> getViewOf(Function<E, T> mapper);
 }

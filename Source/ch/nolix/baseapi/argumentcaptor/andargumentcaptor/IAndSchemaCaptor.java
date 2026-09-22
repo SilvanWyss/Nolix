@@ -12,7 +12,7 @@ import ch.nolix.baseapi.argumentcaptor.base.ArgumentCaptor;
  * @param <S> the type of the successor of a {@link AndSchemaCaptor}
  */
 public interface IAndSchemaCaptor<C, S> extends ArgumentCaptor<S> {
-  S andSchema(final C schema);
+  S andSchema(C schema);
 
   C getStoredSchema();
 }

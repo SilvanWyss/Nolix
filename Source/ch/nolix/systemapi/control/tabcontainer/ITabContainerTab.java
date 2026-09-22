@@ -17,5 +17,5 @@ extends FluentMutableHeaderHolder<ITabContainerTab>, MutableElement, RootControl
 
   ITabContainer getStoredParentTabContainer();
 
-  void internalsetParentTabContainer(final ITabContainer tabContainer);
+  void internalsetParentTabContainer(ITabContainer tabContainer);
 }

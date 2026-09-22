@@ -12,5 +12,5 @@ import ch.nolix.baseapi.argumentcaptor.base.ArgumentCaptor;
 public interface IToDatabaseCaptor<S> extends ArgumentCaptor<S> {
   String getDatabaseName();
 
-  S toDatabase(final String databaseName);
+  S toDatabase(String databaseName);
 }

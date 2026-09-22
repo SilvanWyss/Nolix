@@ -12,5 +12,5 @@ import ch.nolix.baseapi.argumentcaptor.base.ArgumentCaptor;
 public interface IAndPortCaptor<S> extends ArgumentCaptor<S> {
   int getPort();
 
-  S andPort(final int port);
+  S andPort(int port);
 }

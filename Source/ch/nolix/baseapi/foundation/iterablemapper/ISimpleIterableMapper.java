@@ -29,7 +29,7 @@ public interface ISimpleIterableMapper {
    * @return a new {@link Iterable} with the given elements
    * @throws RuntimeException if the given elements is null
    */
-  <E> Iterable<E> toIterable(final E[] elements);
+  <E> Iterable<E> toIterable(E[] elements);
 
   /**
    * @param values

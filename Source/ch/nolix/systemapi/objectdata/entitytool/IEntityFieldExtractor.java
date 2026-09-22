@@ -19,5 +19,5 @@ public interface IEntityFieldExtractor {
    * @throws RuntimeException if the given entity is null.
    * @throws RuntimeException if the given fieldClass is null.
    */
-  <F extends Field> ExtendedIterable<F> extractStoredFieldsFromEntity(final Object entity, Class<F> fieldClass);
+  <F extends Field> ExtendedIterable<F> extractStoredFieldsFromEntity(Object entity, Class<F> fieldClass);
 }

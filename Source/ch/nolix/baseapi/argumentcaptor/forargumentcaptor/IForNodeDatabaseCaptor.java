@@ -11,7 +11,7 @@ import ch.nolix.baseapi.document.node.IMutableNode;
  * @param <S> the type of the successor of a {@link IForNodeDatabaseCaptor}
  */
 public interface IForNodeDatabaseCaptor<S> extends ArgumentCaptor<S> {
-  S forNodeDatabase(final IMutableNode<?> nodeDatabase);
+  S forNodeDatabase(IMutableNode<?> nodeDatabase);
 
   S forTemporaryInMemoryNodeDatabase();
 

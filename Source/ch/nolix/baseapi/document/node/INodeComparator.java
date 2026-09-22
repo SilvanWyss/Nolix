@@ -12,7 +12,7 @@ public interface INodeComparator {
    * @param node2
    * @return true if the given node1 equals the given node2, false otherwise
    */
-  boolean areEqual(final Node<?> node1, final Node<?> node2);
+  boolean areEqual(Node<?> node1, Node<?> node2);
 
   /**
    * @param node1

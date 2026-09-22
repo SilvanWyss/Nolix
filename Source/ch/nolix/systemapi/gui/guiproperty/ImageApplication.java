@@ -12,7 +12,7 @@ public enum ImageApplication {
   SCALE_TO_FRAME,
   REPEAT;
 
-  public static ImageApplication fromSpecification(final Node<?> specification) {
+  public static ImageApplication fromSpecification(Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 }
