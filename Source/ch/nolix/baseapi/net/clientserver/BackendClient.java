@@ -3,6 +3,7 @@
  */
 package ch.nolix.baseapi.net.clientserver;
 
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.net.target.IApplicationTarget;
 
 /**
@@ -34,10 +35,10 @@ public interface BackendClient<C extends BackendClient<C, S>, S> extends Client 
    * if the current {@link Session} of the current {@link BackendClient} was the
    * last {@link Session} of the current {@link BackendClient}.
    * 
-   * @InvalidArgumentException if the current {@link Session} of the current
-   *                           {@link BackendClient} is not the top
-   *                           {@link Session} of the current
-   *                           {@link BackendClient}.
+   * @throws InvalidArgumentException if the current {@link Session} of the
+   *                                  current {@link BackendClient} is not the top
+   *                                  {@link Session} of the current
+   *                                  {@link BackendClient}.
    */
   void internalPopCurrentSession();
 
@@ -49,10 +50,10 @@ public interface BackendClient<C extends BackendClient<C, S>, S> extends Client 
    * {@link BackendClient}.
    * 
    * @param result
-   * @InvalidArgumentException if the current {@link Session} of the current
-   *                           {@link BackendClient} is not the top
-   *                           {@link Session} of the current
-   *                           {@link BackendClient}
+   * @throws InvalidArgumentException if the current {@link Session} of the
+   *                                  current {@link BackendClient} is not the top
+   *                                  {@link Session} of the current
+   *                                  {@link BackendClient}
    */
   void internalPopCurrentSessionWithResult(Object result);
 

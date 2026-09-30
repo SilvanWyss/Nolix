@@ -72,7 +72,7 @@ extends ApplicationManager<Application<?, ?>>, Clearable, GroupCloseable, Securi
   /**
    * @param urlName
    * @return the {@link Application} with the given urlName from the current
-   *         {@linkServer}
+   *         {@link Server}
    * @throws RuntimeException if the current {@link Server} does not contain a
    *                          {@link Application} with the given urlName.
    */
