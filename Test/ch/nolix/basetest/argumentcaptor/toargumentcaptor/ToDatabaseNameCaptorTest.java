@@ -6,7 +6,7 @@ package ch.nolix.basetest.argumentcaptor.toargumentcaptor;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndNameCaptor;
-import ch.nolix.base.argumentcaptor.toargumentcaptor.ToDatabaseNameCaptor;
+import ch.nolix.base.argumentcaptor.toargumentcaptor.ToDatabaseCaptor;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 
@@ -17,16 +17,16 @@ final class ToDatabaseNameCaptorTest extends StandardTest {
   @Test
   void testCase_getDatabaseName_whenDoesNotHaveDatabaseName() {
     // setup
-    final var testUnit = new ToDatabaseNameCaptor<>();
+    final var testUnit = new ToDatabaseCaptor<>();
 
     // execute & verify
-    expectRunning(testUnit::getDatabaseName).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
+    expectRunning(testUnit::getDatabase).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
   @Test
   void testCase_toDatabase_whenDoesNotHaveSuccessor() {
     // setup
-    final var testUnit = new ToDatabaseNameCaptor<>();
+    final var testUnit = new ToDatabaseCaptor<>();
 
     // execute & verify
     expectRunning(() -> testUnit.toDatabase("my_database"))
@@ -41,13 +41,13 @@ final class ToDatabaseNameCaptorTest extends StandardTest {
 
     // setup
     final var andNameCaptor = new AndNameCaptor<>();
-    final var testUnit = new ToDatabaseNameCaptor<>(andNameCaptor);
+    final var testUnit = new ToDatabaseCaptor<>(andNameCaptor);
 
     // execute
     final var result = testUnit.toDatabase(databaseName);
 
     // verify
-    expect(testUnit.getDatabaseName()).isEqualTo(databaseName);
+    expect(testUnit.getDatabase()).isEqualTo(databaseName);
     expect(result).is(andNameCaptor);
   }
 }

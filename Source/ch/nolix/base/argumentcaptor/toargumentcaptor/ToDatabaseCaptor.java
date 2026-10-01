@@ -10,13 +10,13 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 
 /**
  * @author Silvan Wyss
- * @param <S> the type of the successor of a {@link ToDatabaseNameCaptor}
+ * @param <S> the type of the successor of a {@link ToDatabaseCaptor}
  */
-public class ToDatabaseNameCaptor<S> extends AbstractArgumentCaptor<String, S> implements IToDatabaseCaptor<S> {
-  public ToDatabaseNameCaptor() {
+public class ToDatabaseCaptor<S> extends AbstractArgumentCaptor<String, S> implements IToDatabaseCaptor<S> {
+  public ToDatabaseCaptor() {
   }
 
-  public ToDatabaseNameCaptor(final S nextArgumentCaptor) {
+  public ToDatabaseCaptor(final S nextArgumentCaptor) {
     super(nextArgumentCaptor);
   }
 
@@ -24,7 +24,7 @@ public class ToDatabaseNameCaptor<S> extends AbstractArgumentCaptor<String, S> i
    * {@inheritDoc}
    */
   @Override
-  public final String getDatabaseName() {
+  public final String getDatabase() {
     return getStoredArgument();
   }
 
@@ -32,9 +32,9 @@ public class ToDatabaseNameCaptor<S> extends AbstractArgumentCaptor<String, S> i
    * {@inheritDoc}
    */
   @Override
-  public final S toDatabase(final String databaseName) {
-    Validator.assertThat(databaseName).thatIsNamed(LowerCaseVariableNameCatalog.DATABASE_NAME).isNotBlank();
+  public final S toDatabase(final String database) {
+    Validator.assertThat(database).thatIsNamed(LowerCaseVariableNameCatalog.DATABASE).isNotBlank();
 
-    return setArgumentAndGetStoredSuccessor(databaseName);
+    return setArgumentAndGetStoredSuccessor(database);
   }
 }

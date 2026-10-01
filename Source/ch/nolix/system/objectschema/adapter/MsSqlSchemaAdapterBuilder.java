@@ -5,7 +5,7 @@ package ch.nolix.system.objectschema.adapter;
 
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndPasswordCaptor;
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndPortCaptor;
-import ch.nolix.base.argumentcaptor.toargumentcaptor.ToDatabaseNameCaptor;
+import ch.nolix.base.argumentcaptor.toargumentcaptor.ToDatabaseCaptor;
 import ch.nolix.base.argumentcaptor.toargumentcaptor.ToHostCaptor;
 import ch.nolix.base.argumentcaptor.withargumentcaptor.WithLoginNameCaptor;
 import ch.nolix.base.sql.connection.MsSqlConnection;
@@ -17,14 +17,14 @@ public final class MsSqlSchemaAdapterBuilder
 extends
 ToHostCaptor< //
 AndPortCaptor< //
-ToDatabaseNameCaptor< //
+ToDatabaseCaptor< //
 WithLoginNameCaptor< //
 AndPasswordCaptor< //
 MsSqlSchemaAdapter>>>>> {
   private MsSqlSchemaAdapterBuilder() {
     super(
       new AndPortCaptor<>(
-        new ToDatabaseNameCaptor<>(
+        new ToDatabaseCaptor<>(
           new WithLoginNameCaptor<>(
             new AndPasswordCaptor<>()))));
 
@@ -36,7 +36,7 @@ MsSqlSchemaAdapter>>>>> {
   }
 
   private MsSqlSchemaAdapter buildMsSqlSchemaAdapter() {
-    final var databaseName = suArCa().suArCa().getDatabaseName();
+    final var databaseName = suArCa().suArCa().getDatabase();
 
     final var msSqlConnection = //
     MsSqlConnection.toHostAndPortAndWithUserNameAndUserPassword(
