@@ -1,0 +1,13 @@
+package ch.nolix.baseapi.argumentcaptor.withargumentcaptor;
+
+import ch.nolix.baseapi.argumentcaptor.base.ArgumentCaptor;
+
+/**
+ * @author Silvan Wyss
+ * @param <S> the type of the successor of a {@link IWithDatabaseCaptor}
+ */
+public interface IWithDatabaseCaptor<S> extends ArgumentCaptor<S> {
+  String getDatabase();
+
+  S withDatabase(String database);
+}
