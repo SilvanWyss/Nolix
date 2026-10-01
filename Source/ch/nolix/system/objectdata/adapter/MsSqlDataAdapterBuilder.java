@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectdata.adapter;
 
-import ch.nolix.base.argumentcaptor.andargumentcaptor.AndDatabaseNameCaptor;
+import ch.nolix.base.argumentcaptor.andargumentcaptor.AndDatabaseCaptor;
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndPasswordCaptor;
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndPortCaptor;
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndSchemaCaptor;
@@ -19,7 +19,7 @@ public final class MsSqlDataAdapterBuilder
 extends
 ToHostCaptor< //
 AndPortCaptor< //
-AndDatabaseNameCaptor< //
+AndDatabaseCaptor< //
 WithLoginNameCaptor< //
 AndPasswordCaptor< //
 AndSchemaCaptor<IEntityTypeSet, MsSqlDataAdapter>>>>>> {
@@ -28,7 +28,7 @@ AndSchemaCaptor<IEntityTypeSet, MsSqlDataAdapter>>>>>> {
   private MsSqlDataAdapterBuilder() {
     super(
       new AndPortCaptor<>(
-        new AndDatabaseNameCaptor<>(
+        new AndDatabaseCaptor<>(
           new WithLoginNameCaptor<>(
             new AndPasswordCaptor<>(
               new AndSchemaCaptor<>())))));

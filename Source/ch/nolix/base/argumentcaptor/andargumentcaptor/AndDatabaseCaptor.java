@@ -10,13 +10,13 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 
 /**
  * @author Silvan Wyss
- * @param <S> the type of the successor of a {@link AndDatabaseNameCaptor}
+ * @param <S> the type of the successor of a {@link AndDatabaseCaptor}
  */
-public class AndDatabaseNameCaptor<S> extends AbstractArgumentCaptor<String, S> implements IAndDatabaseCaptor<S> {
-  public AndDatabaseNameCaptor() {
+public class AndDatabaseCaptor<S> extends AbstractArgumentCaptor<String, S> implements IAndDatabaseCaptor<S> {
+  public AndDatabaseCaptor() {
   }
 
-  public AndDatabaseNameCaptor(final S nextArgumentCaptor) {
+  public AndDatabaseCaptor(final S nextArgumentCaptor) {
     super(nextArgumentCaptor);
   }
 
@@ -25,7 +25,7 @@ public class AndDatabaseNameCaptor<S> extends AbstractArgumentCaptor<String, S> 
    */
   @Override
   public final S andDatabase(final String database) {
-    Validator.assertThat(database).thatIsNamed(LowerCaseVariableNameCatalog.DATABASE_NAME).isNotBlank();
+    Validator.assertThat(database).thatIsNamed(LowerCaseVariableNameCatalog.DATABASE).isNotBlank();
 
     return setArgumentAndGetStoredSuccessor(database);
   }

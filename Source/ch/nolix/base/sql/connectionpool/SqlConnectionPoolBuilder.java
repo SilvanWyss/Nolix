@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.sql.connectionpool;
 
-import ch.nolix.base.argumentcaptor.andargumentcaptor.AndDatabaseNameCaptor;
+import ch.nolix.base.argumentcaptor.andargumentcaptor.AndDatabaseCaptor;
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndLoginNameCaptor;
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndPasswordCaptor;
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndPortCaptor;
@@ -17,14 +17,14 @@ public final class SqlConnectionPoolBuilder
 extends
 ForHostCaptor< //
 AndPortCaptor< //
-AndDatabaseNameCaptor< //
+AndDatabaseCaptor< //
 WithSqlDatabaseEngineCaptor< //
 AndLoginNameCaptor< //
 AndPasswordCaptor<SqlConnectionPool>>>>>> {
   private SqlConnectionPoolBuilder() {
     super(
       new AndPortCaptor<>(
-        new AndDatabaseNameCaptor<>(
+        new AndDatabaseCaptor<>(
           new WithSqlDatabaseEngineCaptor<>(
             new AndLoginNameCaptor<>(
               new AndPasswordCaptor<>())))));

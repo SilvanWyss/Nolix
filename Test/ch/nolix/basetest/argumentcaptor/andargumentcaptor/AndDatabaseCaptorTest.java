@@ -5,7 +5,7 @@ package ch.nolix.basetest.argumentcaptor.andargumentcaptor;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.argumentcaptor.andargumentcaptor.AndDatabaseNameCaptor;
+import ch.nolix.base.argumentcaptor.andargumentcaptor.AndDatabaseCaptor;
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -13,7 +13,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
 /**
  * @author Silvan Wyss
  */
-final class AndDatabaseNameCaptorTest extends StandardTest {
+final class AndDatabaseCaptorTest extends StandardTest {
   @Test
   void testCase_andDatabase_whenHasSuccessor() {
     // define test parameters
@@ -21,7 +21,7 @@ final class AndDatabaseNameCaptorTest extends StandardTest {
 
     // setup
     final var andNameCaptor = new AndNameCaptor<>();
-    final var testUnit = new AndDatabaseNameCaptor<>(andNameCaptor);
+    final var testUnit = new AndDatabaseCaptor<>(andNameCaptor);
 
     // execute
     final var result = testUnit.andDatabase(database);
@@ -34,7 +34,7 @@ final class AndDatabaseNameCaptorTest extends StandardTest {
   @Test
   void testCase_andDatabase_whenDoesNotHaveSuccessor() {
     // setup
-    final var testUnit = new AndDatabaseNameCaptor<>();
+    final var testUnit = new AndDatabaseCaptor<>();
 
     // execute & verify
     expectRunning(() -> testUnit.andDatabase("database"))
@@ -43,9 +43,9 @@ final class AndDatabaseNameCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_getDatabaseName_whenDoesNotHaveDatabaseName() {
+  void testCase_getDatabase_whenDoesNotHaveADatabase() {
     // setup
-    final var testUnit = new AndDatabaseNameCaptor<>();
+    final var testUnit = new AndDatabaseCaptor<>();
 
     // execute & verify
     expectRunning(testUnit::getDatabase).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
