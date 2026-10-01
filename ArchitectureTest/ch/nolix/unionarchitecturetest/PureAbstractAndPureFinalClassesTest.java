@@ -15,15 +15,17 @@ import ch.nolix.base.testing.archunit.ArchUnitRuleCatalog;
 /**
  * @author Silvan Wyss
  */
-final class NonCaptorClassesTest {
+final class PureAbstractAndPureFinalClassesTest {
   private static final JavaClasses TEST_UNIT = //
   new ClassFileImporter()
     .importPackages("ch.nolix..")
     .that(
-      new DescribedPredicate<JavaClass>("non-captor classes") {
+      new DescribedPredicate<JavaClass>("pure abstract or pure final classes") {
         @Override
         public boolean test(final JavaClass javaClass) {
-          return !javaClass.getName().matches(".*Captor");
+          final var javaClassName = javaClass.getName();
+
+          return !javaClassName.matches(".*Captor");
         }
       });
 
