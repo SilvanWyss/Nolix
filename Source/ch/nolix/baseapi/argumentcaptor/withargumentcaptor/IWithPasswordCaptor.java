@@ -10,7 +10,7 @@ import ch.nolix.baseapi.argumentcaptor.base.ArgumentCaptor;
  * @param <S> the type of the successor of a {@link IWithPasswordCaptor}.
  */
 public interface IWithPasswordCaptor<S> extends ArgumentCaptor<S> {
-  String getPasswort();
+  String getPassword();
 
-  S withPasswort(String password);
+  S withPassword(String password);
 }
