@@ -10,7 +10,13 @@ import ch.nolix.baseapi.argumentcaptor.base.ArgumentCaptor;
  * @param <S> the type of the successor of a {@link IAndPortCaptor}
  */
 public interface IAndPortCaptor<S> extends ArgumentCaptor<S> {
-  int getPort();
+  S andHttpPort();
+
+  S andHttpsPort();
+
+  S andMsSqlPort();
 
   S andPort(int port);
+
+  int getPort();
 }

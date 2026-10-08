@@ -21,16 +21,28 @@ public class AndPortCaptor<S> extends AbstractArgumentCaptor<Integer, S> impleme
     super(nextArgumentCaptor);
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final S andHttpPort() {
-    return andPort(PortCatalog.HTTP);
+    return setArgumentAndGetStoredSuccessor(PortCatalog.HTTP);
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final S andHttpsPort() {
-    return andPort(PortCatalog.HTTPS);
+    return setArgumentAndGetStoredSuccessor(PortCatalog.HTTPS);
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final S andMsSqlPort() {
-    return andPort(PortCatalog.MS_SQL);
+    return setArgumentAndGetStoredSuccessor(PortCatalog.MS_SQL);
   }
 
   /**
@@ -38,10 +50,7 @@ public class AndPortCaptor<S> extends AbstractArgumentCaptor<Integer, S> impleme
    */
   @Override
   public final S andPort(final int port) {
-    Validator
-      .assertThat(port)
-      .thatIsNamed(LowerCaseVariableNameCatalog.PORT)
-      .isBetween(PortCatalog.MIN_PORT, PortCatalog.MAX_PORT);
+    Validator.assertThat(port).thatIsNamed(LowerCaseVariableNameCatalog.PORT).isPort();
 
     return setArgumentAndGetStoredSuccessor(port);
   }
