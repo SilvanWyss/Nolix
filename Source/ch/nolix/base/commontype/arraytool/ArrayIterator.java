@@ -62,7 +62,7 @@ public final class ArrayIterator<E> implements CopyableIterator<E> {
    */
   @Override
   public boolean hasNext() {
-    return (nextIndex < array.length);
+    return nextIndex < array.length;
   }
 
   //For a better performance, this implementation does not use all available comfort methods.
