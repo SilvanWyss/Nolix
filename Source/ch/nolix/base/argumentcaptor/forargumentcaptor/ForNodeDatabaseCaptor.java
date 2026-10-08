@@ -40,7 +40,7 @@ implements IForNodeDatabaseCaptor<S> {
   public final S forTemporaryInMemoryNodeDatabase() {
     final var nodeDatabase = MutableNode.createEmpty();
 
-    return forNodeDatabase(nodeDatabase);
+    return setArgumentAndGetStoredSuccessor(nodeDatabase);
   }
 
   /**
