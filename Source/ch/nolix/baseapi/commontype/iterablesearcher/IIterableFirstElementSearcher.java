@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.baseapi.commontype.iterablesearcher;
 
 import java.util.function.Predicate;
