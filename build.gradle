@@ -68,19 +68,18 @@ version = '0.0.0'
 // required for publishing to Maven Central
 publishing {
   publications {
-    nolix(MavenPublication) {
+    mavenJava(MavenPublication) {
       from components.java
 
       pom {
         name = 'Nolix'
-        description = 'Nolix provides a smart web framework, an ORM (object relation mapper) and some technical functions.'
+        description = 'Nolix provides a web framework.'
         url = 'https://github.com/silvanwyss/nolix'
 
         licenses {
           license {
             name = 'MIT License'
             url = 'https://opensource.org/license/mit'
-            distribution = 'repo'
           }
         }
 
@@ -91,6 +90,12 @@ publishing {
             email = 'silvan.wyss@gmail.com'
           }
         }
+
+        scm {
+          connection = 'scm:git:git://github.com'
+          developerConnection = 'scm:git:ssh://github.com:silvanWyss/nolix.git'
+          url = 'https://github.com'
+        }
       }
     }
   }
@@ -98,17 +103,17 @@ publishing {
   repositories {
     maven {
       name = 'SonatypeCentral'
-      url = 'https://sonatype.com'
+      url = 'https://central.sonatype.com'
 
       credentials {
-        username = "${maven_username}"
-        password = "${maven_password}"
+        username = sonatypeUsername
+        password = sonatypePassword
       }
     }
   }
 }
 
-// required plugins for publishing to Maven Central
+// required for publishing to Maven Central
 signing {
   sign publishing.publications
 }
