@@ -2,17 +2,12 @@ plugins {
   id 'java-library'
 
   // required for publishing to Maven Central
-  id 'maven-publish'
-  id 'signing'
+  id 'com.vanniktech.maven.publish' version '0.37.0'
 }
 
 java {
   sourceCompatibility = '25'
   targetCompatibility = '25'
-
-  // required for publishing to Maven Central
-  withSourcesJar()
-  withJavadocJar()
 }
 
 repositories {
@@ -62,58 +57,35 @@ test {
 }
 
 // required for publishing to Maven Central
-group = 'ch.nolix'
-version = '0.0.0'
+mavenPublishing {
+  publishToMavenCentral()
+  signAllPublications()
+  coordinates("ch.nolix", "nolix", "0.0.0")
 
-// required for publishing to Maven Central
-publishing {
-  publications {
-    mavenJava(MavenPublication) {
-      from components.java
+  pom {
+    name = 'Nolix'
+    description = 'Nolix provides a web framework.'
+    url = 'https://github.com/silvanwyss/nolix'
 
-      pom {
-        name = 'Nolix'
-        description = 'Nolix provides a web framework.'
-        url = 'https://github.com/silvanwyss/nolix'
-
-        licenses {
-          license {
-            name = 'MIT License'
-            url = 'https://opensource.org/license/mit'
-          }
-        }
-
-        developers {
-          developer {
-            id = 'SilvanWyss'
-            name = 'Silvan Wyss'
-            email = 'silvan.wyss@gmail.com'
-          }
-        }
-
-        scm {
-          connection = 'scm:git:git://github.com'
-          developerConnection = 'scm:git:ssh://github.com:silvanWyss/nolix.git'
-          url = 'https://github.com'
-        }
+    licenses {
+      license {
+        name = 'MIT License'
+        url = 'https://opensource.org/license/mit'
       }
     }
-  }
 
-  repositories {
-    maven {
-      name = 'SonatypeCentral'
-      url = 'https://central.sonatype.com'
-
-      credentials {
-        username = sonatypeUsername
-        password = sonatypePassword
+    developers {
+      developer {
+        id = 'SilvanWyss'
+        name = 'Silvan Wyss'
+        email = 'silvan.wyss@gmail.com'
       }
     }
-  }
-}
 
-// required for publishing to Maven Central
-signing {
-  sign publishing.publications
+    scm {
+      connection = 'scm:git:git://github.com'
+      developerConnection = 'scm:git:ssh://github.com:silvanWyss/nolix.git'
+      url = 'https://github.com'
+    }
+  }
 }
