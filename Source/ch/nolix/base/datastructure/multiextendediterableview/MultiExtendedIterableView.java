@@ -26,7 +26,8 @@ public final class MultiExtendedIterableView<E> extends AbstractExtendedIterable
     wellOrderContainers = ImmutableList.createEmpty();
   }
 
-  private MultiExtendedIterableView(@SuppressWarnings("unchecked") final E[]... arrays) {
+  @SuppressWarnings("unchecked")
+  private MultiExtendedIterableView(final E[]... arrays) {
     final IArrayList<ExtendedIterable<E>> localContainers = ArrayList.createEmpty();
 
     for (final var a : arrays) {
@@ -36,7 +37,8 @@ public final class MultiExtendedIterableView<E> extends AbstractExtendedIterable
     wellOrderContainers = localContainers;
   }
 
-  private MultiExtendedIterableView(@SuppressWarnings("unchecked") final Iterable<? extends E>... iterables) {
+  @SuppressWarnings("unchecked")
+  private MultiExtendedIterableView(final Iterable<? extends E>... iterables) {
     final IArrayList<ExtendedIterable<E>> localContainers = ArrayList.createEmpty();
 
     for (final var i : iterables) {
@@ -46,8 +48,8 @@ public final class MultiExtendedIterableView<E> extends AbstractExtendedIterable
     wellOrderContainers = localContainers;
   }
 
-  public static <T> MultiExtendedIterableView<T> forArrays(
-    @SuppressWarnings("unchecked") final T[]... arrays) {
+  @SuppressWarnings("unchecked")
+  public static <T> MultiExtendedIterableView<T> forArrays(final T[]... arrays) {
     return new MultiExtendedIterableView<>(arrays);
   }
 

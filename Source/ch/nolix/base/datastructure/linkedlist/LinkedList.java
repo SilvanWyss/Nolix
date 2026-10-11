@@ -138,7 +138,8 @@ implements ILinkedList<E> {
    * {@inheritDoc}
    */
   @Override
-  public void addAtBegin(@SuppressWarnings("unchecked") E... elements) {
+  @SuppressWarnings("unchecked")
+  public void addAtBegin(E... elements) {
     if (isEmpty()) {
       addAtBeginWhenIsEmpty(elements);
     } else {
@@ -221,7 +222,8 @@ implements ILinkedList<E> {
    * {@inheritDoc}
    */
   @Override
-  public <T extends E> void addAtEnd(@SuppressWarnings("unchecked") T... elements) {
+  @SuppressWarnings("unchecked")
+  public <T extends E> void addAtEnd(T... elements) {
     // Iterates the given elements.
     for (final var e : elements) {
       addAtEnd(e);

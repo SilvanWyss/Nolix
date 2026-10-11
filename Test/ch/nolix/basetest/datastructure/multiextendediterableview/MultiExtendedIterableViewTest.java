@@ -32,8 +32,8 @@ final class MultiExtendedIterableViewTest extends ExtendedIterableTest {
    * {@inheritDoc}
    */
   @Override
-  protected <E> ExtendedIterable<E> createContainerWithElements(
-    final @SuppressWarnings("unchecked") E... elements) {
+  @SuppressWarnings("unchecked")
+  protected <E> ExtendedIterable<E> createContainerWithElements(E... elements) {
     final var container = ImmutableList.withElements(elements);
 
     return MultiExtendedIterableView.forIterables(container);

@@ -25,8 +25,8 @@ final class ArrayListIteratorTest extends CopyableIteratorTest {
    * {@inheritDoc}
    */
   @Override
-  protected <E> CopyableIterator<E> createIteratorForContainerWithElements(
-    final @SuppressWarnings("unchecked") E... elements) {
+  @SuppressWarnings("unchecked")
+  protected <E> CopyableIterator<E> createIteratorForContainerWithElements(E... elements) {
     final var arrayList = ArrayList.withElements(elements);
 
     return arrayList.iterator();

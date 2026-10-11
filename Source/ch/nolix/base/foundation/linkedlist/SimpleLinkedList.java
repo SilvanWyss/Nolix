@@ -57,7 +57,8 @@ public final class SimpleLinkedList<E> implements ISimpleLinkedList<E> {
     return list;
   }
 
-  public static <T> SimpleLinkedList<T> withElements(@SuppressWarnings("unchecked") final T... elements) {
+  @SuppressWarnings("unchecked")
+  public static <T> SimpleLinkedList<T> withElements(final T... elements) {
     final var list = new SimpleLinkedList<T>();
 
     for (final var e : elements) {

@@ -24,8 +24,8 @@ final class MatrixIteratorTest extends CopyableIteratorTest {
    * {@inheritDoc}
    */
   @Override
-  protected <E> CopyableIterator<E> createIteratorForContainerWithElements(
-    @SuppressWarnings("unchecked") final E... elements) {
+  @SuppressWarnings("unchecked")
+  protected <E> CopyableIterator<E> createIteratorForContainerWithElements(final E... elements) {
     final MutableMatrix<E> matrix = MutableMatrix.createEmpty();
 
     matrix.addRow(elements);

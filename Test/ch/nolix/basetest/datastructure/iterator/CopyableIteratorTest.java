@@ -15,8 +15,8 @@ import ch.nolix.baseapi.datastructure.copyableiterator.CopyableIterator;
 public abstract class CopyableIteratorTest extends StandardTest {
   protected abstract <E> CopyableIterator<E> createIteratorForEmptyContainerForType(Class<E> type);
 
-  protected abstract <E> CopyableIterator<E> createIteratorForContainerWithElements(
-    @SuppressWarnings("unchecked") final E... elements);
+  @SuppressWarnings("unchecked")
+  protected abstract <E> CopyableIterator<E> createIteratorForContainerWithElements(final E... elements);
 
   @Test
   void testCase_getCopy() {

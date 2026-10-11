@@ -31,8 +31,9 @@ public final class ControlFactory {
     CONTROL_FACTORY.registerControlClass(controlClass);
   }
 
+  @SuppressWarnings("unchecked")
   public static void registerControlClasses(
-    final @SuppressWarnings("unchecked") Class<AbstractControl<?, ?>>... controlClasses) {
+    final Class<AbstractControl<?, ?>>... controlClasses) {
     CONTROL_FACTORY.registerControlClasses(controlClasses);
   }
 }

@@ -177,7 +177,8 @@ final class MutableMatrixTest extends ExtendedIterableTest {
    * {@inheritDoc}
    */
   @Override
-  protected <E> ExtendedIterable<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
+  @SuppressWarnings("unchecked")
+  protected <E> ExtendedIterable<E> createContainerWithElements(E... elements) {
     final MutableMatrix<E> matrix = MutableMatrix.createEmpty();
 
     matrix.addRow(elements);

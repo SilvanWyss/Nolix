@@ -39,5 +39,6 @@ public interface AppendableList<E> extends ExtendedIterable<E> {
    * @throws RuntimeException if the given elements is null
    * @throws RuntimeException if one of the given elements is null
    */
-  <T extends E> void addAtEnd(@SuppressWarnings("unchecked") T... elements);
+  @SuppressWarnings("unchecked")
+  <T extends E> void addAtEnd(T... elements);
 }

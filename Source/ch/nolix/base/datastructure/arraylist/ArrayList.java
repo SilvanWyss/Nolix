@@ -152,7 +152,8 @@ public final class ArrayList<E> extends AbstractExtendedIterable<E> implements I
    * {@inheritDoc}
    */
   @Override
-  public <T extends E> void addAtEnd(@SuppressWarnings("unchecked") final T... elements) {
+  @SuppressWarnings("unchecked")
+  public <T extends E> void addAtEnd(final T... elements) {
     Validator.assertThatTheElements(elements).areNotNull();
 
     final var elementCount = getCount();
@@ -343,8 +344,8 @@ public final class ArrayList<E> extends AbstractExtendedIterable<E> implements I
    * 
    * @param capacity
    */
+  @SuppressWarnings("unchecked")
   private void growToCapacityWhenCapacityIsBiggerThanCurrentCapacity(final int capacity) {
-    @SuppressWarnings("unchecked")
     final var newElements = (E[]) new Object[capacity];
 
     System.arraycopy(memberElements, 0, newElements, 0, getCount());

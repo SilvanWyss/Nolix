@@ -18,7 +18,8 @@ final class ArrayListTest extends ExtendedIterableTest {
    * {@inheritDoc}
    */
   @Override
-  protected <E> ExtendedIterable<E> createContainerWithElements(@SuppressWarnings("unchecked") final E... elements) {
+  @SuppressWarnings("unchecked")
+  protected <E> ExtendedIterable<E> createContainerWithElements(final E... elements) {
     return ArrayList.withElements(elements);
   }
 

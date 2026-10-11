@@ -34,7 +34,8 @@ extends Clearable, Copyable<ILinkedList<E>>, AppendableList<E> {
    * @throws RuntimeException if the given elements is null
    * @throws RuntimeException if one of the given elements is null
    */
-  void addAtBegin(@SuppressWarnings("unchecked") E... elements);
+  @SuppressWarnings("unchecked")
+  void addAtBegin(E... elements);
 
   /**
    * Adds the given elements at the begin of the current {@link ILinkedList}. The

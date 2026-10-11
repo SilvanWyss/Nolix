@@ -157,7 +157,8 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
     }
   }
 
-  public void containsExactlyInSameOrder(@SuppressWarnings("unchecked") final E... elements) {
+  @SuppressWarnings("unchecked")
+  public void containsExactlyInSameOrder(final E... elements) {
     containsAsManyElementsAs(elements);
 
     var index = 0;

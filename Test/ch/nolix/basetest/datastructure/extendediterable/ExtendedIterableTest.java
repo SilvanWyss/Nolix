@@ -1235,7 +1235,8 @@ public abstract class ExtendedIterableTest extends StandardTest {
     expect(result.getStoredAtOneBasedIndex(5)).isEqualTo("xxxxxx");
   }
 
-  protected abstract <E> ExtendedIterable<E> createContainerWithElements(@SuppressWarnings("unchecked") E... elements);
+  @SuppressWarnings("unchecked")
+  protected abstract <E> ExtendedIterable<E> createContainerWithElements(E... elements);
 
   protected abstract <E> ExtendedIterable<E> createEmptyContainerForType(Class<E> type);
 }
