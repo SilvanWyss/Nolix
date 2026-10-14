@@ -16,7 +16,7 @@ import ch.nolix.baseapi.net.netcatalog.IPv4Catalog;
  */
 final class AndHostCaptorTest extends StandardTest {
   @Test
-  void testCase_andHost_whenHasNextArgumentCaptor() {
+  void testCase_andHost_whenHasSuccessor() {
     // define test parameters
     final var host = "nolix.ch";
 
@@ -44,7 +44,7 @@ final class AndHostCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_andLocalHost_whenHasNextArgumentCaptor() {
+  void testCase_andLocalHost_whenHasSurccessor() {
     // setup
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new AndHostCaptor<>(andNameCaptor);
