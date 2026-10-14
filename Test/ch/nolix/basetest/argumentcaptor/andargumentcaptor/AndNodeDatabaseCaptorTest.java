@@ -47,6 +47,31 @@ final class AndNodeDatabaseCaptorTest extends StandardTest {
   }
 
   @Test
+  void testCase_andTemporaryInMemoryNodeDatabase_whenHasSuccessor() {
+    // setup
+    final var andNameCaptor = new AndNameCaptor<>();
+    final var testUnit = new AndNodeDatabaseCaptor<>(andNameCaptor);
+
+    // execute
+    final var result = testUnit.andTemporaryInMemoryNodeDatabase();
+
+    // verify
+    expect(testUnit.getStoredNodeDatabase()).isOfType(MutableNode.class);
+    expect(result).is(andNameCaptor);
+  }
+
+  @Test
+  void testCase_andTemporaryInMemoryNodeDatabase_whenDoesNotHaveSuccessor() {
+    // setup
+    final var testUnit = new AndNodeDatabaseCaptor<>();
+
+    // execute & verify
+    expectRunning(testUnit::andTemporaryInMemoryNodeDatabase)
+      .throwsException()
+      .ofType(ArgumentDoesNotHaveAttributeException.class);
+  }
+
+  @Test
   void testCase_getStoredNodeDatabase_whenDoesNotHaveNodeDatabase() {
     // setup
     final var testUnit = new AndNodeDatabaseCaptor<>();
