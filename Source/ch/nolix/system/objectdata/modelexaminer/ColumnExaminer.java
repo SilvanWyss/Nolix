@@ -4,8 +4,8 @@
 package ch.nolix.system.objectdata.modelexaminer;
 
 import ch.nolix.system.database.databaseobjectexaminer.AbstractDatabaseObjectExaminer;
-import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.Entity;
+import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelexaminer.IColumnExaminer;
 

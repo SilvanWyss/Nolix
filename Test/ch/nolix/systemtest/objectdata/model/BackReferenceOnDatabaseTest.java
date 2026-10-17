@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.base.document.node.MutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
-import ch.nolix.system.objectdata.model.BackReference;
 import ch.nolix.system.objectdata.model.AbstractEntity;
+import ch.nolix.system.objectdata.model.BackReference;
 import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.Reference;
 
