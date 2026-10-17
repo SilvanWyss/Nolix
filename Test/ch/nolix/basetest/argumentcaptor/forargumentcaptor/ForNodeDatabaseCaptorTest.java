@@ -44,6 +44,17 @@ final class ForNodeDatabaseCaptorTest extends StandardTest {
   }
 
   @Test
+  void testCase_forTemporaryInMemoryNodeDatabase_whenDoesNotHaveSuccessor() {
+    // setup
+    final var testUnit = new ForNodeDatabaseCaptor<>();
+
+    // execute & verify
+    expectRunning(() -> testUnit.forTemporaryInMemoryNodeDatabase())
+      .throwsException()
+      .ofType(ArgumentDoesNotHaveAttributeException.class);
+  }
+
+  @Test
   void testCase_forTemporaryInMemoryNodeDatabase_whenHasSuccessor() {
     // setup
     final var andNameCaptor = new AndNameCaptor<>();
