@@ -49,8 +49,6 @@ final class AndSqlDatabaseEngineCaptorTest extends StandardTest {
     final var testUnit = new AndSqlDatabaseEngineCaptor<>();
 
     // execute & verify
-    expectRunning(testUnit::getSqlDatabaseEngine)
-      .throwsException()
-      .ofType(ArgumentDoesNotHaveAttributeException.class);
+    expectRunning(testUnit::getSqlDatabaseEngine).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }
