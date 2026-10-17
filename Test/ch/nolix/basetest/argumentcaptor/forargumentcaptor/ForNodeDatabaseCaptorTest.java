@@ -49,7 +49,7 @@ final class ForNodeDatabaseCaptorTest extends StandardTest {
     final var testUnit = new ForNodeDatabaseCaptor<>();
 
     // execute & verify
-    expectRunning(() -> testUnit.forTemporaryInMemoryNodeDatabase())
+    expectRunning(testUnit::forTemporaryInMemoryNodeDatabase)
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
