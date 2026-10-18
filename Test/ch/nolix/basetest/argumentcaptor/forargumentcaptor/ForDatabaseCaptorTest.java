@@ -28,7 +28,7 @@ final class ForDatabaseCaptorTest extends StandardTest {
   @Test
   void testCase_forDatabase_whenHasSuccessor() {
     // define test parameters
-    final var database = "test_datbase";
+    final var database = "test_database";
 
     // setup
     final var andNameCaptor = new AndNameCaptor<>();
