@@ -145,8 +145,8 @@ public final class ArgumentDoesNotHaveAttributeException extends AbstractInvalid
 
   /**
    * @param attributeType
-   * @return the name of the given attribtueType
-   * @throws RuntimeException if the given attribtueType is null
+   * @return the name of the given attributeType
+   * @throws RuntimeException if the given attributeType is null
    */
   private static String getNameOfAttributeType(final Class<?> attributeType) {
     if (attributeType == null) {

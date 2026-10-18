@@ -13,7 +13,7 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 
 /**
  * @author Silvan Wyss
- * @param <R> the type of the result of the resulltJob of a
+ * @param <R> the type of the result of the resultJob of a
  *            {@link ResultJobExecutor}.
  */
 final class ResultJobExecutor<R> extends Thread {
@@ -41,7 +41,7 @@ final class ResultJobExecutor<R> extends Thread {
 
   /**
    * @param resultJob
-   * @param <R>       the type of the result of the given resulltJob
+   * @param <R>       the type of the result of the given resultJob
    * @return a new {@link ResultJobExecutor} for the given resultJob. The
    *         {@link ResultJobExecutor} will start automatically to execute the
    *         given resultJob

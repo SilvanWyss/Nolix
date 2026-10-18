@@ -49,7 +49,7 @@ public final class EmptyArgumentException extends AbstractInvalidArgumentExcepti
   /**
    * @param argument     - Can be null
    * @param argumentName
-   * @return a new {@link EmptyArgumentException} for the given argumente and
+   * @return a new {@link EmptyArgumentException} for the given argument and
    *         argumentName
    * @throws RuntimeException if the given argumentName is null or blank
    */

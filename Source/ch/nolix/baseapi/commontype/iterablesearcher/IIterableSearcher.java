@@ -12,7 +12,7 @@ public interface IIterableSearcher extends IIterableFirstElementSearcher, IItera
    *                      when is null
    * @param oneBasedIndex the one-based index at which an element is requested
    * @param <E>           the type of the elements of the given iterable
-   * @return the element at the given oneBasedIndexed from the given iterable
+   * @return the element at the given oneBasedIndex from the given iterable
    * @throws RuntimeException if the given iterable does not contain an element at
    *                          the given oneBasedIndex
    */

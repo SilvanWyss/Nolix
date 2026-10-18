@@ -41,7 +41,7 @@ public final class ArgumentHasAttributeException extends AbstractInvalidArgument
 
   /**
    * @param attributeName
-   * @return a validated attribute name from the given attribtueName
+   * @return a validated attribute name from the given attributeName
    * @throws RuntimeException if the given attributeName is null or blank
    */
   private static String getValidatedAttributeNameFromAttributeName(final String attributeName) {

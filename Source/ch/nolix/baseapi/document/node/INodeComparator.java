@@ -17,7 +17,7 @@ public interface INodeComparator {
   /**
    * @param node1
    * @param node2
-   * @return true if the given ndoe1 and node2 have an equal child {@link Node}s
+   * @return true if the given node1 and node2 have an equal child {@link Node}s
    *         constellation, false otherwise
    */
   boolean haveEqualChildNodesConstellationLikeNodes(Node<?> node1, Node<?> node2);
@@ -25,7 +25,7 @@ public interface INodeComparator {
   /**
    * @param node1
    * @param node2
-   * @return true if the given ndoe1 and node2 have an equal header constellation,
+   * @return true if the given node1 and node2 have an equal header constellation,
    *         false otherwise
    */
   boolean haveEqualHeaderConstellationLikeNode(Node<?> node1, Node<?> node2);

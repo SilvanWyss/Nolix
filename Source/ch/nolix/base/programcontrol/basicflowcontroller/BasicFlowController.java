@@ -39,10 +39,10 @@ public final class BasicFlowController {
   }
 
   /**
-   * Waits for the given duractionInSeconds.
+   * Waits for the given durationInSeconds.
    * 
    * @param durationInSeconds
-   * @throws RuntimeException if the given duractionInSeconds is negative
+   * @throws RuntimeException if the given durationInSeconds is negative
    */
   public static void waitForSeconds(final int durationInSeconds) {
     final var durationInMilliseconds = TimeUnitConversionCatalog.MILLISECONDS_PER_SECOND * durationInSeconds;

@@ -15,19 +15,19 @@ import ch.nolix.baseapi.generalstate.statemutation.Clearable;
  */
 public interface IUpdater<O> extends Clearable {
   /**
-   * Adds the given updater to the current {@link IUpdater}.
+   * Adds the given update to the current {@link IUpdater}.
    * 
    * @param update
-   * @throws RuntimeException if the given updater is null
+   * @throws RuntimeException if the given update is null
    */
   void addUpdate(Consumer<O> update);
 
   /**
-   * Adds the given updaters to the current {@link IUpdater}.
+   * Adds the given updates to the current {@link IUpdater}.
    * 
    * @param updates
-   * @throws RuntimeException if the given updaters is null
-   * @throws RuntimeException if one of the given updaters is null
+   * @throws RuntimeException if the given updates is null
+   * @throws RuntimeException if one of the given updates is null
    */
   void addUpdates(ExtendedIterable<Consumer<O>> updates);
 

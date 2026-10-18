@@ -9,7 +9,7 @@ package ch.nolix.base.validation.object;
  */
 public final class NamableObjectMediator<A> extends AbstractObjectMediator<A> {
   /**
-   * Creates a new {@link NamableObjectMediator} for the given argumente.
+   * Creates a new {@link NamableObjectMediator} for the given argument.
    * 
    * @param argument
    */

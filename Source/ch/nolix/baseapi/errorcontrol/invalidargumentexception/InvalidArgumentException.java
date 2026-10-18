@@ -151,7 +151,7 @@ public final class InvalidArgumentException extends AbstractInvalidArgumentExcep
    * @param <A>          the type of the given argument
    * @return a new @link InvalidArgumentException} for the givne argument and
    *         argumentType
-   * @throws RuntimeException if the given arumentType is null
+   * @throws RuntimeException if the given argumentType is null
    */
   public static <A> InvalidArgumentException forArgumentAndArgumentType(
     final A argument,

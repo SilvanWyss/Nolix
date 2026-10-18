@@ -35,7 +35,7 @@ public final class ImmutableJsonObject implements JsonObject {
 
   /**
    * Creates a new {@link ImmutableJsonObject} with the given nameValuePairs and
-   * alphabeticallyOrderedTag.
+   * alphabeticallyOrderedFlag.
    * 
    * @param nameValuePairs
    * @param alphabeticallyOrderedFlag
