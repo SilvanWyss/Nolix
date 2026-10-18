@@ -13,6 +13,27 @@ import ch.nolix.basetest.datastructure.extendediterable.ExtendedIterableTest;
  * @author Silvan Wyss
  */
 final class MutableMatrixTest extends ExtendedIterableTest {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  @SuppressWarnings("unchecked")
+  protected <E> ExtendedIterable<E> createContainerWithElements(E... elements) {
+    final MutableMatrix<E> matrix = MutableMatrix.createEmpty();
+
+    matrix.addRow(elements);
+
+    return matrix;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected <E> ExtendedIterable<E> createEmptyContainerForType(final Class<E> type) {
+    return MutableMatrix.createEmpty();
+  }
+
   @Test
   void testCase_addColumn() {
     // setup
@@ -171,26 +192,5 @@ final class MutableMatrixTest extends ExtendedIterableTest {
     expect(rightRotatedMatrix.getRow(1).toString()).isEqualTo("flower,antelope,apple");
     expect(rightRotatedMatrix.getRow(2).toString()).isEqualTo("tree,elephant,banana");
     expect(rightRotatedMatrix.getRow(3).toString()).isEqualTo("palm,baboon,cerish");
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  @SuppressWarnings("unchecked")
-  protected <E> ExtendedIterable<E> createContainerWithElements(E... elements) {
-    final MutableMatrix<E> matrix = MutableMatrix.createEmpty();
-
-    matrix.addRow(elements);
-
-    return matrix;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  protected <E> ExtendedIterable<E> createEmptyContainerForType(final Class<E> type) {
-    return MutableMatrix.createEmpty();
   }
 }

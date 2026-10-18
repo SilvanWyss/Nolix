@@ -107,6 +107,43 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
   }
 
   /**
+   * Lets the current {@link AbstractNetEndPoint} receive the given rawMessage.
+   * 
+   * @param rawMessage
+   * @throws RuntimeException if the given rawMessage is not valid
+   */
+  void receiveRawMessage(final String rawMessage) {
+    // Determinate the message type of the given rawMessage.
+    final var messageType = MessageType.forPrefix(rawMessage.substring(0, 1));
+
+    // Enumerates the messageType.
+    switch (messageType) {
+      case DEFAULT_TARGET_MESSAGE:
+
+        if (!rawMessage.equals(MessageType.DEFAULT_TARGET_MESSAGE.getPrefix())) {
+          throw InvalidArgumentException.forArgumentAndArgumentName(rawMessage, RAW_MESSAGE_VARIABLE_NAME);
+        }
+
+        confirmReceivedTargetInfo();
+
+        break;
+      case TARGET_MESSAGE:
+        setCustomTargetSlot(rawMessage.substring(1));
+        confirmReceivedTargetInfo();
+        break;
+      case CONTENT_MESSAGE:
+        receiveMessage(rawMessage.substring(1));
+        break;
+      case CLOSE_MESSAGE:
+        Validator.assertThat(rawMessage).thatIsNamed(RAW_MESSAGE_VARIABLE_NAME).hasLength(1);
+        close();
+        break;
+      default:
+        throw InvalidArgumentException.forArgumentAndArgumentName(rawMessage, RAW_MESSAGE_VARIABLE_NAME);
+    }
+  }
+
+  /**
    * Confirms that the current {@link AbstractNetEndPoint} has a target info.
    * 
    * @throws RuntimeException if the current {@link AbstractNetEndPoint} has
@@ -146,42 +183,5 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
     assertIsOpen();
 
     getStoredReceiver().accept(message);
-  }
-
-  /**
-   * Lets the current {@link AbstractNetEndPoint} receive the given rawMessage.
-   * 
-   * @param rawMessage
-   * @throws RuntimeException if the given rawMessage is not valid
-   */
-  void receiveRawMessage(final String rawMessage) {
-    // Determinate the message type of the given rawMessage.
-    final var messageType = MessageType.forPrefix(rawMessage.substring(0, 1));
-
-    // Enumerates the messageType.
-    switch (messageType) {
-      case DEFAULT_TARGET_MESSAGE:
-
-        if (!rawMessage.equals(MessageType.DEFAULT_TARGET_MESSAGE.getPrefix())) {
-          throw InvalidArgumentException.forArgumentAndArgumentName(rawMessage, RAW_MESSAGE_VARIABLE_NAME);
-        }
-
-        confirmReceivedTargetInfo();
-
-        break;
-      case TARGET_MESSAGE:
-        setCustomTargetSlot(rawMessage.substring(1));
-        confirmReceivedTargetInfo();
-        break;
-      case CONTENT_MESSAGE:
-        receiveMessage(rawMessage.substring(1));
-        break;
-      case CLOSE_MESSAGE:
-        Validator.assertThat(rawMessage).thatIsNamed(RAW_MESSAGE_VARIABLE_NAME).hasLength(1);
-        close();
-        break;
-      default:
-        throw InvalidArgumentException.forArgumentAndArgumentName(rawMessage, RAW_MESSAGE_VARIABLE_NAME);
-    }
   }
 }

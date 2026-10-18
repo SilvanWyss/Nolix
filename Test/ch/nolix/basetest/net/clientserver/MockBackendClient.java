@@ -18,6 +18,21 @@ public final class MockBackendClient extends AbstractBackendClient<MockBackendCl
 
   private ChainedNode latestGetDataFromHereRequest;
 
+  public ChainedNode getStoredLatestGetDataFromHereRequest() {
+    Validator
+      .assertThat(latestGetDataFromHereRequest)
+      .thatIsNamed("latest received data from here command")
+      .isNotNull();
+
+    return latestGetDataFromHereRequest;
+  }
+
+  public ChainedNode getStoredLatestRunHereCommand() {
+    Validator.assertThat(latestRunHereCommand).thatIsNamed("latest received run here command").isNotNull();
+
+    return latestRunHereCommand;
+  }
+
   @Override
   protected Node<?> provideData(final ChainedNode request) {
     Validator.assertThat(request).thatIsNamed(LowerCaseVariableNameCatalog.REQUEST).isNotNull();
@@ -35,20 +50,5 @@ public final class MockBackendClient extends AbstractBackendClient<MockBackendCl
     Validator.assertThat(command).thatIsNamed(LowerCaseVariableNameCatalog.COMMAND).isNotNull();
 
     latestRunHereCommand = command;
-  }
-
-  public ChainedNode getStoredLatestGetDataFromHereRequest() {
-    Validator
-      .assertThat(latestGetDataFromHereRequest)
-      .thatIsNamed("latest received data from here command")
-      .isNotNull();
-
-    return latestGetDataFromHereRequest;
-  }
-
-  public ChainedNode getStoredLatestRunHereCommand() {
-    Validator.assertThat(latestRunHereCommand).thatIsNamed("latest received run here command").isNotNull();
-
-    return latestRunHereCommand;
   }
 }

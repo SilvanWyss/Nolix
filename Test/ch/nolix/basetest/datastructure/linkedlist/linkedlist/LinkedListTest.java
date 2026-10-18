@@ -17,6 +17,23 @@ import ch.nolix.basetest.datastructure.extendediterable.ExtendedIterableTest;
  * @author Silvan Wyss
  */
 final class LinkedListTest extends ExtendedIterableTest {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  @SuppressWarnings("unchecked")
+  protected <E> ExtendedIterable<E> createContainerWithElements(E... elements) {
+    return LinkedList.fromArray(elements);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected <E> ExtendedIterable<E> createEmptyContainerForType(final Class<E> type) {
+    return LinkedList.createEmpty();
+  }
+
   @Test
   void testCase_addAtBegin_whenIsEmpty() {
     // setup
@@ -355,22 +372,5 @@ final class LinkedListTest extends ExtendedIterableTest {
 
     // verify
     expect(result).isEqualTo("");
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  @SuppressWarnings("unchecked")
-  protected <E> ExtendedIterable<E> createContainerWithElements(E... elements) {
-    return LinkedList.fromArray(elements);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  protected <E> ExtendedIterable<E> createEmptyContainerForType(final Class<E> type) {
-    return LinkedList.createEmpty();
   }
 }

@@ -13,6 +13,23 @@ import ch.nolix.basetest.datastructure.extendediterable.ExtendedIterableTest;
  * @author Silvan Wyss
  */
 final class ExtendedIterableViewTest extends ExtendedIterableTest {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  @SuppressWarnings("unchecked")
+  protected <E> ExtendedIterable<E> createContainerWithElements(E... elements) {
+    return ExtendedIterableView.forArray(elements);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected <E> ExtendedIterable<E> createEmptyContainerForType(final Class<E> type) {
+    return ExtendedIterableView.createEmpty();
+  }
+
   @Test
   void testCase_containsEqualing() {
     // setup
@@ -74,22 +91,5 @@ final class ExtendedIterableViewTest extends ExtendedIterableTest {
     expect(testUnit.getStoredSelected(s -> s.length() == 1).toString()).isEqualTo("A,B,C");
     expect(testUnit.getStoredSelected(s -> s.length() == 2).toString()).isEqualTo("AA,BB,CC");
     expect(testUnit.getStoredSelected(s -> s.length() == 3).toString()).isEqualTo("AAA,BBB,CCC");
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  @SuppressWarnings("unchecked")
-  protected <E> ExtendedIterable<E> createContainerWithElements(E... elements) {
-    return ExtendedIterableView.forArray(elements);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  protected <E> ExtendedIterable<E> createEmptyContainerForType(final Class<E> type) {
-    return ExtendedIterableView.createEmpty();
   }
 }

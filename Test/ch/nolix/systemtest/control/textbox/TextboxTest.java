@@ -13,6 +13,14 @@ import ch.nolix.systemtest.webgui.main.ControlTest;
  * @author Silvan Wyss
  */
 final class TextboxTest extends ControlTest<ITextbox> {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected ITextbox createTestUnit() {
+    return new Textbox();
+  }
+
   @Test
   void testCase_emptyText() {
     // setup
@@ -24,13 +32,5 @@ final class TextboxTest extends ControlTest<ITextbox> {
 
     // verify
     expect(testUnit.getText()).isEmpty();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  protected ITextbox createTestUnit() {
-    return new Textbox();
   }
 }

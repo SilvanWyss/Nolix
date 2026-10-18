@@ -13,15 +13,6 @@ import ch.nolix.base.environment.filesystem.FileSystemAccessor;
  * @author Silvan Wyss
  */
 final class FileNodeTest extends BaseMutableNodeTest<FileNode> {
-  @AfterEach
-  void cleanup() {
-    final var folderOfRunningJar = FileSystemAccessor.getFolderOfRunningJarFile();
-
-    if (folderOfRunningJar.containsItem("fileNode")) {
-      FileSystemAccessor.getFolderOfRunningJarFile().deleteFileSystemItem("fileNode");
-    }
-  }
-
   /**
    * {@inheritDoc}
    */
@@ -62,5 +53,14 @@ final class FileNodeTest extends BaseMutableNodeTest<FileNode> {
     }
 
     return fileNode;
+  }
+
+  @AfterEach
+  void cleanup() {
+    final var folderOfRunningJar = FileSystemAccessor.getFolderOfRunningJarFile();
+
+    if (folderOfRunningJar.containsItem("fileNode")) {
+      FileSystemAccessor.getFolderOfRunningJarFile().deleteFileSystemItem("fileNode");
+    }
   }
 }

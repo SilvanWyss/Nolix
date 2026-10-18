@@ -117,15 +117,6 @@ implements MultiStateConfiguration<C, S> {
     }
   }
 
-  /**
-   * @return the current {@link AbstractMultiStateConfiguration} as concrete
-   *         {@link AbstractMultiStateConfiguration}.
-   */
-  @SuppressWarnings("unchecked")
-  protected final C asConcrete() {
-    return (C) this;
-  }
-
   @Override
   public final void addChild(final MultiStateConfiguration<?, S> child) {
     Validator.assertThat(child).thatIsNamed(LowerCaseVariableNameCatalog.CHILD).isNotNull();
@@ -139,6 +130,15 @@ implements MultiStateConfiguration<C, S> {
     final var abstractMultiStateConfiguration = (AbstractMultiStateConfiguration<C, S>) multiStateConfiguration;
 
     abstractMultiStateConfiguration.removeParent();
+  }
+
+  /**
+   * @return the current {@link AbstractMultiStateConfiguration} as concrete
+   *         {@link AbstractMultiStateConfiguration}.
+   */
+  @SuppressWarnings("unchecked")
+  protected final C asConcrete() {
+    return (C) this;
   }
 
   protected final void initialize() {

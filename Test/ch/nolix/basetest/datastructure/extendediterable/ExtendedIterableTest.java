@@ -23,6 +23,11 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
  * @author Silvan Wyss
  */
 public abstract class ExtendedIterableTest extends StandardTest {
+  @SuppressWarnings("unchecked")
+  protected abstract <E> ExtendedIterable<E> createContainerWithElements(E... elements);
+
+  protected abstract <E> ExtendedIterable<E> createEmptyContainerForType(Class<E> type);
+
   @Test
   final void testCase_contains_whenContainsTheGivenElement() {
     // setup
@@ -1234,9 +1239,4 @@ public abstract class ExtendedIterableTest extends StandardTest {
     expect(result.getStoredAtOneBasedIndex(4)).isEqualTo("xxxxx");
     expect(result.getStoredAtOneBasedIndex(5)).isEqualTo("xxxxxx");
   }
-
-  @SuppressWarnings("unchecked")
-  protected abstract <E> ExtendedIterable<E> createContainerWithElements(E... elements);
-
-  protected abstract <E> ExtendedIterable<E> createEmptyContainerForType(Class<E> type);
 }

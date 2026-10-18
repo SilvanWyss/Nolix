@@ -18,6 +18,12 @@ import ch.nolix.systemapi.webgui.main.Control;
  */
 public abstract class ControlHtmlBuilderTest<B extends IControlHtmlBuilder<C>, C extends Control<C, ?>>
 extends StandardTest {
+  protected abstract C createControl();
+
+  protected abstract B createTestUnit();
+
+  protected abstract String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl();
+
   @Test
   final void testCase_createHtmlElementForNewControl() {
     // setup
@@ -29,10 +35,4 @@ extends StandardTest {
     // verify
     expect(result).hasStringRepresentation(getExpectedStringRepresentationOfCreatedHtmlElementForNewControl());
   }
-
-  protected abstract C createControl();
-
-  protected abstract B createTestUnit();
-
-  protected abstract String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl();
 }

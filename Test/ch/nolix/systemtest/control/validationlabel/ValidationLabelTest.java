@@ -16,6 +16,14 @@ import ch.nolix.systemtest.webgui.main.ControlTest;
  * @author Silvan Wyss
  */
 final class ValidationLabelTest extends ControlTest<IValidationLabel> {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected IValidationLabel createTestUnit() {
+    return new ValidationLabel();
+  }
+
   @Test
   void testCase_letsClear() {
     // setup step 1: create a ValidationLabel and runs an action that produces an
@@ -50,13 +58,5 @@ final class ValidationLabelTest extends ControlTest<IValidationLabel> {
 
     // verify
     expect(testUnit.containsAny()).isTrue();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  protected IValidationLabel createTestUnit() {
-    return new ValidationLabel();
   }
 }

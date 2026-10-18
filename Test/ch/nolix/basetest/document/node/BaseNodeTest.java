@@ -19,6 +19,12 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentExcep
  *            {@link BaseNodeTest}
  */
 abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
+  protected abstract N createBlankNode();
+
+  protected abstract N createNodeWithHeader(String header);
+
+  protected abstract N createNodeWithHeaderAndChildNodes(String header, String... childNodes);
+
   @Test
   final void testCase_getStoredSingleChildNode_whenNodeDoesNotContainChildNodes() {
     // setup
@@ -138,10 +144,4 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
     // verify
     expect(result).isEqualTo(expectedResult);
   }
-
-  protected abstract N createBlankNode();
-
-  protected abstract N createNodeWithHeader(String header);
-
-  protected abstract N createNodeWithHeaderAndChildNodes(String header, String... childNodes);
 }

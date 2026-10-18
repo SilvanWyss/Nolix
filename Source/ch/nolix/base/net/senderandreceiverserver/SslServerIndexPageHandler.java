@@ -52,6 +52,15 @@ public final class SslServerIndexPageHandler extends SimpleChannelInboundHandler
    * {@inheritDoc}
    */
   @Override
+  public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+    Logger.logError(cause);
+    ctx.close();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   protected void channelRead0(ChannelHandlerContext ctx, FullHttpRequest req) throws Exception {
     // Handle a bad request.
     if (!req.decoderResult().isSuccess()) {
@@ -73,15 +82,6 @@ public final class SslServerIndexPageHandler extends SimpleChannelInboundHandler
     res.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/html; charset=UTF-8");
     HttpUtil.setContentLength(res, content.readableBytes());
     sendHttpResponse(ctx, req, res);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-    Logger.logError(cause);
-    ctx.close();
   }
 
   private static void sendHttpResponse(ChannelHandlerContext ctx, FullHttpRequest req, FullHttpResponse res) {

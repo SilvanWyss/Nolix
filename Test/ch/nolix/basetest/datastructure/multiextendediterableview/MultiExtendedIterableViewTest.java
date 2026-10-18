@@ -14,20 +14,6 @@ import ch.nolix.basetest.datastructure.extendediterable.ExtendedIterableTest;
  * @author Silvan Wyss
  */
 final class MultiExtendedIterableViewTest extends ExtendedIterableTest {
-  @Test
-  void testCase_forArray() {
-    // setup
-    final var array1 = new String[] { "x", "xx" };
-    final var array2 = new String[] { "y", "yy" };
-    final var array3 = new String[] { "z", "zz" };
-
-    // execute
-    final var result = MultiExtendedIterableView.forArrays(array1, array2, array3);
-
-    // verify
-    expect(result).containsExactlyInSameOrder("x", "xx", "y", "yy", "z", "zz");
-  }
-
   /**
    * {@inheritDoc}
    */
@@ -45,5 +31,19 @@ final class MultiExtendedIterableViewTest extends ExtendedIterableTest {
   @Override
   protected <E> ExtendedIterable<E> createEmptyContainerForType(Class<E> type) {
     return MultiExtendedIterableView.forEmpty();
+  }
+
+  @Test
+  void testCase_forArray() {
+    // setup
+    final var array1 = new String[] { "x", "xx" };
+    final var array2 = new String[] { "y", "yy" };
+    final var array3 = new String[] { "z", "zz" };
+
+    // execute
+    final var result = MultiExtendedIterableView.forArrays(array1, array2, array3);
+
+    // verify
+    expect(result).containsExactlyInSameOrder("x", "xx", "y", "yy", "z", "zz");
   }
 }

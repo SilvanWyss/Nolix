@@ -17,26 +17,6 @@ import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
  */
 final class HorizontalStackHtmlBuilderTest
 extends ControlHtmlBuilderTest<HorizontalStackHtmlBuilder, IHorizontalStack> {
-  @Test
-  void testCase_createHtmlElement_whenContainsChildControls() {
-    // setup control
-    final var control = createControl().addControls(new Label(), new Label(), new Label());
-
-    // setup testUnit
-    final var testUnit = createTestUnit();
-
-    // execute
-    final var result = testUnit.createHtmlElementForControl(control);
-
-    // verify
-    expect(result.getInnerText().isEmpty()).isTrue();
-    final var childElements = result.getChildElements();
-    expect(childElements).hasElementCount(3);
-    expect(childElements.getStoredAtOneBasedIndex(1).getType()).isEqualTo(HtmlElementTypeCatalog.DIV);
-    expect(childElements.getStoredAtOneBasedIndex(2).getType()).isEqualTo(HtmlElementTypeCatalog.DIV);
-    expect(childElements.getStoredAtOneBasedIndex(3).getType()).isEqualTo(HtmlElementTypeCatalog.DIV);
-  }
-
   /**
    * {@inheritDoc}
    */
@@ -59,5 +39,25 @@ extends ControlHtmlBuilderTest<HorizontalStackHtmlBuilder, IHorizontalStack> {
   @Override
   protected String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl() {
     return "<div />";
+  }
+
+  @Test
+  void testCase_createHtmlElement_whenContainsChildControls() {
+    // setup control
+    final var control = createControl().addControls(new Label(), new Label(), new Label());
+
+    // setup testUnit
+    final var testUnit = createTestUnit();
+
+    // execute
+    final var result = testUnit.createHtmlElementForControl(control);
+
+    // verify
+    expect(result.getInnerText().isEmpty()).isTrue();
+    final var childElements = result.getChildElements();
+    expect(childElements).hasElementCount(3);
+    expect(childElements.getStoredAtOneBasedIndex(1).getType()).isEqualTo(HtmlElementTypeCatalog.DIV);
+    expect(childElements.getStoredAtOneBasedIndex(2).getType()).isEqualTo(HtmlElementTypeCatalog.DIV);
+    expect(childElements.getStoredAtOneBasedIndex(3).getType()).isEqualTo(HtmlElementTypeCatalog.DIV);
   }
 }

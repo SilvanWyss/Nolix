@@ -233,6 +233,14 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected void noteClose() {
+    // Does nothing.
+  }
+
   ExtendedIterable<? extends IColumn> getStoredBackReferencingColumns() {
     if (!COLUMN_EXAMINER.isBaseReferenceColumn(this)) {
       return LinkedList.createEmpty();
@@ -289,14 +297,6 @@ public final class Column extends AbstractSchemaObject implements IColumn {
 
   void setParentTableAttribute(final Table parentTable) {
     this.parentTable = parentTable;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  protected void noteClose() {
-    // Does nothing.
   }
 
   private ExtendedIterable<? extends IColumn> getStoredBackReferencingColumnsWhenIsReferenceColumn() {

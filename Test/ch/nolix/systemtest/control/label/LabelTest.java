@@ -15,6 +15,14 @@ import ch.nolix.systemtest.webgui.main.ControlTest;
  * @author Silvan Wyss
  */
 final class LabelTest extends ControlTest<ILabel> {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected Label createTestUnit() {
+    return new Label();
+  }
+
   @Test
   void testCase_removeRole() {
     // setup
@@ -88,13 +96,5 @@ final class LabelTest extends ControlTest<ILabel> {
 
     // verify
     expect(testUnit.getText()).isEqualTo("Lorem Ipsum");
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  protected Label createTestUnit() {
-    return new Label();
   }
 }

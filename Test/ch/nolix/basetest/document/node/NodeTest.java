@@ -13,6 +13,30 @@ import ch.nolix.base.document.node.ImmutableNode;
  * @author Silvan Wyss
  */
 final class NodeTest extends BaseNodeTest<ImmutableNode> {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected ImmutableNode createBlankNode() {
+    return ImmutableNode.EMPTY_NODE;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected ImmutableNode createNodeWithHeader(final String header) {
+    return ImmutableNode.withHeader(header);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected ImmutableNode createNodeWithHeaderAndChildNodes(final String header, final String... childNodes) {
+    return ImmutableNode.withHeaderAndChildNodes(header, childNodes);
+  }
+
   @Test
   void testCase_asWithHeader_1A() {
     // setup
@@ -64,29 +88,5 @@ final class NodeTest extends BaseNodeTest<ImmutableNode> {
 
     // verify
     expect(result).hasStringRepresentation(expectedXmlStringRepresentation);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  protected ImmutableNode createBlankNode() {
-    return ImmutableNode.EMPTY_NODE;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  protected ImmutableNode createNodeWithHeader(final String header) {
-    return ImmutableNode.withHeader(header);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  protected ImmutableNode createNodeWithHeaderAndChildNodes(final String header, final String... childNodes) {
-    return ImmutableNode.withHeaderAndChildNodes(header, childNodes);
   }
 }

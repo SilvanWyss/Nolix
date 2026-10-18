@@ -14,15 +14,6 @@ import ch.nolix.basetest.datastructure.extendediterable.ExtendedIterableTest;
  * @author Silvan Wyss
  */
 final class ArrayExtendedIterableViewTest extends ExtendedIterableTest {
-  @Test
-  void testCase_forArray_whenTheGivenArrayIsNull() {
-    // execute & verify
-    expectRunning(() -> ArrayExtendedIterableView
-      .forArray(null)).throwsException()
-      .ofType(ArgumentIsNullException.class)
-      .withMessage("The given array is null.");
-  }
-
   /**
    * {@inheritDoc}
    */
@@ -38,5 +29,14 @@ final class ArrayExtendedIterableViewTest extends ExtendedIterableTest {
   @Override
   protected <E> ExtendedIterable<E> createEmptyContainerForType(Class<E> type) {
     return ArrayExtendedIterableView.createEmpty();
+  }
+
+  @Test
+  void testCase_forArray_whenTheGivenArrayIsNull() {
+    // execute & verify
+    expectRunning(() -> ArrayExtendedIterableView
+      .forArray(null)).throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given array is null.");
   }
 }

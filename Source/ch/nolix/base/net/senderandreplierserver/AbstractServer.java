@@ -101,6 +101,30 @@ public abstract class AbstractServer implements Server {
   }
 
   /**
+   * Notes that the given defaultSlot has been added to the current
+   * {@link AbstractServer}.
+   * 
+   * @param defaultSlot
+   */
+  protected abstract void noteAddedDefaultSlot(Slot defaultSlot);
+
+  /**
+   * Notes that the given slot has been added to the current
+   * {@link AbstractServer}.
+   * 
+   * @param slot
+   */
+  protected abstract void noteAddedSlot(Slot slot);
+
+  /**
+   * Notes that the given slot has been removed from the current
+   * {@link AbstractServer}.
+   * 
+   * @param slot
+   */
+  protected abstract void noteRemovedSlot(Slot slot);
+
+  /**
    * Lets the current {@link AbstractServer} take the given endPoint.
    * 
    * @param abstractEndPoint
@@ -125,30 +149,6 @@ public abstract class AbstractServer implements Server {
       getStoredSlotByName(abstractEndPoint.getCustomTargetSlot()).takeBackendEndPoint(abstractEndPoint);
     }
   }
-
-  /**
-   * Notes that the given defaultSlot has been added to the current
-   * {@link AbstractServer}.
-   * 
-   * @param defaultSlot
-   */
-  protected abstract void noteAddedDefaultSlot(Slot defaultSlot);
-
-  /**
-   * Notes that the given slot has been added to the current
-   * {@link AbstractServer}.
-   * 
-   * @param slot
-   */
-  protected abstract void noteAddedSlot(Slot slot);
-
-  /**
-   * Notes that the given slot has been removed from the current
-   * {@link AbstractServer}.
-   * 
-   * @param slot
-   */
-  protected abstract void noteRemovedSlot(Slot slot);
 
   /**
    * Adds the given slot to the list of {@link Slot}s of the current
