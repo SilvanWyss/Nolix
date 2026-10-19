@@ -15,7 +15,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentEx
  */
 final class ForCountMediatorTest extends StandardTest {
   @Test
-  void testCase_forMaxRunCount_whenTheGivenMaxRunCountIsNegative() {
+  void testCase_forMaxRunCount_whenGivenMaxRunCountIsNegative() {
     // execute & verify
     expectRunning(() -> ForCountMediator.forMaxRunCount(-1))
       .throwsException()
@@ -24,7 +24,7 @@ final class ForCountMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_run_whenTheGivenMaxRunCountIs0() {
+  void testCase_run_whenGivenMaxRunCountIs0() {
     // setup
     final var mockRunnable = Mockito.mock(Runnable.class);
     final var testUnit = ForCountMediator.forMaxRunCount(0);
@@ -37,7 +37,7 @@ final class ForCountMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_run_whenTheGivenMaxRunCountIs1() {
+  void testCase_run_whenGivenMaxRunCountIs1() {
     // setup
     final var mockRunnable = Mockito.mock(Runnable.class);
     final var testUnit = ForCountMediator.forMaxRunCount(1);
@@ -50,7 +50,7 @@ final class ForCountMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_run_whenTheGivenMaxRunCountIs5() {
+  void testCase_run_whenGivenMaxRunCountIs5() {
     // setup
     final var mockRunnable = Mockito.mock(Runnable.class);
     final var testUnit = ForCountMediator.forMaxRunCount(5);
@@ -63,7 +63,7 @@ final class ForCountMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_runInBackground_whenTheGivenMaxRunCountIs0() {
+  void testCase_runInBackground_whenGivenMaxRunCountIs0() {
     // setup
     final var mockRunnable = Mockito.mock(Runnable.class);
     final var testUnit = ForCountMediator.forMaxRunCount(0);
@@ -78,7 +78,7 @@ final class ForCountMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_runInBackground_whenTheGivenMaxRunCountIs1() {
+  void testCase_runInBackground_whenGivenMaxRunCountIs1() {
     // setup
     final var mockRunnable = Mockito.mock(Runnable.class);
     final var testUnit = ForCountMediator.forMaxRunCount(1);
@@ -93,7 +93,7 @@ final class ForCountMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_runInBackground_whenTheGivenMaxRunCountIs5() {
+  void testCase_runInBackground_whenGivenMaxRunCountIs5() {
     // setup
     final var mockRunnable = Mockito.mock(Runnable.class);
     final var testUnit = ForCountMediator.forMaxRunCount(5);

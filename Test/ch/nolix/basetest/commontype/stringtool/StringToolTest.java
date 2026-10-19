@@ -73,7 +73,7 @@ final class StringToolTest extends StandardTest {
   }
 
   @Test
-  void testCase_createTabs_whenTheGivenTabCountIsNegative() {
+  void testCase_createTabs_whenGivenTabCountIsNegative() {
     // setup
     final var testUnit = new StringToolUnit();
 
@@ -98,7 +98,7 @@ final class StringToolTest extends StandardTest {
   }
 
   @Test
-  void testCase_getInInBraces_whenTheGivenObjectIsNull() {
+  void testCase_getInInBraces_whenGivenObjectIsNull() {
     // setup
     final var testUnit = new StringToolUnit();
 
@@ -110,7 +110,7 @@ final class StringToolTest extends StandardTest {
   }
 
   @Test
-  void testCase_getInSingleQuotes_whenTheGivenObjectIsNull() {
+  void testCase_getInSingleQuotes_whenGivenObjectIsNull() {
     // setup
     final var testUnit = new StringToolUnit();
 
@@ -127,7 +127,7 @@ final class StringToolTest extends StandardTest {
   "Cursor", //
   "CursorIcon" //
   })
-  void testCase_isPascalCase_whenTheGivenStringIsPascalCase(final String string) {
+  void testCase_isPascalCase_whenGivenStringIsPascalCase(final String string) {
     // execute
     final var result = StringTool.isPascalCase(string);
 
@@ -141,7 +141,7 @@ final class StringToolTest extends StandardTest {
   "cursor", //
   "cursorIcon" //
   })
-  void testCase_isPascalCase_whenTheGivenStringIsNotPascalCase(final String string) {
+  void testCase_isPascalCase_whenGivenStringIsNotPascalCase(final String string) {
     // execute
     final var result = StringTool.isPascalCase(string);
 
@@ -157,7 +157,7 @@ final class StringToolTest extends StandardTest {
   "False", //
   "false" //
   })
-  void testCase_toBoolean_whenTheGivenStringRepresentsFalse(final String string) {
+  void testCase_toBoolean_whenGivenStringRepresentsFalse(final String string) {
     // setup
     final var testUnit = new StringToolUnit();
 
@@ -176,7 +176,7 @@ final class StringToolTest extends StandardTest {
   "True", //
   "true" //
   })
-  void testCase_toBoolean_whenTheGivenStringRepresentsTrue(final String string) {
+  void testCase_toBoolean_whenGivenStringRepresentsTrue(final String string) {
     // setup
     final var testUnit = new StringToolUnit();
 
@@ -198,7 +198,7 @@ final class StringToolTest extends StandardTest {
   "3", //
   "10" //
   })
-  void testCase_toBoolean_whenTheGivenStringDoesNotRepresentABoolean(final String string) {
+  void testCase_toBoolean_whenGivenStringDoesNotRepresentABoolean(final String string) {
     // setup
     final var testUnit = new StringToolUnit();
 
@@ -218,7 +218,7 @@ final class StringToolTest extends StandardTest {
   "1", //
   "2", //
   })
-  void testCase_toDouble_whenTheGivenStringDoesNotRepresentADouble(final String string) {
+  void testCase_toDouble_whenGivenStringDoesNotRepresentADouble(final String string) {
     // setup
     final var testUnit = new StringToolUnit();
 

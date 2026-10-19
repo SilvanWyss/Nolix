@@ -18,7 +18,7 @@ import ch.nolix.system.element.base.AbstractElement;
  */
 final class EqualsMethodTest extends StandardTest {
   @Test
-  void testCase_equals_whenTheGivenObjectIsNull() {
+  void testCase_equals_whenGivenObjectIsNull() {
     // setup
     final var testUnit = new AbstractElement() {
       @Override
@@ -35,7 +35,7 @@ final class EqualsMethodTest extends StandardTest {
   }
 
   @Test
-  void testCase_equals_whenTheGivenObjectIsAVoidObject() {
+  void testCase_equals_whenGivenObjectIsAVoidObject() {
     // setup
     final Object object = new VoidObject();
     final var testUnit = new AbstractElement() {
@@ -53,7 +53,7 @@ final class EqualsMethodTest extends StandardTest {
   }
 
   @Test
-  void testCase_equals_whenTheGivenObjectIsTheSame() {
+  void testCase_equals_whenGivenObjectIsTheSame() {
     // setup
     final var testUnit = new AbstractElement() {
       @Override

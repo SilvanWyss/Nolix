@@ -13,7 +13,7 @@ import ch.nolix.base.testing.standardtest.StandardTest;
  */
 final class PolynomTest extends StandardTest {
   @Test
-  void testCase_equals_whenTheGivenObjectIsNull() {
+  void testCase_equals_whenGivenObjectIsNull() {
     // setup
     final var testUnit = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
 
@@ -25,7 +25,7 @@ final class PolynomTest extends StandardTest {
   }
 
   @Test
-  void testCase_equals_whenTheGivenObjectDoesNotEqual_1A() {
+  void testCase_equals_whenGivenObjectDoesNotEqual_1A() {
     // setup
     final var testUnit = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
     final var object = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0);
@@ -38,7 +38,7 @@ final class PolynomTest extends StandardTest {
   }
 
   @Test
-  void testCase_equals_whenTheGivenObjectDoesNotEqual_1B() {
+  void testCase_equals_whenGivenObjectDoesNotEqual_1B() {
     // setup
     final var testUnit = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
     final var object = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 7.0);
@@ -51,7 +51,7 @@ final class PolynomTest extends StandardTest {
   }
 
   @Test
-  void testCase_equals_whenTheGivenObjectEquals() {
+  void testCase_equals_whenGivenObjectEquals() {
     // setup
     final var testUnit = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
     final var object = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);

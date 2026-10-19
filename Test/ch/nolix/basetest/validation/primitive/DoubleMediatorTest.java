@@ -19,7 +19,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.SmallerArgumentExc
 final class DoubleMediatorTest extends StandardTest {
   @ParameterizedTest
   @ValueSource(doubles = { -1000.0, -1.5, -1.0, -0.5, -0.001, 0.0, 0.001, 0.5, 1.0, 1.5, 1000.0 })
-  void testCase_isBiggerThan_whenTheGivenArgumentIsBiggerThanTheChosenInfimum(final double argument) {
+  void testCase_isBiggerThan_whenGivenArgumentIsBiggerThanTheChosenInfimum(final double argument) {
     // setup
     final var testUnit = DoubleMediator.forArgumentAndArgumentName(argument, "argument");
 
@@ -29,7 +29,7 @@ final class DoubleMediatorTest extends StandardTest {
 
   @ParameterizedTest
   @ValueSource(doubles = { -1000.0, -1.5, -1.0, -0.5, -0.001, 0.0, 0.001, 0.5, 1.0, 1.5, 1000.0 })
-  void testCase_isBiggerThan_whenTheGivenArgumentIsNotBiggerThanTheChosenInfimum(final double argument) {
+  void testCase_isBiggerThan_whenGivenArgumentIsNotBiggerThanTheChosenInfimum(final double argument) {
     // setup
     final var testUnit = DoubleMediator.forArgumentAndArgumentName(argument, "argument");
 
@@ -42,7 +42,7 @@ final class DoubleMediatorTest extends StandardTest {
 
   @ParameterizedTest
   @ValueSource(doubles = { -1000.0, -1.5, -1.0, -0.5, -0.001, 0.0, 0.001, 0.5, 1.0, 1.5, 1000.0 })
-  void testCase_isBiggerThan_whenTheGivenArgumentIsNotThan(final double argument) {
+  void testCase_isBiggerThan_whenGivenArgumentIsNotThan(final double argument) {
     // setup
     final var testUnit = DoubleMediator.forArgumentAndArgumentName(argument, "argument");
 
@@ -65,7 +65,7 @@ final class DoubleMediatorTest extends StandardTest {
 
   @ParameterizedTest
   @ValueSource(doubles = { 0.0, 0.001, 0.5, 1.0, 1.5, 1000.0 })
-  void testCase_isNotNegative_whenTheGivenArgumentIsNotNegative(final double argument) {
+  void testCase_isNotNegative_whenGivenArgumentIsNotNegative(final double argument) {
     // setup
     final var testUnit = DoubleMediator.forArgumentAndArgumentName(argument, "argument");
 
@@ -75,7 +75,7 @@ final class DoubleMediatorTest extends StandardTest {
 
   @ParameterizedTest
   @ValueSource(doubles = { -1000.0, -1.5, -1.0, -0.5, -0.001, 0.0, 0.001, 0.5, 1.0, 1.5, 1000.0 })
-  void testCase_isNotSmallerThan_whenTheGivenArgumentIsSmallerThanTheChosenMin(final double argument) {
+  void testCase_isNotSmallerThan_whenGivenArgumentIsSmallerThanTheChosenMin(final double argument) {
     // setup
     final var testUnit = DoubleMediator.forArgumentAndArgumentName(argument, "argument");
 
@@ -88,7 +88,7 @@ final class DoubleMediatorTest extends StandardTest {
 
   @ParameterizedTest
   @ValueSource(doubles = { -1000.0, -1.5, -1.0, -0.5, -0.001, 0.0, 0.001, 0.5, 1.0, 1.5, 1000.0 })
-  void testCase_isNotSmallerThan_whenTheGivenArgumentIsNotSmallerThanTheChosenMin(final double argument) {
+  void testCase_isNotSmallerThan_whenGivenArgumentIsNotSmallerThanTheChosenMin(final double argument) {
     // setup
     final var testUnit = DoubleMediator.forArgumentAndArgumentName(argument, "argument");
 
@@ -98,7 +98,7 @@ final class DoubleMediatorTest extends StandardTest {
 
   @ParameterizedTest
   @ValueSource(doubles = { 0.001, 0.5, 1.0, 1.5, 1000.0 })
-  void testCase_isPositive_whenTheGivenArgumentIsPositive(final double argument) {
+  void testCase_isPositive_whenGivenArgumentIsPositive(final double argument) {
     // setup
     final var testUnit = DoubleMediator.forArgumentAndArgumentName(argument, "argument");
 
@@ -108,7 +108,7 @@ final class DoubleMediatorTest extends StandardTest {
 
   @ParameterizedTest
   @ValueSource(doubles = { -1000.0, -1.5, -1.0, -0.5, -0.001, 0.0 })
-  void testCase_isPositive_whenTheGivenArgumentIsNotPositive(final double argument) {
+  void testCase_isPositive_whenGivenArgumentIsNotPositive(final double argument) {
     // setup
     final var testUnit = DoubleMediator.forArgumentAndArgumentName(argument, "argument");
 

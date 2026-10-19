@@ -82,7 +82,7 @@ final class LinkedListTest extends ExtendedIterableTest {
   }
 
   @Test
-  void testCase_addAtBegin_whenTheGivenElementIsNull() {
+  void testCase_addAtBegin_whenGivenElementIsNull() {
     // setup
     final String element = null;
     final var testUnit = LinkedList.createEmpty();
@@ -95,7 +95,7 @@ final class LinkedListTest extends ExtendedIterableTest {
   }
 
   @Test
-  void testCase_addAtBegin_forArray_whenTheGivenArrayIsNull() {
+  void testCase_addAtBegin_forArray_whenGivenArrayIsNull() {
     // setup
     final String[] array = null;
     final LinkedList<String> testUnit = LinkedList.createEmpty();
@@ -158,7 +158,7 @@ final class LinkedListTest extends ExtendedIterableTest {
   }
 
   @Test
-  void testCase_addAtBegin_forIterable_whenTheGivenListIsEmpty() {
+  void testCase_addAtBegin_forIterable_whenGivenListIsEmpty() {
     // setup
     final var rhino = "rhino";
     final var zebra = "zebra";
@@ -173,7 +173,7 @@ final class LinkedListTest extends ExtendedIterableTest {
   }
 
   @Test
-  void testCase_addAtBegin_forIterable_whenTheGivenElementIsNull() {
+  void testCase_addAtBegin_forIterable_whenGivenElementIsNull() {
     // setup
     final var testUnit = LinkedList.createEmpty();
     final Iterable<String> element = null;
@@ -186,7 +186,7 @@ final class LinkedListTest extends ExtendedIterableTest {
   }
 
   @Test
-  void testCase_addAtEnd_whenTheGivenElementIsNull() {
+  void testCase_addAtEnd_whenGivenElementIsNull() {
     // setup
     final var testUnit = LinkedList.createEmpty();
     final String element = null;
@@ -223,7 +223,7 @@ final class LinkedListTest extends ExtendedIterableTest {
   }
 
   @Test
-  void testCase_fromArray_whenTheGivenArrayIsNull() {
+  void testCase_fromArray_whenGivenArrayIsNull() {
     // execute & verify
     expectRunning(() -> LinkedList.fromArray(null))
       .throwsException()
@@ -232,7 +232,7 @@ final class LinkedListTest extends ExtendedIterableTest {
   }
 
   @Test
-  void testCase_fromArray_whenTheGivenArrayIsEmpty() {
+  void testCase_fromArray_whenGivenArrayIsEmpty() {
     // setup
     final var array = new String[0];
 
@@ -244,7 +244,7 @@ final class LinkedListTest extends ExtendedIterableTest {
   }
 
   @Test
-  void testCase_fromArray_whenTheGivenArrayContains1Element() {
+  void testCase_fromArray_whenGivenArrayContains1Element() {
     // setup
     final var elephant = "elephant";
     final var array = new String[] { elephant };
@@ -257,7 +257,7 @@ final class LinkedListTest extends ExtendedIterableTest {
   }
 
   @Test
-  void testCase_fromArray_whenTheGivenArrayContainsSeveralElements() {
+  void testCase_fromArray_whenGivenArrayContainsSeveralElements() {
     // setup
     final var antelope = "antelope";
     final var baboon = "baboon";
@@ -275,7 +275,7 @@ final class LinkedListTest extends ExtendedIterableTest {
   }
 
   @Test
-  void testCase_fromArray_whenTheGivenArrayContainsANullElement() {
+  void testCase_fromArray_whenGivenArrayContainsANullElement() {
     // setup
     final var array = new String[] { "lephant", "lion", null, "zebra" };
 

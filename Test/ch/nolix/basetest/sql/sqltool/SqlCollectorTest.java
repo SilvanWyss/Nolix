@@ -37,7 +37,7 @@ final class SqlCollectorTest extends StandardTest {
   }
 
   @Test
-  void testCase_addSqlStatement_whenTheGivenSqlStatementIsNull() {
+  void testCase_addSqlStatement_whenGivenSqlStatementIsNull() {
     // setup
     final String sqlStatement = null;
     final var testUnit = new SqlCollector();
@@ -51,7 +51,7 @@ final class SqlCollectorTest extends StandardTest {
 
   @ParameterizedTest
   @ValueSource(strings = { StringCatalog.EMPTY_STRING, StringCatalog.SPACE, StringCatalog.TAB })
-  void testCase_addSqlStatement_whenTheGivenSqlStatementIsBlank(final String sqlStatement) {
+  void testCase_addSqlStatement_whenGivenSqlStatementIsBlank(final String sqlStatement) {
     // setup
     final var testUnit = new SqlCollector();
 

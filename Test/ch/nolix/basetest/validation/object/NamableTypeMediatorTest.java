@@ -20,7 +20,7 @@ import ch.nolix.baseapi.programcontrol.processproperty.WriteMode;
  */
 final class NamableTypeMediatorTest extends StandardTest {
   @Test
-  void testCase_isAbstract_whenTheGivenArgumentIsNotAbstract() {
+  void testCase_isAbstract_whenGivenArgumentIsNotAbstract() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(String.class);
 
@@ -32,7 +32,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isAbstract_whenTheGivenArgumentIsAbstract() {
+  void testCase_isAbstract_whenGivenArgumentIsAbstract() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(List.class);
 
@@ -41,7 +41,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isAbstract_whenTheGivenArgumentIsNull() {
+  void testCase_isAbstract_whenGivenArgumentIsNull() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(null);
 
@@ -53,7 +53,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isClass_whenTheGivenArgumentIsAClass() {
+  void testCase_isClass_whenGivenArgumentIsAClass() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(ArrayList.class);
 
@@ -62,7 +62,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isClass_whenTheGivenArgumentIsAnInterface() {
+  void testCase_isClass_whenGivenArgumentIsAnInterface() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(Iterable.class);
 
@@ -74,7 +74,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isClass_whenTheGivenArgumentIsAnEnum() {
+  void testCase_isClass_whenGivenArgumentIsAnEnum() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(WriteMode.class);
 
@@ -87,7 +87,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isClass_whenTheGivenArgumentIsNull() {
+  void testCase_isClass_whenGivenArgumentIsNull() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(null);
 
@@ -99,7 +99,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isConcrete_whenTheGivenArgumentIsNotConcrete() {
+  void testCase_isConcrete_whenGivenArgumentIsNotConcrete() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(AbstractList.class);
 
@@ -111,7 +111,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isConcrete_whenTheGivenArgumentIsConcrete() {
+  void testCase_isConcrete_whenGivenArgumentIsConcrete() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(ArrayList.class);
 
@@ -120,7 +120,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isConcrete_whenTheGivenArgumentIsNull() {
+  void testCase_isConcrete_whenGivenArgumentIsNull() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(null);
 
@@ -132,7 +132,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isEnum_whenTheGivenArgumentIsAClas() {
+  void testCase_isEnum_whenGivenArgumentIsAClas() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(ArrayList.class);
 
@@ -144,7 +144,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isEnum_whenTheGivenArgumentIsAnInterface() {
+  void testCase_isEnum_whenGivenArgumentIsAnInterface() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(Iterable.class);
 
@@ -156,7 +156,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isEnum_whenTheGivenArgumentIsAnEnum() {
+  void testCase_isEnum_whenGivenArgumentIsAnEnum() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(WriteMode.class);
 
@@ -165,7 +165,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isEnum_whenTheGivenArgumentIsNull() {
+  void testCase_isEnum_whenGivenArgumentIsNull() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(null);
 
@@ -177,7 +177,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isImplementing_whenTheGivenArgumentDoesNotImplementTheGivenInterface() {
+  void testCase_isImplementing_whenGivenArgumentDoesNotImplementTheGivenInterface() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(String.class);
 
@@ -189,7 +189,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isImplementing_whenTheGivenArgumentImplementsTheGivenInterface() {
+  void testCase_isImplementing_whenGivenArgumentImplementsTheGivenInterface() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(ArrayList.class);
 
@@ -198,7 +198,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isImplementing_whenTheGivenArgumentIsNull() {
+  void testCase_isImplementing_whenGivenArgumentIsNull() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(null);
 
@@ -210,7 +210,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isInterface_whenTheGivenArgumentIsAnInterface() {
+  void testCase_isInterface_whenGivenArgumentIsAnInterface() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(Iterable.class);
 
@@ -219,7 +219,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isInterface_whenTheGivenArgumentIsAClass() {
+  void testCase_isInterface_whenGivenArgumentIsAClass() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(ArrayList.class);
 
@@ -231,7 +231,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isInterface_whenTheGivenArgumentIsAnEnum() {
+  void testCase_isInterface_whenGivenArgumentIsAnEnum() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(WriteMode.class);
 
@@ -244,7 +244,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isInterface_whenTheGivenArgumentIsNull() {
+  void testCase_isInterface_whenGivenArgumentIsNull() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(null);
 
@@ -256,7 +256,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isSubTypeOf_whenTheGivenArgumentIsNotASubTypeOfTheGivenType() {
+  void testCase_isSubTypeOf_whenGivenArgumentIsNotASubTypeOfTheGivenType() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(List.class);
 
@@ -268,7 +268,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isSubTypeOf_whenTheGivenArgumentIsASubTypeOfTheGivenType() {
+  void testCase_isSubTypeOf_whenGivenArgumentIsASubTypeOfTheGivenType() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(List.class);
 
@@ -277,7 +277,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isSuperTypeOf_whenTheGivenArgumentIsNotASuperTypeOfTheGivenType() {
+  void testCase_isSuperTypeOf_whenGivenArgumentIsNotASuperTypeOfTheGivenType() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(List.class);
 
@@ -289,7 +289,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isSuperTypeOf_whenTheGivenArgumentIsASuperTypeOfTheGivenType() {
+  void testCase_isSuperTypeOf_whenGivenArgumentIsASuperTypeOfTheGivenType() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(List.class);
 

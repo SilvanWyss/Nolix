@@ -39,7 +39,7 @@ final class ValueFieldExaminerTest extends StandardTest {
   }
 
   @Test
-  void testCase_canSetValue_whenTheGivenValueIsClosed() {
+  void testCase_canSetValue_whenGivenValueIsClosed() {
     // setup
     final var pet = new Pet();
     try ( //
@@ -64,7 +64,7 @@ final class ValueFieldExaminerTest extends StandardTest {
   }
 
   @Test
-  void testCase_canSetValue_whenTheGivenValueToSetIsNull() {
+  void testCase_canSetValue_whenGivenValueToSetIsNull() {
     // setup
     final var pet = new Pet();
     final String valueToSet = null;

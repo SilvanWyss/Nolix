@@ -17,7 +17,7 @@ import ch.nolix.system.webgui.mainvalidator.LayerValidator;
  */
 final class LayerValidatorTest extends StandardTest {
   @Test
-  void testCase_assertBelongsToGui_whenTheGivenLayerDoesNotBelongToAGui() {
+  void testCase_assertBelongsToGui_whenGivenLayerDoesNotBelongToAGui() {
     // setup
     final var layer = new Layer();
     final var testUnit = new LayerValidator();
@@ -32,7 +32,7 @@ final class LayerValidatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_assertBelongsToGui_whenTheGivenLayerBelongsToAGui() {
+  void testCase_assertBelongsToGui_whenGivenLayerBelongsToAGui() {
     // setup
     final var layer = new Layer();
     new WebGui().pushLayer(layer);
@@ -46,7 +46,7 @@ final class LayerValidatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_assertDoesNotBelongsToGui_whenTheGivenLayerDoesNotBelongToAGui() {
+  void testCase_assertDoesNotBelongsToGui_whenGivenLayerDoesNotBelongToAGui() {
     // setup
     final var layer = new Layer();
     final var testUnit = new LayerValidator();
@@ -59,7 +59,7 @@ final class LayerValidatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_assertDoesNotBelongToGui_whenTheGivenLayerBelongsToAGui() {
+  void testCase_assertDoesNotBelongToGui_whenGivenLayerBelongsToAGui() {
     // setup
     final var layer = new Layer();
     new WebGui().pushLayer(layer);

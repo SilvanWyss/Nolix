@@ -32,7 +32,7 @@ final class ArrayExtendedIterableViewTest extends ExtendedIterableTest {
   }
 
   @Test
-  void testCase_forArray_whenTheGivenArrayIsNull() {
+  void testCase_forArray_whenGivenArrayIsNull() {
     // execute & verify
     expectRunning(() -> ArrayExtendedIterableView
       .forArray(null)).throwsException()

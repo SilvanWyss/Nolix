@@ -20,7 +20,7 @@ import ch.nolix.system.webgui.controltool.ControlAnalyser;
  */
 final class ControlAnalyserTest extends StandardTest {
   @Test
-  void testCase_firstControlContainsSecondControl_whenTheGivenFirstControlIsNull() {
+  void testCase_firstControlContainsSecondControl_whenGivenFirstControlIsNull() {
     // setup
     final var testUnit = new ControlAnalyser();
 
@@ -32,7 +32,7 @@ final class ControlAnalyserTest extends StandardTest {
   }
 
   @Test
-  void testCase_firstControlContainsSecondControl_whenTheGivenSecondControlIsNull() {
+  void testCase_firstControlContainsSecondControl_whenGivenSecondControlIsNull() {
     // setup
     final var testUnit = new ControlAnalyser();
 
@@ -44,7 +44,7 @@ final class ControlAnalyserTest extends StandardTest {
   }
 
   @Test
-  void testCase_firstControlContainsSecondControl_whenTheGivenFirstControlContainsTheGivenSecondControlDirectly() {
+  void testCase_firstControlContainsSecondControl_whenGivenFirstControlContainsTheGivenSecondControlDirectly() {
     // setup
     final var label = new Label();
     final var verticalStack = new VerticalStack().addControls(new Button(), new Link(), label);
@@ -58,7 +58,7 @@ final class ControlAnalyserTest extends StandardTest {
   }
 
   @Test
-  void testCase_firstControlContainsSecondControl_whenTheGivenFirstControlContainsTheGivenSecondControlRecursively() {
+  void testCase_firstControlContainsSecondControl_whenGivenFirstControlContainsTheGivenSecondControlRecursively() {
     // setup
     final var label = new Label();
     final var verticalStack = //

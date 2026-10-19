@@ -50,7 +50,7 @@ final class TimeTest extends StandardTest {
   }
 
   @Test
-  void testCase_isAfter_whenTheGivenTimeIsBefore() {
+  void testCase_isAfter_whenGivenTimeIsBefore() {
     // setup
     final var testUnit = //
     Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
@@ -79,7 +79,7 @@ final class TimeTest extends StandardTest {
   }
 
   @Test
-  void testCase_isAfter_whenTheGivenTimeEquals() {
+  void testCase_isAfter_whenGivenTimeEquals() {
     // setup
     final var testUnit = //
     Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
@@ -108,7 +108,7 @@ final class TimeTest extends StandardTest {
   }
 
   @Test
-  void testCase_isAfter_whenTheGivenTimeIsAfter() {
+  void testCase_isAfter_whenGivenTimeIsAfter() {
     // setup
     final var testUnit = //
     Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
@@ -137,7 +137,7 @@ final class TimeTest extends StandardTest {
   }
 
   @Test
-  void testCase_isBefore_whenTheGivenTimeIsBefore() {
+  void testCase_isBefore_whenGivenTimeIsBefore() {
     // setup
     final var time = //
     Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
@@ -166,7 +166,7 @@ final class TimeTest extends StandardTest {
   }
 
   @Test
-  void testCase_isBefore_whenTheGivenTimeEquals() {
+  void testCase_isBefore_whenGivenTimeEquals() {
     // setup
     final var testUnit = //
     Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
@@ -195,7 +195,7 @@ final class TimeTest extends StandardTest {
   }
 
   @Test
-  void testCase_isBefore_whenTheGivenTimeIsAfter() {
+  void testCase_isBefore_whenGivenTimeIsAfter() {
     // setup
     final var testUnit = //
     Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(

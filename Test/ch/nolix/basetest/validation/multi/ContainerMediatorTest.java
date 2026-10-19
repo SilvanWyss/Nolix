@@ -18,7 +18,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
  */
 final class ContainerMediatorTest extends StandardTest {
   @Test
-  void testCase_contains_whenTheGivenConditionIsNull() {
+  void testCase_contains_whenGivenConditionIsNull() {
     // setup
     final var list = ImmutableList.withElements("ax", "ax", "bx", "bx", "cx", "cx", "dx", "dx");
     final Predicate<String> condition = null;
@@ -32,7 +32,7 @@ final class ContainerMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_contains_whenTheGivenArgumentDoesNotContainAWantedElement() {
+  void testCase_contains_whenGivenArgumentDoesNotContainAWantedElement() {
     // setup
     final var list = ImmutableList.withElements("ax", "ax", "bx", "bx", "cx", "cx", "dx", "dx");
     final var testUnit = NamableIterableMediator.forArgument(list);
@@ -47,7 +47,7 @@ final class ContainerMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_contains_whenTheGivenArgumentContainsAWantedElement() {
+  void testCase_contains_whenGivenArgumentContainsAWantedElement() {
     // setup
     final var list = ImmutableList.withElements("ax", "ax", "bx", "bx", "cx", "cx", "dx", "dx");
     final var testUnit = NamableIterableMediator.forArgument(list);

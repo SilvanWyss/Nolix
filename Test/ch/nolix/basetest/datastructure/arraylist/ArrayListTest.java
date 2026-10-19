@@ -127,7 +127,7 @@ final class ArrayListTest extends ExtendedIterableTest {
   }
 
   @Test
-  void testCase_withInitialCapacity_whenTheGivenInitialCapacityIsNegative() {
+  void testCase_withInitialCapacity_whenGivenInitialCapacityIsNegative() {
     // execute & verify
     expectRunning(() -> ArrayList.withInitialCapacity(-1))
       .throwsException()

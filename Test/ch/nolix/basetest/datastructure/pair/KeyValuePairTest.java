@@ -41,7 +41,7 @@ final class KeyValuePairTest extends StandardTest {
   }
 
   @Test
-  void testCase_withKeyAndValue_whenTheGivenKeyIsNull() {
+  void testCase_withKeyAndValue_whenGivenKeyIsNull() {
     // test parameters
     final String key = null;
     final String value = "Paris";
@@ -54,7 +54,7 @@ final class KeyValuePairTest extends StandardTest {
   }
 
   @Test
-  void testCase_withKeyAndValue_whenTheGivenValueIsNull() {
+  void testCase_withKeyAndValue_whenGivenValueIsNull() {
     // test parameters
     final String key = "France";
     final String value = null;

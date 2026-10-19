@@ -30,7 +30,7 @@ final class BackendClientSessionManagerTest extends StandardTest {
   }
 
   @Test
-  void testCase_forClient_whenTheGivenClientIsNull() {
+  void testCase_forClient_whenGivenClientIsNull() {
     // execute & verify
     expectRunning(() -> BackendClientSessionManager.forClient(null))
       .throwsException()

@@ -72,7 +72,7 @@ final class NodeDataAdapterTest extends StandardTest {
   }
 
   @Test
-  void testCase_constructor_whenTheGivenDatabaseIsEmpty() {
+  void testCase_constructor_whenGivenDatabaseIsEmpty() {
     // setup
     final var nodeDatabase = MutableNode.createEmpty();
 
@@ -86,7 +86,7 @@ final class NodeDataAdapterTest extends StandardTest {
   }
 
   @Test
-  void testCase_constructor_whenTheGivenDatabaseIsNotValid() {
+  void testCase_constructor_whenGivenDatabaseIsNotValid() {
     // setup
     final var nodeDatabase = MutableNode.fromString("x(y,z)");
 

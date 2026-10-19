@@ -40,7 +40,7 @@ final class EntityFlyWeightTest extends StandardTest {
   }
 
   @Test
-  void testCase_withInsertAction_whenTheGivenInsertActionIsNull() {
+  void testCase_withInsertAction_whenGivenInsertActionIsNull() {
     // execute & verify
     expectRunning(() -> EntityFlyWeight.withInsertAction(null))
       .throwsException()

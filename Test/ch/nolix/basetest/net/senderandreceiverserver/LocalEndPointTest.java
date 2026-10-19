@@ -48,7 +48,7 @@ final class LocalEndPointTest extends StandardTest {
   }
 
   @Test
-  void testCase_sendMessage_whenTheGivenMessageIsNull() {
+  void testCase_sendMessage_whenGivenMessageIsNull() {
     // setup
     final var slot = new MockSlot();
     final var testUnit = LocalEndPoint.toSlot(slot);
@@ -103,7 +103,7 @@ final class LocalEndPointTest extends StandardTest {
   }
 
   @Test
-  void testCase_toSlot_whenTheGivenSlotIsNull() {
+  void testCase_toSlot_whenGivenSlotIsNull() {
     // execute & verify
     expectRunning(() -> LocalEndPoint.toSlot(null))
       .throwsException()
@@ -133,7 +133,7 @@ final class LocalEndPointTest extends StandardTest {
   }
 
   @Test
-  void testCase_toTargetSlotOnServer_whenTheGivenTargetSlotIsBlank() {
+  void testCase_toTargetSlotOnServer_whenGivenTargetSlotIsBlank() {
     try (final var server = new LocalServer()) {
       // execute & verify
       expectRunning(() -> LocalEndPoint.toTargetSlotOnServer(server, " "))

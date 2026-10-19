@@ -167,7 +167,7 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
   }
 
   @Test
-  void testCase_resetFromString_whenTheGivenStringIsNotValid() {
+  void testCase_resetFromString_whenGivenStringIsNotValid() {
     // setup
     final N testUnit = createBlankNode();
 

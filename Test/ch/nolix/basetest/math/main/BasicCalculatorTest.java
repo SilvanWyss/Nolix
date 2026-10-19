@@ -161,7 +161,7 @@ final class BasicCalculatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_getAverage_whenTheGivenIterableIsEmpty() {
+  void testCase_getAverage_whenGivenIterableIsEmpty() {
     // setup
     final ImmutableList<Double> values = ImmutableList.createEmpty();
     final var testUnit = new BasicCalculator();

@@ -13,7 +13,7 @@ import ch.nolix.baseapi.commontype.charactertool.CharacterType;
  */
 final class CharacterTypeTest extends StandardTest {
   @Test
-  void testCase_ofCharacter_whenTheGivenCharacterIsANumber() {
+  void testCase_ofCharacter_whenGivenCharacterIsANumber() {
     expect(CharacterType.ofCharacter('0')).is(CharacterType.DIGIT);
     expect(CharacterType.ofCharacter('1')).is(CharacterType.DIGIT);
     expect(CharacterType.ofCharacter('2')).is(CharacterType.DIGIT);
@@ -27,7 +27,7 @@ final class CharacterTypeTest extends StandardTest {
   }
 
   @Test
-  void testCase_ofCharacter_whenTheGivenCharacterIsALowerCaseLetter() { // NOSONAR: The number of assertions makes sense.
+  void testCase_ofCharacter_whenGivenCharacterIsALowerCaseLetter() { // NOSONAR: The number of assertions makes sense.
     expect(CharacterType.ofCharacter('a')).is(CharacterType.LOWER_CASE_LETTER);
     expect(CharacterType.ofCharacter('b')).is(CharacterType.LOWER_CASE_LETTER);
     expect(CharacterType.ofCharacter('c')).is(CharacterType.LOWER_CASE_LETTER);
@@ -61,7 +61,7 @@ final class CharacterTypeTest extends StandardTest {
   }
 
   @Test
-  void testCase_ofCharacter_whenTheGivenCharacterIsAnUpperCaseLetter() { // NOSONAR: The number of assertions makes sense.
+  void testCase_ofCharacter_whenGivenCharacterIsAnUpperCaseLetter() { // NOSONAR: The number of assertions makes sense.
     expect(CharacterType.ofCharacter('A')).is(CharacterType.UPPER_CASE_LETTER);
     expect(CharacterType.ofCharacter('B')).is(CharacterType.UPPER_CASE_LETTER);
     expect(CharacterType.ofCharacter('C')).is(CharacterType.UPPER_CASE_LETTER);
@@ -95,7 +95,7 @@ final class CharacterTypeTest extends StandardTest {
   }
 
   @Test
-  void testCase_ofCharacter_whenTheGivenCharacterIsASpecialCharacter() {
+  void testCase_ofCharacter_whenGivenCharacterIsASpecialCharacter() {
     expect(CharacterType.ofCharacter('.')).is(CharacterType.OTHER);
     expect(CharacterType.ofCharacter(',')).is(CharacterType.OTHER);
     expect(CharacterType.ofCharacter(':')).is(CharacterType.OTHER);

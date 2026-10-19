@@ -27,7 +27,7 @@ final class ValueTest extends StandardTest {
   }
 
   @Test
-  void testCase_setValue_whenTheGivenValueIsNull() {
+  void testCase_setValue_whenGivenValueIsNull() {
     // setup
     final var testUnit = //
     ValueProperty.forStringWithNameAndDefaultValueAndSetter(
@@ -49,7 +49,7 @@ final class ValueTest extends StandardTest {
   }
 
   @Test
-  void testCase_setValue_whenTheGivenValueIsValid() {
+  void testCase_setValue_whenGivenValueIsValid() {
     // setup
     final var testUnit = //
     ValueProperty.forStringWithNameAndDefaultValueAndSetter(

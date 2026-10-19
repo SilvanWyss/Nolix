@@ -15,7 +15,7 @@ import ch.nolix.system.objectdata.schemamapper.ColumnMapper;
  */
 final class ColumnMapperTest extends StandardTest {
   @Test
-  void testCase_whenTheGivenFieldIsNull() {
+  void testCase_whenGivenFieldIsNull() {
     // setup
     final var testUnit = new ColumnMapper();
 

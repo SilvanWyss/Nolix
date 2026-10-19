@@ -21,7 +21,7 @@ final class StringExaminerTest extends StandardTest {
   "cheesburger5", //
   "cheesburger§" //
   })
-  void testCase_isLowerCase_whenTheGivenStringIsLowerCase(final String string) {
+  void testCase_isLowerCase_whenGivenStringIsLowerCase(final String string) {
     // setup
     final var testUnit = new StringExaminer();
 
@@ -40,7 +40,7 @@ final class StringExaminerTest extends StandardTest {
   "Cheesburger5", //
   "Cheesburger§" //
   })
-  void testCase_isLowerCase_whenTheGivenStringIsNotLowerCase(final String string) {
+  void testCase_isLowerCase_whenGivenStringIsNotLowerCase(final String string) {
     // setup
     final var testUnit = new StringExaminer();
 
@@ -79,7 +79,7 @@ final class StringExaminerTest extends StandardTest {
   "cheeseburger, cheeseburgE", //
   "cheeseburger, cheeseburgeR" //
   })
-  void testCase_startsWithIgnoringCase_whenTheGivenStringStartsWithTheGivenPrefix(
+  void testCase_startsWithIgnoringCase_whenGivenStringStartsWithTheGivenPrefix(
     final String string,
     final String prefix) {
     // setup
@@ -144,7 +144,7 @@ final class StringExaminerTest extends StandardTest {
   "'', cheeseburge", //
   "'', cheeseburger" //
   })
-  void testCase_startsWithIgnoringCase_whenTheGivenStringDoesNotStartWithTheGivenPrefix(
+  void testCase_startsWithIgnoringCase_whenGivenStringDoesNotStartWithTheGivenPrefix(
     final String string,
     final String prefix) {
     // setup

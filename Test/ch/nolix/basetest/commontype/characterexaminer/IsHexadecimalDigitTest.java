@@ -28,7 +28,7 @@ final class IsHexadecimalDigitTest extends StandardTest {
 
   @ParameterizedTest
   @ValueSource(chars = { 'G', 'g', '%', '&', '.', ',', '(', ')' })
-  void testCase_isHexadecimalDigit_whenTheGivenCharacterIsNotAHexadecimalDigit(final char character) {
+  void testCase_isHexadecimalDigit_whenGivenCharacterIsNotAHexadecimalDigit(final char character) {
     // setup   
     final var testUnit = new CharacterExaminer();
 

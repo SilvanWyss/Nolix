@@ -271,7 +271,7 @@ final class ComplexNumberTest extends StandardTest {
   }
 
   @Test
-  void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_1() {
+  void testCase_isPureImaginary_whenGivenComplexNumberIsNotPureImaginary_1() {
     // setup
     final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(1.0, -1.0);
 
@@ -283,7 +283,7 @@ final class ComplexNumberTest extends StandardTest {
   }
 
   @Test
-  void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_2() {
+  void testCase_isPureImaginary_whenGivenComplexNumberIsNotPureImaginary_2() {
     // setup
     final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 0.0);
 
@@ -295,7 +295,7 @@ final class ComplexNumberTest extends StandardTest {
   }
 
   @Test
-  void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_3() {
+  void testCase_isPureImaginary_whenGivenComplexNumberIsNotPureImaginary_3() {
     // setup
     final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 1.0);
 
@@ -307,7 +307,7 @@ final class ComplexNumberTest extends StandardTest {
   }
 
   @Test
-  void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_1() {
+  void testCase_isPureImaginary_whenGivenComplexNumberIsPureImaginary_1() {
     // setup
     final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(0.0, -1.0);
 
@@ -319,7 +319,7 @@ final class ComplexNumberTest extends StandardTest {
   }
 
   @Test
-  void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_2() {
+  void testCase_isPureImaginary_whenGivenComplexNumberIsPureImaginary_2() {
     // setup
     final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0);
 
@@ -331,7 +331,7 @@ final class ComplexNumberTest extends StandardTest {
   }
 
   @Test
-  void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_3() {
+  void testCase_isPureImaginary_whenGivenComplexNumberIsPureImaginary_3() {
     // setup
     final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 1.0);
 
@@ -343,7 +343,7 @@ final class ComplexNumberTest extends StandardTest {
   }
 
   @Test
-  void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_1() {
+  void testCase_isPureReal_whenGivenComplexNumberIsNotPureReal_1() {
     // setup
     final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(-1.0, 1.0);
 
@@ -355,7 +355,7 @@ final class ComplexNumberTest extends StandardTest {
   }
 
   @Test
-  void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_2() {
+  void testCase_isPureReal_whenGivenComplexNumberIsNotPureReal_2() {
     // setup
     final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 1.0);
 
@@ -367,7 +367,7 @@ final class ComplexNumberTest extends StandardTest {
   }
 
   @Test
-  void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_3() {
+  void testCase_isPureReal_whenGivenComplexNumberIsNotPureReal_3() {
     // setup
     final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 1.0);
 
@@ -379,7 +379,7 @@ final class ComplexNumberTest extends StandardTest {
   }
 
   @Test
-  void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_1() {
+  void testCase_isPureReal_whenGivenComplexNumberIsPureReal_1() {
     // setup
     final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(-1.0, 0.0);
 
@@ -391,7 +391,7 @@ final class ComplexNumberTest extends StandardTest {
   }
 
   @Test
-  void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_2() {
+  void testCase_isPureReal_whenGivenComplexNumberIsPureReal_2() {
     // setup
     final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0);
 
@@ -403,7 +403,7 @@ final class ComplexNumberTest extends StandardTest {
   }
 
   @Test
-  void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_3() {
+  void testCase_isPureReal_whenGivenComplexNumberIsPureReal_3() {
     // setup
     final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 0.0);
 

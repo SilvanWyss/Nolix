@@ -54,7 +54,7 @@ final class UpdateCommandCreatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_createSetUserInputFunctionsCommandFromWebGui_whenTheGivenWebGuiIsEmpty() {
+  void testCase_createSetUserInputFunctionsCommandFromWebGui_whenGivenWebGuiIsEmpty() {
     // setup
     final var webGui = new WebGui();
     final var testUnit = new UpdateCommandCreator();
@@ -67,7 +67,7 @@ final class UpdateCommandCreatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_createSetUserInputFunctionsCommandFromWebGui_whenTheGivenWebGuiContainsAButton() {
+  void testCase_createSetUserInputFunctionsCommandFromWebGui_whenGivenWebGuiContainsAButton() {
     // setup
     final var button = new Button();
     final var webGui = new WebGui().pushLayerWithRootControl(button);
@@ -81,7 +81,7 @@ final class UpdateCommandCreatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_createSetUserInputFunctionsCommandFromWebGui_whenTheGivenWebGuiContaisATextbox() {
+  void testCase_createSetUserInputFunctionsCommandFromWebGui_whenGivenWebGuiContaisATextbox() {
     // setup
     final var textbox = new Textbox();
     final var webGui = new WebGui().pushLayerWithRootControl(textbox);

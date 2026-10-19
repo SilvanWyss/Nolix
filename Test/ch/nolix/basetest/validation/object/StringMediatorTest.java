@@ -18,7 +18,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonEmptyArgumentEx
  */
 final class StringMediatorTest extends StandardTest {
   @Test
-  void testCase_isEmpty_whenTheGivenArgumentIsNull() {
+  void testCase_isEmpty_whenGivenArgumentIsNull() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName(null, "string");
 
@@ -30,7 +30,7 @@ final class StringMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isEmpty_whenTheGivenArgumentIsEmpty() {
+  void testCase_isEmpty_whenGivenArgumentIsEmpty() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName("", "string");
 
@@ -39,7 +39,7 @@ final class StringMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isEmpty_whenTheGivenArgumentConsistsOfASpace() {
+  void testCase_isEmpty_whenGivenArgumentConsistsOfASpace() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName(" ", "string");
 
@@ -51,7 +51,7 @@ final class StringMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isEmpty_whenTheGivenArgumentConsistsOfLetters() {
+  void testCase_isEmpty_whenGivenArgumentConsistsOfLetters() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName("aaa", "string");
 
@@ -63,7 +63,7 @@ final class StringMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_hasLength_whenTheGivenLengthIsNegative() {
+  void testCase_hasLength_whenGivenLengthIsNegative() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName("aaa", "string");
 
@@ -75,7 +75,7 @@ final class StringMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_hasLength_whenTheGivenArgumentIsNull() {
+  void testCase_hasLength_whenGivenArgumentIsNull() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName(null, "string");
 
@@ -87,7 +87,7 @@ final class StringMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_hasLength_whenTheGivenArgumentIsShorterThanTheGivenLength() {
+  void testCase_hasLength_whenGivenArgumentIsShorterThanTheGivenLength() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName("aaa", "string");
 
@@ -99,7 +99,7 @@ final class StringMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_hasLength_whenTheGivenArgumentHasTheGivenLength() {
+  void testCase_hasLength_whenGivenArgumentHasTheGivenLength() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName("aaaa", "string");
 
@@ -108,7 +108,7 @@ final class StringMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_hasLength_whenTheGivenArgumentIsLongerThanTheGivenLength() {
+  void testCase_hasLength_whenGivenArgumentIsLongerThanTheGivenLength() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName("aaaaa", "string");
 
@@ -120,7 +120,7 @@ final class StringMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isNotEmpty_whenTheGivenArgumentIsNull() {
+  void testCase_isNotEmpty_whenGivenArgumentIsNull() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName(null, "string");
 
@@ -132,7 +132,7 @@ final class StringMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isNotEmpty_whenTheGivenArgumentIsEmpty() {
+  void testCase_isNotEmpty_whenGivenArgumentIsEmpty() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName("", "string");
 
@@ -144,7 +144,7 @@ final class StringMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isNotEmpty_whenTheGivenArgumentConsistsOfASpace() {
+  void testCase_isNotEmpty_whenGivenArgumentConsistsOfASpace() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName(" ", "string");
 
@@ -153,7 +153,7 @@ final class StringMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isNotEmpty_whenTheGivenArgumentConsistsOfALetter() {
+  void testCase_isNotEmpty_whenGivenArgumentConsistsOfALetter() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName("a", "string");
 
@@ -162,7 +162,7 @@ final class StringMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isNotBlank_whenTheGivenArgumentIsNull() {
+  void testCase_isNotBlank_whenGivenArgumentIsNull() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName(null, "string");
 
@@ -174,7 +174,7 @@ final class StringMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isNotBlank_whenTheGivenArgumentIsEmpty() {
+  void testCase_isNotBlank_whenGivenArgumentIsEmpty() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName("", "string");
 
@@ -185,7 +185,7 @@ final class StringMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isNotBlank_whenTheGivenArgumentConsistsOfASpace() {
+  void testCase_isNotBlank_whenGivenArgumentConsistsOfASpace() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName(" ", "string");
 
@@ -196,7 +196,7 @@ final class StringMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isNotBlank_whenTheGivenArgumentConsistsOfALetter() {
+  void testCase_isNotBlank_whenGivenArgumentConsistsOfALetter() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName("a", "string");
 
@@ -236,7 +236,7 @@ final class StringMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_matches_whenTheGivenArgumentMatches() {
+  void testCase_matches_whenGivenArgumentMatches() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName("lore", "string");
 
@@ -245,7 +245,7 @@ final class StringMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_matches_whenTheGivenArgumentDoesNotMatch() {
+  void testCase_matches_whenGivenArgumentDoesNotMatch() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName("lorem", "string");
 
@@ -257,7 +257,7 @@ final class StringMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_startsWith_whenTheGivenArgumentIsNull() {
+  void testCase_startsWith_whenGivenArgumentIsNull() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName(null, "string");
 
@@ -269,7 +269,7 @@ final class StringMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_startsWith_whenTheGivenArgumentStartWithTheGivenPrefix() {
+  void testCase_startsWith_whenGivenArgumentStartWithTheGivenPrefix() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName("Madagascar", "string");
 
@@ -278,7 +278,7 @@ final class StringMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_startsWith_whenTheGivenArgumentEqualsTheGivenPrefix() {
+  void testCase_startsWith_whenGivenArgumentEqualsTheGivenPrefix() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName("Madagascar", "string");
 
@@ -287,7 +287,7 @@ final class StringMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_startsWith_whenTheGivenArgumentDoesNotStartWithTheGivenPrefix_1() {
+  void testCase_startsWith_whenGivenArgumentDoesNotStartWithTheGivenPrefix_1() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName("Madagascar", "string");
 
@@ -299,7 +299,7 @@ final class StringMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_startsWith_whenTheGivenArgumentDoesNotStartWithTheGivenPrefix_2() {
+  void testCase_startsWith_whenGivenArgumentDoesNotStartWithTheGivenPrefix_2() {
     // setup
     final var testUnit = StringMediator.forArgumentAndArgumentName("Madagascar", "string");
 

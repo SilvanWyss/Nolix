@@ -16,7 +16,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullExce
  */
 final class UrlToolTest extends StandardTest {
   @Test
-  void testCase_getDisplayTextForUrl_whenTheGivenUrlIsNull() {
+  void testCase_getDisplayTextForUrl_whenGivenUrlIsNull() {
     // setup
     final var testUnit = new UrlTool();
 
@@ -36,7 +36,7 @@ final class UrlToolTest extends StandardTest {
   "www.nolix.ch, nolix.ch",
   "nolix.ch, nolix.ch"
   })
-  void testCase_getDisplayTextForUrl_whenTheGivenUrlIsNotNull(final String url, final String expectedResult) {
+  void testCase_getDisplayTextForUrl_whenGivenUrlIsNotNull(final String url, final String expectedResult) {
     // setup
     final var testUnit = new UrlTool();
 

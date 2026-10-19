@@ -16,7 +16,7 @@ import ch.nolix.system.webgui.base.AbsoluteOrRelativeInt;
  */
 final class AbsoluteOrRelativeIntTest extends StandardTest {
   @Test
-  void testCase_fromSpecification_whenTheGivenSpecificationSpecifiesAValue() {
+  void testCase_fromSpecification_whenGivenSpecificationSpecifiesAValue() {
     // setup
     final var specification = ImmutableNode.fromString("Width(500)");
 
@@ -29,7 +29,7 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
   }
 
   @Test
-  void testCase_fromSpecification_whenTheGivenSpecificationSpecifiesAPercentage() {
+  void testCase_fromSpecification_whenGivenSpecificationSpecifiesAPercentage() {
     // setup
     final var specification = ImmutableNode.fromString("Width(20%)");
 
@@ -134,7 +134,7 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
   }
 
   @Test
-  void testCase_withPercentage_whenTheGivenPercentageIsNegative() {
+  void testCase_withPercentage_whenGivenPercentageIsNegative() {
     // execute & verify
     expectRunning(() -> AbsoluteOrRelativeInt.withPercentage(-0.2))
       .throwsException()

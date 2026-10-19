@@ -14,7 +14,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumen
  */
 final class MultiDoubleMediatorTest extends StandardTest {
   @Test
-  void testCase_arePositive_whenTheGivenArgumentsAreAllPositive() {
+  void testCase_arePositive_whenGivenArgumentsAreAllPositive() {
     // setup
     final var arguments = new double[] { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 };
     final var testUnit = MultiDoubleMediator.forArugments(arguments);

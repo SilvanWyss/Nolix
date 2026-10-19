@@ -20,7 +20,7 @@ import ch.nolix.base.validation.validator.Validator;
  */
 final class ValidatorTest extends StandardTest {
   @Test
-  void testCase_assertThat_whenTheGivenArgumentIsAByte() {
+  void testCase_assertThat_whenGivenArgumentIsAByte() {
     // setup
     final var argument = (byte) 127;
 
@@ -32,7 +32,7 @@ final class ValidatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_assertThat_whenTheGivenArgumentIsAByteArray() {
+  void testCase_assertThat_whenGivenArgumentIsAByteArray() {
     // setup
     final var argument = new byte[100];
 
@@ -44,7 +44,7 @@ final class ValidatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_assertThat_whenTheGivenArgumentIsADouble() {
+  void testCase_assertThat_whenGivenArgumentIsADouble() {
     // setup
     final var argument = 1.0;
 
@@ -56,7 +56,7 @@ final class ValidatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_assertThat_whenTheGivenArgumentIsADoubleArray() {
+  void testCase_assertThat_whenGivenArgumentIsADoubleArray() {
     // setup
     final var argument = new double[100];
 
@@ -68,7 +68,7 @@ final class ValidatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_assertThat_whenTheGivenArgumentIsAnInt() {
+  void testCase_assertThat_whenGivenArgumentIsAnInt() {
     // setup
     final var argument = 50;
 
@@ -80,7 +80,7 @@ final class ValidatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_assertThat_whenTheGivenArgumentIsAnIntArray() {
+  void testCase_assertThat_whenGivenArgumentIsAnIntArray() {
     // setup
     final var argument = new int[100];
 
@@ -92,7 +92,7 @@ final class ValidatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_assertThat_whenTheGivenArgumentIsALong() {
+  void testCase_assertThat_whenGivenArgumentIsALong() {
     // setup
     final var argument = 50L;
 
@@ -104,7 +104,7 @@ final class ValidatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_assertThat_whenTheGivenArgumentIsALongArray() {
+  void testCase_assertThat_whenGivenArgumentIsALongArray() {
     // setup
     final var argument = new long[100];
 
@@ -116,7 +116,7 @@ final class ValidatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_assertThat_whenTheGivenArgumentIsAMethod() throws NoSuchMethodException {
+  void testCase_assertThat_whenGivenArgumentIsAMethod() throws NoSuchMethodException {
     // setup
     final var argument = FunctionService.class.getMethod("doNothing");
 
@@ -128,7 +128,7 @@ final class ValidatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_assertThat_whenTheGivenArgumentIsAString() {
+  void testCase_assertThat_whenGivenArgumentIsAString() {
     // setup
     final var argument = "lorem ipsum";
 

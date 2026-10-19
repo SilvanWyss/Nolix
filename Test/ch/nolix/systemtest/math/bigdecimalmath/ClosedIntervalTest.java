@@ -65,7 +65,7 @@ final class ClosedIntervalTest extends StandardTest {
   }
 
   @Test
-  void testCase_withMinAndMax_whenTheGivenMinIsNull() {
+  void testCase_withMinAndMax_whenGivenMinIsNull() {
     // execute & verify
     expectRunning(() -> ClosedInterval.withMinAndMax(null, BigDecimal.valueOf(1.0)))
       .throwsException()
@@ -74,7 +74,7 @@ final class ClosedIntervalTest extends StandardTest {
   }
 
   @Test
-  void testCase_withMinAndMax_whenTheGivenMaxIsNull() {
+  void testCase_withMinAndMax_whenGivenMaxIsNull() {
     // execute & verify
     expectRunning(() -> ClosedInterval.withMinAndMax(BigDecimal.valueOf(1.0), null))
       .throwsException()

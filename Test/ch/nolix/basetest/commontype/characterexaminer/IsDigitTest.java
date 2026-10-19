@@ -15,7 +15,7 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class IsDigitExaminerTest extends StandardTest {
   @ParameterizedTest
   @ValueSource(chars = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' })
-  void testCase_isDigit_whenTheGivenCharacterIsADigit(final char character) {
+  void testCase_isDigit_whenGivenCharacterIsADigit(final char character) {
     // setup   
     final var testUnit = new CharacterExaminer();
 
@@ -28,7 +28,7 @@ final class IsDigitExaminerTest extends StandardTest {
 
   @ParameterizedTest
   @ValueSource(chars = { 'A', 'a', '%', '&', '.', ',', '(', ')' })
-  void testCase_isDigit_whenTheGivenCharacterIsNotADigit(final char character) {
+  void testCase_isDigit_whenGivenCharacterIsNotADigit(final char character) {
     // setup   
     final var testUnit = new CharacterExaminer();
 

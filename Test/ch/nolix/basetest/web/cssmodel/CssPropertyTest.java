@@ -36,7 +36,7 @@ final class CssPropertyTest extends StandardTest {
   }
 
   @Test
-  void testCase_withNameAndValue_whenTheGivenNameIsNull() {
+  void testCase_withNameAndValue_whenGivenNameIsNull() {
     // execute & verify
     expectRunning(() -> CssProperty.withNameAndValue(null, "200px"))
       .throwsException()
@@ -45,7 +45,7 @@ final class CssPropertyTest extends StandardTest {
   }
 
   @Test
-  void testCase_withNameAndValue_whenTheGivenValueIsNull() {
+  void testCase_withNameAndValue_whenGivenValueIsNull() {
     // setup
     final String value = null;
 

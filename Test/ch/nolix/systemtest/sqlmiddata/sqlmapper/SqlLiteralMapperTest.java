@@ -15,7 +15,7 @@ import ch.nolix.base.testing.standardtest.StandardTest;
  */
 final class SqlLiteralMapperTest extends StandardTest {
   @Test
-  void testCase_whenTheGivenNullableValueStringIsNull() {
+  void testCase_whenGivenNullableValueStringIsNull() {
     // setup
     final var testUnit = new SqlLiteralMapper();
 
@@ -33,7 +33,7 @@ final class SqlLiteralMapperTest extends StandardTest {
   "a, '\''a'\''",
   "text, '\''text'\''"
   })
-  void testCase_whenTheGivenNullableValueIsNotNull(final String nullableValue, final String expectedResult) {
+  void testCase_whenGivenNullableValueIsNotNull(final String nullableValue, final String expectedResult) {
     // setup
     final var testUnit = new SqlLiteralMapper();
 
