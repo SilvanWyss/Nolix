@@ -3,12 +3,12 @@ define("Core/CommonType/CommonTypeConstant/StringCatalogue", ["require", "export
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.StringCatalogue = void 0;
     class StringCatalogue {
+        static BINARY_PREFIX = '0b';
+        static EMPTY = '';
+        static HEXADECIMAL_PREFIX = '0x';
         constructor() { }
     }
     exports.StringCatalogue = StringCatalogue;
-    StringCatalogue.BINARY_PREFIX = '0b';
-    StringCatalogue.EMPTY = '';
-    StringCatalogue.HEXADECIMAL_PREFIX = '0x';
 });
 define("Core/CommonType/CommonTypeHelper/GlobalStringHelper", ["require", "exports"], function (require, exports) {
     "use strict";
@@ -126,6 +126,8 @@ define("Core/Container/LinkedList/LinkedListNode", ["require", "exports"], funct
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.LinkedListNode = void 0;
     class LinkedListNode {
+        element;
+        nextNode;
         constructor(element) {
             if (element === null) {
                 throw new Error('The given element is null.');
@@ -173,9 +175,9 @@ define("Core/Container/LinkedList/LinkedListIterator", ["require", "exports"], f
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.LinkedListIterator = void 0;
     class LinkedListIterator {
+        currentNode = undefined;
+        lastElement = undefined;
         constructor(currentNode) {
-            this.currentNode = undefined;
-            this.lastElement = undefined;
             this.currentNode = currentNode;
         }
         next() {
@@ -201,17 +203,14 @@ define("Core/Container/LinkedList/LinkedList", ["require", "exports", "Core/Cont
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.LinkedList = void 0;
     class LinkedList extends Container_1.Container {
-        constructor() {
-            super(...arguments);
-            this.elementCount = 0;
-            this.beginNode = undefined;
-            this.endNode = undefined;
-        }
         static withElement(element) {
             const list = new LinkedList();
             list.addAtEnd(element);
             return list;
         }
+        elementCount = 0;
+        beginNode = undefined;
+        endNode = undefined;
         addAtBegin(element) {
             const newNode = new LinkedListNode_1.LinkedListNode(element);
             if (this.elementCount === 0) {
@@ -376,6 +375,8 @@ define("Core/Container/Matrix/MatrixIterator", ["require", "exports"], function 
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.MatrixIterator = void 0;
     class MatrixIterator {
+        parentMatrix;
+        currentElementIndex;
         constructor(parentMatrix) {
             if (parentMatrix === undefined) {
                 console.log('The given parentMatrix is undefined.');
@@ -404,6 +405,7 @@ define("Core/Container/Matrix/Matrix", ["require", "exports", "Core/Container/Ba
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Matrix = void 0;
     class Matrix extends Container_2.Container {
+        elements;
         constructor() {
             super();
             this.elements = new Array();
@@ -555,6 +557,8 @@ define("Core/Container/Pair/Pair", ["require", "exports"], function (require, ex
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Pair = void 0;
     class Pair {
+        element1;
+        element2;
         constructor(element1, element2) {
             if (element1 === null) {
                 throw new Error('The given element1 is null.');
@@ -585,6 +589,7 @@ define("Core/Container/SingleContainer/SingleContainer", ["require", "exports"],
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.SingleContainer = void 0;
     class SingleContainer {
+        static EMPTY_CONTAINER = new SingleContainer(undefined);
         static withElement(element) {
             if (element === null) {
                 throw new Error('The given element is null.');
@@ -597,6 +602,7 @@ define("Core/Container/SingleContainer/SingleContainer", ["require", "exports"],
         static withoutElement() {
             return new SingleContainer(undefined);
         }
+        element;
         constructor(optionalElement) {
             this.element = optionalElement;
         }
@@ -617,16 +623,16 @@ define("Core/Container/SingleContainer/SingleContainer", ["require", "exports"],
         }
     }
     exports.SingleContainer = SingleContainer;
-    SingleContainer.EMPTY_CONTAINER = new SingleContainer(undefined);
 });
 define("Core/Document/Node/Node", ["require", "exports", "Core/Container/LinkedList/LinkedList"], function (require, exports, LinkedList_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Node = void 0;
     class Node {
-        constructor() {
-            this.attributes = new LinkedList_1.LinkedList();
-        }
+        static COMMA_CODE = '$M';
+        static DOLLAR_SYMBOL_CODE = '$X';
+        static OPEN_BRACKET_CODE = '$O';
+        static CLOSED_BRACKET_CODE = '$C';
         static createOriginStringFromReproducingString(reproducinString) {
             var originString = '';
             for (var i = 0; i < reproducinString.length; i++) {
@@ -696,6 +702,8 @@ define("Core/Document/Node/Node", ["require", "exports", "Core/Container/LinkedL
         static withHeaderFromNumber(header) {
             return new Node().setHeader(header.toString());
         }
+        header;
+        attributes = new LinkedList_1.LinkedList();
         addAttribute(attribute) {
             this.attributes.addAtEnd(attribute.getCopy());
             return this;
@@ -848,10 +856,6 @@ define("Core/Document/Node/Node", ["require", "exports", "Core/Container/LinkedL
         }
     }
     exports.Node = Node;
-    Node.COMMA_CODE = '$M';
-    Node.DOLLAR_SYMBOL_CODE = '$X';
-    Node.OPEN_BRACKET_CODE = '$O';
-    Node.CLOSED_BRACKET_CODE = '$C';
 });
 define("Core/Document/ChainedNode/Task", ["require", "exports"], function (require, exports) {
     "use strict";
@@ -869,11 +873,11 @@ define("Core/Document/ChainedNode/ChainedNode", ["require", "exports", "Core/Con
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.ChainedNode = void 0;
     class ChainedNode {
-        constructor() {
-            this.header = undefined;
-            this.nextNode = undefined;
-            this.attributes = new LinkedList_2.LinkedList();
-        }
+        static DOT_CODE = '$D';
+        static COMMA_CODE = '$M';
+        static DOLLAR_SYMBOL_CODE = '$X';
+        static OPEN_BRACKET_CODE = '$O';
+        static CLOSED_BRACKET_CODE = '$C';
         static createReproducingString(string) {
             var reprodudingString = '';
             for (var i = 0; i < string.length; i++) {
@@ -963,6 +967,9 @@ define("Core/Document/ChainedNode/ChainedNode", ["require", "exports", "Core/Con
             chainedNode.setHeader(header.toString());
             return chainedNode;
         }
+        header = undefined;
+        nextNode = undefined;
+        attributes = new LinkedList_2.LinkedList();
         containsAttributes() {
             return this.attributes.containsAny();
         }
@@ -1196,11 +1203,6 @@ define("Core/Document/ChainedNode/ChainedNode", ["require", "exports", "Core/Con
         }
     }
     exports.ChainedNode = ChainedNode;
-    ChainedNode.DOT_CODE = '$D';
-    ChainedNode.COMMA_CODE = '$M';
-    ChainedNode.DOLLAR_SYMBOL_CODE = '$X';
-    ChainedNode.OPEN_BRACKET_CODE = '$O';
-    ChainedNode.CLOSED_BRACKET_CODE = '$C';
 });
 define("Core/Math/GlobalCalculator", ["require", "exports"], function (require, exports) {
     "use strict";
@@ -1252,11 +1254,11 @@ define("Core/Net/EndPoint/Protocol", ["require", "exports"], function (require, 
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Protocol = void 0;
     class Protocol {
+        static TARGET_PREFIX = 'T';
+        static MAIN_TARGET_PREFIX = 'A';
+        static MESSAGE_PREFIX = 'M';
     }
     exports.Protocol = Protocol;
-    Protocol.TARGET_PREFIX = 'T';
-    Protocol.MAIN_TARGET_PREFIX = 'A';
-    Protocol.MESSAGE_PREFIX = 'M';
 });
 define("CoreAPI/NetAPI/WebSocketAPI/WebSocketType", ["require", "exports"], function (require, exports) {
     "use strict";
@@ -1273,17 +1275,10 @@ define("Core/Net/EndPoint/NetEndPoint", ["require", "exports", "Core/Net/EndPoin
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.NetEndPoint = void 0;
     class NetEndPoint {
+        webSocket;
+        target;
+        receiver;
         constructor(ip, port, optionalTarget, webSocketType) {
-            this.onMessage = (messageEvent) => {
-                this.receive(messageEvent.data);
-            };
-            this.onOpen = (event) => {
-                console.log("The current NetEndPoint2 has been connected.");
-                const targetMessage = (this.target === undefined) ?
-                    Protocol_1.Protocol.MAIN_TARGET_PREFIX :
-                    Protocol_1.Protocol.TARGET_PREFIX + this.target;
-                this.sendRawMessage(targetMessage);
-            };
             if (ip === null) {
                 throw new Error('The given ip is null.');
             }
@@ -1346,6 +1341,16 @@ define("Core/Net/EndPoint/NetEndPoint", ["require", "exports", "Core/Net/EndPoin
             }
             this.receiver = receiver;
         }
+        onMessage = (messageEvent) => {
+            this.receive(messageEvent.data);
+        };
+        onOpen = (event) => {
+            console.log("The current NetEndPoint2 has been connected.");
+            const targetMessage = (this.target === undefined) ?
+                Protocol_1.Protocol.MAIN_TARGET_PREFIX :
+                Protocol_1.Protocol.TARGET_PREFIX + this.target;
+            this.sendRawMessage(targetMessage);
+        };
         receive(message) {
             if (message === null) {
                 throw new Error('The given message is null.');
@@ -1393,6 +1398,11 @@ define("Core/Net/EndPoint2/Package", ["require", "exports", "Core/Net/EndPoint2/
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Package = void 0;
     class Package {
+        static TARGET_MESSAGE_PREFIX = 'T';
+        static STANDARD_MESSAGE_PREFIX = 'M';
+        static REPLY_MESSAGE_PREFIX = 'R';
+        static ERROR_MESSAGE_PREFIX = 'E';
+        static INDEX_STRING_LENGTH = 8;
         static createFromString(string) {
             return new Package(Number.parseInt(string.substring(0, 8)), Package.createMessageRole(string.substring(8, 9)), string.substring(9, string.length));
         }
@@ -1410,6 +1420,9 @@ define("Core/Net/EndPoint2/Package", ["require", "exports", "Core/Net/EndPoint2/
                     throw new Error('The given message role prefix is not valid.');
             }
         }
+        index;
+        messageRole;
+        message;
         constructor(index, messageRole, message) {
             if (index === null) {
                 throw new Error('The given index is null.');
@@ -1474,23 +1487,18 @@ define("Core/Net/EndPoint2/Package", ["require", "exports", "Core/Net/EndPoint2/
         }
     }
     exports.Package = Package;
-    Package.TARGET_MESSAGE_PREFIX = 'T';
-    Package.STANDARD_MESSAGE_PREFIX = 'M';
-    Package.REPLY_MESSAGE_PREFIX = 'R';
-    Package.ERROR_MESSAGE_PREFIX = 'E';
-    Package.INDEX_STRING_LENGTH = 8;
 });
 define("Core/Net/EndPoint2/NetEndPoint2", ["require", "exports", "Core/Container/LinkedList/LinkedList", "Core/Net/EndPoint2/MessageRole", "Core/Net/EndPoint/NetEndPoint", "Core/Net/EndPoint2/Package"], function (require, exports, LinkedList_3, MessageRole_2, NetEndPoint_1, Package_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.NetEndPoint2 = void 0;
     class NetEndPoint2 {
+        static TIMEOUT_IN_MILLISECONDS = 5000;
+        messageIndex = 0;
+        internalNetEndPoint;
+        receiver;
+        receivedPackages = new LinkedList_3.LinkedList();
         constructor(ip, port, optionalTarget, webSocketType) {
-            this.messageIndex = 0;
-            this.receivedPackages = new LinkedList_3.LinkedList();
-            this.receive = (message) => {
-                this.receivePackage(Package_1.Package.createFromString(message));
-            };
             this.internalNetEndPoint = new NetEndPoint_1.NetEndPoint(ip, port, optionalTarget, webSocketType);
             this.internalNetEndPoint.setReceiver(this.receive);
         }
@@ -1521,6 +1529,9 @@ define("Core/Net/EndPoint2/NetEndPoint2", ["require", "exports", "Core/Container
             this.messageIndex++;
             return this.messageIndex;
         }
+        receive = (message) => {
+            this.receivePackage(Package_1.Package.createFromString(message));
+        };
         receivePackage(package_) {
             switch (package_.getMessageRole()) {
                 case MessageRole_2.MessageRole.STANDARD_MESSAGE:
@@ -1558,7 +1569,6 @@ define("Core/Net/EndPoint2/NetEndPoint2", ["require", "exports", "Core/Container
         }
     }
     exports.NetEndPoint2 = NetEndPoint2;
-    NetEndPoint2.TIMEOUT_IN_MILLISECONDS = 5000;
 });
 define("Core/Net/EndPoint3/IDataProviderController", ["require", "exports"], function (require, exports) {
     "use strict";
@@ -1569,34 +1579,22 @@ define("Core/Net/EndPoint3/Protocol", ["require", "exports"], function (require,
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Protocol = void 0;
     class Protocol {
+        static COMMANDS_HEADER = 'Commands';
+        static DONE_HEADER = 'Done';
+        static ERROR_HEADER = 'Error';
+        static MULTI_DATA_HEADER = 'MultiData';
+        static MULTI_DATA_REQUEST_HEADER = 'MultiDataRequest';
     }
     exports.Protocol = Protocol;
-    Protocol.COMMANDS_HEADER = 'Commands';
-    Protocol.DONE_HEADER = 'Done';
-    Protocol.ERROR_HEADER = 'Error';
-    Protocol.MULTI_DATA_HEADER = 'MultiData';
-    Protocol.MULTI_DATA_REQUEST_HEADER = 'MultiDataRequest';
 });
 define("Core/Net/EndPoint3/NetEndPoint3", ["require", "exports", "Core/Document/ChainedNode/ChainedNode", "Core/Container/LinkedList/LinkedList", "Core/Net/EndPoint2/NetEndPoint2", "Core/Document/Node/Node", "Core/Net/EndPoint3/Protocol"], function (require, exports, ChainedNode_1, LinkedList_4, NetEndPoint2_1, Node_2, Protocol_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.NetEndPoint3 = void 0;
     class NetEndPoint3 {
+        internalNetEndPoint;
+        receiverController;
         constructor(ip, port, optionalTarget, webSocketType) {
-            this.receiveMessageAndGetReply = (message) => {
-                try {
-                    return this.receiveDocumentNodeMessageAndGetReply(ChainedNode_1.ChainedNode.fromString(message));
-                }
-                catch (error) {
-                    if (error === undefined || error == null) {
-                        return (Protocol_2.Protocol.ERROR_HEADER + Node_2.Node.withHeader('An error occured.'));
-                    }
-                    if (error instanceof Error) {
-                        return (Protocol_2.Protocol.ERROR_HEADER + Node_2.Node.withHeader(error.message));
-                    }
-                    return (Protocol_2.Protocol.ERROR_HEADER + Node_2.Node.withHeader('An error occured: ' + error));
-                }
-            };
             this.internalNetEndPoint = new NetEndPoint2_1.NetEndPoint2(ip, port, optionalTarget, webSocketType);
             this.internalNetEndPoint.setReceiver(this.receiveMessageAndGetReply);
         }
@@ -1643,6 +1641,20 @@ define("Core/Net/EndPoint3/NetEndPoint3", ["require", "exports", "Core/Document/
         getReceiverController() {
             return this.receiverController;
         }
+        receiveMessageAndGetReply = (message) => {
+            try {
+                return this.receiveDocumentNodeMessageAndGetReply(ChainedNode_1.ChainedNode.fromString(message));
+            }
+            catch (error) {
+                if (error === undefined || error == null) {
+                    return (Protocol_2.Protocol.ERROR_HEADER + Node_2.Node.withHeader('An error occured.'));
+                }
+                if (error instanceof Error) {
+                    return (Protocol_2.Protocol.ERROR_HEADER + Node_2.Node.withHeader(error.message));
+                }
+                return (Protocol_2.Protocol.ERROR_HEADER + Node_2.Node.withHeader('An error occured: ' + error));
+            }
+        };
         receiveDocumentNodeMessageAndGetReply(message) {
             const receiverController = this.getReceiverController();
             switch (message.getHeader()) {
@@ -1665,22 +1677,20 @@ define("Core/ProgramAtom/Name/PascalCaseCatalogue", ["require", "exports"], func
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.PascalCaseCatalogue = void 0;
     class PascalCaseCatalogue {
+        static CURSOR_POSITION = 'CursorPosition';
+        static HEIGHT = 'Height';
+        static SIZE = 'Size';
+        static WIDTH = 'Width';
         constructor() { }
     }
     exports.PascalCaseCatalogue = PascalCaseCatalogue;
-    PascalCaseCatalogue.CURSOR_POSITION = 'CursorPosition';
-    PascalCaseCatalogue.HEIGHT = 'Height';
-    PascalCaseCatalogue.SIZE = 'Size';
-    PascalCaseCatalogue.WIDTH = 'Width';
 });
 define("Core/ProgramStructure/Caching/CachingContainer", ["require", "exports", "Core/Container/LinkedList/LinkedList", "Core/Container/Pair/Pair"], function (require, exports, LinkedList_5, Pair_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.CachingContainer = void 0;
     class CachingContainer {
-        constructor() {
-            this.elements = new LinkedList_5.LinkedList();
-        }
+        elements = new LinkedList_5.LinkedList();
         contains(element) {
             return this.elements.contains(e => Object.is(e, element));
         }
@@ -1729,9 +1739,7 @@ define("Core/Testing/BaseTest/BaseTest", ["require", "exports", "Core/Container/
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.BaseTest = void 0;
     class BaseTest {
-        constructor() {
-            this.currentTestCaseErrors = new LinkedList_6.LinkedList();
-        }
+        currentTestCaseErrors = new LinkedList_6.LinkedList();
         run() {
             console.log('Start ' + this.constructor.name);
             for (const tc of this.getStoredTestCases()) {
@@ -1848,6 +1856,8 @@ define("Core/Testing/Test/Mediator", ["require", "exports"], function (require, 
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Mediator = void 0;
     class Mediator {
+        test;
+        argument;
         constructor(test, argument) {
             if (test === null) {
                 throw new Error('The given test is null.');
@@ -1905,6 +1915,8 @@ define("Core/Testing/Test/ThrownErrorMediator", ["require", "exports"], function
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.ThrownErrorMediator = void 0;
     class ThrownErrorMediator {
+        test;
+        error;
         constructor(test, error) {
             if (test === null) {
                 throw new Error('The given test is null.');
@@ -1972,10 +1984,8 @@ define("Core/Testing/Test/TestPool", ["require", "exports", "Core/Container/Link
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.TestPool = void 0;
     class TestPool {
-        constructor() {
-            this.tests = new LinkedList_7.LinkedList();
-            this.testPools = new LinkedList_7.LinkedList();
-        }
+        tests = new LinkedList_7.LinkedList();
+        testPools = new LinkedList_7.LinkedList();
         run() {
             this.tests.forEach(t => t.run());
             this.testPools.forEach(tp => tp.run());
@@ -2003,6 +2013,8 @@ define("Core/Web/CookieManager", ["require", "exports"], function (require, expo
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.CookieManager = void 0;
     class CookieManager {
+        static COOKIE_MAX_AGE_IN_SECONDS = 31536000;
+        static INSTANCE = new CookieManager();
         CookieManager() { }
         deleteCookieByName(name) {
             document.cookie = 'name=' + name + '; max-age=0';
@@ -2022,14 +2034,13 @@ define("Core/Web/CookieManager", ["require", "exports"], function (require, expo
         }
     }
     exports.CookieManager = CookieManager;
-    CookieManager.COOKIE_MAX_AGE_IN_SECONDS = 31536000;
-    CookieManager.INSTANCE = new CookieManager();
 });
 define("Core/Web/URLLineReader", ["require", "exports", "Core/Container/SingleContainer/SingleContainer"], function (require, exports, SingleContainer_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.URLLineReader = void 0;
     class URLLineReader {
+        static INSTANCE = new URLLineReader();
         constructor() { }
         getOptionalValueOfURLParameterByName(name) {
             const parameterString = window.location.search;
@@ -2042,29 +2053,28 @@ define("Core/Web/URLLineReader", ["require", "exports", "Core/Container/SingleCo
         }
     }
     exports.URLLineReader = URLLineReader;
-    URLLineReader.INSTANCE = new URLLineReader();
 });
 define("System/Application/WebApplicationProtocol/CommandProtocol", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.CommandProtocol = void 0;
     class CommandProtocol {
+        static DELETE_COOKIE_BY_NAME = "DeleteCookieByName";
+        static OPEN_NEW_TAB = 'OpenNewTab';
+        static REDIRECT = "Redirect";
+        static SET_CSS = "SetCSS";
+        static SET_EVENT_FUNCTIONS = 'SetEventFunctions';
+        static SET_FILE = 'SetFile';
+        static SET_HTML_ELEMENT = "SetHTMLElement";
+        static SET_ICON = 'SetIcon';
+        static SET_OR_ADD_COOKIE_WITH_NAME_AND_VALUE = 'SetOrAddCookieWithNameAndValue';
+        static SET_ROOT_HTML_ELEMENT = 'SetRootHTMLElement';
+        static SET_TITLE = 'SetTitle';
+        static SET_USER_INPUT_FUNCTIONS = 'SetUserInputFunctions';
+        static SET_USER_INPUTS = 'SetUserInputs';
+        static WRITE_TEXT_TO_CLIPBOARD = 'WriteTextToClipBoard';
     }
     exports.CommandProtocol = CommandProtocol;
-    CommandProtocol.DELETE_COOKIE_BY_NAME = "DeleteCookieByName";
-    CommandProtocol.OPEN_NEW_TAB = 'OpenNewTab';
-    CommandProtocol.REDIRECT = "Redirect";
-    CommandProtocol.SET_CSS = "SetCSS";
-    CommandProtocol.SET_EVENT_FUNCTIONS = 'SetEventFunctions';
-    CommandProtocol.SET_FILE = 'SetFile';
-    CommandProtocol.SET_HTML_ELEMENT = "SetHTMLElement";
-    CommandProtocol.SET_ICON = 'SetIcon';
-    CommandProtocol.SET_OR_ADD_COOKIE_WITH_NAME_AND_VALUE = 'SetOrAddCookieWithNameAndValue';
-    CommandProtocol.SET_ROOT_HTML_ELEMENT = 'SetRootHTMLElement';
-    CommandProtocol.SET_TITLE = 'SetTitle';
-    CommandProtocol.SET_USER_INPUT_FUNCTIONS = 'SetUserInputFunctions';
-    CommandProtocol.SET_USER_INPUTS = 'SetUserInputs';
-    CommandProtocol.WRITE_TEXT_TO_CLIPBOARD = 'WriteTextToClipBoard';
 });
 define("System/FrontendWebGUI/EventFunction", ["require", "exports", "Core/Document/ChainedNode/ChainedNode"], function (require, exports, ChainedNode_2) {
     "use strict";
@@ -2079,6 +2089,8 @@ define("System/FrontendWebGUI/EventFunction", ["require", "exports", "Core/Docum
         static withHTMLElementIdAndHtmlEventName(pHTMLElementId, pHTMLEventName) {
             return new EventFunction(pHTMLElementId, pHTMLEventName);
         }
+        mHTMLElementId;
+        mHTMLEventName;
         constructor(pHTMLElementId, pHTMLEventName) {
             if (pHTMLElementId === null) {
                 throw new Error('The given HTMLElementId is null.');
@@ -2137,9 +2149,12 @@ define("System/FrontendWebGUI/UserInput", ["require", "exports", "System/Element
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.UserInput = void 0;
     class UserInput extends Element_1.Element {
+        static TYPE_HEADER = 'UserInput';
         static withHTMLElementIdAndUserInput(pHTMLElementId, userInput) {
             return new UserInput(pHTMLElementId, userInput);
         }
+        mHTMLElementId;
+        userInput;
         constructor(pHTMLElementId, userInput) {
             super();
             if (pHTMLElementId === null) {
@@ -2180,7 +2195,6 @@ define("System/FrontendWebGUI/UserInput", ["require", "exports", "System/Element
         }
     }
     exports.UserInput = UserInput;
-    UserInput.TYPE_HEADER = 'UserInput';
 });
 define("System/FrontendWebGUI/UserInputFunction", ["require", "exports", "System/FrontendWebGUI/UserInput"], function (require, exports, UserInput_1) {
     "use strict";
@@ -2195,6 +2209,8 @@ define("System/FrontendWebGUI/UserInputFunction", ["require", "exports", "System
         static withHTMLElementIdAndUserInputFunctionFromString(pHTMLElementId, userInputFunctionString) {
             return new UserInputFunction(pHTMLElementId, Function('x', userInputFunctionString));
         }
+        mHTMLElementId;
+        userInputFunction;
         constructor(pHTMLElementId, userInputFunction) {
             if (pHTMLElementId === null) {
                 throw new Error('The given pHTMLElementId is null.');
@@ -2233,8 +2249,14 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Cont
         static withEventTakerAndFileTakerAndWindow(eventTaker, fileTaker, window) {
             return new FrontendWebGUI(eventTaker, fileTaker, window);
         }
+        title;
+        icon;
+        eventTaker;
+        fileTaker;
+        window;
+        style;
+        userInputFunctions = new LinkedList_9.LinkedList();
         constructor(eventTaker, fileTaker, window) {
-            this.userInputFunctions = new LinkedList_9.LinkedList();
             if (eventTaker === null) {
                 throw new Error('The given event taker is null.');
             }
@@ -2399,6 +2421,8 @@ define("System/Graphic/Color/Color", ["require", "exports"], function (require, 
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Color = void 0;
     class Color {
+        static BLACK = new Color(0, 0, 0, 255);
+        static WHITE = new Color(255, 255, 255, 255);
         static fromSpecification(specification) {
             return Color.fromString(specification.getOneAttributeHeader());
         }
@@ -2418,6 +2442,10 @@ define("System/Graphic/Color/Color", ["require", "exports"], function (require, 
                     throw new Error('The given string is not valid.');
             }
         }
+        redValue;
+        greenValue;
+        blueValue;
+        alphaValue;
         constructor(redValue, greenValue, blueValue, alphaValue) {
             if (redValue < 0 || redValue > 255) {
                 throw new Error('The given redValue is not valid.');
@@ -2463,14 +2491,16 @@ define("System/Graphic/Color/Color", ["require", "exports"], function (require, 
         }
     }
     exports.Color = Color;
-    Color.BLACK = new Color(0, 0, 0, 255);
-    Color.WHITE = new Color(255, 255, 255, 255);
 });
 define("System/Graphic/Image/Image", ["require", "exports", "System/Graphic/Color/Color", "System/Element/Element", "Core/Container/Matrix/Matrix", "Core/Document/Node/Node", "Core/ProgramAtom/Name/PascalCaseCatalogue"], function (require, exports, Color_1, Element_2, Matrix_1, Node_5, PascalCaseCatalogue_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Image = void 0;
     class Image extends Element_2.Element {
+        static TYPE_HEADER = 'Image';
+        static PIXEL_ARRAY_HEADER = 'PixelArray';
+        static WIDTH_HEADER = 'Width';
+        static PIXELS_HEADER = 'Pixels';
         static fromSpecification(specification) {
             const pixelArraySpecification = specification.getStoredFirstAttributeWithHeader(Image.PIXEL_ARRAY_HEADER);
             const widthSpecification = pixelArraySpecification.getStoredFirstAttributeWithHeader(PascalCaseCatalogue_1.PascalCaseCatalogue.WIDTH);
@@ -2491,6 +2521,8 @@ define("System/Graphic/Image/Image", ["require", "exports", "System/Graphic/Colo
             }
             return new Image(pixels);
         }
+        pixels;
+        canvas;
         constructor(pixels) {
             super();
             this.pixels = pixels;
@@ -2545,10 +2577,6 @@ define("System/Graphic/Image/Image", ["require", "exports", "System/Graphic/Colo
         }
     }
     exports.Image = Image;
-    Image.TYPE_HEADER = 'Image';
-    Image.PIXEL_ARRAY_HEADER = 'PixelArray';
-    Image.WIDTH_HEADER = 'Width';
-    Image.PIXELS_HEADER = 'Pixels';
 });
 define("System/Application/WebApplication/FrontendWebClientGUIManager", ["require", "exports", "System/Application/WebApplicationProtocol/CommandProtocol", "System/FrontendWebGUI/FrontendWebGUI", "System/Graphic/Image/Image", "System/FrontendWebGUI/UserInputFunction", "System/FrontendWebGUI/EventFunction"], function (require, exports, CommandProtocol_1, FrontendWebGUI_1, Image_1, UserInputFunction_1, EventFunction_1) {
     "use strict";
@@ -2558,6 +2586,7 @@ define("System/Application/WebApplication/FrontendWebClientGUIManager", ["requir
         static withEventTakerAndFileTakerAndWindow(eventTaker, fileTaker, window) {
             return new FrontendWebClientGUIManager(eventTaker, fileTaker, window);
         }
+        mFrontendWebGUI;
         constructor(eventTaker, fileTaker, window) {
             this.mFrontendWebGUI = FrontendWebGUI_1.FrontendWebGUI.withEventTakerAndFileTakerAndWindow(eventTaker, fileTaker, window);
         }
@@ -2611,17 +2640,19 @@ define("System/Application/WebApplicationProtocol/ObjectProtocol", ["require", "
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.ObjectProtocol = void 0;
     class ObjectProtocol {
+        static CONTROL = 'Control';
+        static GUI = 'GUI';
+        static URL = 'URL';
     }
     exports.ObjectProtocol = ObjectProtocol;
-    ObjectProtocol.CONTROL = 'Control';
-    ObjectProtocol.GUI = 'GUI';
-    ObjectProtocol.URL = 'URL';
 });
 define("System/Application/WebApplication/ReceiverController", ["require", "exports", "Core/Container/LinkedList/LinkedList"], function (require, exports, LinkedList_10) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.ReceiverController = void 0;
     class ReceiverController {
+        runMethod;
+        getDataMethod;
         constructor(runMethod, getDataMethod) {
             if (runMethod === null) {
                 throw new Error('The given run method is null.');
@@ -2659,17 +2690,18 @@ define("System/Application/WebApplicationProtocol/RequestProtocol", ["require", 
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.RequestProtocol = void 0;
     class RequestProtocol {
+        static GET_COOKIE_VALUE_BY_COOKIE_NAME = 'GetCookieValueByCookieName';
+        static GET_URL_PARAMETER_VALUE_BY_URL_PARAMETER_NAME = 'GetURLParameterValueByURLParameterName';
         RequestProtocol() { }
     }
     exports.RequestProtocol = RequestProtocol;
-    RequestProtocol.GET_COOKIE_VALUE_BY_COOKIE_NAME = 'GetCookieValueByCookieName';
-    RequestProtocol.GET_URL_PARAMETER_VALUE_BY_URL_PARAMETER_NAME = 'GetURLParameterValueByURLParameterName';
 });
 define("System/Application/WebApplication/TargetApplicationExtractor", ["require", "exports", "Core/Container/SingleContainer/SingleContainer", "Core/Web/URLLineReader"], function (require, exports, SingleContainer_2, URLLineReader_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.TargetApplicationExtractor = void 0;
     class TargetApplicationExtractor {
+        static INSTANCE = new TargetApplicationExtractor();
         getOptionalTargetApplicationFromURL() {
             const appContainer = URLLineReader_1.URLLineReader.INSTANCE.getOptionalValueOfURLParameterByName('app');
             if (appContainer.containsAny()) {
@@ -2680,7 +2712,6 @@ define("System/Application/WebApplication/TargetApplicationExtractor", ["require
         }
     }
     exports.TargetApplicationExtractor = TargetApplicationExtractor;
-    TargetApplicationExtractor.INSTANCE = new TargetApplicationExtractor();
 });
 define("System/Application/WebApplication/FrontendWebClient", ["require", "exports", "Core/Document/ChainedNode/ChainedNode", "System/Application/WebApplicationProtocol/CommandProtocol", "Core/Web/CookieManager", "System/Application/WebApplication/FrontendWebClientGUIManager", "Core/Container/LinkedList/LinkedList", "Core/Net/EndPoint3/NetEndPoint3", "Core/Document/Node/Node", "System/Application/WebApplicationProtocol/ObjectProtocol", "System/Application/WebApplication/ReceiverController", "System/Application/WebApplicationProtocol/RequestProtocol", "Core/Container/SingleContainer/SingleContainer", "System/Application/WebApplication/TargetApplicationExtractor", "CoreAPI/NetAPI/WebSocketAPI/WebSocketType", "Core/Web/URLLineReader"], function (require, exports, ChainedNode_3, CommandProtocol_2, CookieManager_1, FrontendWebClientGUIManager_1, LinkedList_11, NetEndPoint3_1, Node_6, ObjectProtocol_1, ReceiverController_1, RequestProtocol_1, SingleContainer_3, TargetApplicationExtractor_1, WebSocketType_2, URLLineReader_2) {
     "use strict";
@@ -2705,6 +2736,8 @@ define("System/Application/WebApplication/FrontendWebClient", ["require", "expor
         static toIpAndPortAndApplicationFromURLOnSecureWebSocket(ip, port) {
             return new FrontendWebClient(ip, port, TargetApplicationExtractor_1.TargetApplicationExtractor.INSTANCE.getOptionalTargetApplicationFromURL(), WebSocketType_2.WebSocketType.SECURE_WEB_SOCKET);
         }
+        mGUIManager;
+        endPoint;
         constructor(ip, port, optionalTarget, webSocketType) {
             this.mGUIManager = FrontendWebClientGUIManager_1.FrontendWebClientGUIManager.withEventTakerAndFileTakerAndWindow((command) => this.takeEvent(command), (controlFixedId, file) => this.takeFile(controlFixedId, file), window);
             this.endPoint = new NetEndPoint3_1.NetEndPoint3(ip, port, optionalTarget, webSocketType);
@@ -2829,6 +2862,9 @@ define("System/Graphic/Color/ColorGradient", ["require", "exports", "System/Grap
         static withDirectionAndColor1AndColor2(direction, color1, color2) {
             return new ColorGradient(direction, color1, color2);
         }
+        direction;
+        color1;
+        color2;
         constructor(direction, color1, color2) {
             if (direction === null) {
                 throw new Error('The given direction is null.');
