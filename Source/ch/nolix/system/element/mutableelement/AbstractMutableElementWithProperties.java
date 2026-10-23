@@ -165,7 +165,7 @@ public abstract class AbstractMutableElementWithProperties implements MutableEle
    * 
    * @param field
    * @throws RuntimeException if the given field is null, not accessible or does
-   *                          not have a value.
+   *                          not have a value
    */
   private void addPropertyFromField(final Field field) {
     try {
@@ -196,7 +196,7 @@ public abstract class AbstractMutableElementWithProperties implements MutableEle
 
   /**
    * @return the {@link Property}s of the current
-   *         {@link AbstractMutableElementWithProperties}.
+   *         {@link AbstractMutableElementWithProperties}
    */
   private ExtendedIterable<Property> getStoredProperties() {
     addPropertiesIfNotAdded();

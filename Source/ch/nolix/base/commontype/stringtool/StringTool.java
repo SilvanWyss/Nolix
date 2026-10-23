@@ -72,7 +72,7 @@ public final class StringTool {
    * @param string
    * @param n
    * @return a new {@link String} that is like the given string without the last n
-   *         characters.
+   *         characters
    */
   public static String getWithoutLastCharacters(final String string, final int n) {
     return STRING_TOOL_UNIT.getWithoutLastCharacters(string, n);
@@ -97,7 +97,7 @@ public final class StringTool {
 
   /**
    * @param string
-   * @return a new {@link String} in capital snake case for the given string.
+   * @return a new {@link String} in capital snake case for the given string
    */
   public static String toCapitalSnakeCase(final String string) {
     return STRING_TOOL_UNIT.toCapitalSnakeCase(string);
@@ -114,7 +114,7 @@ public final class StringTool {
 
   /**
    * @param string
-   * @return a new {@link String} in pascal case for the given string.
+   * @return a new {@link String} in pascal case for the given string
    */
   public static String toPascalCase(String string) {
     return STRING_TOOL_UNIT.toPascalCase(string);

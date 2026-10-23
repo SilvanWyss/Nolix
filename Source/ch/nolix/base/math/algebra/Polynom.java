@@ -78,7 +78,7 @@ public final class Polynom {
    * @param degree
    * @return the coefficient for the given degree from the current {@link Polynom}
    * @throws RuntimeException if the given degree is not between 0 and the degree
-   *                          of the current {@link Polynom}.
+   *                          of the current {@link Polynom}
    */
   public double getCoefficientForDegree(final int degree) {
     // Asserts that the given degree is between 0 and the degree of the current
@@ -89,7 +89,7 @@ public final class Polynom {
   }
 
   /**
-   * @return the degree of the current {@link Polynom}.
+   * @return the degree of the current {@link Polynom}
    */
   public int getDegree() {
     return coefficients.length - 1;
@@ -97,7 +97,7 @@ public final class Polynom {
 
   /**
    * @return a new {@link Polynom} that is derived from the current
-   *         {@link Polynom}.
+   *         {@link Polynom}
    */
   public Polynom getDerived() {
     return getDerived(1);
@@ -123,7 +123,7 @@ public final class Polynom {
 
   /**
    * @return a new {@link Polynom} that is the integration of the current
-   *         {@link Polynom}.
+   *         {@link Polynom}
    */
   public Polynom getIntegrated() {
     return getIntegrated(1);
@@ -161,7 +161,7 @@ public final class Polynom {
 
   /**
    * @param x
-   * @return the slope of the current {@link Polynom} at the given x.
+   * @return the slope of the current {@link Polynom} at the given x
    */
   public double getSlopeAt(final double x) {
     return getDerived().getValueAt(x);
@@ -171,7 +171,7 @@ public final class Polynom {
    * This method implements the Horner scheme to calculate the value.
    * 
    * @param x
-   * @return the value of the current {@link Polynom} at the given x.
+   * @return the value of the current {@link Polynom} at the given x
    */
   public double getValueAt(final double x) {
     if (isZeroPolynom()) {
@@ -209,7 +209,7 @@ public final class Polynom {
   }
 
   /**
-   * @return a new array with the coefficients of the current {@link Polynom}.
+   * @return a new array with the coefficients of the current {@link Polynom}
    */
   public double[] toArray() {
     return coefficients.clone();
@@ -244,7 +244,7 @@ public final class Polynom {
 
   /**
    * @return a new {@link Vector} with the coefficients of the current
-   *         {@link Polynom}.
+   *         {@link Polynom}
    */
   public Vector toVector() {
     return Vector.withValues(coefficients);

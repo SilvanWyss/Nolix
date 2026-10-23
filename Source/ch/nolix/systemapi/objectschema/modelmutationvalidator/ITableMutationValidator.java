@@ -14,7 +14,7 @@ public interface ITableMutationValidator {
    * @param table
    * @param column
    * @throws RuntimeException if the given column cannot be added to the given
-   *                          table.
+   *                          table
    */
   void assertCanAddColumnToTable(ITable table, IColumn column);
 

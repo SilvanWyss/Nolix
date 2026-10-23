@@ -43,7 +43,7 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
 
   /**
    * @return a new {@link SequencePatternNextMediator} for the given
-   *         sequencePattern and count.
+   *         sequencePattern and count
    * 
    * @param sequencePattern
    * @param count

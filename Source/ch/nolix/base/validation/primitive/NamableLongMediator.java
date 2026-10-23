@@ -20,7 +20,7 @@ public final class NamableLongMediator extends AbstractLongMediator {
 
   /**
    * @param argument
-   * @return a new {@link NamableLongMediator} for the given argument.
+   * @return a new {@link NamableLongMediator} for the given argument
    */
   public static NamableLongMediator forArgument(final long argument) {
     return new NamableLongMediator(argument);

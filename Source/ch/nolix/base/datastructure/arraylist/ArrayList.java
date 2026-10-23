@@ -294,7 +294,7 @@ public final class ArrayList<E> extends AbstractExtendedIterable<E> implements I
    * @param requiredCapacity
    * @return the target capacity for the current {@link ArrayList} and the given
    *         requiredCapacity for the case when the current {@link ArrayList}
-   *         needs to grow for the given requiredCapacity.
+   *         needs to grow for the given requiredCapacity
    */
   private int calculateTargetCapacityForRequiredCapacityWhenNeedsToGrowForIt(final int requiredCapacity) {
     return //

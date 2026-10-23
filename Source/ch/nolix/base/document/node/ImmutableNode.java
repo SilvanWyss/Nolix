@@ -89,7 +89,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * @return a new {@link ImmutableNode} from the file with the given filePath
    * @throws RuntimeException if the given filePath is not valid
    * @throws RuntimeException if the file with the given filePath does not
-   *                          represent a {@link ImmutableNode}.
+   *                          represent a {@link ImmutableNode}
    */
   public static ImmutableNode fromFile(final String filePath) {
     final var mutableNode = MutableNode.fromFile(filePath);
@@ -122,7 +122,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * @param string
    * @return a new {@link ImmutableNode} from the given string
    * @throws RuntimeException if the given string does not represent a
-   *                          {@link ImmutableNode}.
+   *                          {@link ImmutableNode}
    */
   public static ImmutableNode fromString(final String string) {
     final var mutableNode = MutableNode.fromString(string);
@@ -132,7 +132,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
 
   /**
    * @param childNode
-   * @return a new {@link ImmutableNode} with the given childNode.
+   * @return a new {@link ImmutableNode} with the given childNode
    */
   public static ImmutableNode withChildNode(final boolean childNode) {
     final var booleanChildNode = withHeader(childNode);
@@ -143,7 +143,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
 
   /**
    * @param childNode
-   * @return a new {@link ImmutableNode} with the given childNode.
+   * @return a new {@link ImmutableNode} with the given childNode
    */
   public static ImmutableNode withChildNode(final double childNode) {
     final var doubleChildNode = withHeader(childNode);
@@ -166,7 +166,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
 
   /**
    * @param childNode
-   * @return a new {@link ImmutableNode} with the given childNode.
+   * @return a new {@link ImmutableNode} with the given childNode
    */
   public static ImmutableNode withChildNode(final long childNode) {
     final var longChildNode = withHeader(childNode);
@@ -204,7 +204,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * @return a new {@link ImmutableNode} with the given childNodes
    * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes does not represent a
-   *                          {@link ImmutableNode}.
+   *                          {@link ImmutableNode}
    */
   public static ImmutableNode withChildNodes(final String... childNodes) {
     final var childNodesContainer = ExtendedIterableView.forArray(childNodes).getViewOf(ImmutableNode::fromString);
@@ -214,7 +214,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
 
   /**
    * @param header
-   * @return a new {@link ImmutableNode} with the given header.
+   * @return a new {@link ImmutableNode} with the given header
    */
   public static ImmutableNode withHeader(final boolean header) {
     final var booleanHeader = String.valueOf(header);
@@ -224,7 +224,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
 
   /**
    * @param header
-   * @return a new {@link ImmutableNode} with the given header.
+   * @return a new {@link ImmutableNode} with the given header
    */
   public static ImmutableNode withHeader(final double header) {
     final var doubleHeader = String.valueOf(header);
@@ -234,7 +234,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
 
   /**
    * @param header
-   * @return a new {@link ImmutableNode} with the given header.
+   * @return a new {@link ImmutableNode} with the given header
    */
   public static ImmutableNode withHeader(final long header) {
     final var longHeader = String.valueOf(header);
@@ -310,7 +310,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * @return a new {@link ImmutableNode} with the given header and childNode
    * @throws RuntimeException if the given header is null or blank
    * @throws RuntimeException if the given childNode does not represent a
-   *                          {@link ImmutableNode}.
+   *                          {@link ImmutableNode}
    */
   public static ImmutableNode withHeaderAndChildNode(final String header, final String childNode) {
     final var nodeChildNode = fromString(childNode);
@@ -355,7 +355,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * @throws RuntimeException if the given header is null or blank
    * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes does not represent a
-   *                          {@link ImmutableNode}.
+   *                          {@link ImmutableNode}
    */
   public static ImmutableNode withHeaderAndChildNodes(final String header, final String... childNodes) {
     final var childNodeContainer = ExtendedIterableView.forArray(childNodes).getViewOf(ImmutableNode::fromString);
@@ -365,7 +365,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
 
   /**
    * @param paramEnum
-   * @return the name of the type of the given paramEnum.
+   * @return the name of the type of the given paramEnum
    */
   private static String getTypeNameOfEnum(final Enum<?> paramEnum) {
     return paramEnum.getClass().getSimpleName();

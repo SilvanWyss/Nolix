@@ -120,7 +120,7 @@ public final class FlowController {
    * Runs the given jobs in background in the given order.
    * 
    * @param jobs
-   * @return a new {@link IFuture} for the execution of the given jobs.
+   * @return a new {@link IFuture} for the execution of the given jobs
    */
   public static IFuture runInBackgroundAndOrder(final Runnable... jobs) {
     final var jobExecutor = JobExecutor.forJobs(jobs);

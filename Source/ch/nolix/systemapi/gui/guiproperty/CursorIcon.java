@@ -23,14 +23,14 @@ public enum CursorIcon {
    * @param specification
    * @return a new {@link CursorIcon} from the given specification
    * @throws RuntimeException if the given specification does not represent a
-   *                          {@link CursorIcon}.
+   *                          {@link CursorIcon}
    */
   public static CursorIcon fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader().toUpperCase(Locale.ENGLISH));
   }
 
   /**
-   * @return a CSS value representation of the current {@link CursorIcon}.
+   * @return a CSS value representation of the current {@link CursorIcon}
    */
   public String toCssValue() {
     return switch (this) {
@@ -52,7 +52,7 @@ public enum CursorIcon {
   }
 
   /**
-   * @return a {@link Cursor} representation of the current {@link CursorIcon}.
+   * @return a {@link Cursor} representation of the current {@link CursorIcon}
    */
   public Cursor toCursor() {
     // Enumerates the current cursor icon.

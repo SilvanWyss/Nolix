@@ -95,7 +95,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * 
    * @param internalEndPoint
    * @throws RuntimeException if the given internalEndPoint is null or not a net
-   *                          end point.
+   *                          end point
    */
   private NetEndPoint(final ch.nolix.baseapi.net.senderandreplierserver.EndPoint internalEndPoint) {
     if (internalEndPoint.getConnectionType().getBaseType() != BaseConnectionType.NET) {
@@ -159,7 +159,7 @@ public final class NetEndPoint extends AbstractEndPoint {
   /**
    * @param host
    * @return a new {@link NetEndPoint} that will connect to the given slot on the
-   *         HTTP port on the given host.
+   *         HTTP port on the given host
    */
   public static NetEndPoint toGivenHostAndHttpPortAndDefaultSlot(final String host) {
     return new NetEndPoint(host);
@@ -169,7 +169,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param internalEndPoint
    * @return a new {@link NetEndPoint} with the given internalEndPoint
    * @throws RuntimeException if the given internalEndPoint is null or not a net
-   *                          end point.
+   *                          end point
    */
   static NetEndPoint withInternalEndPoint(final ch.nolix.baseapi.net.senderandreplierserver.EndPoint internalEndPoint) {
     return new NetEndPoint(internalEndPoint);
@@ -303,7 +303,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * collide with representations of a {@link ImmutableNode}.
    * 
    * @param message
-   * @return the reply to the given message from the current {@link NetEndPoint}.
+   * @return the reply to the given message from the current {@link NetEndPoint}
    */
   private String receiveAndGetReply(final String message) {
     try {
@@ -327,7 +327,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @return the reply to the given message
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link NetEndPoint} does not
-   *                                               have a receiver.
+   *                                               have a receiver
    */
   private String receiveAndGetReply(final ImmutableChainedNode message) {
     // Gets the receiver controller of the current NetEndPoint.

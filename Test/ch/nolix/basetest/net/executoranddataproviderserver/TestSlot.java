@@ -13,7 +13,8 @@ public final class TestSlot implements Slot {
   private TestReceivingDataProviderController latestCreatedReceivingDataProviderController;
 
   /**
-   * @return the latest {@link TestReceivingDataProviderController} the current {@link TestSlot} has created
+   * @return the latest {@link TestReceivingDataProviderController} the current
+   *         {@link TestSlot} has created
    */
   public TestReceivingDataProviderController getLatestCreatedReceivingDataProviderController() {
     return latestCreatedReceivingDataProviderController;

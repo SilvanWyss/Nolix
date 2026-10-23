@@ -38,7 +38,7 @@ public final class Vector {
 
   /**
    * @param values
-   * @return a new {@link Vector} with the given values.
+   * @return a new {@link Vector} with the given values
    */
   public static Vector fromArray(final double[] values) {
     return new Vector(values);
@@ -62,7 +62,7 @@ public final class Vector {
   }
 
   /**
-   * @return the euclid norm of the current {@link Vector}.
+   * @return the euclid norm of the current {@link Vector}
    */
   public double getEuclidNorm() {
     var sum = 0.0;
@@ -74,7 +74,7 @@ public final class Vector {
   }
 
   /**
-   * @return the Manhattan norm of the current {@link Vector}.
+   * @return the Manhattan norm of the current {@link Vector}
    */
   public double getManhattanNorm() {
     var manhattanNorm = 0.0;
@@ -89,7 +89,7 @@ public final class Vector {
   /**
    * @param factor
    * @return a new {@link Vector} that is the product of the current
-   *         {@link Vector} with the given factor.
+   *         {@link Vector} with the given factor
    */
   public Vector getProduct(final double factor) {
     final var size = getSize();
@@ -103,7 +103,7 @@ public final class Vector {
   }
 
   /**
-   * @return the size of the current {@link Vector}.
+   * @return the size of the current {@link Vector}
    */
   public int getSize() {
     return values.length;
@@ -112,7 +112,7 @@ public final class Vector {
   /**
    * @param vector
    * @return a new {@link Vector} that is the sum of the current {@link Vector}
-   *         and the given vector.
+   *         and the given vector
    */
   public Vector getSum(final Vector vector) {
     if (!vector.hasSameSizeAs(this)) {
@@ -140,7 +140,7 @@ public final class Vector {
    * @return the value of the current {@link Vector} at the given oneBasedIndex
    * @throws RuntimeException if the given oneBasedIndex is not positive or the
    *                          given oneBasedIndex is bigger than the size of the
-   *                          current {@link Vector}.
+   *                          current {@link Vector}
    */
   public double getValueAtOneBasedIndex(final int oneBasedIndex) {
     Validator.assertThat(oneBasedIndex).thatIsNamed("1-based index").isBetween(1, getSize());
@@ -198,7 +198,7 @@ public final class Vector {
   /**
    * @param vector
    * @return true if the current {@link Vector} can equal the given vector because
-   *         of the size.
+   *         of the size
    */
   private boolean canEqualVectorBecauseOfSize(final Vector vector) {
     return vector != null

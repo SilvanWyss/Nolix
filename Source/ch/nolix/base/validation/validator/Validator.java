@@ -44,7 +44,7 @@ public final class Validator { // NOSONAR: The GlobalValidator bundles all valid
   /**
    * @param argument
    * @param <A>      the type of the given argument
-   * @return a new {@link NamableObjectMediator} for given argument.
+   * @return a new {@link NamableObjectMediator} for given argument
    */
   public static <A> NamableObjectMediator<A> assertThat(final A argument) {
     return NamableObjectMediator.forArgument(argument);
@@ -52,7 +52,7 @@ public final class Validator { // NOSONAR: The GlobalValidator bundles all valid
 
   /**
    * @param argument
-   * @return a new {@link NamableBigDecimalMediator} for the given argument.
+   * @return a new {@link NamableBigDecimalMediator} for the given argument
    */
   public static NamableBigDecimalMediator assertThat(final BigDecimal argument) {
     return NamableBigDecimalMediator.forArgument(argument);
@@ -60,7 +60,7 @@ public final class Validator { // NOSONAR: The GlobalValidator bundles all valid
 
   /**
    * @param argument
-   * @return a new {@link NamableByteMediator} for the given argument.
+   * @return a new {@link NamableByteMediator} for the given argument
    */
   public static NamableByteMediator assertThat(final byte argument) {
     return NamableByteMediator.forArgument(argument);
@@ -68,7 +68,7 @@ public final class Validator { // NOSONAR: The GlobalValidator bundles all valid
 
   /**
    * @param argument
-   * @return a new {@link NamableIterableMediator} for the given argument.
+   * @return a new {@link NamableIterableMediator} for the given argument
    */
   public static NamableIterableMediator<Byte> assertThat(final byte[] argument) {
     // Handles the case that the given argument is null.
@@ -83,7 +83,7 @@ public final class Validator { // NOSONAR: The GlobalValidator bundles all valid
   /**
    * @param argument
    * @param <T>      the type of the given argument
-   * @return a new {@link NamableTypeMediator} for the given argument.
+   * @return a new {@link NamableTypeMediator} for the given argument
    */
   public static <T> NamableTypeMediator<T> assertThat(final Class<T> argument) {
     return NamableTypeMediator.forArgument(argument);
@@ -91,7 +91,7 @@ public final class Validator { // NOSONAR: The GlobalValidator bundles all valid
 
   /**
    * @param argument
-   * @return a new {@link NamableDoubleMediator} for the given argument.
+   * @return a new {@link NamableDoubleMediator} for the given argument
    */
   public static NamableDoubleMediator assertThat(final double argument) {
     return NamableDoubleMediator.forArgument(argument);
@@ -99,7 +99,7 @@ public final class Validator { // NOSONAR: The GlobalValidator bundles all valid
 
   /**
    * @param argument
-   * @return a new {@link NamableIterableMediator} for the given argument.
+   * @return a new {@link NamableIterableMediator} for the given argument
    */
   public static NamableIterableMediator<Double> assertThat(final double[] argument) {
     // Handles the case that the given argument is null.
@@ -113,7 +113,7 @@ public final class Validator { // NOSONAR: The GlobalValidator bundles all valid
 
   /**
    * @param argument
-   * @return a new {@link NamableLongMediator} for the given argument.
+   * @return a new {@link NamableLongMediator} for the given argument
    */
   public static NamableLongMediator assertThat(final int argument) {
     return NamableLongMediator.forArgument(argument);
@@ -121,7 +121,7 @@ public final class Validator { // NOSONAR: The GlobalValidator bundles all valid
 
   /**
    * @param argument
-   * @return a new {@link NamableIterableMediator} for the given argument.
+   * @return a new {@link NamableIterableMediator} for the given argument
    */
   public static NamableIterableMediator<Long> assertThat(final int[] argument) {
     // Handles the case that the given argument is null.
@@ -136,7 +136,7 @@ public final class Validator { // NOSONAR: The GlobalValidator bundles all valid
   /**
    * @param argument
    * @param <A>      the type of the elements of the given argument
-   * @return a new {@link NamableIterableMediator} for the given argument.
+   * @return a new {@link NamableIterableMediator} for the given argument
    */
   public static <A> NamableIterableMediator<A> assertThat(final Iterable<A> argument) {
     return NamableIterableMediator.forArgument(argument);
@@ -144,7 +144,7 @@ public final class Validator { // NOSONAR: The GlobalValidator bundles all valid
 
   /**
    * @param argument
-   * @return a new {@link NamableLongMediator} for the given argument.
+   * @return a new {@link NamableLongMediator} for the given argument
    */
   public static NamableLongMediator assertThat(final long argument) {
     return NamableLongMediator.forArgument(argument);
@@ -152,7 +152,7 @@ public final class Validator { // NOSONAR: The GlobalValidator bundles all valid
 
   /**
    * @param argument
-   * @return a new {@link NamableIterableMediator} for the given argument.
+   * @return a new {@link NamableIterableMediator} for the given argument
    */
   public static NamableIterableMediator<Long> assertThat(final long[] argument) {
     // Handles the case that the given argument is null.
@@ -166,7 +166,7 @@ public final class Validator { // NOSONAR: The GlobalValidator bundles all valid
 
   /**
    * @param argument
-   * @return a new {@link NamableMethodMediator} for the given argument.
+   * @return a new {@link NamableMethodMediator} for the given argument
    */
   public static NamableMethodMediator assertThat(final Method argument) {
     return NamableMethodMediator.forArgument(argument);
@@ -176,7 +176,7 @@ public final class Validator { // NOSONAR: The GlobalValidator bundles all valid
    * @param argument
    * @param <T>      the type of the element of the given {@link Optional}
    *                 argument
-   * @return a new {@link NamableOptionalMediator} for the given argument.
+   * @return a new {@link NamableOptionalMediator} for the given argument
    */
   public static <T> NamableOptionalMediator<T> assertThat(
     final Optional<T> argument // NOSONAR: An Optional is the argument of an ExtendedOptionalMediator.
@@ -186,7 +186,7 @@ public final class Validator { // NOSONAR: The GlobalValidator bundles all valid
 
   /**
    * @param argument
-   * @return a new {@link NamableStringMediator} for the given argument.
+   * @return a new {@link NamableStringMediator} for the given argument
    */
   public static NamableStringMediator assertThat(final String argument) {
     return NamableStringMediator.forArgument(argument);
@@ -194,7 +194,7 @@ public final class Validator { // NOSONAR: The GlobalValidator bundles all valid
 
   /**
    * @param argument
-   * @return a new {@link NamableBitMediator} for the given argument.
+   * @return a new {@link NamableBitMediator} for the given argument
    */
   public static NamableBitMediator assertThatTheBit(final boolean argument) {
     return NamableBitMediator.forArgument(argument);

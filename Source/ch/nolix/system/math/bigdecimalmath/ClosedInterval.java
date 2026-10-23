@@ -118,7 +118,7 @@ public final class ClosedInterval implements IClosedInterval {
    * @param min
    * @param max
    * @return a new {@link ClosedInterval} with the given min, max and their max*
-   *         decimal place count.
+   *         decimal place count
    */
   public static ClosedInterval withMinAndMax(final double min, final double max) {
     return new ClosedInterval(min, max);

@@ -27,7 +27,7 @@ public enum MessageRole {
    * @param prefix
    * @return a new {@link MessageRole} from the given prefix
    * @throws IllegalArgumentException if the given prefix does not represent a
-   *                                  {@link MessageRole}.
+   *                                  {@link MessageRole}
    */
   public static MessageRole fromPrefix(final char prefix) {
     // Enumerates the given prefix.
@@ -46,7 +46,7 @@ public enum MessageRole {
   }
 
   /**
-   * @return the prefix of the current {@link MessageRole}.
+   * @return the prefix of the current {@link MessageRole}
    */
   public char getPrefix() {
     return prefix;

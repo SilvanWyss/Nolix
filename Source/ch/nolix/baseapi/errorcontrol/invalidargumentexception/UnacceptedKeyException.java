@@ -30,7 +30,7 @@ public final class UnacceptedKeyException extends AbstractInvalidArgumentExcepti
 
   /**
    * @param key - Can be null
-   * @return a new {@link UnacceptedKeyException} for the given key.
+   * @return a new {@link UnacceptedKeyException} for the given key
    */
   public static UnacceptedKeyException forKey(final String key) {
     return new UnacceptedKeyException(key);

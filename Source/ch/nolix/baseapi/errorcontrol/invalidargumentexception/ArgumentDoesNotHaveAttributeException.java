@@ -181,7 +181,7 @@ public final class ArgumentDoesNotHaveAttributeException extends AbstractInvalid
 
   /**
    * @return a new {@link NoSuchElementException} representation of the current
-   *         {@link ArgumentDoesNotHaveAttributeException}.
+   *         {@link ArgumentDoesNotHaveAttributeException}
    */
   public NoSuchElementException toNoSuchElementException() {
     return new NoSuchElementException(getMessage());

@@ -14,7 +14,7 @@ import ch.nolix.baseapi.net.target.IApplicationTarget;
  */
 public interface BackendClient<C extends BackendClient<C, S>, S> extends Client {
   /**
-   * @return the application of the current {@link BackendClient} as target.
+   * @return the application of the current {@link BackendClient} as target
    */
   IApplicationTarget getApplicationAsTarget();
 
@@ -25,7 +25,7 @@ public interface BackendClient<C extends BackendClient<C, S>, S> extends Client 
 
   /**
    * @return the application service of the parent application of the current
-   *         {@link BackendClient}.
+   *         {@link BackendClient}
    */
   S getStoredApplicationService();
 
@@ -38,7 +38,7 @@ public interface BackendClient<C extends BackendClient<C, S>, S> extends Client 
    * @throws InvalidArgumentException if the current {@link Session} of the
    *                                  current {@link BackendClient} is not the top
    *                                  {@link Session} of the current
-   *                                  {@link BackendClient}.
+   *                                  {@link BackendClient}
    */
   void internalPopCurrentSession();
 

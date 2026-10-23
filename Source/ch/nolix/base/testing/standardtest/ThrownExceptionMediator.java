@@ -42,7 +42,7 @@ public final class ThrownExceptionMediator extends AbstractThrownExceptionMediat
   }
 
   /**
-   * @return a new {@link ThrownExceptionMediator} without exception.
+   * @return a new {@link ThrownExceptionMediator} without exception
    */
   public static ThrownExceptionMediator withoutException() {
     return new ThrownExceptionMediator();

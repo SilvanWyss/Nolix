@@ -86,7 +86,7 @@ public final class EqualArgumentException extends AbstractInvalidArgumentExcepti
    * @param argument   - Can be null
    * @param equalValue - Can be null
    * @return a new {@link EqualArgumentException} for the given argument and
-   *         equalValue.
+   *         equalValue
    */
   public static EqualArgumentException forArgumentAndEqualValue(final Object argument, final Object equalValue) {
     return new EqualArgumentException(argument, equalValue);

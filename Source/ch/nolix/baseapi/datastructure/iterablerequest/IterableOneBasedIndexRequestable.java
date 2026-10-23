@@ -19,7 +19,7 @@ public interface IterableOneBasedIndexRequestable<E> {
    * @throws RuntimeException if the given selector is null
    * @throws RuntimeException if the current
    *                          {@link IterableOneBasedIndexRequestable} does not
-   *                          contain an element the given selector selects.
+   *                          contain an element the given selector selects
    */
   int getOneBasedIndexOfFirst(Predicate<E> selector);
 
@@ -29,7 +29,7 @@ public interface IterableOneBasedIndexRequestable<E> {
    *         {@link IterableOneBasedIndexRequestable} that equals the given object
    * @throws RuntimeException if the current
    *                          {@link IterableOneBasedIndexRequestable} does not
-   *                          contain an element that equals the given object.
+   *                          contain an element that equals the given object
    */
   int getOneBasedIndexOfFirstEqualElement(Object object);
 
@@ -39,7 +39,7 @@ public interface IterableOneBasedIndexRequestable<E> {
    *         current {@link IterableOneBasedIndexRequestable}
    * @throws RuntimeException if the current
    *                          {@link IterableOneBasedIndexRequestable} does not
-   *                          contain the given object.
+   *                          contain the given object
    */
   int getOneBasedIndexOfFirstOccurrenceOf(Object object);
 }

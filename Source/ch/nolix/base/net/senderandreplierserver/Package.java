@@ -34,7 +34,7 @@ final class Package extends ch.nolix.base.net.messaging.AbstractIndexedPackage<S
 
   /**
    * @param string
-   * @return a new zeta package the given string represents.
+   * @return a new zeta package the given string represents
    */
   public static Package createPackageFromString(final String string) {
     return new Package(
@@ -61,14 +61,14 @@ final class Package extends ch.nolix.base.net.messaging.AbstractIndexedPackage<S
   }
 
   /**
-   * @return the role of the message of this zeta package.
+   * @return the role of the message of this zeta package
    */
   public MessageRole getMessageRole() {
     return messageRole;
   }
 
   /**
-   * @return a {@link String} representation of this zeta package.
+   * @return a {@link String} representation of this zeta package
    */
   @Override
   public String toString() {

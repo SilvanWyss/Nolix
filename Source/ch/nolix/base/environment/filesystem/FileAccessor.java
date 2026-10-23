@@ -29,7 +29,7 @@ public final class FileAccessor extends AbstractFileSystemItemAccessor {
    * 
    * @param filePath
    * @throws RuntimeException if there does not exist a file with the given
-   *                          filePath in the file system on the local machine.
+   *                          filePath in the file system on the local machine
    */
   private FileAccessor(final String filePath) {
     if (!FileSystemAccessor.isFile(filePath)) {
@@ -46,7 +46,7 @@ public final class FileAccessor extends AbstractFileSystemItemAccessor {
    * @param filePath
    * @return a new {@link FileAccessor} for the file with the given filePath
    * @throws RuntimeException if there does not exist a file with the given
-   *                          filePath in the file system on the local machine.
+   *                          filePath in the file system on the local machine
    */
   public static FileAccessor withFilePath(final String filePath) {
     return new FileAccessor(filePath);

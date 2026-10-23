@@ -72,7 +72,7 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
 
   /**
    * @param intValue
-   * @return a new {@link AbsoluteOrRelativeInt} with the given intValue.
+   * @return a new {@link AbsoluteOrRelativeInt} with the given intValue
    */
   public static AbsoluteOrRelativeInt withIntValue(final int intValue) {
     return new AbsoluteOrRelativeInt(intValue);
@@ -170,7 +170,7 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbsoluteOrRelativeInt}
-   *                                               does not have an integer value.
+   *                                               does not have an integer value
    */
   private void assertIsAbsolute() {
     if (!isAbsolute()) {
@@ -181,7 +181,7 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbsoluteOrRelativeInt}
-   *                                               does not have a percentage.
+   *                                               does not have a percentage
    */
   private void assertIsRelative() {
     if (!isRelative()) {

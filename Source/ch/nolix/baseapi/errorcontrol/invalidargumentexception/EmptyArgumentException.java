@@ -40,7 +40,7 @@ public final class EmptyArgumentException extends AbstractInvalidArgumentExcepti
 
   /**
    * @param argument - Can be null
-   * @return a new {@link EmptyArgumentException} for the given argument.
+   * @return a new {@link EmptyArgumentException} for the given argument
    */
   public static EmptyArgumentException forArgument(final Object argument) {
     return new EmptyArgumentException(argument);

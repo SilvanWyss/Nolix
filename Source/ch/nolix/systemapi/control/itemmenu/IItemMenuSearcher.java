@@ -26,7 +26,7 @@ public interface IItemMenuSearcher {
    * @param id
    * @return the item with the given id from the given itemMenu
    * @throws RuntimeException if the given itemMenu does not contain an item with
-   *                          the given id.
+   *                          the given id
    */
   IItemMenuItem<?> getStoredItemById(IItemMenu<?, ?> itemMenu, String id);
 
@@ -35,7 +35,7 @@ public interface IItemMenuSearcher {
    * @param text
    * @return the item with the given text from the given itemMenu
    * @throws RuntimeException if the given itemMenu does not contain an item with
-   *                          the given text.
+   *                          the given text
    */
   IItemMenuItem<?> getStoredItemByText(IItemMenu<?, ?> itemMenu, String text);
 }

@@ -41,7 +41,7 @@ public abstract class AbstractMediator {
   }
 
   /**
-   * @return the argument name of the current {@link AbstractMediator}.
+   * @return the argument name of the current {@link AbstractMediator}
    */
   protected final String getArgumentName() {
     return argumentName;

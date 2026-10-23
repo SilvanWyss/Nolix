@@ -19,7 +19,7 @@ public interface IDatabaseInfoSearcher {
    *         the given tableName from the given databaseView
    * @throws RuntimeException if the given databaseView does not contain a table
    *                          with the given tableName, that contains a
-   *                          {@link ColumnInfoDto} with the given columnId.
+   *                          {@link ColumnInfoDto} with the given columnId
    */
   ColumnInfoDto getColumnViewByTableNameAndColumnId(DatabaseInfoDto databaseView, String tableName, String columnId);
 
@@ -31,7 +31,7 @@ public interface IDatabaseInfoSearcher {
    *         with the given tableName from the given databaseView
    * @throws RuntimeException if the given databaseView does not contain a table
    *                          with the given tableName, that contains a
-   *                          {@link ColumnInfoDto} with the given columnName.
+   *                          {@link ColumnInfoDto} with the given columnName
    */
   ColumnInfoDto getColumnViewByTableNameAndColumnName(
     DatabaseInfoDto databaseView,
@@ -44,7 +44,7 @@ public interface IDatabaseInfoSearcher {
    * @return the {@link TableInfoDto} with the given tableId from the given
    *         databaseView
    * @throws RuntimeException if the given databaseView does not contain a
-   *                          {@link TableInfoDto} with the given tableId.
+   *                          {@link TableInfoDto} with the given tableId
    */
   TableInfoDto getTableViewByTableId(DatabaseInfoDto databaseView, String tableId);
 
@@ -54,7 +54,7 @@ public interface IDatabaseInfoSearcher {
    * @return the {@link TableInfoDto} with the given tableName from the given
    *         databaseView
    * @throws RuntimeException if the given databaseView does not contain a
-   *                          {@link TableInfoDto} with the given tableName.
+   *                          {@link TableInfoDto} with the given tableName
    */
   TableInfoDto getTableViewByTableName(DatabaseInfoDto databaseView, String tableName);
 }

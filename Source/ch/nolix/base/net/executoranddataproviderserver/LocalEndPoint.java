@@ -118,7 +118,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
   }
 
   /**
-   * @return the target of this {@link LocalEndPoint}.
+   * @return the target of this {@link LocalEndPoint}
    */
   @Override
   public String getCustomTargetSlot() {
@@ -129,7 +129,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @return the data the given request requests from this local duplex controller
    * @throws ArgumentDoesNotHaveAttributeException if this {@link LocalEndPoint}
    *                                               does not have a receiver
-   *                                               controller.
+   *                                               controller
    */
   @Override
   public Node<?> getDataForRequest(final ChainedNode request) {
@@ -169,7 +169,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
   }
 
   /**
-   * @return the counterpart of this {@link LocalEndPoint}.
+   * @return the counterpart of this {@link LocalEndPoint}
    */
   public LocalEndPoint getStoredCounterpart() {
     return counterpart;

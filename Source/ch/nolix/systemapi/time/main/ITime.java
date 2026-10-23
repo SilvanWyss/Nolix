@@ -12,62 +12,62 @@ import ch.nolix.systemapi.element.base.Element;
  */
 public interface ITime extends Element {
   /**
-   * @return the day of the month of the current {@link ITime}.
+   * @return the day of the month of the current {@link ITime}
    */
   int getDayOfMonth();
 
   /**
-   * @return the hour of the day of the current {@link ITime}.
+   * @return the hour of the day of the current {@link ITime}
    */
   int getHourOfDay();
 
   /**
-   * @return the microsecond of the millisecond of the current {@link ITime}.
+   * @return the microsecond of the millisecond of the current {@link ITime}
    */
   int getMicrosecondOfMillisecond();
 
   /**
-   * @return the millisecond of the second of the current {@link ITime}.
+   * @return the millisecond of the second of the current {@link ITime}
    */
   int getMillisecondOfSecond();
 
   /**
-   * @return the minute of the hour of the current {@link ITime}.
+   * @return the minute of the hour of the current {@link ITime}
    */
   int getMinuteOfHour();
 
   /**
-   * @return the month of the year of the current {@link ITime}.
+   * @return the month of the year of the current {@link ITime}
    */
   Month getMonthOfYear();
 
   /**
-   * @return the month of the year of the current {@link ITime} as int.
+   * @return the month of the year of the current {@link ITime} as int
    */
   int getMonthOfYearAsInt();
 
   /**
-   * @return the second of the minute of the current {@link ITime}.
+   * @return the second of the minute of the current {@link ITime}
    */
   int getSecondOfMinute();
 
   /**
-   * @return the time zone of the current {@link ITime}.
+   * @return the time zone of the current {@link ITime}
    */
   TimeZone getTimeZone();
 
   /**
-   * @return the weekday of the current {@link ITime}.
+   * @return the weekday of the current {@link ITime}
    */
   Weekday getWeekday();
 
   /**
-   * @return the week of the year of the current {@link ITime}.
+   * @return the week of the year of the current {@link ITime}
    */
   int getWeekOfYear();
 
   /**
-   * @return the year of the current {@link ITime}.
+   * @return the year of the current {@link ITime}
    */
   int getYear();
 
@@ -91,49 +91,49 @@ public interface ITime extends Element {
   boolean isInLeapYear();
 
   /**
-   * @return the seconds of the current {@link ITime}.
+   * @return the seconds of the current {@link ITime}
    */
   long toSeconds();
 
   /**
    * @param days
    * @return a new {@link ITime} with the given days added to or subtracted from
-   *         the current {@link ITime}.
+   *         the current {@link ITime}
    */
   ITime withAddedOrSubtractedDays(int days);
 
   /**
    * @param hours
    * @return a new {@link ITime} with the given hours added to or subtracted from
-   *         the current {@link ITime}.
+   *         the current {@link ITime}
    */
   ITime withAddedOrSubtractedHours(int hours);
 
   /**
    * @param microseconds
    * @return a new {@link ITime} with the given microseconds added to or
-   *         subtracted from the current {@link ITime}.
+   *         subtracted from the current {@link ITime}
    */
   ITime withAddedOrSubtractedMicroseconds(long microseconds);
 
   /**
    * @param milliseconds
    * @return a new {@link ITime} with the given milliseconds added to or
-   *         subtracted from to the current {@link ITime}.
+   *         subtracted from to the current {@link ITime}
    */
   ITime withAddedOrSubtractedMilliseconds(int milliseconds);
 
   /**
    * @param minutes
    * @return a new {@link ITime} with the given minutes added to or subtracted
-   *         from the current {@link ITime}.
+   *         from the current {@link ITime}
    */
   ITime withAddedOrSubtractedMinutes(int minutes);
 
   /**
    * @param seconds
    * @return a new {@link ITime} with the given seconds added to or subtracted
-   *         from the current {@link ITime}.
+   *         from the current {@link ITime}
    */
   ITime withAddedOrSubtractedSeconds(int seconds);
 

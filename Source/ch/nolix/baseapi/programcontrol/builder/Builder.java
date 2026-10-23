@@ -11,7 +11,7 @@ package ch.nolix.baseapi.programcontrol.builder;
  */
 public interface Builder<O> {
   /**
-   * @return a new {@link Object} from the current {@link Builder}.
+   * @return a new {@link Object} from the current {@link Builder}
    */
   O build();
 }

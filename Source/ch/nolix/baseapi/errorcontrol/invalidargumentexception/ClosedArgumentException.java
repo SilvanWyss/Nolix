@@ -40,7 +40,7 @@ public final class ClosedArgumentException extends AbstractInvalidArgumentExcept
 
   /**
    * @param argument
-   * @return a new {@link ClosedArgumentException} for the given argument.
+   * @return a new {@link ClosedArgumentException} for the given argument
    */
   public static ClosedArgumentException forArgument(final Object argument) {
     return new ClosedArgumentException(argument);

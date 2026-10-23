@@ -41,7 +41,7 @@ public interface ISequencePattern<E> {
   /**
    * @return a new {@link ISequencePattern} from the current
    *         {@link ISequencePattern } with a blank condition for the next element
-   *         of the sequences of the {@link ISequencePattern}.
+   *         of the sequences of the {@link ISequencePattern}
    */
   ISequencePattern<E> withBlankForNext();
 

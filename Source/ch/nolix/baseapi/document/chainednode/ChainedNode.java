@@ -32,17 +32,17 @@ public interface ChainedNode extends BlanknessRequestable, OptionalHeaderHolder 
    * @return the child node of the current {@link ChainedNode} at the given
    *         oneBasedIndex
    * @throws RuntimeException if the current {@link ChainedNode} does not contain
-   *                          a child node at the given oneBasedIndex.
+   *                          a child node at the given oneBasedIndex
    */
   ChainedNode getChildNodeAtOneBasedIndex(int oneBasedIndex);
 
   /**
-   * @return the number of child nodes of the current {@link ChainedNode}.
+   * @return the number of child nodes of the current {@link ChainedNode}
    */
   int getChildNodeCount();
 
   /**
-   * @return the child nodes of the current {@link ChainedNode}.
+   * @return the child nodes of the current {@link ChainedNode}
    */
   ExtendedIterable<? extends ChainedNode> getChildNodes();
 
@@ -51,21 +51,21 @@ public interface ChainedNode extends BlanknessRequestable, OptionalHeaderHolder 
    * @return the first child node with the given header from the current
    *         {@link ChainedNode}
    * @throws RuntimeException if the current {@link ChainedNode} does not contain
-   *                          a child node with the given header.
+   *                          a child node with the given header
    */
   ChainedNode getFirstChildNodeWithHeader(String header);
 
   /**
    * @return the next node of the current {@link ChainedNode}
    * @throws RuntimeException if the current {@link ChainedNode} does not have a
-   *                          next node.
+   *                          next node
    */
   ChainedNode getNextNode();
 
   /**
    * @return the single child node of the current {@link ChainedNode}
    * @throws RuntimeException if the current {@link ChainedNode} does not contain
-   *                          a child node or contains multiple child nodes.
+   *                          a child node or contains multiple child nodes
    */
   ChainedNode getSingleChildNode();
 
@@ -78,7 +78,7 @@ public interface ChainedNode extends BlanknessRequestable, OptionalHeaderHolder 
    *                          {@link ChainedNode} does not have a header
    * @throws RuntimeException if the header of the single child node of the
    *                          current {@link ChainedNode} does not represent a
-   *                          double.
+   *                          double
    */
   double getSingleChildNodeAsDouble();
 
@@ -91,7 +91,7 @@ public interface ChainedNode extends BlanknessRequestable, OptionalHeaderHolder 
    *                          {@link ChainedNode} does not have a header
    * @throws RuntimeException if the header of the single child node of the
    *                          current {@link ChainedNode} does not represent an
-   *                          int.
+   *                          int
    */
   int getSingleChildNodeAsInt();
 
@@ -99,7 +99,7 @@ public interface ChainedNode extends BlanknessRequestable, OptionalHeaderHolder 
    * @return a {@link String} representation of the single child node of the
    *         current {@link ChainedNode}
    * @throws RuntimeException if the current {@link ChainedNode} does not contain
-   *                          a child node or contains multiple child nodes.
+   *                          a child node or contains multiple child nodes
    */
   String getSingleChildNodeAsString();
 
@@ -110,7 +110,7 @@ public interface ChainedNode extends BlanknessRequestable, OptionalHeaderHolder 
    * @throws RuntimeException if the current {@link ChainedNode} does not contain
    *                          a child node or contains multiple child nodes
    * @throws RuntimeException if the single child node of the current
-   *                          {@link ChainedNode} does not have a header.
+   *                          {@link ChainedNode} does not have a header
    */
   String getSingleChildNodeHeader();
 
@@ -123,14 +123,14 @@ public interface ChainedNode extends BlanknessRequestable, OptionalHeaderHolder 
   /**
    * @return the double the current {@link ChainedNode} represents
    * @throws RuntimeException if the current {@link ChainedNode} does not
-   *                          represent a double.
+   *                          represent a double
    */
   double toDouble();
 
   /**
    * @return the int the current {@link ChainedNode} represents
    * @throws RuntimeException if the current {@link ChainedNode} does not
-   *                          represent an int.
+   *                          represent an int
    */
   int toInt();
 
@@ -141,7 +141,7 @@ public interface ChainedNode extends BlanknessRequestable, OptionalHeaderHolder 
    * 
    * @return a {@link Node} representation of the current {@link ChainedNode}
    * @throws RuntimeException if the current {@link ChainedNode} does not
-   *                          represent a {@link Node}.
+   *                          represent a {@link Node}
    */
   Node<?> toNode();
 }

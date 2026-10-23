@@ -20,7 +20,7 @@ public interface IDatabaseInfoSearcherForDatabaseInfo {
    *                          {@link IDatabaseInfoSearcherForDatabaseInfo} does
    *                          not contain a table with the given tableName, that
    *                          contains a {@link ColumnInfoDto} with the given
-   *                          columnId.
+   *                          columnId
    */
   ColumnInfoDto getColumnViewByTableNameAndColumnId(String tableName, String columnId);
 
@@ -34,7 +34,7 @@ public interface IDatabaseInfoSearcherForDatabaseInfo {
    *                          {@link IDatabaseInfoSearcherForDatabaseInfo} does
    *                          not contain a table with the given tableName, that
    *                          contains a {@link ColumnInfoDto} with the given
-   *                          columnName.
+   *                          columnName
    */
   ColumnInfoDto getColumnViewByTableNameAndColumnName(String tableName, String columnName);
 
@@ -45,7 +45,7 @@ public interface IDatabaseInfoSearcherForDatabaseInfo {
    * @throws RuntimeException if the database view of the current
    *                          {@link IDatabaseInfoSearcherForDatabaseInfo} does
    *                          not contain a {@link TableInfoDto} with the given
-   *                          tableId.
+   *                          tableId
    */
   TableInfoDto getTableViewByTableId(String tableId);
 
@@ -56,7 +56,7 @@ public interface IDatabaseInfoSearcherForDatabaseInfo {
    * @throws RuntimeException if the database view of the current
    *                          {@link IDatabaseInfoSearcherForDatabaseInfo} does
    *                          not contain a {@link TableInfoDto} with the given
-   *                          tableName.
+   *                          tableName
    */
   TableInfoDto getTableViewByTableName(String tableName);
 }

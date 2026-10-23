@@ -20,7 +20,7 @@ public interface ApplicationComponent<A> {
   /**
    * @return the application of the current {@link ApplicationComponent}
    * @throws RuntimeException if the current {@link ApplicationComponent} does not
-   *                          belong to an application.
+   *                          belong to an application
    */
   A getStoredParentApplication();
 }

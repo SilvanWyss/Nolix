@@ -37,14 +37,14 @@ public abstract class AbstractIndexedPackage<C> {
   }
 
   /**
-   * @return the index of the current {@link AbstractIndexedPackage}.
+   * @return the index of the current {@link AbstractIndexedPackage}
    */
   public final int getIndex() {
     return memberIndex;
   }
 
   /**
-   * @return the content of the current {@link AbstractIndexedPackage}.
+   * @return the content of the current {@link AbstractIndexedPackage}
    */
   public final C getStoredContent() {
     return content;

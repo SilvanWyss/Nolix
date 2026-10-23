@@ -9,7 +9,7 @@ package ch.nolix.baseapi.datastructure.iterableprovider;
 public interface IterableStringProvider {
   /**
    * @return a concatenation of the {@link String} representations of the elements
-   *         of the current {@link IterableStringProvider}.
+   *         of the current {@link IterableStringProvider}
    */
   String toConcatenatedString();
 
@@ -17,7 +17,7 @@ public interface IterableStringProvider {
    * @param delimiter
    * @return a concatenation of the {@link String} representations of the elements
    *         of the current {@link IterableStringProvider} with the given
-   *         separator in between.
+   *         separator in between
    */
   String toStringWithDelimiter(char delimiter);
 

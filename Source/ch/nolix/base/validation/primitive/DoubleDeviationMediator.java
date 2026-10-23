@@ -58,7 +58,7 @@ public final class DoubleDeviationMediator extends AbstractMediator {
    *                                  deviation mediator does not equal the given
    *                                  value with a deviation that is not bigger
    *                                  than the max deviation of this named double
-   *                                  deviation mediator.
+   *                                  deviation mediator
    */
   public void isEqualTo(final double value) {
     if (Math.abs(value - argument) > maxDeviation) {

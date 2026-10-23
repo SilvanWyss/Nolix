@@ -9,7 +9,7 @@ package ch.nolix.baseapi.programcontrol.adapter;
  */
 public interface AdapterFactory<A> {
   /**
-   * @return a new adapter.
+   * @return a new adapter
    */
   A createAdapter();
 }

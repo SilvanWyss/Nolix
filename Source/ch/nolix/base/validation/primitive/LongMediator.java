@@ -31,7 +31,7 @@ public final class LongMediator extends AbstractLongMediator {
 
   /**
    * @param argument
-   * @return a new {@link LongMediator} for the given argument.
+   * @return a new {@link LongMediator} for the given argument
    */
   public static LongMediator forArgument(final long argument) {
     return new LongMediator(argument);

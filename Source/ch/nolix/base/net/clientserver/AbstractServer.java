@@ -292,7 +292,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
   }
 
   /**
-   * @return the current {@link AbstractServer}.
+   * @return the current {@link AbstractServer}
    */
   protected abstract S asConcrete();
 
@@ -327,7 +327,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
    * @param application
    * @throws RuntimeException if the current {@link AbstractServer} contains
    *                          already a {@link AbstractApplication} with the same
-   *                          name as one of the given applications.
+   *                          name as one of the given applications
    */
   private void addApplicationToList(final Application<?, ?> application) {
     assertDoesNotContainApplicationWithName(application.getName());
@@ -341,7 +341,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractServer} does not
    *                                               contain a default
-   *                                               {@link AbstractApplication}.
+   *                                               {@link AbstractApplication}
    */
   private void assertContainsDefaultApplication() {
     if (!containsDefaultApplication()) {
@@ -353,7 +353,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
    * @param name
    * @throws RuntimeException if the current {@link AbstractServer} contains
    *                          already a {@link AbstractApplication} with the same
-   *                          name as one of the given applications.
+   *                          name as one of the given applications
    */
   private void assertDoesNotContainApplicationWithName(final String name) {
     if (containsApplicationWithName(name)) {
@@ -370,7 +370,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
    * @throws ArgumentDoesNotContainElementException if the current
    *                                                {@link AbstractServer} does
    *                                                not contain the given
-   *                                                application.
+   *                                                application
    */
   private void removeApplication(final Application<?, ?> application) {
     applications.removeStrictlyFirstOccurrenceOf(application);

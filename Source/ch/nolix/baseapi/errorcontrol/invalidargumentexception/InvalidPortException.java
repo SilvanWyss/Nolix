@@ -27,7 +27,7 @@ public final class InvalidPortException extends AbstractInvalidArgumentException
 
   /**
    * @param port
-   * @return a new {@link InvalidPortException} for the given port.
+   * @return a new {@link InvalidPortException} for the given port
    */
   public static InvalidPortException forPort(final long port) {
     return new InvalidPortException(port);

@@ -69,7 +69,7 @@ public interface IDataReader extends GroupCloseable, DatabaseNameHolder {
    * @param multiBackReferenceColumn
    * @return the multi back reference entries of the multi back reference that is
    *         in the given table and in the entity with the given entityId and in
-   *         the given multiBackReferenceColumn.
+   *         the given multiBackReferenceColumn
    */
   ExtendedIterable<MultiBackReferenceEntryDto> loadMultiBackReferenceEntries(TableIdentification table, String entityId,
     ColumnIdentification multiBackReferenceColumn);

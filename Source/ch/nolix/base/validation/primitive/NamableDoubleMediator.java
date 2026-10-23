@@ -20,7 +20,7 @@ public final class NamableDoubleMediator extends AbstractDoubleMediator {
 
   /**
    * @param argument
-   * @return a new {@link NamableDoubleMediator} for the given argument.
+   * @return a new {@link NamableDoubleMediator} for the given argument
    */
   public static NamableDoubleMediator forArgument(final double argument) {
     return new NamableDoubleMediator(argument);

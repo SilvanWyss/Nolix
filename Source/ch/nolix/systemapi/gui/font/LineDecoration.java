@@ -17,7 +17,7 @@ public enum LineDecoration {
    * @param specification
    * @return a new {@link LineDecoration} from the given specification
    * @throws RuntimeException if the given specification does not represent a
-   *                          {@link LineDecoration}.
+   *                          {@link LineDecoration}
    */
   public static LineDecoration fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());

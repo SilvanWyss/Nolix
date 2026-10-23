@@ -281,7 +281,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
    * @param stringRepresentation
    * @throws RuntimeException if the argument of the current
    *                          {@link IterableMediator} does not contain an element
-   *                          with the given stringRepresentation.
+   *                          with the given stringRepresentation
    */
   public void containsExactlyOneWithStringRepresentation(final String stringRepresentation) {
     if (ITERABLE_SEARCHER.getCount(getStoredArgument(), e -> e.toString().equals(stringRepresentation)) != 1) {
@@ -298,7 +298,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
    * @throws RuntimeException if the argument of the current
    *                          {@link IterableMediator} does not contain the given
    *                          element or contains the given element for several
-   *                          times.
+   *                          times
    */
   public void containsOnce(final Object element) {
     if (!ITERABLE_EXAMINER.containsOnce(getStoredArgument(), element)) {
@@ -315,7 +315,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
    * @throws RuntimeException if the given element count is negative
    * @throws RuntimeException if the argument of this container mediator contains
    *                          less or more elements than the given element count
-   *                          says.
+   *                          says
    */
   public void hasElementCount(final int elementCount) {
     if (elementCount < 0) {
@@ -355,7 +355,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
    * @param array
    * @throws RuntimeException if the given array is null
    * @throws RuntimeException if the argument of this container mediator contains
-   *                          less or more elements than the given array.
+   *                          less or more elements than the given array
    */
   public void hasSameSizeAs(final double[] array) {
     if (array == null) {

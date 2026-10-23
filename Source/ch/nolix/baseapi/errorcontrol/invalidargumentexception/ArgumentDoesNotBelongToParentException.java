@@ -43,7 +43,7 @@ public final class ArgumentDoesNotBelongToParentException extends AbstractInvali
   /**
    * @param argument - Can be null
    * @return a new {@link ArgumentDoesNotBelongToParentException} for the given
-   *         argument.
+   *         argument
    */
   public static ArgumentDoesNotBelongToParentException forArgument(final Object argument) {
     return new ArgumentDoesNotBelongToParentException(argument);

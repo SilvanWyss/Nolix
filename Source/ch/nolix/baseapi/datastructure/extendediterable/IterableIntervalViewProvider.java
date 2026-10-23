@@ -14,7 +14,7 @@ public interface IterableIntervalViewProvider<E> {
    *         the given oneBasedStartIndex
    * @throws RuntimeException if the given oneBasedStartIndex is bigger than the
    *                          number of elements of the current
-   *                          {@link ExtendedIterable}.
+   *                          {@link ExtendedIterable}
    */
   ExtendedIterable<E> getViewFromOneBasedStartIndex(int oneBasedStartIndex);
 
@@ -28,7 +28,7 @@ public interface IterableIntervalViewProvider<E> {
    *                          given oneBasedEndIndex
    * @throws RuntimeException if the given oneBasedEndIndex is bigger than the
    *                          number of elements of the current
-   *                          {@link ExtendedIterable}.
+   *                          {@link ExtendedIterable}
    */
   ExtendedIterable<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(int oneBasedStartIndex, int oneBasedEndIndex);
 
@@ -39,7 +39,7 @@ public interface IterableIntervalViewProvider<E> {
    * @throws RuntimeException if the given oneBasedEndIndex is not positive
    * @throws RuntimeException if the given oneBasedEndIndex is bigger than the
    *                          number of the elements of the current
-   *                          {@link ExtendedIterable}.
+   *                          {@link ExtendedIterable}
    */
   ExtendedIterable<E> getViewToOneBasedEndIndex(int oneBasedEndIndex);
 

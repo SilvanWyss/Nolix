@@ -62,7 +62,7 @@ public abstract class AbstractLicense implements License {
   /**
    * @param key
    * @throws UnacceptedKeyException if the current {@link AbstractLicense} does no
-   *                                accepts the given key.
+   *                                accepts the given key
    */
   private void assertAcceptsKey(final String key) {
     if (!acceptsKey(key)) {

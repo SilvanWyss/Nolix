@@ -12,7 +12,7 @@ public final class EnglishWordEndExaminer implements IEnglishWordEndExaminer {
   /**
    * @param word
    * @return true if the given word ends with a vocal and y, false otherwise, for
-   *         the case that the given word is not null.
+   *         the case that the given word is not null
    */
   private static boolean endsWithVocalAndYWhenIsNotNull(final String word) {
     return //

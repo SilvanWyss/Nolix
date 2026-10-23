@@ -8,7 +8,7 @@ package ch.nolix.systemapi.midschema.databaseinitializer;
  */
 public interface IDatabaseInitializer {
   /**
-   * @return the state of the database.
+   * @return the state of the database
    */
   DatabaseState getDatabaseState();
 
@@ -16,7 +16,7 @@ public interface IDatabaseInitializer {
    * Initializes the database if the database is not initialized.
    * 
    * @throws RuntimeException if the database is not empty or not properly (!)
-   *                          initialized.
+   *                          initialized
    */
   void initializeDatabaseIfNotInitialized();
 }

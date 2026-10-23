@@ -12,7 +12,7 @@ package ch.nolix.baseapi.programcontrol.future;
  */
 public interface IResultFuture<R> extends IFuture {
   /**
-   * @return the result of the current {@link IResultFuture}.
+   * @return the result of the current {@link IResultFuture}
    */
   R getResult();
 
@@ -21,7 +21,7 @@ public interface IResultFuture<R> extends IFuture {
    * result.
    * 
    * @return the result of the current {@link IResultFuture} after waiting until
-   *         it is finished.
+   *         it is finished
    */
   R waitUntilIsFinishedAndGetResult();
 }

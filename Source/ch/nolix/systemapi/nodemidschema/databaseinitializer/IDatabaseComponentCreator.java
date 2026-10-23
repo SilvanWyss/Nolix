@@ -23,7 +23,7 @@ public interface IDatabaseComponentCreator {
     ITime initialSchemaTimeStamp);
 
   /**
-   * @return a new entity indexes node.
+   * @return a new entity indexes node
    */
   IMutableNode<?> createEntityIndexesNode();
 

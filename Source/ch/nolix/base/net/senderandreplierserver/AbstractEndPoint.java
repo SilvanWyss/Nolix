@@ -60,7 +60,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements E
   /**
    * @return the replier of this end point
    * @throws ArgumentDoesNotHaveAttributeException if this end point does not have
-   *                                               a replier.
+   *                                               a replier
    */
   protected final Function<String, String> getStoredReplier() {
     final long startTimeInMilliseconds = System.currentTimeMillis();

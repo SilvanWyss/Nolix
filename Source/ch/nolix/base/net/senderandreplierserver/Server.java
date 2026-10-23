@@ -77,7 +77,7 @@ public final class Server extends AbstractServer {
   }
 
   /**
-   * @return the port of the current {@link Server}.
+   * @return the port of the current {@link Server}
    */
   public int getPort() {
     return internalNetServer.getPort();

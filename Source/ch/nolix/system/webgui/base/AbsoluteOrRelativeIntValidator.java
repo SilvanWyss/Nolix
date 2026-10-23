@@ -22,7 +22,7 @@ public final class AbsoluteOrRelativeIntValidator {
   /**
    * @param absoluteOrRelativeInt
    * @throws RuntimeException if the given absoluteOrRelativeInt is null or not
-   *                          positive.
+   *                          positive
    */
   public static void assertIsPositive(final IAbsoluteOrRelativeInt absoluteOrRelativeInt) {
     if (!absoluteOrRelativeInt.isPositive()) {

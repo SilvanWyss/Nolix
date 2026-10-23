@@ -33,7 +33,7 @@ public enum DataType {
 
   /**
    * @param paramClass
-   * @return the {@link DataType} for the given class.
+   * @return the {@link DataType} for the given class
    */
   public static DataType forClass(final Class<?> paramClass) {
     return //
@@ -51,7 +51,7 @@ public enum DataType {
   }
 
   /**
-   * @return the class the current {@link DataType} is for.
+   * @return the class the current {@link DataType} is for
    */
   public Class<?> getDataTypeClass() {
     return memberClass;

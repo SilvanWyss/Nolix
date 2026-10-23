@@ -16,7 +16,7 @@ public interface IClosePool {
    * @param elements
    * @throws RuntimeException if one of the given elements is null
    * @throws RuntimeException if the current {@link IClosePool} contains already
-   *                          one of the given elements.
+   *                          one of the given elements
    */
   void addElements(ExtendedIterable<GroupCloseable> elements);
 
@@ -27,12 +27,12 @@ public interface IClosePool {
   void closeElementsIfStateIsOpen();
 
   /**
-   * @return the state of the current {@link IClosePool}.
+   * @return the state of the current {@link IClosePool}
    */
   Openness getState();
 
   /**
-   * @return the elements of the current {@link IClosePool}.
+   * @return the elements of the current {@link IClosePool}
    */
   ExtendedIterable<GroupCloseable> getStoredElements();
 }

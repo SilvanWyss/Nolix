@@ -16,58 +16,58 @@ import ch.nolix.systemapi.element.base.Element;
 public interface IColor extends Element {
   /**
    * @return the alpha value of the current {@link IColor} as percentage. A
-   *         percentage is a number in the range [0.0, 1.0].
+   *         percentage is a number in the range [0.0, 1.0]
    */
   double getAlphaPercentage();
 
   /**
-   * @return the alpha value of the current {@link IColor}.
+   * @return the alpha value of the current {@link IColor}
    */
   int getAlphaValue();
 
   /**
    * @return the blue value of the current {@link IColor} as percentage. A
-   *         percentage is a number in the range [0.0, 1.0].
+   *         percentage is a number in the range [0.0, 1.0]
    */
   double getBluePercentage();
 
   /**
-   * @return the blue value of the current {@link IColor}.
+   * @return the blue value of the current {@link IColor}
    */
   int getBlueValue();
 
   /**
    * @return the color name or a hexadecimal {@link String} representation of the
-   *         current {@link IColor}.
+   *         current {@link IColor}
    */
   String getColorNameOrHexadecimalString();
 
   /**
    * @return the green value of the current {@link IColor} as percentage. A
-   *         percentage is a number in the range [0.0, 1.0].
+   *         percentage is a number in the range [0.0, 1.0]
    */
   double getGreenPercentage();
 
   /**
-   * @return the green value of the current {@link IColor}.
+   * @return the green value of the current {@link IColor}
    */
   int getGreenValue();
 
   /**
    * The inverted {@link IColor} of a {@link IColor} has the same alpha value.
    * 
-   * @return the inverted {@link IColor} of the current {@link IColor}.
+   * @return the inverted {@link IColor} of the current {@link IColor}
    */
   IColor getInvertedColor();
 
   /**
    * @return the red value of the current {@link IColor} as percentage. A
-   *         percentage is a number in the range [0.0, 1.0].
+   *         percentage is a number in the range [0.0, 1.0]
    */
   double getRedPercentage();
 
   /**
-   * @return the red value of the current {@link IColor}.
+   * @return the red value of the current {@link IColor}
    */
   int getRedValue();
 
@@ -97,44 +97,44 @@ public interface IColor extends Element {
 
   /**
    * @return an integer representation of the current {@link IColor} with the
-   *         schema alpha-red-green-blue.
+   *         schema alpha-red-green-blue
    */
   int toAlphaRedGreenBlueInt();
 
   /**
    * @return a hexadecimal {@link String} representation of the current
-   *         {@link IColor}.
+   *         {@link IColor}
    */
   String toHexadecimalString();
 
   /**
    * @return a hexadecimal with alpha value {@link String} representation of the
-   *         current {@link IColor}.
+   *         current {@link IColor}
    */
   String toHexadecimalStringWithAlphaValue();
 
   /**
-   * @return a long representation of the current {@link IColor}.
+   * @return a long representation of the current {@link IColor}
    */
   long toLong();
 
   /**
    * @param alphaValue
    * @return a new {@link IColor} from the current {@link IColor} with the given
-   *         alphaValue.
+   *         alphaValue
    */
   IColor withAlphaValue(int alphaValue);
 
   /**
    * @param floatingPointAlphaValue
    * @return a new {@link IColor} from the current {@link IColor} with the given
-   *         floatingPointAlphaValue.
+   *         floatingPointAlphaValue
    */
   IColor withFloatingPointAlphaValue(double floatingPointAlphaValue);
 
   /**
    * @return a new {@link IColor} from the current {@link IColor} with a full
-   *         alpha value.
+   *         alpha value
    */
   IColor withFullAlphaValue();
 }

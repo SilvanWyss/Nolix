@@ -27,7 +27,7 @@ public final class ReferencedArgumentException extends AbstractInvalidArgumentEx
 
   /**
    * @param argument - Can be null
-   * @return a new {@link ReferencedArgumentException} for the given argument.
+   * @return a new {@link ReferencedArgumentException} for the given argument
    */
   public static ReferencedArgumentException forArgument(final Object argument) {
     return new ReferencedArgumentException(argument);

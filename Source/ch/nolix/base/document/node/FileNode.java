@@ -261,7 +261,7 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
   }
 
   /**
-   * @return the root {@link FileNode} of the current {@link FileNode}.
+   * @return the root {@link FileNode} of the current {@link FileNode}
    */
   private FileNode getStoredRootFileNode() {
     if (!isRootFileNode()) {

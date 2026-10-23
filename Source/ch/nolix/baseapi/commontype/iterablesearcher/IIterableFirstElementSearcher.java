@@ -47,7 +47,7 @@ public interface IIterableFirstElementSearcher {
    * @return the first element of the given iterable that is of the given type
    * @throws RuntimeException if the given type is null
    * @throws RuntimeException if the given iterable does not contain an element of
-   *                          the given type.
+   *                          the given type
    */
   <E, T extends E> T getStoredFirstOfType(Iterable<E> iterable, Class<T> type);
 }

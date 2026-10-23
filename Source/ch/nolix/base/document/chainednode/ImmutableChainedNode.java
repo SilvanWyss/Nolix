@@ -81,7 +81,7 @@ implements ChainedNode {
 
   /**
    * @param node
-   * @return a new {@link ImmutableChainedNode} from the given node.
+   * @return a new {@link ImmutableChainedNode} from the given node
    */
   public static ImmutableChainedNode fromNode(final Node<?> node) {
     final var chainedNode = new ImmutableChainedNode();
@@ -99,7 +99,7 @@ implements ChainedNode {
    * @param string
    * @return a new {@link ImmutableChainedNode} the given string represents
    * @throws RuntimeException if the given string does not represent a
-   *                          {@link ImmutableChainedNode}.
+   *                          {@link ImmutableChainedNode}
    */
   public static ImmutableChainedNode fromString(final String string) {
     final var chainedNode = new ImmutableChainedNode();
@@ -110,7 +110,7 @@ implements ChainedNode {
 
   /**
    * @param string
-   * @return an escape {@link String} for the given string.
+   * @return an escape {@link String} for the given string
    */
   public static String getEscapeStringForString(final String string) {
     return string
@@ -126,7 +126,7 @@ implements ChainedNode {
 
   /**
    * @param escapeString
-   * @return an origin {@link String} from the given escapeString.
+   * @return an origin {@link String} from the given escapeString
    */
   public static String getStoredginStringFromEscapeString(final String escapeString) {
     return escapeString
@@ -335,7 +335,7 @@ implements ChainedNode {
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link ImmutableChainedNode}
    *                                               does not contain an attribute
-   *                                               at the given index.
+   *                                               at the given index
    */
   @Override
   public ImmutableChainedNode getChildNodeAtOneBasedIndex(final int index) {
@@ -343,7 +343,7 @@ implements ChainedNode {
   }
 
   /**
-   * @return the number of attributes of the current {@link ImmutableChainedNode}.
+   * @return the number of attributes of the current {@link ImmutableChainedNode}
    */
   @Override
   public int getChildNodeCount() {
@@ -351,7 +351,7 @@ implements ChainedNode {
   }
 
   /**
-   * @return the attributes of the current {@link ImmutableChainedNode}.
+   * @return the attributes of the current {@link ImmutableChainedNode}
    */
   @Override
   public ExtendedIterable<ImmutableChainedNode> getChildNodes() {
@@ -365,7 +365,7 @@ implements ChainedNode {
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link ImmutableChainedNode}
    *                                               does not contain an attribute
-   *                                               with the given header.
+   *                                               with the given header
    */
   @Override
   public ImmutableChainedNode getFirstChildNodeWithHeader(final String header) {
@@ -376,7 +376,7 @@ implements ChainedNode {
    * @return the header of the current {@link ImmutableChainedNode}
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link ImmutableChainedNode}
-   *                                               does not have a header.
+   *                                               does not have a header
    */
   @Override
   public String getHeader() {
@@ -393,7 +393,7 @@ implements ChainedNode {
    * @return the next node of the current {@link ImmutableChainedNode}
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link ImmutableChainedNode}
-   *                                               does not have a next node.
+   *                                               does not have a next node
    */
   @Override
   public ImmutableChainedNode getNextNode() {
@@ -410,7 +410,7 @@ implements ChainedNode {
    * @throws RuntimeException if the current {@link ImmutableChainedNode} does not
    *                          contain an attribute
    * @throws RuntimeException if the current {@link ImmutableChainedNode} contains
-   *                          several attributes.
+   *                          several attributes
    */
   @Override
   public ImmutableChainedNode getSingleChildNode() {
@@ -694,7 +694,7 @@ implements ChainedNode {
    * 
    * @param string
    * @throws RuntimeException if the given string does nor represent a
-   *                          {@link ImmutableChainedNode}.
+   *                          {@link ImmutableChainedNode}
    */
   private void resetFromString(final String string) {
     reset();
@@ -713,7 +713,7 @@ implements ChainedNode {
    * 
    * @param string
    * @param startIndex
-   * @return the next index the given string can be processed from.
+   * @return the next index the given string can be processed from
    */
   private int setFromStringAndStartIndexAndGetNextIndex(final String string, final int startIndex) {
     final var headerLengthAndTaskAfterSetHeader = //

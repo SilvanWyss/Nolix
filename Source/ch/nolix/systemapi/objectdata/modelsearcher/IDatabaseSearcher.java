@@ -14,7 +14,7 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 public interface IDatabaseSearcher {
   /**
    * @param database
-   * @return the {@link Entity}s of the given database in the local data.
+   * @return the {@link Entity}s of the given database in the local data
    */
   ExtendedIterable<Entity> getStoredEntitiesInLocalData(IDatabase database);
 
@@ -23,7 +23,7 @@ public interface IDatabaseSearcher {
    * @param tableId
    * @return the {@link ITable} with the given tableId from the given database
    * @throws RuntimeException if the given database does not contain a table with
-   *                          the given tableId.
+   *                          the given tableId
    */
   ITable<Entity> getStoredTableById(IDatabase database, String tableId);
 }

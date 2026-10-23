@@ -31,7 +31,7 @@ public final class ArgumentContainsElementException extends AbstractInvalidArgum
    * @param argument - Can be null
    * @param element  - Can be null
    * @return a new {@link ArgumentContainsElementException} for the given argument
-   *         and element.
+   *         and element
    */
   public static ArgumentContainsElementException forArgumentAndElement(final Object argument, final Object element) {
     return new ArgumentContainsElementException(argument, element);
@@ -39,7 +39,7 @@ public final class ArgumentContainsElementException extends AbstractInvalidArgum
 
   /**
    * @param element - Can be null
-   * @return the name of the given element.
+   * @return the name of the given element
    */
   private static String getNameOfElement(final Object element) {
     if (element != null) {

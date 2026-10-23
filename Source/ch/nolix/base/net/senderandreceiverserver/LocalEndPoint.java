@@ -164,7 +164,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
   }
 
   /**
-   * @return the counterpart of the current {@link LocalEndPoint}.
+   * @return the counterpart of the current {@link LocalEndPoint}
    */
   private LocalEndPoint getStoredCounterPart() {
     return counterpart;

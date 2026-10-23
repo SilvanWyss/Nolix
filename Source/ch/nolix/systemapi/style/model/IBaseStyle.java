@@ -30,12 +30,12 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends Element {
   boolean containsAttachingAttributes();
 
   /**
-   * @return the attaching attributes of the current {@link IBaseStyle}.
+   * @return the attaching attributes of the current {@link IBaseStyle}
    */
   ExtendedIterable<String> getAttachingAttributes();
 
   /**
-   * @return the sub styles of the current {@link IBaseStyle}.
+   * @return the sub styles of the current {@link IBaseStyle}
    */
   ExtendedIterable<? extends ISelectingStyleWithSelectors> getSubStyles();
 
@@ -62,8 +62,7 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends Element {
    * @return a new {@link IStyle} from the current {@link IStyle} with the given
    *         attachingAttributes added
    * @throws RuntimeException if the given attachingAttributes is null
-   * @throws RuntimeException if one of the given attachingAttributes is not
-   *                          valid.
+   * @throws RuntimeException if one of the given attachingAttributes is not valid
    */
   S withAttachingAttributes(ExtendedIterable<String> attachingAttributes);
 
@@ -72,8 +71,7 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends Element {
    * @return a new {@link IStyle} from the current {@link IStyle} with the given
    *         attachingAttributes added
    * @throws RuntimeException if the given attachingAttributes is null
-   * @throws RuntimeException if one of the given attachingAttributes is not
-   *                          valid.
+   * @throws RuntimeException if one of the given attachingAttributes is not valid
    */
   S withAttachingAttributes(String... attachingAttributes);
 

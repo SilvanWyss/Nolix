@@ -234,7 +234,7 @@ public final class TabContainerTab extends AbstractMutableElementWithProperties 
 
   /**
    * @throws RuntimeException if the current {@link TabContainerTab} does not
-   *                          belong to a {@link ITabContainer}.
+   *                          belong to a {@link ITabContainer}
    */
   private void assertBelongsToTabContainer() {
     if (!belongsToTabContainer()) {
@@ -244,7 +244,7 @@ public final class TabContainerTab extends AbstractMutableElementWithProperties 
 
   /**
    * @throws RuntimeException if the current {@link TabContainerTab} belongs to a
-   *                          {@link ITabContainer}.
+   *                          {@link ITabContainer}
    */
   private void assertDoesNotBelongToTabContainer() {
     if (belongsToTabContainer()) {

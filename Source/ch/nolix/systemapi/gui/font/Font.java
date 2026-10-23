@@ -33,14 +33,14 @@ public enum Font {
    * @param specification
    * @return a new {@link Font} from the given specification
    * @throws RuntimeException if the given specification does not represent a
-   *                          {@link Font}.
+   *                          {@link Font}
    */
   public static Font fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 
   /**
-   * @return the code of the current {@link Font}.
+   * @return the code of the current {@link Font}
    */
   public String getCode() {
     return code;

@@ -12,7 +12,7 @@ package ch.nolix.baseapi.errorcontrol.exceptionargumentpreparator;
 public interface IExceptionArgumentNamePreparator {
   /**
    * @param argument - Can be null
-   * @return a name of the given argument.
+   * @return a name of the given argument
    */
   String getNameOfArgument(Object argument);
 

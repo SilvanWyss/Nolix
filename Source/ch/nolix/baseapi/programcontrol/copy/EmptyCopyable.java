@@ -11,7 +11,7 @@ package ch.nolix.baseapi.programcontrol.copy;
  */
 public interface EmptyCopyable<C extends EmptyCopyable<C>> {
   /**
-   * @return a new empty copy of the current {@link EmptyCopyable}.
+   * @return a new empty copy of the current {@link EmptyCopyable}
    */
   C createEmptyCopy();
 }

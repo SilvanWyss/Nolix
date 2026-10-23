@@ -88,7 +88,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AfterEveryMediator} does
-   *                                               not have condition.
+   *                                               not have condition
    */
   private void assertHasCondition() {
     if (!hasCondition()) {
@@ -187,7 +187,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * @param job
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AfterEveryMediator} does
-   *                                               not have condition.
+   *                                               not have condition
    */
   private void runWhenDoesNotHaveMaxRunCount(final Runnable job) {
     Validator.assertThat(job).thatIsNamed(LowerCaseVariableNameCatalog.JOB).isNotNull();

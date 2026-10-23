@@ -26,7 +26,7 @@ public interface IColumnMutationValidator {
    * @param referenceableTables
    * @param backReferenceableColumns
    * @throws RuntimeException if the given contentModel cannot be set to the given
-   *                          column.
+   *                          column
    */
   void assertCanSetContentModel(
     IColumn column,

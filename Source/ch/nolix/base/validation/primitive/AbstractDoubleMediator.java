@@ -49,7 +49,7 @@ public abstract class AbstractDoubleMediator extends AbstractMediator {
    * @param max
    * @throws RuntimeException if the argument of the current
    *                          {@link AbstractDoubleMediator} is not between the
-   *                          given min and max.
+   *                          given min and max
    */
   public final void isBetween(final double min, final double max) {
     if (argument < min || argument > max) {
@@ -66,7 +66,7 @@ public abstract class AbstractDoubleMediator extends AbstractMediator {
    * @param value
    * @throws RuntimeException if the argument of the current
    *                          {@link AbstractDoubleMediator} is not bigger than
-   *                          the given value.
+   *                          the given value
    */
   public final void isBiggerThan(final double value) {
     if (argument <= value) {
@@ -82,7 +82,7 @@ public abstract class AbstractDoubleMediator extends AbstractMediator {
    * @param value
    * @throws UnequalArgumentException if the argument of the current
    *                                  {@link AbstractDoubleMediator} does not
-   *                                  equal the given value.
+   *                                  equal the given value
    */
   public final void isEqualTo(final double value) {
     if (!NumberComparator.areEqual(argument, value)) {
@@ -93,7 +93,7 @@ public abstract class AbstractDoubleMediator extends AbstractMediator {
   /**
    * @throws NonNegativeArgumentException if the argument of the current
    *                                      {@link AbstractDoubleMediator} is not
-   *                                      negative.
+   *                                      negative
    */
   public final void isNegative() {
     if (argument >= 0) {
@@ -105,7 +105,7 @@ public abstract class AbstractDoubleMediator extends AbstractMediator {
    * @param value
    * @throws RuntimeException if the argument of the current
    *                          {@link AbstractDoubleMediator} is bigger than the
-   *                          given value.
+   *                          given value
    */
   public final void isNotBiggerThan(final double value) {
     if (argument > value) {
@@ -117,7 +117,7 @@ public abstract class AbstractDoubleMediator extends AbstractMediator {
    * @param value
    * @throws RuntimeException if the argument of the current
    *                          {@link AbstractDoubleMediator} equals the given
-   *                          value.
+   *                          value
    */
   public final void isNotEqualTo(final double value) {
     if (NumberComparator.areEqual(argument, value)) {
@@ -137,7 +137,7 @@ public abstract class AbstractDoubleMediator extends AbstractMediator {
 
   /**
    * @throws RuntimeException if the argument of the current
-   *                          {@link AbstractDoubleMediator} is positive.
+   *                          {@link AbstractDoubleMediator} is positive
    */
   public final void isNotPositive() {
     if (argument <= 0) {
@@ -148,8 +148,7 @@ public abstract class AbstractDoubleMediator extends AbstractMediator {
   /**
    * @param min
    * @throws RuntimeException if the argument of the current
-   *                          {@link DoubleMediator} is smaller than the given
-   *                          min.
+   *                          {@link DoubleMediator} is smaller than the given min
    */
   public final void isNotSmallerThan(final double min) {
     if (argument < min) {
@@ -171,7 +170,7 @@ public abstract class AbstractDoubleMediator extends AbstractMediator {
    * @param value
    * @throws RuntimeException if the argument of the current
    *                          {@link AbstractDoubleMediator} is not smaller than
-   *                          the given value.
+   *                          the given value
    */
   public final void isSmallerThan(final double value) {
     if (argument >= value) {
@@ -196,7 +195,7 @@ public abstract class AbstractDoubleMediator extends AbstractMediator {
   }
 
   /**
-   * @return the argument of htis double mediator.
+   * @return the argument of htis double mediator
    */
   protected final double getArgument() {
     return argument;

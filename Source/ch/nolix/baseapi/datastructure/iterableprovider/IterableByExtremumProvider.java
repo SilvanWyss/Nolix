@@ -23,7 +23,7 @@ public interface IterableByExtremumProvider<E> {
    *         {@link IterableByExtremumProvider}, ignoring null elements
    * @throws RuntimeException if the given comparableMapper is null
    * @throws RuntimeException if the current {@link IterableByExtremumProvider}
-   *                          does not contain a non-null element.
+   *                          does not contain a non-null element
    */
   <C extends Comparable<C>> E getStoredByMax(Function<E, C> comparableMapper);
 
@@ -40,7 +40,7 @@ public interface IterableByExtremumProvider<E> {
    *         {@link IterableByExtremumProvider}, ignoring null elements
    * @throws RuntimeException if the given comparableMapper is null
    * @throws RuntimeException if the current {@link IterableByExtremumProvider}
-   *                          does not contain a non-null element.
+   *                          does not contain a non-null element
    */
   <C extends Comparable<C>> E getStoredByMin(Function<E, C> comparableMapper);
 }

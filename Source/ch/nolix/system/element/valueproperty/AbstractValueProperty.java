@@ -86,7 +86,7 @@ public abstract class AbstractValueProperty<V> implements BaseValueProperty {
 
   /**
    * @param value
-   * @return the specification from the given value.
+   * @return the specification from the given value
    */
   protected final Node<?> mapValueToSpecification(final V value) {
     return specificationMapper.apply(value);

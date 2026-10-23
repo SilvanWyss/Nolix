@@ -13,12 +13,12 @@ import ch.nolix.baseapi.objectcomposition.guicomponent.LayerComponent;
 public interface IControlParent
 extends ControlComponent<Control<?, ?>>, GuiComponent<IWebGui<?>>, LayerComponent<ILayer> {
   /**
-   * @return the {@link Control} the current {@link IControlParent} is.
+   * @return the {@link Control} the current {@link IControlParent} is
    */
   Control<?, ?> getStoredControl();
 
   /**
-   * @return the {@link ILayer} the current {@link IControlParent} is.
+   * @return the {@link ILayer} the current {@link IControlParent} is
    */
   ILayer getStoredLayer();
 

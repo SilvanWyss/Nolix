@@ -19,8 +19,10 @@ public final class MockBackendClient extends AbstractBackendClient<MockBackendCl
   private ChainedNode latestGetDataFromHereRequest;
 
   /**
-   * @return the latest get data from here request the current {@link MockBackendClient} has received
-   * @throws RuntimeException if the current {@link MockBackendClient} has not received a get data from here request
+   * @return the latest get data from here request the current
+   *         {@link MockBackendClient} has received
+   * @throws RuntimeException if the current {@link MockBackendClient} has not
+   *                          received a get data from here request
    */
   public ChainedNode getStoredLatestGetDataFromHereRequest() {
     Validator
@@ -32,8 +34,10 @@ public final class MockBackendClient extends AbstractBackendClient<MockBackendCl
   }
 
   /**
-   * @return the latest run here command the current {@link MockBackendClient} has received
-   * @throws RuntimeException if the current {@link MockBackendClient} has not received a run here command
+   * @return the latest run here command the current {@link MockBackendClient} has
+   *         received
+   * @throws RuntimeException if the current {@link MockBackendClient} has not
+   *                          received a run here command
    */
   public ChainedNode getStoredLatestRunHereCommand() {
     Validator.assertThat(latestRunHereCommand).thatIsNamed("latest received run here command").isNotNull();

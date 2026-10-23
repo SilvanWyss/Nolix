@@ -20,7 +20,7 @@ public interface IEntitySearcher {
    * @param baseReference
    * @return a {@link Optional} with the {@link BaseBackReference} of the given
    *         entity that can reference back the given abstractReference, an empty
-   *         {@link Optional} otherwise.
+   *         {@link Optional} otherwise
    */
   Optional<BaseBackReference> getOptionalStoredBaseBackReferenceWhoCanBackReferenceTheBaseReference(
     Entity entity,
@@ -28,13 +28,13 @@ public interface IEntitySearcher {
 
   /**
    * @param entity
-   * @return the {@link BaseBackReference}s that reference back the given entity.
+   * @return the {@link BaseBackReference}s that reference back the given entity
    */
   ExtendedIterable<BaseBackReference> getStoredBaseBackReferencesThatReferenceBackEntity(Entity entity);
 
   /**
    * @param entity
-   * @return the edited {@link Field}s of the given entity.
+   * @return the edited {@link Field}s of the given entity
    */
   ExtendedIterable<? extends Field> getStoredEditedFields(Entity entity);
 
@@ -43,13 +43,13 @@ public interface IEntitySearcher {
    * @param name
    * @return the {@link Field} with the given name from the given entity
    * @throws RuntimeException if the given entity does not have a field with the
-   *                          given name.
+   *                          given name
    */
   Field getStoredFieldByName(Entity entity, String name);
 
   /**
    * @param entity
-   * @return the {@link Field}s the given entity references back.
+   * @return the {@link Field}s the given entity references back
    */
   ExtendedIterable<BaseReference> getStoredFieldsWhoAreBackReferencedFromEntity(Entity entity);
 }

@@ -35,7 +35,7 @@ public final class ArrayListCapacityCalculator {
    * @return the target capacity for an array list with the given actualCapacity
    *         and the given requiredCapacity
    * @throws RuntimeException if the given requiredCapacity is not bigger or does
-   *                          not equal the given actualCapacity.
+   *                          not equal the given actualCapacity
    */
   public static int calculateTargetCapacityForActualCapacityAndRequiredCapacity(
     final int actualCapacity,
@@ -61,7 +61,7 @@ public final class ArrayListCapacityCalculator {
   /**
    * @param value1
    * @param value2
-   * @return the bigger value of the given value1 and value2.
+   * @return the bigger value of the given value1 and value2
    */
   private static int getMax(int value1, int value2) {
     if (value1 > value2) {

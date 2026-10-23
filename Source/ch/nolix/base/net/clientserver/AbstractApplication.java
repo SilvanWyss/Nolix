@@ -136,13 +136,13 @@ implements Application<C, S> {
 
   /**
    * @return the initial {@link AbstractSession} class of the current
-   *         {@link AbstractApplication}.
+   *         {@link AbstractApplication}
    */
   protected abstract Class<?> getInitialSessionClass();
 
   /**
    * @throws RuntimeException if the current {@link AbstractApplication} does not
-   *                          belong to a {@link AbstractServer}.
+   *                          belong to a {@link AbstractServer}
    */
   private void assertBelongsToServer() {
     if (!belongsToServer()) {
@@ -152,7 +152,7 @@ implements Application<C, S> {
 
   /**
    * @throws RuntimeException if the current {@link AbstractApplication} belongs
-   *                          already to a {@link AbstractServer}.
+   *                          already to a {@link AbstractServer}
    */
   private void assertDoesNotBelongToServer() {
     if (belongsToServer()) {
@@ -163,7 +163,7 @@ implements Application<C, S> {
   /**
    * @param serverTarget
    * @return the current {@link AbstractApplication} as target using the given
-   *         serverTarget.
+   *         serverTarget
    */
   private IApplicationTarget asTargetWithServerTarget(final IServerTarget serverTarget) {
     return ApplicationTarget
@@ -177,7 +177,7 @@ implements Application<C, S> {
 
   /**
    * @return a new initial {@link AbstractSession} for a {@link AbstractClient} of
-   *         the current {@link AbstractApplication}.
+   *         the current {@link AbstractApplication}
    */
   @SuppressWarnings("unchecked")
   private Session<C, S> createInitialSession() {
@@ -188,7 +188,7 @@ implements Application<C, S> {
    * @return the parent {@link AbstractServer} of the current
    *         {@link AbstractApplication}
    * @throws RuntimeException if the current {@link AbstractApplication} does not
-   *                          belong to a {@link AbstractServer}.
+   *                          belong to a {@link AbstractServer}
    */
   private ch.nolix.baseapi.net.clientserver.Server<?> getStoredParentServer() {
     assertBelongsToServer();

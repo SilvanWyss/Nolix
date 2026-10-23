@@ -36,7 +36,7 @@ implements BackendClient<C, S> {
 
   /**
    * @return the name of the parent {@link AbstractApplication} of the current
-   *         {@link AbstractBackendClient}.
+   *         {@link AbstractBackendClient}
    */
   public final String getApplicationName() {
     return getStoredParentApplication().getName();
@@ -142,7 +142,7 @@ implements BackendClient<C, S> {
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractBackendClient}
    *                                               does not have a current
-   *                                               {@link AbstractSession}.
+   *                                               {@link AbstractSession}
    */
   protected final Session<C, S> getStoredCurrentSession() {
     return sessionManager.getStoredCurrentSession();

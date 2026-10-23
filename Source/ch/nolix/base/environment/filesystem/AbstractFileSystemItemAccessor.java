@@ -24,7 +24,7 @@ public abstract class AbstractFileSystemItemAccessor {
    * 
    * @param path
    * @throws RuntimeException if there does not exist a file system item with the
-   *                          given path in the file system on the local machine.
+   *                          given path in the file system on the local machine
    */
   protected AbstractFileSystemItemAccessor(final String path) {
     // Creates the internal file accessor of this file accessor.
@@ -41,7 +41,7 @@ public abstract class AbstractFileSystemItemAccessor {
 
   /**
    * @return the extension of the name of the file system item of the current
-   *         {@link AbstractFileSystemItemAccessor}.
+   *         {@link AbstractFileSystemItemAccessor}
    */
   public final String getExtension() {
     final var array = RegularExpressionPatternCatalog.DOT_PATTERN.split(getName());
@@ -51,7 +51,7 @@ public abstract class AbstractFileSystemItemAccessor {
 
   /**
    * @return the name of the file system item of the current
-   *         {@link AbstractFileSystemItemAccessor}.
+   *         {@link AbstractFileSystemItemAccessor}
    */
   public final String getName() {
     final var array = getPath().split("/");
@@ -61,14 +61,14 @@ public abstract class AbstractFileSystemItemAccessor {
 
   /**
    * @return a new folder accessor to the parent folder of the file system item of
-   *         this file system item accessor.
+   *         this file system item accessor
    */
   public final FolderAccessor getParentFolderAccessor() {
     return FolderAccessor.forFolderPath(internalAccessor.getParent());
   }
 
   /**
-   * @return the path of the file system item of this file system item accessor.
+   * @return the path of the file system item of this file system item accessor
    */
   public final String getPath() {
     return internalAccessor.getAbsolutePath();
@@ -76,7 +76,7 @@ public abstract class AbstractFileSystemItemAccessor {
 
   /**
    * @return the size of the file system item of this file system item accessor in
-   *         bytes.
+   *         bytes
    */
   public final long getSizeInBytes() {
     return getInternalAccessor().length();
@@ -109,7 +109,7 @@ public abstract class AbstractFileSystemItemAccessor {
   }
 
   /**
-   * @return the internal accessor of this file system item accessor.
+   * @return the internal accessor of this file system item accessor
    */
   protected final File getInternalAccessor() {
     return internalAccessor;

@@ -16,7 +16,7 @@ public interface ResourcePool<R extends AutoCloseable> extends GroupCloseable {
    * @return resource from the current {@link ResourcePool} which will be
    *         borrowed. When The resource is closed its internal resource will be
    *         given back to the current {@link ResourcePool} and will be available
-   *         again.
+   *         again
    */
   R borrowResource();
 }

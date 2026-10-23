@@ -10,21 +10,21 @@ public interface IBasicCalculator {
   /**
    * @param value1
    * @param value2
-   * @return the absolute difference between the given 2 values.
+   * @return the absolute difference between the given 2 values
    */
   double getAbsoluteDifference(double value1, double value2);
 
   /**
    * @param value1
    * @param value2
-   * @return the absolute difference between the given 2 values.
+   * @return the absolute difference between the given 2 values
    */
   int getAbsoluteDifference(int value1, int value2);
 
   /**
    * @param value1
    * @param value2
-   * @return the absolute difference between the given 2 values.
+   * @return the absolute difference between the given 2 values
    */
   long getAbsoluteDifference(long value1, long value2);
 
@@ -32,7 +32,7 @@ public interface IBasicCalculator {
    * The absolute value of a value x is -x if x is negative, x otherwise.
    * 
    * @param value
-   * @return the absolute value of the given value.
+   * @return the absolute value of the given value
    */
   double getAbsoluteValue(double value);
 
@@ -40,7 +40,7 @@ public interface IBasicCalculator {
    * The absolute value of a value x is -x if x is negative, x otherwise.
    * 
    * @param value
-   * @return the absolute value of the given value.
+   * @return the absolute value of the given value
    */
   int getAbsoluteValue(int value);
 
@@ -48,7 +48,7 @@ public interface IBasicCalculator {
    * The absolute value of a value x is -x if x is negative, x otherwise.
    * 
    * @param value
-   * @return the absolute value of the given value.
+   * @return the absolute value of the given value
    */
   long getAbsoluteValue(long value);
 
@@ -124,19 +124,19 @@ public interface IBasicCalculator {
 
   /**
    * @param value
-   * @return the square of the given value.
+   * @return the square of the given value
    */
   double getSquare(double value);
 
   /**
    * @param value
-   * @return the square of the given value.
+   * @return the square of the given value
    */
   double getSquare(int value);
 
   /**
    * @param value
-   * @return the square of the given value.
+   * @return the square of the given value
    */
   double getSquare(long value);
 
@@ -156,7 +156,7 @@ public interface IBasicCalculator {
 
   /**
    * @param values
-   * @return the sum of the given values.
+   * @return the sum of the given values
    */
   double getSum(Iterable<Double> values);
 

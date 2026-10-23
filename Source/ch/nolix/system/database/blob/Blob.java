@@ -20,7 +20,7 @@ public final class Blob implements IBlob {
    * that the given byte will not be mutated.
    * 
    * @param bytes
-   * @throws RuntimeException if the given bytes is null.
+   * @throws RuntimeException if the given bytes is null
    */
   private Blob(final byte[] bytes) {
     Validator.assertThat(bytes).thatIsNamed(PluralLowerCaseVariableNameCatalog.BYTES).isNotNull();

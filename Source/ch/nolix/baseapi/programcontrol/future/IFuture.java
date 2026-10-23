@@ -19,7 +19,7 @@ public interface IFuture extends FinishRequestable {
   boolean caughtError();
 
   /**
-   * @return the error of the current {@link IFuture}.
+   * @return the error of the current {@link IFuture}
    */
   Throwable getError();
 
@@ -62,7 +62,7 @@ public interface IFuture extends FinishRequestable {
    * @param timeoutInMilliseconds
    * @throws RuntimeException if the current {@link IFuture} catches an error
    * @throws RuntimeException if the current {@link IFuture} reached the given
-   *                          timeoutInMilliseconds before having finished.
+   *                          timeoutInMilliseconds before having finished
    */
   void waitUntilIsFinishedSuccessfully(int timeoutInMilliseconds);
 }

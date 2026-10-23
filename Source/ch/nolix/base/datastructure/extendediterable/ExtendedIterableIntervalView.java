@@ -43,7 +43,7 @@ public final class ExtendedIterableIntervalView<E> extends AbstractExtendedItera
    * @throws RuntimeException if the given endIndex is smaller than the given
    *                          startIndex
    * @throws RuntimeException if the given endIndex is bigger than the number of
-   *                          elements of the given extendedIterable.
+   *                          elements of the given extendedIterable
    * @throws RuntimeException if the given arrayListCreator is null
    */
   private ExtendedIterableIntervalView(

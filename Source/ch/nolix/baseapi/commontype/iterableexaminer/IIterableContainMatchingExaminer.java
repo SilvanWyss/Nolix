@@ -29,7 +29,7 @@ public interface IIterableContainMatchingExaminer {
    * @param <T>      the type of the elements of the given iterable
    * @return true if the given iterable contains only elements the given selector
    *         selects, but at least 1 time, false otherwise, ignoring null elements
-   *         in the given iterable.
+   *         in the given iterable
    */
   <T> boolean containsMatchingOnly(Iterable<T> iterable, Predicate<T> selector);
 
@@ -41,7 +41,7 @@ public interface IIterableContainMatchingExaminer {
    * @param <T>      the type of the elements of the given iterable
    * @return true if the given iterable does not contain an element the given
    *         selector selects, false otherwise, ignoring null elements in the
-   *         given iterable.
+   *         given iterable
    */
   <T> boolean containsNoMatching(Iterable<T> iterable, Predicate<T> selector);
 
@@ -53,7 +53,7 @@ public interface IIterableContainMatchingExaminer {
    * @param <T>      the type of the elements of the given iterable
    * @return true if the given iterable contains exactly 1 element the given
    *         selector selects, false otherwise, ignoring null elements in the
-   *         given iterable.
+   *         given iterable
    */
   <T> boolean containsOneMatching(Iterable<T> iterable, Predicate<T> selector);
 }

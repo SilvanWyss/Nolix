@@ -14,7 +14,7 @@ public interface IContentFieldDtoMapper {
    * @param nullableStringRepresentedValue
    * @param nullableAdditionalValue
    * @param columnView
-   * @return a new {@link FieldDto} from the given nullableStringRepresentedValue.
+   * @return a new {@link FieldDto} from the given nullableStringRepresentedValue
    */
   FieldDto mapNullableStringRepresentedValueToContentFieldDto(
     String nullableStringRepresentedValue,

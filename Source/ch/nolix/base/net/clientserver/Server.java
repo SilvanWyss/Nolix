@@ -42,7 +42,7 @@ public final class Server extends AbstractServer<Server> implements HostHolder, 
 
   /**
    * @return a new {@link Server} that will listen to net {@link AbstractClient}s
-   *         on the HTTP port (80).
+   *         on the HTTP port (80)
    */
   public static Server forHttpPort() {
     return forPort(PortCatalog.HTTP);
@@ -83,7 +83,7 @@ public final class Server extends AbstractServer<Server> implements HostHolder, 
   }
 
   /**
-   * @return the current {@link Server} as {@link IServerTarget}.
+   * @return the current {@link Server} as {@link IServerTarget}
    */
   @Override
   public IServerTarget toTarget() {

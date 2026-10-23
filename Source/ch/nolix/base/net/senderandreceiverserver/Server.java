@@ -88,7 +88,7 @@ public final class Server extends AbstractServer {
 
   /**
    * @return a new {@link Server} that will listen to {@link AbstractNetEndPoint}s
-   *         on the HTTP port (80).
+   *         on the HTTP port (80)
    */
   public static Server forHttpPort() {
     return forPort(PortCatalog.HTTP);
@@ -124,14 +124,14 @@ public final class Server extends AbstractServer {
    * web browsers.
    * 
    * @return the initial HTTP message the current {@link Server} will send to web
-   *         browsers.
+   *         browsers
    */
   public String getInitialHttpMessage() {
     return initialHttpMessage;
   }
 
   /**
-   * @return the port of the current {@link Server}.
+   * @return the port of the current {@link Server}
    */
   public int getPort() {
     return port;
@@ -158,7 +158,7 @@ public final class Server extends AbstractServer {
   }
 
   /**
-   * @return the {@link ServerSocket} of the current {@link Server}.
+   * @return the {@link ServerSocket} of the current {@link Server}
    */
   ServerSocket internalGetStoredServerSocket() {
     return serverSocket;

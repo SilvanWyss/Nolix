@@ -27,7 +27,7 @@ public final class ArgumentIsNotNullException extends AbstractInvalidArgumentExc
 
   /**
    * @param argument
-   * @return a new {@link ArgumentIsNotNullException} for the given argument.
+   * @return a new {@link ArgumentIsNotNullException} for the given argument
    */
   public static ArgumentIsNotNullException forArgument(final Object argument) {
     return new ArgumentIsNotNullException(argument);

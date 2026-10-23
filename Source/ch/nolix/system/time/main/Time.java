@@ -77,7 +77,7 @@ extends AbstractElement implements ITime {
   }
 
   /**
-   * @return a new {@link Time} for the given zonedDateTime.
+   * @return a new {@link Time} for the given zonedDateTime
    * 
    * @param zonedDateTime
    * @throws RuntimeException if the given zonedDateTime is null
@@ -91,7 +91,7 @@ extends AbstractElement implements ITime {
    * @return a new {@link Time} from the given specification
    * @throws NullPointerException if the given specification is null
    * @throws RuntimeException     if the given specification does not represent a
-   *                              {@link Time}.
+   *                              {@link Time}
    */
   public static Time fromSpecification(final Node<?> specification) {
     return fromString(specification.getSingleChildNodeHeader());
@@ -101,7 +101,7 @@ extends AbstractElement implements ITime {
    * @param string
    * @return a new {@link Time} from the given string
    * @throws RuntimeException if the given string does not represent a
-   *                          {@link Time}.
+   *                          {@link Time}
    */
   public static Time fromString(final String string) {
     Validator.assertThat(string).thatIsNamed("string").isNotNull();
@@ -137,7 +137,7 @@ extends AbstractElement implements ITime {
 
   /**
    * @param year
-   * @return a new {@link Time} with the given year.
+   * @return a new {@link Time} with the given year
    */
   public static Time withYear(final int year) {
     return new Time(DEFAULT_INSTANCE.internalZonedDateTime.withYear(year));
@@ -146,7 +146,7 @@ extends AbstractElement implements ITime {
   /**
    * @param year
    * @param monthOfYear
-   * @return a new {@link Time} with the given year and monthOfYear.
+   * @return a new {@link Time} with the given year and monthOfYear
    */
   public static Time withYearAndMonthOfYear(final int year, final int monthOfYear) {
     return new Time(DEFAULT_INSTANCE.internalZonedDateTime.withYear(year).withMonth(monthOfYear));
@@ -156,7 +156,7 @@ extends AbstractElement implements ITime {
    * @param year
    * @param monthOfYear
    * @param dayOfMonth
-   * @return a new {@link Time} with the given year, monthOfYear and dayOfMonth.
+   * @return a new {@link Time} with the given year, monthOfYear and dayOfMonth
    */
   public static Time withYearAndMonthOfYearAndDayOfMonth(
     final int year,
@@ -173,7 +173,7 @@ extends AbstractElement implements ITime {
    * @param dayOfMonth
    * @param hourOfDay
    * @return a new {@link Time} with the given year, monthOfYear, dayOfMonth and
-   *         hourOfDay.
+   *         hourOfDay
    */
   public static Time withYearAndMonthOfYearAndDayOfMonthAndHourOfDay(
     final int year,
@@ -196,7 +196,7 @@ extends AbstractElement implements ITime {
    * @param hourOfDay
    * @param minuteOfHour
    * @return a new {@link Time} with the given year, monthOfYear, dayOfMonth,
-   *         hourOfDay and minuteOfHour.
+   *         hourOfDay and minuteOfHour
    */
   public static Time withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHour(
     final int year,
@@ -222,7 +222,7 @@ extends AbstractElement implements ITime {
    * @param minuteOfHour
    * @param secondOfMinute
    * @return a new {@link Time} with the given year, monthOfYear, dayOfMonth,
-   *         hourOfDay, minuteOfHour and secondOfMinute.
+   *         hourOfDay, minuteOfHour and secondOfMinute
    */
   public static Time withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMin(
     final int year,
@@ -251,7 +251,7 @@ extends AbstractElement implements ITime {
    * @param secondOfMinute
    * @param millisecondOfSecond
    * @return a new {@link Time} with the given year, monthOfYear, dayOfMonth,
-   *         hourOfDay, minuteOfHour, secondOfMinute and millisecondOfSecond.
+   *         hourOfDay, minuteOfHour, secondOfMinute and millisecondOfSecond
    */
   public static Time //
   withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
@@ -286,7 +286,7 @@ extends AbstractElement implements ITime {
    * @param millisecondOfSecond
    * @param microsecondsOfMilliSecond
    * @return a new {@link Time} with the given year, monthOfYear, dayOfMonth,
-   *         hourOfDay, minuteOfHour, secondOfMinute and millisecondOfSecond.
+   *         hourOfDay, minuteOfHour, secondOfMinute and millisecondOfSecond
    */
   public static Time //
   withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSecAndMicrosecOfMillisec( // NOSONAR: A Time has many parameters.
@@ -316,7 +316,7 @@ extends AbstractElement implements ITime {
 
   /**
    * @param arrayWith3Values
-   * @return a new {@link Time} from the given arrayWith3Values.
+   * @return a new {@link Time} from the given arrayWith3Values
    */
   private static Time fromArrayWith3Values(final String[] arrayWith3Values) {
     return //
@@ -328,7 +328,7 @@ extends AbstractElement implements ITime {
 
   /**
    * @param arrayWith5Values
-   * @return a new {@link Time} from the given arrayWith5Values.
+   * @return a new {@link Time} from the given arrayWith5Values
    */
   private static Time fromArrayWith5Values(final String[] arrayWith5Values) {
     return //
@@ -342,7 +342,7 @@ extends AbstractElement implements ITime {
 
   /**
    * @param arrayWith6Values
-   * @return a new {@link Time} from the given arrayWith6Values.
+   * @return a new {@link Time} from the given arrayWith6Values
    */
   private static Time fromArrayWith6Values(final String[] arrayWith6Values) {
     return //
@@ -357,7 +357,7 @@ extends AbstractElement implements ITime {
 
   /**
    * @param arrayWith7Values
-   * @return a new {@link Time} from the given arrayWith7Values.
+   * @return a new {@link Time} from the given arrayWith7Values
    */
   private static Time fromArrayWith7Values(final String[] arrayWith7Values) {
     return //
@@ -373,7 +373,7 @@ extends AbstractElement implements ITime {
 
   /**
    * @param arrayWith8Values
-   * @return a new {@link Time} from the given arrayWith8Values.
+   * @return a new {@link Time} from the given arrayWith8Values
    */
   private static Time fromArrayWith8Values(final String[] arrayWith8Values) {
     return //

@@ -19,7 +19,7 @@ public interface IColumnEditor<C extends IColumn> {
    * 
    * @param column
    * @throws RuntimeException if the current {@link IColumnEditor} cannot delete
-   *                          the given column.
+   *                          the given column
    */
   void deleteColumn(C column);
 
@@ -49,7 +49,7 @@ public interface IColumnEditor<C extends IColumn> {
    * @param column
    * @param name
    * @throws RuntimeException if the current {@link IColumnEditor} cannot set the
-   *                          given name to the given column.
+   *                          given name to the given column
    */
   void setNameToColumn(C column, String name);
 }

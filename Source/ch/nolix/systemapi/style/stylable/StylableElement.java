@@ -24,7 +24,7 @@ MutableElement,
 TypeRequestable {
   /**
    * @return the child {@link StylableElement}s of the current
-   *         {@link StylableElement}.
+   *         {@link StylableElement}
    */
   ExtendedIterable<? extends StylableElement<?>> getStoredChildStylableElements();
 

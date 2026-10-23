@@ -33,14 +33,14 @@ public final class FileSystemAccessor {
   }
 
   /**
-   * @return a new {@link FolderAccessor} to the folder of the running jar file.
+   * @return a new {@link FolderAccessor} to the folder of the running jar file
    */
   public static FolderAccessor getFolderOfRunningJarFile() {
     return FolderAccessor.forFolderPath(getFolderPathOfRunningJarFile());
   }
 
   /**
-   * @return the path of the folder of the running jar file.
+   * @return the path of the folder of the running jar file
    */
   public static String getFolderPathOfRunningJarFile() {
     try {
@@ -58,7 +58,7 @@ public final class FileSystemAccessor {
    * @throws RuntimeException if the given path is null
    * @throws RuntimeException if the given path is empty
    * @throws RuntimeException if there exists already a file system item with the
-   *                          given path.
+   *                          given path
    */
   public static FileAccessor createFile(final String path) {
     // Calls other method.
@@ -76,7 +76,7 @@ public final class FileSystemAccessor {
    * @throws RuntimeException if the given writeMode flag =
    *                          {@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}
    *                          and there exists already a file system item with the
-   *                          given path.
+   *                          given path
    */
   public static FileAccessor createFile(final String path, final WriteMode writeMode) {
     // Asserts that the if given path is not null or empty.
@@ -162,7 +162,7 @@ public final class FileSystemAccessor {
    * @throws RuntimeException if the given path is null
    * @throws RuntimeException if the given path is empty
    * @throws RuntimeException if there exists already a file system item with the
-   *                          given path.
+   *                          given path
    */
   public static FileAccessor createFile(final String path, final byte[] content) {
     final var fileAccessor = createFile(path);
@@ -181,7 +181,7 @@ public final class FileSystemAccessor {
    * @throws RuntimeException if the given path is null
    * @throws RuntimeException if the given path is blank
    * @throws RuntimeException if there exists already a file system item with the
-   *                          given path.
+   *                          given path
    */
   public static FileAccessor createFile(final String path, final String content) {
     // Calls other method.
@@ -194,7 +194,7 @@ public final class FileSystemAccessor {
    * @param path
    * @return a new {@link FileAccessor} to the created folder
    * @throws RuntimeException if there exists already a file system item with the
-   *                          given path.
+   *                          given path
    */
   public static FolderAccessor createFolder(final String path) {
     // Asserts that there does not exist already a file system item with the given
@@ -238,7 +238,7 @@ public final class FileSystemAccessor {
   /**
    * @param path
    * @return new {@link FileAccessor}s for the files in the folder with the given
-   *         path.
+   *         path
    */
   public static ExtendedIterable<FileAccessor> getFileAccessors(final String path) {
     return //
@@ -251,7 +251,7 @@ public final class FileSystemAccessor {
    * @param path
    * @param extension
    * @return new {@link FileAccessor}s for the files in the folder with the given
-   *         path, that have the given extension.
+   *         path, that have the given extension
    */
   public static ExtendedIterable<FileAccessor> getFileAccessors(final String path, final String extension) {
     return getFileAccessors(path).getStoredSelected(fa -> fa.hasExtension(extension));
@@ -260,7 +260,7 @@ public final class FileSystemAccessor {
   /**
    * @param path
    * @return new {@link FileAccessor}s for the files in the folder with the given
-   *         path recursively.
+   *         path recursively
    */
   public static ILinkedList<FileAccessor> getFileAccessorsRecursively(final String path) {
     final ILinkedList<FileAccessor> fileAccessors = LinkedList.createEmpty();
@@ -281,7 +281,7 @@ public final class FileSystemAccessor {
   /**
    * @param path
    * @return new {@link AbstractFileSystemItemAccessor}s for the file system items
-   *         in the folder with the given path.
+   *         in the folder with the given path
    */
   public static ExtendedIterable<AbstractFileSystemItemAccessor> getFileSystemItemAccessors(final String path) {
     return //
@@ -332,8 +332,7 @@ public final class FileSystemAccessor {
    * 
    * @param path
    * @param content
-   * @throws RuntimeException if there exists already a folder with the given
-   *                          path.
+   * @throws RuntimeException if there exists already a folder with the given path
    */
   public static void overwriteFile(final String path, final String content) {
     // Asserts that there does not exist a folder with the given path.

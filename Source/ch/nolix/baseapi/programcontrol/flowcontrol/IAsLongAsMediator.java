@@ -14,12 +14,12 @@ public interface IAsLongAsMediator {
    * @return a new {@link IAfterEveryMediator} with the given
    *         timeIntervalInMilliseconds
    * @throws RuntimeException if the given time timeIntervalInMilliseconds is
-   *                          negative.
+   *                          negative
    */
   IAfterEveryMediator afterEveryMilliseconds(int timeIntervalInMilliseconds);
 
   /**
-   * @return a new {@link IAfterEveryMediator} with a time interval of 1 second.
+   * @return a new {@link IAfterEveryMediator} with a time interval of 1 second
    */
   IAfterEveryMediator afterEverySecond();
 

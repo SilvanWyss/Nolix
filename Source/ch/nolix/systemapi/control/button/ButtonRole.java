@@ -21,7 +21,7 @@ public enum ButtonRole {
    * @param specification
    * @return a new {@link ButtonRole} from the given specification
    * @throws RuntimeException if the given specification does nor represent
-   *                          {@link ButtonRole}.
+   *                          {@link ButtonRole}
    */
   public static ButtonRole fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());

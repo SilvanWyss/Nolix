@@ -77,7 +77,7 @@ final class ClosePool implements IClosePool {
    * @param element
    * @throws RuntimeException if the given element is null
    * @throws RuntimeException if the current {@link ClosePool} contains already
-   *                          the given element.
+   *                          the given element
    */
   private void addElement(GroupCloseable element) {
     assertDoesNotContainElement(element);
@@ -88,7 +88,7 @@ final class ClosePool implements IClosePool {
   /**
    * @param element
    * @throws RuntimeException if the current {@link ClosePool} contains the given
-   *                          element.
+   *                          element
    */
   private void assertDoesNotContainElement(final GroupCloseable element) {
     if (containsElement(element)) {

@@ -45,7 +45,7 @@ public final class FunctionService {
   }
 
   /**
-   * @return false.
+   * @return false
    */
   public static boolean getFalse() { // NOSONAR: This method returns a boolean constant.
     return FALSE;
@@ -53,7 +53,7 @@ public final class FunctionService {
 
   /**
    * @param object
-   * @return the hash code of the given object.
+   * @return the hash code of the given object
    */
   public static int getHashCode(final Object object) {
     if (object == null) {
@@ -64,14 +64,14 @@ public final class FunctionService {
   }
 
   /**
-   * @return null.
+   * @return null
    */
   public static Object getNull() {
     return null;
   }
 
   /**
-   * @return 1.0.
+   * @return 1.0
    */
   public static double getOne() {
     return ONE;
@@ -80,7 +80,7 @@ public final class FunctionService {
   /**
    * @param object
    * @param <O>    the type of the given object
-   * @return the given object.
+   * @return the given object
    */
   public static <O> O getSelf(final O object) {
     return object;
@@ -88,7 +88,7 @@ public final class FunctionService {
 
   /**
    * @param object
-   * @return the {@link String} representation of the given object.
+   * @return the {@link String} representation of the given object
    */
   public static String getStringRepresentationOf(final Object object) {
     if (object == null) {
@@ -99,7 +99,7 @@ public final class FunctionService {
   }
 
   /**
-   * @return true.
+   * @return true
    */
   public static boolean getTrue() { // NOSONAR: This method returns a boolean constant.
     return TRUE;
@@ -107,14 +107,14 @@ public final class FunctionService {
 
   /**
    * @param object
-   * @return the type of the given object.
+   * @return the type of the given object
    */
   public static Class<?> getTypeOf(final Object object) {
     return object.getClass();
   }
 
   /**
-   * @return 0.0.
+   * @return 0.0
    */
   public static double getZero() {
     return ZERO;

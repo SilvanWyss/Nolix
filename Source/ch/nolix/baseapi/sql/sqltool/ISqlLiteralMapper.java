@@ -9,7 +9,7 @@ package ch.nolix.baseapi.sql.sqltool;
 public interface ISqlLiteralMapper {
   /**
    * @param nullableValueString
-   * @return a SQL literal for the given nullableValueString.
+   * @return a SQL literal for the given nullableValueString
    */
   String mapNullableValueStringToSqlLiteral(String nullableValueString);
 }

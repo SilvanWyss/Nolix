@@ -36,7 +36,7 @@ final class ExtendedIterableIntervalViewIterator<E> implements CopyableIterator<
    * @throws RuntimeException if the given startIndex is not positive
    * @throws RuntimeException if the given endIndex is not positive
    * @throws RuntimeException if the given endIndex is not bigger than the given
-   *                          startIndex or does not equal the given startIndex.
+   *                          startIndex or does not equal the given startIndex
    */
   private ExtendedIterableIntervalViewIterator(
     final ExtendedIterable<E> parentContainer,
@@ -69,7 +69,7 @@ final class ExtendedIterableIntervalViewIterator<E> implements CopyableIterator<
    * @throws RuntimeException if the given startIndex is not positive
    * @throws RuntimeException if the given endIndex is not positive
    * @throws RuntimeException if the given endIndex is not bigger than the given
-   *                          startIndex or does not equal the given startIndex.
+   *                          startIndex or does not equal the given startIndex
    */
   public static <T> ExtendedIterableIntervalViewIterator<T> forParentContainerAndStartIndexAndEndIndex(
     final ExtendedIterable<T> parentContainer,

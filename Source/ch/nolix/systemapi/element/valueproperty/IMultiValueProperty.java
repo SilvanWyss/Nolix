@@ -20,7 +20,7 @@ public interface IMultiValueProperty<V> extends Clearable, BaseValueProperty {
   void addValue(V value);
 
   /**
-   * @return the values of the current {@link IMultiValueProperty}.
+   * @return the values of the current {@link IMultiValueProperty}
    */
   ExtendedIterable<V> getStoredValues();
 

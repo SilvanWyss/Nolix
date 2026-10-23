@@ -17,7 +17,7 @@ public interface IMultiBackReferenceEntryDtoMapper {
    * @param multiBackReferenceColumnId
    * @param multiBackReferenceEntryNode
    * @return a new {@link MultiBackReferenceEntryDto} from the given tableName,
-   *         entityId, multiBackReferenceColumnId and multiBackReferenceEntryNode.
+   *         entityId, multiBackReferenceColumnId and multiBackReferenceEntryNode
    */
   MultiBackReferenceEntryDto mapMultiBackReferenceEntryNodeToMultiBackReferenceEntryDto(
     String tableName,
@@ -32,7 +32,7 @@ public interface IMultiBackReferenceEntryDtoMapper {
    * @param multiBackReferenceNode
    * @return new {@link MultiBackReferenceEntryDto}s from the given given
    *         tableName, entityId, multiBackReferenceColumnId and
-   *         multiBackReferenceNode.
+   *         multiBackReferenceNode
    */
   ExtendedIterable<MultiBackReferenceEntryDto> mapMultiBackReferenceNodeToMultiBackReferenceEntryDtos(
     String tableName,

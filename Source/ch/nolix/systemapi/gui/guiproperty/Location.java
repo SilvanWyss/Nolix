@@ -16,7 +16,7 @@ public enum Location {
    * @param specification
    * @return a {@link Location} from the given specification
    * @throws RuntimeException if the given specification does not represent a
-   *                          {@link Location}.
+   *                          {@link Location}
    */
   public static Location fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());

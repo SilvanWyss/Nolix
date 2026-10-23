@@ -21,7 +21,7 @@ public enum Direction {
    * @param specification
    * @return a {@link Direction} from the given specification
    * @throws RuntimeException if the given specification does not represent a
-   *                          {@link Direction}.
+   *                          {@link Direction}
    */
   public static Direction fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());

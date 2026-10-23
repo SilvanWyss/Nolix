@@ -98,7 +98,7 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
    * @param element
    * @throws RuntimeException if an attaching attribute of the current
    *                          {@link AbstractStyle} is not valid for the given
-   *                          element.
+   *                          element
    */
   protected final void setAttachingAttributesToElement(StylableElement<?> element) {
     for (final var a : getAttachingAttributes()) {

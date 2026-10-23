@@ -64,7 +64,7 @@ extends AlivenessRequestable, ClientComponent<C>, Refreshable {
    * @param parentClient
    * @throws RuntimeException if the given parentClient is null
    * @throws RuntimeException if the current {@link Session} belongs already to a
-   *                          {@link BackendClient}.
+   *                          {@link BackendClient}
    */
   void internalSetParentClient(C parentClient);
 

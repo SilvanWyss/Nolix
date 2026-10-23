@@ -15,26 +15,26 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
   /**
    * @return the selector id of the current {@link ISelectingStyleWithSelectors}
    * @throws RuntimeException if the current {@link ISelectingStyleWithSelectors}
-   *                          does not have a selector id.
+   *                          does not have a selector id
    */
   String getSelectorId();
 
   /**
    * @return the selector roles of the current
-   *         {@link ISelectingStyleWithSelectors}.
+   *         {@link ISelectingStyleWithSelectors}
    */
   ExtendedIterable<String> getSelectorRoles();
 
   /**
    * @return the selector tokens of the current
-   *         {@link ISelectingStyleWithSelectors}.
+   *         {@link ISelectingStyleWithSelectors}
    */
   ExtendedIterable<String> getSelectorTokens();
 
   /**
    * @return the selector type of the current {@link ISelectingStyleWithSelectors}
    * @throws RuntimeException if the current {@link ISelectingStyleWithSelectors}
-   *                          does not have a selector type.
+   *                          does not have a selector type
    */
   String getSelectorType();
 
@@ -55,8 +55,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given
    *         additionalSelectorRole
-   * @throws RuntimeException if the given additionalSelectorRole is null or
-   *                          blank.
+   * @throws RuntimeException if the given additionalSelectorRole is null or blank
    */
   ISelectingStyleWithSelectors withAdditionalSelectorRole(Enum<?> additionalSelectorRole);
 
@@ -65,8 +64,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given
    *         additionalSelectorRole
-   * @throws RuntimeException if the given additionalSelectorRole is null or
-   *                          blank.
+   * @throws RuntimeException if the given additionalSelectorRole is null or blank
    */
   ISelectingStyleWithSelectors withAdditionalSelectorRole(String additionalSelectorRole);
 
@@ -87,7 +85,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    *         additionalSelectorRoles
    * @throws RuntimeException if the given additionalSelectorRoles is null
    * @throws RuntimeException if one of the given additionalSelectorRoles is null
-   *                          or blank.
+   *                          or blank
    */
   ISelectingStyleWithSelectors withAdditionalSelectorRoles(ExtendedIterable<String> additionalSelectorRoles);
 
@@ -98,7 +96,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    *         additionalSelectorRoles
    * @throws RuntimeException if the given additionalSelectorRoles is null
    * @throws RuntimeException if one of the given additionalSelectorRoles is null
-   *                          or blank.
+   *                          or blank
    */
   ISelectingStyleWithSelectors withAdditionalSelectorRoles(String... additionalSelectorRoles);
 
@@ -108,7 +106,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    *         {@link ISelectingStyleWithSelectors} with the given
    *         additionalSelectorToken
    * @throws RuntimeException if the given additionalSelectorToken is null or
-   *                          blank.
+   *                          blank
    */
   ISelectingStyleWithSelectors withAdditionalSelectorToken(String additionalSelectorToken);
 
@@ -119,7 +117,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    *         additionalSelectorTokens
    * @throws RuntimeException if the given additionalSelectorTokens is null
    * @throws RuntimeException if one of the given additionalSelectorTokens is null
-   *                          or blank.
+   *                          or blank
    */
   ISelectingStyleWithSelectors withAdditionalSelectorTokens(String... additionalSelectorTokens);
 
@@ -130,7 +128,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    *         additionalSelectorTokens
    * @throws RuntimeException if the given additionalSelectorTokens is null
    * @throws RuntimeException if one of the given additionalSelectorTokens is null
-   *                          or blank.
+   *                          or blank
    */
   ISelectingStyleWithSelectors withAdditionalSelectorTokens(ExtendedIterable<String> additionalSelectorTokens);
 

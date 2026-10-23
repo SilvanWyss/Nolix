@@ -27,7 +27,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements Node<N>
 
   /**
    * @param string
-   * @return an escape {@link String} for the given string.
+   * @return an escape {@link String} for the given string
    */
   public static String getEscapeStringFor(final String string) {
     final var stringBuilder = new StringBuilder();
@@ -269,7 +269,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements Node<N>
    * @throws RuntimeException if the given path is null
    * @throws RuntimeException if the given path is blank
    * @throws RuntimeException if there exists already a file system item with the
-   *                          given path.
+   *                          given path
    */
   public final void saveToFile(final String path) {
     // Calls other method.
@@ -286,7 +286,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements Node<N>
    * @throws RuntimeException if the given writeMode
    *                          flag={@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}
    *                          and there exists already a file system item with the
-   *                          given path.
+   *                          given path
    */
   public final void saveToFile(final String path, final WriteMode writeMode) {
     FileSystemAccessor.createFile(path, writeMode, toFormattedString());
@@ -439,7 +439,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements Node<N>
 
   /**
    * @return a reproducing {@link String} representation of the header of the
-   *         current {@link AbstractNode}.
+   *         current {@link AbstractNode}
    */
   private String getReproducingHeader() {
     return getEscapeStringFor(getHeader());

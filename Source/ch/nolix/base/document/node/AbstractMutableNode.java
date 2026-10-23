@@ -104,7 +104,7 @@ implements IMutableNode<N> {
   }
 
   /**
-   * @return the current {@link AbstractMutableNode}.
+   * @return the current {@link AbstractMutableNode}
    */
   protected abstract N asConcrete();
 }

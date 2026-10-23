@@ -155,7 +155,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
   /**
    * @param host
    * @return a new {@link SocketEndPoint} that will connect to the default slot on
-   *         the HTTP port on the given host.
+   *         the HTTP port on the given host
    */
   public static SocketEndPoint toHostAndHttpPortAndDefaultSlot(final String host) {
     return new SocketEndPoint(host, PortCatalog.HTTP);

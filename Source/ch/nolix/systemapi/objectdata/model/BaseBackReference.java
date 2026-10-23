@@ -11,13 +11,13 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 public interface BaseBackReference extends Field {
   /**
    * @return the names of the {@link ITable}s the current
-   *         {@link BaseBackReference} can reference back.
+   *         {@link BaseBackReference} can reference back
    */
   ExtendedIterable<String> getBackReferenceableTableNames();
 
   /**
    * @return the name of the field the current {@link BaseBackReference} can
-   *         reference back.
+   *         reference back
    */
   String getBackReferencedFieldName();
 }

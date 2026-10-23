@@ -27,7 +27,7 @@ public final class Calculator {
   /**
    * @param value1
    * @param value2
-   * @return the absolute difference between the given 2 values.
+   * @return the absolute difference between the given 2 values
    */
   public static double getAbsoluteDifference(final double value1, final double value2) {
     return BASIC_CALCULATOR.getAbsoluteDifference(value2, value1);
@@ -36,7 +36,7 @@ public final class Calculator {
   /**
    * @param value1
    * @param value2
-   * @return the absolute difference between the given 2 values.
+   * @return the absolute difference between the given 2 values
    */
   public static int getAbsoluteDifference(final int value1, final int value2) {
     return BASIC_CALCULATOR.getAbsoluteDifference(value2, value1);
@@ -45,7 +45,7 @@ public final class Calculator {
   /**
    * @param value1
    * @param value2
-   * @return the absolute difference between the given 2 values.
+   * @return the absolute difference between the given 2 values
    */
   public static long getAbsoluteDifference(final long value1, final long value2) {
     return BASIC_CALCULATOR.getAbsoluteDifference(value2, value1);
@@ -55,7 +55,7 @@ public final class Calculator {
    * The absolute value of a value x is -x if x is negative, x otherwise.
    * 
    * @param value
-   * @return the absolute value of the given value.
+   * @return the absolute value of the given value
    */
   public static double getAbsoluteValue(final double value) {
     return BASIC_CALCULATOR.getAbsoluteValue(value);
@@ -65,7 +65,7 @@ public final class Calculator {
    * The absolute value of a value x is -x if x is negative, x otherwise.
    * 
    * @param value
-   * @return the absolute value of the given value.
+   * @return the absolute value of the given value
    */
   public static int getAbsoluteValue(final int value) {
     return BASIC_CALCULATOR.getAbsoluteValue(value);
@@ -75,7 +75,7 @@ public final class Calculator {
    * The absolute value of a value x is -x if x is negative, x otherwise.
    * 
    * @param value
-   * @return the absolute value of the given value.
+   * @return the absolute value of the given value
    */
   public static long getAbsoluteValue(final long value) {
     return BASIC_CALCULATOR.getAbsoluteValue(value);
@@ -138,7 +138,7 @@ public final class Calculator {
    * @throws RuntimeException if the given degree is bigger than the count of the
    *                          given xValues
    * @throws RuntimeException if the count of the given yValues does not equal the
-   *                          count of the given xValues.
+   *                          count of the given xValues
    */
   public static Polynom getFittingPolynom(final int degree, final double[] xValues, final double[] yValues) {
     // Asserts that the given degree is not negative.
@@ -224,7 +224,7 @@ public final class Calculator {
 
   /**
    * @param value
-   * @return the square of the given value.
+   * @return the square of the given value
    */
   public static double getSquare(final double value) {
     return BASIC_CALCULATOR.getSquare(value);
@@ -232,7 +232,7 @@ public final class Calculator {
 
   /**
    * @param value
-   * @return the square of the given value.
+   * @return the square of the given value
    */
   public static double getSquare(final int value) {
     return BASIC_CALCULATOR.getSquare(value);
@@ -240,7 +240,7 @@ public final class Calculator {
 
   /**
    * @param value
-   * @return the square of the given value.
+   * @return the square of the given value
    */
   public static double getSquare(final long value) {
     return BASIC_CALCULATOR.getSquare(value);

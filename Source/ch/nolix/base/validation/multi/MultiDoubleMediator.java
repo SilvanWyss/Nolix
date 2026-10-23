@@ -50,7 +50,7 @@ public final class MultiDoubleMediator extends AbstractMultiArgumentMediator<Dou
    * @param lowerBound
    * @throws RuntimeException if one of the arguments of the current
    *                          {@link MultiDoubleMediator} is null or not bigger
-   *                          than the given lowerBound.
+   *                          than the given lowerBound
    */
   public void areBiggerThan(final double lowerBound) {
     var index = 1;
@@ -74,7 +74,7 @@ public final class MultiDoubleMediator extends AbstractMultiArgumentMediator<Dou
 
   /**
    * @throws RuntimeException if one of the arguments of the current
-   *                          {@link MultiDoubleMediator} is null or not positive.
+   *                          {@link MultiDoubleMediator} is null or not positive
    */
   public void arePositive() {
     var index = 1;
@@ -96,7 +96,7 @@ public final class MultiDoubleMediator extends AbstractMultiArgumentMediator<Dou
    * @param upperBound
    * @throws RuntimeException if one of the arguments of the current
    *                          {@link MultiDoubleMediator} is null or not bigger
-   *                          than the given upperBound.
+   *                          than the given upperBound
    */
   public void areSmallerThan(final double upperBound) {
     var index = 1;

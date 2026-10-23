@@ -17,7 +17,7 @@ public interface ILoadedEntityDtoMapper {
   /**
    * @param sqlRecord
    * @param columnViews
-   * @return new {@link FieldDto}s from the given sqlRecord.
+   * @return new {@link FieldDto}s from the given sqlRecord
    */
   ExtendedIterable<FieldDto> mapSqlRecordToContentFieldDtos(
     ISqlRecord sqlRecord,
@@ -26,7 +26,7 @@ public interface ILoadedEntityDtoMapper {
   /**
    * @param sqlRecord
    * @param tableView
-   * @return a new {@link EntityLoadingDto} from the given sqlRecord.
+   * @return a new {@link EntityLoadingDto} from the given sqlRecord
    */
   EntityLoadingDto mapSqlRecordToEntityLoadingDto(ISqlRecord sqlRecord, TableInfoDto tableView);
 

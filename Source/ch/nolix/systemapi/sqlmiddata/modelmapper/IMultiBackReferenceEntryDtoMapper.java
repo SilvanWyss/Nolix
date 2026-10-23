@@ -15,7 +15,7 @@ public interface IMultiBackReferenceEntryDtoMapper {
    * @param multiBackReferenceEntrySqlRecords
    * @param tableName
    * @return new {@link MultiBackReferenceEntryDto}s from the given
-   *         multiBackReferenceEntrySqlRecords and tableName.
+   *         multiBackReferenceEntrySqlRecords and tableName
    */
   ExtendedIterable<MultiBackReferenceEntryDto> mapMultiBackReferenceEntrySqlRecordsToMultiBackReferenceEntryDtos(
     ExtendedIterable<ISqlRecord> multiBackReferenceEntrySqlRecords,
@@ -25,7 +25,7 @@ public interface IMultiBackReferenceEntryDtoMapper {
    * @param multiBackReferenceEntrySqlRecord
    * @param tableName
    * @return a new {@link MultiBackReferenceEntryDto} from the given
-   *         multiBackReferenceEntrySqlRecord and tableName.
+   *         multiBackReferenceEntrySqlRecord and tableName
    */
   MultiBackReferenceEntryDto mapMultiBackReferenceEntrySqlRecordToMultiBackReferenceEntryDto(
     ISqlRecord multiBackReferenceEntrySqlRecord, String tableName);

@@ -96,7 +96,7 @@ public final class InvalidArgumentException extends AbstractInvalidArgumentExcep
 
   /**
    * @param argument - Can be null
-   * @return a new {@link InvalidArgumentException} for the given argument.
+   * @return a new {@link InvalidArgumentException} for the given argument
    */
   public static InvalidArgumentException forArgument(final Object argument) {
     return new InvalidArgumentException(argument);
@@ -108,7 +108,7 @@ public final class InvalidArgumentException extends AbstractInvalidArgumentExcep
    * @return a new {@link InvalidArgumentException} for the given argument and
    *         errorPredicate
    * @throws RuntimeException if the given errorPredicate is null or blank or ends
-   *                          with a dot.
+   *                          with a dot
    */
   public static InvalidArgumentException forArgumentAndErrorPredicate(
     final Object argument,
@@ -135,7 +135,7 @@ public final class InvalidArgumentException extends AbstractInvalidArgumentExcep
    *         argumentName and errorPredicate
    * @throws RuntimeException if the given argumentName is null or blank
    * @throws RuntimeException if the given errorPredicate is null or blank or ends
-   *                          with a dot.
+   *                          with a dot
    */
   public static InvalidArgumentException forArgumentAndArgumentNameAndErrorPredicate(
     final Object argument,

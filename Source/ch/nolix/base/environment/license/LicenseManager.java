@@ -26,7 +26,7 @@ public final class LicenseManager {
    * @throws RuntimeException if the given license is null
    * @throws RuntimeException if the {@link LicenseManager} contains already a
    *                          {@link AbstractLicense} of the type the given
-   *                          license is.
+   *                          license is
    */
   public static void addLicense(final AbstractLicense abstractLicense) {
     LICENSE_MANAGER.addLicense(abstractLicense);
@@ -45,7 +45,7 @@ public final class LicenseManager {
    *                          constructor with 1 {@link String} parameter
    * @throws RuntimeException if the found key is not valid
    * @throws RuntimeException if the {@link LicenseManager} contains already a
-   *                          {@link AbstractLicense} of the given licenseType.
+   *                          {@link AbstractLicense} of the given licenseType
    */
   public static <L extends AbstractLicense> void addLicense(final Class<L> licenseType) {
     LICENSE_MANAGER.addLicense(licenseType);
@@ -60,7 +60,7 @@ public final class LicenseManager {
    * @throws ArgumentDoesNotHaveAttributeException if the {@link LicenseManager}
    *                                               does not contain a
    *                                               {@link AbstractFeature} of the
-   *                                               given featureType.
+   *                                               given featureType
    */
   public static <F extends AbstractFeature> void requireFeature(final Class<F> featureType) {
     LICENSE_MANAGER.requireFeature(featureType);
@@ -71,7 +71,7 @@ public final class LicenseManager {
    * 
    * @param abstractLicense
    * @throws RuntimeException if the {@link LicenseManager} does not contain the
-   *                          given license.
+   *                          given license
    */
   public static void removeLicense(final AbstractLicense abstractLicense) {
     LICENSE_MANAGER.removeLicense(abstractLicense);
@@ -79,7 +79,7 @@ public final class LicenseManager {
 
   /**
    * @param value
-   * @return a new {@link LongMediator} for the given value.
+   * @return a new {@link LongMediator} for the given value
    */
   public static LongMediator when(final long value) {
     return LICENSE_MANAGER.when(value);

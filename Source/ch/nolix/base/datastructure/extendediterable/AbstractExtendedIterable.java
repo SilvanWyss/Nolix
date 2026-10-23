@@ -1549,7 +1549,7 @@ implements ExtendedIterable<E> {
    * The time complexity of this implementation is O(1).
    * 
    * @throws RuntimeException if the current {@link AbstractExtendedIterable} is
-   *                          empty.
+   *                          empty
    */
   private void assertIsNotEmpty() {
     if (isEmpty()) {

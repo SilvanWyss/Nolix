@@ -9,7 +9,7 @@ package ch.nolix.systemapi.element.valueproperty;
  */
 public interface IValueProperty<V> extends BaseValueProperty {
   /**
-   * @return the value of the current {@link IValueProperty}.
+   * @return the value of the current {@link IValueProperty}
    */
   V getStoredValue();
 

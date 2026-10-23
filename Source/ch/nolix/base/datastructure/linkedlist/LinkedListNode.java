@@ -61,7 +61,7 @@ public final class LinkedListNode<E> {
   }
 
   /**
-   * @return the element of the current {@link LinkedListNode}.
+   * @return the element of the current {@link LinkedListNode}
    */
   public E getElement() {
     return memberElement;
@@ -71,7 +71,7 @@ public final class LinkedListNode<E> {
   /**
    * @return the next node of the current {@link LinkedListNode}
    * @throws RuntimeException if the current {@link LinkedListNode} does not have
-   *                          a next node.
+   *                          a next node
    */
   public LinkedListNode<E> getNextNode() {
     if (nullableNextNode == null) {
@@ -133,7 +133,7 @@ public final class LinkedListNode<E> {
    * 
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link LinkedListNode} does not
-   *                                               have a next node.
+   *                                               have a next node
    */
   public void swapElementWithNextNode() {
     if (nullableNextNode == null) {

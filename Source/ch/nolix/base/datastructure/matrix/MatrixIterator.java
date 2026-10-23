@@ -40,7 +40,7 @@ public final class MatrixIterator<E> implements CopyableIterator<E> {
    * @param oneBasedStartIndex
    * @throws RuntimeException if the given parentMatrix is null
    * @throws RuntimeException if the given oneBasedStartIndex is bigger than the
-   *                          element count of the given parentMatrix.
+   *                          element count of the given parentMatrix
    */
   private MatrixIterator(final MutableMatrix<E> parentMatrix, final int oneBasedStartIndex) {
     Validator.assertThat(parentMatrix).thatIsNamed("parent Matrix").isNotNull();
@@ -105,7 +105,7 @@ public final class MatrixIterator<E> implements CopyableIterator<E> {
 
   /**
    * @throws NoSuchElementException if the current {@link MatrixIterator} does not
-   *                                have a next element.
+   *                                have a next element
    */
   private void assertHasNext() throws NoSuchElementException {
     if (!hasNext()) {
@@ -117,7 +117,7 @@ public final class MatrixIterator<E> implements CopyableIterator<E> {
 
   /**
    * @return the next element of the current {@link MatrixIterator} for the case
-   *         when the current {@link MatrixIterator} has a next element.
+   *         when the current {@link MatrixIterator} has a next element
    */
   private E nextWhenHasNext() {
     final var element = parentMatrix.getStoredAtOneBasedIndex(nextElementOneBasedIndex);

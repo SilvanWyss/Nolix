@@ -37,7 +37,8 @@ public final class MockSlot implements Slot {
   }
 
   /**
-   * @return true if the current {@link MockSlot} has received a message, false otherwise
+   * @return true if the current {@link MockSlot} has received a message, false
+   *         otherwise
    */
   public boolean hasReceivedMessage() {
     return latestReceivedMessage != null;

@@ -87,7 +87,7 @@ public interface IterableArrayProvider<E> {
    * {@link IterableArrayProvider} contains n elements.
    * 
    * @return a new array with the {@link String} representations of the elements
-   *         of the current {@link IterableArrayProvider}.
+   *         of the current {@link IterableArrayProvider}
    */
   String[] toStringArray();
 }

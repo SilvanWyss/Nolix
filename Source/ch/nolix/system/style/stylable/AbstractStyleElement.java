@@ -83,7 +83,7 @@ implements StyleHolder<E> {
   protected abstract void resetConfigurationElement();
 
   /**
-   * @return the {@link Style} of the current {@link AbstractStyleElement}.
+   * @return the {@link Style} of the current {@link AbstractStyleElement}
    */
   private IStyle getStoredConfiguration() {
     return style.getStoredValue();

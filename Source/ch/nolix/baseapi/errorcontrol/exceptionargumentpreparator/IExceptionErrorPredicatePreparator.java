@@ -14,7 +14,7 @@ public interface IExceptionErrorPredicatePreparator {
    * @param errorPredicate
    * @return a validated error predicate from the given errorPredicate
    * @throws IllegalArgumentException if the given errorPredicate is null, blank
-   *                                  or ends with a dot.
+   *                                  or ends with a dot
    */
   String getValidErrorPredicateFromErrorPredicate(String errorPredicate);
 }

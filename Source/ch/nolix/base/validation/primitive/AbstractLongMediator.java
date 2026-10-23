@@ -53,7 +53,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
    * @param min
    * @param max
    * @throws RuntimeException if the argument of the current {@link LongMediator}
-   *                          is not between the given min and max.
+   *                          is not between the given min and max
    */
   public final void isBetween(final int min, final int max) {
     isBetween((long) min, (long) max);
@@ -63,7 +63,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
    * @param min
    * @param max
    * @throws RuntimeException if the argument of the current {@link LongMediator}
-   *                          is not between the given min and max.
+   *                          is not between the given min and max
    */
   public final void isBetween(final long min, final long max) {
     if (argument < min || argument > max) {
@@ -79,7 +79,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
   /**
    * @param value
    * @throws RuntimeException if the argument of the current {@link LongMediator}
-   *                          is not bigger than the given value.
+   *                          is not bigger than the given value
    */
   public final void isBiggerThan(final long value) {
     if (argument <= value) {
@@ -94,8 +94,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
   /**
    * @param value
    * @throws RuntimeException if the argument of the current {@link LongMediator}
-   *                          is not bigger than or does not equal the given
-   *                          value.
+   *                          is not bigger than or does not equal the given value
    */
   public final void isBiggerThanOrEquals(final long value) {
     if (argument < value) {
@@ -111,7 +110,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
    * @param value
    * @throws UnequalArgumentException if the argument of the current
    *                                  {@link LongMediator} does not equal the
-   *                                  given value.
+   *                                  given value
    */
   public final void isEqualTo(final int value) {
     isEqualTo((long) value);
@@ -121,7 +120,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
    * @param value
    * @throws UnequalArgumentException if the argument of the current
    *                                  {@link LongMediator} does not equal the
-   *                                  given value.
+   *                                  given value
    */
   public final void isEqualTo(final long value) {
     if (argument != value) {
@@ -133,7 +132,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
    * @param values
    * @throws RuntimeException if the given values is null
    * @throws RuntimeException if the argument of the current {@link LongMediator}
-   *                          does not equal one of the given values.
+   *                          does not equal one of the given values
    */
   public final void isEqualToAnyOf(final long... values) {
     if (values == null) {
@@ -155,7 +154,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
 
   /**
    * @throws RuntimeException if the argument of the current {@link LongMediator}
-   *                          is not negative.
+   *                          is not negative
    */
   public final void isNegative() {
     if (argument >= 0) {
@@ -167,7 +166,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
    * @param min
    * @param max
    * @throws RuntimeException if the argument of the current {@link LongMediator}
-   *                          is between the given min and max.
+   *                          is between the given min and max
    */
   public final void isNotBetween(final long min, final long max) {
     if (argument >= min && argument <= max) {
@@ -182,7 +181,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
   /**
    * @param value
    * @throws RuntimeException if the argument of the current {@link LongMediator}
-   *                          is bigger than the given value.
+   *                          is bigger than the given value
    */
   public final void isNotBiggerThan(final int value) {
     isNotBiggerThan((long) value);
@@ -191,7 +190,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
   /**
    * @param value
    * @throws RuntimeException if the argument of the current {@link LongMediator}
-   *                          is bigger than the given value.
+   *                          is bigger than the given value
    */
   public final void isNotBiggerThan(final long value) {
     if (argument > value) {
@@ -202,7 +201,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
   /**
    * @param value
    * @throws RuntimeException if the argument of the current {@link LongMediator}
-   *                          equals the given value.
+   *                          equals the given value
    */
   public final void isNotEqualTo(final long value) {
     if (argument == value) {
@@ -212,7 +211,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
 
   /**
    * @throws RuntimeException if the argument of htis {@link LongMediator} is
-   *                          negative.
+   *                          negative
    */
   public final void isNotNegative() {
     if (argument < 0.0) {
@@ -222,7 +221,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
 
   /**
    * @throws PositiveArgumentException if the argument of the current
-   *                                   {@link LongMediator} is positive.
+   *                                   {@link LongMediator} is positive
    */
   public final void isNotPositive() {
     if (argument > 0) {
@@ -233,7 +232,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
   /**
    * @param min
    * @throws RuntimeException if the argument of the current {@link LongMediator}
-   *                          is smaller than the given min.
+   *                          is smaller than the given min
    */
   public final void isNotSmallerThan(final int min) {
     if (argument < min) {
@@ -243,7 +242,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
 
   /**
    * @throws RuntimeException if the argument of the current {@link LongMediator}
-   *                          is not a port.
+   *                          is not a port
    */
   public final void isPort() {
     if (argument < PortCatalog.MIN_PORT || argument > PortCatalog.MAX_PORT) {
@@ -264,7 +263,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
   /**
    * @param value
    * @throws RuntimeException if the argument of the current {@link LongMediator}
-   *                          is not smaller than the given value.
+   *                          is not smaller than the given value
    */
   public final void isSmallerThan(final long value) {
     if (argument >= value) {
@@ -280,7 +279,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
    * @param value
    * @throws RuntimeException if the argument of the current {@link LongMediator}
    *                          is not smaller than or does not equal the given
-   *                          value.
+   *                          value
    */
   public final void isSmallerThanOrEquals(final long value) {
     if (argument > value) {
@@ -289,7 +288,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
   }
 
   /**
-   * @return the argument of the current {@link LongMediator}.
+   * @return the argument of the current {@link LongMediator}
    */
   protected final long getArgument() {
     return argument;

@@ -23,7 +23,7 @@ import ch.nolix.systemapi.time.main.ITime;
 public interface IIncrementalCurrentTimeCreator {
   /**
    * @return a new {@link ITime} that represents the current time on the local
-   *         computer.
+   *         computer
    */
   ITime getCurrentTime();
 }

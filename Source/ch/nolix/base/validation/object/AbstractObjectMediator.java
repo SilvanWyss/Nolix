@@ -49,7 +49,7 @@ public abstract class AbstractObjectMediator<A> extends AbstractMediator {
    * @throws RuntimeException if the given condition is null
    * @throws RuntimeException if the argument of the current
    *                          {@link AbstractObjectMediator} does not fulfill the
-   *                          given condition.
+   *                          given condition
    */
   public final void fulfills(Predicate<A> condition) {
     if (condition == null) {
@@ -71,7 +71,7 @@ public abstract class AbstractObjectMediator<A> extends AbstractMediator {
    * @throws RuntimeException if the argument of the current
    *                          {@link AbstractObjectMediator} does not have the
    *                          same {@link String} representation as the given
-   *                          object.
+   *                          object
    */
   public final void hasSameStringRepresentationAs(final Object object) {
     if (object == null) {
@@ -87,7 +87,7 @@ public abstract class AbstractObjectMediator<A> extends AbstractMediator {
    * @param stringRepresentation
    * @throws RuntimeException if the argument of the current
    *                          {@link AbstractObjectMediator} does not have the
-   *                          given stringRepresentation.
+   *                          given stringRepresentation
    */
   public final void hasStringRepresentation(final String stringRepresentation) {
     isNotNull();
@@ -107,7 +107,7 @@ public abstract class AbstractObjectMediator<A> extends AbstractMediator {
    * @param object
    * @throws RuntimeException if the argument of the current
    *                          {@link AbstractObjectMediator} is not (!) the given
-   *                          object.
+   *                          object
    */
   public final void is(final Object object) {
     if (argument != object) {
@@ -123,7 +123,7 @@ public abstract class AbstractObjectMediator<A> extends AbstractMediator {
    * @param object
    * @throws RuntimeException if the argument of the current
    *                          {@link AbstractObjectMediator} does not equal the
-   *                          given object.
+   *                          given object
    */
   public final void isEqualTo(final Object object) {
     if (!Objects.equals(getStoredArgument(), object)) {
@@ -134,7 +134,7 @@ public abstract class AbstractObjectMediator<A> extends AbstractMediator {
   /**
    * @param object
    * @throws RuntimeException if the argument of the current
-   *                          {@link AbstractObjectMediator} is the given object.
+   *                          {@link AbstractObjectMediator} is the given object
    */
   public final void isNot(final Object object) {
     if (argument == object) {
@@ -150,7 +150,7 @@ public abstract class AbstractObjectMediator<A> extends AbstractMediator {
    * @param object
    * @throws RuntimeException if the argument of the current
    *                          {@link AbstractObjectMediator} equals the given
-   *                          object.
+   *                          object
    */
   public final void isNotEqualTo(final A object) {
     if (Objects.equals(getStoredArgument(), object)) {
@@ -171,7 +171,7 @@ public abstract class AbstractObjectMediator<A> extends AbstractMediator {
   /**
    * @throws ArgumentIsNotNullException if the argument of the current
    *                                    {@link AbstractObjectMediator} is not (!)
-   *                                    null.
+   *                                    null
    */
   public final void isNull() {
     if (argument != null) {
@@ -185,7 +185,7 @@ public abstract class AbstractObjectMediator<A> extends AbstractMediator {
    *                          {@link AbstractObjectMediator} is null
    * @throws RuntimeException if the argument of the current
    *                          {@link AbstractObjectMediator} is not of the given
-   *                          type.
+   *                          type
    */
   public final void isOfType(final Class<?> type) {
     isNotNull();
@@ -200,7 +200,7 @@ public abstract class AbstractObjectMediator<A> extends AbstractMediator {
   }
 
   /**
-   * @return the argument of the current {@link AbstractObjectMediator}.
+   * @return the argument of the current {@link AbstractObjectMediator}
    */
   protected final A getStoredArgument() {
     return argument;

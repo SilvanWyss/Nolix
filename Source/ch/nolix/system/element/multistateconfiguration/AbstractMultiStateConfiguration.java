@@ -146,7 +146,7 @@ implements MultiStateConfiguration<C, S> {
 
   /**
    * @return the current {@link AbstractMultiStateConfiguration} as concrete
-   *         {@link AbstractMultiStateConfiguration}.
+   *         {@link AbstractMultiStateConfiguration}
    */
   @SuppressWarnings("unchecked")
   protected final C asConcrete() {

@@ -42,7 +42,7 @@ public final class LicenseManagerUnit {
    * @throws RuntimeException if the found key is not valid
    * @throws RuntimeException if the current {@link LicenseManagerUnit} does
    *                          contain already a {@link AbstractLicense} of the
-   *                          given licenseType.
+   *                          given licenseType
    */
   public <L extends AbstractLicense> LicenseManagerUnit addLicense(final Class<L> licenseType) {
     final var key = readKeyFromLicenseFile(licenseType);
@@ -64,7 +64,7 @@ public final class LicenseManagerUnit {
    * @throws RuntimeException if the given license is not activated
    * @throws RuntimeException if the current {@link LicenseManagerUnit} contains
    *                          already a {@link AbstractLicense} of the type the
-   *                          given license is.
+   *                          given license is
    */
   public LicenseManagerUnit addLicense(final AbstractLicense abstractLicense) {
     // Asserts that the given license is not null.
@@ -114,7 +114,7 @@ public final class LicenseManagerUnit {
   }
 
   /**
-   * @return the types of the licenses of the current {@link LicenseManagerUnit}.
+   * @return the types of the licenses of the current {@link LicenseManagerUnit}
    */
   public ExtendedIterable<Class<?>> getLicenseTypes() {
     return abstractLicenses.to(AbstractLicense::getClass);
@@ -127,7 +127,7 @@ public final class LicenseManagerUnit {
    * @throws ArgumentDoesNotContainElementException if the current
    *                                                {@link LicenseManagerUnit}
    *                                                does not contain the given
-   *                                                license.
+   *                                                license
    */
   public void removeLicense(final AbstractLicense abstractLicense) {
     abstractLicenses.removeStrictlyFirstOccurrenceOf(abstractLicense);
@@ -144,7 +144,7 @@ public final class LicenseManagerUnit {
    *                                               {@link LicenseManagerUnit} does
    *                                               not contain a
    *                                               {@link AbstractFeature} of the
-   *                                               given featureType.
+   *                                               given featureType
    */
   public <F extends AbstractFeature> LicenseManagerUnit requireFeature(final Class<F> featureType) {
     // Asserts that the current LicenseManager contains a feature of the given
@@ -158,7 +158,7 @@ public final class LicenseManagerUnit {
 
   /**
    * @param value
-   * @return a new {@link LongMediator} for the given value.
+   * @return a new {@link LongMediator} for the given value
    */
   public LongMediator when(final long value) {
     return LongMediator.forLicenseManagerAndValue(this, value);
@@ -183,7 +183,7 @@ public final class LicenseManagerUnit {
    * @return the key of the license with the given licenseName from the license
    *         file. The license file is on the local computer
    * @throws RuntimeException if there does not exist a license file with the key
-   *                          for the license with the given licenseName.
+   *                          for the license with the given licenseName
    */
   private String readKeyFromLicenseFile(final String licenseName) {
     try {

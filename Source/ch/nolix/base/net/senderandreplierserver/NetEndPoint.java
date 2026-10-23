@@ -131,7 +131,7 @@ public final class NetEndPoint extends AbstractEndPoint {
   /**
    * @param host
    * @return a new {@link NetEndPoint} that will connect to the default slot on
-   *         the HTTP port on the given host.
+   *         the HTTP port on the given host
    */
   public static NetEndPoint toGivenHostAndHttpPortAndDefaultSlot(final String host) {
     return new NetEndPoint(host);
@@ -179,7 +179,7 @@ public final class NetEndPoint extends AbstractEndPoint {
   /**
    * @return the target of the current {@link NetEndPoint}
    * @throws ArgumentDoesNotHaveAttributeException if this net end point does not
-   *                                               have a target.
+   *                                               have a target
    */
   @Override
   public String getCustomTargetSlot() {
@@ -199,7 +199,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * 
    * @param message
    * @return the reply to the given message if the current {@link NetEndPoint}
-   *         stays connected, null otherwise.
+   *         stays connected, null otherwise
    */
   @Override
   public String getReplyForMessage(final String message) {
@@ -223,7 +223,7 @@ public final class NetEndPoint extends AbstractEndPoint {
   }
 
   /**
-   * @return the internal end point of the current {@link NetEndPoint}.
+   * @return the internal end point of the current {@link NetEndPoint}
    */
   EndPoint getStoredInternalEndPoint() {
     return memberInternalEndPoint;
@@ -280,7 +280,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param index
    * @return the reply with the given index
    * @throws RuntimeException if the current {@link NetEndPoint} has not received
-   *                          a package with the given index.
+   *                          a package with the given index
    */
   private Package getAndRemoveReceivedPackage(final int index) {
     return getStoredReceivedPackages().removeAndGetStoredFirst(rp -> rp.hasIndex(index));
@@ -333,7 +333,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * 
    * @param message
    * @return the reply to the given message if the current {@link NetEndPoint}
-   *         stays connected, null otherwise.
+   *         stays connected, null otherwise
    */
   private String sendAndWaitToReply(final String message) {
     final var index = getNextSentPackageIndex();
@@ -365,7 +365,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @return the received package with the given index
    * @throws RuntimeException if the current {@link NetEndPoint} reaches its
    *                          timeout before it receives a package with the given
-   *                          index.
+   *                          index
    */
   private Package waitToAndGetAndRemoveReceivedPackage(final int index) {
     // This loop suffers from being optimized away by the compiler or the JVM.

@@ -30,7 +30,7 @@ public final class MatrixColumn<E> extends AbstractExtendedIterable<E> implement
    * @param oneBasedColumnIndex
    * @throws RuntimeException if the given oneBasedColumnIndex is not positive or
    *                          bigger than the number of columns of the given
-   *                          parentMatrix.
+   *                          parentMatrix
    */
   private MatrixColumn(final MutableMatrix<E> parentMatrix, final int oneBasedColumnIndex) {
     Validator.assertThat(parentMatrix).thatIsNamed("parent matrix").isNotNull();
@@ -54,7 +54,7 @@ public final class MatrixColumn<E> extends AbstractExtendedIterable<E> implement
    *         oneBasedColumnIndex
    * @throws RuntimeException if the given oneBasedColumnIndex is not positive or
    *                          bigger than the number of columns of the given
-   *                          parentMatrix.
+   *                          parentMatrix
    */
   public static <T> MatrixColumn<T> forMatrixAndOneBasedColumnIndex(final MutableMatrix<T> parentMatrix,
     final int oneBasedColumnIndex) {

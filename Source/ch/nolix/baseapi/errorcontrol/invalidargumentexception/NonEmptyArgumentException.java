@@ -40,7 +40,7 @@ public final class NonEmptyArgumentException extends AbstractInvalidArgumentExce
 
   /**
    * @param argument - Can be null
-   * @return a new {@link NonEmptyArgumentException} for the given argument.
+   * @return a new {@link NonEmptyArgumentException} for the given argument
    */
   public static NonEmptyArgumentException forArgument(final Object argument) {
     return new NonEmptyArgumentException(argument);

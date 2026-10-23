@@ -15,7 +15,7 @@ public interface IEntityNodeSearcher {
    * @return the field node of the given entityNode at the given
    *         oneBasedColumnIndex
    * @throws RuntimeException if given entityNode does not contain a field node
-   *                          with the given oneBasedColumnIndex.
+   *                          with the given oneBasedColumnIndex
    */
   IMutableNode<?> getStoredFieldNodeFromEntityNodeAtOneBasedColumnIndex(
     IMutableNode<?> entityNode,

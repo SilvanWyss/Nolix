@@ -46,14 +46,16 @@ public final class TestReceivingDataProviderController implements ExecutorAndDat
   }
 
   /**
-   * @return the latest command the current {@link TestReceivingDataProviderController} has received
+   * @return the latest command the current
+   *         {@link TestReceivingDataProviderController} has received
    */
   public ChainedNode getLatestReceivedCommand() {
     return latestReceivedCommand;
   }
 
   /**
-   * @return the latest request the current {@link TestReceivingDataProviderController} has received
+   * @return the latest request the current
+   *         {@link TestReceivingDataProviderController} has received
    */
   public ChainedNode getLatestReceivedRequest() {
     return latestReceivedRequest;

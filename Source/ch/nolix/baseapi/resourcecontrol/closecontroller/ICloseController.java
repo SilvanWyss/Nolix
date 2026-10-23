@@ -19,13 +19,12 @@ public interface ICloseController {
    * @throws RuntimeException if the current {@link ICloseController} is already
    *                          closed
    * @throws RuntimeException if the current {@link ICloseController} contains
-   *                          already the given element.
+   *                          already the given element
    */
   void createCloseDependencyTo(GroupCloseable element);
 
   /**
-   * @return the parent {@link IClosePool} of the current
-   *         {@link ICloseController}.
+   * @return the parent {@link IClosePool} of the current {@link ICloseController}
    */
   IClosePool getParentClosePool();
 

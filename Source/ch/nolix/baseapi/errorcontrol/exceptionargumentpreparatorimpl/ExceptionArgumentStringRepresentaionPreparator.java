@@ -61,7 +61,7 @@ implements IExceptionArgumentStringRepresentaionPreparator {
   /**
    * @param argument
    * @return a {@link String} representation of the given argument for the case
-   *         that given argument is not null.
+   *         that given argument is not null
    */
   private String getStringRepresentationOfArgumentWhenIsNotNull(final Object argument) {
     try {

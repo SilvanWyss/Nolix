@@ -87,7 +87,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
   /**
    * @param <T>      the type of the element of the given iterable
    * @param iterable
-   * @return the number of element of the given iterable.
+   * @return the number of element of the given iterable
    */
   private static <T> int getCountOfIterable(final Iterable<T> iterable) {
     int elementCount;
@@ -123,8 +123,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
    * @param iterable
    * @return a new {@link ImmutableList} with the elements of the given iterable
    * @throws RuntimeException if the given iterable is null
-   * @throws RuntimeException if one of the elements of the given iterable is
-   *                          null.
+   * @throws RuntimeException if one of the elements of the given iterable is null
    */
   public static <T> ImmutableList<T> fromIterable(final Iterable<T> iterable) {
     // This part is not mandatory, but provides a better performance.

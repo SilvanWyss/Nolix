@@ -30,7 +30,7 @@ public final class MatrixRow<E> extends AbstractExtendedIterable<E> implements I
    * @param oneBasedRowIndex
    * @throws RuntimeException if the given oneBasedRowIndex is not positive or
    *                          bigger than the number of rows of the given
-   *                          parentMatrix.
+   *                          parentMatrix
    */
   private MatrixRow(final MutableMatrix<E> parentMatrix, final int oneBasedRowIndex) {
     Validator.assertThat(parentMatrix).thatIsNamed("parent matrix").isNotNull();
@@ -50,7 +50,7 @@ public final class MatrixRow<E> extends AbstractExtendedIterable<E> implements I
    *         oneBasedRowIndex
    * @throws RuntimeException if the given oneBasedRowIndex is not positive or
    *                          bigger than the number of rows of the given
-   *                          parentMatrix.
+   *                          parentMatrix
    */
   public static <T> MatrixRow<T> forMatrixAndOneBasedRowIndex(final MutableMatrix<T> parentMatrix,
     final int oneBasedRowIndex) {

@@ -11,7 +11,7 @@ package ch.nolix.baseapi.generalstate.staterequest;
  */
 public interface StateRequestable<S extends Enum<S>> {
   /**
-   * @return the state of the current {@link StateRequestable}.
+   * @return the state of the current {@link StateRequestable}
    */
   S getState();
 }

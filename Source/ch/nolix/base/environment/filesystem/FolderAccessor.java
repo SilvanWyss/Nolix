@@ -19,7 +19,7 @@ public final class FolderAccessor extends AbstractFileSystemItemAccessor {
    * 
    * @param folderPath
    * @throws RuntimeException if there does not exist a folder with the given
-   *                          folderPath in the file system on the local machine.
+   *                          folderPath in the file system on the local machine
    */
   private FolderAccessor(final String folderPath) {
     if (!FileSystemAccessor.isFolder(folderPath)) {
@@ -37,7 +37,7 @@ public final class FolderAccessor extends AbstractFileSystemItemAccessor {
    * @param folderPath
    * @return a new {@link FolderAccessor} for the folder for the given folderPath
    * @throws RuntimeException if there does not exist a folder with the given
-   *                          folderPath in the file system on the local machine.
+   *                          folderPath in the file system on the local machine
    */
   public static FolderAccessor forFolderPath(final String folderPath) {
     return new FolderAccessor(folderPath);
@@ -60,7 +60,7 @@ public final class FolderAccessor extends AbstractFileSystemItemAccessor {
    * @return a new {@link FileAccessor} for the created file
    * @throws RuntimeException if there exists already a file system item with the
    *                          given relative path in the folder of the current
-   *                          {@link FolderAccessor}.
+   *                          {@link FolderAccessor}
    */
   public FileAccessor createFile(final String relativePath) {
     return FileSystemAccessor.createFile(getPath() + "/" + relativePath);
@@ -74,7 +74,7 @@ public final class FolderAccessor extends AbstractFileSystemItemAccessor {
    * @return a new {@link FolderAccessor} for the created folder
    * @throws RuntimeException if there exists alreay a file system item with the
    *                          given relative path in the folder of the current
-   *                          {@link FolderAccessor}.
+   *                          {@link FolderAccessor}
    */
   public FolderAccessor createFolder(final String relativePath) {
     return FileSystemAccessor.createFolder(getPath() + "/" + relativePath);
@@ -92,7 +92,7 @@ public final class FolderAccessor extends AbstractFileSystemItemAccessor {
 
   /**
    * @return new {@link FileAccessor}s for the files in the folder of the current
-   *         {@link FolderAccessor}.
+   *         {@link FolderAccessor}
    */
   public ExtendedIterable<FileAccessor> getFileAccessors() {
     return FileSystemAccessor.getFileAccessors(getPath());
@@ -101,7 +101,7 @@ public final class FolderAccessor extends AbstractFileSystemItemAccessor {
   /**
    * @param extension
    * @return a new {@link FileAccessor}s for the files in the folder of the
-   *         current {@link FolderAccessor}, that have the given extension.
+   *         current {@link FolderAccessor}, that have the given extension
    */
   public ExtendedIterable<FileAccessor> getFileAccessors(final String extension) {
     return FileSystemAccessor.getFileAccessors(getPath(), extension);
@@ -110,7 +110,7 @@ public final class FolderAccessor extends AbstractFileSystemItemAccessor {
   /**
    * @param extension
    * @return new {@link FileAccessor} for the files in the folder of the current
-   *         {@link FolderAccessor}, that have the given extension, recursively.
+   *         {@link FolderAccessor}, that have the given extension, recursively
    */
   public ExtendedIterable<FileAccessor> getFileAccessorsRecursively(final String extension) {
     return getFileAccessorsRecursively().getStoredSelected(fa -> fa.hasExtension(extension));
@@ -118,7 +118,7 @@ public final class FolderAccessor extends AbstractFileSystemItemAccessor {
 
   /**
    * @return new {@link FileAccessor} for the files in the folder of the current
-   *         {@link FolderAccessor} recursively.
+   *         {@link FolderAccessor} recursively
    */
   public ILinkedList<FileAccessor> getFileAccessorsRecursively() {
     return FileSystemAccessor.getFileAccessorsRecursively(getPath());
@@ -126,7 +126,7 @@ public final class FolderAccessor extends AbstractFileSystemItemAccessor {
 
   /**
    * @return new {@link AbstractFileSystemItemAccessor}s to the file system items
-   *         in the folder of the current {@link FolderAccessor}.
+   *         in the folder of the current {@link FolderAccessor}
    */
   public ExtendedIterable<AbstractFileSystemItemAccessor> getFileSystemItemAccessors() {
     return FileSystemAccessor.getFileSystemItemAccessors(getPath());
@@ -135,7 +135,7 @@ public final class FolderAccessor extends AbstractFileSystemItemAccessor {
   /**
    * @param relativePath
    * @return a new {@link FolderAccessor} for the folder with the given relative
-   *         path in the folder of the current {@link FolderAccessor}.
+   *         path in the folder of the current {@link FolderAccessor}
    */
   public FolderAccessor getFolderAccessor(final String relativePath) {
     return new FolderAccessor(getPath() + "/" + relativePath);

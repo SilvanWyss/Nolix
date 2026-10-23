@@ -15,8 +15,7 @@ public interface ITableValidator extends DatabaseObjectValidator<ITable> {
   /**
    * @param table
    * @param column
-   * @throws RuntimeException if the given table does not contain the given
-   *                          column.
+   * @throws RuntimeException if the given table does not contain the given column
    */
   void assertContainsColumn(ITable table, IColumn column);
 
@@ -38,7 +37,7 @@ public interface ITableValidator extends DatabaseObjectValidator<ITable> {
    * @param table
    * @param name
    * @throws RuntimeException if the given table a {@link IColumn} with the given
-   *                          name.
+   *                          name
    */
   void assertDoesNotContainColumnWithName(ITable table, String name);
 

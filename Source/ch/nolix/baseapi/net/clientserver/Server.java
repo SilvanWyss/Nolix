@@ -65,7 +65,7 @@ extends ApplicationManager<Application<?, ?>>, Clearable, GroupCloseable, Securi
    * @return the {@link Application} with the given name from the current
    *         {@link Server}
    * @throws RuntimeException if the current {@link Server} does not contain a
-   *                          {@link Application} with the given name.
+   *                          {@link Application} with the given name
    */
   Application<?, ?> getStoredApplicationByName(String name);
 
@@ -74,14 +74,14 @@ extends ApplicationManager<Application<?, ?>>, Clearable, GroupCloseable, Securi
    * @return the {@link Application} with the given urlName from the current
    *         {@link Server}
    * @throws RuntimeException if the current {@link Server} does not contain a
-   *                          {@link Application} with the given urlName.
+   *                          {@link Application} with the given urlName
    */
   Application<?, ?> getStoredApplicationByUrlName(final String urlName);
 
   /**
    * @return the default {@link Application} of the current {@link Server}
    * @throws RuntimeException if the current {@link Server} does not contain a
-   *                          default {@link Application}.
+   *                          default {@link Application}
    */
   Application<?, ?> getStoredDefaultApplication();
 

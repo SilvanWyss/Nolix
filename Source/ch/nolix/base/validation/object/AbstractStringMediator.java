@@ -46,7 +46,7 @@ public abstract class AbstractStringMediator extends AbstractObjectMediator<Stri
    *                          {@link AbstractStringMediator} is null
    * @throws RuntimeException if the argument of the current
    *                          {@link AbstractStringMediator} does not have the
-   *                          given length.
+   *                          given length
    */
   public void hasLength(final int length) {
     // Asserts that the given length is not negative.
@@ -72,8 +72,7 @@ public abstract class AbstractStringMediator extends AbstractObjectMediator<Stri
    * @throws RuntimeException          if the argument of the current
    *                                   {@link AbstractStringMediator} is null
    * @throws NonEmptyArgumentException if the argument of the current
-   *                                   {@link AbstractStringMediator} is not
-   *                                   empty.
+   *                                   {@link AbstractStringMediator} is not empty
    */
   public void isEmpty() {
     // Asserts that the argument of the current StringMediator is not null.
@@ -127,7 +126,7 @@ public abstract class AbstractStringMediator extends AbstractObjectMediator<Stri
    *                          {@link AbstractStringMediator} is null
    * @throws RuntimeException if the argument of the current
    *                          {@link AbstractStringMediator} is longer than the
-   *                          given max length says.
+   *                          given max length says
    */
   public void isNotLongerThan(final int maxLength) {
     // Asserts that the argument of the current StringMediator is not null.
@@ -150,7 +149,7 @@ public abstract class AbstractStringMediator extends AbstractObjectMediator<Stri
    *                          {@link AbstractStringMediator} is null
    * @throws RuntimeException if the argument of the current
    *                          {@link AbstractStringMediator} is shorter than the
-   *                          given min length says.
+   *                          given min length says
    */
   public void isNotShorterThan(final int minLength) {
     // Asserts that the argument of the current StringMediator is not null.
@@ -171,7 +170,7 @@ public abstract class AbstractStringMediator extends AbstractObjectMediator<Stri
    * @param regularExpression
    * @throws RuntimeException if the argument of the current
    *                          {@link AbstractStringMediator} does not match the
-   *                          given regularExpression.
+   *                          given regularExpression
    */
   public void matches(final String regularExpression) {
     // Asserts that the argument of the current StringMediator is not null.
@@ -195,7 +194,7 @@ public abstract class AbstractStringMediator extends AbstractObjectMediator<Stri
    *                          {@link AbstractStringMediator} is null
    * @throws RuntimeException if the argument of the current
    *                          {@link AbstractStringMediator} does not start with
-   *                          the given prefix.
+   *                          the given prefix
    */
   public void startsWith(final String prefix) {
     isNotNull();

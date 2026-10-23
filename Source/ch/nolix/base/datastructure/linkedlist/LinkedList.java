@@ -47,7 +47,7 @@ implements ILinkedList<E> {
 
   /**
    * @param <T> the type of the elements of the created {@link LinkedList}
-   * @return a new empty {@link LinkedList}.
+   * @return a new empty {@link LinkedList}
    */
   public static <T> LinkedList<T> createEmpty() {
     return new LinkedList<>();
@@ -75,7 +75,7 @@ implements ILinkedList<E> {
    * @return a new {@link LinkedList} with the elements in the given container
    * @throws RuntimeException if the given container is null
    * @throws RuntimeException if one of the elements in the given container is
-   *                          null.
+   *                          null
    */
   public static <T> LinkedList<T> fromIterable(final Iterable<T> container) {
     final var list = new LinkedList<T>();
@@ -291,7 +291,7 @@ implements ILinkedList<E> {
   /**
    * The time complexity of this implementation is O(1).
    * 
-   * @return the number of elements of the current {@link LinkedList}.
+   * @return the number of elements of the current {@link LinkedList}
    */
   @Override
   public int getCount() {
@@ -309,7 +309,7 @@ implements ILinkedList<E> {
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractExtendedIterable}
    *                                               does not contain an element at
-   *                                               the given index.
+   *                                               the given index
    */
   @Override
   public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
@@ -358,7 +358,7 @@ implements ILinkedList<E> {
   /**
    * The time complexity of this implementation is O(1).
    * 
-   * @return a new iterator of the current {@link LinkedList}.
+   * @return a new iterator of the current {@link LinkedList}
    */
   @Override
   public CopyableIterator<E> iterator() {
@@ -739,7 +739,7 @@ implements ILinkedList<E> {
    * @param node
    * @throws RuntimeException                      if the given node is null
    * @throws ArgumentDoesNotHaveAttributeException if the given node does not have
-   *                                               a next node.
+   *                                               a next node
    */
   private void removeNextNode(final LinkedListNode<E> node) {
     // Asserts that the given node is not null.
@@ -768,7 +768,7 @@ implements ILinkedList<E> {
    * @param element
    * @throws ArgumentDoesNotContainElementException if the current
    *                                                {@link LinkedList} does not
-   *                                                contain the given element.
+   *                                                contain the given element
    */
   private void removeStrictlyFirstOccurrenceOfWhenContainsAny(final Object element) {
     if (firstNode.contains(element)) {

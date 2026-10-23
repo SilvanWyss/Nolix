@@ -13,7 +13,7 @@ public interface IOptionalValueProperty<V> extends Clearable, BaseValueProperty 
   /**
    * @return the value of the current {@link IOptionalValueProperty}
    * @throws RuntimeException if the current {@link IOptionalValueProperty} does
-   *                          not contain a value.
+   *                          not contain a value
    */
   V getStoredValue();
 

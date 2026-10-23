@@ -47,7 +47,7 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
    * @return a new standard specification from the file with the given file path
    * @throws RuntimeException if the given file path is not valid
    * @throws RuntimeException if the file with the given file path does not
-   *                          represent a standard configuration.
+   *                          represent a standard configuration
    */
   public static Style fromFile(final String filePath) {
     final var specification = ImmutableNode.fromFile(filePath);
@@ -89,7 +89,7 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
   /**
    * @param attachingAttributes
    * @param subStyles
-   * @return a new {@link Style} with the given attachingAttributes and subStyles.
+   * @return a new {@link Style} with the given attachingAttributes and subStyles
    */
   public static Style withAttachingAttributesAndSubStyles(
     final ExtendedIterable<String> attachingAttributes,

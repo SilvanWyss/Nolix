@@ -21,7 +21,7 @@ public enum ContainerRole {
    * @param specification
    * @return a new {@link ContainerRole} from the given specification
    * @throws RuntimeException if the given specification does not represent a
-   *                          {@link ContainerRole}.
+   *                          {@link ContainerRole}
    */
   public static ContainerRole fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());

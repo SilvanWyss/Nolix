@@ -15,7 +15,7 @@ public interface ISchemaSearcher {
    * @param entityTypeSet
    * @return the entity type with the given name from the given schema
    * @throws RuntimeException if the given schema does not contain an entity type
-   *                          with the given name.
+   *                          with the given name
    */
   Class<? extends Entity> getEntityTypeByName(IEntityTypeSet entityTypeSet, String name);
 }

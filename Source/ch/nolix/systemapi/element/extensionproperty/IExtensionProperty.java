@@ -12,7 +12,7 @@ import ch.nolix.systemapi.element.mutableelement.RespondingMutableElement;
  */
 public interface IExtensionProperty<E extends RespondingMutableElement<E>> extends Property {
   /**
-   * @return the extension of the current {@link IExtensionProperty}.
+   * @return the extension of the current {@link IExtensionProperty}
    */
   E getStoredExtension();
 }

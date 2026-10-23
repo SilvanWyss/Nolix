@@ -67,7 +67,7 @@ public final class ArgumentDoesNotContainElementException extends AbstractInvali
   /**
    * @param argument - Can be null
    * @return a new {@link ArgumentDoesNotContainElementException} for the given
-   *         argument.
+   *         argument
    */
   public static ArgumentDoesNotContainElementException forArgument(final Object argument) {
     return new ArgumentDoesNotContainElementException(argument);
@@ -108,7 +108,7 @@ public final class ArgumentDoesNotContainElementException extends AbstractInvali
    * @param argument - Can be null
    * @param element  - Can be null
    * @return a new {@link ArgumentDoesNotContainElementException} for the given
-   *         argument and element.
+   *         argument and element
    */
   public static ArgumentDoesNotContainElementException forArgumentAndElement(
     final Object argument,
@@ -126,7 +126,7 @@ public final class ArgumentDoesNotContainElementException extends AbstractInvali
 
   /**
    * @param element - Can be null
-   * @return a name of the given element.
+   * @return a name of the given element
    */
   private static String getNameOfElement(final Object element) {
     if (element != null) {
@@ -139,7 +139,7 @@ public final class ArgumentDoesNotContainElementException extends AbstractInvali
   /**
    * @param element
    * @return a name of the given element for the case that the given element is
-   *         not null.
+   *         not null
    */
   private static String getNameOfElementWhenIsNotNull(final Object element) {
     final var name = element.getClass().getSimpleName();

@@ -10,7 +10,7 @@ package ch.nolix.baseapi.programcontrol.type;
  */
 public interface TypeRequestable {
   /**
-   * @return the type of the current {@link TypeRequestable}.
+   * @return the type of the current {@link TypeRequestable}
    */
   default String getType() {
     return getClass().getSimpleName();

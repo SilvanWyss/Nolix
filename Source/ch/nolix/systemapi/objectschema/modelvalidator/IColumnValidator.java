@@ -27,7 +27,7 @@ public interface IColumnValidator extends DatabaseObjectValidator<IColumn> {
    * @param referenceableTables
    * @param backReferenceableColumns
    * @throws RuntimeException if the given column cannot set the given content
-   *                          model.
+   *                          model
    */
   void assertCanSetContentModel(
     IColumn column,

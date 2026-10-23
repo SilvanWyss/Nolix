@@ -53,7 +53,7 @@ public final class UnsignedByte {
 
   /**
    * @param paramByte
-   * @return a new {@link UnsignedByte} from the given paramByte.
+   * @return a new {@link UnsignedByte} from the given paramByte
    */
   public static UnsignedByte fromByte(final byte paramByte) {
     return new UnsignedByte(paramByte);
@@ -80,7 +80,7 @@ public final class UnsignedByte {
    * @param bit6
    * @param bit7
    * @param bit8
-   * @return a new {@link UnsignedByte} with the given bits.
+   * @return a new {@link UnsignedByte} with the given bits
    */
   public static UnsignedByte withBits( // NOSONAR: A byte consists of 8 bits.
     final int bit1,
@@ -105,7 +105,7 @@ public final class UnsignedByte {
   /**
    * @param index
    * @return the bit at the given index from the current {@link UnsignedByte} as
-   *         int.
+   *         int
    */
   public int getBitAtAsInt(final int index) {
     Validator.assertThat(index).thatIsNamed(LowerCaseVariableNameCatalog.INDEX).isBetween(1, 8);
@@ -114,14 +114,14 @@ public final class UnsignedByte {
   }
 
   /**
-   * @return the current {@link UnsignedByte} as byte.
+   * @return the current {@link UnsignedByte} as byte
    */
   public byte toByte() {
     return (byte) memberByte;
   }
 
   /**
-   * @return the current {@link UnsignedByte} as int.
+   * @return the current {@link UnsignedByte} as int
    */
   public int toInt() {
     return memberByte;

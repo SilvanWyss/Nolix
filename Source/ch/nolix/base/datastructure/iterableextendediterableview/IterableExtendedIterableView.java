@@ -119,7 +119,7 @@ public final class IterableExtendedIterableView<E> extends AbstractExtendedItera
    * {@link IterableExtendedIterableView} contains n elements.
    * 
    * @return a {@link String} representation of the current
-   *         {@link IterableExtendedIterableView}.
+   *         {@link IterableExtendedIterableView}
    */
   @Override
   public String toString() {

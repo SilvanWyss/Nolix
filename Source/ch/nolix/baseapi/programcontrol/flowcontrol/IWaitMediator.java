@@ -8,7 +8,7 @@ package ch.nolix.baseapi.programcontrol.flowcontrol;
  */
 public interface IWaitMediator {
   /**
-   * @return a new {@link IFlowControllerMediator}.
+   * @return a new {@link IFlowControllerMediator}
    */
   IFlowControllerMediator andThen();
 }

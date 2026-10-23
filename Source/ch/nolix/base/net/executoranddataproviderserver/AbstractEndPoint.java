@@ -75,7 +75,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements E
    * @return the receiver controller of the current {@link AbstractEndPoint}
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractEndPoint} does
-   *                                               not have a receiver controller.
+   *                                               not have a receiver controller
    */
   ExecutorAndDataProvider getStoredReceiverController() {
     if (hasExecutorAndDataProvider()) {

@@ -22,7 +22,7 @@ public final class LicenseEnvironment {
   }
 
   /**
-   * @return the path of the license folder on the local computer.
+   * @return the path of the license folder on the local computer
    */
   public static String getLocalLicenseFolderPath() {
     return NolixDirectoryAndFileCatalog.NOLIX_LICENSES_DIRECTORY_PATH;

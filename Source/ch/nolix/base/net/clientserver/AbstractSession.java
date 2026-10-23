@@ -174,7 +174,7 @@ public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S> 
 
   /**
    * @throws RuntimeException if the current {@link AbstractSession} does not
-   *                          belong to a client.
+   *                          belong to a client
    */
   private void assertBelongsToClient() {
     if (!belongsToClient()) {
@@ -184,7 +184,7 @@ public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S> 
 
   /**
    * @throws RuntimeException if the current {@link AbstractSession} belongs to a
-   *                          client.
+   *                          client
    */
   private void assertDoesNotBelongToClient() {
     if (belongsToClient()) {

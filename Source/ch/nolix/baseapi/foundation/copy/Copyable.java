@@ -11,7 +11,7 @@ package ch.nolix.baseapi.foundation.copy;
  */
 public interface Copyable<C extends Copyable<C>> {
   /**
-   * @return a new copy of the current {@link Copyable}.
+   * @return a new copy of the current {@link Copyable}
    */
   C getCopy();
 }

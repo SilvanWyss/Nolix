@@ -112,7 +112,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
   /**
    * @return the target of this local end point
    * @throws ArgumentDoesNotHaveAttributeException if this local end point does
-   *                                               not have a target.
+   *                                               not have a target
    */
   @Override
   public String getCustomTargetSlot() {
@@ -136,7 +136,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * Lets this local end point send the given message.
    * 
    * @param message
-   * @return the reply to the given message from this local end point.
+   * @return the reply to the given message from this local end point
    */
   @Override
   public String getReplyForMessage(final String message) {
@@ -152,7 +152,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
   }
 
   /**
-   * @return the counterpart of this local end point.
+   * @return the counterpart of this local end point
    */
   public LocalEndPoint getStoredCounterpart() {
     return counterpart;
@@ -184,7 +184,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * Lets this local end point receive the given message.
    * 
    * @param message
-   * @return the reply to the given message.
+   * @return the reply to the given message
    */
   private String receiveAndGetReply(final String message) {
     return getStoredReplier().apply(message);

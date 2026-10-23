@@ -11,7 +11,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 public interface BaseReference extends Field {
   /**
    * @return the names of the {@link ITable}s the current {@link BaseReference}
-   *         can reference.
+   *         can reference
    */
   ExtendedIterable<String> getReferenceableTableNames();
 }

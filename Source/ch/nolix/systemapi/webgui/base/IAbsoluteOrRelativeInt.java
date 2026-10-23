@@ -14,21 +14,21 @@ public interface IAbsoluteOrRelativeInt extends Element {
   /**
    * @return the absolute value of the current {@link IAbsoluteOrRelativeInt}
    * @throws RuntimeException if the current {@link IAbsoluteOrRelativeInt} is not
-   *                          absolute.
+   *                          absolute
    */
   int getAbsoluteValue();
 
   /**
    * @return the percentage of the current {@link IAbsoluteOrRelativeInt}
    * @throws RuntimeException if the current {@link IAbsoluteOrRelativeInt} is not
-   *                          relative.
+   *                          relative
    */
   double getPercentage();
 
   /**
    * @param hundredPercentValue
    * @return the value of the current {@link IAbsoluteOrRelativeInt} relative to
-   *         the given hundredPercentValue.
+   *         the given hundredPercentValue
    */
   int getValueRelativeToHundredPercentValue(int hundredPercentValue);
 

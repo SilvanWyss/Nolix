@@ -147,7 +147,7 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    * Confirms that the current {@link AbstractNetEndPoint} has a target info.
    * 
    * @throws RuntimeException if the current {@link AbstractNetEndPoint} has
-   *                          already a target info.
+   *                          already a target info
    */
   private void confirmReceivedTargetInfo() {
     // Asserts that the current BaseNetEndPoint has already a target info.
@@ -159,7 +159,7 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
   }
 
   /**
-   * @return the target message of the current {@link AbstractNetEndPoint}.
+   * @return the target message of the current {@link AbstractNetEndPoint}
    */
   private String getTargetMessage() {
     // Handles the case that the current BaseNetEndPoint has a target.
@@ -175,8 +175,7 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    * Lets the current {@link AbstractNetEndPoint} receive the given message.
    * 
    * @param message
-   * @throws RuntimeException if the current {@link AbstractNetEndPoint} is
-   *                          closed.
+   * @throws RuntimeException if the current {@link AbstractNetEndPoint} is closed
    */
   private void receiveMessage(final String message) {
     // Asserts that the current NetEndPoint is open.

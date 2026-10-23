@@ -183,7 +183,7 @@ public abstract class AbstractInvalidArgumentException extends RuntimeException 
 
   /**
    * @return the name of the argument of the current
-   *         {@link AbstractInvalidArgumentException}.
+   *         {@link AbstractInvalidArgumentException}
    */
   public final String getArgumentName() {
     return argumentName;
@@ -191,14 +191,14 @@ public abstract class AbstractInvalidArgumentException extends RuntimeException 
 
   /**
    * @return the error predicate of the current
-   *         {@link AbstractInvalidArgumentException}.
+   *         {@link AbstractInvalidArgumentException}
    */
   public final String getErrorPredicate() {
     return errorPredicate;
   }
 
   /**
-   * @return the argument of the current {@link AbstractInvalidArgumentException}.
+   * @return the argument of the current {@link AbstractInvalidArgumentException}
    */
   public final Object getStoredArgument() {
     return argument;

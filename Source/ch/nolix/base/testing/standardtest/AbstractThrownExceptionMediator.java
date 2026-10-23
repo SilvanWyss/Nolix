@@ -145,7 +145,7 @@ public abstract class AbstractThrownExceptionMediator {
 
   // For a better performance, this implementation does not use all available comfort methods.
   /**
-   * @return the exception of the current {@link AbstractThrownExceptionMediator}.
+   * @return the exception of the current {@link AbstractThrownExceptionMediator}
    */
   protected final Throwable getException() {
     // Asserts that the current AbstractThrownExceptionMediator has an exception.

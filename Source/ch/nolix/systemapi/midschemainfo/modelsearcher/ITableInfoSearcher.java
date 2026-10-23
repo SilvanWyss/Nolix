@@ -16,7 +16,7 @@ public interface ITableInfoSearcher {
    * @return the column view of the column with the given columnId from the given
    *         tableViewDto
    * @throws RuntimeException if the given tableViewDto does not contain a column
-   *                          view of a column with the given columnId.
+   *                          view of a column with the given columnId
    */
   ColumnInfoDto getColumnViewByColumnId(TableInfoDto tableInfoDto, String columnId);
 
@@ -26,7 +26,7 @@ public interface ITableInfoSearcher {
    * @return the column view of the column with the given columnName from the
    *         given tableViewDto
    * @throws RuntimeException if the given tableViewDto does not contain a column
-   *                          view of a column with the given columnName.
+   *                          view of a column with the given columnName
    */
   ColumnInfoDto getColumnViewByColumnName(TableInfoDto tableInfoDto, String columnName);
 }

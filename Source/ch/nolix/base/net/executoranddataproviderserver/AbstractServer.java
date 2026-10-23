@@ -140,7 +140,7 @@ public abstract class AbstractServer implements Server {
    *                                               {@link AbstractServer} does not
    *                                               contain a {@link Slot} with a
    *                                               name that equals the target of
-   *                                               the given endPoint.
+   *                                               the given endPoint
    */
   final void internalTakeBackendEndPoint(final EndPoint endPoint) {
     ResourceValidator.assertIsOpen(endPoint);
@@ -159,7 +159,7 @@ public abstract class AbstractServer implements Server {
    * @param slot
    * @throws RuntimeException if the current {@link AbstractServer} contains
    *                          already a {@link Slot} with the same name like the
-   *                          given slot.
+   *                          given slot
    */
   private void addSlotToList(final Slot slot) {
     assertDoesNotContainSlotWithName(slot.getName());
@@ -170,7 +170,7 @@ public abstract class AbstractServer implements Server {
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractServer} does not
-   *                                               contain a default {@link Slot}.
+   *                                               contain a default {@link Slot}
    */
   private void assertContainsDefaultSlot() {
     if (!containsDefaultSlot()) {
@@ -182,7 +182,7 @@ public abstract class AbstractServer implements Server {
    * @param name
    * @throws RuntimeException if the current {@link AbstractServer} contains
    *                          already a {@link Slot} with the same name like the
-   *                          given slot.
+   *                          given slot
    */
   private void assertDoesNotContainSlotWithName(final String name) {
     if (containsSlotWithName(name)) {
@@ -195,7 +195,7 @@ public abstract class AbstractServer implements Server {
    * @return the default {@link Slot} of the current {@link AbstractServer}
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractServer} does not
-   *                                               contain a default {@link Slot}.
+   *                                               contain a default {@link Slot}
    */
   private Slot getStoredDefaultSlot() {
     assertContainsDefaultSlot();
@@ -211,7 +211,7 @@ public abstract class AbstractServer implements Server {
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractServer} does not
    *                                               contain a {@link Slot} with the
-   *                                               given name.
+   *                                               given name
    */
   private Slot getStoredSlotByName(final String name) {
     return slots.getStoredFirst(ept -> ept.hasName(name));
@@ -223,7 +223,7 @@ public abstract class AbstractServer implements Server {
    * @param slot
    * @throws ArgumentDoesNotContainElementException if the current
    *                                                {@link AbstractServer} does
-   *                                                not contain the given slot.
+   *                                                not contain the given slot
    */
   private void removeSlot(final Slot slot) {
     slots.removeStrictlyFirstOccurrenceOf(slot);

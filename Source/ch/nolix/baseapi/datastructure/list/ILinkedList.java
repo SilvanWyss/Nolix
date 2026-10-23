@@ -136,7 +136,7 @@ extends Clearable, Copyable<ILinkedList<E>>, AppendableList<E> {
    * 
    * @param element
    * @throws RuntimeException if the current {@link ILinkedList} does not contain
-   *                          the given element.
+   *                          the given element
    */
   void removeStrictlyFirstOccurrenceOf(Object element);
 

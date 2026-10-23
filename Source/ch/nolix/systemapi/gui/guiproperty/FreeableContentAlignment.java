@@ -24,7 +24,7 @@ public enum FreeableContentAlignment {
    * @param specification
    * @return a {@link FreeableContentAlignment} from the given specification
    * @throws RuntimeException if the given specification does not represent a
-   *                          {@link FreeableContentAlignment}.
+   *                          {@link FreeableContentAlignment}
    */
   public static FreeableContentAlignment fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());

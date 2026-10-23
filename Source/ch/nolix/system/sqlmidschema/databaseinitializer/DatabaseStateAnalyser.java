@@ -16,7 +16,7 @@ import ch.nolix.systemapi.sqlschema.adapter.ISchemaReader;
 public final class DatabaseStateAnalyser implements IDatabaseStateAnalyser {
   /**
    * @param schemaReader
-   * @return the state of the database from the given schemaReader.
+   * @return the state of the database from the given schemaReader
    */
   private static DatabaseState getDatabaseSchemaState(final ISchemaReader schemaReader) {
     if (schemaReader.tableExists(MetaDataTable.DATABASE_PROPERTY.toString())) {

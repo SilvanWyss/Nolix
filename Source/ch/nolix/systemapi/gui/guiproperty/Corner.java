@@ -18,7 +18,7 @@ public enum Corner {
    * @param specification
    * @return a {@link Corner} from the given specification
    * @throws RuntimeException if the given specification does not represent a
-   *                          {@link Corner}.
+   *                          {@link Corner}
    */
   public static Corner fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());

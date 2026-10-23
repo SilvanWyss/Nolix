@@ -27,7 +27,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
   }
 
   /**
-   * @return a new empty {@link MutableNode}.
+   * @return a new empty {@link MutableNode}
    */
   public static MutableNode createEmpty() {
     return new MutableNode();
@@ -38,7 +38,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    * @return a new {@link MutableNode} from the file with the given filePath
    * @throws RuntimeException if the given filePath is not valid
    * @throws RuntimeException if the file with the given filePath does not
-   *                          represent a {@link MutableNode}.
+   *                          represent a {@link MutableNode}
    */
   public static MutableNode fromFile(final String filePath) {
     final var mutableNode = MutableNode.createEmpty();
@@ -49,7 +49,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
 
   /**
    * @param node
-   * @return a new {@link MutableNode} from the given {@link Node}.
+   * @return a new {@link MutableNode} from the given {@link Node}
    */
   public static MutableNode fromNode(final Node<?> node) {
     final var mutableNode = MutableNode.createEmpty();
@@ -67,7 +67,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    * @param string
    * @return a new {@link MutableNode} from the given string
    * @throws RuntimeException if the given string does not represent a
-   *                          {@link MutableNode}.
+   *                          {@link MutableNode}
    */
   public static MutableNode fromString(final String string) {
     final var mutableNode = MutableNode.createEmpty();
@@ -248,7 +248,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link MutableNode} does not
-   *                                               have a header.
+   *                                               have a header
    */
   private void assertHasHeader() {
     if (!hasHeader()) {

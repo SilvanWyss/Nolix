@@ -27,14 +27,14 @@ public interface GroupCloseable extends Closeable {
    * @throws RuntimeException if the current {@link GroupCloseable} is already
    *                          closed
    * @throws RuntimeException if the current {@link GroupCloseable} has already a
-   *                          close dependency to the given element.
+   *                          close dependency to the given element
    */
   default void createCloseDependencyTo(final GroupCloseable element) {
     getStoredCloseController().createCloseDependencyTo(element);
   }
 
   /**
-   * @return the {@link ICloseController} of the current {@link GroupCloseable}.
+   * @return the {@link ICloseController} of the current {@link GroupCloseable}
    */
   ICloseController getStoredCloseController();
 

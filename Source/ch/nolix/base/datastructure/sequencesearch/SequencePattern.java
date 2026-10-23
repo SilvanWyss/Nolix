@@ -56,7 +56,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
   /**
    * @param <T>
    * @param elementType
-   * @return a new {@link SequencePattern} for the given elementType.
+   * @return a new {@link SequencePattern} for the given elementType
    */
   public static <T> SequencePattern<T> forElementType(
     final Class<T> elementType // NOSONAR: The unused parameter is necessary to know the type.
@@ -137,7 +137,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
 
   /**
    * @return the number of elements of the sequences of the current
-   *         {@link SequencePattern}.
+   *         {@link SequencePattern}
    */
   public int getSize() {
     return elementConditions.getCount();

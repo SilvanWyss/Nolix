@@ -62,7 +62,7 @@ public abstract class AbstractClient implements Client {
    * @param endPoint
    * @throws RuntimeException if the given endPoint is null
    * @throws RuntimeException if the current {@link AbstractClient} is already
-   *                          connected.
+   *                          connected
    */
   @Override
   public final void internalSetEndPoint(final EndPoint endPoint) {
@@ -95,7 +95,7 @@ public abstract class AbstractClient implements Client {
    * @return the data the given request requests from the counterpart of the
    *         current {@link AbstractClient}
    * @throws RuntimeException if the current {@link AbstractClient} is not
-   *                          connected.
+   *                          connected
    */
   protected final Node<?> getDataFromCounterpart(final ChainedNode request) {
     return getStoredEndPoint().getDataForRequest(request);
@@ -120,7 +120,7 @@ public abstract class AbstractClient implements Client {
    * 
    * @param command
    * @throws RuntimeException if the current {@link AbstractClient} is not
-   *                          connected.
+   *                          connected
    */
   protected final void runOnCounterpart(final ChainedNode command) {
     getStoredEndPoint().runCommand(command);
@@ -132,7 +132,7 @@ public abstract class AbstractClient implements Client {
    * 
    * @param commands
    * @throws RuntimeException if the current {@link AbstractClient} is not
-   *                          connected.
+   *                          connected
    */
   protected final void runOnCounterpart(final ImmutableChainedNode... commands) {
     getStoredEndPoint().runCommands(commands);
@@ -144,7 +144,7 @@ public abstract class AbstractClient implements Client {
    * 
    * @param commands
    * @throws RuntimeException if the current {@link AbstractClient} is not
-   *                          connected.
+   *                          connected
    */
   protected final void runOnCounterpart(final Iterable<? extends ChainedNode> commands) {
     getStoredEndPoint().runCommands(commands);
@@ -152,7 +152,7 @@ public abstract class AbstractClient implements Client {
 
   /**
    * @throws RuntimeException if the current {@link AbstractClient} is not
-   *                          connected.
+   *                          connected
    */
   private void assertIsConnected() {
     if (!isConnected()) {
@@ -162,7 +162,7 @@ public abstract class AbstractClient implements Client {
 
   /**
    * @throws RuntimeException if the current {@link AbstractClient} is already
-   *                          connected.
+   *                          connected
    */
   private void assertIsNotConnected() {
     if (isConnected()) {
@@ -173,7 +173,7 @@ public abstract class AbstractClient implements Client {
   /**
    * @return the {@link AbstractEndPoint} of the current {@link AbstractClient}
    * @throws RuntimeException if the current {@link AbstractClient} is not
-   *                          connected.
+   *                          connected
    */
   private EndPoint getStoredEndPoint() {
     assertIsConnected();

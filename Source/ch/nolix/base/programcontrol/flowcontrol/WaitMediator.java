@@ -11,7 +11,7 @@ import ch.nolix.baseapi.programcontrol.flowcontrol.IWaitMediator;
  */
 public final class WaitMediator implements IWaitMediator {
   /**
-   * @return a {@link FlowControllerMediator}.
+   * @return a {@link FlowControllerMediator}
    */
   @Override
   public IFlowControllerMediator andThen() {

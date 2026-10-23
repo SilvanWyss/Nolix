@@ -77,7 +77,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements E
    * @return the receiver of the current {@link AbstractEndPoint}
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractEndPoint} does
-   *                                               not have a receiver.
+   *                                               not have a receiver
    */
   protected final Consumer<String> getStoredReceiver() {
     if (hasReceiver()) {
@@ -113,7 +113,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements E
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractEndPoint} does
-   *                                               not have a custom target slot.
+   *                                               not have a custom target slot
    */
   private void assertHasCustomTargetSlot() {
     if (!hasCustomTargetSlot()) {
@@ -125,7 +125,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements E
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractEndPoint} does
-   *                                               not have a receiver.
+   *                                               not have a receiver
    */
   private void assertHasReceiver() {
     if (!hasReceiver()) {
