@@ -89,22 +89,6 @@ public abstract class AbstractStringMediator extends AbstractObjectMediator<Stri
    * @throws RuntimeException if the argument of the current
    *                          {@link AbstractStringMediator} is null
    * @throws RuntimeException if the argument of the current
-   *                          {@link AbstractStringMediator} is empty
-   */
-  public void isNotEmpty() {
-    // Asserts that the argument of the current StringMediator is not null.
-    isNotNull();
-
-    // Asserts that the argument of the current StringMediator is not empty.
-    if (getStoredArgument().isEmpty()) {
-      throw EmptyArgumentException.forArgumentAndArgumentName(getStoredArgument(), getArgumentName());
-    }
-  }
-
-  /**
-   * @throws RuntimeException if the argument of the current
-   *                          {@link AbstractStringMediator} is null
-   * @throws RuntimeException if the argument of the current
    *                          {@link AbstractStringMediator} is blank
    */
   public void isNotBlank() {
@@ -118,6 +102,22 @@ public abstract class AbstractStringMediator extends AbstractObjectMediator<Stri
         getStoredArgument(),
         getArgumentName(),
         "is blank");
+    }
+  }
+
+  /**
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractStringMediator} is null
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractStringMediator} is empty
+   */
+  public void isNotEmpty() {
+    // Asserts that the argument of the current StringMediator is not null.
+    isNotNull();
+
+    // Asserts that the argument of the current StringMediator is not empty.
+    if (getStoredArgument().isEmpty()) {
+      throw EmptyArgumentException.forArgumentAndArgumentName(getStoredArgument(), getArgumentName());
     }
   }
 

@@ -157,6 +157,21 @@ public final class HtmlElement implements IHtmlElement {
    * {@inheritDoc}
    */
   @Override
+  public boolean equals(final Object object) {
+    if (object instanceof final HtmlElement htmlElement) {
+      return getType().equals(htmlElement.getType())
+      && getAttributes().containsExactlyAllEqualInSameOrder(htmlElement.getAttributes())
+      && getChildElements().containsExactlyAllEqualInSameOrder(htmlElement.getChildElements())
+      && getInnerText().equals(htmlElement.getInnerText());
+    }
+
+    return false;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public ExtendedIterable<? extends IHtmlAttribute> getAttributes() {
     return memmberAttributes;
   }
@@ -183,21 +198,6 @@ public final class HtmlElement implements IHtmlElement {
   @Override
   public String getType() {
     return type;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public boolean equals(final Object object) {
-    if (object instanceof final HtmlElement htmlElement) {
-      return getType().equals(htmlElement.getType())
-      && getAttributes().containsExactlyAllEqualInSameOrder(htmlElement.getAttributes())
-      && getChildElements().containsExactlyAllEqualInSameOrder(htmlElement.getChildElements())
-      && getInnerText().equals(htmlElement.getInnerText());
-    }
-
-    return false;
   }
 
   /**

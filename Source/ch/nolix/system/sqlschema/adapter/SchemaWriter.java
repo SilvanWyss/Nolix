@@ -144,16 +144,16 @@ public final class SchemaWriter implements ISchemaWriter {
    * {@inheritDoc}
    */
   @Override
-  public ICloseController getStoredCloseController() {
-    return closeController;
+  public int getSaveCount() {
+    return saveCount;
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public int getSaveCount() {
-    return saveCount;
+  public ICloseController getStoredCloseController() {
+    return closeController;
   }
 
   /**

@@ -179,22 +179,6 @@ public abstract class AbstractDataAdapter implements DataAdapter {
    * {@inheritDoc}
    */
   @Override
-  public final ExtendedIterable<EntityLoadingDto> loadEntities(final String tableName) {
-    return dataReader.loadEntities(tableName);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final EntityLoadingDto loadEntity(final String tableName, final String id) {
-    return dataReader.loadEntity(tableName, id);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public final void insertEntity(final String tableName, final EntityCreationDto newEntity) {
     dataWriter.insertEntity(tableName, newEntity);
   }
@@ -221,6 +205,22 @@ public abstract class AbstractDataAdapter implements DataAdapter {
   @Override
   public final void insertMultiValueEntry(final MultiValueEntryDto multiValueEntry) {
     dataWriter.insertMultiValueEntry(multiValueEntry);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final ExtendedIterable<EntityLoadingDto> loadEntities(final String tableName) {
+    return dataReader.loadEntities(tableName);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final EntityLoadingDto loadEntity(final String tableName, final String id) {
+    return dataReader.loadEntity(tableName, id);
   }
 
   /**

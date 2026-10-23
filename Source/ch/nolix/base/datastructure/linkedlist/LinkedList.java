@@ -455,26 +455,6 @@ implements ILinkedList<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(1).
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public void removeFirstStrictly() {
-    // Enumerates the element count of the current LinkedList.
-    switch (getCount()) {
-      case 0:
-        throw EmptyArgumentException.forArgument(this);
-      case 1:
-        clear();
-        break;
-      default:
-        firstNode = firstNode.getNextNode();
-        elementCount--;
-    }
-  }
-
-  /**
    * The time complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
    * 
@@ -499,6 +479,26 @@ implements ILinkedList<E> {
     // Handles the case that the current LinkedList contains any.
     if (containsAny()) {
       removeFirstOccurrenceOfWhenContainsAny(element);
+    }
+  }
+
+  /**
+   * The time complexity of this implementation is O(1).
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public void removeFirstStrictly() {
+    // Enumerates the element count of the current LinkedList.
+    switch (getCount()) {
+      case 0:
+        throw EmptyArgumentException.forArgument(this);
+      case 1:
+        clear();
+        break;
+      default:
+        firstNode = firstNode.getNextNode();
+        elementCount--;
     }
   }
 

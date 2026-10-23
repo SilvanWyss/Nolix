@@ -59,17 +59,6 @@ public final class Server extends AbstractServer<Server> implements HostHolder, 
   }
 
   /**
-   * @return the current {@link Server} as {@link IServerTarget}.
-   */
-  @Override
-  public IServerTarget toTarget() {
-    return ServerTarget.forHostAndPortAndSecurityModeForConnections(
-      getHost(),
-      getPort(),
-      SECURITY_MODE_FOR_CONNECTIONS);
-  }
-
-  /**
    * {@inheritDoc}
    */
   @Override
@@ -91,6 +80,17 @@ public final class Server extends AbstractServer<Server> implements HostHolder, 
   @Override
   public SecurityMode getSecurityMode() {
     return internalServer.getSecurityMode();
+  }
+
+  /**
+   * @return the current {@link Server} as {@link IServerTarget}.
+   */
+  @Override
+  public IServerTarget toTarget() {
+    return ServerTarget.forHostAndPortAndSecurityModeForConnections(
+      getHost(),
+      getPort(),
+      SECURITY_MODE_FOR_CONNECTIONS);
   }
 
   /**

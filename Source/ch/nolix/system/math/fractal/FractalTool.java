@@ -105,22 +105,6 @@ public final class FractalTool implements IFractalTool {
    * {@inheritDoc}
    */
   @Override
-  public BigDecimal getUnitsPerHorizontalPixel(final IFractal fractal) {
-    return getWidthInUnits(fractal).divide(getWidthInPixelAsBigDecimal(fractal), RoundingMode.HALF_UP);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public BigDecimal getUnitsPerVerticalPixel(final IFractal fractal) {
-    return getHeightInUnits(fractal).divide(getHeightInPixelAsBigDecimal(fractal), RoundingMode.HALF_UP);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public BigDecimal getUnitsForHorizontalPixelCount(final IFractal fractal, final double horizontalPixelCount) {
     return getUnitsPerHorizontalPixel(fractal).multiply(BigDecimal.valueOf(horizontalPixelCount));
   }
@@ -131,6 +115,22 @@ public final class FractalTool implements IFractalTool {
   @Override
   public BigDecimal getUnitsForVerticalPixelCount(final IFractal fractal, final double verticalPixelCount) {
     return getUnitsPerVerticalPixel(fractal).multiply(BigDecimal.valueOf(verticalPixelCount));
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public BigDecimal getUnitsPerHorizontalPixel(final IFractal fractal) {
+    return getWidthInUnits(fractal).divide(getWidthInPixelAsBigDecimal(fractal), RoundingMode.HALF_UP);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public BigDecimal getUnitsPerVerticalPixel(final IFractal fractal) {
+    return getHeightInUnits(fractal).divide(getHeightInPixelAsBigDecimal(fractal), RoundingMode.HALF_UP);
   }
 
   /**

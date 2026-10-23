@@ -14,6 +14,14 @@ final class LogWorker extends Thread {
     start();
   }
 
+  public synchronized boolean containsLogEntries() {
+    return !logEntries.isEmpty();
+  }
+
+  public synchronized void inactivate() {
+    active = false;
+  }
+
   /**
    * {@inheritDoc}
    */
@@ -39,14 +47,6 @@ final class LogWorker extends Thread {
     }
 
     Logger.removeLogWorker();
-  }
-
-  public synchronized boolean containsLogEntries() {
-    return !logEntries.isEmpty();
-  }
-
-  public synchronized void inactivate() {
-    active = false;
   }
 
   public synchronized void takeLogEntry(final LogEntry logEntry) {

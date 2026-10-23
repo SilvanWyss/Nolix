@@ -56,6 +56,33 @@ public final class ExecutiveDataWriter {
     updater.addUpdate(updateAction);
   }
 
+  public void deleteEntity(
+    final String tableName,
+    final String entityId,
+    final String entitySaveStamp) {
+    final Consumer<IMutableNode<?>> updateAction = //
+    d -> DataWriterActionProvider.deleteEntity(d, tableName, entityId, entitySaveStamp);
+
+    updater.addUpdate(updateAction);
+  }
+
+  public void deleteMultiBackReferenceEntry(
+    final String tableName,
+    final String entityId,
+    final int multiBackReferenceColumnOneBasedOrdinalIndex,
+    final String backReferencedEntityId) {
+    final Consumer<IMutableNode<?>> updateAction = //
+    d -> //
+    DataWriterActionProvider.deleteMultiBackReferenceEntry(
+      d,
+      tableName,
+      entityId,
+      multiBackReferenceColumnOneBasedOrdinalIndex,
+      backReferencedEntityId);
+
+    updater.addUpdate(updateAction);
+  }
+
   public void deleteMultiReferenceEntry(
     final String tableName,
     final String entityId,
@@ -86,33 +113,6 @@ public final class ExecutiveDataWriter {
       entityId,
       multiValueColumnOneBasedOrdinalIndex,
       entry);
-
-    updater.addUpdate(updateAction);
-  }
-
-  public void deleteEntity(
-    final String tableName,
-    final String entityId,
-    final String entitySaveStamp) {
-    final Consumer<IMutableNode<?>> updateAction = //
-    d -> DataWriterActionProvider.deleteEntity(d, tableName, entityId, entitySaveStamp);
-
-    updater.addUpdate(updateAction);
-  }
-
-  public void deleteMultiBackReferenceEntry(
-    final String tableName,
-    final String entityId,
-    final int multiBackReferenceColumnOneBasedOrdinalIndex,
-    final String backReferencedEntityId) {
-    final Consumer<IMutableNode<?>> updateAction = //
-    d -> //
-    DataWriterActionProvider.deleteMultiBackReferenceEntry(
-      d,
-      tableName,
-      entityId,
-      multiBackReferenceColumnOneBasedOrdinalIndex,
-      backReferencedEntityId);
 
     updater.addUpdate(updateAction);
   }

@@ -81,6 +81,26 @@ public final class DataReader implements IDataReader {
    * {@inheritDoc}
    */
   @Override
+  public ExtendedIterable<EntityLoadingDto> loadEntities(final String tableName) {
+    final var tableView = getTableViewByTableName(tableName);
+
+    return internalDataReader.loadEntitiesOfTable(tableView);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public EntityLoadingDto loadEntity(final String tableName, final String entityId) {
+    final var tableView = getTableViewByTableName(tableName);
+
+    return internalDataReader.loadEntity(tableView, entityId);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public ExtendedIterable<String> loadMultiBackReferenceBackReferencedEntityIds(
     final String tableName,
     final String entityId,
@@ -139,28 +159,16 @@ public final class DataReader implements IDataReader {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<EntityLoadingDto> loadEntities(final String tableName) {
-    final var tableView = getTableViewByTableName(tableName);
-
-    return internalDataReader.loadEntitiesOfTable(tableView);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public EntityLoadingDto loadEntity(final String tableName, final String entityId) {
-    final var tableView = getTableViewByTableName(tableName);
-
-    return internalDataReader.loadEntity(tableView, entityId);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public void noteClose() {
     // Does nothing.
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean tableContainsEntity(final String tableName, final String entityId) {
+    return internalDataReader.tableContainsEntityWithGivenId(tableName, entityId);
   }
 
   /**
@@ -193,14 +201,6 @@ public final class DataReader implements IDataReader {
       columnView,
       value,
       entitiesToIgnoreIds);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public boolean tableContainsEntity(final String tableName, final String entityId) {
-    return internalDataReader.tableContainsEntityWithGivenId(tableName, entityId);
   }
 
   private ColumnInfoDto getColumnViewByTableNameAndColumnName(final String tableName, final String columnName) {

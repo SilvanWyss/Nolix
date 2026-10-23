@@ -182,17 +182,6 @@ public abstract class AbstractLongMediator extends AbstractMediator {
   /**
    * @param value
    * @throws RuntimeException if the argument of the current {@link LongMediator}
-   *                          equals the given value.
-   */
-  public final void isNotEqualTo(final long value) {
-    if (argument == value) {
-      throw EqualArgumentException.forArgumentAndArgumentNameAndEqualValue(argument, getArgumentName(), value);
-    }
-  }
-
-  /**
-   * @param value
-   * @throws RuntimeException if the argument of the current {@link LongMediator}
    *                          is bigger than the given value.
    */
   public final void isNotBiggerThan(final int value) {
@@ -207,6 +196,17 @@ public abstract class AbstractLongMediator extends AbstractMediator {
   public final void isNotBiggerThan(final long value) {
     if (argument > value) {
       throw BiggerArgumentException.forArgumentAndArgumentNameAndMax(argument, getArgumentName(), value);
+    }
+  }
+
+  /**
+   * @param value
+   * @throws RuntimeException if the argument of the current {@link LongMediator}
+   *                          equals the given value.
+   */
+  public final void isNotEqualTo(final long value) {
+    if (argument == value) {
+      throw EqualArgumentException.forArgumentAndArgumentNameAndEqualValue(argument, getArgumentName(), value);
     }
   }
 

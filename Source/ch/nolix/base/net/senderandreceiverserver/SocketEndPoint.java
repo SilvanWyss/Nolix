@@ -254,16 +254,16 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public PeerType getPeerType() {
-    return peerType;
+  public ConnectionType getConnectionType() {
+    return ConnectionType.SOCKET;
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public ConnectionType getConnectionType() {
-    return ConnectionType.SOCKET;
+  public PeerType getPeerType() {
+    return peerType;
   }
 
   /**

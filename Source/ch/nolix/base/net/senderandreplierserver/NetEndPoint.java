@@ -195,14 +195,6 @@ public final class NetEndPoint extends AbstractEndPoint {
   }
 
   /**
-   * {@inheritDoc}
-   */
-  @Override
-  public SecurityMode getSecurityMode() {
-    return memberInternalEndPoint.getSecurityMode();
-  }
-
-  /**
    * Sends the given message and returns the reply.
    * 
    * @param message
@@ -212,6 +204,14 @@ public final class NetEndPoint extends AbstractEndPoint {
   @Override
   public String getReplyForMessage(final String message) {
     return sendAndWaitToReply(message);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public SecurityMode getSecurityMode() {
+    return memberInternalEndPoint.getSecurityMode();
   }
 
   /**

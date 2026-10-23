@@ -15,27 +15,9 @@ import ch.nolix.systemapi.midschema.structure.TableIdentification;
  * @author Silvan Wyss
  */
 public interface ISchemaDataStatementCreator {
-  String createStatementToAddBackReferenceableColumn(
-    ColumnIdentification parentBaseBackReferenceColumn,
-    String referenceableColumnId);
-
   ExtendedIterable<String> createStatementsToAddColumn(TableIdentification table, ColumnDto column);
 
-  String createStatementToAddReferenceableTable(
-    ColumnIdentification parentBaseReferenceColumn,
-    String referenceableTableId);
-
-  String createStatementToAddTable(String tableId, String tableName);
-
   ExtendedIterable<String> createStatementsToAddTable(TableDto table);
-
-  String createStatementToDeleteColumn(TableIdentification table, String columnName);
-
-  String createStatementToDeleteTable(String tableName);
-
-  String createStatementToRenameColumn(String tableName, String columnName, String newColumnName);
-
-  String createStatementToRenameTable(String tableName, String newTableName);
 
   ExtendedIterable<String> createStatementsToSetContentModel(
     TableIdentification table,
@@ -44,4 +26,22 @@ public interface ISchemaDataStatementCreator {
     DataType dataType,
     ExtendedIterable<String> referenceableTableIds,
     ExtendedIterable<String> backReferenceableColumnIds);
+
+  String createStatementToAddBackReferenceableColumn(
+    ColumnIdentification parentBaseBackReferenceColumn,
+    String referenceableColumnId);
+
+  String createStatementToAddReferenceableTable(
+    ColumnIdentification parentBaseReferenceColumn,
+    String referenceableTableId);
+
+  String createStatementToAddTable(String tableId, String tableName);
+
+  String createStatementToDeleteColumn(TableIdentification table, String columnName);
+
+  String createStatementToDeleteTable(String tableName);
+
+  String createStatementToRenameColumn(String tableName, String columnName, String newColumnName);
+
+  String createStatementToRenameTable(String tableName, String newTableName);
 }

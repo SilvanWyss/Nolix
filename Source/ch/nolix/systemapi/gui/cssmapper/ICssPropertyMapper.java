@@ -23,13 +23,6 @@ public interface ICssPropertyMapper {
   ExtendedIterable<ICssProperty> mapBackgroundToCssProperties(IBackground background);
 
   /**
-   * @param cornerShadow
-   * @return a new {@link ICssProperty} from the given cornerShadow
-   * @throws RuntimeException if the given cornerShadow is null
-   */
-  ICssProperty mapCornerShadowToCssProperty(ICornerShadow cornerShadow);
-
-  /**
    * @param cornerShadows
    * @return a {@link Optional} with a new {@link ICssProperty} from the given
    *         cornerShadows if the given cornerShadows is not empty, an empty
@@ -38,6 +31,13 @@ public interface ICssPropertyMapper {
    *                          given cornerShadows is null
    */
   Optional<ICssProperty> mapCornerShadowsToOptionalCssProperty(ExtendedIterable<? extends ICornerShadow> cornerShadows);
+
+  /**
+   * @param cornerShadow
+   * @return a new {@link ICssProperty} from the given cornerShadow
+   * @throws RuntimeException if the given cornerShadow is null
+   */
+  ICssProperty mapCornerShadowToCssProperty(ICornerShadow cornerShadow);
 
   /**
    * @param lineDecoration

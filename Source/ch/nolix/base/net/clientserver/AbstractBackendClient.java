@@ -27,19 +27,19 @@ implements BackendClient<C, S> {
   private Application<C, S> optionalParentApplication;
 
   /**
-   * @return the name of the parent {@link AbstractApplication} of the current
-   *         {@link AbstractBackendClient}.
-   */
-  public final String getApplicationName() {
-    return getStoredParentApplication().getName();
-  }
-
-  /**
    * {@inheritDoc}
    */
   @Override
   public final IApplicationTarget getApplicationAsTarget() {
     return getStoredParentApplication().toTarget();
+  }
+
+  /**
+   * @return the name of the parent {@link AbstractApplication} of the current
+   *         {@link AbstractBackendClient}.
+   */
+  public final String getApplicationName() {
+    return getStoredParentApplication().getName();
   }
 
   /**

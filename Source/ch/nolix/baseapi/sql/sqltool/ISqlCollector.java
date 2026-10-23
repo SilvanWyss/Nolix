@@ -17,7 +17,7 @@ public interface ISqlCollector extends Clearable {
 
   ISqlCollector addSqlStatements(String... sqlStatements);
 
-  ExtendedIterable<String> getSqlStatements();
-
   void executeAndClearUsingConnection(ISqlConnection sqlConnection);
+
+  ExtendedIterable<String> getSqlStatements();
 }

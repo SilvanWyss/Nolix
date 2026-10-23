@@ -134,6 +134,15 @@ public final class InternalDataReader {
       .to(r -> VALUE_MAPPER.mapStringToValue(r.getStoredAtOneBasedIndex(1), multiValueColumnView.dataType()));
   }
 
+  public boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
+    final var entityCount = Integer.valueOf(
+      sqlConnection
+        .getSingleRecordFromQuery(ENTITY_QUERY_CREATOR.createQueryToCountEntitiesWithGivenId(tableName, id))
+        .getStoredAtOneBasedIndex(1));
+
+    return entityCount > 0;
+  }
+
   public boolean tableContainsEntityWithGivenValueAtGivenColumn(
     final String tableName,
     final ColumnInfoDto columnView,
@@ -184,15 +193,6 @@ public final class InternalDataReader {
       default ->
         throw InvalidArgumentException.forArgument(fieldType);
     };
-  }
-
-  public boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
-    final var entityCount = Integer.valueOf(
-      sqlConnection
-        .getSingleRecordFromQuery(ENTITY_QUERY_CREATOR.createQueryToCountEntitiesWithGivenId(tableName, id))
-        .getStoredAtOneBasedIndex(1));
-
-    return entityCount > 0;
   }
 
   private boolean multiReferenceEntryExistsForGivenColumnAndReferencedEntity(

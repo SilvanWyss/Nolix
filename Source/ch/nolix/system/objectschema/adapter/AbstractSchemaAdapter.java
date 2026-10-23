@@ -66,6 +66,14 @@ public abstract class AbstractSchemaAdapter implements SchemaAdapter {
    * {@inheritDoc}
    */
   @Override
+  public final int getSaveCount() {
+    return saveCount;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final ICloseController getStoredCloseController() {
     return closeController;
   }
@@ -84,14 +92,6 @@ public abstract class AbstractSchemaAdapter implements SchemaAdapter {
   @Override
   public final ExtendedIterable<? extends ITable> getStoredTables() {
     return database.getStoredTables();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final int getSaveCount() {
-    return saveCount;
   }
 
   /**

@@ -19,6 +19,12 @@ public interface IComplexNumber extends Comparable<IComplexNumber> {
 
   IComplexNumber getPower(int exponent);
 
+  IComplexNumber getPower2();
+
+  IComplexNumber getPower3();
+
+  IComplexNumber getPower4();
+
   IComplexNumber getProduct(BigDecimal number);
 
   IComplexNumber getProduct(double number);
@@ -26,12 +32,6 @@ public interface IComplexNumber extends Comparable<IComplexNumber> {
   IComplexNumber getProduct(IComplexNumber complexNumber);
 
   BigDecimal getRealComponent();
-
-  IComplexNumber getPower2();
-
-  IComplexNumber getPower3();
-
-  IComplexNumber getPower4();
 
   BigDecimal getSquaredMagnitude();
 

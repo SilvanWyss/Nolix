@@ -78,6 +78,15 @@ public final class InternalDataReader {
       .to(rn -> ENTITY_LOADING_DTO_MAPPER.mapEntityNodeToEntityLoadingDto(rn, tableView));
   }
 
+  public EntityLoadingDto loadEntity(final TableInfoDto tableView, final String id) {
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
+      tableView.name());
+
+    final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNode(tableNode, id);
+
+    return ENTITY_LOADING_DTO_MAPPER.mapEntityNodeToEntityLoadingDto(entityNode, tableView);
+  }
+
   public ExtendedIterable<String> loadMultiBackReferenceBackReferencedEntityIds(
     final String tableName,
     final String entityId,
@@ -154,13 +163,10 @@ public final class InternalDataReader {
       .to(a -> VALUE_MAPPER.mapStringToValue(a.getHeader(), multiValueColumnView.dataType()));
   }
 
-  public EntityLoadingDto loadEntity(final TableInfoDto tableView, final String id) {
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
-      tableView.name());
+  public boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
-    final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNode(tableNode, id);
-
-    return ENTITY_LOADING_DTO_MAPPER.mapEntityNodeToEntityLoadingDto(entityNode, tableView);
+    return TABLE_NODE_EXAMINER.tableNodeContainsEntityNodeWithGivenId(tableNode, id);
   }
 
   public boolean tableContainsEntityWithGivenValueAtGivenColumn(
@@ -191,11 +197,5 @@ public final class InternalDataReader {
       columnOneBasedOrdinalIndex,
       value,
       entitiesToIgnoreIds);
-  }
-
-  public boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
-
-    return TABLE_NODE_EXAMINER.tableNodeContainsEntityNodeWithGivenId(tableNode, id);
   }
 }

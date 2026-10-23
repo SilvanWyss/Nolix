@@ -86,46 +86,6 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    * {@inheritDoc}
    */
   @Override
-  public ISequencePattern<E> withBlankForNext() {
-    return withConditionForNext(blankCondition);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public ISequencePattern<E> withConditionForNext(final Predicate<E> condition) {
-    final var allElementConditions = ExtendedIterableView.forIterableAndElement(elementConditions, condition);
-
-    return withElementConditionsAndSequenceConditions(allElementConditions, sequenceConditions);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public ISequencePattern<E> withConditionsForNexts(ExtendedIterable<Predicate<E>> conditions) {
-    Validator.assertThatTheElements(conditions).areNotNull();
-
-    final var allElementConditions = ExtendedIterableView.forIterables(elementConditions, conditions);
-
-    return withElementConditionsAndSequenceConditions(allElementConditions, sequenceConditions);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public ISequencePattern<E> withSequenceCondition(final Predicate<ExtendedIterable<E>> sequenceCondition) {
-    final var newSequenceConditions = ExtendedIterableView.forIterableAndElement(sequenceConditions, sequenceCondition);
-
-    return withElementConditionsAndSequenceConditions(elementConditions, newSequenceConditions);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public SequencePatternNextMediator<E> forNext(final int count) {
     return SequencePatternNextMediator.forSequencePatternAndCount(this, count);
   }
@@ -207,5 +167,45 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
 
     // Asserts that the given list fulfils the sequence conditions of the current SequencePattern.
     return sequenceConditions.containsMatchingOnly(sc -> sc.test(list));
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ISequencePattern<E> withBlankForNext() {
+    return withConditionForNext(blankCondition);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ISequencePattern<E> withConditionForNext(final Predicate<E> condition) {
+    final var allElementConditions = ExtendedIterableView.forIterableAndElement(elementConditions, condition);
+
+    return withElementConditionsAndSequenceConditions(allElementConditions, sequenceConditions);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ISequencePattern<E> withConditionsForNexts(ExtendedIterable<Predicate<E>> conditions) {
+    Validator.assertThatTheElements(conditions).areNotNull();
+
+    final var allElementConditions = ExtendedIterableView.forIterables(elementConditions, conditions);
+
+    return withElementConditionsAndSequenceConditions(allElementConditions, sequenceConditions);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ISequencePattern<E> withSequenceCondition(final Predicate<ExtendedIterable<E>> sequenceCondition) {
+    final var newSequenceConditions = ExtendedIterableView.forIterableAndElement(sequenceConditions, sequenceCondition);
+
+    return withElementConditionsAndSequenceConditions(elementConditions, newSequenceConditions);
   }
 }

@@ -10,14 +10,6 @@ import ch.nolix.baseapi.document.node.IMutableNode;
  * @author Silvan Wyss
  */
 public interface ITableNodeExaminer {
-  boolean tableNodeContainsEntityNodeWithFieldAtGivenOneBasedIndexWithGivenValueIgnoringGivenEntities(
-    IMutableNode<?> tableNode,
-    int oneBasedIndex,
-    String value,
-    ExtendedIterable<String> entitiesToIgnoreIds);
-
-  boolean tableNodeContainsEntityNodeWithGivenId(IMutableNode<?> tableNode, String id);
-
   boolean tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenValue(
     IMutableNode<?> tableNode,
     int valueIndex,
@@ -27,4 +19,12 @@ public interface ITableNodeExaminer {
     IMutableNode<?> tableNode,
     int index,
     String header);
+
+  boolean tableNodeContainsEntityNodeWithFieldAtGivenOneBasedIndexWithGivenValueIgnoringGivenEntities(
+    IMutableNode<?> tableNode,
+    int oneBasedIndex,
+    String value,
+    ExtendedIterable<String> entitiesToIgnoreIds);
+
+  boolean tableNodeContainsEntityNodeWithGivenId(IMutableNode<?> tableNode, String id);
 }

@@ -42,6 +42,13 @@ public final class StopWatch {
     return running;
   }
 
+  public synchronized void start() {
+    assertIsNotRunning();
+
+    latestStartInMilliseconds = System.currentTimeMillis();
+    running = true;
+  }
+
   public synchronized void stop() {
     assertIsRunning();
 
@@ -68,13 +75,6 @@ public final class StopWatch {
     running = false;
 
     return totalRunningTimeInMilliseconds;
-  }
-
-  public synchronized void start() {
-    assertIsNotRunning();
-
-    latestStartInMilliseconds = System.currentTimeMillis();
-    running = true;
   }
 
   private void assertIsNotRunning() {

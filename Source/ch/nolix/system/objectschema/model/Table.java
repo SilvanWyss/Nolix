@@ -79,14 +79,6 @@ public final class Table extends AbstractSchemaObject implements ITable {
    * {@inheritDoc}
    */
   @Override
-  public boolean belongsToDatabase() {
-    return (parentDatabase != null);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public Table addColumnWithNameAndContentModel(
     final String name,
     final FieldType fieldType,
@@ -105,6 +97,14 @@ public final class Table extends AbstractSchemaObject implements ITable {
       backReferenceableColumns);
 
     return addColumn(column);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean belongsToDatabase() {
+    return (parentDatabase != null);
   }
 
   /**
@@ -146,18 +146,18 @@ public final class Table extends AbstractSchemaObject implements ITable {
    * {@inheritDoc}
    */
   @Override
-  public Database getStoredParentDatabase() {
-    assertBelongsToDatabase();
-
-    return parentDatabase;
+  public ExtendedIterable<? extends IColumn> getStoredColumns() {
+    return memberColumns;
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<? extends IColumn> getStoredColumns() {
-    return memberColumns;
+  public Database getStoredParentDatabase() {
+    assertBelongsToDatabase();
+
+    return parentDatabase;
   }
 
   /**

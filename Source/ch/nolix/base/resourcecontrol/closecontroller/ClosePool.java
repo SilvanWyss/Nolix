@@ -59,16 +59,16 @@ final class ClosePool implements IClosePool {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<GroupCloseable> getStoredElements() {
-    return memberElements;
+  public Openness getState() {
+    return state;
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public Openness getState() {
-    return state;
+  public ExtendedIterable<GroupCloseable> getStoredElements() {
+    return memberElements;
   }
 
   /**

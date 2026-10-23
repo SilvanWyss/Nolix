@@ -15,11 +15,11 @@ public interface IMatrix<E> extends Clearable, ExtendedIterable<E> {
 
   ExtendedIterable<IMatrixColumn<E>> getColumns();
 
-  E getStoredAtOneBasedRowIndexAndColumnIndex(int oneBasedRowIndex, int oneBasedColumnIndex);
-
   int getRowCount();
 
   ExtendedIterable<IMatrixRow<E>> getRows();
+
+  E getStoredAtOneBasedRowIndexAndColumnIndex(int oneBasedRowIndex, int oneBasedColumnIndex);
 
   void setAtOneBasedRowIndexAndColumnIndex(int oneBasedRowIndex, int oneBasedColumnIndex, E element);
 }

@@ -252,6 +252,16 @@ extends AbstractControl<M, S> implements IItemMenu<M, S> {
    * {@inheritDoc}
    */
   @Override
+  public final void internalRunOptionalSelectActionForItem(final IItemMenuItem<?> item) {
+    if (hasSelectAction()) {
+      memberSelectAction.accept(item);
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final boolean isEmpty() {
     return getStoredItems().isEmpty();
   }
@@ -355,16 +365,6 @@ extends AbstractControl<M, S> implements IItemMenu<M, S> {
     }
 
     return asConcrete();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void internalRunOptionalSelectActionForItem(final IItemMenuItem<?> item) {
-    if (hasSelectAction()) {
-      memberSelectAction.accept(item);
-    }
   }
 
   /**

@@ -34,13 +34,13 @@ public interface IFractalTool {
 
   BigDecimal getSquaredMinMagnitudeForDivergence(IFractal fractal);
 
-  BigDecimal getUnitsPerHorizontalPixel(IFractal fractal);
-
-  BigDecimal getUnitsPerVerticalPixel(IFractal fractal);
-
   BigDecimal getUnitsForHorizontalPixelCount(IFractal fractal, double horizontalPixelCount);
 
   BigDecimal getUnitsForVerticalPixelCount(IFractal fractal, double verticalPixelCount);
+
+  BigDecimal getUnitsPerHorizontalPixel(IFractal fractal);
+
+  BigDecimal getUnitsPerVerticalPixel(IFractal fractal);
 
   BigDecimal getWidthInPixelAsBigDecimal(IFractal fractal);
 

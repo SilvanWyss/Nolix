@@ -359,41 +359,6 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
   }
 
   /**
-   * @return the element of the current {@link MutableMatrix} at the given index
-   * @throws RuntimeException if the given index is not positive
-   * @throws RuntimeException if the given index is bigger than the number of
-   *                          elements of the current {@link MutableMatrix}.
-   */
-  @Override
-  public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
-    return getStoredAtOneBasedRowIndexAndColumnIndex(getRowIndexOf(oneBasedIndex), getColumnIndexOf(oneBasedIndex));
-  }
-
-  /**
-   * The time complexity of this implementation is O(1).
-   * 
-   * @param oneBasedRowIndex
-   * @param oneBasedColumnIndex
-   * @return the element of the current {@link MutableMatrix} at the given row
-   *         index and column index
-   * @throws RuntimeException if the given row index is not positive
-   * @throws RuntimeException if the given row index is bigger than the number of
-   *                          rows of the current {@link MutableMatrix}
-   * @throws RuntimeException if the given column index is not positive
-   * @throws RuntimeException if the given column index is bigger than the number
-   *                          of columns of the current {@link MutableMatrix}.
-   */
-  @Override
-  @SuppressWarnings("unchecked")
-  public E getStoredAtOneBasedRowIndexAndColumnIndex(final int oneBasedRowIndex, final int oneBasedColumnIndex) {
-    // Asserts that the current matrix contains an element at the given row index
-    // and column index.
-    assertContainsAt(oneBasedRowIndex, oneBasedColumnIndex);
-
-    return (E) memberElements[oneBasedRowIndex - 1][oneBasedColumnIndex - 1];
-  }
-
-  /**
    * @param oneBasedRowIndex
    * @return the row of the current {@link MutableMatrix} at the given
    *         oneBasedRowIndex
@@ -403,6 +368,22 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
    */
   public IMatrixRow<E> getRow(final int oneBasedRowIndex) {
     return MatrixRow.forMatrixAndOneBasedRowIndex(this, oneBasedRowIndex);
+  }
+
+  /**
+   * The time complexity of this implementation is O(1).
+   * 
+   * @return the number of rows of the current {@link MutableMatrix}.
+   */
+  @Override
+  public int getRowCount() {
+    // Handles the case that the current {@link Matrix} is empty.
+    if (memberElements.length < 1) {
+      return 0;
+    }
+
+    // Handles the case that the current {@link Matrix} is not empty.
+    return memberElements.length;
   }
 
   /**
@@ -441,19 +422,38 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
   }
 
   /**
-   * The time complexity of this implementation is O(1).
-   * 
-   * @return the number of rows of the current {@link MutableMatrix}.
+   * @return the element of the current {@link MutableMatrix} at the given index
+   * @throws RuntimeException if the given index is not positive
+   * @throws RuntimeException if the given index is bigger than the number of
+   *                          elements of the current {@link MutableMatrix}.
    */
   @Override
-  public int getRowCount() {
-    // Handles the case that the current {@link Matrix} is empty.
-    if (memberElements.length < 1) {
-      return 0;
-    }
+  public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
+    return getStoredAtOneBasedRowIndexAndColumnIndex(getRowIndexOf(oneBasedIndex), getColumnIndexOf(oneBasedIndex));
+  }
 
-    // Handles the case that the current {@link Matrix} is not empty.
-    return memberElements.length;
+  /**
+   * The time complexity of this implementation is O(1).
+   * 
+   * @param oneBasedRowIndex
+   * @param oneBasedColumnIndex
+   * @return the element of the current {@link MutableMatrix} at the given row
+   *         index and column index
+   * @throws RuntimeException if the given row index is not positive
+   * @throws RuntimeException if the given row index is bigger than the number of
+   *                          rows of the current {@link MutableMatrix}
+   * @throws RuntimeException if the given column index is not positive
+   * @throws RuntimeException if the given column index is bigger than the number
+   *                          of columns of the current {@link MutableMatrix}.
+   */
+  @Override
+  @SuppressWarnings("unchecked")
+  public E getStoredAtOneBasedRowIndexAndColumnIndex(final int oneBasedRowIndex, final int oneBasedColumnIndex) {
+    // Asserts that the current matrix contains an element at the given row index
+    // and column index.
+    assertContainsAt(oneBasedRowIndex, oneBasedColumnIndex);
+
+    return (E) memberElements[oneBasedRowIndex - 1][oneBasedColumnIndex - 1];
   }
 
   /**
@@ -531,32 +531,6 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
     memberElements[oneBasedRowIndex - 1][oneBasedColumnIndex - 1] = element;
   }
 
-  /**
-   * The time complexity of this implementation is O(n) if: -This matrix contains
-   * n elements. -The given transformer has a complexity of O(1).
-   * 
-   * @param transformer
-   * @param <O>         the type of the elements the given transformer returns
-   * @return a new matrix with the elements the given transformer transforms of
-   *         the elements of the current {@link MutableMatrix}.
-   */
-  @SuppressWarnings("unchecked")
-  public <O> MutableMatrix<O> toMatrix(final Function<E, O> transformer) {
-    // Creates matrix.
-    final var matrix = new MutableMatrix<O>();
-
-    // Fills up the elements of the matrix.
-    matrix.memberElements = new Object[getRowCount()][getColumnCount()];
-    for (var i = 0; i < getRowCount(); i++) {
-      // Iterates the columns of the current row.
-      for (var j = 0; j < getColumnCount(); j++) {
-        matrix.memberElements[i][j] = transformer.apply((E) memberElements[i][j]);
-      }
-    }
-
-    return matrix;
-  }
-
   // For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
@@ -583,6 +557,32 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
     }
 
     return leftRotatedMatrix;
+  }
+
+  /**
+   * The time complexity of this implementation is O(n) if: -This matrix contains
+   * n elements. -The given transformer has a complexity of O(1).
+   * 
+   * @param transformer
+   * @param <O>         the type of the elements the given transformer returns
+   * @return a new matrix with the elements the given transformer transforms of
+   *         the elements of the current {@link MutableMatrix}.
+   */
+  @SuppressWarnings("unchecked")
+  public <O> MutableMatrix<O> toMatrix(final Function<E, O> transformer) {
+    // Creates matrix.
+    final var matrix = new MutableMatrix<O>();
+
+    // Fills up the elements of the matrix.
+    matrix.memberElements = new Object[getRowCount()][getColumnCount()];
+    for (var i = 0; i < getRowCount(); i++) {
+      // Iterates the columns of the current row.
+      for (var j = 0; j < getColumnCount(); j++) {
+        matrix.memberElements[i][j] = transformer.apply((E) memberElements[i][j]);
+      }
+    }
+
+    return matrix;
   }
 
   // For a better performance, this implementation does not use all available comfort methods.

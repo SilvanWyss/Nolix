@@ -91,6 +91,16 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
    * {@inheritDoc}
    */
   @Override
+  public int getAbsoluteValue() {
+    assertIsAbsolute();
+
+    return absoluteValue;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public ExtendedIterable<Node<?>> getAttributes() {
     final ILinkedList<Node<?>> attributes = LinkedList.createEmpty();
 
@@ -103,16 +113,6 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
     }
 
     return attributes;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public int getAbsoluteValue() {
-    assertIsAbsolute();
-
-    return absoluteValue;
   }
 
   /**

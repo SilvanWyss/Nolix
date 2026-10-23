@@ -78,14 +78,6 @@ public final class ImageControl extends AbstractControl<IImageControl, IImageCon
    * {@inheritDoc}
    */
   @Override
-  public boolean isEmpty() {
-    return image.isEmpty();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public String getAlternateText() {
     return alternateText.getStoredValue();
   }
@@ -152,6 +144,14 @@ public final class ImageControl extends AbstractControl<IImageControl, IImageCon
   @Override
   public boolean hasRole(final String role) {
     return false;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean isEmpty() {
+    return image.isEmpty();
   }
 
   /**

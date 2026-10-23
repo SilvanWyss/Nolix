@@ -86,8 +86,8 @@ public final class FractalBuilder implements IFractalBuilder {
    * {@inheritDoc}
    */
   @Override
-  public IFractalBuilder setDecimalPlaces(final int decimalPlaces) {
-    this.decimalPlaces = decimalPlaces;
+  public IFractalBuilder setColorFunction(final IntFunction<IColor> colorFunction) {
+    this.colorFunction = colorFunction;
 
     return this;
   }
@@ -96,8 +96,8 @@ public final class FractalBuilder implements IFractalBuilder {
    * {@inheritDoc}
    */
   @Override
-  public IFractalBuilder setColorFunction(final IntFunction<IColor> colorFunction) {
-    this.colorFunction = colorFunction;
+  public IFractalBuilder setDecimalPlaces(final int decimalPlaces) {
+    this.decimalPlaces = decimalPlaces;
 
     return this;
   }
@@ -134,24 +134,6 @@ public final class FractalBuilder implements IFractalBuilder {
    * {@inheritDoc}
    */
   @Override
-  public IFractalBuilder setRealComponentInterval(final double min, final double max) {
-    return setRealComponentInterval(ClosedInterval.withMinAndMax(min, max));
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public IFractalBuilder setRealComponentInterval(final IClosedInterval realComponentInterval) {
-    this.realComponentInterval = realComponentInterval;
-
-    return this;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public IFractalBuilder setMaxIterationCount(final int sequencesMaxIterationCount) {
     this.sequencesMaxIterationCount = sequencesMaxIterationCount;
 
@@ -174,6 +156,24 @@ public final class FractalBuilder implements IFractalBuilder {
   @Override
   public IFractalBuilder setMinMagnitudeForDivergence(final double minMagnitudeForDivergence) {
     return setMinMagnitudeForDivergence(BigDecimal.valueOf(minMagnitudeForDivergence));
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IFractalBuilder setRealComponentInterval(final double min, final double max) {
+    return setRealComponentInterval(ClosedInterval.withMinAndMax(min, max));
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IFractalBuilder setRealComponentInterval(final IClosedInterval realComponentInterval) {
+    this.realComponentInterval = realComponentInterval;
+
+    return this;
   }
 
   /**

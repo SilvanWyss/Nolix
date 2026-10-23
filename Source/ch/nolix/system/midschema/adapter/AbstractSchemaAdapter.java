@@ -96,16 +96,24 @@ public abstract class AbstractSchemaAdapter implements SchemaAdapter {
    * {@inheritDoc}
    */
   @Override
-  public final ICloseController getStoredCloseController() {
-    return closeController;
+  public final int getSaveCount() {
+    return schemaWriter.getSaveCount();
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public final int getSaveCount() {
-    return schemaWriter.getSaveCount();
+  public final ITime getSchemaTimestamp() {
+    return schemaReader.getSchemaTimestamp();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final ICloseController getStoredCloseController() {
+    return closeController;
   }
 
   /**
@@ -122,14 +130,6 @@ public abstract class AbstractSchemaAdapter implements SchemaAdapter {
   @Override
   public final boolean hasChanges() {
     return schemaWriter.hasChanges();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final ITime getSchemaTimestamp() {
-    return schemaReader.getSchemaTimestamp();
   }
 
   /**
@@ -160,22 +160,6 @@ public abstract class AbstractSchemaAdapter implements SchemaAdapter {
    * {@inheritDoc}
    */
   @Override
-  public final void reset() {
-    schemaWriter.reset();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void saveChanges() {
-    schemaWriter.saveChanges();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public final void renameColumn(final String tableName, final String columnName, final String newColumnName) {
     schemaWriter.renameColumn(tableName, columnName, newColumnName);
   }
@@ -186,6 +170,22 @@ public abstract class AbstractSchemaAdapter implements SchemaAdapter {
   @Override
   public final void renameTable(final String tableName, final String newTableName) {
     schemaWriter.renameTable(tableName, newTableName);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void reset() {
+    schemaWriter.reset();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void saveChanges() {
+    schemaWriter.saveChanges();
   }
 
   /**

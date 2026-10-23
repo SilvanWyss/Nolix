@@ -207,16 +207,16 @@ implements Control<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final Presence getPresence() {
-    return presence.getStoredValue();
+  public final Optional<Control<?, ?>> getOptionalStoredChildControlByInternalId(final String internalId) {
+    return getStoredChildControls().getOptionalStoredFirst(cs -> cs.hasInternalId(internalId));
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public final Optional<Control<?, ?>> getOptionalStoredChildControlByInternalId(final String internalId) {
-    return getStoredChildControls().getOptionalStoredFirst(cs -> cs.hasInternalId(internalId));
+  public final Presence getPresence() {
+    return presence.getStoredValue();
   }
 
   /**
@@ -504,8 +504,8 @@ implements Control<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final C setVisible() {
-    setPresence(Presence.VISIBLE);
+  public final C setVisibility(final boolean visible) {
+    voidSetVisibility(visible);
 
     return asConcrete();
   }
@@ -514,8 +514,8 @@ implements Control<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final C setVisibility(final boolean visible) {
-    voidSetVisibility(visible);
+  public final C setVisible() {
+    setPresence(Presence.VISIBLE);
 
     return asConcrete();
   }

@@ -118,6 +118,14 @@ public final class LocalEndPoint extends AbstractEndPoint {
   }
 
   /**
+   * @return the target of this {@link LocalEndPoint}.
+   */
+  @Override
+  public String getCustomTargetSlot() {
+    return customTargetSlot;
+  }
+
+  /**
    * @return the data the given request requests from this local duplex controller
    * @throws ArgumentDoesNotHaveAttributeException if this {@link LocalEndPoint}
    *                                               does not have a receiver
@@ -145,21 +153,6 @@ public final class LocalEndPoint extends AbstractEndPoint {
   }
 
   /**
-   * @return the counterpart of this {@link LocalEndPoint}.
-   */
-  public LocalEndPoint getStoredCounterpart() {
-    return counterpart;
-  }
-
-  /**
-   * @return the target of this {@link LocalEndPoint}.
-   */
-  @Override
-  public String getCustomTargetSlot() {
-    return customTargetSlot;
-  }
-
-  /**
    * {@inheritDoc}
    */
   @Override
@@ -173,6 +166,13 @@ public final class LocalEndPoint extends AbstractEndPoint {
   @Override
   public SecurityMode getSecurityMode() {
     return SecurityMode.NONE;
+  }
+
+  /**
+   * @return the counterpart of this {@link LocalEndPoint}.
+   */
+  public LocalEndPoint getStoredCounterpart() {
+    return counterpart;
   }
 
   /**

@@ -550,6 +550,16 @@ public final class Color extends AbstractElement implements IColor {
    * {@inheritDoc}
    */
   @Override
+  public Color withAlphaValue(final int alphaValue) {
+    return //
+    withRedValueAndGreenValueAndBlueValueAndAlphaValue(memberRedValue, memberGreenValue, memberBlueValue, alphaValue);
+  }
+
+  // For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public IColor withFloatingPointAlphaValue(final double floatingPointAlphaValue) {
     Validator
       .assertThat(floatingPointAlphaValue)
@@ -570,15 +580,5 @@ public final class Color extends AbstractElement implements IColor {
   @Override
   public Color withFullAlphaValue() {
     return new Color(memberRedValue, memberGreenValue, memberBlueValue);
-  }
-
-  // For a better performance, this implementation does not use all available comfort methods.
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public Color withAlphaValue(final int alphaValue) {
-    return //
-    withRedValueAndGreenValueAndBlueValueAndAlphaValue(memberRedValue, memberGreenValue, memberBlueValue, alphaValue);
   }
 }

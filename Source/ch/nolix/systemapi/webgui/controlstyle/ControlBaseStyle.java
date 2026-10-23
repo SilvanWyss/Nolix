@@ -17,6 +17,18 @@ public interface ControlBaseStyle<S extends ControlBaseStyle<S>> extends MultiSt
 
   boolean definesTextLineDecorationForState(ControlState state);
 
+  S forStateSetBoldTextFlag(ControlState state, boolean boldTextFlag);
+
+  S forStateSetFont(ControlState state, Font font);
+
+  S forStateSetOpacity(ControlState state, double opacity);
+
+  S forStateSetTextColor(ControlState state, IColor textColor);
+
+  S forStateSetTextLineDecoration(ControlState state, LineDecoration textLineDecoration);
+
+  S forStateSetTextSize(ControlState state, int textSize);
+
   boolean getBoldTextFlagWhenHasState(ControlState state); // NOSONAR: This method returns a flag as a boolean.
 
   Font getFontWhenHasState(ControlState state);
@@ -40,16 +52,4 @@ public interface ControlBaseStyle<S extends ControlBaseStyle<S>> extends MultiSt
   void removeCustomTextLineDecorations();
 
   void removeCustomTextSizes();
-
-  S forStateSetBoldTextFlag(ControlState state, boolean boldTextFlag);
-
-  S forStateSetFont(ControlState state, Font font);
-
-  S forStateSetOpacity(ControlState state, double opacity);
-
-  S forStateSetTextColor(ControlState state, IColor textColor);
-
-  S forStateSetTextLineDecoration(ControlState state, LineDecoration textLineDecoration);
-
-  S forStateSetTextSize(ControlState state, int textSize);
 }

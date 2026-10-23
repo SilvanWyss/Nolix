@@ -72,30 +72,6 @@ public final class BackReference<E extends Entity> extends AbstractBaseBackRefer
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<BaseReference> getStoredBackReferencedBaseReferences() {
-    if (isEmpty()) {
-      return ImmutableList.createEmpty();
-    }
-
-    final var backReferencedField = //
-    (BaseReference) //
-    ENTITY_SEARCHER.getStoredFieldByName(getStoredBackReferencedEntity(), getBackReferencedFieldName());
-
-    return ImmutableList.withElements(backReferencedField);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public FieldType getType() {
-    return FieldType.BACK_REFERENCE;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public String getBackReferencedEntityId() {
     FIELD_VALIDATOR.assertIsNotEmpty(this);
 
@@ -132,6 +108,22 @@ public final class BackReference<E extends Entity> extends AbstractBaseBackRefer
    * {@inheritDoc}
    */
   @Override
+  public ExtendedIterable<BaseReference> getStoredBackReferencedBaseReferences() {
+    if (isEmpty()) {
+      return ImmutableList.createEmpty();
+    }
+
+    final var backReferencedField = //
+    (BaseReference) //
+    ENTITY_SEARCHER.getStoredFieldByName(getStoredBackReferencedEntity(), getBackReferencedFieldName());
+
+    return ImmutableList.withElements(backReferencedField);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public E getStoredBackReferencedEntity() {
     return getStoredBackReferencedTable().getStoredEntityById(getBackReferencedEntityId());
   }
@@ -155,6 +147,14 @@ public final class BackReference<E extends Entity> extends AbstractBaseBackRefer
     final var database = nullableBackReferencedEntityCache.nullableEntity().getStoredParentDatabase();
 
     return (ITable<E>) DATABASE_SEARCHER.getStoredTableById(database, getBackReferencedTableId());
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public FieldType getType() {
+    return FieldType.BACK_REFERENCE;
   }
 
   /**

@@ -183,6 +183,14 @@ public final class DataWriter implements IDataWriter {
    * {@inheritDoc}
    */
   @Override
+  public ICloseController getStoredCloseController() {
+    return closeController;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean hasChanges() {
     return executiveDataWriter.hasUpdates();
   }
@@ -270,14 +278,6 @@ public final class DataWriter implements IDataWriter {
     final var value = multiValueEntry.value();
 
     executiveDataWriter.insertMultiValueEntry(tableName, entityId, multiValueColumnOneBasedOrdinalIndex, value);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public ICloseController getStoredCloseController() {
-    return closeController;
   }
 
   /**

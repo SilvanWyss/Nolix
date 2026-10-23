@@ -103,17 +103,17 @@ implements IWebGui<WebGui> {
     setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
   }
 
-  @Override
-  public boolean containsControl(final Control<?, ?> control) {
-    return layerStack.containsControl(control);
-  }
-
   /**
    * {@inheritDoc}
    */
   @Override
   public void clear() {
     layerStack.clear();
+  }
+
+  @Override
+  public boolean containsControl(final Control<?, ?> control) {
+    return layerStack.containsControl(control);
   }
 
   /**
@@ -192,20 +192,20 @@ implements IWebGui<WebGui> {
    * {@inheritDoc}
    */
   @Override
-  public Image getIcon() {
-    return icon.getStoredValue();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public ExtendedIterable<IHtmlElementEvent> getHtmlElementEventRegistrations() {
     final ILinkedList<IHtmlElementEvent> htmlElementEventRegistrations = LinkedList.createEmpty();
 
     registerHtmlElementEventsAt(htmlElementEventRegistrations);
 
     return htmlElementEventRegistrations;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public Image getIcon() {
+    return icon.getStoredValue();
   }
 
   /**

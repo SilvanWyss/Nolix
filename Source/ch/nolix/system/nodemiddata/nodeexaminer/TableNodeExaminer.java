@@ -17,31 +17,6 @@ public final class TableNodeExaminer implements ITableNodeExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean tableNodeContainsEntityNodeWithFieldAtGivenOneBasedIndexWithGivenValueIgnoringGivenEntities(
-    final IMutableNode<?> tableNode,
-    final int oneBasedIndex,
-    final String value,
-    final ExtendedIterable<String> entitiesToIgnoreIds) {
-    return //
-    tableNode.containsChildNode(
-      a -> a.hasHeader(NodeHeaderCatalog.ENTITY)
-      && a.getStoredChildNodeAtOneBasedIndex(oneBasedIndex).hasHeader(value)
-      && !entitiesToIgnoreIds
-        .containsEqual(a.getStoredChildNodeAtOneBasedIndex(FieldIndexCatalog.ID_INDEX).getHeader()));
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public boolean tableNodeContainsEntityNodeWithGivenId(final IMutableNode<?> tableNode, final String id) {
-    return tableNodeContainsEntityNodeWhoseFieldAtGivenIndexHasGivenHeader(tableNode, FieldIndexCatalog.ID_INDEX, id);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public boolean tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenValue(
     final IMutableNode<?> tableNode,
     final int valueIndex,
@@ -69,5 +44,30 @@ public final class TableNodeExaminer implements ITableNodeExaminer {
     tableNode.containsChildNode(
       a -> a.hasHeader(NodeHeaderCatalog.ENTITY)
       && a.getStoredChildNodeAtOneBasedIndex(valueIndex).hasHeader(header));
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean tableNodeContainsEntityNodeWithFieldAtGivenOneBasedIndexWithGivenValueIgnoringGivenEntities(
+    final IMutableNode<?> tableNode,
+    final int oneBasedIndex,
+    final String value,
+    final ExtendedIterable<String> entitiesToIgnoreIds) {
+    return //
+    tableNode.containsChildNode(
+      a -> a.hasHeader(NodeHeaderCatalog.ENTITY)
+      && a.getStoredChildNodeAtOneBasedIndex(oneBasedIndex).hasHeader(value)
+      && !entitiesToIgnoreIds
+        .containsEqual(a.getStoredChildNodeAtOneBasedIndex(FieldIndexCatalog.ID_INDEX).getHeader()));
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean tableNodeContainsEntityNodeWithGivenId(final IMutableNode<?> tableNode, final String id) {
+    return tableNodeContainsEntityNodeWhoseFieldAtGivenIndexHasGivenHeader(tableNode, FieldIndexCatalog.ID_INDEX, id);
   }
 }

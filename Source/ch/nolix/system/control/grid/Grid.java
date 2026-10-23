@@ -78,19 +78,19 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
    * {@inheritDoc}
    */
   @Override
-  public Control<?, ?> getStoredChildControlAtOneBasedRowAndColumnIndex(
-    final int oneBasedRowIndex,
-    final int oneBasedColumnIndex) {
-    return cells.getStoredAtOneBasedRowIndexAndColumnIndex(oneBasedRowIndex, oneBasedColumnIndex)
-      .getStoredControl();
+  public int getRowCount() {
+    return cells.getRowCount();
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public int getRowCount() {
-    return cells.getRowCount();
+  public Control<?, ?> getStoredChildControlAtOneBasedRowAndColumnIndex(
+    final int oneBasedRowIndex,
+    final int oneBasedColumnIndex) {
+    return cells.getStoredAtOneBasedRowIndexAndColumnIndex(oneBasedRowIndex, oneBasedColumnIndex)
+      .getStoredControl();
   }
 
   /**

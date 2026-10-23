@@ -12,13 +12,13 @@ import ch.nolix.baseapi.net.senderandreceiverserver.Slot;
 public final class MockSlot implements Slot {
   private String latestReceivedMessage;
 
+  public String getLatestReceivedMessage() {
+    return latestReceivedMessage;
+  }
+
   @Override
   public String getName() {
     return "slot";
-  }
-
-  public String getLatestReceivedMessage() {
-    return latestReceivedMessage;
   }
 
   /**

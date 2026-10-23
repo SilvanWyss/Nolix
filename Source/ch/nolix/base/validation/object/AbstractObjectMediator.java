@@ -106,18 +106,6 @@ public abstract class AbstractObjectMediator<A> extends AbstractMediator {
   /**
    * @param object
    * @throws RuntimeException if the argument of the current
-   *                          {@link AbstractObjectMediator} does not equal the
-   *                          given object.
-   */
-  public final void isEqualTo(final Object object) {
-    if (!Objects.equals(getStoredArgument(), object)) {
-      throw UnequalArgumentException.forArgumentAndValue(argument, object);
-    }
-  }
-
-  /**
-   * @param object
-   * @throws RuntimeException if the argument of the current
    *                          {@link AbstractObjectMediator} is not (!) the given
    *                          object.
    */
@@ -128,6 +116,18 @@ public abstract class AbstractObjectMediator<A> extends AbstractMediator {
         getStoredArgument(),
         getArgumentName(),
         "is not the given object");
+    }
+  }
+
+  /**
+   * @param object
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractObjectMediator} does not equal the
+   *                          given object.
+   */
+  public final void isEqualTo(final Object object) {
+    if (!Objects.equals(getStoredArgument(), object)) {
+      throw UnequalArgumentException.forArgumentAndValue(argument, object);
     }
   }
 

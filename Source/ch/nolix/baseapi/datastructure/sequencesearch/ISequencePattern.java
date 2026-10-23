@@ -24,6 +24,21 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
  */
 public interface ISequencePattern<E> {
   /**
+   * @param count
+   * @return a new {@link ISequencePatternNextMediator} for the current
+   *         {@link ISequencePattern} and the given count
+   * @throws RuntimeException if the given count is negative
+   */
+  ISequencePatternNextMediator<E> forNext(int count);
+
+  /**
+   * @param container
+   * @return all sequences from the given container that match the current
+   *         {@link ISequencePattern}
+   */
+  ExtendedIterable<? extends ExtendedIterable<E>> getMatchingSequencesFrom(ExtendedIterable<E> container);
+
+  /**
    * @return a new {@link ISequencePattern} from the current
    *         {@link ISequencePattern } with a blank condition for the next element
    *         of the sequences of the {@link ISequencePattern}.
@@ -59,19 +74,4 @@ public interface ISequencePattern<E> {
    * @throws RuntimeException if the given sequenceCondition is null
    */
   ISequencePattern<E> withSequenceCondition(Predicate<ExtendedIterable<E>> sequenceCondition);
-
-  /**
-   * @param count
-   * @return a new {@link ISequencePatternNextMediator} for the current
-   *         {@link ISequencePattern} and the given count
-   * @throws RuntimeException if the given count is negative
-   */
-  ISequencePatternNextMediator<E> forNext(int count);
-
-  /**
-   * @param container
-   * @return all sequences from the given container that match the current
-   *         {@link ISequencePattern}
-   */
-  ExtendedIterable<? extends ExtendedIterable<E>> getMatchingSequencesFrom(ExtendedIterable<E> container);
 }

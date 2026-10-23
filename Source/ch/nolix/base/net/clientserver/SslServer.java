@@ -69,19 +69,19 @@ public final class SslServer extends AbstractServer<SslServer> {
    * {@inheritDoc}
    */
   @Override
-  public IServerTarget toTarget() {
-    return ServerTarget.forHostAndPortAndSecurityModeForConnections(
-      domain,
-      port,
-      SECURITY_MODE_FOR_CONNECTIONS);
+  public SecurityMode getSecurityMode() {
+    return internalWebSocketServer.getSecurityMode();
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public SecurityMode getSecurityMode() {
-    return internalWebSocketServer.getSecurityMode();
+  public IServerTarget toTarget() {
+    return ServerTarget.forHostAndPortAndSecurityModeForConnections(
+      domain,
+      port,
+      SECURITY_MODE_FOR_CONNECTIONS);
   }
 
   /**

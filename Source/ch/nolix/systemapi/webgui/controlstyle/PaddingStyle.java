@@ -11,6 +11,16 @@ import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
  * @param <S> the type of a {@link PaddingStyle}.
  */
 public interface PaddingStyle<S extends PaddingStyle<S>> {
+  S forStateSetBottomPadding(ControlState state, int bottomPadding);
+
+  S forStateSetLeftPadding(ControlState state, int leftPadding);
+
+  S forStateSetPadding(ControlState state, int padding);
+
+  S forStateSetRightPadding(ControlState state, int rightPadding);
+
+  S forStateSetTopPadding(ControlState state, int topPadding);
+
   IAbsoluteOrRelativeInt getBottomPaddingWhenHasState(ControlState state);
 
   IAbsoluteOrRelativeInt getLeftPaddingWhenHasState(ControlState state);
@@ -28,14 +38,4 @@ public interface PaddingStyle<S extends PaddingStyle<S>> {
   void removeCustomRightPaddings();
 
   void removeCustomTopPaddings();
-
-  S forStateSetBottomPadding(ControlState state, int bottomPadding);
-
-  S forStateSetLeftPadding(ControlState state, int leftPadding);
-
-  S forStateSetPadding(ControlState state, int padding);
-
-  S forStateSetRightPadding(ControlState state, int rightPadding);
-
-  S forStateSetTopPadding(ControlState state, int topPadding);
 }

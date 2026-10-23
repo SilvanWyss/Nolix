@@ -12,11 +12,11 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
  */
 public interface IXmlNode<N extends IXmlNode<N>>
 extends FluentMutableOptionalNameHolder<N> {
-  ExtendedIterable<IXmlAttribute> getAttributes();
-
   boolean containsAttributes();
 
   boolean containsChildNodes();
+
+  ExtendedIterable<IXmlAttribute> getAttributes();
 
   ExtendedIterable<N> getStoredChildNodes();
 

@@ -67,6 +67,14 @@ public final class Label extends AbstractControl<ILabel, ILabelStyle> implements
    * {@inheritDoc}
    */
   @Override
+  public LabelRole getRole() {
+    return memberRole.getStoredValue();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public ExtendedIterable<Control<?, ?>> getStoredChildControls() {
     return ImmutableList.createEmpty();
   }
@@ -77,14 +85,6 @@ public final class Label extends AbstractControl<ILabel, ILabelStyle> implements
   @Override
   public ExtendedIterable<Control<?, ?>> getStoredStructureControls() {
     return ImmutableList.createEmpty();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public LabelRole getRole() {
-    return memberRole.getStoredValue();
   }
 
   /**

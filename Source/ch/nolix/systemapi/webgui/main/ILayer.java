@@ -45,7 +45,7 @@ StylableElement<ILayer> {
 
   ILayer setContentAlignment(ContentAlignment contentAlignment);
 
-  ILayer setRole(LayerRole role);
-
   ILayer setOpacity(double opacity);
+
+  ILayer setRole(LayerRole role);
 }

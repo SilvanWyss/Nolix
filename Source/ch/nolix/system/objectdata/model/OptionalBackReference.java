@@ -110,6 +110,22 @@ implements IOptionalBackReference<E> {
    * {@inheritDoc}
    */
   @Override
+  public ExtendedIterable<BaseReference> getStoredBackReferencedBaseReferences() {
+    if (isEmpty()) {
+      return ImmutableList.createEmpty();
+    }
+
+    final var backReferencedField = //
+    (BaseReference) ENTITY_SEARCHER.getStoredFieldByName(getStoredBackReferencedEntity(),
+      getBackReferencedFieldName());
+
+    return ImmutableList.withElements(backReferencedField);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public E getStoredBackReferencedEntity() {
     return getStoredBackReferencedTable().getStoredEntityById(getBackReferencedEntityId());
   }
@@ -133,22 +149,6 @@ implements IOptionalBackReference<E> {
     final var database = nullableBackReferencedEntityCache.nullableEntity().getStoredParentDatabase();
 
     return (ITable<E>) DATABASE_SEARCHER.getStoredTableById(database, getBackReferencedTableId());
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public ExtendedIterable<BaseReference> getStoredBackReferencedBaseReferences() {
-    if (isEmpty()) {
-      return ImmutableList.createEmpty();
-    }
-
-    final var backReferencedField = //
-    (BaseReference) ENTITY_SEARCHER.getStoredFieldByName(getStoredBackReferencedEntity(),
-      getBackReferencedFieldName());
-
-    return ImmutableList.withElements(backReferencedField);
   }
 
   /**

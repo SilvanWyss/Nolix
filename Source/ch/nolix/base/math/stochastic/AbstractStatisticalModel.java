@@ -29,10 +29,6 @@ public abstract class AbstractStatisticalModel {
     return backStepCount;
   }
 
-  public final int getInputValuesCount() {
-    return inputValues.length;
-  }
-
   public final double getForecast(final int index) {
     Validator.assertThat(index).thatIsNamed("index").isPositive();
 
@@ -41,6 +37,10 @@ public abstract class AbstractStatisticalModel {
     }
 
     return forecasts.getStoredAtOneBasedIndex(index);
+  }
+
+  public final int getInputValuesCount() {
+    return inputValues.length;
   }
 
   protected abstract double calculateNextValue();

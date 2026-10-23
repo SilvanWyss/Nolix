@@ -54,6 +54,18 @@ public final class SchemaReader implements ISchemaReader {
    * {@inheritDoc}
    */
   @Override
+  public Time getSchemaTimestamp() {
+    final var query = QUERY_CREATOR.createQueryToLoadSchemaTimestamp();
+    final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
+    final var value = sqlRecord.getStoredSingle();
+
+    return Time.fromString(value);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public ICloseController getStoredCloseController() {
     return closeController;
   }
@@ -68,18 +80,6 @@ public final class SchemaReader implements ISchemaReader {
     final var value = sqlRecord.getStoredSingle();
 
     return Integer.valueOf(value);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public Time getSchemaTimestamp() {
-    final var query = QUERY_CREATOR.createQueryToLoadSchemaTimestamp();
-    final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
-    final var value = sqlRecord.getStoredSingle();
-
-    return Time.fromString(value);
   }
 
   /**

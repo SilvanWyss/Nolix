@@ -22,17 +22,6 @@ import ch.nolix.systemapi.sqlmiddata.modelmapper.ILoadedEntityDtoMapper;
 public final class LoadedEntityDtoMapper implements ILoadedEntityDtoMapper {
   private static final ContentFieldDtoMapper CONTENT_FIELD_DTO_MAPPER = new ContentFieldDtoMapper();
 
-  @Override
-  public EntityLoadingDto mapSqlRecordToEntityLoadingDto(
-    final ISqlRecord sqlRecord,
-    final TableInfoDto tableView) {
-    return //
-    new EntityLoadingDto(
-      sqlRecord.getStoredAtOneBasedIndex(1),
-      sqlRecord.getStoredAtOneBasedIndex(2),
-      mapSqlRecordToContentFieldDtos(sqlRecord, tableView.columnViews()));
-  }
-
   /**
    * {@inheritDoc}
    */
@@ -79,5 +68,16 @@ public final class LoadedEntityDtoMapper implements ILoadedEntityDtoMapper {
     }
 
     return contentFieldDtos;
+  }
+
+  @Override
+  public EntityLoadingDto mapSqlRecordToEntityLoadingDto(
+    final ISqlRecord sqlRecord,
+    final TableInfoDto tableView) {
+    return //
+    new EntityLoadingDto(
+      sqlRecord.getStoredAtOneBasedIndex(1),
+      sqlRecord.getStoredAtOneBasedIndex(2),
+      mapSqlRecordToContentFieldDtos(sqlRecord, tableView.columnViews()));
   }
 }

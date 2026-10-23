@@ -60,6 +60,14 @@ final class WebSocketEndPoint extends AbstractNetEndPoint {
    * {@inheritDoc}
    */
   @Override
+  public ConnectionType getConnectionType() {
+    return ConnectionType.WEB_SOCKET;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public PeerType getPeerType() {
     return peerType;
   }
@@ -70,14 +78,6 @@ final class WebSocketEndPoint extends AbstractNetEndPoint {
   @Override
   public SecurityMode getSecurityMode() {
     return SecurityMode.NONE;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public ConnectionType getConnectionType() {
-    return ConnectionType.WEB_SOCKET;
   }
 
   /**

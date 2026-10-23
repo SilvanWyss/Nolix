@@ -187,16 +187,16 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return memberChildNodes.containsAny();
   }
 
+  public int getAttributeCount() {
+    return memberAttributes.getCount();
+  }
+
   /**
    * {@inheritDoc}
    */
   @Override
   public ExtendedIterable<IXmlAttribute> getAttributes() {
     return memberAttributes;
-  }
-
-  public int getAttributeCount() {
-    return memberAttributes.getCount();
   }
 
   public int getChildNodeCount() {

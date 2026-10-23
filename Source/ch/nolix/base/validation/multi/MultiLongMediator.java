@@ -59,26 +59,6 @@ public final class MultiLongMediator extends AbstractMultiArgumentMediator<Long>
 
   /**
    * @throws RuntimeException if one of the arguments of the current
-   *                          {@link MultiLongMediator} is null or not positive
-   */
-  public void arePositive() {
-    var index = 1;
-
-    for (final var a : getStoredArguments()) {
-      if (a == null) {
-        throw ArgumentIsNullException.forArgumentName(index + "th argument");
-      }
-
-      if (a <= 0) {
-        throw NonPositiveArgumentException.forArgumentAndArgumentName(a, index + "th argument");
-      }
-
-      index++;
-    }
-  }
-
-  /**
-   * @throws RuntimeException if one of the arguments of the current
    *                          {@link MultiLongMediator} is null or negative
    */
   public void areNotNegative() {
@@ -91,6 +71,26 @@ public final class MultiLongMediator extends AbstractMultiArgumentMediator<Long>
 
       if (a < 0) {
         throw NegativeArgumentException.forArgumentAndArgumentName(a, index + "th argument");
+      }
+
+      index++;
+    }
+  }
+
+  /**
+   * @throws RuntimeException if one of the arguments of the current
+   *                          {@link MultiLongMediator} is null or not positive
+   */
+  public void arePositive() {
+    var index = 1;
+
+    for (final var a : getStoredArguments()) {
+      if (a == null) {
+        throw ArgumentIsNullException.forArgumentName(index + "th argument");
+      }
+
+      if (a <= 0) {
+        throw NonPositiveArgumentException.forArgumentAndArgumentName(a, index + "th argument");
       }
 
       index++;

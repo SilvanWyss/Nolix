@@ -117,16 +117,16 @@ public final class Column extends AbstractSchemaObject implements IColumn {
    * {@inheritDoc}
    */
   @Override
-  public String getName() {
-    return name;
+  public String getId() {
+    return id;
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public String getId() {
-    return id;
+  public String getName() {
+    return name;
   }
 
   /**

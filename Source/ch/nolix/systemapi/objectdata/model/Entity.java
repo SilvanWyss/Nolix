@@ -26,9 +26,9 @@ TableComponent<ITable<? extends Entity>> {
 
   String getShortDescription();
 
-  ExtendedIterable<? extends Field> internalGetStoredFields();
-
   void internalClose();
+
+  ExtendedIterable<? extends Field> internalGetStoredFields();
 
   void internalSetEdited();
 

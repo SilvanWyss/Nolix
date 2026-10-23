@@ -33,6 +33,14 @@ public final class SslServerPage {
     return new SslServerPage(domain, port);
   }
 
+  public String getDomain() {
+    return domain;
+  }
+
+  public int getPort() {
+    return port;
+  }
+
   /**
    * {@inheritDoc}
    */
@@ -59,14 +67,6 @@ public final class SslServerPage {
     + "<body>\n"
     + "</body>\n"
     + "</html>\n";
-  }
-
-  public String getDomain() {
-    return domain;
-  }
-
-  public int getPort() {
-    return port;
   }
 
   private String getServerDomainInQuotes() {

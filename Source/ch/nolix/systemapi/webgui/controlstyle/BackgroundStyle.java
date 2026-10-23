@@ -15,9 +15,7 @@ import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
  * @param <S> the type of a {@link BackgroundStyle}.
  */
 public interface BackgroundStyle<S extends BackgroundStyle<S>> {
-  IBackground getBackgroundWhenHasState(ControlState state);
-
-  void removeCustomBackgrounds();
+  S forStateSetBackground(ControlState state, IBackground background);
 
   S forStateSetBackgroundColor(ControlState state, IColor backgroundColor);
 
@@ -25,5 +23,7 @@ public interface BackgroundStyle<S extends BackgroundStyle<S>> {
 
   S forStateSetBackgroundImage(ControlState state, Image backgroundImage, ImageApplication imageApplication);
 
-  S forStateSetBackground(ControlState state, IBackground background);
+  IBackground getBackgroundWhenHasState(ControlState state);
+
+  void removeCustomBackgrounds();
 }

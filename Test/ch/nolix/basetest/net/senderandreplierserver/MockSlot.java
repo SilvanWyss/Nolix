@@ -19,15 +19,15 @@ public final class MockSlot implements Slot {
 
   private String latestReceivedMessage;
 
-  @Override
-  public String getName() {
-    return NAME;
-  }
-
   public String getLatestReceivedMessage() {
     assertHasReceivedMessage();
 
     return latestReceivedMessage;
+  }
+
+  @Override
+  public String getName() {
+    return NAME;
   }
 
   public boolean hasReceivedMessage() {

@@ -20,9 +20,9 @@ public interface IFractalBuilder {
 
   int getMaxIterationCount();
 
-  IFractalBuilder setDecimalPlaces(int decimalPlaces);
-
   IFractalBuilder setColorFunction(IntFunction<IColor> colorFunction);
+
+  IFractalBuilder setDecimalPlaces(int decimalPlaces);
 
   IFractalBuilder setHeightInPixel(int heightInPixel);
 

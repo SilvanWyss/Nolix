@@ -127,18 +127,18 @@ implements ILayer {
    * {@inheritDoc}
    */
   @Override
-  public boolean containsControl(final Control<?, ?> control) {
-    return (containsAny() && containsControlWhenContainsAny(control));
+  public void clear() {
+    if (containsAny()) {
+      clearWhenIsNotEmpty();
+    }
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public void clear() {
-    if (containsAny()) {
-      clearWhenIsNotEmpty();
-    }
+  public boolean containsControl(final Control<?, ?> control) {
+    return (containsAny() && containsControlWhenContainsAny(control));
   }
 
   /**
@@ -251,6 +251,28 @@ implements ILayer {
    * {@inheritDoc}
    */
   @Override
+  public LayerRole getRole() {
+    return memberRole.getStoredValue();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ExtendedIterable<? extends StylableElement<?>> getStoredChildStylableElements() {
+    final ILinkedList<Control<?, ?>> childConfigurableElements = LinkedList.createEmpty();
+
+    if (containsAny()) {
+      childConfigurableElements.addAtEnd(getStoredRootControl());
+    }
+
+    return childConfigurableElements;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public ExtendedIterable<Control<?, ?>> getStoredControls() {
     if (isEmpty()) {
       return ImmutableList.createEmpty();
@@ -287,28 +309,6 @@ implements ILayer {
     }
 
     return CONTROL_TOOL.getListWithControlAndStructureControlsRecursively(getStoredRootControl());
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public LayerRole getRole() {
-    return memberRole.getStoredValue();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public ExtendedIterable<? extends StylableElement<?>> getStoredChildStylableElements() {
-    final ILinkedList<Control<?, ?>> childConfigurableElements = LinkedList.createEmpty();
-
-    if (containsAny()) {
-      childConfigurableElements.addAtEnd(getStoredRootControl());
-    }
-
-    return childConfigurableElements;
   }
 
   /**
@@ -426,19 +426,6 @@ implements ILayer {
    * {@inheritDoc}
    */
   @Override
-  public Layer setRootControl(final Control<?, ?> rootControl) {
-    final var controlParent = ControlParent.forLayer(this);
-
-    rootControl.internalSetControlParent(controlParent);
-    this.memberRootControl.setValue(rootControl);
-
-    return this;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public Layer setContentAlignment(final ContentAlignment contentAlignment) {
     this.contentAlignment.setValue(contentAlignment);
 
@@ -463,6 +450,19 @@ implements ILayer {
   @Override
   public Layer setRole(final LayerRole role) {
     memberRole.setValue(role);
+
+    return this;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public Layer setRootControl(final Control<?, ?> rootControl) {
+    final var controlParent = ControlParent.forLayer(this);
+
+    rootControl.internalSetControlParent(controlParent);
+    this.memberRootControl.setValue(rootControl);
 
     return this;
   }

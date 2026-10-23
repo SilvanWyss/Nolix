@@ -144,16 +144,16 @@ public final class DataWriter implements IDataWriter {
    * {@inheritDoc}
    */
   @Override
-  public ICloseController getStoredCloseController() {
-    return closeController;
+  public int getSaveCount() {
+    return executiveDataWriter.getSaveCount();
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public int getSaveCount() {
-    return executiveDataWriter.getSaveCount();
+  public ICloseController getStoredCloseController() {
+    return closeController;
   }
 
   /**

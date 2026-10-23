@@ -51,9 +51,9 @@ implements DatabaseObjectValidator<O> {
    * {@inheritDoc}
    */
   @Override
-  public final void assertIsNotDeleted(final O databaseObject) {
-    if (databaseObject.isDeleted()) {
-      throw DeletedArgumentException.forArgument(databaseObject);
+  public final void assertIsNotConnectedWithRealDatabase(final O databaseObject) {
+    if (databaseObject.isConnectedWithRealDatabase()) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is linked with a real database");
     }
   }
 
@@ -61,9 +61,9 @@ implements DatabaseObjectValidator<O> {
    * {@inheritDoc}
    */
   @Override
-  public final void assertIsNotConnectedWithRealDatabase(final O databaseObject) {
-    if (databaseObject.isConnectedWithRealDatabase()) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is linked with a real database");
+  public final void assertIsNotDeleted(final O databaseObject) {
+    if (databaseObject.isDeleted()) {
+      throw DeletedArgumentException.forArgument(databaseObject);
     }
   }
 

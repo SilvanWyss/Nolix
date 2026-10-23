@@ -43,6 +43,13 @@ implements MultiStateConfiguration<C, S> {
     return AbstractProperty.class.isAssignableFrom(field.getType());
   }
 
+  @Override
+  public final void addChild(final MultiStateConfiguration<?, S> child) {
+    Validator.assertThat(child).thatIsNamed(LowerCaseVariableNameCatalog.CHILD).isNotNull();
+
+    ((AbstractMultiStateConfiguration<?, S>) child).setParent(this);
+  }
+
   /**
    * {@inheritDoc}
    */
@@ -100,6 +107,14 @@ implements MultiStateConfiguration<C, S> {
     return baseState.getEnumValue();
   }
 
+  @Override
+  public <T extends MultiStateConfiguration<T, S>> void removeChild(final T multiStateConfiguration) {
+    @SuppressWarnings("unchecked")
+    final var abstractMultiStateConfiguration = (AbstractMultiStateConfiguration<C, S>) multiStateConfiguration;
+
+    abstractMultiStateConfiguration.removeParent();
+  }
+
   /**
    * {@inheritDoc}
    */
@@ -115,21 +130,6 @@ implements MultiStateConfiguration<C, S> {
     for (final var p : getStoredProperties()) {
       p.setFrom(iterator.next());
     }
-  }
-
-  @Override
-  public final void addChild(final MultiStateConfiguration<?, S> child) {
-    Validator.assertThat(child).thatIsNamed(LowerCaseVariableNameCatalog.CHILD).isNotNull();
-
-    ((AbstractMultiStateConfiguration<?, S>) child).setParent(this);
-  }
-
-  @Override
-  public <T extends MultiStateConfiguration<T, S>> void removeChild(final T multiStateConfiguration) {
-    @SuppressWarnings("unchecked")
-    final var abstractMultiStateConfiguration = (AbstractMultiStateConfiguration<C, S>) multiStateConfiguration;
-
-    abstractMultiStateConfiguration.removeParent();
   }
 
   /**

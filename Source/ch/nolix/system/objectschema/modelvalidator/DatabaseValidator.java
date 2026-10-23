@@ -24,23 +24,6 @@ public final class DatabaseValidator extends AbstractDatabaseObjectValidator<IDa
 
   private static final DatabaseMutationExaminer DATABASE_MUTATION_EXAMINER = new DatabaseMutationExaminer();
 
-  @Override
-  public void assertContainsTable(final IDatabase database, final ITable table) {
-    if (!DATABASE_EXAMINER.containsTable(database, table)) {
-      throw ArgumentDoesNotContainElementException.forArgumentAndElement(database, table);
-    }
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public void assertContainsTables(final IDatabase database, final ExtendedIterable<ITable> tables) {
-    for (final var t : tables) {
-      assertContainsTable(database, t);
-    }
-  }
-
   /**
    * {@inheritDoc}
    */
@@ -80,6 +63,13 @@ public final class DatabaseValidator extends AbstractDatabaseObjectValidator<IDa
     }
   }
 
+  @Override
+  public void assertContainsTable(final IDatabase database, final ITable table) {
+    if (!DATABASE_EXAMINER.containsTable(database, table)) {
+      throw ArgumentDoesNotContainElementException.forArgumentAndElement(database, table);
+    }
+  }
+
   /**
    * {@inheritDoc}
    */
@@ -91,6 +81,16 @@ public final class DatabaseValidator extends AbstractDatabaseObjectValidator<IDa
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
         database,
         "does not contain a table that is referenced by the column " + column.getNameInSingleQuotes());
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void assertContainsTables(final IDatabase database, final ExtendedIterable<ITable> tables) {
+    for (final var t : tables) {
+      assertContainsTable(database, t);
     }
   }
 

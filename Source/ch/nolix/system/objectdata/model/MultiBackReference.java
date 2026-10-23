@@ -104,14 +104,6 @@ implements IMultiBackReference<E> {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<? extends IMultiBackReferenceEntry<E>> getStoredNewAndDeletedEntries() {
-    return localEntries.getStoredSelected(DATABASE_OBJECT_EXAMINER::isNewOrDeleted);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public ExtendedIterable<BaseReference> getStoredBackReferencedBaseReferences() {
     final ILinkedList<BaseReference> abstractReferences = LinkedList.createEmpty();
     final var backReferencedBaseReferenceName = getBackReferencedFieldName();
@@ -124,6 +116,14 @@ implements IMultiBackReference<E> {
     }
 
     return abstractReferences;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ExtendedIterable<? extends IMultiBackReferenceEntry<E>> getStoredNewAndDeletedEntries() {
+    return localEntries.getStoredSelected(DATABASE_OBJECT_EXAMINER::isNewOrDeleted);
   }
 
   /**
@@ -179,18 +179,6 @@ implements IMultiBackReference<E> {
    * {@inheritDoc}
    */
   @Override
-  public boolean referencesBackField(final Field field) {
-    return //
-    field != null
-    && field.belongsToEntity()
-    && getBackReferencedFieldName().equals(field.getName())
-    && referencesBackEntity(field.getStoredParentEntity());
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public boolean referencesBackEntity(final Entity entity) {
     final var entityId = entity.getId();
 
@@ -203,6 +191,18 @@ implements IMultiBackReference<E> {
   @Override
   public boolean referencesBackEntityWithId(final String id) {
     return getAllBackReferencedEntityIds().containsEqual(id);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean referencesBackField(final Field field) {
+    return //
+    field != null
+    && field.belongsToEntity()
+    && getBackReferencedFieldName().equals(field.getName())
+    && referencesBackEntity(field.getStoredParentEntity());
   }
 
   void internalAddBackReferencedEntity(final Entity backReferencedEntity) {

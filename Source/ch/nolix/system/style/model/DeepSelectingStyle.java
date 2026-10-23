@@ -114,14 +114,6 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
    * {@inheritDoc}
    */
   @Override
-  public boolean selectsChildElements() {
-    return true;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public void applyToElement(final StylableElement<?> element) {
     if (selectsElement(element)) {
       setAttachingAttributesToElement(element);
@@ -129,6 +121,14 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
     }
 
     styleChildElementsOfElement(element);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean selectsChildElements() {
+    return true;
   }
 
   /**
@@ -158,6 +158,37 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
       optionalSelectorType,
       allSelectorRoles,
       getSelectorTokens(),
+      getAttachingAttributes(),
+      getSubStyles());
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ISelectingStyleWithSelectors withAdditionalSelectorTokens(
+    final ExtendedIterable<String> additionalSelectorTokens) {
+    String optionalSelectorId = null;
+    String optionalSelectorType = null;
+    final ILinkedList<String> allSelectorTokens = LinkedList.createEmpty();
+
+    if (hasSelectorId()) {
+      optionalSelectorId = getSelectorId();
+    }
+
+    if (hasSelectorType()) {
+      optionalSelectorType = getSelectorType();
+    }
+
+    allSelectorTokens.addAtEnd(getSelectorTokens());
+    allSelectorTokens.addAtEnd(additionalSelectorTokens);
+
+    return //
+    new DeepSelectingStyle(
+      optionalSelectorId,
+      optionalSelectorType,
+      getSelectorRoles(),
+      allSelectorTokens,
       getAttachingAttributes(),
       getSubStyles());
   }
@@ -209,37 +240,6 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
       optionalSelectorType,
       getSelectorRoles(),
       getSelectorTokens(),
-      getAttachingAttributes(),
-      getSubStyles());
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public ISelectingStyleWithSelectors withAdditionalSelectorTokens(
-    final ExtendedIterable<String> additionalSelectorTokens) {
-    String optionalSelectorId = null;
-    String optionalSelectorType = null;
-    final ILinkedList<String> allSelectorTokens = LinkedList.createEmpty();
-
-    if (hasSelectorId()) {
-      optionalSelectorId = getSelectorId();
-    }
-
-    if (hasSelectorType()) {
-      optionalSelectorType = getSelectorType();
-    }
-
-    allSelectorTokens.addAtEnd(getSelectorTokens());
-    allSelectorTokens.addAtEnd(additionalSelectorTokens);
-
-    return //
-    new DeepSelectingStyle(
-      optionalSelectorId,
-      optionalSelectorType,
-      getSelectorRoles(),
-      allSelectorTokens,
       getAttachingAttributes(),
       getSubStyles());
   }

@@ -327,14 +327,6 @@ implements ChainedNode {
   }
 
   /**
-   * @return the number of attributes of the current {@link ImmutableChainedNode}.
-   */
-  @Override
-  public int getChildNodeCount() {
-    return memberChildNodes.getCount();
-  }
-
-  /**
    * @param index
    * @return the attribute at the given index of the current
    *         {@link ImmutableChainedNode}
@@ -348,6 +340,14 @@ implements ChainedNode {
   @Override
   public ImmutableChainedNode getChildNodeAtOneBasedIndex(final int index) {
     return memberChildNodes.getStoredAtOneBasedIndex(index);
+  }
+
+  /**
+   * @return the number of attributes of the current {@link ImmutableChainedNode}.
+   */
+  @Override
+  public int getChildNodeCount() {
+    return memberChildNodes.getCount();
   }
 
   /**
@@ -421,14 +421,6 @@ implements ChainedNode {
    * {@inheritDoc}
    */
   @Override
-  public String getSingleChildNodeHeader() {
-    return getSingleChildNode().getHeader();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public double getSingleChildNodeAsDouble() {
     return getSingleChildNode().toDouble();
   }
@@ -447,6 +439,14 @@ implements ChainedNode {
   @Override
   public String getSingleChildNodeAsString() {
     return getSingleChildNode().toString();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String getSingleChildNodeHeader() {
+    return getSingleChildNode().getHeader();
   }
 
   /**

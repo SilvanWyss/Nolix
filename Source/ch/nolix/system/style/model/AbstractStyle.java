@@ -41,6 +41,14 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
    * {@inheritDoc}
    */
   @Override
+  public final boolean containsAttachingAttributes() {
+    return memberAttachingAttributes.containsAny();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final ExtendedIterable<String> getAttachingAttributes() {
     return memberAttachingAttributes;
   }
@@ -51,14 +59,6 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
   @Override
   public final ExtendedIterable<? extends ISelectingStyleWithSelectors> getSubStyles() {
     return memberSubStyles;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final boolean containsAttachingAttributes() {
-    return memberAttachingAttributes.containsAny();
   }
 
   /**

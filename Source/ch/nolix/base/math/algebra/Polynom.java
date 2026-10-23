@@ -85,6 +85,13 @@ public final class Polynom {
   }
 
   /**
+   * @return the degree of the current {@link Polynom}.
+   */
+  public int getDegree() {
+    return (coefficients.length - 1);
+  }
+
+  /**
    * @return a new {@link Polynom} that is derived from the current
    *         {@link Polynom}.
    */
@@ -108,13 +115,6 @@ public final class Polynom {
     }
 
     return calculateDerived(deriveCount);
-  }
-
-  /**
-   * @return the degree of the current {@link Polynom}.
-   */
-  public int getDegree() {
-    return (coefficients.length - 1);
   }
 
   /**

@@ -52,16 +52,6 @@ implements Application<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final IApplicationTarget toTarget() {
-    final var serverTarget = getStoredParentServer().toTarget();
-
-    return asTargetWithServerTarget(serverTarget);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public final boolean belongsToServer() {
     return (memberParentServer != null);
   }
@@ -132,6 +122,16 @@ implements Application<C, S> {
     castedBackendClient.internalSetParentApplication(this);
     clients.addAtEnd(castedBackendClient);
     FlowController.runInBackground(() -> castedBackendClient.internalPushSession(initialSession));
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final IApplicationTarget toTarget() {
+    final var serverTarget = getStoredParentServer().toTarget();
+
+    return asTargetWithServerTarget(serverTarget);
   }
 
   /**

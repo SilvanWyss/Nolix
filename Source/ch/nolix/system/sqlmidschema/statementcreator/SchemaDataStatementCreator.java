@@ -25,24 +25,6 @@ import ch.nolix.systemapi.sqlmidschema.statementcreator.ISchemaDataStatementCrea
 public final class SchemaDataStatementCreator implements ISchemaDataStatementCreator {
   private static final ColumnTableStatementCreator COLUMN_TABLE_STATEMENT_CREATOR = new ColumnTableStatementCreator();
 
-  @Override
-  public String createStatementToAddBackReferenceableColumn(
-    final ColumnIdentification parentBaseBackReferenceColumn,
-    final String referenceableColumnId) {
-    return //
-    "INSERT INTO "
-    + SchemaTable.BACK_REFERENCEABLE_COLUMN
-    + " ("
-    + BackReferenceableColumnColumn.PARENT_BASE_BACK_REFERENCE_COLUMN_ID
-    + ", "
-    + BackReferenceableColumnColumn.BACK_REFERENCEABLE_COLUMN_ID
-    + ") VALUES ('"
-    + parentBaseBackReferenceColumn.columnId()
-    + "', '"
-    + referenceableColumnId
-    + "');";
-  }
-
   /**
    * {@inheritDoc}
    */
@@ -64,6 +46,74 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     }
 
     return statements;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ILinkedList<String> createStatementsToAddTable(final TableDto table) {
+    final ILinkedList<String> statements = LinkedList.createEmpty();
+
+    statements.addAtEnd(createStatementToAddTable(table.id(), table.name()));
+
+    for (final var c : table.columns()) {
+      final var tableId = table.id();
+      final var tablename = table.name();
+      final var tableIdentification = new TableIdentification(tableId, tablename);
+      statements.addAtEnd(createStatementsToAddColumn(tableIdentification, c));
+    }
+
+    return statements;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ExtendedIterable<String> createStatementsToSetContentModel(
+    final TableIdentification table,
+    final ColumnIdentification column,
+    final FieldType fieldType,
+    final DataType dataType,
+    final ExtendedIterable<String> referenceableTableIds,
+    final ExtendedIterable<String> backReferenceableColumnIds) {
+    final ILinkedList<String> statements = LinkedList.createEmpty();
+
+    final var statementToSetContentModelInColumnTable = // 
+    COLUMN_TABLE_STATEMENT_CREATOR.createStatementToSetContentModelInColumnTable(column, fieldType, dataType);
+
+    statements.addAtEnd(statementToSetContentModelInColumnTable);
+
+    final var statementsToAddReferenceableTables = //
+    referenceableTableIds.getViewOf(t -> createStatementToAddReferenceableTable(column, t));
+
+    statements.addAtEnd(statementsToAddReferenceableTables);
+
+    final var statementsToAddBackReferenceableColumns = //
+    backReferenceableColumnIds.getViewOf(c -> createStatementToAddBackReferenceableColumn(column, c));
+
+    statements.addAtEnd(statementsToAddBackReferenceableColumns);
+
+    return statements;
+  }
+
+  @Override
+  public String createStatementToAddBackReferenceableColumn(
+    final ColumnIdentification parentBaseBackReferenceColumn,
+    final String referenceableColumnId) {
+    return //
+    "INSERT INTO "
+    + SchemaTable.BACK_REFERENCEABLE_COLUMN
+    + " ("
+    + BackReferenceableColumnColumn.PARENT_BASE_BACK_REFERENCE_COLUMN_ID
+    + ", "
+    + BackReferenceableColumnColumn.BACK_REFERENCEABLE_COLUMN_ID
+    + ") VALUES ('"
+    + parentBaseBackReferenceColumn.columnId()
+    + "', '"
+    + referenceableColumnId
+    + "');";
   }
 
   /**
@@ -104,25 +154,6 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     + "', '"
     + tableName
     + "')";
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public ILinkedList<String> createStatementsToAddTable(final TableDto table) {
-    final ILinkedList<String> statements = LinkedList.createEmpty();
-
-    statements.addAtEnd(createStatementToAddTable(table.id(), table.name()));
-
-    for (final var c : table.columns()) {
-      final var tableId = table.id();
-      final var tablename = table.name();
-      final var tableIdentification = new TableIdentification(tableId, tablename);
-      statements.addAtEnd(createStatementsToAddColumn(tableIdentification, c));
-    }
-
-    return statements;
   }
 
   /**
@@ -200,37 +231,6 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     + " = '"
     + tableName
     + "'";
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public ExtendedIterable<String> createStatementsToSetContentModel(
-    final TableIdentification table,
-    final ColumnIdentification column,
-    final FieldType fieldType,
-    final DataType dataType,
-    final ExtendedIterable<String> referenceableTableIds,
-    final ExtendedIterable<String> backReferenceableColumnIds) {
-    final ILinkedList<String> statements = LinkedList.createEmpty();
-
-    final var statementToSetContentModelInColumnTable = // 
-    COLUMN_TABLE_STATEMENT_CREATOR.createStatementToSetContentModelInColumnTable(column, fieldType, dataType);
-
-    statements.addAtEnd(statementToSetContentModelInColumnTable);
-
-    final var statementsToAddReferenceableTables = //
-    referenceableTableIds.getViewOf(t -> createStatementToAddReferenceableTable(column, t));
-
-    statements.addAtEnd(statementsToAddReferenceableTables);
-
-    final var statementsToAddBackReferenceableColumns = //
-    backReferenceableColumnIds.getViewOf(c -> createStatementToAddBackReferenceableColumn(column, c));
-
-    statements.addAtEnd(statementsToAddBackReferenceableColumns);
-
-    return statements;
   }
 
 }

@@ -84,16 +84,16 @@ public final class Button extends AbstractControl<IButton, IButtonStyle> impleme
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<Control<?, ?>> getStoredChildControls() {
-    return ImmutableList.createEmpty();
+  public ButtonRole getRole() {
+    return memberRole.getStoredValue();
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public ButtonRole getRole() {
-    return memberRole.getStoredValue();
+  public ExtendedIterable<Control<?, ?>> getStoredChildControls() {
+    return ImmutableList.createEmpty();
   }
 
   /**

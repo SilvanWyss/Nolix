@@ -27,12 +27,12 @@ public interface IClosePool {
   void closeElementsIfStateIsOpen();
 
   /**
-   * @return the elements of the current {@link IClosePool}.
-   */
-  ExtendedIterable<GroupCloseable> getStoredElements();
-
-  /**
    * @return the state of the current {@link IClosePool}.
    */
   Openness getState();
+
+  /**
+   * @return the elements of the current {@link IClosePool}.
+   */
+  ExtendedIterable<GroupCloseable> getStoredElements();
 }

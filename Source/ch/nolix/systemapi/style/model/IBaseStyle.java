@@ -24,6 +24,12 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends Element {
   void applyToElement(StylableElement<?> element);
 
   /**
+   * @return true if the current {@link IBaseStyle} contains attaching attributes,
+   *         false otherwise
+   */
+  boolean containsAttachingAttributes();
+
+  /**
    * @return the attaching attributes of the current {@link IBaseStyle}.
    */
   ExtendedIterable<String> getAttachingAttributes();
@@ -32,12 +38,6 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends Element {
    * @return the sub styles of the current {@link IBaseStyle}.
    */
   ExtendedIterable<? extends ISelectingStyleWithSelectors> getSubStyles();
-
-  /**
-   * @return true if the current {@link IBaseStyle} contains attaching attributes,
-   *         false otherwise
-   */
-  boolean containsAttachingAttributes();
 
   /**
    * @param additionalSubStyle

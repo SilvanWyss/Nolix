@@ -101,20 +101,20 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<Node<?>> getAttributes() {
-    return //
-    ExtendedIterableView.forIterables(
-      getAttachingAttributes().getViewOf(a -> ImmutableNode.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, a)),
-      getSubStyles().getViewOf(ISelectingStyle::getSpecification));
+  public void applyToElement(final StylableElement<?> element) {
+    setAttachingAttributesToElement(element);
+    letSubStylesStyleChildElementsOfElement(element);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public void applyToElement(final StylableElement<?> element) {
-    setAttachingAttributesToElement(element);
-    letSubStylesStyleChildElementsOfElement(element);
+  public ExtendedIterable<Node<?>> getAttributes() {
+    return //
+    ExtendedIterableView.forIterables(
+      getAttachingAttributes().getViewOf(a -> ImmutableNode.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, a)),
+      getSubStyles().getViewOf(ISelectingStyle::getSpecification));
   }
 
   /**

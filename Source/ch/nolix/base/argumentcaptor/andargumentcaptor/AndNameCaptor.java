@@ -24,17 +24,17 @@ public class AndNameCaptor<S> extends AbstractArgumentCaptor<String, S> implemen
    * {@inheritDoc}
    */
   @Override
-  public final String getName() {
-    return getStoredArgument();
+  public final S andName(final String name) {
+    Validator.assertThat(name).thatIsNamed(LowerCaseVariableNameCatalog.NAME).isNotBlank();
+
+    return setArgumentAndGetStoredSuccessor(name);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public final S andName(final String name) {
-    Validator.assertThat(name).thatIsNamed(LowerCaseVariableNameCatalog.NAME).isNotBlank();
-
-    return setArgumentAndGetStoredSuccessor(name);
+  public final String getName() {
+    return getStoredArgument();
   }
 }

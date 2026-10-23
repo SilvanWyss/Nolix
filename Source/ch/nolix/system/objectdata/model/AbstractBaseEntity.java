@@ -85,24 +85,6 @@ public abstract class AbstractBaseEntity implements Entity {
    * {@inheritDoc}
    */
   @Override
-  public final IDatabase getStoredParentDatabase() {
-    return getStoredParentTable().getStoredParentDatabase();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final ITable<? extends Entity> getStoredParentTable() {
-    ENTITY_VALIDATOR.assertBelongsToTable(this);
-
-    return memberParentTable;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public final String getSaveStamp() {
     ENTITY_VALIDATOR.assertHasSaveStamp(this);
 
@@ -123,6 +105,24 @@ public abstract class AbstractBaseEntity implements Entity {
   @Override
   public final DatabaseObjectState getState() {
     return state;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final IDatabase getStoredParentDatabase() {
+    return getStoredParentTable().getStoredParentDatabase();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final ITable<? extends Entity> getStoredParentTable() {
+    ENTITY_VALIDATOR.assertBelongsToTable(this);
+
+    return memberParentTable;
   }
 
   /**
@@ -214,6 +214,15 @@ public abstract class AbstractBaseEntity implements Entity {
    * {@inheritDoc}
    */
   @Override
+  public final boolean isConnectedWithRealDatabase() {
+    return belongsToTable()
+    && getStoredParentTable().isConnectedWithRealDatabase();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final boolean isDeleted() {
     return (getState() == DatabaseObjectState.DELETED);
   }
@@ -224,15 +233,6 @@ public abstract class AbstractBaseEntity implements Entity {
   @Override
   public final boolean isEdited() {
     return (getState() == DatabaseObjectState.EDITED);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final boolean isConnectedWithRealDatabase() {
-    return belongsToTable()
-    && getStoredParentTable().isConnectedWithRealDatabase();
   }
 
   /**

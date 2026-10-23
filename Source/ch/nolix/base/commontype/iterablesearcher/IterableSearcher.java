@@ -104,6 +104,25 @@ public final class IterableSearcher implements IIterableSearcher {
    * {@inheritDoc}
    */
   @Override
+  public <E> E getStoredFirst(final Iterable<E> iterable, final Predicate<? super E> selector) {
+    if (iterable != null && selector != null) {
+      for (final var e : iterable) {
+        if (e != null && selector.test(e)) {
+          return e;
+        }
+      }
+    }
+
+    throw //
+    InvalidArgumentException.forArgumentAndErrorPredicate(
+      iterable,
+      "does not contain a non-null element the given selector selects");
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public <E> E getStoredFirstNonNull(final Iterable<E> iterable) {
     if (iterable != null) {
       final var iterator = iterable.iterator();
@@ -118,25 +137,6 @@ public final class IterableSearcher implements IIterableSearcher {
     }
 
     throw InvalidArgumentException.forArgumentAndErrorPredicate(iterable, "does not contain a non-null element");
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public <E> E getStoredFirst(final Iterable<E> iterable, final Predicate<? super E> selector) {
-    if (iterable != null && selector != null) {
-      for (final var e : iterable) {
-        if (e != null && selector.test(e)) {
-          return e;
-        }
-      }
-    }
-
-    throw //
-    InvalidArgumentException.forArgumentAndErrorPredicate(
-      iterable,
-      "does not contain a non-null element the given selector selects");
   }
 
   /**

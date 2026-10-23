@@ -17,17 +17,17 @@ public interface IUpdateCommandCreator {
 
   ChainedNode createSetEventFunctionsCommandForWebGui(IWebGui<?> webGui);
 
-  ChainedNode createSetIconCommandForWebGui(IWebGui<?> webGui);
-
   ChainedNode createSetIconCommandForIcon(Image icon);
+
+  ChainedNode createSetIconCommandForWebGui(IWebGui<?> webGui);
 
   ChainedNode createSetRootHtmlElementCommandForControl(Control<?, ?> control);
 
   ChainedNode createSetRootHtmlElementCommandForWebGui(IWebGui<?> webGui);
 
-  ChainedNode createSetTitleCommandForWebGui(IWebGui<?> webGui);
-
   ChainedNode createSetTitleCommandForTitle(String title);
+
+  ChainedNode createSetTitleCommandForWebGui(IWebGui<?> webGui);
 
   ChainedNode createSetUserInputFunctionsCommandForWebGui(IWebGui<?> webGui);
 

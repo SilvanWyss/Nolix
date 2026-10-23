@@ -133,19 +133,19 @@ public final class SelectingStyle extends AbstractSelectingStyle {
    * {@inheritDoc}
    */
   @Override
-  public boolean selectsChildElements() {
-    return false;
+  public void applyToElement(final StylableElement<?> element) {
+    if (selectsElement(element)) {
+      setAttachingAttributesToElement(element);
+      letSubStylesStyleChildElementsOfElement(element);
+    }
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public void applyToElement(final StylableElement<?> element) {
-    if (selectsElement(element)) {
-      setAttachingAttributesToElement(element);
-      letSubStylesStyleChildElementsOfElement(element);
-    }
+  public boolean selectsChildElements() {
+    return false;
   }
 
   /**
@@ -175,6 +175,37 @@ public final class SelectingStyle extends AbstractSelectingStyle {
       optionalSelectorType,
       allSelectorRoles,
       getSelectorTokens(),
+      getAttachingAttributes(),
+      getSubStyles());
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ISelectingStyleWithSelectors withAdditionalSelectorTokens(
+    final ExtendedIterable<String> additionalSelectorTokens) {
+    String optionalSelectorId = null;
+    String optionalSelectorType = null;
+    final ILinkedList<String> allSelectorTokens = LinkedList.createEmpty();
+
+    if (hasSelectorId()) {
+      optionalSelectorId = getSelectorId();
+    }
+
+    if (hasSelectorType()) {
+      optionalSelectorType = getSelectorType();
+    }
+
+    allSelectorTokens.addAtEnd(getSelectorTokens());
+    allSelectorTokens.addAtEnd(additionalSelectorTokens);
+
+    return //
+    new SelectingStyle(
+      optionalSelectorId,
+      optionalSelectorType,
+      getSelectorRoles(),
+      allSelectorTokens,
       getAttachingAttributes(),
       getSubStyles());
   }
@@ -226,37 +257,6 @@ public final class SelectingStyle extends AbstractSelectingStyle {
       optionalSelectorType,
       getSelectorRoles(),
       getSelectorTokens(),
-      getAttachingAttributes(),
-      getSubStyles());
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public ISelectingStyleWithSelectors withAdditionalSelectorTokens(
-    final ExtendedIterable<String> additionalSelectorTokens) {
-    String optionalSelectorId = null;
-    String optionalSelectorType = null;
-    final ILinkedList<String> allSelectorTokens = LinkedList.createEmpty();
-
-    if (hasSelectorId()) {
-      optionalSelectorId = getSelectorId();
-    }
-
-    if (hasSelectorType()) {
-      optionalSelectorType = getSelectorType();
-    }
-
-    allSelectorTokens.addAtEnd(getSelectorTokens());
-    allSelectorTokens.addAtEnd(additionalSelectorTokens);
-
-    return //
-    new SelectingStyle(
-      optionalSelectorId,
-      optionalSelectorType,
-      getSelectorRoles(),
-      allSelectorTokens,
       getAttachingAttributes(),
       getSubStyles());
   }

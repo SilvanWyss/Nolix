@@ -10,7 +10,7 @@ import ch.nolix.baseapi.argumentcaptor.base.ArgumentCaptor;
  * @param <S> the type of the successor of a {@link IAndNameCaptor}
  */
 public interface IAndNameCaptor<S> extends ArgumentCaptor<S> {
-  String getName();
-
   S andName(String name);
+
+  String getName();
 }

@@ -110,35 +110,6 @@ public final class LocalEndPoint extends AbstractEndPoint {
   }
 
   /**
-   * {@inheritDoc}
-   */
-  @Override
-  public PeerType getPeerType() {
-    return peerType;
-  }
-
-  /**
-   * Lets this local end point send the given message.
-   * 
-   * @param message
-   * @return the reply to the given message
-   * @throws RuntimeException if this local end point is closed
-   */
-  public String sendAndWaitToReply(final String message) {
-    // Asserts that this local end point is open.
-    assertIsOpen();
-
-    return getStoredCounterpart().receiveAndGetReply(message);
-  }
-
-  /**
-   * @return the counterpart of this local end point.
-   */
-  public LocalEndPoint getStoredCounterpart() {
-    return counterpart;
-  }
-
-  /**
    * @return the target of this local end point
    * @throws ArgumentDoesNotHaveAttributeException if this local end point does
    *                                               not have a target.
@@ -151,6 +122,14 @@ public final class LocalEndPoint extends AbstractEndPoint {
     }
 
     return target;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public PeerType getPeerType() {
+    return peerType;
   }
 
   /**
@@ -173,11 +152,32 @@ public final class LocalEndPoint extends AbstractEndPoint {
   }
 
   /**
+   * @return the counterpart of this local end point.
+   */
+  public LocalEndPoint getStoredCounterpart() {
+    return counterpart;
+  }
+
+  /**
    * {@inheritDoc}
    */
   @Override
   public boolean hasCustomTargetSlot() {
     return (target != null);
+  }
+
+  /**
+   * Lets this local end point send the given message.
+   * 
+   * @param message
+   * @return the reply to the given message
+   * @throws RuntimeException if this local end point is closed
+   */
+  public String sendAndWaitToReply(final String message) {
+    // Asserts that this local end point is open.
+    assertIsOpen();
+
+    return getStoredCounterpart().receiveAndGetReply(message);
   }
 
   /**

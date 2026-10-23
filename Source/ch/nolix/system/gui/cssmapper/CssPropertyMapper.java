@@ -47,20 +47,6 @@ public final class CssPropertyMapper implements ICssPropertyMapper {
    * {@inheritDoc}
    */
   @Override
-  public ICssProperty mapCornerShadowToCssProperty(final ICornerShadow cornerShadow) {
-    return //
-    switch (cornerShadow.getLocation()) {
-      case OUTSIDE ->
-        CornerShadowToCssMapperHelper.mapCornerShadowToCssPropertyWhenShadowIsOutsideTheBox(cornerShadow);
-      case INSIDE ->
-        CornerShadowToCssMapperHelper.mapCornerShadowToCssPropertyWhenShadowIsInsideTheBox(cornerShadow);
-    };
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public Optional<ICssProperty> mapCornerShadowsToOptionalCssProperty(
     final ExtendedIterable<? extends ICornerShadow> cornerShadows) {
     if (cornerShadows.containsAny()) {
@@ -72,6 +58,20 @@ public final class CssPropertyMapper implements ICssPropertyMapper {
     }
 
     return Optional.empty();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ICssProperty mapCornerShadowToCssProperty(final ICornerShadow cornerShadow) {
+    return //
+    switch (cornerShadow.getLocation()) {
+      case OUTSIDE ->
+        CornerShadowToCssMapperHelper.mapCornerShadowToCssPropertyWhenShadowIsOutsideTheBox(cornerShadow);
+      case INSIDE ->
+        CornerShadowToCssMapperHelper.mapCornerShadowToCssPropertyWhenShadowIsInsideTheBox(cornerShadow);
+    };
   }
 
   /**

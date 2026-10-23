@@ -14,9 +14,9 @@ public interface IGrid extends Container<IGrid, IGridStyle> {
 
   int getColumnCount();
 
-  Control<?, ?> getStoredChildControlAtOneBasedRowAndColumnIndex(int rowIndex, int columnIndex);
-
   int getRowCount();
+
+  Control<?, ?> getStoredChildControlAtOneBasedRowAndColumnIndex(int rowIndex, int columnIndex);
 
   IGrid insertControlAtRowAndColumn(int oneBasedRowIndex, int oneBasedColumnIndex, Control<?, ?> control);
 

@@ -53,14 +53,6 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
    * {@inheritDoc}
    */
   @Override
-  public boolean isEmpty() {
-    return (internalValue == null);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public V getStoredValue() {
     OPTIONAL_VALUE_VALIDATOR.assertIsNotEmpty(this);
 
@@ -82,6 +74,14 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
   @SuppressWarnings("unchecked")
   public void internalSetNullableValue(final Object nullableValue, final String nullableAdditionalValue) {
     internalValue = (V) nullableValue;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean isEmpty() {
+    return (internalValue == null);
   }
 
   /**

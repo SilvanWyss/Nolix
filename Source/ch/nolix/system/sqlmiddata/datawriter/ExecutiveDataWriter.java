@@ -88,13 +88,6 @@ public final class ExecutiveDataWriter {
     sqlCollector.addSqlStatement(statement);
   }
 
-  public void deleteMultiValueEntry(final String entityId, final String multiValueColumnId, final String value) {
-    final var statement = //
-    MULTI_VALUE_STATEMENT_CREATOR.createStatementToDeleteMultiValueEntry(entityId, multiValueColumnId, value);
-
-    sqlCollector.addSqlStatement(statement);
-  }
-
   public void deleteMultiBackReferenceEntry(
     final String entityId,
     final String multiBackReferenceColumnId,
@@ -104,6 +97,13 @@ public final class ExecutiveDataWriter {
       entityId,
       multiBackReferenceColumnId,
       backReferencedEntityId);
+
+    sqlCollector.addSqlStatement(statement);
+  }
+
+  public void deleteMultiValueEntry(final String entityId, final String multiValueColumnId, final String value) {
+    final var statement = //
+    MULTI_VALUE_STATEMENT_CREATOR.createStatementToDeleteMultiValueEntry(entityId, multiValueColumnId, value);
 
     sqlCollector.addSqlStatement(statement);
   }
@@ -150,6 +150,16 @@ public final class ExecutiveDataWriter {
     sqlCollector.addSqlStatement(statement);
   }
 
+  public void insertEntryIntoMultiValue(
+    final String entityId,
+    final String multiValueColumnId,
+    final String entry) {
+    final var statement = MULTI_VALUE_STATEMENT_CREATOR.createStatementToInsertMultiValueEntry(entityId,
+      multiValueColumnId, entry);
+
+    sqlCollector.addSqlStatement(statement);
+  }
+
   public void insertMultiReferenceEntry(
     final String entityId,
     final String multiReferenceColumnId,
@@ -161,16 +171,6 @@ public final class ExecutiveDataWriter {
       multiReferenceColumnId,
       referencedEntityId,
       referencedEntityTableId);
-
-    sqlCollector.addSqlStatement(statement);
-  }
-
-  public void insertEntryIntoMultiValue(
-    final String entityId,
-    final String multiValueColumnId,
-    final String entry) {
-    final var statement = MULTI_VALUE_STATEMENT_CREATOR.createStatementToInsertMultiValueEntry(entityId,
-      multiValueColumnId, entry);
 
     sqlCollector.addSqlStatement(statement);
   }

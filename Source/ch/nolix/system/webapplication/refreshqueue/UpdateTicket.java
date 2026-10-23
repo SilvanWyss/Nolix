@@ -58,12 +58,12 @@ public final class UpdateTicket {
     return webGui;
   }
 
-  public boolean isForWholeWebGui() {
-    return (webGui != null);
-  }
-
   public boolean isForSpecificControls() {
     return !isForWholeWebGui();
+  }
+
+  public boolean isForWholeWebGui() {
+    return (webGui != null);
   }
 
   public boolean shouldUpdateConstellationOrStyle() {

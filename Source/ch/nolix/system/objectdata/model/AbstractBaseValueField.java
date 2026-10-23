@@ -29,7 +29,7 @@ public abstract class AbstractBaseValueField<V> extends AbstractField implements
    * {@inheritDoc}
    */
   @Override
-  public final ExtendedIterable<BaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
+  public final ExtendedIterable<BaseReference> getStoredBackReferencedBaseReferences() {
     return ImmutableList.createEmpty();
   }
 
@@ -37,7 +37,7 @@ public abstract class AbstractBaseValueField<V> extends AbstractField implements
    * {@inheritDoc}
    */
   @Override
-  public final ExtendedIterable<BaseReference> getStoredBackReferencedBaseReferences() {
+  public final ExtendedIterable<BaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
     return ImmutableList.createEmpty();
   }
 
@@ -47,14 +47,6 @@ public abstract class AbstractBaseValueField<V> extends AbstractField implements
   @Override
   public final Class<V> getValueType() {
     return valueType;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final boolean referencesEntity(final Entity entity) {
-    return false;
   }
 
   /**
@@ -78,6 +70,14 @@ public abstract class AbstractBaseValueField<V> extends AbstractField implements
    */
   @Override
   public final boolean referencesBackField(final Field field) {
+    return false;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final boolean referencesEntity(final Entity entity) {
     return false;
   }
 

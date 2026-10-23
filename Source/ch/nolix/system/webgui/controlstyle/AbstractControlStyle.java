@@ -257,302 +257,10 @@ implements ControlStyle<S> {
    * {@inheritDoc}
    */
   @Override
-  public final IBackground getBackgroundWhenHasState(final ControlState state) {
-    return memberBackground.getValueWhenHasState(state);
-  }
+  public final S forStateSetBackground(ControlState state, IBackground background) {
+    memberBackground.setValueForState(state, background);
 
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final IColor getBottomBorderColorWhenHasState(final ControlState state) {
-    return memberBottomBorderColor.getValueWhenHasState(state);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final int getBottomBorderThicknessWhenHasState(final ControlState state) {
-    return memberBottomBorderThickness.getValueWhenHasState(state);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final IAbsoluteOrRelativeInt getBottomPaddingWhenHasState(final ControlState state) {
-    return memberBottomPadding.getValueWhenHasState(state);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final int getCornerRadiusWhenHasState(final ControlState state) {
-    return memberCornerRadius.getValueWhenHasState(state);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final ExtendedIterable<? extends ICornerShadow> getCornerShadowsWhenHasState(final ControlState state) {
-    return memberCornerShadows.getValueWhenHasState(state);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final IColor getLeftBorderColorWhenHasState(final ControlState state) {
-    return memberLeftBorderColor.getValueWhenHasState(state);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final int getLeftBorderThicknessWhenHasState(final ControlState state) {
-    return memberLeftBorderThickness.getValueWhenHasState(state);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final IAbsoluteOrRelativeInt getHeightForState(final ControlState state) {
-    return memberHeight.getValueWhenHasState(state);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final IAbsoluteOrRelativeInt getLeftPaddingWhenHasState(final ControlState state) {
-    return memberLeftPadding.getValueWhenHasState(state);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final IColor getRightBorderColorWhenHasState(final ControlState state) {
-    return memberRightBorderColor.getValueWhenHasState(state);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final int getRightBorderThicknessWhenHasState(final ControlState state) {
-    return memberRightBorderThickness.getValueWhenHasState(state);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final IAbsoluteOrRelativeInt getRightPaddingWhenHasState(final ControlState state) {
-    return memberRightPadding.getValueWhenHasState(state);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final IColor getTopBorderColorWhenHasState(final ControlState state) {
-    return memberTopBorderColor.getValueWhenHasState(state);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final int getTopBorderThicknessWhenHasState(final ControlState state) {
-    return memberTopBorderThickness.getValueWhenHasState(state);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final IAbsoluteOrRelativeInt getTopPaddingWhenHasState(final ControlState state) {
-    return memberTopPadding.getValueWhenHasState(state);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final IAbsoluteOrRelativeInt getWidthForState(final ControlState state) {
-    return memberWidth.getValueWhenHasState(state);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void removeCustomBackgrounds() {
-    memberBackground.setUndefined();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void removeCustomBorderColors() {
-    memberBorderColor.setUndefined();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void removeCustomBorderThicknesses() {
-    removeCustomLeftBorderColors();
-    removeCustomRightBorderColors();
-    removeCustomTopBorderColors();
-    removeCustomBottomBorderColors();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void removeCustomBottomBorderColors() {
-    memberBottomBorderColor.setUndefined();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void removeCustomBottomBorderThicknesses() {
-    memberBottomBorderThickness.setUndefined();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void removeCustomBottomPaddings() {
-    memberBottomPadding.setUndefined();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void removeCustomCornerRadiuses() {
-    memberCornerRadius.setUndefined();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void removeCustomCornerShadows() {
-    memberCornerShadows.setUndefined();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void removeCustomHeights() {
-    memberHeight.setUndefined();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void removeCustomLeftBorderColors() {
-    memberLeftBorderColor.setUndefined();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void removeCustomLeftBorderThicknesses() {
-    memberLeftBorderThickness.setUndefined();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void removeCustomLeftPaddings() {
-    memberLeftPadding.setUndefined();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void removeCustomPaddings() {
-    removeCustomLeftPaddings();
-    removeCustomRightPaddings();
-    removeCustomTopPaddings();
-    removeCustomBottomPaddings();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void removeCustomRightBorderColors() {
-    memberRightBorderColor.setUndefined();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void removeCustomRightBorderThicknesses() {
-    memberRightBorderThickness.setUndefined();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void removeCustomRightPaddings() {
-    memberRightPadding.setUndefined();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void removeCustomTopBorderColors() {
-    memberTopBorderColor.setUndefined();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void removeCustomTopBorderThicknesses() {
-    memberTopBorderThickness.setUndefined();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void removeCustomTopPaddings() {
-    memberTopPadding.setUndefined();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void removeCustomWidths() {
-    memberWidth.setUndefined();
+    return asConcrete();
   }
 
   /**
@@ -571,16 +279,6 @@ implements ControlStyle<S> {
     final ControlState state,
     final IColorGradient backgroundColorGradient) {
     return forStateSetBackground(state, Background.withColorGradient(backgroundColorGradient));
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final S forStateSetBackground(ControlState state, IBackground background) {
-    memberBackground.setValueForState(state, background);
-
-    return asConcrete();
   }
 
   /**
@@ -847,6 +545,308 @@ implements ControlStyle<S> {
     setWidthForState(state, AbsoluteOrRelativeInt.withPercentage(widthInPercentOfViewAreaWidth));
 
     return asConcrete();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final IBackground getBackgroundWhenHasState(final ControlState state) {
+    return memberBackground.getValueWhenHasState(state);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final IColor getBottomBorderColorWhenHasState(final ControlState state) {
+    return memberBottomBorderColor.getValueWhenHasState(state);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final int getBottomBorderThicknessWhenHasState(final ControlState state) {
+    return memberBottomBorderThickness.getValueWhenHasState(state);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final IAbsoluteOrRelativeInt getBottomPaddingWhenHasState(final ControlState state) {
+    return memberBottomPadding.getValueWhenHasState(state);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final int getCornerRadiusWhenHasState(final ControlState state) {
+    return memberCornerRadius.getValueWhenHasState(state);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final ExtendedIterable<? extends ICornerShadow> getCornerShadowsWhenHasState(final ControlState state) {
+    return memberCornerShadows.getValueWhenHasState(state);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final IAbsoluteOrRelativeInt getHeightForState(final ControlState state) {
+    return memberHeight.getValueWhenHasState(state);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final IColor getLeftBorderColorWhenHasState(final ControlState state) {
+    return memberLeftBorderColor.getValueWhenHasState(state);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final int getLeftBorderThicknessWhenHasState(final ControlState state) {
+    return memberLeftBorderThickness.getValueWhenHasState(state);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final IAbsoluteOrRelativeInt getLeftPaddingWhenHasState(final ControlState state) {
+    return memberLeftPadding.getValueWhenHasState(state);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final IColor getRightBorderColorWhenHasState(final ControlState state) {
+    return memberRightBorderColor.getValueWhenHasState(state);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final int getRightBorderThicknessWhenHasState(final ControlState state) {
+    return memberRightBorderThickness.getValueWhenHasState(state);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final IAbsoluteOrRelativeInt getRightPaddingWhenHasState(final ControlState state) {
+    return memberRightPadding.getValueWhenHasState(state);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final IColor getTopBorderColorWhenHasState(final ControlState state) {
+    return memberTopBorderColor.getValueWhenHasState(state);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final int getTopBorderThicknessWhenHasState(final ControlState state) {
+    return memberTopBorderThickness.getValueWhenHasState(state);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final IAbsoluteOrRelativeInt getTopPaddingWhenHasState(final ControlState state) {
+    return memberTopPadding.getValueWhenHasState(state);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final IAbsoluteOrRelativeInt getWidthForState(final ControlState state) {
+    return memberWidth.getValueWhenHasState(state);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void removeCustomBackgrounds() {
+    memberBackground.setUndefined();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void removeCustomBorderColors() {
+    memberBorderColor.setUndefined();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void removeCustomBorderThicknesses() {
+    removeCustomLeftBorderColors();
+    removeCustomRightBorderColors();
+    removeCustomTopBorderColors();
+    removeCustomBottomBorderColors();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void removeCustomBottomBorderColors() {
+    memberBottomBorderColor.setUndefined();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void removeCustomBottomBorderThicknesses() {
+    memberBottomBorderThickness.setUndefined();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void removeCustomBottomPaddings() {
+    memberBottomPadding.setUndefined();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void removeCustomCornerRadiuses() {
+    memberCornerRadius.setUndefined();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void removeCustomCornerShadows() {
+    memberCornerShadows.setUndefined();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void removeCustomHeights() {
+    memberHeight.setUndefined();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void removeCustomLeftBorderColors() {
+    memberLeftBorderColor.setUndefined();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void removeCustomLeftBorderThicknesses() {
+    memberLeftBorderThickness.setUndefined();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void removeCustomLeftPaddings() {
+    memberLeftPadding.setUndefined();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void removeCustomPaddings() {
+    removeCustomLeftPaddings();
+    removeCustomRightPaddings();
+    removeCustomTopPaddings();
+    removeCustomBottomPaddings();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void removeCustomRightBorderColors() {
+    memberRightBorderColor.setUndefined();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void removeCustomRightBorderThicknesses() {
+    memberRightBorderThickness.setUndefined();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void removeCustomRightPaddings() {
+    memberRightPadding.setUndefined();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void removeCustomTopBorderColors() {
+    memberTopBorderColor.setUndefined();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void removeCustomTopBorderThicknesses() {
+    memberTopBorderThickness.setUndefined();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void removeCustomTopPaddings() {
+    memberTopPadding.setUndefined();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void removeCustomWidths() {
+    memberWidth.setUndefined();
   }
 
   private void setBottomPaddingForState(final ControlState state, final IAbsoluteOrRelativeInt bottomPadding) {

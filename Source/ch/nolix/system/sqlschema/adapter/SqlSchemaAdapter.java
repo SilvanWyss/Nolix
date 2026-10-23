@@ -138,6 +138,14 @@ public final class SqlSchemaAdapter implements SchemaAdapter {
    * {@inheritDoc}
    */
   @Override
+  public int getSaveCount() {
+    return schemaWriter.getSaveCount();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public ICloseController getStoredCloseController() {
     return closeController;
   }
@@ -146,8 +154,8 @@ public final class SqlSchemaAdapter implements SchemaAdapter {
    * {@inheritDoc}
    */
   @Override
-  public int getSaveCount() {
-    return schemaWriter.getSaveCount();
+  public int getTableCount() {
+    return schemaReader.getTableCount();
   }
 
   /**
@@ -164,14 +172,6 @@ public final class SqlSchemaAdapter implements SchemaAdapter {
   @Override
   public TableDto loadTable(final String tableName) {
     return schemaReader.loadTable(tableName);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public int getTableCount() {
-    return schemaReader.getTableCount();
   }
 
   /**

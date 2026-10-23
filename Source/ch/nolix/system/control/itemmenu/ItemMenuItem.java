@@ -159,6 +159,16 @@ public final class ItemMenuItem extends AbstractMutableElementWithProperties imp
    * {@inheritDoc}
    */
   @Override
+  public void internalSetParentMenu(final IItemMenu<?, ?> parentMenu) {
+    Validator.assertThat(parentMenu).thatIsNamed("parent menu").isNotNull();
+
+    this.nullableParentMenu = parentMenu;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean isBlank() {
     return getText().isEmpty();
   }
@@ -195,16 +205,6 @@ public final class ItemMenuItem extends AbstractMutableElementWithProperties imp
   @Override
   public void unselect() {
     selectionFlag.setValue(false);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public void internalSetParentMenu(final IItemMenu<?, ?> parentMenu) {
-    Validator.assertThat(parentMenu).thatIsNamed("parent menu").isNotNull();
-
-    this.nullableParentMenu = parentMenu;
   }
 
   private boolean hasSelectAction() {

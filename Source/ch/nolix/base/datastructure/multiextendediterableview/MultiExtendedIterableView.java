@@ -66,14 +66,6 @@ public final class MultiExtendedIterableView<E> extends AbstractExtendedIterable
    * {@inheritDoc}
    */
   @Override
-  public CopyableIterator<E> iterator() {
-    return MultiExtendedIterableViewIterator.forContainers(wellOrderContainers);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public int getCount() {
     return wellOrderContainers.getSumOfInts(ExtendedIterable::getCount).intValue();
   }
@@ -106,6 +98,14 @@ public final class MultiExtendedIterableView<E> extends AbstractExtendedIterable
   @Override
   public boolean isMaterialized() {
     return false;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public CopyableIterator<E> iterator() {
+    return MultiExtendedIterableViewIterator.forContainers(wellOrderContainers);
   }
 
   /**

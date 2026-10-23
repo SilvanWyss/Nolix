@@ -11,6 +11,26 @@ import ch.nolix.systemapi.webgui.webguiproperty.ControlState;
  * @param <S> the type of a {@link BorderStyle}.
  */
 public interface BorderStyle<S extends BorderStyle<S>> {
+  S forStateSetBorderColor(ControlState state, IColor borderColor);
+
+  S forStateSetBorderThickness(ControlState state, int borderThickness);
+
+  S forStateSetBottomBorderColor(ControlState state, IColor bottomBorderColor);
+
+  S forStateSetBottomBorderThickness(ControlState state, int bottomBorderThickness);
+
+  S forStateSetLeftBorderColor(ControlState state, IColor leftBorderColor);
+
+  S forStateSetLeftBorderThickness(ControlState state, int leftBorderThickness);
+
+  S forStateSetRightBorderColor(ControlState state, IColor rightBorderColor);
+
+  S forStateSetRightBorderThickness(ControlState state, int rightBorderThickness);
+
+  S forStateSetTopBorderColor(ControlState state, IColor topBorderColor);
+
+  S forStateSetTopBorderThickness(ControlState state, int topBorderThickness);
+
   IColor getBottomBorderColorWhenHasState(ControlState state);
 
   int getBottomBorderThicknessWhenHasState(ControlState state);
@@ -46,24 +66,4 @@ public interface BorderStyle<S extends BorderStyle<S>> {
   void removeCustomTopBorderColors();
 
   void removeCustomTopBorderThicknesses();
-
-  S forStateSetBorderColor(ControlState state, IColor borderColor);
-
-  S forStateSetBorderThickness(ControlState state, int borderThickness);
-
-  S forStateSetBottomBorderColor(ControlState state, IColor bottomBorderColor);
-
-  S forStateSetBottomBorderThickness(ControlState state, int bottomBorderThickness);
-
-  S forStateSetLeftBorderColor(ControlState state, IColor leftBorderColor);
-
-  S forStateSetLeftBorderThickness(ControlState state, int leftBorderThickness);
-
-  S forStateSetRightBorderColor(ControlState state, IColor rightBorderColor);
-
-  S forStateSetRightBorderThickness(ControlState state, int rightBorderThickness);
-
-  S forStateSetTopBorderColor(ControlState state, IColor topBorderColor);
-
-  S forStateSetTopBorderThickness(ControlState state, int topBorderThickness);
 }

@@ -102,6 +102,70 @@ implements ControlBaseStyle<C> {
    * {@inheritDoc}
    */
   @Override
+  public final C forStateSetBoldTextFlag(final ControlState state, final boolean boldTextFlag) {
+    memberBoldTextFlag.setValueForState(state, boldTextFlag);
+
+    return asConcrete();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final C forStateSetFont(final ControlState state, final Font font) {
+    memberFont.setValueForState(state, font);
+
+    return asConcrete();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final C forStateSetOpacity(final ControlState state, final double opacity) {
+    Validator.assertThat(opacity).thatIsNamed(LowerCaseVariableNameCatalog.OPACITY).isBetween(0.0, 1.0);
+
+    memberOpacity.setValueForState(state, opacity);
+
+    return asConcrete();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final C forStateSetTextColor(final ControlState state, final IColor textColor) {
+    memberTextColor.setValueForState(state, textColor);
+
+    return asConcrete();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public C forStateSetTextLineDecoration(final ControlState state, final LineDecoration textLineDecoration) {
+    memberTextLineDecoration.setValueForState(state, textLineDecoration);
+
+    return asConcrete();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final C forStateSetTextSize(final ControlState state, final int textSize) {
+    Validator.assertThat(textSize).thatIsNamed(LowerCaseVariableNameCatalog.TEXT_SIZE).isPositive();
+
+    memberTextSize.setValueForState(state, textSize);
+
+    return asConcrete();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final boolean getBoldTextFlagWhenHasState(final ControlState state) {
     return memberBoldTextFlag.getValueWhenHasState(state);
   }
@@ -192,69 +256,5 @@ implements ControlBaseStyle<C> {
   @Override
   public final void removeCustomTextSizes() {
     memberTextSize.setUndefined();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final C forStateSetBoldTextFlag(final ControlState state, final boolean boldTextFlag) {
-    memberBoldTextFlag.setValueForState(state, boldTextFlag);
-
-    return asConcrete();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final C forStateSetFont(final ControlState state, final Font font) {
-    memberFont.setValueForState(state, font);
-
-    return asConcrete();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final C forStateSetOpacity(final ControlState state, final double opacity) {
-    Validator.assertThat(opacity).thatIsNamed(LowerCaseVariableNameCatalog.OPACITY).isBetween(0.0, 1.0);
-
-    memberOpacity.setValueForState(state, opacity);
-
-    return asConcrete();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final C forStateSetTextColor(final ControlState state, final IColor textColor) {
-    memberTextColor.setValueForState(state, textColor);
-
-    return asConcrete();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public C forStateSetTextLineDecoration(final ControlState state, final LineDecoration textLineDecoration) {
-    memberTextLineDecoration.setValueForState(state, textLineDecoration);
-
-    return asConcrete();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final C forStateSetTextSize(final ControlState state, final int textSize) {
-    Validator.assertThat(textSize).thatIsNamed(LowerCaseVariableNameCatalog.TEXT_SIZE).isPositive();
-
-    memberTextSize.setValueForState(state, textSize);
-
-    return asConcrete();
   }
 }

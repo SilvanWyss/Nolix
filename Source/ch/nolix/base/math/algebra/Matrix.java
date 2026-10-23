@@ -209,6 +209,26 @@ public final class Matrix { // NOSONAR: A Matrix is a principal object thus it h
   }
 
   /**
+   * Appends a new row with the given row values at the bottom of the current
+   * {@link Matrix}.
+   * 
+   * @param rowValues
+   * @return the current {@link Matrix}
+   * @throws RuntimeException if not as many row values are given than the number
+   *                          of columns of the current {@link Matrix}.
+   */
+  public Matrix appendAtBottom(final double... rowValues) {
+    final var rowValueCount = rowValues.length;
+    Validator.assertThat(rowValueCount).thatIsNamed("number of row values").isEqualTo(getColumnCount());
+
+    var oldValues = values;
+    values = Arrays.copyOf(values, oldValues.length + 1);
+    values[getRowCount() - 1] = rowValues;
+
+    return this;
+  }
+
+  /**
    * Appends the given matrix at the right of the current {@link Matrix}.
    * 
    * @param matrix
@@ -240,26 +260,6 @@ public final class Matrix { // NOSONAR: A Matrix is a principal object thus it h
   }
 
   /**
-   * Appends a new row with the given row values at the bottom of the current
-   * {@link Matrix}.
-   * 
-   * @param rowValues
-   * @return the current {@link Matrix}
-   * @throws RuntimeException if not as many row values are given than the number
-   *                          of columns of the current {@link Matrix}.
-   */
-  public Matrix appendAtBottom(final double... rowValues) {
-    final var rowValueCount = rowValues.length;
-    Validator.assertThat(rowValueCount).thatIsNamed("number of row values").isEqualTo(getColumnCount());
-
-    var oldValues = values;
-    values = Arrays.copyOf(values, oldValues.length + 1);
-    values[getRowCount() - 1] = rowValues;
-
-    return this;
-  }
-
-  /**
    * {@inheritDoc}
    */
   @Override
@@ -272,13 +272,6 @@ public final class Matrix { // NOSONAR: A Matrix is a principal object thus it h
   }
 
   /**
-   * @return the number of columns of the current {@link Matrix}
-   */
-  public int getColumnCount() {
-    return values[0].length;
-  }
-
-  /**
    * @return a clone of the current {@link Matrix}
    */
   public Matrix getClone() {
@@ -286,6 +279,13 @@ public final class Matrix { // NOSONAR: A Matrix is a principal object thus it h
     matrix.values = values;
 
     return matrix;
+  }
+
+  /**
+   * @return the number of columns of the current {@link Matrix}
+   */
+  public int getColumnCount() {
+    return values[0].length;
   }
 
   /**
@@ -527,13 +527,6 @@ public final class Matrix { // NOSONAR: A Matrix is a principal object thus it h
   }
 
   /**
-   * @return the transposed matrix of the current {@link Matrix}.
-   */
-  public Matrix getTransposed() {
-    return getClone().transpose();
-  }
-
-  /**
    * @return the trace of the current {@link Matrix}
    * @throws RuntimeException if the current {@link Matrix} is not quadratic
    */
@@ -547,6 +540,13 @@ public final class Matrix { // NOSONAR: A Matrix is a principal object thus it h
     }
 
     return trace;
+  }
+
+  /**
+   * @return the transposed matrix of the current {@link Matrix}.
+   */
+  public Matrix getTransposed() {
+    return getClone().transpose();
   }
 
   /**
@@ -713,23 +713,17 @@ public final class Matrix { // NOSONAR: A Matrix is a principal object thus it h
   }
 
   /**
-   * Sets the values of the current {@link Matrix}.
+   * Sets the diagonal values of the current {@link Matrix} to the given value.
    * 
-   * @param values
+   * @param value
    * @return the current {@link Matrix}
-   * @throws RuntimeException if not as many values are given as the current
-   *                          {@link Matrix} contains.
+   * @throws RuntimeException if the current {@link Matrix} is not quadratic
    */
-  public Matrix setValues(final double... values) {
-    // Asserts that as many values are given as the current Matrix contains.
-    Validator.assertThat(values).hasElementCount(getSize());
+  public Matrix setDiagonalValuesTo(double value) {
+    assertIsQuadratic();
 
-    // Iterates the rows of the current Matrix.
-    for (var i = 0; i < getRowCount(); i++) {
-      // Iterates the cells of the current row.
-      for (var j = 0; j < getColumnCount(); j++) {
-        this.values[i][j] = values[i * getColumnCount() + j];
-      }
+    for (var i = 0; i < values.length; i++) {
+      values[i][i] = value;
     }
 
     return this;
@@ -768,17 +762,23 @@ public final class Matrix { // NOSONAR: A Matrix is a principal object thus it h
   }
 
   /**
-   * Sets the diagonal values of the current {@link Matrix} to the given value.
+   * Sets the values of the current {@link Matrix}.
    * 
-   * @param value
+   * @param values
    * @return the current {@link Matrix}
-   * @throws RuntimeException if the current {@link Matrix} is not quadratic
+   * @throws RuntimeException if not as many values are given as the current
+   *                          {@link Matrix} contains.
    */
-  public Matrix setDiagonalValuesTo(double value) {
-    assertIsQuadratic();
+  public Matrix setValues(final double... values) {
+    // Asserts that as many values are given as the current Matrix contains.
+    Validator.assertThat(values).hasElementCount(getSize());
 
-    for (var i = 0; i < values.length; i++) {
-      values[i][i] = value;
+    // Iterates the rows of the current Matrix.
+    for (var i = 0; i < getRowCount(); i++) {
+      // Iterates the cells of the current row.
+      for (var j = 0; j < getColumnCount(); j++) {
+        this.values[i][j] = values[i * getColumnCount() + j];
+      }
     }
 
     return this;
@@ -839,6 +839,34 @@ public final class Matrix { // NOSONAR: A Matrix is a principal object thus it h
     // Handles the case that the current Matrix does not consist of 1 row nor of 1
     // column.
     throw UnrepresentingArgumentException.forArgumentAndType(this, Polynom.class);
+  }
+
+  /**
+   * @return a {@link String} representation of this object
+   */
+  @Override
+  public String toString() {
+    final var stringBuilder = new StringBuilder();
+
+    stringBuilder.append('[');
+
+    for (var i = 0; i < getRowCount(); i++) {
+      for (var j = 0; j < getColumnCount(); j++) {
+        stringBuilder.append(DOUBLE_TOOL.toString(values[i][j]));
+
+        if (j < getColumnCount() - 1) {
+          stringBuilder.append(',');
+        }
+      }
+
+      if (i < getRowCount() - 1) {
+        stringBuilder.append(';');
+      }
+    }
+
+    stringBuilder.append(']');
+
+    return stringBuilder.toString();
   }
 
   /**
@@ -964,34 +992,6 @@ public final class Matrix { // NOSONAR: A Matrix is a principal object thus it h
     }
 
     return removeZeroRows();
-  }
-
-  /**
-   * @return a {@link String} representation of this object
-   */
-  @Override
-  public String toString() {
-    final var stringBuilder = new StringBuilder();
-
-    stringBuilder.append('[');
-
-    for (var i = 0; i < getRowCount(); i++) {
-      for (var j = 0; j < getColumnCount(); j++) {
-        stringBuilder.append(DOUBLE_TOOL.toString(values[i][j]));
-
-        if (j < getColumnCount() - 1) {
-          stringBuilder.append(',');
-        }
-      }
-
-      if (i < getRowCount() - 1) {
-        stringBuilder.append(';');
-      }
-    }
-
-    stringBuilder.append(']');
-
-    return stringBuilder.toString();
   }
 
   /**

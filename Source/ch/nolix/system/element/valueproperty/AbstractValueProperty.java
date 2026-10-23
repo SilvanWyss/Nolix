@@ -49,14 +49,6 @@ public abstract class AbstractValueProperty<V> implements BaseValueProperty {
    * {@inheritDoc}
    */
   @Override
-  public final String getName() {
-    return name;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public final boolean addedOrChangedAttribute(final Node<?> attribute) {
     if (attribute != null && attribute.hasHeader(getName())) {
       final var value = valueMapper.apply(attribute);
@@ -67,6 +59,14 @@ public abstract class AbstractValueProperty<V> implements BaseValueProperty {
     }
 
     return false;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final String getName() {
+    return name;
   }
 
   /**

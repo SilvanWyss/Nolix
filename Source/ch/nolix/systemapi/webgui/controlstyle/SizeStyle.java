@@ -15,14 +15,6 @@ public interface SizeStyle<S extends SizeStyle<S>> {
 
   boolean definesWidthForState(ControlState state);
 
-  IAbsoluteOrRelativeInt getHeightForState(ControlState state);
-
-  IAbsoluteOrRelativeInt getWidthForState(ControlState state);
-
-  void removeCustomHeights();
-
-  void removeCustomWidths();
-
   S forStateSetHeight(ControlState state, int height);
 
   S forStateSetHeightInPercentOfViewArea(ControlState state, double heightInPercentOfViewAreaHeight);
@@ -30,4 +22,12 @@ public interface SizeStyle<S extends SizeStyle<S>> {
   S forStateSetWidth(ControlState state, int width);
 
   S forStateSetWidthInPercentOfViewAreaWidth(ControlState state, double widthInPercentOfViewAreaWidth);
+
+  IAbsoluteOrRelativeInt getHeightForState(ControlState state);
+
+  IAbsoluteOrRelativeInt getWidthForState(ControlState state);
+
+  void removeCustomHeights();
+
+  void removeCustomWidths();
 }

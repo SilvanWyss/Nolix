@@ -13,17 +13,17 @@ import ch.nolix.systemapi.objectschema.model.ITable;
  * @author Silvan Wyss
  */
 public interface IDatabaseValidator extends DatabaseObjectValidator<IDatabase> {
-  void assertContainsTable(IDatabase database, ITable tables);
-
-  void assertContainsTables(IDatabase database, ExtendedIterable<ITable> tables);
-
   void assertAllBackReferencesAreValid(IDatabase database);
 
   void assertCanAddGivenTable(IDatabase database, ITable table);
 
   void assertCanSetGivenNameToDatabase(String name);
 
+  void assertContainsTable(IDatabase database, ITable tables);
+
   void assertContainsTableReferencedByGivenColumn(IDatabase database, IColumn column);
+
+  void assertContainsTables(IDatabase database, ExtendedIterable<ITable> tables);
 
   void assertContainsTableWithColumnBackReferencedByGivenColumn(IDatabase database, IColumn column);
 

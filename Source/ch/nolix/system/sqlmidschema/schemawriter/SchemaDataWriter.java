@@ -44,16 +44,16 @@ public final class SchemaDataWriter {
     sqlCollector.addSqlStatements(statements);
   }
 
-  public void deleteColumn(final TableIdentification table, final String columnName) {
-    final var statement = META_DATA_STATEMENT_CREATOR.createStatementToDeleteColumn(table, columnName);
-
-    sqlCollector.addSqlStatement(statement);
-  }
-
   public void addTable(final TableDto table) {
     final var statements = META_DATA_STATEMENT_CREATOR.createStatementsToAddTable(table);
 
     sqlCollector.addSqlStatements(statements);
+  }
+
+  public void deleteColumn(final TableIdentification table, final String columnName) {
+    final var statement = META_DATA_STATEMENT_CREATOR.createStatementToDeleteColumn(table, columnName);
+
+    sqlCollector.addSqlStatement(statement);
   }
 
   public void deleteTable(final String tableName) {

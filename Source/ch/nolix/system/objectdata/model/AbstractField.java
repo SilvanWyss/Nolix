@@ -159,6 +159,16 @@ public abstract class AbstractField implements Field {
    * {@inheritDoc}
    */
   @Override
+  public final boolean isConnectedWithRealDatabase() {
+    return //
+    belongsToEntity()
+    && getStoredParentEntity().isConnectedWithRealDatabase();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final boolean isDeleted() {
     return //
     belongsToEntity()
@@ -171,16 +181,6 @@ public abstract class AbstractField implements Field {
   @Override
   public final boolean isEdited() {
     return (getState() == DatabaseObjectState.EDITED);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final boolean isConnectedWithRealDatabase() {
-    return //
-    belongsToEntity()
-    && getStoredParentEntity().isConnectedWithRealDatabase();
   }
 
   /**

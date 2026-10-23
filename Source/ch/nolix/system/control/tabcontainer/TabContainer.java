@@ -171,14 +171,6 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<Control<?, ?>> getStoredStructureControls() {
-    return ImmutableList.withElement(internalGetStoredRootVerticalStack());
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public ITabContainerTab getStoredFirstTabByHeader(final String header) {
     return getStoredTabs().getStoredFirst(t -> t.hasHeader(header));
   }
@@ -197,6 +189,14 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
   @Override
   public ITabContainerTab getStoredSelectedTab() {
     return getStoredTabs().getStoredFirst(ITabContainerTab::isSelected);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ExtendedIterable<Control<?, ?>> getStoredStructureControls() {
+    return ImmutableList.withElement(internalGetStoredRootVerticalStack());
   }
 
   /**

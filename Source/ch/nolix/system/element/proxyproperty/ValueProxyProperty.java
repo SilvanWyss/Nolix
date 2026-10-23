@@ -81,18 +81,18 @@ public final class ValueProxyProperty implements IValueProxyProperty {
    * {@inheritDoc}
    */
   @Override
-  public String getName() {
-    return name;
+  public void fillUpAttributesIntoList(final ILinkedList<Node<?>> list) {
+    final var attribute = valueSpecificationSupplier.get();
+
+    list.addAtEnd(attribute);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public void fillUpAttributesIntoList(final ILinkedList<Node<?>> list) {
-    final var attribute = valueSpecificationSupplier.get();
-
-    list.addAtEnd(attribute);
+  public String getName() {
+    return name;
   }
 
   /**

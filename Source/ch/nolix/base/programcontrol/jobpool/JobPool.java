@@ -22,6 +22,14 @@ public final class JobPool {
   private final LinkedList<JobWrapper> jobWrappers = LinkedList.createEmpty();
 
   /**
+   * @return true if the current {@link JobPool} contains waiting jobs, false
+   *         otherwise
+   */
+  public boolean containsWaitingJobs() {
+    return jobWrappers.containsMatching(JobWrapper::isFresh);
+  }
+
+  /**
    * Enqueues the given job to the current {@link JobPool}.
    * 
    * @param job
@@ -35,14 +43,6 @@ public final class JobPool {
     createNewWorkerIfNeeded();
 
     return Future.forJobWrapper(jobWrapper);
-  }
-
-  /**
-   * @return true if the current {@link JobPool} contains waiting jobs, false
-   *         otherwise
-   */
-  public boolean containsWaitingJobs() {
-    return jobWrappers.containsMatching(JobWrapper::isFresh);
   }
 
   /**

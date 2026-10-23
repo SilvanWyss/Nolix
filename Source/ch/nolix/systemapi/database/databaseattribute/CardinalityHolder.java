@@ -13,15 +13,15 @@ import ch.nolix.systemapi.database.databaseproperty.Cardinality;
  */
 public interface CardinalityHolder {
   /**
-   * @return the {@link Cardinality} of the current {@link CardinalityHolder}
-   */
-  Cardinality getCardinality();
-
-  /**
    * @return the {@link BaseCardinality} of the {@link Cardinality} of the current
    *         {@link CardinalityHolder}
    */
   default BaseCardinality getBaseCardinality() {
     return getCardinality().getBaseCardinality();
   }
+
+  /**
+   * @return the {@link Cardinality} of the current {@link CardinalityHolder}
+   */
+  Cardinality getCardinality();
 }

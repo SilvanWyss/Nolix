@@ -261,16 +261,16 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
    * {@inheritDoc}
    */
   @Override
-  public final boolean isEmpty() {
-    return getStoredApplications().isEmpty();
+  public final boolean hasClientConnected() {
+    return applications.containsMatching(Application::hasClientConnected);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public final boolean hasClientConnected() {
-    return applications.containsMatching(Application::hasClientConnected);
+  public final boolean isEmpty() {
+    return getStoredApplications().isEmpty();
   }
 
   /**

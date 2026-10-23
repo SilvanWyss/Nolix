@@ -49,19 +49,19 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public ChainedNode createSetIconCommandForWebGui(final IWebGui<?> webGui) {
-    return createSetIconCommandForIcon(webGui.getIcon());
+  public ChainedNode createSetIconCommandForIcon(final Image icon) {
+    return //
+    ImmutableChainedNode.withHeaderAndNextNode(
+      ObjectProtocol.GUI,
+      ImmutableChainedNode.withHeaderAndChildNode(CommandProtocol.SET_ICON, icon.getSpecification()));
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public ChainedNode createSetIconCommandForIcon(final Image icon) {
-    return //
-    ImmutableChainedNode.withHeaderAndNextNode(
-      ObjectProtocol.GUI,
-      ImmutableChainedNode.withHeaderAndChildNode(CommandProtocol.SET_ICON, icon.getSpecification()));
+  public ChainedNode createSetIconCommandForWebGui(final IWebGui<?> webGui) {
+    return createSetIconCommandForIcon(webGui.getIcon());
   }
 
   /**
@@ -89,14 +89,6 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public ChainedNode createSetTitleCommandForWebGui(final IWebGui<?> webGui) {
-    return createSetTitleCommandForTitle(webGui.getTitle());
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public ChainedNode createSetTitleCommandForTitle(final String title) {
     return //
     ImmutableChainedNode.withHeaderAndNextNode(
@@ -104,6 +96,14 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
       ImmutableChainedNode.withHeaderAndChildNodes(
         CommandProtocol.SET_TITLE,
         ImmutableNode.withHeader(title)));
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ChainedNode createSetTitleCommandForWebGui(final IWebGui<?> webGui) {
+    return createSetTitleCommandForTitle(webGui.getTitle());
   }
 
   /**

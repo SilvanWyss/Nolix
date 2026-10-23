@@ -56,6 +56,20 @@ public final class SchemaReader implements ISchemaReader {
    * {@inheritDoc}
    */
   @Override
+  public Time getSchemaTimestamp() {
+    final var databasePropertiesNode = //
+    DATABASE_NODE_SEARCHER.getStoredDatabasePropertiesNodeFromNodeDatabase(nodeDatabase);
+
+    final var timestampNode = //
+    DATABASE_PROPERTIES_NODE_SEARCHER.getStoredSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
+
+    return Time.fromSpecification(timestampNode);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public ICloseController getStoredCloseController() {
     return closeController;
   }
@@ -66,20 +80,6 @@ public final class SchemaReader implements ISchemaReader {
   @Override
   public int getTableCount() {
     return DATABASE_NODE_SEARCHER.getTableNodeCount(nodeDatabase);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public Time getSchemaTimestamp() {
-    final var databasePropertiesNode = //
-    DATABASE_NODE_SEARCHER.getStoredDatabasePropertiesNodeFromNodeDatabase(nodeDatabase);
-
-    final var timestampNode = //
-    DATABASE_PROPERTIES_NODE_SEARCHER.getStoredSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
-
-    return Time.fromSpecification(timestampNode);
   }
 
   /**

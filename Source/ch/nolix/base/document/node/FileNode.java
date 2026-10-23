@@ -142,14 +142,6 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    * {@inheritDoc}
    */
   @Override
-  public Node<?> withNewHeader(String header) {
-    return ImmutableNode.withHeaderAndChildNodes(header, getStoredChildNodes());
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public String getHeader() {
     return internalSpecification.getHeader();
   }
@@ -187,6 +179,15 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    * {@inheritDoc}
    */
   @Override
+  public void removeChildNodes() {
+    internalSpecification.removeChildNodes();
+    save();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void removeFirstChildNodeThat(final Predicate<Node<?>> selector) {
     internalSpecification.removeFirstChildNodeThat(selector);
     save();
@@ -198,15 +199,6 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
   @Override
   public void removeFirstChildNodeWithHeader(String header) {
     internalSpecification.removeFirstChildNodeWithHeader(header);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public void removeChildNodes() {
-    internalSpecification.removeChildNodes();
-    save();
   }
 
   /**
@@ -246,6 +238,14 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
     save();
 
     return this;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public Node<?> withNewHeader(String header) {
+    return ImmutableNode.withHeaderAndChildNodes(header, getStoredChildNodes());
   }
 
   /**

@@ -70,17 +70,6 @@ public interface ChainedNode extends BlanknessRequestable, OptionalHeaderHolder 
   ChainedNode getSingleChildNode();
 
   /**
-   * 
-   * @return the header of the single child node of the current
-   *         {@link ChainedNode}
-   * @throws RuntimeException if the current {@link ChainedNode} does not contain
-   *                          a child node or contains multiple child nodes
-   * @throws RuntimeException if the single child node of the current
-   *                          {@link ChainedNode} does not have a header.
-   */
-  String getSingleChildNodeHeader();
-
-  /**
    * @return a double representation of the single child node of the current
    *         {@link ChainedNode}
    * @throws RuntimeException if the current {@link ChainedNode} does not contain
@@ -113,6 +102,17 @@ public interface ChainedNode extends BlanknessRequestable, OptionalHeaderHolder 
    *                          a child node or contains multiple child nodes.
    */
   String getSingleChildNodeAsString();
+
+  /**
+   * 
+   * @return the header of the single child node of the current
+   *         {@link ChainedNode}
+   * @throws RuntimeException if the current {@link ChainedNode} does not contain
+   *                          a child node or contains multiple child nodes
+   * @throws RuntimeException if the single child node of the current
+   *                          {@link ChainedNode} does not have a header.
+   */
+  String getSingleChildNodeHeader();
 
   /**
    * @return true if the current {@link ChainedNode} has a next node, false

@@ -74,6 +74,50 @@ extends BlanknessRequestable, FormattedStringRepresentable, OptionalHeaderHolder
   Optional<N> getOptionalStoredFirstChildNode(Predicate<Node<?>> selector);
 
   /**
+   * @return the boolean the single child {@link Node} of the current {@link Node}
+   *         represents
+   * @throws RuntimeException if the current {@link Node} does not contain child
+   *                          {@link Node}s or contains several child
+   *                          {@link Node}s
+   * @throws RuntimeException if the single child {@link Node} of the current
+   *                          {@link Node} does not represent a boolean
+   */
+  boolean getSingleChildNodeAsBoolean(); // NOSONAR: This method returns a boolean representation.
+
+  /**
+   * @return the double the single child {@link Node} of the current {@link Node}
+   *         represents
+   * @throws RuntimeException if the current {@link Node} does not contain child
+   *                          {@link Node}s or contains several child
+   *                          {@link Node}s
+   * @throws RuntimeException if the single child {@link Node} of the current
+   *                          {@link Node} does not represent a double
+   */
+  double getSingleChildNodeAsDouble();
+
+  /**
+   * @return the int the single child {@link Node} of the current {@link Node}
+   *         represents
+   * @throws RuntimeException if the current {@link Node} does not contain child
+   *                          {@link Node}s or contains several child
+   *                          {@link Node}s
+   * @throws RuntimeException if the single child {@link Node} of the current
+   *                          {@link Node} does not represent an int
+   */
+  int getSingleChildNodeAsInt();
+
+  /**
+   * @return the header of the single child {@link Node} of the current
+   *         {@link Node}
+   * @throws RuntimeException if the current {@link Node} does not contain child
+   *                          {@link Node}s or contains several child
+   *                          {@link Node}s
+   * @throws RuntimeException if the single child {@link Node} of the current
+   *                          {@link Node} does not have a header
+   */
+  String getSingleChildNodeHeader();
+
+  /**
    * @param oneBasedIndex
    * @return the child {@link Node} at the given oneBasedIndex from the current
    *         {@link Node}
@@ -135,50 +179,6 @@ extends BlanknessRequestable, FormattedStringRepresentable, OptionalHeaderHolder
    *                          {@link Node}s
    */
   N getStoredSingleChildNode();
-
-  /**
-   * @return the boolean the single child {@link Node} of the current {@link Node}
-   *         represents
-   * @throws RuntimeException if the current {@link Node} does not contain child
-   *                          {@link Node}s or contains several child
-   *                          {@link Node}s
-   * @throws RuntimeException if the single child {@link Node} of the current
-   *                          {@link Node} does not represent a boolean
-   */
-  boolean getSingleChildNodeAsBoolean(); // NOSONAR: This method returns a boolean representation.
-
-  /**
-   * @return the double the single child {@link Node} of the current {@link Node}
-   *         represents
-   * @throws RuntimeException if the current {@link Node} does not contain child
-   *                          {@link Node}s or contains several child
-   *                          {@link Node}s
-   * @throws RuntimeException if the single child {@link Node} of the current
-   *                          {@link Node} does not represent a double
-   */
-  double getSingleChildNodeAsDouble();
-
-  /**
-   * @return the int the single child {@link Node} of the current {@link Node}
-   *         represents
-   * @throws RuntimeException if the current {@link Node} does not contain child
-   *                          {@link Node}s or contains several child
-   *                          {@link Node}s
-   * @throws RuntimeException if the single child {@link Node} of the current
-   *                          {@link Node} does not represent an int
-   */
-  int getSingleChildNodeAsInt();
-
-  /**
-   * @return the header of the single child {@link Node} of the current
-   *         {@link Node}
-   * @throws RuntimeException if the current {@link Node} does not contain child
-   *                          {@link Node}s or contains several child
-   *                          {@link Node}s
-   * @throws RuntimeException if the single child {@link Node} of the current
-   *                          {@link Node} does not have a header
-   */
-  String getSingleChildNodeHeader();
 
   /**
    * @return the boolean the current {@link Node} represents

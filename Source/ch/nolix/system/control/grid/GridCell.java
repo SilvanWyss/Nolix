@@ -67,12 +67,12 @@ public final class GridCell extends AbstractMutableElementWithProperties impleme
     return columnIndex.getStoredValue();
   }
 
-  public Control<?, ?> getStoredControl() {
-    return control.getStoredValue();
-  }
-
   public int getRowIndex() {
     return rowIndex.getStoredValue();
+  }
+
+  public Control<?, ?> getStoredControl() {
+    return control.getStoredValue();
   }
 
   /**

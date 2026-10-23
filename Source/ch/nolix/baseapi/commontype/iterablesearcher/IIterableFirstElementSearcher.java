@@ -14,18 +14,6 @@ public interface IIterableFirstElementSearcher {
    * elements.
    * 
    * @param iterable the searched iterable, is considered to be empty when is null
-   * @param <E>      the type of the elements of the given iterable
-   * @return the first non-null element of the given iterable
-   * @throws RuntimeException if the given iterable does not contain a non-null
-   *                          element
-   */
-  <E> E getStoredFirstNonNull(Iterable<E> iterable);
-
-  /**
-   * The time complexity of this method is O(n) if the given iterable contains n
-   * elements.
-   * 
-   * @param iterable the searched iterable, is considered to be empty when is null
    * @param selector can select elements, is considered not to select any element
    *                 when is null
    * @param <E>      the type of the elements of the given iterable
@@ -35,6 +23,18 @@ public interface IIterableFirstElementSearcher {
    *                          the given selector selects
    */
   <E> E getStoredFirst(Iterable<E> iterable, Predicate<? super E> selector);
+
+  /**
+   * The time complexity of this method is O(n) if the given iterable contains n
+   * elements.
+   * 
+   * @param iterable the searched iterable, is considered to be empty when is null
+   * @param <E>      the type of the elements of the given iterable
+   * @return the first non-null element of the given iterable
+   * @throws RuntimeException if the given iterable does not contain a non-null
+   *                          element
+   */
+  <E> E getStoredFirstNonNull(Iterable<E> iterable);
 
   /**
    * The time complexity of this method is O(n) if the given iterable contains n

@@ -32,16 +32,6 @@ public final class ColumnMutationValidator implements IColumnMutationValidator {
    * {@inheritDoc}
    */
   @Override
-  public void assertCanSetName(final IColumn column, final String name) {
-    if (!COLUMN_MUTATION_EXAMINER.canSetName(column, name)) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(column, "cannot set the name '" + name + "'");
-    }
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public void assertCanSetContentModel(
     final IColumn column,
     final FieldType fieldType,
@@ -58,6 +48,16 @@ public final class ColumnMutationValidator implements IColumnMutationValidator {
 
     if (!canSetContentModel) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(column, "cannot set the given content model'");
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void assertCanSetName(final IColumn column, final String name) {
+    if (!COLUMN_MUTATION_EXAMINER.canSetName(column, name)) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(column, "cannot set the name '" + name + "'");
     }
   }
 }

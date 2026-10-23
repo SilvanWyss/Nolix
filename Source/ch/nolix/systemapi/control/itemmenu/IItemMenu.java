@@ -49,6 +49,8 @@ public interface IItemMenu<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S
 
   String getTextByItemId(String itemId);
 
+  void internalRunOptionalSelectActionForItem(IItemMenuItem<?> item);
+
   void removeSelectAction();
 
   M selectBlankItem();
@@ -62,6 +64,4 @@ public interface IItemMenu<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S
   M setSelectAction(Runnable selectAction);
 
   M setSelectAction(Consumer<IItemMenuItem<?>> selectAction);
-
-  void internalRunOptionalSelectActionForItem(IItemMenuItem<?> item);
 }

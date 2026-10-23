@@ -138,8 +138,10 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public Node<?> withNewHeader(String header) {
-    return ImmutableNode.withHeaderAndChildNodes(header, getStoredChildNodes());
+  public String getHeader() {
+    assertHasHeader();
+
+    return memberHeader;
   }
 
   /**
@@ -154,16 +156,6 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public String getHeader() {
-    assertHasHeader();
-
-    return memberHeader;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public boolean hasHeader() {
     return (memberHeader != null);
   }
@@ -172,16 +164,16 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public void removeChildNodes() {
-    memberChildNodes.clear();
+  public MutableNode removeAndGetStoredFirstChildNodeThat(final Predicate<Node<?>> selector) {
+    return memberChildNodes.removeAndGetStoredFirst(selector::test);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public MutableNode removeAndGetStoredFirstChildNodeThat(final Predicate<Node<?>> selector) {
-    return memberChildNodes.removeAndGetStoredFirst(selector::test);
+  public void removeChildNodes() {
+    memberChildNodes.clear();
   }
 
   /**
@@ -235,6 +227,14 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
     memberHeader = header;
 
     return this;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public Node<?> withNewHeader(String header) {
+    return ImmutableNode.withHeaderAndChildNodes(header, getStoredChildNodes());
   }
 
   /**

@@ -75,6 +75,14 @@ public abstract class AbstractFileSystemItemAccessor {
   }
 
   /**
+   * @return the size of the file system item of this file system item accessor in
+   *         bytes.
+   */
+  public final long getSizeInBytes() {
+    return getInternalAccessor().length();
+  }
+
+  /**
    * @param extension
    * @return true if the file system item of the current
    *         {@link AbstractFileSystemItemAccessor} has the given extension, false
@@ -82,14 +90,6 @@ public abstract class AbstractFileSystemItemAccessor {
    */
   public final boolean hasExtension(final String extension) {
     return getExtension().equals(extension);
-  }
-
-  /**
-   * @return the size of the file system item of this file system item accessor in
-   *         bytes.
-   */
-  public final long getSizeInBytes() {
-    return getInternalAccessor().length();
   }
 
   /**

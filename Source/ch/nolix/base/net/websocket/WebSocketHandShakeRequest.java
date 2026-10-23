@@ -27,11 +27,11 @@ public final class WebSocketHandShakeRequest {
     return lines.containsMatching(l -> l.contains(WebSocketHandShakeRequest.SEC_WEBSOCKET_KEY_HEADER));
   }
 
-  public WebSocketHandShakeResponse getWebSocketHandShakeResponse() {
-    return WebSocketHandShakeResponse.withSecWebSocketKey(secWebSocketKey);
-  }
-
   public String getSecWebSocketKey() {
     return secWebSocketKey;
+  }
+
+  public WebSocketHandShakeResponse getWebSocketHandShakeResponse() {
+    return WebSocketHandShakeResponse.withSecWebSocketKey(secWebSocketKey);
   }
 }

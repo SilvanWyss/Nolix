@@ -16,16 +16,16 @@ public final class LocalServer extends AbstractServer<LocalServer> {
    * {@inheritDoc}
    */
   @Override
-  public IServerTarget toTarget() {
-    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asTarget");
+  public SecurityMode getSecurityMode() {
+    return SecurityMode.NONE;
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public SecurityMode getSecurityMode() {
-    return SecurityMode.NONE;
+  public IServerTarget toTarget() {
+    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asTarget");
   }
 
   /**

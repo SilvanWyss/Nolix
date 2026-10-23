@@ -181,16 +181,16 @@ public final class WebSocketFrame {
     return firstNibble.getOpcodeMeaning();
   }
 
+  public byte[] getPayload() {
+    return payload; // NOSONAR: A WebSocketFrame returns the original instance.
+  }
+
   public long getPayloadLength() {
     return payloadLength.getValue();
   }
 
   public WebSocketFramePayloadLengthType getPayloadLengthType() {
     return firstNibble.getPayloadLengthType();
-  }
-
-  public byte[] getPayload() {
-    return payload; // NOSONAR: A WebSocketFrame returns the original instance.
   }
 
   public boolean isControlFrame() {

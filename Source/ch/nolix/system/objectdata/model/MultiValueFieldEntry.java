@@ -52,6 +52,21 @@ implements IMultiValueFieldEntry<V> {
    * {@inheritDoc}
    */
   @Override
+  public DatabaseObjectState getState() {
+    return switch (getStoredParentMultiValue().getState()) {
+      case DELETED ->
+        DatabaseObjectState.DELETED;
+      case CLOSED ->
+        DatabaseObjectState.CLOSED;
+      default ->
+        state;
+    };
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public IMultiValueField<V> getStoredParentMultiValue() {
     return parentMultiValue;
   }
@@ -68,23 +83,16 @@ implements IMultiValueFieldEntry<V> {
    * {@inheritDoc}
    */
   @Override
-  public DatabaseObjectState getState() {
-    return switch (getStoredParentMultiValue().getState()) {
-      case DELETED ->
-        DatabaseObjectState.DELETED;
-      case CLOSED ->
-        DatabaseObjectState.CLOSED;
-      default ->
-        state;
-    };
+  public boolean isClosed() {
+    return getStoredParentMultiValue().isClosed();
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public boolean isClosed() {
-    return getStoredParentMultiValue().isClosed();
+  public boolean isConnectedWithRealDatabase() {
+    return getStoredParentMultiValue().isConnectedWithRealDatabase();
   }
 
   /**
@@ -101,14 +109,6 @@ implements IMultiValueFieldEntry<V> {
   @Override
   public boolean isEdited() {
     return (getState() == DatabaseObjectState.EDITED);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public boolean isConnectedWithRealDatabase() {
-    return getStoredParentMultiValue().isConnectedWithRealDatabase();
   }
 
   /**

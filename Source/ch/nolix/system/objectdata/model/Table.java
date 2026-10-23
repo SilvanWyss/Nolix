@@ -165,6 +165,22 @@ public final class Table<E extends Entity> implements ITable<E> {
    * {@inheritDoc}
    */
   @Override
+  public DatabaseObjectState getState() {
+    if (parentDatabase.isClosed()) {
+      return DatabaseObjectState.CLOSED;
+    }
+
+    if (internalGetStoredEntitiesInLocalData().containsMatching(ENTITY_EXAMINER::isNewOrEditedOrDeleted)) {
+      return DatabaseObjectState.EDITED;
+    }
+
+    return DatabaseObjectState.UNEDITED;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public ExtendedIterable<IColumn> getStoredColumns() {
     return memberColumns;
   }
@@ -215,22 +231,6 @@ public final class Table<E extends Entity> implements ITable<E> {
    * {@inheritDoc}
    */
   @Override
-  public DatabaseObjectState getState() {
-    if (parentDatabase.isClosed()) {
-      return DatabaseObjectState.CLOSED;
-    }
-
-    if (internalGetStoredEntitiesInLocalData().containsMatching(ENTITY_EXAMINER::isNewOrEditedOrDeleted)) {
-      return DatabaseObjectState.EDITED;
-    }
-
-    return DatabaseObjectState.UNEDITED;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public ITable<E> insertEntity(final E entity) {
     // The Entity must know its Table that it can be inserted into the Table.
     entity.internalSetParentTable(this);
@@ -256,8 +256,24 @@ public final class Table<E extends Entity> implements ITable<E> {
    * {@inheritDoc}
    */
   @Override
+  public ExtendedIterable<E> internalGetStoredEntitiesInLocalData() {
+    return entitiesInLocalData;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean isClosed() {
     return parentDatabase.isClosed();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean isConnectedWithRealDatabase() {
+    return parentDatabase.isConnectedWithRealDatabase();
   }
 
   /**
@@ -280,14 +296,6 @@ public final class Table<E extends Entity> implements ITable<E> {
    * {@inheritDoc}
    */
   @Override
-  public boolean isConnectedWithRealDatabase() {
-    return parentDatabase.isConnectedWithRealDatabase();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public boolean isLoaded() {
     return (getState() == DatabaseObjectState.UNEDITED);
   }
@@ -298,14 +306,6 @@ public final class Table<E extends Entity> implements ITable<E> {
   @Override
   public boolean isNew() {
     return false;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public ExtendedIterable<E> internalGetStoredEntitiesInLocalData() {
-    return entitiesInLocalData;
   }
 
   DataAdapterAndSchemaReader getStoredMidDataDataAdapterAndSchemaReader() {

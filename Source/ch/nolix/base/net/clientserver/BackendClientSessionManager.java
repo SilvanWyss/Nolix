@@ -58,6 +58,10 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
     return (containsCurrentSession() && getStoredCurrentSession() == getStoredTopSession());
   }
 
+  public int getSessionStackSize() {
+    return sessionStack.getCount();
+  }
+
   public Session<C, S> getStoredCurrentSession() {
     FlowController
       .forMaxMilliseconds(MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS)
@@ -66,10 +70,6 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
     assertContainsCurrentSession();
 
     return currentSession;
-  }
-
-  public int getSessionStackSize() {
-    return sessionStack.getCount();
   }
 
   public void popCurrentSession() {

@@ -141,20 +141,20 @@ public final class Fractal implements IFractal {
    * {@inheritDoc}
    */
   @Override
-  public int getDecimalPlaces() {
-    return decimalPlaces;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public IColor getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(final int iterationCount) {
     if (iterationCount == -1) {
       return CONVERGENCE_COLOR;
     }
 
     return colorFunction.apply(iterationCount);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public int getDecimalPlaces() {
+    return decimalPlaces;
   }
 
   /**
@@ -177,14 +177,6 @@ public final class Fractal implements IFractal {
    * {@inheritDoc}
    */
   @Override
-  public IClosedInterval getRealComponentInterval() {
-    return realComponentInterval;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public int getMaxIterationCount() {
     return sequencesMaxIterationCount;
   }
@@ -195,6 +187,14 @@ public final class Fractal implements IFractal {
   @Override
   public BigDecimal getMinMagnitudeForDivergence() {
     return sequencesMinDivergenceMagnitude;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IClosedInterval getRealComponentInterval() {
+    return realComponentInterval;
   }
 
   /**

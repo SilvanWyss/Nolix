@@ -96,13 +96,6 @@ extends Clearable, Copyable<ILinkedList<E>>, AppendableList<E> {
   void removeFirst();
 
   /**
-   * Removes the first element from the current {@link ILinkedList}.
-   * 
-   * @throws RuntimeException if the current {@link ILinkedList} is empty
-   */
-  void removeFirstStrictly();
-
-  /**
    * Removes the first element the given selector selects from the current
    * {@link ILinkedList}
    * 
@@ -117,6 +110,13 @@ extends Clearable, Copyable<ILinkedList<E>>, AppendableList<E> {
    * @param element
    */
   void removeFirstOccurrenceOf(Object element);
+
+  /**
+   * Removes the first element from the current {@link ILinkedList}.
+   * 
+   * @throws RuntimeException if the current {@link ILinkedList} is empty
+   */
+  void removeFirstStrictly();
 
   /**
    * Removes the last element from the current {@link ILinkedList}.

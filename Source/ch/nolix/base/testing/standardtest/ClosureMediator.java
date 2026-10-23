@@ -40,21 +40,6 @@ public final class ClosureMediator {
   }
 
   /**
-   * Generates an error if the closure of the current {@link ClosureMediator} does
-   * not throw an exception.
-   * 
-   * @return a new {@link ExtendedThrownExceptionMediator}.
-   */
-  public ExtendedThrownExceptionMediator throwsException() {
-    try {
-      closure.run();
-      throw GeneralException.withErrorMessage("An exception was expected, but no exception was thrown.");
-    } catch (final Throwable exception) { // NOSONAR: All errors must be caught.
-      return ExtendedThrownExceptionMediator.forExcetpion(exception);
-    }
-  }
-
-  /**
    * Generates an error if the closure of the current {@link ClosureMediator}
    * throws an exception.
    */
@@ -80,6 +65,21 @@ public final class ClosureMediator {
         + " was thrown with the message '"
         + message
         + "'");
+    }
+  }
+
+  /**
+   * Generates an error if the closure of the current {@link ClosureMediator} does
+   * not throw an exception.
+   * 
+   * @return a new {@link ExtendedThrownExceptionMediator}.
+   */
+  public ExtendedThrownExceptionMediator throwsException() {
+    try {
+      closure.run();
+      throw GeneralException.withErrorMessage("An exception was expected, but no exception was thrown.");
+    } catch (final Throwable exception) { // NOSONAR: All errors must be caught.
+      return ExtendedThrownExceptionMediator.forExcetpion(exception);
     }
   }
 }

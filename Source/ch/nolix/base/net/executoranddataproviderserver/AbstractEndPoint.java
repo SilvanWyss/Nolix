@@ -36,18 +36,18 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements E
    * {@inheritDoc}
    */
   @Override
-  public final void runCommands(ChainedNode... commands) {
-    for (final var c : commands) {
-      runCommand(c);
-    }
+  public final void noteClose() {
+    // Does nothing.
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public final void noteClose() {
-    // Does nothing.
+  public final void runCommands(ChainedNode... commands) {
+    for (final var c : commands) {
+      runCommand(c);
+    }
   }
 
   /**

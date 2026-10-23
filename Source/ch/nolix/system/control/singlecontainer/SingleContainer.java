@@ -62,16 +62,16 @@ implements ISingleContainer {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<Control<?, ?>> getStoredStructureControls() {
-    return getStoredChildControls();
+  public Control<?, ?> getStoredControl() {
+    return memberControl.getStoredValue();
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public Control<?, ?> getStoredControl() {
-    return memberControl.getStoredValue();
+  public ExtendedIterable<Control<?, ?>> getStoredStructureControls() {
+    return getStoredChildControls();
   }
 
   /**

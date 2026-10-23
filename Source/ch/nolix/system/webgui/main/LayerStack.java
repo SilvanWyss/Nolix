@@ -39,18 +39,18 @@ public final class LayerStack implements ILayerStack {
    * {@inheritDoc}
    */
   @Override
-  public boolean containsControl(final Control<?, ?> control) {
-    return getStoredLayers().containsMatching(l -> l.containsControl(control));
+  public void clear() {
+    while (containsAny()) {
+      removeLayer(getStoredTopLayer());
+    }
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public void clear() {
-    while (containsAny()) {
-      removeLayer(getStoredTopLayer());
-    }
+  public boolean containsControl(final Control<?, ?> control) {
+    return getStoredLayers().containsMatching(l -> l.containsControl(control));
   }
 
   /**

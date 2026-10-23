@@ -73,14 +73,6 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsMatching(final Predicate<E> selector) {
-    return ITERABLE_EXAMINER.containsMatching(this, selector);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public final boolean containsAny() {
     return iterator().hasNext();
   }
@@ -123,6 +115,14 @@ implements ExtendedIterable<E> {
   @Override
   public final boolean containsExactlyInSameOrder(final Iterable<?> iterable) {
     return ITERABLE_EXAMINER.containsExactlyAllInSameOrder(this, iterable);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final boolean containsMatching(final Predicate<E> selector) {
+    return ITERABLE_EXAMINER.containsMatching(this, selector);
   }
 
   /**
@@ -286,92 +286,6 @@ implements ExtendedIterable<E> {
   @Override
   public final int getCountOf(final Object element) {
     return ITERABLE_SEARCHER.getCountOf(this, element);
-  }
-
-  /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public final int getOneBasedIndexOfFirst(final Predicate<E> selector) {
-    // Asserts that the given selector is not null.
-    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableNameCatalog.SELECTOR).isNotNull();
-
-    // Initializes localOneBasedIndex.
-    var localOneBasedIndex = 1;
-
-    // Iterates the current Container.
-    for (final var e : this) {
-      // Handles the case that the current element is not null and the given selector selects the current element.
-      if (e != null && selector.test(e)) {
-        // Returns the localOneBasedIndex.
-        return localOneBasedIndex;
-      }
-
-      // Increments the localOneBasedIndex.
-      localOneBasedIndex++;
-    }
-
-    // Creates and throws a new ArgumentDoesNotContainElementException. 
-    throw ArgumentDoesNotContainElementException.forArgument(this);
-  }
-
-  /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public final int getOneBasedIndexOfFirstEqualElement(final Object object) {
-    // Initializes localOneBasedIndex.
-    var localOneBasedIndex = 1;
-
-    // Iterates the current Container.
-    for (final var e : this) {
-      // Handles the case that the current element equals the given object.
-      if (Objects.equals(e, object)) {
-        // Returns the localOneBasedIndex.
-        return localOneBasedIndex;
-      }
-
-      // Handles the case that the current element does not equals the given object.
-      localOneBasedIndex++;
-    }
-
-    // Creates and throws a new InvalidArgumentException. 
-    throw //
-    InvalidArgumentException.forArgumentAndErrorPredicate(
-      this,
-      "does not contain an element that equals '" + object + "'.");
-  }
-
-  /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public final int getOneBasedIndexOfFirstOccurrenceOf(final Object object) {
-    // Initializes localOneBasedIndex.
-    var localOneBasedIndex = 1;
-
-    // Iterates the current Container.
-    for (final var e : this) {
-      // Handles the case that the current element is the given object.
-      if (e == object) {
-        return localOneBasedIndex;
-      }
-
-      // Handles the case that the current element is not the given object.
-      localOneBasedIndex++;
-    }
-
-    // Creates and throws a new ArgumentDoesNotContainElementException. 
-    throw ArgumentDoesNotContainElementException.forArgumentAndElement(this, object);
   }
 
   /**
@@ -590,6 +504,92 @@ implements ExtendedIterable<E> {
   }
 
   /**
+   * The time complexity of this implementation is O(n) if the current
+   * {@link AbstractExtendedIterable} contains n elements.
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final int getOneBasedIndexOfFirst(final Predicate<E> selector) {
+    // Asserts that the given selector is not null.
+    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableNameCatalog.SELECTOR).isNotNull();
+
+    // Initializes localOneBasedIndex.
+    var localOneBasedIndex = 1;
+
+    // Iterates the current Container.
+    for (final var e : this) {
+      // Handles the case that the current element is not null and the given selector selects the current element.
+      if (e != null && selector.test(e)) {
+        // Returns the localOneBasedIndex.
+        return localOneBasedIndex;
+      }
+
+      // Increments the localOneBasedIndex.
+      localOneBasedIndex++;
+    }
+
+    // Creates and throws a new ArgumentDoesNotContainElementException. 
+    throw ArgumentDoesNotContainElementException.forArgument(this);
+  }
+
+  /**
+   * The time complexity of this implementation is O(n) if the current
+   * {@link AbstractExtendedIterable} contains n elements.
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final int getOneBasedIndexOfFirstEqualElement(final Object object) {
+    // Initializes localOneBasedIndex.
+    var localOneBasedIndex = 1;
+
+    // Iterates the current Container.
+    for (final var e : this) {
+      // Handles the case that the current element equals the given object.
+      if (Objects.equals(e, object)) {
+        // Returns the localOneBasedIndex.
+        return localOneBasedIndex;
+      }
+
+      // Handles the case that the current element does not equals the given object.
+      localOneBasedIndex++;
+    }
+
+    // Creates and throws a new InvalidArgumentException. 
+    throw //
+    InvalidArgumentException.forArgumentAndErrorPredicate(
+      this,
+      "does not contain an element that equals '" + object + "'.");
+  }
+
+  /**
+   * The time complexity of this implementation is O(n) if the current
+   * {@link AbstractExtendedIterable} contains n elements.
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final int getOneBasedIndexOfFirstOccurrenceOf(final Object object) {
+    // Initializes localOneBasedIndex.
+    var localOneBasedIndex = 1;
+
+    // Iterates the current Container.
+    for (final var e : this) {
+      // Handles the case that the current element is the given object.
+      if (e == object) {
+        return localOneBasedIndex;
+      }
+
+      // Handles the case that the current element is not the given object.
+      localOneBasedIndex++;
+    }
+
+    // Creates and throws a new ArgumentDoesNotContainElementException. 
+    throw ArgumentDoesNotContainElementException.forArgumentAndElement(this, object);
+  }
+
+  /**
    * {@inheritDoc}
    */
   @Override
@@ -735,16 +735,16 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final E getStoredFirstNonNull() {
-    return ITERABLE_SEARCHER.getStoredFirstNonNull(this);
+  public final E getStoredFirst(final Predicate<? super E> selector) {
+    return ITERABLE_SEARCHER.getStoredFirst(this, selector);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public final E getStoredFirst(final Predicate<? super E> selector) {
-    return ITERABLE_SEARCHER.getStoredFirst(this, selector);
+  public final E getStoredFirstNonNull() {
+    return ITERABLE_SEARCHER.getStoredFirstNonNull(this);
   }
 
   /**
@@ -832,41 +832,6 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final E getStoredSingle() {
-    final var iterator = iterator();
-
-    if (!iterator.hasNext()) {
-      throw EmptyArgumentException.forArgument(this);
-    }
-
-    final var element = iterator.next(); // NOSONAR: The next method has to be called before the hasNext method.
-
-    if (iterator.hasNext()) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains several elements");
-    }
-
-    return element;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final E getStoredSingle(final Predicate<? super E> selector) {
-    if (selector != null) {
-      return getStoredSingleWhenSelectorIsNotNull(selector);
-    }
-
-    throw //
-    InvalidArgumentException.forArgumentAndErrorPredicate(
-      this,
-      "does not contain an element the given selector selects");
-  }
-
-  /**
    * The time complexity of this implementation is O(n) if the current
    * {@link AbstractExtendedIterable} contains n elements.
    * 
@@ -913,6 +878,41 @@ implements ExtendedIterable<E> {
     }
 
     return selectedElements;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final E getStoredSingle() {
+    final var iterator = iterator();
+
+    if (!iterator.hasNext()) {
+      throw EmptyArgumentException.forArgument(this);
+    }
+
+    final var element = iterator.next(); // NOSONAR: The next method has to be called before the hasNext method.
+
+    if (iterator.hasNext()) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains several elements");
+    }
+
+    return element;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final E getStoredSingle(final Predicate<? super E> selector) {
+    if (selector != null) {
+      return getStoredSingleWhenSelectorIsNotNull(selector);
+    }
+
+    throw //
+    InvalidArgumentException.forArgumentAndErrorPredicate(
+      this,
+      "does not contain an element the given selector selects");
   }
 
   // For a better performance, this implementation does not use all available comfort methods.
@@ -1013,21 +1013,6 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public final <T> ExtendedIterable<T> getViewOf(final Function<E, T> mapper) {
-    return //
-    ExtendedIterableMapperView.forContainerAndMapperAndArrayListCreator(
-      this,
-      mapper,
-      this::createEmptyArrayListFromMarkerWithInitialCapacity);
-  }
-
-  /**
    * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
@@ -1052,6 +1037,21 @@ implements ExtendedIterable<E> {
       this,
       oneBasedStartIndex,
       oneBasedEndIndex,
+      this::createEmptyArrayListFromMarkerWithInitialCapacity);
+  }
+
+  /**
+   * The time complexity of this implementation is O(n) if the current
+   * {@link AbstractExtendedIterable} contains n elements.
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final <T> ExtendedIterable<T> getViewOf(final Function<E, T> mapper) {
+    return //
+    ExtendedIterableMapperView.forContainerAndMapperAndArrayListCreator(
+      this,
+      mapper,
       this::createEmptyArrayListFromMarkerWithInitialCapacity);
   }
 
