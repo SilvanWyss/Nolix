@@ -77,7 +77,7 @@ record ServerHttpMessage(String serverIP, int serverPort) {
 
   private String getMainScript() {
     return "<script>\n"
-    + "require(['System/Application/WebApplication/FrontendWebClient'], function (FrontendWebClient_) {"
+    + "require(['system/application/web-application/frontend-web-client'], function (FrontendWebClient_) {"
     + "var client = FrontendWebClient_.FrontendWebClient.toIpAndPortAndApplicationFromURL("
     + getServerIpInQuotes()
     + ", "
