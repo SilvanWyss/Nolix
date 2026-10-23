@@ -116,7 +116,7 @@ public final class Label extends AbstractControl<ILabel, ILabelStyle> implements
    */
   @Override
   public boolean hasRole(final String role) {
-    return (hasRole() && getRole().toString().equals(role));
+    return hasRole() && getRole().toString().equals(role);
   }
 
   /**

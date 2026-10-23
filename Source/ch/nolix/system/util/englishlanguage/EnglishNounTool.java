@@ -80,34 +80,34 @@ public final class EnglishNounTool {
     Validator.assertThat(noun).thatIsNamed(LowerCaseVariableNameCatalog.NOUN).isNotBlank();
 
     if (noun.endsWith("man")) {
-      return (noun.substring(0, noun.length() - 3) + "men");
+      return noun.substring(0, noun.length() - 3) + "men";
     }
 
     if (noun.endsWith("ef")) {
-      return (noun.substring(0, noun.length() - 1) + "ves");
+      return noun.substring(0, noun.length() - 1) + "ves";
     }
 
     if (pluralOfNounEndsWithEs(noun)) {
-      return (noun + "es");
+      return noun + "es";
     }
 
     if (ENGLISH_WORD_END_EXAMINER.endsWithVocalAndY(noun) || noun.endsWith("ff")) {
-      return (noun + "s");
+      return noun + "s";
     }
 
     if (noun.endsWith("y")) {
-      return (noun.substring(0, noun.length() - 1) + "ies");
+      return noun.substring(0, noun.length() - 1) + "ies";
     }
 
     if (noun.endsWith("f")) {
-      return (noun.substring(0, noun.length() - 1) + "ves");
+      return noun.substring(0, noun.length() - 1) + "ves";
     }
 
     if (noun.endsWith("s")) {
-      return (noun + "ses");
+      return noun + "ses";
     }
 
-    return (noun + "s");
+    return noun + "s";
   }
 
   private static boolean pluralOfNounEndsWithEs(final String noun) {

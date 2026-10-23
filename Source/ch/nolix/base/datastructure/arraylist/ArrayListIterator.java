@@ -79,7 +79,7 @@ public final class ArrayListIterator<E> implements CopyableIterator<E> {
    */
   @Override
   public boolean hasNext() {
-    return (nextIndex < maxNextIndex);
+    return nextIndex < maxNextIndex;
   }
 
   /**

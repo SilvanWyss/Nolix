@@ -185,7 +185,7 @@ public final class WebClientRefreshQueue {
   }
 
   private boolean updatingCounterpartIsRequired() {
-    return (memberUpdateTicket != null);
+    return memberUpdateTicket != null;
   }
 
   private synchronized boolean updatingCounterpartIsRequiredSynchronized() {

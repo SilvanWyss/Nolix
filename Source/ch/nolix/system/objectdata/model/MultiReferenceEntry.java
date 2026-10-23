@@ -276,7 +276,7 @@ final class MultiReferenceEntry<E extends Entity> implements IMultiReferenceEntr
    */
   @Override
   public boolean isLoaded() {
-    return (getState() == DatabaseObjectState.UNEDITED);
+    return getState() == DatabaseObjectState.UNEDITED;
   }
 
   /**
@@ -284,7 +284,7 @@ final class MultiReferenceEntry<E extends Entity> implements IMultiReferenceEntr
    */
   @Override
   public boolean isNew() {
-    return (getState() == DatabaseObjectState.NEW);
+    return getState() == DatabaseObjectState.NEW;
   }
 
   void setDeleted() {

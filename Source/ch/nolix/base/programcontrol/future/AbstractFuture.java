@@ -15,7 +15,7 @@ public abstract class AbstractFuture implements IFuture {
    */
   @Override
   public final boolean isFinishedSuccessfully() {
-    return (isFinished() && !caughtError());
+    return isFinished() && !caughtError();
   }
 
   /**
@@ -23,7 +23,7 @@ public abstract class AbstractFuture implements IFuture {
    */
   @Override
   public final boolean isFinishedWithError() {
-    return (isFinished() && caughtError());
+    return isFinished() && caughtError();
   }
 
   /**

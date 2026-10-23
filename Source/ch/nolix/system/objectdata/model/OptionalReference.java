@@ -236,7 +236,7 @@ implements IOptionalReference<E> {
    */
   @Override
   public boolean isEmpty() {
-    return (nullableReferencedEntityCache == null);
+    return nullableReferencedEntityCache == null;
   }
 
   /**

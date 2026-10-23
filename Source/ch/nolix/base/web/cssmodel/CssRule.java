@@ -79,7 +79,7 @@ public final class CssRule implements ICssRule {
    */
   @Override
   public String toString() {
-    return (getSelector() + StringTool.getInBraces(getProperties().toConcatenatedString()));
+    return getSelector() + StringTool.getInBraces(getProperties().toConcatenatedString());
   }
 
   /**

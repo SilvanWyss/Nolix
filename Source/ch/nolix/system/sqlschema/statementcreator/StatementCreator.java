@@ -16,7 +16,7 @@ public final class StatementCreator implements IStatementCreator {
    */
   @Override
   public String createStatementToAddColumn(final String tableName, final ColumnDto column) {
-    return ("ALTER TABLE " + tableName + " ADD " + StatementCreatorHelper.getColumnAsSql(column) + ";");
+    return "ALTER TABLE " + tableName + " ADD " + StatementCreatorHelper.getColumnAsSql(column) + ";";
   }
 
   /**
@@ -36,7 +36,7 @@ public final class StatementCreator implements IStatementCreator {
    */
   @Override
   public String createStatementToDeleteColumn(final String tableName, final String columnName) {
-    return ("ALTER TABLE " + tableName + " DROP COLUMN " + columnName + ";");
+    return "ALTER TABLE " + tableName + " DROP COLUMN " + columnName + ";";
   }
 
   /**
@@ -62,7 +62,7 @@ public final class StatementCreator implements IStatementCreator {
    */
   @Override
   public String createStatementToDeleteTable(final String tableName) {
-    return ("DROP TABLE " + tableName + ";");
+    return "DROP TABLE " + tableName + ";";
   }
 
   /**
@@ -73,7 +73,7 @@ public final class StatementCreator implements IStatementCreator {
     final String tableName,
     final String columnName,
     final String newColumnName) {
-    return ("ALTER TABLE " + tableName + " RENAME COLUMN " + columnName + " TO " + newColumnName + ";");
+    return "ALTER TABLE " + tableName + " RENAME COLUMN " + columnName + " TO " + newColumnName + ";";
   }
 
   /**
@@ -104,6 +104,6 @@ public final class StatementCreator implements IStatementCreator {
    */
   @Override
   public String createStatementToRenameTable(final String tableName, final String newTableName) {
-    return ("ALTER TABLE " + tableName + " RENAME TO " + newTableName + ";");
+    return "ALTER TABLE " + tableName + " RENAME TO " + newTableName + ";";
   }
 }

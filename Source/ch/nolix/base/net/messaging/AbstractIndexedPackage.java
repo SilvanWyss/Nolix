@@ -56,6 +56,6 @@ public abstract class AbstractIndexedPackage<C> {
    *         index, false otherwise
    */
   public final boolean hasIndex(final int index) {
-    return (getIndex() == index);
+    return getIndex() == index;
   }
 }

@@ -39,7 +39,7 @@ public final class SimpleImmutableListIterator<E> implements Iterator<E> {
    */
   @Override
   public boolean hasNext() {
-    return (nextIndex < parentArray.length);
+    return nextIndex < parentArray.length;
   }
 
   /**

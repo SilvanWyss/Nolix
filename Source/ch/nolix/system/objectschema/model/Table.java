@@ -113,7 +113,7 @@ public final class Table extends AbstractSchemaObject implements ITable {
    */
   @Override
   public boolean belongsToDatabase() {
-    return (parentDatabase != null);
+    return parentDatabase != null;
   }
 
   /**
@@ -174,7 +174,7 @@ public final class Table extends AbstractSchemaObject implements ITable {
    */
   @Override
   public boolean isConnectedWithRealDatabase() {
-    return (belongsToDatabase() && getStoredParentDatabase().isConnectedWithRealDatabase());
+    return belongsToDatabase() && getStoredParentDatabase().isConnectedWithRealDatabase();
   }
 
   /**

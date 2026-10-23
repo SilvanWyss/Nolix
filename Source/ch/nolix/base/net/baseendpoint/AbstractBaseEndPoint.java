@@ -41,7 +41,7 @@ public abstract class AbstractBaseEndPoint implements BaseEndPoint {
    */
   @Override
   public final boolean hasDefaultTargetSlot() {
-    return (getTargetSlotDefinitionType() == TargetSlotDefinitionType.DEFAULT);
+    return getTargetSlotDefinitionType() == TargetSlotDefinitionType.DEFAULT;
   }
 
   /**
@@ -49,7 +49,7 @@ public abstract class AbstractBaseEndPoint implements BaseEndPoint {
    */
   @Override
   public final boolean isBackendEndPoint() {
-    return (getPeerType() == PeerType.BACKEND);
+    return getPeerType() == PeerType.BACKEND;
   }
 
   /**
@@ -57,7 +57,7 @@ public abstract class AbstractBaseEndPoint implements BaseEndPoint {
    */
   @Override
   public final boolean isFrontendEndPoint() {
-    return (getPeerType() == PeerType.FRONTEND);
+    return getPeerType() == PeerType.FRONTEND;
   }
 
   /**
@@ -65,7 +65,7 @@ public abstract class AbstractBaseEndPoint implements BaseEndPoint {
    */
   @Override
   public final boolean isLocalEndPoint() {
-    return (getConnectionType() == ConnectionType.LOCAL);
+    return getConnectionType() == ConnectionType.LOCAL;
   }
 
   /**
@@ -73,7 +73,7 @@ public abstract class AbstractBaseEndPoint implements BaseEndPoint {
    */
   @Override
   public final boolean isSocketEndPoint() {
-    return (getConnectionType() == ConnectionType.SOCKET);
+    return getConnectionType() == ConnectionType.SOCKET;
   }
 
   /**
@@ -81,6 +81,6 @@ public abstract class AbstractBaseEndPoint implements BaseEndPoint {
    */
   @Override
   public final boolean isWebSocketEndPoint() {
-    return (getConnectionType() == ConnectionType.WEB_SOCKET);
+    return getConnectionType() == ConnectionType.WEB_SOCKET;
   }
 }

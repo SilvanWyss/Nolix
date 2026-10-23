@@ -241,7 +241,7 @@ public final class Background extends AbstractElement implements IBackground {
    * @return true if the current {@link Background} is a color, false otherwise
    */
   public boolean isColor() {
-    return (color != null);
+    return color != null;
   }
 
   /**
@@ -249,14 +249,14 @@ public final class Background extends AbstractElement implements IBackground {
    *         otherwise
    */
   public boolean isColorGradient() {
-    return (colorGradient != null);
+    return colorGradient != null;
   }
 
   /**
    * @return true if the current {@link Background} is an image, false otherwise
    */
   public boolean isImage() {
-    return (image != null);
+    return image != null;
   }
 
   /**

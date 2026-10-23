@@ -58,7 +58,7 @@ public final class Vector {
    */
   @Override
   public boolean equals(Object object) {
-    return (object instanceof final Vector vector && equalsVector(vector));
+    return object instanceof final Vector vector && equalsVector(vector);
   }
 
   /**
@@ -162,7 +162,7 @@ public final class Vector {
    *         vector, false otherwise
    */
   public boolean hasSameSizeAs(final Vector vector) {
-    return (getSize() == vector.getSize());
+    return getSize() == vector.getSize();
   }
 
   /**

@@ -51,7 +51,7 @@ public abstract class AbstractField implements Field {
    */
   @Override
   public final boolean belongsToEntity() {
-    return (memberParentEntity != null);
+    return memberParentEntity != null;
   }
 
   // For a better performance, this implementation does not use all available comfort methods.
@@ -186,7 +186,7 @@ public abstract class AbstractField implements Field {
    */
   @Override
   public final boolean isEdited() {
-    return (getState() == DatabaseObjectState.EDITED);
+    return getState() == DatabaseObjectState.EDITED;
   }
 
   /**
@@ -194,7 +194,7 @@ public abstract class AbstractField implements Field {
    */
   @Override
   public final boolean isLoaded() {
-    return (getState() == DatabaseObjectState.UNEDITED);
+    return getState() == DatabaseObjectState.UNEDITED;
   }
 
   /**
@@ -212,7 +212,7 @@ public abstract class AbstractField implements Field {
    */
   @Override
   public final boolean knowsParentColumn() {
-    return (memberParentColumn != null);
+    return memberParentColumn != null;
   }
 
   /**

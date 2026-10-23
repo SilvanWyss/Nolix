@@ -289,7 +289,7 @@ public final class Table<E extends Entity> implements ITable<E> {
    */
   @Override
   public boolean isEdited() {
-    return (getState() == DatabaseObjectState.EDITED);
+    return getState() == DatabaseObjectState.EDITED;
   }
 
   /**
@@ -297,7 +297,7 @@ public final class Table<E extends Entity> implements ITable<E> {
    */
   @Override
   public boolean isLoaded() {
-    return (getState() == DatabaseObjectState.UNEDITED);
+    return getState() == DatabaseObjectState.UNEDITED;
   }
 
   /**

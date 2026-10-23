@@ -37,7 +37,7 @@ final class JobWrapper implements Runnable {
    *         otherwise
    */
   public boolean caughtError() {
-    return (error != null);
+    return error != null;
   }
 
   /**
@@ -64,7 +64,7 @@ final class JobWrapper implements Runnable {
    * @return true if the current {@link JobWrapper} is fresh, false otherwise
    */
   public boolean isFresh() {
-    return (!isRunning() && !isFinished());
+    return !isRunning() && !isFinished();
   }
 
   /**

@@ -56,7 +56,7 @@ public abstract class AbstractBaseEntity implements Entity {
    */
   @Override
   public final boolean belongsToTable() {
-    return (memberParentTable != null);
+    return memberParentTable != null;
   }
 
   /**
@@ -99,7 +99,7 @@ public abstract class AbstractBaseEntity implements Entity {
    */
   @Override
   public final String getShortDescription() {
-    return (getClass().getSimpleName() + " (id: " + getId() + ")");
+    return getClass().getSimpleName() + " (id: " + getId() + ")";
   }
 
   /**
@@ -133,7 +133,7 @@ public abstract class AbstractBaseEntity implements Entity {
    */
   @Override
   public final boolean hasSaveStamp() {
-    return (memberSaveStamp != null);
+    return memberSaveStamp != null;
   }
 
   /**
@@ -210,7 +210,7 @@ public abstract class AbstractBaseEntity implements Entity {
    */
   @Override
   public final boolean isClosed() {
-    return (getState() == DatabaseObjectState.CLOSED);
+    return getState() == DatabaseObjectState.CLOSED;
   }
 
   /**
@@ -227,7 +227,7 @@ public abstract class AbstractBaseEntity implements Entity {
    */
   @Override
   public final boolean isDeleted() {
-    return (getState() == DatabaseObjectState.DELETED);
+    return getState() == DatabaseObjectState.DELETED;
   }
 
   /**
@@ -235,7 +235,7 @@ public abstract class AbstractBaseEntity implements Entity {
    */
   @Override
   public final boolean isEdited() {
-    return (getState() == DatabaseObjectState.EDITED);
+    return getState() == DatabaseObjectState.EDITED;
   }
 
   /**
@@ -243,7 +243,7 @@ public abstract class AbstractBaseEntity implements Entity {
    */
   @Override
   public final boolean isLoaded() {
-    return (getState() == DatabaseObjectState.UNEDITED);
+    return getState() == DatabaseObjectState.UNEDITED;
   }
 
   /**
@@ -251,7 +251,7 @@ public abstract class AbstractBaseEntity implements Entity {
    */
   @Override
   public final boolean isNew() {
-    return (getState() == DatabaseObjectState.NEW);
+    return getState() == DatabaseObjectState.NEW;
   }
 
   /**
@@ -304,7 +304,7 @@ public abstract class AbstractBaseEntity implements Entity {
   }
 
   private boolean extractedFields() {
-    return (fields != null);
+    return fields != null;
   }
 
   private void extractFieldsIfNotExtracted() {

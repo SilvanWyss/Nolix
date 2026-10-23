@@ -90,7 +90,7 @@ public final class MatrixIterator<E> implements CopyableIterator<E> {
    */
   @Override
   public boolean hasNext() {
-    return (nextElementOneBasedIndex <= parentMatrix.getCount());
+    return nextElementOneBasedIndex <= parentMatrix.getCount();
   }
 
   /**

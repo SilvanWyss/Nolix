@@ -24,6 +24,6 @@ public final class OpacityHelper {
       return Double.valueOf(string);
     }
 
-    return (Double.valueOf(string.substring(0, string.length() - 1)) / 100);
+    return Double.valueOf(string.substring(0, string.length() - 1)) / 100;
   }
 }

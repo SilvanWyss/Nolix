@@ -22,7 +22,7 @@ public interface TypeRequestable {
    *         type, false otherwise
    */
   default boolean isOfConcreteType(final Class<?> concreteType) {
-    return (getClass() == concreteType);
+    return getClass() == concreteType;
   }
 
   // For a better performance, this implementation does not use all available comfort methods.

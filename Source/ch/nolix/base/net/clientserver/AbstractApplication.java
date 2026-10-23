@@ -53,7 +53,7 @@ implements Application<C, S> {
    */
   @Override
   public final boolean belongsToServer() {
-    return (memberParentServer != null);
+    return memberParentServer != null;
   }
 
   /**

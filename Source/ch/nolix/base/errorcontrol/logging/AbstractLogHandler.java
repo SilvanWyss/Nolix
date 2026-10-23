@@ -38,7 +38,7 @@ public abstract class AbstractLogHandler {
    *         logEntry, false otherwise
    */
   public final boolean wouldLog(final LogEntry logEntry) {
-    return (logEntry != null && !logEntry.getHarmLevel().isLowerThan(getMinHarmLevel()));
+    return logEntry != null && !logEntry.getHarmLevel().isLowerThan(getMinHarmLevel());
   }
 
   protected abstract void log(final LogEntry logEntry);

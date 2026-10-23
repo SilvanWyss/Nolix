@@ -46,7 +46,7 @@ public abstract class AbstractFileSystemItemAccessor {
   public final String getExtension() {
     final var array = RegularExpressionPatternCatalog.DOT_PATTERN.split(getName());
 
-    return ("." + array[array.length - 1]);
+    return "." + array[array.length - 1];
   }
 
   /**

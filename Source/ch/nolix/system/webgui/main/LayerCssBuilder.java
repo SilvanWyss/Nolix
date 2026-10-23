@@ -31,7 +31,7 @@ public final class LayerCssBuilder {
   }
 
   private static String getCssSelectorForLayer(final ILayer layer) {
-    return ("#" + layer.getInternalId());
+    return "#" + layer.getInternalId();
   }
 
   private static ExtendedIterable<ICssProperty> getCssPropertiesForLayer(final ILayer layer) {

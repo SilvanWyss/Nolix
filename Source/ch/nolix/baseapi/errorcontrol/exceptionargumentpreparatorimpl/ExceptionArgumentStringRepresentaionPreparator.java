@@ -29,7 +29,7 @@ implements IExceptionArgumentStringRepresentaionPreparator {
       return StringCatalog.SPACE;
     }
 
-    return (" '" + string + "' ");
+    return " '" + string + "' ";
   }
 
   /**
@@ -52,7 +52,7 @@ implements IExceptionArgumentStringRepresentaionPreparator {
     final var string = getStringRepresentationOfArgument(argument);
 
     if (string.length() > MAX_STRING_REPRESENTATION_LENGTH) {
-      return (string.substring(0, MAX_STRING_REPRESENTATION_LENGTH) + CharacterCatalog.ELLIPSIS);
+      return string.substring(0, MAX_STRING_REPRESENTATION_LENGTH) + CharacterCatalog.ELLIPSIS;
     }
 
     return string;

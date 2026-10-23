@@ -59,7 +59,7 @@ public abstract class AbstractSchemaAdapter implements SchemaAdapter {
    */
   @Override
   public final boolean databaseIsEmpty() {
-    return (getTableCount() == 0);
+    return getTableCount() == 0;
   }
 
   /**

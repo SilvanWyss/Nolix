@@ -50,7 +50,7 @@ final class LinkedListIterator<E> implements CopyableIterator<E> {
    */
   @Override
   public boolean hasNext() {
-    return (nextNode != null);
+    return nextNode != null;
   }
 
   /**

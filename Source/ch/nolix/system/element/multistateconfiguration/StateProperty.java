@@ -62,7 +62,7 @@ public final class StateProperty<V> {
    *         otherwise
    */
   public boolean hasValue() {
-    return (value != null);
+    return value != null;
   }
 
   /**

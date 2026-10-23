@@ -441,7 +441,7 @@ extends AbstractElement implements ITime {
    */
   @Override
   public int getMillisecondOfSecond() {
-    return (internalZonedDateTime.getNano() / TimeUnitConversionCatalog.NANOSECONDS_PER_MILLISECOND);
+    return internalZonedDateTime.getNano() / TimeUnitConversionCatalog.NANOSECONDS_PER_MILLISECOND;
   }
 
   /**
@@ -499,7 +499,7 @@ extends AbstractElement implements ITime {
    */
   @Override
   public int getWeekOfYear() {
-    return ((internalZonedDateTime.getDayOfYear() / 7) + 1);
+    return (internalZonedDateTime.getDayOfYear() / 7) + 1;
   }
 
   /**
@@ -515,7 +515,7 @@ extends AbstractElement implements ITime {
    */
   @Override
   public boolean isAfter(final ITime time) {
-    return (toSeconds() > time.toSeconds());
+    return toSeconds() > time.toSeconds();
   }
 
   /**
@@ -523,7 +523,7 @@ extends AbstractElement implements ITime {
    */
   @Override
   public boolean isBefore(final ITime time) {
-    return (toSeconds() < time.toSeconds());
+    return toSeconds() < time.toSeconds();
   }
 
   /**

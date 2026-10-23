@@ -239,7 +239,7 @@ implements MultiStateConfiguration<C, S> {
   }
 
   private boolean propertiesAreExtracted() {
-    return (abstractProperties != null);
+    return abstractProperties != null;
   }
 
   private void removeParent() {

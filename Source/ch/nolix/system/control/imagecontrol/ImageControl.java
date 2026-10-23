@@ -127,7 +127,7 @@ public final class ImageControl extends AbstractControl<IImageControl, IImageCon
    */
   @Override
   public boolean hasLeftMouseButtonPressAction() {
-    return (leftMouseButtonPressAction != null);
+    return leftMouseButtonPressAction != null;
   }
 
   /**
@@ -135,7 +135,7 @@ public final class ImageControl extends AbstractControl<IImageControl, IImageCon
    */
   @Override
   public boolean hasLeftMouseButtonReleaseAction() {
-    return (leftMouseButtonReleaseAction != null);
+    return leftMouseButtonReleaseAction != null;
   }
 
   /**

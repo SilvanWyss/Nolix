@@ -397,7 +397,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    */
   @Override
   public boolean hasHeader() {
-    return (nullableHeader != null);
+    return nullableHeader != null;
   }
 
   /**

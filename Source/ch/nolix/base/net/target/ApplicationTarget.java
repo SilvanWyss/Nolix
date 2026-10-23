@@ -76,6 +76,6 @@ public final class ApplicationTarget extends AbstractServerTarget implements IAp
    */
   @Override
   public String toUrl() {
-    return (super.toUrl() + "?app=" + getUrlApplicationName());
+    return super.toUrl() + "?app=" + getUrlApplicationName();
   }
 }

@@ -60,7 +60,7 @@ public final class MultiExtendedIterableViewIterator<E> implements CopyableItera
    */
   @Override
   public boolean hasNext() {
-    return (currentSubIterator != null && currentSubIterator.hasNext());
+    return currentSubIterator != null && currentSubIterator.hasNext();
   }
 
   /**

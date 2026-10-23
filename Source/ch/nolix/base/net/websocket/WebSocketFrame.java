@@ -294,7 +294,7 @@ public final class WebSocketFrame {
    *         otherwise
    */
   public boolean isPingFrame() {
-    return (getOpcodeMeaning() == WebSocketFrameOpcodeMeaning.PING);
+    return getOpcodeMeaning() == WebSocketFrameOpcodeMeaning.PING;
   }
 
   /**
@@ -302,7 +302,7 @@ public final class WebSocketFrame {
    *         otherwise
    */
   public boolean isPongFrame() {
-    return (getOpcodeMeaning() == WebSocketFrameOpcodeMeaning.PONG);
+    return getOpcodeMeaning() == WebSocketFrameOpcodeMeaning.PONG;
   }
 
   /**

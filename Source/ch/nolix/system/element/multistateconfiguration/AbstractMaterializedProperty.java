@@ -127,7 +127,7 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
    *         method, false otherwise
    */
   public final boolean hasSetterMethod() {
-    return (setterMethod != null);
+    return setterMethod != null;
   }
 
   /**

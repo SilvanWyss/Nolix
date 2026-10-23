@@ -110,6 +110,6 @@ public final class PopupWindowProvider {
       REQUEST_WINDOW_TITLE,
       JOptionPane.YES_NO_OPTION);
 
-    return (result == 0);
+    return result == 0;
   }
 }

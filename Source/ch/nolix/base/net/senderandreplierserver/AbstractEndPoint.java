@@ -25,7 +25,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements E
    */
   @Override
   public boolean hasReplier() {
-    return (replier != null);
+    return replier != null;
   }
 
   /**

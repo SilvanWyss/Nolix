@@ -142,7 +142,7 @@ public final class SimpleLinkedList<E> implements ISimpleLinkedList<E> {
    */
   @Override
   public boolean isEmpty() {
-    return (beginNode == null);
+    return beginNode == null;
   }
 
   /**

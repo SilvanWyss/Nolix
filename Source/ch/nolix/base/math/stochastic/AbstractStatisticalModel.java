@@ -59,7 +59,7 @@ public abstract class AbstractStatisticalModel {
   protected abstract double calculateNextValue();
 
   protected final int getIndexOfNextValue() {
-    return (getInputValuesCount() + forecasts.getCount() + 1);
+    return getInputValuesCount() + forecasts.getCount() + 1;
   }
 
   protected final double getValueFromBack(final int index) {

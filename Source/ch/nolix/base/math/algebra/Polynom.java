@@ -71,7 +71,7 @@ public final class Polynom {
    */
   @Override
   public boolean equals(final Object object) {
-    return (object instanceof final Polynom polynom && equals(polynom));
+    return object instanceof final Polynom polynom && equals(polynom);
   }
 
   /**
@@ -92,7 +92,7 @@ public final class Polynom {
    * @return the degree of the current {@link Polynom}.
    */
   public int getDegree() {
-    return (coefficients.length - 1);
+    return coefficients.length - 1;
   }
 
   /**
@@ -195,7 +195,7 @@ public final class Polynom {
    *         polynom, false otherwise
    */
   public boolean hasSameDegreeAs(final Polynom polynom) {
-    return (polynom != null && getDegree() == polynom.getDegree());
+    return polynom != null && getDegree() == polynom.getDegree();
   }
 
   /**
@@ -205,7 +205,7 @@ public final class Polynom {
    *         otherwise
    */
   public boolean isZeroPolynom() {
-    return (coefficients.length == 0);
+    return coefficients.length == 0;
   }
 
   /**

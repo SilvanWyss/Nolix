@@ -38,7 +38,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements E
    */
   @Override
   public final boolean hasCustomTargetSlot() {
-    return (customTargetSlot != null);
+    return customTargetSlot != null;
   }
 
   /**
@@ -46,7 +46,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements E
    */
   @Override
   public final boolean hasReceiver() {
-    return (receiver != null);
+    return receiver != null;
   }
 
   /**

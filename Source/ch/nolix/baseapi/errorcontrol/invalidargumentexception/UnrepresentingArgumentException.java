@@ -105,7 +105,7 @@ public final class UnrepresentingArgumentException extends AbstractInvalidArgume
     final var name = getNameOfType(type);
     final var pronoun = getPronounForNoun(name);
 
-    return (pronoun + " " + name);
+    return pronoun + " " + name;
   }
 
   /**

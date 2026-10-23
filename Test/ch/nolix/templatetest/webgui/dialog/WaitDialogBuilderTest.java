@@ -32,7 +32,7 @@ final class WaitDialogBuilderTest extends StandardTest {
 
   private boolean isMainLabel(final Control<?, ?> control) {
     if (control instanceof final ILabel label) {
-      return (label.getRole() == LabelRole.MAIN_LABEL);
+      return label.getRole() == LabelRole.MAIN_LABEL;
     }
 
     return false;

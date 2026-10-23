@@ -100,7 +100,7 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
    */
   @Override
   public boolean isConnectedWithRealDatabase() {
-    return (midSchemaAdapter != null);
+    return midSchemaAdapter != null;
   }
 
   /**
@@ -150,6 +150,6 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
   }
 
   private boolean needsToLoadTablesFromDatabase() {
-    return (isLoaded() && !hasLoadedTablesFromDatabase());
+    return isLoaded() && !hasLoadedTablesFromDatabase();
   }
 }

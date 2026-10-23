@@ -69,7 +69,7 @@ public final class ExtendedIterableFilterViewIterator<E> implements CopyableIter
    */
   @Override
   public boolean hasNext() {
-    return (optionalNextElement != null);
+    return optionalNextElement != null;
   }
 
   /**

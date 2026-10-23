@@ -118,7 +118,7 @@ public final class LayerStack implements ILayerStack {
    */
   @Override
   public boolean hasRemoveLayerAction() {
-    return (removeLayerAction != null);
+    return removeLayerAction != null;
   }
 
   /**

@@ -176,7 +176,7 @@ public final class ItemMenuItem extends AbstractMutableElementWithProperties imp
    */
   @Override
   public boolean belongsToMenu() {
-    return (nullableParentMenu != null);
+    return nullableParentMenu != null;
   }
 
   /**
@@ -248,7 +248,7 @@ public final class ItemMenuItem extends AbstractMutableElementWithProperties imp
   }
 
   private boolean hasSelectAction() {
-    return (nullableSelectAction != null);
+    return nullableSelectAction != null;
   }
 
   private void runOptionalSelectAction() {

@@ -59,7 +59,7 @@ public abstract class AbstractServer implements Server {
    */
   @Override
   public final boolean containsDefaultSlot() {
-    return (memberDefaultSlot != null);
+    return memberDefaultSlot != null;
   }
 
   /**

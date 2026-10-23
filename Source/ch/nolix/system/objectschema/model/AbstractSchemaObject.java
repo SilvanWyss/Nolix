@@ -26,7 +26,7 @@ abstract class AbstractSchemaObject implements DatabaseObject {
    */
   @Override
   public final boolean isClosed() {
-    return (getState() == DatabaseObjectState.CLOSED);
+    return getState() == DatabaseObjectState.CLOSED;
   }
 
   /**
@@ -34,7 +34,7 @@ abstract class AbstractSchemaObject implements DatabaseObject {
    */
   @Override
   public final boolean isDeleted() {
-    return (getState() == DatabaseObjectState.DELETED);
+    return getState() == DatabaseObjectState.DELETED;
   }
 
   /**
@@ -42,7 +42,7 @@ abstract class AbstractSchemaObject implements DatabaseObject {
    */
   @Override
   public final boolean isEdited() {
-    return (getState() == DatabaseObjectState.EDITED);
+    return getState() == DatabaseObjectState.EDITED;
   }
 
   /**
@@ -50,7 +50,7 @@ abstract class AbstractSchemaObject implements DatabaseObject {
    */
   @Override
   public final boolean isLoaded() {
-    return (getState() == DatabaseObjectState.UNEDITED);
+    return getState() == DatabaseObjectState.UNEDITED;
   }
 
   /**
@@ -58,7 +58,7 @@ abstract class AbstractSchemaObject implements DatabaseObject {
    */
   @Override
   public final boolean isNew() {
-    return (getState() == DatabaseObjectState.NEW);
+    return getState() == DatabaseObjectState.NEW;
   }
 
   protected abstract void noteClose();

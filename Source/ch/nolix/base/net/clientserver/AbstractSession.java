@@ -29,7 +29,7 @@ public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S> 
    */
   @Override
   public final boolean belongsToClient() {
-    return (memberParentClient != null);
+    return memberParentClient != null;
   }
 
   /**

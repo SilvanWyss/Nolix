@@ -57,7 +57,7 @@ public final class LinkedListNode<E> {
    *         element, false otherwise
    */
   public boolean contains(final Object element) {
-    return (memberElement == element);
+    return memberElement == element;
   }
 
   /**
@@ -86,7 +86,7 @@ public final class LinkedListNode<E> {
    *         otherwise
    */
   public boolean hasNextNode() {
-    return (nullableNextNode != null);
+    return nullableNextNode != null;
   }
 
   /**

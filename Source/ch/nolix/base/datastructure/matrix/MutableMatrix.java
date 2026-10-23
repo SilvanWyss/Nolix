@@ -289,7 +289,7 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
       throw EmptyArgumentException.forArgument(this);
     }
 
-    return ((index - 1) % columnCount + 1);
+    return (index - 1) % columnCount + 1;
   }
 
   /**
@@ -335,7 +335,7 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
    */
   @Override
   public int getCount() {
-    return (getRowCount() * getColumnCount());
+    return getRowCount() * getColumnCount();
   }
 
   /**
@@ -355,7 +355,7 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
     // at the given row index and the given column index.
     assertContainsAt(rowIndex, columnIndex);
 
-    return ((rowIndex - 1) * getColumnCount() + columnIndex);
+    return (rowIndex - 1) * getColumnCount() + columnIndex;
   }
 
   /**
@@ -404,7 +404,7 @@ public final class MutableMatrix<E> extends AbstractExtendedIterable<E> implemen
       throw EmptyArgumentException.forArgument(this);
     }
 
-    return ((index - 1) / columnCount + 1);
+    return (index - 1) / columnCount + 1;
   }
 
   /**

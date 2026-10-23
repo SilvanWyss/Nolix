@@ -339,7 +339,7 @@ public final class JobExecutor extends Thread {
    *         otherwise
    */
   public boolean caughtError() {
-    return (optionalCaughtError != null);
+    return optionalCaughtError != null;
   }
 
   // For a better performance, this implementation does not use all available comfort methods.
@@ -370,7 +370,7 @@ public final class JobExecutor extends Thread {
    *         otherwise
    */
   public boolean hasCondition() {
-    return (optionalNextStepRunCondition != null);
+    return optionalNextStepRunCondition != null;
   }
 
   /**
@@ -378,7 +378,7 @@ public final class JobExecutor extends Thread {
    *         otherwise
    */
   public boolean hasMaxRunCount() {
-    return (optionalMaxStepRunCount != null);
+    return optionalMaxStepRunCount != null;
   }
 
   /**
@@ -386,7 +386,7 @@ public final class JobExecutor extends Thread {
    *         otherwise
    */
   public boolean hasTimeInterval() {
-    return (optionalDelayBetweenStepRunsInMilliseconds != null);
+    return optionalDelayBetweenStepRunsInMilliseconds != null;
   }
 
   /**
@@ -401,7 +401,7 @@ public final class JobExecutor extends Thread {
    *         false otherwise
    */
   public boolean isFinishedSuccessfully() {
-    return (isFinished() && !caughtError());
+    return isFinished() && !caughtError();
   }
 
   /**
@@ -437,7 +437,7 @@ public final class JobExecutor extends Thread {
    *         reached it, false otherwise
    */
   private boolean reachedProbableMaxRunCount() {
-    return (hasMaxRunCount() && finishedStepRunCount >= optionalMaxStepRunCount);
+    return hasMaxRunCount() && finishedStepRunCount >= optionalMaxStepRunCount;
   }
 
   private boolean runProbableNextStepAndSayIfRunningMustContinue() {
@@ -470,7 +470,7 @@ public final class JobExecutor extends Thread {
    *         it, false otherwise
    */
   private boolean violatesProbableCondition() {
-    return (hasCondition() && !optionalNextStepRunCondition.getAsBoolean());
+    return hasCondition() && !optionalNextStepRunCondition.getAsBoolean();
   }
 
   /**

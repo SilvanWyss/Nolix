@@ -153,10 +153,10 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
   @Override
   public boolean isPositive() {
     if (isAbsolute) {
-      return (absoluteValue > 0);
+      return absoluteValue > 0;
     }
 
-    return (percentage > 0.0);
+    return percentage > 0.0;
   }
 
   /**

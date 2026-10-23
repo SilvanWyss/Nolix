@@ -237,7 +237,7 @@ public final class ClosedInterval implements IClosedInterval {
    */
   @Override
   public String toString() {
-    return ("[" + min + ", " + max + "]");
+    return "[" + min + ", " + max + "]";
   }
 
   /**

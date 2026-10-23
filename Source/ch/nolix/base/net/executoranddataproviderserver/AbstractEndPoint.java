@@ -29,7 +29,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements E
    */
   @Override
   public final boolean hasExecutorAndDataProvider() {
-    return (receiverController != null);
+    return receiverController != null;
   }
 
   /**

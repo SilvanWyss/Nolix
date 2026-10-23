@@ -590,7 +590,7 @@ public final class Matrix { // NOSONAR: A Matrix is a principal object thus it h
    *         matrix, false otherwise
    */
   public boolean hasSameSize(Matrix matrix) {
-    return (getRowCount() == matrix.getRowCount() && getColumnCount() == matrix.getColumnCount());
+    return getRowCount() == matrix.getRowCount() && getColumnCount() == matrix.getColumnCount();
   }
 
   /**
@@ -618,14 +618,14 @@ public final class Matrix { // NOSONAR: A Matrix is a principal object thus it h
    *         otherwise
    */
   public boolean isQuadratic() {
-    return (getRowCount() == getColumnCount());
+    return getRowCount() == getColumnCount();
   }
 
   /**
    * @return true if the current {@link Matrix} is regular, false otherwise
    */
   public boolean isRegular() {
-    return (isQuadratic() && getRank() == getRowCount());
+    return isQuadratic() && getRank() == getRowCount();
   }
 
   /**

@@ -125,7 +125,7 @@ public final class Button extends AbstractControl<IButton, IButtonStyle> impleme
    */
   @Override
   public boolean hasRole(final String role) {
-    return (hasRole() && getRole().toString().equals(role));
+    return hasRole() && getRole().toString().equals(role);
   }
 
   /**
@@ -337,10 +337,10 @@ public final class Button extends AbstractControl<IButton, IButtonStyle> impleme
   }
 
   private boolean hasLeftMouseButtonPressAction() {
-    return (leftMouseButtonPressAction != null);
+    return leftMouseButtonPressAction != null;
   }
 
   private boolean hasLeftMouseButtonReleaseAction() {
-    return (leftMouseButtonReleaseAction != null);
+    return leftMouseButtonReleaseAction != null;
   }
 }

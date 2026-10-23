@@ -168,7 +168,7 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
     }
 
     // Handles the case that the current BaseNetEndPoint does not have a target.
-    return (MessageType.TARGET_MESSAGE.getPrefix() + getCustomTargetSlot());
+    return MessageType.TARGET_MESSAGE.getPrefix() + getCustomTargetSlot();
   }
 
   /**

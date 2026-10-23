@@ -45,7 +45,7 @@ public final class SimpleLinkedListIterator<E> implements Iterator<E> {
    */
   @Override
   public boolean hasNext() {
-    return (nextNode != null);
+    return nextNode != null;
   }
 
   /**

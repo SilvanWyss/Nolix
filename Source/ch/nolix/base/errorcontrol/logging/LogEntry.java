@@ -109,6 +109,6 @@ public final class LogEntry {
    */
   @Override
   public String toString() {
-    return (getHarmLevel() + ": " + getMessage());
+    return getHarmLevel() + ": " + getMessage();
   }
 }

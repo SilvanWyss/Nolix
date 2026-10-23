@@ -462,7 +462,7 @@ implements ChainedNode {
    */
   @Override
   public boolean hasHeader() {
-    return (memberHeader != null);
+    return memberHeader != null;
   }
 
   /**
@@ -470,7 +470,7 @@ implements ChainedNode {
    */
   @Override
   public boolean hasNextNode() {
-    return (nextNode != null);
+    return nextNode != null;
   }
 
   /**

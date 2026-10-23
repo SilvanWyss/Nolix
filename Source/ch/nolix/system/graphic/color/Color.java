@@ -365,7 +365,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public double getAlphaPercentage() {
-    return ((double) getAlphaValue() / Color.MAX_COLOR_COMPONENT);
+    return (double) getAlphaValue() / Color.MAX_COLOR_COMPONENT;
   }
 
   /**
@@ -389,7 +389,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public double getBluePercentage() {
-    return ((double) getBlueValue() / Color.MAX_COLOR_COMPONENT);
+    return (double) getBlueValue() / Color.MAX_COLOR_COMPONENT;
   }
 
   /**
@@ -420,7 +420,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public double getGreenPercentage() {
-    return ((double) getGreenValue() / Color.MAX_COLOR_COMPONENT);
+    return (double) getGreenValue() / Color.MAX_COLOR_COMPONENT;
   }
 
   /**
@@ -449,7 +449,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public double getRedPercentage() {
-    return ((double) getRedValue() / Color.MAX_COLOR_COMPONENT);
+    return (double) getRedValue() / Color.MAX_COLOR_COMPONENT;
   }
 
   /**
@@ -466,7 +466,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public boolean hasFullAlphaValue() {
-    return (memberAlphaValue == MAX_COLOR_COMPONENT);
+    return memberAlphaValue == MAX_COLOR_COMPONENT;
   }
 
   // For a better performance, this implementation does not use all available comfort methods.
@@ -475,7 +475,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public boolean hasFullBlueValue() {
-    return (memberBlueValue == MAX_COLOR_COMPONENT);
+    return memberBlueValue == MAX_COLOR_COMPONENT;
   }
 
   // For a better performance, this implementation does not use all available comfort methods.
@@ -484,7 +484,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public boolean hasFullGreenValue() {
-    return (memberGreenValue == MAX_COLOR_COMPONENT);
+    return memberGreenValue == MAX_COLOR_COMPONENT;
   }
 
   // For a better performance, this implementation does not use all available comfort methods.
@@ -493,7 +493,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public boolean hasFullRedValue() {
-    return (memberRedValue == MAX_COLOR_COMPONENT);
+    return memberRedValue == MAX_COLOR_COMPONENT;
   }
 
   /**
@@ -501,7 +501,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public int toAlphaRedGreenBlueInt() {
-    return ((getAlphaValue() << 24) | (getRedValue() << 16) | (getGreenValue() << 8) | getBlueValue());
+    return (getAlphaValue() << 24) | (getRedValue() << 16) | (getGreenValue() << 8) | getBlueValue();
   }
 
   /**

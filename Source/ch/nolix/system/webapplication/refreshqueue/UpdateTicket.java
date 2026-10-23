@@ -87,7 +87,7 @@ public final class UpdateTicket {
    *         false otherwise
    */
   public boolean isForWholeWebGui() {
-    return (webGui != null);
+    return webGui != null;
   }
 
   /**

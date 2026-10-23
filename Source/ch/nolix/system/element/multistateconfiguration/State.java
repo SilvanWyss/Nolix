@@ -69,6 +69,6 @@ public final class State<S extends Enum<S>> {
    *         otherwise
    */
   public boolean hasEnumValue(final S enumValue) {
-    return (getEnumValue() == enumValue);
+    return getEnumValue() == enumValue;
   }
 }

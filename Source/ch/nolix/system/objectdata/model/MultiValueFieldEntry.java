@@ -122,7 +122,7 @@ implements IMultiValueFieldEntry<V> {
    */
   @Override
   public boolean isEdited() {
-    return (getState() == DatabaseObjectState.EDITED);
+    return getState() == DatabaseObjectState.EDITED;
   }
 
   /**
@@ -130,7 +130,7 @@ implements IMultiValueFieldEntry<V> {
    */
   @Override
   public boolean isLoaded() {
-    return (getState() == DatabaseObjectState.UNEDITED);
+    return getState() == DatabaseObjectState.UNEDITED;
   }
 
   /**
@@ -138,7 +138,7 @@ implements IMultiValueFieldEntry<V> {
    */
   @Override
   public boolean isNew() {
-    return (getState() == DatabaseObjectState.NEW);
+    return getState() == DatabaseObjectState.NEW;
   }
 
   void setDeleted() {

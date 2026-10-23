@@ -69,7 +69,7 @@ public final class CloseController implements ICloseController {
    */
   @Override
   public boolean hasClosed() {
-    return (parentClosePool.getState() == Openness.CLOSED);
+    return parentClosePool.getState() == Openness.CLOSED;
   }
 
   /**

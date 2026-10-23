@@ -38,7 +38,7 @@ public final class MockStylableElement extends AbstractStylableElement<MockStyla
    */
   @Override
   public boolean hasRole(String role) {
-    return (hasRole() && getRole().equals(role));
+    return hasRole() && getRole().equals(role);
   }
 
   /**
@@ -71,6 +71,6 @@ public final class MockStylableElement extends AbstractStylableElement<MockStyla
   }
 
   private boolean hasRole() {
-    return (memberRole != null);
+    return memberRole != null;
   }
 }

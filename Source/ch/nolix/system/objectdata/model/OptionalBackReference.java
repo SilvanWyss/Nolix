@@ -217,7 +217,7 @@ implements IOptionalBackReference<E> {
    */
   @Override
   public boolean isEmpty() {
-    return (nullableBackReferencedEntityCache == null);
+    return nullableBackReferencedEntityCache == null;
   }
 
   /**
@@ -243,7 +243,7 @@ implements IOptionalBackReference<E> {
    */
   @Override
   public boolean referencesBackEntityWithId(final String id) {
-    return (containsAny() && getBackReferencedEntityId().equals(id));
+    return containsAny() && getBackReferencedEntityId().equals(id);
   }
 
   /**

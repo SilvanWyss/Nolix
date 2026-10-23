@@ -20,7 +20,7 @@ public final class ChainedNodeComparator {
    */
   public static boolean areEqual(final ChainedNode chainedNode1, final ChainedNode chainedNode2) {
     if (chainedNode1 == null) {
-      return (chainedNode2 == null);
+      return chainedNode2 == null;
     }
 
     return //

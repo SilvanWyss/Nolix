@@ -114,7 +114,7 @@ public final class SchemaReader implements ISchemaReader {
    */
   @Override
   public boolean tableExist() {
-    return (getTableCount() > 0);
+    return getTableCount() > 0;
   }
 
   /**
@@ -125,6 +125,6 @@ public final class SchemaReader implements ISchemaReader {
     final var query = QUERY_CREATOR.createQueryToGetTableCount(tableName);
     final var records = sqlConnection.getSingleRecordFromQuery(query);
 
-    return (Integer.valueOf(records.getStoredFirstNonNull()) > 0);
+    return Integer.valueOf(records.getStoredFirstNonNull()) > 0;
   }
 }

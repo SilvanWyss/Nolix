@@ -382,6 +382,6 @@ extends AbstractControl<M, S> implements IItemMenu<M, S> {
   }
 
   private boolean hasSelectAction() {
-    return (memberSelectAction != null);
+    return memberSelectAction != null;
   }
 }

@@ -157,7 +157,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    */
   @Override
   public boolean hasHeader() {
-    return (memberHeader != null);
+    return memberHeader != null;
   }
 
   /**

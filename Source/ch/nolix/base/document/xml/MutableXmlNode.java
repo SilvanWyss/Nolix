@@ -254,7 +254,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
    */
   @Override
   public boolean hasMixedContent() {
-    return (hasValue() && containsChildNodes());
+    return hasValue() && containsChildNodes();
   }
 
   /**
@@ -262,7 +262,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
    */
   @Override
   public boolean hasName() {
-    return (memberName != null);
+    return memberName != null;
   }
 
   /**
@@ -270,7 +270,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
    */
   @Override
   public boolean hasValue() {
-    return (memberValue != null);
+    return memberValue != null;
   }
 
   /**

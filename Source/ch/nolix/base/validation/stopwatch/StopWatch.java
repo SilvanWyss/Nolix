@@ -42,7 +42,7 @@ public final class StopWatch {
     if (isRunning()) {
       final var durationInMilliseconds = System.currentTimeMillis() - latestStartInMilliseconds;
 
-      return (totalRunningTimeInMilliseconds + durationInMilliseconds);
+      return totalRunningTimeInMilliseconds + durationInMilliseconds;
     }
 
     return totalRunningTimeInMilliseconds;

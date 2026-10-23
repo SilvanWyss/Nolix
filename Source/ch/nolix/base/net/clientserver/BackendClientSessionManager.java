@@ -53,7 +53,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
    *         current session, false otherwise
    */
   public boolean containsCurrentSession() {
-    return (currentSession != null);
+    return currentSession != null;
   }
 
   /**
@@ -61,7 +61,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
    *         session after its current session, false otherwise
    */
   public boolean containsNextSession() {
-    return (containsCurrentSession() && getSessionStackSize() > getCurrentSessionIndex());
+    return containsCurrentSession() && getSessionStackSize() > getCurrentSessionIndex();
   }
 
   /**
@@ -69,7 +69,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
    *         session before its current session, false otherwise
    */
   public boolean containsPreviousSession() {
-    return (containsCurrentSession() && getCurrentSessionIndex() > 1);
+    return containsCurrentSession() && getCurrentSessionIndex() > 1;
   }
 
   /**
@@ -78,7 +78,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
    *         otherwise
    */
   public boolean currentSessionIsTopSession() {
-    return (containsCurrentSession() && getStoredCurrentSession() == getStoredTopSession());
+    return containsCurrentSession() && getStoredCurrentSession() == getStoredTopSession();
   }
 
   /**

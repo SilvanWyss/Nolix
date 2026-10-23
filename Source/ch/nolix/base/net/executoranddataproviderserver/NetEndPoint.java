@@ -316,7 +316,7 @@ public final class NetEndPoint extends AbstractEndPoint {
         return MessageHeaderCatalog.ERROR_HEADER;
       }
 
-      return (MessageHeaderCatalog.ERROR_HEADER + '(' + AbstractNode.getEscapeStringFor(error.getMessage()) + ')');
+      return MessageHeaderCatalog.ERROR_HEADER + '(' + AbstractNode.getEscapeStringFor(error.getMessage()) + ')';
     }
   }
 

@@ -213,7 +213,7 @@ public final class BackReference<E extends Entity> extends AbstractBaseBackRefer
    */
   @Override
   public boolean isEmpty() {
-    return (nullableBackReferencedEntityCache == null);
+    return nullableBackReferencedEntityCache == null;
   }
 
   /**

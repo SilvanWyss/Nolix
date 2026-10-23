@@ -115,7 +115,7 @@ public final class ShellProvider {
 
   private static String getUrlWithHttpPrefix(final String url) {
     if (!url.startsWith("http://")) {
-      return ("http://" + url);
+      return "http://" + url;
     }
 
     return url;

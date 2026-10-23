@@ -141,6 +141,6 @@ public final class ShowValueDialogBuilder implements Builder<ILayer> {
   }
 
   private boolean hasValueCopier() {
-    return (valueCopier != null);
+    return valueCopier != null;
   }
 }

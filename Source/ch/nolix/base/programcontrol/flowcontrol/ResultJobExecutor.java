@@ -56,7 +56,7 @@ final class ResultJobExecutor<R> extends Thread {
    *         false otherwise
    */
   public boolean caughtError() {
-    return (error != null);
+    return error != null;
   }
 
   // For a better performance, this implementation does not use all available comfort methods.

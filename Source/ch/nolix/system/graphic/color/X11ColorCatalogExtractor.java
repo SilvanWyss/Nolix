@@ -51,7 +51,7 @@ public final class X11ColorCatalogExtractor {
   }
 
   private static boolean declaresColorName(final Field field) {
-    return (ReflectionTool.isStatic(field) && field.getName().endsWith(STRING_CONSTANT_POSTFIX));
+    return ReflectionTool.isStatic(field) && field.getName().endsWith(STRING_CONSTANT_POSTFIX);
   }
 
   private static ILinkedList<Field> getColorFields(final Class<?> paramClass) {

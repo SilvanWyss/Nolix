@@ -276,7 +276,7 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    *         false otherwise
    */
   private boolean isRootFileNode() {
-    return (fileAccessor != null);
+    return fileAccessor != null;
   }
 
   /**

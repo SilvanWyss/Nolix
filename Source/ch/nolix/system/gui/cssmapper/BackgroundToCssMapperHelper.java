@@ -30,7 +30,7 @@ public final class BackgroundToCssMapperHelper {
   }
 
   private static String getDegreeCodeOfColorGradient(final IColorGradient pColorGradient) {
-    return (getDegreeOfColorGradient(pColorGradient) + "deg");
+    return getDegreeOfColorGradient(pColorGradient) + "deg";
   }
 
   private static int getDegreeOfColorGradient(final IColorGradient pColorGradient) {

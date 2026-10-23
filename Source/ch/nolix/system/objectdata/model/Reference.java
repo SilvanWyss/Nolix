@@ -209,7 +209,7 @@ public final class Reference<E extends Entity> extends AbstractBaseReference<E> 
    */
   @Override
   public boolean isEmpty() {
-    return (nullableReferencedEntityCache == null);
+    return nullableReferencedEntityCache == null;
   }
 
   /**

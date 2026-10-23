@@ -81,7 +81,7 @@ public final class ValueField<V> extends AbstractBaseValueField<V> implements IV
    */
   @Override
   public boolean isEmpty() {
-    return (internalValue == null);
+    return internalValue == null;
   }
 
   /**

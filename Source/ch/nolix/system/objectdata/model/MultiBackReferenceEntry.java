@@ -266,7 +266,7 @@ public final class MultiBackReferenceEntry<E extends Entity> implements IMultiBa
    */
   @Override
   public boolean isLoaded() {
-    return (getState() == DatabaseObjectState.UNEDITED);
+    return getState() == DatabaseObjectState.UNEDITED;
   }
 
   /**
@@ -274,7 +274,7 @@ public final class MultiBackReferenceEntry<E extends Entity> implements IMultiBa
    */
   @Override
   public boolean isNew() {
-    return (getState() == DatabaseObjectState.NEW);
+    return getState() == DatabaseObjectState.NEW;
   }
 
   void setDeleted() {

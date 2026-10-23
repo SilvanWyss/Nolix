@@ -83,7 +83,7 @@ public final class Uploader extends AbstractControl<IUploader, IUploaderStyle> i
    */
   @Override
   public boolean hasFile() {
-    return (memberFile != null);
+    return memberFile != null;
   }
 
   /**

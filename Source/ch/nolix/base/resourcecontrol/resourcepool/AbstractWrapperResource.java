@@ -67,6 +67,6 @@ implements GroupCloseable {
   }
 
   private boolean belongsToResourcePool() {
-    return (memberParentResourcePool != null);
+    return memberParentResourcePool != null;
   }
 }

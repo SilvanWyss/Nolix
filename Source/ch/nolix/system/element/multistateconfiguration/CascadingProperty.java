@@ -194,6 +194,6 @@ public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMater
   }
 
   private boolean hasParentProperty() {
-    return (parentProperty != null);
+    return parentProperty != null;
   }
 }

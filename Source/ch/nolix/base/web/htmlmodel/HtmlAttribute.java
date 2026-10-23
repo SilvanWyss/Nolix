@@ -80,6 +80,6 @@ public final class HtmlAttribute implements IHtmlAttribute {
    */
   @Override
   public String toString() {
-    return (getName() + "=\"" + getValue() + "\"");
+    return getName() + "=\"" + getValue() + "\"";
   }
 }

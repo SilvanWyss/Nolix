@@ -259,7 +259,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements Node<N>
    */
   @Override
   public final boolean isBlank() {
-    return (!hasHeader() && !containsChildNodes());
+    return !hasHeader() && !containsChildNodes();
   }
 
   /**

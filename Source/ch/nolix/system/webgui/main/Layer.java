@@ -126,7 +126,7 @@ implements ILayer {
    */
   @Override
   public boolean belongsToGui() {
-    return (memberParentGui != null);
+    return memberParentGui != null;
   }
 
   /**
@@ -144,7 +144,7 @@ implements ILayer {
    */
   @Override
   public boolean containsControl(final Control<?, ?> control) {
-    return (containsAny() && containsControlWhenContainsAny(control));
+    return containsAny() && containsControlWhenContainsAny(control);
   }
 
   /**
@@ -346,7 +346,7 @@ implements ILayer {
    */
   @Override
   public boolean hasRole(final String role) {
-    return (hasRole() && getRole().toString().equals(role));
+    return hasRole() && getRole().toString().equals(role);
   }
 
   /**

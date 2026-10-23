@@ -178,7 +178,7 @@ public final class Database implements IDatabase {
    */
   @Override
   public boolean isDeleted() {
-    return (getState() == DatabaseObjectState.DELETED);
+    return getState() == DatabaseObjectState.DELETED;
   }
 
   /**
@@ -186,7 +186,7 @@ public final class Database implements IDatabase {
    */
   @Override
   public boolean isEdited() {
-    return (getState() == DatabaseObjectState.EDITED);
+    return getState() == DatabaseObjectState.EDITED;
   }
 
   /**
@@ -194,7 +194,7 @@ public final class Database implements IDatabase {
    */
   @Override
   public boolean isLoaded() {
-    return (getState() == DatabaseObjectState.UNEDITED);
+    return getState() == DatabaseObjectState.UNEDITED;
   }
 
   /**
@@ -202,7 +202,7 @@ public final class Database implements IDatabase {
    */
   @Override
   public boolean isNew() {
-    return (getState() == DatabaseObjectState.NEW);
+    return getState() == DatabaseObjectState.NEW;
   }
 
   /**

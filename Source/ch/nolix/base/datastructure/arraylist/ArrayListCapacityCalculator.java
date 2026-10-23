@@ -26,7 +26,7 @@ public final class ArrayListCapacityCalculator {
    *         the given requiredCapacity, false otherwise
    */
   public static boolean arrayListNeedsToGrowForRequiredCapacity(final int capacity, final int requiredCapacity) {
-    return (requiredCapacity > capacity);
+    return requiredCapacity > capacity;
   }
 
   /**
@@ -45,7 +45,7 @@ public final class ArrayListCapacityCalculator {
 
     if (actualCapacity > requiredCapacity) {
       if (actualCapacity / 3 > requiredCapacity) {
-        return (2 * requiredCapacity);
+        return 2 * requiredCapacity;
       }
 
       return actualCapacity;

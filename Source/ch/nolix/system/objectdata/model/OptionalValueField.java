@@ -95,7 +95,7 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
    */
   @Override
   public boolean isEmpty() {
-    return (internalValue == null);
+    return internalValue == null;
   }
 
   /**

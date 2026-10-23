@@ -133,9 +133,9 @@ public final class PerformanceAnalyzerHelper {
     final long totalRunningTimeInMilliseconds,
     final int totalRunCount) {
     if (totalRunningTimeInMilliseconds > 5_000) {
-      return (totalRunCount >= 25 /* 5^2 */);
+      return totalRunCount >= 25 /* 5^2 */;
     }
 
-    return (totalRunCount >= 1_953_125 /* 5^9 */);
+    return totalRunCount >= 1_953_125 /* 5^9 */;
   }
 }

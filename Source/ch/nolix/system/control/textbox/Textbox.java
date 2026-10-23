@@ -240,7 +240,7 @@ public final class Textbox extends AbstractControl<ITextbox, ITextboxStyle> impl
   }
 
   private boolean hasUpdateTextAction() {
-    return (updateTextAction != null);
+    return updateTextAction != null;
   }
 
   private void runOptionalUpdateTextActionForText(final String text) {

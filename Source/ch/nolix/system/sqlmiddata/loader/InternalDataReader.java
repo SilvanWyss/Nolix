@@ -288,7 +288,7 @@ public final class InternalDataReader {
     final var localRecord = sqlConnection.getSingleRecordFromQuery(query);
     final var entityCount = Integer.valueOf(localRecord.getStoredFirstNonNull());
 
-    return (entityCount > 0);
+    return entityCount > 0;
   }
 
   private boolean multiValueEntryExistsForGivenColumnAndValue(

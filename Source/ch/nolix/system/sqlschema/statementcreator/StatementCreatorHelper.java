@@ -44,14 +44,14 @@ public final class StatementCreatorHelper {
   }
 
   private static String getConstraintParametersAsSql(final ColumnConstraintDto constraint) {
-    return ("(" + constraint.parameters().toStringWithDelimiter(",") + ")");
+    return "(" + constraint.parameters().toStringWithDelimiter(",") + ")";
   }
 
   private static String getDataTypeAsSql(final DataTypeDto dataType) {
     final var parameter = dataType.nullableParameter();
 
     if (parameter != null) {
-      return (dataType.name() + "(" + parameter + ")");
+      return dataType.name() + "(" + parameter + ")";
     }
 
     return dataType.name();

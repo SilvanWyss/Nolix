@@ -232,7 +232,7 @@ implements IControlCssBuilder<C, S> {
   }
 
   private String getCssSelectorForControlAndAllStates(final C control) {
-    return ("#" + control.getInternalId());
+    return "#" + control.getInternalId();
   }
 
   private String getCssSelectorForControlAndState(final C control, final ControlState state) {

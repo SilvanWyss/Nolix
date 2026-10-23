@@ -161,7 +161,7 @@ implements ISelectingStyleWithSelectors {
    */
   @Override
   public final boolean hasSelectorId() {
-    return (memberSelectorId != null);
+    return memberSelectorId != null;
   }
 
   /**
@@ -182,7 +182,7 @@ implements ISelectingStyleWithSelectors {
    */
   @Override
   public final boolean hasSelectorType() {
-    return (memberSelectorType != null);
+    return memberSelectorType != null;
   }
 
   /**

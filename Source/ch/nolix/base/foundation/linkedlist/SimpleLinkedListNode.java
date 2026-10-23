@@ -29,7 +29,7 @@ final class SimpleLinkedListNode<E> {
    *         element, false otherwise
    */
   public boolean contains(final E element) {
-    return (memberElement == element);
+    return memberElement == element;
   }
 
   /**
@@ -55,7 +55,7 @@ final class SimpleLinkedListNode<E> {
    *         false otherwise
    */
   public boolean hasNextNode() {
-    return (nextNode != null);
+    return nextNode != null;
   }
 
   /**

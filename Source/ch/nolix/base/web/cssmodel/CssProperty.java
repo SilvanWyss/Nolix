@@ -98,6 +98,6 @@ public final class CssProperty implements ICssProperty {
    */
   @Override
   public String toString() {
-    return (getName() + ": " + getValue() + ";");
+    return getName() + ": " + getValue() + ";";
   }
 }

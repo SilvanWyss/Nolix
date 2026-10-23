@@ -28,7 +28,7 @@ public final class TableNodeExaminer implements ITableNodeExaminer {
         }
 
         final var field = a.getStoredChildNodeAtOneBasedIndex(valueIndex);
-        return (field.hasHeader(value) || field.containsChildNodeWithHeader(value));
+        return field.hasHeader(value) || field.containsChildNodeWithHeader(value);
       });
   }
 

@@ -100,7 +100,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
    */
   @Override
   public boolean belongsToTable() {
-    return (parentTable != null);
+    return parentTable != null;
   }
 
   /**
@@ -194,7 +194,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
    */
   @Override
   public boolean isConnectedWithRealDatabase() {
-    return (belongsToTable() && getStoredParentTable().isConnectedWithRealDatabase());
+    return belongsToTable() && getStoredParentTable().isConnectedWithRealDatabase();
   }
 
   /**

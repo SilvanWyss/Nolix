@@ -34,15 +34,15 @@ public final class HtmlElementStringRepresentator {
 
   private static String toStringWhenDoesNotContainChildElementsAndHasEmptyInnerText(final IHtmlElement htmlElement) {
     if (!htmlElement.containsAttributes()) {
-      return ("<" + htmlElement.getType() + " />");
+      return "<" + htmlElement.getType() + " />";
     }
 
-    return ("<" + htmlElement.getType() + " " + getAttributesAsString(htmlElement) + " />");
+    return "<" + htmlElement.getType() + " " + getAttributesAsString(htmlElement) + " />";
   }
 
   private static String toStringWhenDoesNotContainChildElementsAndHasNonEmptyInnerText(final IHtmlElement htmlElement) {
     if (!htmlElement.containsAttributes()) {
-      return ("<" + htmlElement.getType() + ">" + htmlElement.getInnerText() + "</" + htmlElement.getType() + ">");
+      return "<" + htmlElement.getType() + ">" + htmlElement.getInnerText() + "</" + htmlElement.getType() + ">";
     }
 
     return "<"

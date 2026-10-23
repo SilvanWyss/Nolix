@@ -99,7 +99,7 @@ public final class UnsignedByte {
    * @return the bit at the given index from the current {@link UnsignedByte}
    */
   public boolean getBitAt(final int index) { // NOSONAR: This method returns a bit as a boolean.
-    return (getBitAtAsInt(index) == 1);
+    return getBitAtAsInt(index) == 1;
   }
 
   /**

@@ -102,7 +102,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    *         otherwise
    */
   private boolean hasCondition() {
-    return (condition != null);
+    return condition != null;
   }
 
   /**
@@ -110,7 +110,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    *         false otherwise
    */
   private boolean hasMaxRunCount() {
-    return (maxRunCount != null);
+    return maxRunCount != null;
   }
 
   /**

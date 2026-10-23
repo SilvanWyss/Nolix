@@ -136,7 +136,7 @@ final class EnterValueDialogBuilderTest extends StandardTest {
 
   private boolean isCancelButton(final Control<?, ?> control) {
     if (control instanceof final IButton button) {
-      return (button.getRole() == ButtonRole.CANCEL_BUTTON);
+      return button.getRole() == ButtonRole.CANCEL_BUTTON;
     }
 
     return false;
@@ -144,7 +144,7 @@ final class EnterValueDialogBuilderTest extends StandardTest {
 
   private boolean isConfirmButton(final Control<?, ?> control) {
     if (control instanceof final IButton button) {
-      return (button.getRole() == ButtonRole.CONFIRM_BUTTON);
+      return button.getRole() == ButtonRole.CONFIRM_BUTTON;
     }
 
     return false;

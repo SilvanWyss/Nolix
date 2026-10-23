@@ -173,7 +173,7 @@ implements BackendClient<C, S> {
    *         parent {@link AbstractApplication}, false otherwise
    */
   private boolean belongsToApplication() {
-    return (optionalParentApplication != null);
+    return optionalParentApplication != null;
   }
 
   /**

@@ -37,7 +37,7 @@ public final class NodeComparator implements INodeComparator {
       return true;
     }
 
-    return (node1 == null && node2 == null);
+    return node1 == null && node2 == null;
 
   }
 

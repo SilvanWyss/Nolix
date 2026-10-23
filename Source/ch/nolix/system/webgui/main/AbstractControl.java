@@ -113,7 +113,7 @@ implements Control<C, S> {
    */
   @Override
   public final boolean belongsToControl() {
-    return (parent != null && parent.isControl());
+    return parent != null && parent.isControl();
   }
 
   /**
@@ -121,7 +121,7 @@ implements Control<C, S> {
    */
   @Override
   public final boolean belongsToGui() {
-    return (belongsToLayer() && getStoredParentLayer().belongsToGui());
+    return belongsToLayer() && getStoredParentLayer().belongsToGui();
   }
 
   // For a better performance, this implementation does not use all available comfort methods.
@@ -130,7 +130,7 @@ implements Control<C, S> {
    */
   @Override
   public final boolean belongsToLayer() {
-    return (parent != null && parent.belongsToLayer());
+    return parent != null && parent.belongsToLayer();
   }
 
   /**
@@ -337,7 +337,7 @@ implements Control<C, S> {
    */
   @Override
   public final boolean isCollapsed() {
-    return (getPresence() == Presence.COLLAPSED);
+    return getPresence() == Presence.COLLAPSED;
   }
 
   /**
@@ -345,7 +345,7 @@ implements Control<C, S> {
    */
   @Override
   public final boolean isInvisible() {
-    return (getPresence() == Presence.INVISIBLE);
+    return getPresence() == Presence.INVISIBLE;
   }
 
   /**
@@ -353,7 +353,7 @@ implements Control<C, S> {
    */
   @Override
   public final boolean isVisible() {
-    return (getPresence() == Presence.VISIBLE);
+    return getPresence() == Presence.VISIBLE;
   }
 
   /**
@@ -573,7 +573,7 @@ implements Control<C, S> {
   }
 
   private boolean belongsToParent() {
-    return (parent != null);
+    return parent != null;
   }
 
   private IControlParent getStoredParent() {

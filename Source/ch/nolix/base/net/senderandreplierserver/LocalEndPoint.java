@@ -163,7 +163,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    */
   @Override
   public boolean hasCustomTargetSlot() {
-    return (target != null);
+    return target != null;
   }
 
   /**
