@@ -1,13 +1,13 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemtest.englishlanguage;
+package ch.nolix.systemtest.util.englishlanguage;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.system.englishlanguage.EnglishNounTool;
+import ch.nolix.system.util.englishlanguage.EnglishNounTool;
 
 /**
  * @author Silvan Wyss
