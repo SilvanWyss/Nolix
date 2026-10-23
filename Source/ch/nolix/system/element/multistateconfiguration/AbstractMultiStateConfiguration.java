@@ -192,17 +192,17 @@ implements MultiStateConfiguration<C, S> {
     }
   }
 
+  private void fillUpPropertiesFromClassIntoList(final Class<?> pClass, final ILinkedList<AbstractProperty<S>> list) {
+    for (final var f : pClass.getDeclaredFields()) {
+      fillUpPotentialPropertyFromFieldIntoList(f, list);
+    }
+  }
+
   private void fillUpPropertiesIntoList(final ILinkedList<AbstractProperty<S>> list) {
     Class<?> lClass = getClass();
     while (lClass != null) {
       fillUpPropertiesFromClassIntoList(lClass, list);
       lClass = lClass.getSuperclass();
-    }
-  }
-
-  private void fillUpPropertiesFromClassIntoList(final Class<?> pClass, final ILinkedList<AbstractProperty<S>> list) {
-    for (final var f : pClass.getDeclaredFields()) {
-      fillUpPotentialPropertyFromFieldIntoList(f, list);
     }
   }
 

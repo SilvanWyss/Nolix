@@ -79,23 +79,6 @@ implements IControlCssBuilder<C, S> {
     }
   }
 
-  private String getCssSelectorForControlAndAllStates(final C control) {
-    return ("#" + control.getInternalId());
-  }
-
-  private String getCssSelectorForControlAndState(final C control, final ControlState state) {
-    return switch (state) {
-      case BASE ->
-        "#" + control.getInternalId();
-      case FOCUS ->
-        "#" + control.getInternalId() + ":focus";
-      case HOVER ->
-        "#" + control.getInternalId() + ":hover";
-      default ->
-        throw InvalidArgumentException.forArgument(state);
-    };
-  }
-
   private void fillUpCssRulesForControlAndAllStatesIntoList(
     final C control,
     final ILinkedList<ICssRule> list) {
@@ -243,6 +226,23 @@ implements IControlCssBuilder<C, S> {
     return CssRule.withSelectorAndProperties(
       StringCatalog.EMPTY_STRING,
       getCssPropertiesForControlAndState(control, state));
+  }
+
+  private String getCssSelectorForControlAndAllStates(final C control) {
+    return ("#" + control.getInternalId());
+  }
+
+  private String getCssSelectorForControlAndState(final C control, final ControlState state) {
+    return switch (state) {
+      case BASE ->
+        "#" + control.getInternalId();
+      case FOCUS ->
+        "#" + control.getInternalId() + ":focus";
+      case HOVER ->
+        "#" + control.getInternalId() + ":hover";
+      default ->
+        throw InvalidArgumentException.forArgument(state);
+    };
   }
 
   private ICssProperty getFontWeightCssPropertyForControlAndState(final C control, final ControlState state) {

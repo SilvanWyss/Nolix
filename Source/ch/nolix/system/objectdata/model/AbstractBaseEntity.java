@@ -322,15 +322,6 @@ public abstract class AbstractBaseEntity implements Entity {
     return fields;
   }
 
-  private boolean isReferencedInPersistedDataWhenBelongsToTable() {
-    final var localId = getId();
-
-    return //
-    getStoredParentTable()
-      .getStoredColumnsThatReferenceMe()
-      .containsMatching(c -> c.containsValueInPersistedData(localId));
-  }
-
   private boolean isReferencedInPersistedDataIgnoringGivenEntitiesWhenBelongsToTable(
     final ExtendedIterable<String> entitiesToIgnoreIds) {
     final var localId = getId();
@@ -339,5 +330,14 @@ public abstract class AbstractBaseEntity implements Entity {
     getStoredParentTable()
       .getStoredColumnsThatReferenceMe()
       .containsMatching(c -> c.containsValueInPersistedDataIgnoringEntities(localId, entitiesToIgnoreIds));
+  }
+
+  private boolean isReferencedInPersistedDataWhenBelongsToTable() {
+    final var localId = getId();
+
+    return //
+    getStoredParentTable()
+      .getStoredColumnsThatReferenceMe()
+      .containsMatching(c -> c.containsValueInPersistedData(localId));
   }
 }

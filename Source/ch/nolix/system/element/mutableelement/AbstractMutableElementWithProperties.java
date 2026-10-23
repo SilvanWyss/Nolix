@@ -105,38 +105,17 @@ public abstract class AbstractMutableElementWithProperties implements MutableEle
   }
 
   /**
-   * @return the header of the specification of the current
-   *         {@link AbstractMutableElementWithProperties}
+   * Adds the {@link Property} from the given field to the current
+   * {@link AbstractMutableElementWithProperties} if the given field contains a
+   * {@link Property}.
+   * 
+   * @param field
+   * @throws RuntimeException if the given field is null
    */
-  private String getSpecificationHeader() {
-    final var localClass = getClass();
-
-    if (!localClass.isAnonymousClass()) {
-      return localClass.getSimpleName();
+  private void addPotentialPropertyFromField(final Field field) {
+    if (Property.class.isAssignableFrom(field.getType())) {
+      addPropertyFromField(field);
     }
-
-    return PascalCaseVariableNameCatalog.ELEMENT;
-  }
-
-  /**
-   * Adds the {@link Property}s from the current
-   * {@link AbstractMutableElementWithProperties} to the current
-   * {@link AbstractMutableElementWithProperties} if the current
-   * {@link AbstractMutableElementWithProperties} has not added its
-   * {@link Property}s.
-   */
-  private void addPropertiesIfNotAdded() {
-    if (!hasAddedProperties()) {
-      addProperties();
-    }
-  }
-
-  /**
-   * @return true if the current {@link AbstractMutableElementWithProperties}s has
-   *         added its {@link Property}s, false otherwise
-   */
-  private boolean hasAddedProperties() {
-    return properties != null;
   }
 
   /**
@@ -168,16 +147,15 @@ public abstract class AbstractMutableElementWithProperties implements MutableEle
   }
 
   /**
-   * Adds the {@link Property} from the given field to the current
-   * {@link AbstractMutableElementWithProperties} if the given field contains a
-   * {@link Property}.
-   * 
-   * @param field
-   * @throws RuntimeException if the given field is null
+   * Adds the {@link Property}s from the current
+   * {@link AbstractMutableElementWithProperties} to the current
+   * {@link AbstractMutableElementWithProperties} if the current
+   * {@link AbstractMutableElementWithProperties} has not added its
+   * {@link Property}s.
    */
-  private void addPotentialPropertyFromField(final Field field) {
-    if (Property.class.isAssignableFrom(field.getType())) {
-      addPropertyFromField(field);
+  private void addPropertiesIfNotAdded() {
+    if (!hasAddedProperties()) {
+      addProperties();
     }
   }
 
@@ -203,6 +181,20 @@ public abstract class AbstractMutableElementWithProperties implements MutableEle
   }
 
   /**
+   * @return the header of the specification of the current
+   *         {@link AbstractMutableElementWithProperties}
+   */
+  private String getSpecificationHeader() {
+    final var localClass = getClass();
+
+    if (!localClass.isAnonymousClass()) {
+      return localClass.getSimpleName();
+    }
+
+    return PascalCaseVariableNameCatalog.ELEMENT;
+  }
+
+  /**
    * @return the {@link Property}s of the current
    *         {@link AbstractMutableElementWithProperties}.
    */
@@ -210,5 +202,13 @@ public abstract class AbstractMutableElementWithProperties implements MutableEle
     addPropertiesIfNotAdded();
 
     return properties;
+  }
+
+  /**
+   * @return true if the current {@link AbstractMutableElementWithProperties}s has
+   *         added its {@link Property}s, false otherwise
+   */
+  private boolean hasAddedProperties() {
+    return properties != null;
   }
 }

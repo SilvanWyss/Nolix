@@ -61,6 +61,17 @@ public final class ColumnMutationExaminer implements IColumnMutationExaminer {
   }
 
   /**
+   * @param name
+   * @return true if the given name can be set to a {@link IColumn}, false
+   *         otherwise
+   */
+  private boolean canSetName(final String name) { // NOSONAR: This method is an instance method.
+    return //
+    name != null
+    && !name.isBlank();
+  }
+
+  /**
    * @param column
    * @param name
    * @return true if the given name can be set to the given column because of the
@@ -73,16 +84,5 @@ public final class ColumnMutationExaminer implements IColumnMutationExaminer {
     column != null
     && (!column.belongsToTable()
     || column.getStoredParentTable().getStoredColumns().containsMatching(c -> c.hasName(name)));
-  }
-
-  /**
-   * @param name
-   * @return true if the given name can be set to a {@link IColumn}, false
-   *         otherwise
-   */
-  private boolean canSetName(final String name) { // NOSONAR: This method is an instance method.
-    return //
-    name != null
-    && !name.isBlank();
   }
 }

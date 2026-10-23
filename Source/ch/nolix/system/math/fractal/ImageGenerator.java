@@ -125,6 +125,16 @@ public final class ImageGenerator extends AbstractFuture implements IImageGenera
     }
   }
 
+  private void fillImagePixel(final int x, final int y) {
+    final var color = Color.createAverageFromColors(
+      getColorOfPixel(x - 0.75, y - 0.75),
+      getColorOfPixel(x - 0.75, y - 0.25),
+      getColorOfPixel(x - 0.25, y - 0.75),
+      getColorOfPixel(x - 0.25, y - 0.25));
+
+    image.setPixel(x, y, color);
+  }
+
   private void fillImageRow(final int y) {
     for (var x = 1; x <= image.getWidth(); x++) {
       fillImagePixel(x, y);
@@ -135,16 +145,6 @@ public final class ImageGenerator extends AbstractFuture implements IImageGenera
     for (var y = startImageRow; y <= endImageRow; y++) {
       fillImageRow(y);
     }
-  }
-
-  private void fillImagePixel(final int x, final int y) {
-    final var color = Color.createAverageFromColors(
-      getColorOfPixel(x - 0.75, y - 0.75),
-      getColorOfPixel(x - 0.75, y - 0.25),
-      getColorOfPixel(x - 0.25, y - 0.75),
-      getColorOfPixel(x - 0.25, y - 0.25));
-
-    image.setPixel(x, y, color);
   }
 
   private IColor getColorOfPixel(final double x, final double y) {

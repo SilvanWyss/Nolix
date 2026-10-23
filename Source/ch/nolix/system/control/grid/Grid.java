@@ -198,11 +198,6 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
     cells.setAtOneBasedRowIndexAndColumnIndex(cell.getRowIndex(), cell.getColumnIndex(), cell);
   }
 
-  private void expandTo(final int rowCount, final int columnCount) {
-    expandRowsTo(rowCount);
-    expandColumnsTo(columnCount);
-  }
-
   private void expandColumnsTo(final int columnIndex) {
     Validator.assertThat(columnIndex).thatIsNamed(LowerCaseVariableNameCatalog.COLUMN_INDEX).isPositive();
 
@@ -237,5 +232,10 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
 
       cells.addRow(row);
     }
+  }
+
+  private void expandTo(final int rowCount, final int columnCount) {
+    expandRowsTo(rowCount);
+    expandColumnsTo(columnCount);
   }
 }

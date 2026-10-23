@@ -39,12 +39,6 @@ public record WebSocketFramePayloadLength(long value) {
     };
   }
 
-  private byte[] toBytesWhen7Bits() {
-    final var byteArray = BigInteger.valueOf(value).toByteArray();
-
-    return new byte[] { byteArray[0] };
-  }
-
   private byte[] toBytesWhen16Bits() {
     final var byteArray = BigInteger.valueOf(value).toByteArray();
 
@@ -69,5 +63,11 @@ public record WebSocketFramePayloadLength(long value) {
     }
 
     return result;
+  }
+
+  private byte[] toBytesWhen7Bits() {
+    final var byteArray = BigInteger.valueOf(value).toByteArray();
+
+    return new byte[] { byteArray[0] };
   }
 }

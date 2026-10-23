@@ -246,56 +246,6 @@ public final class Polynom {
     return Vector.withValues(coefficients);
   }
 
-  private Polynom calculateDerived(final int deriveCount) {
-    Validator.assertThat(deriveCount).thatIsNamed("derive count").isNotNegative();
-
-    if (deriveCount == 0) {
-      return this;
-    }
-
-    final var degree = getDegree();
-    final var derivedDegree = BASIC_CALCULATOR.getMax(0, degree - deriveCount);
-    final var derivedCoefficients = new double[derivedDegree + 1];
-
-    for (var derivedCoefficientIndex = 0; derivedCoefficientIndex <= derivedDegree; derivedCoefficientIndex++) {
-      var derivedCoefficient = coefficients[derivedCoefficientIndex];
-
-      for (var j = degree - derivedCoefficientIndex; j > derivedDegree - derivedCoefficientIndex; j--) {
-        derivedCoefficient *= j;
-      }
-
-      derivedCoefficients[derivedCoefficientIndex] = derivedCoefficient;
-    }
-
-    return new Polynom(derivedCoefficients);
-  }
-
-  private boolean equals(final Polynom polynom) {
-    if (!hasSameDegreeAs(polynom)) {
-      return false;
-    }
-
-    for (var i = 0; i < coefficients.length; i++) {
-      if (!NumberComparator.areEqual(coefficients[i], polynom.coefficients[i])) {
-        return false;
-      }
-    }
-
-    return true;
-  }
-
-  private double getValueAtWhenIsNotZeroPolynom(final double x) {
-    var value = coefficients[0];
-
-    var base = 1.0;
-    for (var i = 1; i < coefficients.length; i++) {
-      base *= x;
-      value += coefficients[i] * base;
-    }
-
-    return value;
-  }
-
   private void appendConstantTo(final StringBuilder stringBuilder) {
     if (coefficients.length == 0) {
       stringBuilder.append("0.0");
@@ -345,5 +295,55 @@ public final class Polynom {
         stringBuilder.append(DOUBLE_TOOL.toString(linearCoefficient) + parameterSymbol);
       }
     }
+  }
+
+  private Polynom calculateDerived(final int deriveCount) {
+    Validator.assertThat(deriveCount).thatIsNamed("derive count").isNotNegative();
+
+    if (deriveCount == 0) {
+      return this;
+    }
+
+    final var degree = getDegree();
+    final var derivedDegree = BASIC_CALCULATOR.getMax(0, degree - deriveCount);
+    final var derivedCoefficients = new double[derivedDegree + 1];
+
+    for (var derivedCoefficientIndex = 0; derivedCoefficientIndex <= derivedDegree; derivedCoefficientIndex++) {
+      var derivedCoefficient = coefficients[derivedCoefficientIndex];
+
+      for (var j = degree - derivedCoefficientIndex; j > derivedDegree - derivedCoefficientIndex; j--) {
+        derivedCoefficient *= j;
+      }
+
+      derivedCoefficients[derivedCoefficientIndex] = derivedCoefficient;
+    }
+
+    return new Polynom(derivedCoefficients);
+  }
+
+  private boolean equals(final Polynom polynom) {
+    if (!hasSameDegreeAs(polynom)) {
+      return false;
+    }
+
+    for (var i = 0; i < coefficients.length; i++) {
+      if (!NumberComparator.areEqual(coefficients[i], polynom.coefficients[i])) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  private double getValueAtWhenIsNotZeroPolynom(final double x) {
+    var value = coefficients[0];
+
+    var base = 1.0;
+    for (var i = 1; i < coefficients.length; i++) {
+      base *= x;
+      value += coefficients[i] * base;
+    }
+
+    return value;
   }
 }

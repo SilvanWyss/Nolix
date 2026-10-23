@@ -376,13 +376,13 @@ implements IOptionalReference<E> {
     }
   }
 
+  private void updateStateForClear() {
+    nullableReferencedEntityCache = null;
+  }
+
   private void updateStateForSetEntity(final E entity) {
     final var id = entity.getId();
 
     nullableReferencedEntityCache = new EntityCache<>(id, null, entity);
-  }
-
-  private void updateStateForClear() {
-    nullableReferencedEntityCache = null;
   }
 }
