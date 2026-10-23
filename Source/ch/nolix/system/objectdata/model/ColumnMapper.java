@@ -17,6 +17,15 @@ public final class ColumnMapper {
   private ColumnMapper() {
   }
 
+  /**
+   * @param midSchemaColumnDto
+   * @param parentTable
+   * @param tables
+   * @return a new {@link IColumn} from the given midSchemaColumnDto with the
+   *         given parentTable. The referenceable {@link ITable}s and the back
+   *         referenceable {@link IColumn}s of the created {@link IColumn} are
+   *         taken from the given tables.
+   */
   public static IColumn mapMidSchemaColumnDtoToColumn(
     final ColumnDto midSchemaColumnDto,
     final Table<Entity> parentTable,

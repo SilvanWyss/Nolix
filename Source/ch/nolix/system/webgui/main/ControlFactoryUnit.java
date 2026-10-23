@@ -15,10 +15,21 @@ import ch.nolix.systemapi.webgui.main.Control;
 public final class ControlFactoryUnit {
   private final LinkedList<Class<? extends Control<?, ?>>> memberControlClasses = LinkedList.createEmpty();
 
+  /**
+   * @param type
+   * @return true if the current {@link ControlFactoryUnit} can create a control
+   *         of the given type, false otherwise
+   */
   public boolean canCreateControlOfType(final String type) {
     return containsControlClassWithName(type);
   }
 
+  /**
+   * @param specification
+   * @return a new control from the given specification
+   * @throws RuntimeException if the current {@link ControlFactoryUnit} cannot
+   *                          create a control from the given specification
+   */
   public Control<?, ?> createControlFromSpecification(final Node<?> specification) {
     final var control = createControlOfType(specification.getHeader());
 
@@ -27,12 +38,23 @@ public final class ControlFactoryUnit {
     return control;
   }
 
+  /**
+   * @param type
+   * @return a new control of the given type
+   * @throws RuntimeException if the current {@link ControlFactoryUnit} cannot
+   *                          create a control of the given type
+   */
   public Control<?, ?> createControlOfType(final String type) {
     final var controlClass = getControlClassByName(type);
 
     return ReflectionTool.createInstanceFromDefaultConstructorOfClass(controlClass);
   }
 
+  /**
+   * Registers the given controlClass at the current {@link ControlFactoryUnit}.
+   * 
+   * @param controlClass
+   */
   public void registerControlClass(
     final Class<? extends Control<?, ?>> controlClass) {
     assertDoesNotContainControlClassWithName(controlClass.getSimpleName());
@@ -40,6 +62,11 @@ public final class ControlFactoryUnit {
     memberControlClasses.addAtEnd(controlClass);
   }
 
+  /**
+   * Registers the given controlClasses at the current {@link ControlFactoryUnit}.
+   * 
+   * @param controlClasses
+   */
   @SuppressWarnings("unchecked")
   public void registerControlClasses(Class<AbstractControl<?, ?>>... controlClasses) {
     for (final var c : controlClasses) {

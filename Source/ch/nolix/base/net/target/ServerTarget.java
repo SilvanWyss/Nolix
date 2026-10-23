@@ -13,6 +13,13 @@ public final class ServerTarget extends AbstractServerTarget {
     super(host, port, securityModeForConnections);
   }
 
+  /**
+   * @param host
+   * @param port
+   * @param securityModeForConnections
+   * @return a new {@link ServerTarget} with the given host, port and
+   *         securityModeForConnections
+   */
   public static ServerTarget forHostAndPortAndSecurityModeForConnections(
     final String host,
     final int port,

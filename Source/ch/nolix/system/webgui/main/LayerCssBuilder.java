@@ -22,6 +22,10 @@ public final class LayerCssBuilder {
   private LayerCssBuilder() {
   }
 
+  /**
+   * @param layer
+   * @return a new {@link CssRule} for the given layer
+   */
   public static CssRule getCssRuleForLayer(final ILayer layer) {
     return CssRule.withSelectorAndProperties(getCssSelectorForLayer(layer), getCssPropertiesForLayer(layer));
   }

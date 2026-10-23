@@ -11,13 +11,35 @@ import ch.nolix.systemapi.database.databaseobject.DatabaseObject;
  *            {@link IDatabaseObjectExaminer} is for
  */
 public interface IDatabaseObjectExaminer<O extends DatabaseObject> {
+  /**
+   * @param databaseObject
+   * @return true if the given databaseObject is new or deleted, false otherwise
+   */
   boolean isNewOrDeleted(O databaseObject);
 
+  /**
+   * @param databaseObject
+   * @return true if the given databaseObject is new or edited, false otherwise
+   */
   boolean isNewOrEdited(O databaseObject);
 
+  /**
+   * @param databaseObject
+   * @return true if the given databaseObject is new, edited or deleted, false
+   *         otherwise
+   */
   boolean isNewOrEditedOrDeleted(O databaseObject);
 
+  /**
+   * @param databaseObject
+   * @return true if the given databaseObject is new or loaded, false otherwise
+   */
   boolean isNewOrLoaded(O databaseObject);
 
+  /**
+   * @param databaseObject
+   * @return true if the given databaseObject is new, loaded or edited, false
+   *         otherwise
+   */
   boolean isNewOrLoadedOrEdited(O databaseObject);
 }

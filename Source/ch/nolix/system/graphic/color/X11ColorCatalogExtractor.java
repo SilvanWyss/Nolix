@@ -22,6 +22,10 @@ public final class X11ColorCatalogExtractor {
   private X11ColorCatalogExtractor() {
   }
 
+  /**
+   * @param paramClass
+   * @return the names and values of the color constants of the given paramClass
+   */
   public static ExtendedIterable<IPair<String, IColor>> getColorConstantsFromClass(final Class<?> paramClass) {
     final LinkedList<IPair<String, IColor>> x11Colors = LinkedList.createEmpty();
     final var colorStringFields = getColorNameConstantFields(paramClass);

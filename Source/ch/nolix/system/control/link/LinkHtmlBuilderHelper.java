@@ -21,6 +21,10 @@ public final class LinkHtmlBuilderHelper {
   private LinkHtmlBuilderHelper() {
   }
 
+  /**
+   * @param control
+   * @return new {@link IHtmlAttribute}s for the given control
+   */
   public static ExtendedIterable<? extends IHtmlAttribute> createHtmlAttributesForControl(final ILink control) {
     final ILinkedList<IHtmlAttribute> htmlAttribtues = LinkedList.createEmpty();
 

@@ -21,10 +21,20 @@ public final class NodeDataAdapterAndSchemaReader extends AbstractDataAdapterAnd
     this.nodeDatabase = nodeDatabase;
   }
 
+  /**
+   * @param nodeDatabase
+   * @return a new {@link NodeDataAdapterAndSchemaReader} for the given
+   *         nodeDatabase
+   */
   public static NodeDataAdapterAndSchemaReader forNodeDatabase(final IMutableNode<?> nodeDatabase) {
     return new NodeDataAdapterAndSchemaReader(nodeDatabase);
   }
 
+  /**
+   * @param filePath
+   * @return a new {@link NodeDataAdapterAndSchemaReader} for the node database in
+   *         the file with the given filePath
+   */
   public static NodeDataAdapterAndSchemaReader forNodeDatabaseInFile(final String filePath) {
     final var nodeDatabase = FileNode.withFilePath(filePath);
 

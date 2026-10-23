@@ -12,6 +12,10 @@ public final class HtmlElementStringRepresentator {
   private HtmlElementStringRepresentator() {
   }
 
+  /**
+   * @param htmlElement
+   * @return a {@link String} representation of the given htmlElement
+   */
   public static String toString(final IHtmlElement htmlElement) {
     if (!htmlElement.containsChildElements()) {
       return toStringWhenDoesNotContainChildElements(htmlElement);

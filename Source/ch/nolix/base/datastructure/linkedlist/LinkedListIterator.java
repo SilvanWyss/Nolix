@@ -26,6 +26,13 @@ final class LinkedListIterator<E> implements CopyableIterator<E> {
     nextNode = nullableFirstNode;
   }
 
+  /**
+   * @param nullableFirstNode
+   * @param <T>               the type of the elements of the
+   *                          {@link LinkedListNode}s
+   * @return a new {@link LinkedListIterator} that starts at the given
+   *         nullableFirstNode
+   */
   public static <T> LinkedListIterator<T> withNullableFirstNode(final LinkedListNode<T> nullableFirstNode) {
     return new LinkedListIterator<>(nullableFirstNode);
   }

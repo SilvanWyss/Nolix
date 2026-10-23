@@ -16,10 +16,16 @@ public final class StopWatch {
   private StopWatch() {
   }
 
+  /**
+   * @return a new {@link StopWatch} that is not running
+   */
   public static StopWatch createStandingStopWatch() {
     return new StopWatch();
   }
 
+  /**
+   * @return a new {@link StopWatch} that is running
+   */
   public static StopWatch createStartedStopWatch() {
     final var stopWatch = new StopWatch();
 
@@ -28,6 +34,10 @@ public final class StopWatch {
     return stopWatch;
   }
 
+  /**
+   * @return the total running time of the current {@link StopWatch} in
+   *         milliseconds
+   */
   public synchronized long getTotalRunningTimeInMilliseconds() {
     if (isRunning()) {
       final var durationInMilliseconds = System.currentTimeMillis() - latestStartInMilliseconds;
@@ -38,10 +48,18 @@ public final class StopWatch {
     return totalRunningTimeInMilliseconds;
   }
 
+  /**
+   * @return true if the current {@link StopWatch} is running, false otherwise
+   */
   public synchronized boolean isRunning() {
     return running;
   }
 
+  /**
+   * Starts the current {@link StopWatch}.
+   * 
+   * @throws RuntimeException if the current {@link StopWatch} is running already
+   */
   public synchronized void start() {
     assertIsNotRunning();
 
@@ -49,6 +67,11 @@ public final class StopWatch {
     running = true;
   }
 
+  /**
+   * Stops the current {@link StopWatch}.
+   * 
+   * @throws RuntimeException if the current {@link StopWatch} is not running
+   */
   public synchronized void stop() {
     assertIsRunning();
 
@@ -57,6 +80,13 @@ public final class StopWatch {
     running = false;
   }
 
+  /**
+   * Stops the current {@link StopWatch}.
+   * 
+   * @return the number of milliseconds since the latest start of the current
+   *         {@link StopWatch}
+   * @throws RuntimeException if the current {@link StopWatch} is not running
+   */
   public synchronized long stopAndGetMillisecondsSinceLatestStart() {
     assertIsRunning();
 
@@ -67,6 +97,13 @@ public final class StopWatch {
     return durationInMilliseconds;
   }
 
+  /**
+   * Stops the current {@link StopWatch}.
+   * 
+   * @return the total running time of the current {@link StopWatch} in
+   *         milliseconds
+   * @throws RuntimeException if the current {@link StopWatch} is not running
+   */
   public synchronized long stopAndGetTotalRunningTimeInMilliseconds() {
     assertIsRunning();
 

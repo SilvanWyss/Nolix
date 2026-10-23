@@ -57,12 +57,25 @@ final class WebSocketFrameFirstWord {
     m7BitPayloadLength = byte2 & 0x7F;
   }
 
+  /**
+   * @param nibble
+   * @return a new {@link WebSocketFrameFirstWord} from the given nibble
+   * @throws RuntimeException if the given nibble does not consist of 2 bytes
+   */
   public static WebSocketFrameFirstWord fromBytes(final byte[] nibble) {
     Validator.assertThat(nibble).hasElementCount(2);
 
     return new WebSocketFrameFirstWord(nibble[0], nibble[1]);
   }
 
+  /**
+   * @param mFINBit
+   * @param opcodeMeaning
+   * @param maskBit
+   * @param payloadLength
+   * @return a new {@link WebSocketFrameFirstWord} with the given mFINBit,
+   *         opcodeMeaning, maskBit and payloadLength
+   */
   public static WebSocketFrameFirstWord withFinBitAndOpCodeMeaningAndMaskBitAndPaylaodLength(
     final boolean mFINBit,
     final WebSocketFrameOpcodeMeaning opcodeMeaning,
@@ -71,10 +84,17 @@ final class WebSocketFrameFirstWord {
     return new WebSocketFrameFirstWord(mFINBit, opcodeMeaning, maskBit, payloadLength);
   }
 
+  /**
+   * @return the 7 bits payload length of the current
+   *         {@link WebSocketFrameFirstWord}
+   */
   public int get7BitsPayloadLength() {
     return m7BitPayloadLength;
   }
 
+  /**
+   * @return the first byte of the current {@link WebSocketFrameFirstWord}
+   */
   public byte getByte1() {
     var byte1 = 0;
 
@@ -87,6 +107,9 @@ final class WebSocketFrameFirstWord {
     return (byte) byte1;
   }
 
+  /**
+   * @return the second byte of the current {@link WebSocketFrameFirstWord}
+   */
   public byte getByte2() {
     var byte2 = 0;
 
@@ -113,26 +136,46 @@ final class WebSocketFrameFirstWord {
     return (byte) byte2;
   }
 
+  /**
+   * @return the FIN bit of the current {@link WebSocketFrameFirstWord}
+   */
   public boolean getFINBit() { // NOSONAR: This method returns a bit as a boolean.
     return mFINBit;
   }
 
+  /**
+   * @return the mask bit of the current {@link WebSocketFrameFirstWord}
+   */
   public boolean getMaskBit() { // NOSONAR: This method returns a bit as a boolean.
     return maskBit;
   }
 
+  /**
+   * @return the opcode of the current {@link WebSocketFrameFirstWord}
+   */
   public int getOpcode() {
     return opcode;
   }
 
+  /**
+   * @return the {@link WebSocketFrameOpcodeMeaning} of the current
+   *         {@link WebSocketFrameFirstWord}
+   */
   public WebSocketFrameOpcodeMeaning getOpcodeMeaning() {
     return WebSocketFrameOpcodeMeaning.fromNumber(opcode);
   }
 
+  /**
+   * @return the {@link WebSocketFramePayloadLengthType} of the current
+   *         {@link WebSocketFrameFirstWord}
+   */
   public WebSocketFramePayloadLengthType getPayloadLengthType() {
     return payloadLengthSpecification;
   }
 
+  /**
+   * @return the bytes of the current {@link WebSocketFrameFirstWord}
+   */
   public byte[] toBytes() {
     return new byte[] { getByte1(), getByte2() };
   }

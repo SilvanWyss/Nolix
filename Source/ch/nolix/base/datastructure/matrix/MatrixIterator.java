@@ -54,11 +54,23 @@ public final class MatrixIterator<E> implements CopyableIterator<E> {
     nextElementOneBasedIndex = oneBasedStartIndex;
   }
 
+  /**
+   * @param matrix
+   * @param <T>    the type of the elements of the given matrix
+   * @return a new {@link MatrixIterator} for the given matrix
+   */
   public static <T> MatrixIterator<T> forMatrix(final MutableMatrix<T> matrix) {
     return new MatrixIterator<>(matrix);
   }
 
   // static mehtod
+  /**
+   * @param matrix
+   * @param oneBasedStartIndex
+   * @param <T>                the type of the elements of the given matrix
+   * @return a new {@link MatrixIterator} for the given matrix that starts at the
+   *         given oneBasedStartIndex
+   */
   public static <T> MatrixIterator<T> forMatrixAndOneBasedStartIndex(
     final MutableMatrix<T> matrix,
     final int oneBasedStartIndex) {

@@ -20,12 +20,23 @@ public final class LongMediator {
     memberValue = value;
   }
 
+  /**
+   * @param parentLicenseManager
+   * @param value
+   * @return a new {@link LongMediator} for the given parentLicenseManager and
+   *         value
+   */
   public static LongMediator forLicenseManagerAndValue(
     final LicenseManagerUnit parentLicenseManager,
     final long value) {
     return new LongMediator(parentLicenseManager, value);
   }
 
+  /**
+   * @param value
+   * @return a new {@link ConditionMediator} with the condition that the value of
+   *         the current {@link LongMediator} is bigger than the given value
+   */
   public ConditionMediator isBiggerThan(final long value) {
     return ConditionMediator.forLicenseManagerAndCondition(parentLicenseManager, memberValue > value);
   }

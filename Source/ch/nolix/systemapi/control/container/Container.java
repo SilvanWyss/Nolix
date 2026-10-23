@@ -14,11 +14,28 @@ import ch.nolix.systemapi.webgui.main.Control;
  */
 public interface Container<C extends Container<C, S>, S extends ControlStyle<S>>
 extends Clearable, Control<C, S> {
+  /**
+   * @return the {@link ContainerRole} of the current {@link Container}
+   * @throws RuntimeException if the current {@link Container} does not have a
+   *                          role
+   */
   ContainerRole getRole();
 
+  /**
+   * @return true if the current {@link Container} has a role, false otherwise
+   */
   boolean hasRole();
 
+  /**
+   * Removes the role of the current {@link Container}.
+   */
   void removeRole();
 
+  /**
+   * Sets the given role to the current {@link Container}.
+   * 
+   * @param role
+   * @return the current {@link Container}
+   */
   C setRole(ContainerRole role);
 }

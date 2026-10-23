@@ -25,6 +25,14 @@ public final class TestSession<C extends AbstractBackendClient<C, S>, S> extends
     this.clientClass = clientClass;
   }
 
+  /**
+   * @param clientClass
+   * @param <C2>        the type of the {@link AbstractBackendClient} of the
+   *                    created {@link TestSession}
+   * @param <S2>        the type of the application service of the created
+   *                    {@link TestSession}
+   * @return a new {@link TestSession} for the given clientClass
+   */
   public static <C2 extends AbstractBackendClient<C2, S2>, S2> TestSession<C2, S2> withClientClass(
     final Class<C2> clientClass) {
     return new TestSession<>(clientClass);

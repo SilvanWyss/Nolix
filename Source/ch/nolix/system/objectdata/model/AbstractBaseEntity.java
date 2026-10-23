@@ -41,6 +41,9 @@ public abstract class AbstractBaseEntity implements Entity {
 
   private ExtendedIterable<AbstractField> fields;
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean belongsToDatabase() {
     return //

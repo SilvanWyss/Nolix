@@ -21,6 +21,9 @@ import ch.nolix.systemapi.objectdata.modelvalidator.IEntityValidator;
 public final class EntityValidator extends AbstractDatabaseObjectValidator<Entity> implements IEntityValidator {
   private static final EntityExaminer ENTITY_EXAMINER = new EntityExaminer();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertBelongsToTable(final Entity entity) {
     if (!entity.belongsToTable()) {

@@ -21,10 +21,21 @@ public final class SimpleImmutableList<E> implements Iterable<E> {
     elements = paramElements.clone();
   }
 
+  /**
+   * @param <T> the type of the elements of the created
+   *            {@link SimpleImmutableList}
+   * @return a new empty {@link SimpleImmutableList}
+   */
   public static <T> SimpleImmutableList<T> createEmptyList() {
     return new SimpleImmutableList<>();
   }
 
+  /**
+   * @param array
+   * @param <T>   the type of the elements of the given array
+   * @return a new {@link SimpleImmutableList} with the elements of the given
+   *         array
+   */
   public static <T> SimpleImmutableList<T> withElements(final T[] array) {
     return new SimpleImmutableList<>(array);
   }

@@ -15,6 +15,10 @@ public final class SingleContainerHtmlBuilderHelper {
   private SingleContainerHtmlBuilderHelper() {
   }
 
+  /**
+   * @param singleContainer
+   * @return new HTML elements for the child controls of the given singleContainer
+   */
   public static ExtendedIterable<IHtmlElement> createHtmlElementsForChildControlsOfSingleContainer(
     final ISingleContainer singleContainer) {
     if (singleContainer.containsAny()) {

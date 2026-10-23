@@ -23,6 +23,11 @@ public final class SocketEndPointMessageListener extends AbstractWorker {
     start();
   }
 
+  /**
+   * @param parentSocketEndPoint
+   * @return a new {@link SocketEndPointMessageListener} for the given
+   *         parentSocketEndPoint
+   */
   public static SocketEndPointMessageListener forSocketEndPoint(final SocketEndPoint parentSocketEndPoint) {
     return new SocketEndPointMessageListener(parentSocketEndPoint);
   }

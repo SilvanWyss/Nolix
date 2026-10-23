@@ -15,6 +15,10 @@ public final class StatementCreatorHelper {
   private StatementCreatorHelper() {
   }
 
+  /**
+   * @param column
+   * @return the SQL representation of the given column
+   */
   public static String getColumnAsSql(final ColumnDto column) {
     var sql = column.name() + " " + getDataTypeAsSql(column.dataType());
 

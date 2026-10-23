@@ -13,6 +13,13 @@ public enum HorizontalContentAlignment {
   CENTER,
   RIGHT;
 
+  /**
+   * @param specification
+   * @return the {@link HorizontalContentAlignment} the given specification
+   *         represents
+   * @throws RuntimeException if the given specification does not represent a
+   *                          {@link HorizontalContentAlignment}
+   */
   public static HorizontalContentAlignment fromSpecification(final Node<?> specification) {
     final var horizontalContentAlignmentString = specification.getSingleChildNodeHeader();
 

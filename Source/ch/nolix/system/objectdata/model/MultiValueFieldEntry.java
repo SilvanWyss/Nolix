@@ -36,12 +36,26 @@ implements IMultiValueFieldEntry<V> {
     this.value = value;
   }
 
+  /**
+   * @param multiValue
+   * @param value
+   * @param <V2>       the type of the given value
+   * @return a new loaded {@link MultiValueFieldEntry} for the given multiValue
+   *         and value
+   */
   public static <V2> MultiValueFieldEntry<V2> loadedEntryForMultiValueAndValue(
     final IMultiValueField<V2> multiValue,
     final V2 value) {
     return new MultiValueFieldEntry<>(multiValue, DatabaseObjectState.UNEDITED, value);
   }
 
+  /**
+   * @param multiValue
+   * @param value
+   * @param <V2>       the type of the given value
+   * @return a new new {@link MultiValueFieldEntry} for the given multiValue and
+   *         value
+   */
   public static <V2> MultiValueFieldEntry<V2> newEntryForMultiValueAndValue(
     final IMultiValueField<V2> multiValue,
     final V2 value) {

@@ -29,6 +29,10 @@ public final class HtmlAttribute implements IHtmlAttribute {
     this.value = value;
   }
 
+  /**
+   * @param htmlAttribute
+   * @return a new {@link HtmlAttribute} from the given htmlAttribute
+   */
   public static HtmlAttribute fromHtmlAttribute(final IHtmlAttribute htmlAttribute) {
     if (htmlAttribute instanceof final HtmlAttribute concreteHtmlAttribute) {
       return concreteHtmlAttribute;
@@ -37,10 +41,20 @@ public final class HtmlAttribute implements IHtmlAttribute {
     return withNameAndValue(htmlAttribute.getName(), htmlAttribute.getValue());
   }
 
+  /**
+   * @param name
+   * @param value
+   * @return a new {@link HtmlAttribute} with the given name and value
+   */
   public static HtmlAttribute withNameAndValue(final String name, final int value) {
     return withNameAndValue(name, String.valueOf(value));
   }
 
+  /**
+   * @param name
+   * @param value
+   * @return a new {@link HtmlAttribute} with the given name and value
+   */
   public static HtmlAttribute withNameAndValue(final String name, final String value) {
     return new HtmlAttribute(name, value);
   }

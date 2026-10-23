@@ -8,10 +8,18 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 
 final class StateExtractor<S extends Enum<S>> {
+  /**
+   * @param stateClass
+   * @return new {@link State}s from the given stateClass
+   */
   public ExtendedIterable<State<S>> createStatesFromStateClass(final Class<S> stateClass) {
     return createStatesFromStateEnumValues(stateClass.getEnumConstants());
   }
 
+  /**
+   * @param state
+   * @return new {@link State}s from the class of the given state
+   */
   @SuppressWarnings("unchecked")
   public ExtendedIterable<State<S>> createtStatesFromState(final S state) {
     return createStatesFromStateClass((Class<S>) state.getClass());

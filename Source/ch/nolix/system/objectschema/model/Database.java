@@ -35,6 +35,11 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
     setLoaded();
   }
 
+  /**
+   * @param name
+   * @param midSchemaAdapter
+   * @return a new {@link Database} with the given name and midSchemaAdapter
+   */
   public static Database withNameAndMidSchemaAdapter(final String name, final SchemaAdapter midSchemaAdapter) {
     return new Database(name, midSchemaAdapter);
   }

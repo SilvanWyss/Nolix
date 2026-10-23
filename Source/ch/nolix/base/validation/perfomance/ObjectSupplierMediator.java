@@ -24,6 +24,12 @@ public final class ObjectSupplierMediator<O> implements IObjectSupplierMediator<
     this.objectSupplier = objectSupplier;
   }
 
+  /**
+   * @param objectSupplier
+   * @param <O2>           the type of the objects the given objectSupplier
+   *                       supplies
+   * @return a new {@link IObjectSupplierMediator} for the given objectSupplier
+   */
   public static <O2> IObjectSupplierMediator<O2> forObjectSupplier(final IntFunction<O2> objectSupplier) {
     return new ObjectSupplierMediator<>(objectSupplier);
   }

@@ -27,6 +27,10 @@ public final class ImmutableImage extends AbstractElement implements Image {
     this.internalImage = internalImage;
   }
 
+  /**
+   * @param image
+   * @return a new {@link ImmutableImage} with the pixels of the given image
+   */
   public static ImmutableImage fromAnyImage(final Image image) {
     if (image instanceof final ImmutableImage lImage) {
       return lImage;
@@ -35,24 +39,46 @@ public final class ImmutableImage extends AbstractElement implements Image {
     return new ImmutableImage(MutableImage.fromAnyImage(image));
   }
 
+  /**
+   * @param bytes
+   * @return a new {@link ImmutableImage} from the given bytes
+   */
   public static ImmutableImage fromBytes(final byte[] bytes) {
     final var mutableImage = MutableImage.fromBytes(bytes);
 
     return fromAnyImage(mutableImage);
   }
 
+  /**
+   * @param filePath
+   * @return a new {@link ImmutableImage} from the file with the given filePath
+   */
   public static ImmutableImage fromFile(final String filePath) {
     return new ImmutableImage(MutableImage.fromFile(filePath));
   }
 
+  /**
+   * @param path
+   * @return a new {@link ImmutableImage} from the resource with the given path
+   */
   public static ImmutableImage fromResource(final String path) {
     return new ImmutableImage(MutableImage.fromBytes(RunningJar.getResourceAsBytes(path)));
   }
 
+  /**
+   * @param specification
+   * @return a new {@link ImmutableImage} from the given specification
+   * @throws RuntimeException if the given specification does not represent an
+   *                          image
+   */
   public static ImmutableImage fromSpecification(final Node<?> specification) {
     return new ImmutableImage(MutableImage.fromSpecification(specification));
   }
 
+  /**
+   * @param pixels
+   * @return a new {@link ImmutableImage} with the given pixels
+   */
   public static ImmutableImage withPixels(MutableMatrix<IColor> pixels) {
     return new ImmutableImage(MutableImage.withPixels(pixels));
   }
@@ -193,6 +219,10 @@ public final class ImmutableImage extends AbstractElement implements Image {
     return internalImage.toLeftRotatedImage();
   }
 
+  /**
+   * @return a new {@link MutableImage} with the pixels of the current
+   *         {@link ImmutableImage}
+   */
   public MutableImage toMutableImage() {
     return internalImage.getCopy();
   }

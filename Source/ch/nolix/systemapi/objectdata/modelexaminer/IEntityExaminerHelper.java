@@ -10,5 +10,9 @@ import ch.nolix.systemapi.objectdata.model.IDatabase;
  * @author Silvan Wyss
  */
 public interface IEntityExaminerHelper {
+  /**
+   * @param database
+   * @return the ids of the Entitys that are deleted locally in the given database
+   */
   ExtendedIterable<String> getLocallyDeletedEntitiesIds(IDatabase database);
 }

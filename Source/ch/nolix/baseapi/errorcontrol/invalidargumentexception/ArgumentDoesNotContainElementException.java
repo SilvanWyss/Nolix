@@ -88,6 +88,14 @@ public final class ArgumentDoesNotContainElementException extends AbstractInvali
     return new ArgumentDoesNotContainElementException(argument, argumentName, element);
   }
 
+  /**
+   * @param argument
+   * @param argumentName
+   * @param elementName
+   * @return a new {@link ArgumentDoesNotContainElementException} for the given
+   *         argument, that has the given argumentName and does not contain an
+   *         element with the given elementName
+   */
   public static ArgumentDoesNotContainElementException forArgumentAndArgumentNameAndElementName(
     final Object argument,
     final String argumentName,

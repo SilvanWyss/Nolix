@@ -13,6 +13,12 @@ public enum Presence {
   INVISIBLE,
   COLLAPSED;
 
+  /**
+   * @param specification
+   * @return the {@link Presence} the given specification represents
+   * @throws RuntimeException if the given specification does not represent a
+   *                          {@link Presence}
+   */
   public static Presence fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }

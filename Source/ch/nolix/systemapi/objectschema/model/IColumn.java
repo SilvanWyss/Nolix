@@ -26,20 +26,56 @@ DatabaseObject,
 FluentMutableNameHolder<IColumn>,
 IdHolder,
 TableComponent<ITable> {
+  /**
+   * @return the {@link DataType} of the current {@link IColumn}
+   */
   DataType getDataType();
 
+  /**
+   * @return the {@link FieldType} of the current {@link IColumn}
+   */
   FieldType getFieldType();
 
+  /**
+   * @return the {@link IColumn}s the current {@link IColumn} can reference back
+   */
   ExtendedIterable<? extends IColumn> getStoredBackReferenceableColumns();
 
+  /**
+   * @return the {@link ITable}s the current {@link IColumn} can reference
+   */
   ExtendedIterable<? extends ITable> getStoredReferenceableTables();
 
+  /**
+   * @return true if the current {@link IColumn} is referenced back, false
+   *         otherwise
+   */
   boolean isBackReferenced();
 
+  /**
+   * @param column
+   * @return true if the current {@link IColumn} references back the given column,
+   *         false otherwise
+   */
   boolean referencesBackColumn(IColumn column);
 
+  /**
+   * @param table
+   * @return true if the current {@link IColumn} references the given table, false
+   *         otherwise
+   */
   boolean referencesTable(ITable table);
 
+  /**
+   * Sets the given fieldType, dataType, referenceableTables and
+   * backReferenceableColumns as content model to the current {@link IColumn}.
+   * 
+   * @param fieldType
+   * @param dataType
+   * @param referenceableTables
+   * @param backReferenceableColumns
+   * @return the current {@link IColumn}
+   */
   IColumn setContentModel(
     FieldType fieldType,
     DataType dataType,

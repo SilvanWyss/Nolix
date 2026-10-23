@@ -21,6 +21,10 @@ public final class DropdownMenuHtmlBuilderHelper {
   private DropdownMenuHtmlBuilderHelper() {
   }
 
+  /**
+   * @param dropdownMenu
+   * @return new HTML child elements for the given dropdownMenu
+   */
   public static ExtendedIterable<IHtmlElement> createHtmlChildElementsForDropdownMenu(
     final IDropdownMenu dropdownMenu) {
     return createHtmlElementsFromItems(dropdownMenu.getStoredItems());

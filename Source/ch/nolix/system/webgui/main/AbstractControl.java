@@ -108,6 +108,9 @@ implements Control<C, S> {
   private IControlParent parent;
 
   // For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean belongsToControl() {
     return (parent != null && parent.isControl());
@@ -122,6 +125,9 @@ implements Control<C, S> {
   }
 
   // For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean belongsToLayer() {
     return (parent != null && parent.belongsToLayer());

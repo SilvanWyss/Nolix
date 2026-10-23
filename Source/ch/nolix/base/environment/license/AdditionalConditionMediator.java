@@ -17,10 +17,19 @@ public final class AdditionalConditionMediator {
     this.parentLicenseManager = parentLicenseManager;
   }
 
+  /**
+   * @param licenseManager
+   * @return a new {@link AdditionalConditionMediator} for the given
+   *         licenseManager
+   */
   public static AdditionalConditionMediator forLicenseManager(final LicenseManagerUnit licenseManager) {
     return new AdditionalConditionMediator(licenseManager);
   }
 
+  /**
+   * @param value
+   * @return a new {@link LongMediator} for the given value
+   */
   public LongMediator andWhen(final long value) {
     return LongMediator.forLicenseManagerAndValue(parentLicenseManager, value);
   }

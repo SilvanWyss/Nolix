@@ -18,14 +18,26 @@ public final class TableNodeComponentMapper {
   private TableNodeComponentMapper() {
   }
 
+  /**
+   * @param tableDto
+   * @return new column nodes for the given tableDto
+   */
   public static ExtendedIterable<Node<?>> mapTableDtoToColumnNodes(final TableDto tableDto) {
     return tableDto.columns().to(COLUMN_NODE_MAPPER::mapColumnDtoToColumnNode);
   }
 
+  /**
+   * @param tableDto
+   * @return a new id node for the given tableDto
+   */
   public static Node<?> mapTableDtoToIdNode(final TableDto tableDto) {
     return ImmutableNode.withHeaderAndChildNode(NodeHeaderCatalog.ID, tableDto.id());
   }
 
+  /**
+   * @param tableDto
+   * @return a new name node for the given tableDto
+   */
   public static Node<?> mapTableDtoToNameNode(final TableDto tableDto) {
     return ImmutableNode.withHeaderAndChildNode(NodeHeaderCatalog.NAME, tableDto.name());
   }

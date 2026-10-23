@@ -13,5 +13,8 @@ import ch.nolix.systemapi.webgui.main.Control;
  */
 public interface IComponent
 extends Control<IComponent, IComponentStyle>, AlivenessRequestable, Rebuildable, Refreshable {
+  /**
+   * @return the {@link RefreshTrigger} of the current {@link IComponent}
+   */
   RefreshTrigger getRefreshTrigger();
 }

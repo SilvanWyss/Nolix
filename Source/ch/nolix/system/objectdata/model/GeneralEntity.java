@@ -15,6 +15,10 @@ public final class GeneralEntity extends AbstractBaseEntity {
     tableName = table.getName();
   }
 
+  /**
+   * @param table
+   * @return a new {@link GeneralEntity} for the given table
+   */
   public static GeneralEntity forTable(final Table<GeneralEntity> table) {
     return new GeneralEntity(table);
   }

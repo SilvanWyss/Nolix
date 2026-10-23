@@ -80,6 +80,10 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
     fileAccessor = null;
   }
 
+  /**
+   * @param filePath
+   * @return a new {@link FileNode} for the file with the given filePath
+   */
   public static FileNode withFilePath(final String filePath) {
     return new FileNode(filePath);
   }

@@ -31,12 +31,23 @@ public final class WebClientCounterpartUpdater {
     this.counterpartRunner = counterpartRunner;
   }
 
+  /**
+   * @param counterpartRunner
+   * @param openStateRequester
+   * @return a new {@link WebClientCounterpartUpdater} with the given
+   *         counterpartRunner and openStateRequester
+   */
   public static WebClientCounterpartUpdater forCounterpartRunnerAndOpenStateRequestable(
     final Consumer<ExtendedIterable<? extends ChainedNode>> counterpartRunner,
     final BooleanSupplier openStateRequester) {
     return new WebClientCounterpartUpdater(counterpartRunner, openStateRequester);
   }
 
+  /**
+   * Updates the counterpart from the given webGui.
+   * 
+   * @param webGui
+   */
   public void updateCounterpartFromWebGui(final IWebGui<?> webGui) {
     webGui.applyStyleIfHasStyle();
 

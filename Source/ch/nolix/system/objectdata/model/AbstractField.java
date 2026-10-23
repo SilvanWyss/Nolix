@@ -36,6 +36,9 @@ public abstract class AbstractField implements Field {
   private boolean edited;
 
   // For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean belongsToDatabase() {
     return //
@@ -52,6 +55,9 @@ public abstract class AbstractField implements Field {
   }
 
   // For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean belongsToTable() {
     return //

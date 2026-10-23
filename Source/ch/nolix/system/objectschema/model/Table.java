@@ -41,10 +41,19 @@ public final class Table extends AbstractSchemaObject implements ITable {
     setName(name);
   }
 
+  /**
+   * @param id
+   * @param name
+   * @return a new {@link Table} with the given id and name
+   */
   public static Table withIdAndName(final String id, final String name) {
     return new Table(id, name);
   }
 
+  /**
+   * @param name
+   * @return a new {@link Table} with the given name
+   */
   public static Table withName(final String name) {
     final var id = IdCreator.createIdOf10HexadecimalCharacters();
 

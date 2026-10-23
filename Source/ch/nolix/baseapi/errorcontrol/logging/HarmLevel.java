@@ -12,6 +12,11 @@ public enum HarmLevel {
   ERROR,
   FATAL_ERROR;
 
+  /**
+   * @param harmLevel
+   * @return true if the current {@link HarmLevel} is higher than the given
+   *         harmLevel, false otherwise
+   */
   public final boolean isHigherThan(final HarmLevel harmLevel) {
     return switch (this) {
       case INFO ->
@@ -25,6 +30,11 @@ public enum HarmLevel {
     };
   }
 
+  /**
+   * @param harmLevel
+   * @return true if the current {@link HarmLevel} is lower than the given
+   *         harmLevel, false otherwise
+   */
   public final boolean isLowerThan(final HarmLevel harmLevel) {
     return harmLevel.isHigherThan(this);
   }

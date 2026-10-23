@@ -14,6 +14,16 @@ public final class ArraySorter {
   private ArraySorter() {
   }
 
+  /**
+   * Sorts the given array by the {@link Comparable}s the given comparableMapper
+   * maps from the elements of the given array.
+   * 
+   * @param array
+   * @param comparableMapper
+   * @param <E>              the type of the elements of the given array
+   * @param <C>              the type of the {@link Comparable}s the given
+   *                         comparableMapper maps
+   */
   public static <E, C extends Comparable<C>> void sortArray(final E[] array, final Function<E, C> comparableMapper) {
     final int legth = array.length;
     final var zeroBasedEndIndex = legth - 1;

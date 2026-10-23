@@ -24,6 +24,12 @@ public final class ValueField<V> extends AbstractBaseValueField<V> implements IV
     super(valueType);
   }
 
+  /**
+   * @param initialValue
+   * @param <V2>         the type of the given initialValue
+   * @return a new {@link ValueField} with the given initialValue
+   * @throws RuntimeException if the given initialValue is null
+   */
   public static <V2> ValueField<V2> withInitialValue(final V2 initialValue) {
     @SuppressWarnings("unchecked")
     final var value = (ValueField<V2>) ValueField.withValueType(initialValue.getClass());
@@ -33,6 +39,12 @@ public final class ValueField<V> extends AbstractBaseValueField<V> implements IV
     return value;
   }
 
+  /**
+   * @param valueType
+   * @param <V2>      the type of the values of the created {@link ValueField}
+   * @return a new empty {@link ValueField} for values of the given valueType
+   * @throws RuntimeException if the given valueType is null
+   */
   public static <V2> ValueField<V2> withValueType(final Class<V2> valueType) {
     return new ValueField<>(valueType);
   }

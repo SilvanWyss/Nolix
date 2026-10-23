@@ -23,12 +23,19 @@ public final class NolixConfigurationSslCertificateReader {
   private NolixConfigurationSslCertificateReader() {
   }
 
+  /**
+   * @return the default {@link ISslCertificate} from the local Nolix
+   *         configuration
+   */
   public static ISslCertificate getDefaultSSLCertificatefromLocalNolixConfiguration() {
     final var localNolixConfiguration = getNolixConfiguration();
 
     return getDefaultSSLCertificateFromNolixConfiguration(localNolixConfiguration);
   }
 
+  /**
+   * @return the default domain from the local Nolix configuration
+   */
   public static String getDefaultDomainFromLocalNolixConfiguration() {
     final var localNolixConfiguration = getNolixConfiguration();
 

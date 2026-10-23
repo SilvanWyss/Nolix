@@ -21,6 +21,10 @@ final class SslServerChannelInboundHandler extends SimpleChannelInboundHandler<W
     this.parentWebSocketServer = parentWebSocketServer;
   }
 
+  /**
+   * @param sslServer
+   * @return a new {@link SslServerChannelInboundHandler} for the given sslServer
+   */
   public static SslServerChannelInboundHandler forSslServer(final SslServer sslServer) {
     return new SslServerChannelInboundHandler(sslServer);
   }

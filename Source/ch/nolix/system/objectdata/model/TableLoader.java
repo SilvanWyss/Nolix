@@ -18,6 +18,11 @@ public final class TableLoader {
   private TableLoader() {
   }
 
+  /**
+   * @param database
+   * @return the {@link Table}s for the given database, loaded from the data
+   *         adapter of the given database
+   */
   public static ImmutableList<Table<Entity>> loadTablesForDatabase(final Database database) {
     final var midTables = database.getStoredMidDataAdapterAndSchemaReader().loadTables();
     final var tables = midTables.to(t -> TableMapper.mapMidSchemaTableDtoToTableWithoutColumns(t, database));

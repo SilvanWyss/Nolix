@@ -45,6 +45,12 @@ public final class SchemaWriter implements ISchemaWriter {
     sqlCollector.addSqlStatement("USE " + databaseName);
   }
 
+  /**
+   * @param databaseName
+   * @param sqlConnection
+   * @return a new {@link SchemaWriter} for the database with the given
+   *         databaseName using the given sqlConnection
+   */
   public static SchemaWriter forDatabasNameAndSqlConnection(
     final String databaseName,
     final ISqlConnection sqlConnection) {

@@ -29,6 +29,9 @@ public final class YesNoDialogBuilder implements Builder<ILayer> {
 
   private Runnable confirmAction = DEFAULT_CONFIRM_ACTION;
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ILayer build() {
     return new Layer()
@@ -55,6 +58,12 @@ public final class YesNoDialogBuilder implements Builder<ILayer> {
                     }))));
   }
 
+  /**
+   * Sets the given confirmAction to the current {@link YesNoDialogBuilder}.
+   * 
+   * @param confirmAction
+   * @return the current {@link YesNoDialogBuilder}
+   */
   public YesNoDialogBuilder setConfirmAction(final Runnable confirmAction) {
     Validator.assertThat(confirmAction).thatIsNamed("confirm action").isNotNull();
 
@@ -63,6 +72,12 @@ public final class YesNoDialogBuilder implements Builder<ILayer> {
     return this;
   }
 
+  /**
+   * Sets the given yesNoQuestion to the current {@link YesNoDialogBuilder}.
+   * 
+   * @param yesNoQuestion
+   * @return the current {@link YesNoDialogBuilder}
+   */
   public YesNoDialogBuilder setYesNoQuestion(final String yesNoQuestion) {
     Validator.assertThat(yesNoQuestion).thatIsNamed("yes-no-question").isNotNull();
 

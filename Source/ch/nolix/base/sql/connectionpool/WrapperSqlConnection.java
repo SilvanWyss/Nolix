@@ -20,6 +20,11 @@ implements ISqlConnection {
     super(abstractSqlConnection);
   }
 
+  /**
+   * @param abstractSqlConnection
+   * @return a new {@link WrapperSqlConnection} for the given
+   *         abstractSqlConnection
+   */
   public static WrapperSqlConnection forSqlConnection(final AbstractSqlConnection abstractSqlConnection) {
     return new WrapperSqlConnection(abstractSqlConnection);
   }

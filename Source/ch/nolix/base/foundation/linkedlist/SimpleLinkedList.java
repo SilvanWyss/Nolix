@@ -21,6 +21,10 @@ public final class SimpleLinkedList<E> implements ISimpleLinkedList<E> {
   private SimpleLinkedList() {
   }
 
+  /**
+   * @param list
+   * @return a new array with the elements of the given list
+   */
   public static String[] createArrayFromList(final SimpleLinkedList<String> list) {
     final var array = new String[list.getElementCount()];
 
@@ -33,10 +37,19 @@ public final class SimpleLinkedList<E> implements ISimpleLinkedList<E> {
     return array;
   }
 
+  /**
+   * @param <T> the type of the elements of the created {@link SimpleLinkedList}
+   * @return a new empty {@link SimpleLinkedList}
+   */
   public static <T> SimpleLinkedList<T> createEmpty() {
     return new SimpleLinkedList<>();
   }
 
+  /**
+   * @param array
+   * @param <T>   the type of the elements of the given array
+   * @return a new {@link SimpleLinkedList} with the elements of the given array
+   */
   public static <T> SimpleLinkedList<T> fromArray(final T[] array) {
     final var list = new SimpleLinkedList<T>();
 
@@ -47,6 +60,11 @@ public final class SimpleLinkedList<E> implements ISimpleLinkedList<E> {
     return list;
   }
 
+  /**
+   * @param elements
+   * @param <T>      the type of the given elements
+   * @return a new {@link SimpleLinkedList} with the given elements
+   */
   public static <T> SimpleLinkedList<T> withElements(final Iterable<T> elements) {
     final var list = new SimpleLinkedList<T>();
 
@@ -57,6 +75,11 @@ public final class SimpleLinkedList<E> implements ISimpleLinkedList<E> {
     return list;
   }
 
+  /**
+   * @param elements
+   * @param <T>      the type of the given elements
+   * @return a new {@link SimpleLinkedList} with the given elements
+   */
   @SuppressWarnings("unchecked")
   public static <T> SimpleLinkedList<T> withElements(final T... elements) {
     final var list = new SimpleLinkedList<T>();

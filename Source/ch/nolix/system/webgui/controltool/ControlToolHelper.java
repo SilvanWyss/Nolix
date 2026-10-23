@@ -13,6 +13,13 @@ public final class ControlToolHelper {
   private ControlToolHelper() {
   }
 
+  /**
+   * Fills up the child controls of the given control into the given list
+   * recursively.
+   * 
+   * @param control
+   * @param list
+   */
   public static void fillUpChildControlsOfControlIntoListRecursively(
     final Control<?, ?> control,
     final IArrayList<Control<?, ?>> list) {
@@ -24,6 +31,13 @@ public final class ControlToolHelper {
     }
   }
 
+  /**
+   * Fills up the structure controls of the given control into the given list
+   * recursively.
+   * 
+   * @param control
+   * @param list
+   */
   public static void fillUpStructureControlsOfControlIntoListRecursively(
     final Control<?, ?> control,
     final IArrayList<Control<?, ?>> list) {

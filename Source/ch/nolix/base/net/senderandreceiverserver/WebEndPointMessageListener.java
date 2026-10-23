@@ -18,6 +18,11 @@ final class WebEndPointMessageListener extends AbstractBatchWorker {
     start();
   }
 
+  /**
+   * @param webSocketEndPoint
+   * @return a new {@link WebEndPointMessageListener} for the given
+   *         webSocketEndPoint
+   */
   public static WebEndPointMessageListener forWebEndPoint(final WebSocketEndPoint webSocketEndPoint) {
     return new WebEndPointMessageListener(webSocketEndPoint);
   }

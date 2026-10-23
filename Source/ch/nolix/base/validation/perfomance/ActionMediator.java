@@ -33,6 +33,13 @@ public final class ActionMediator<O> implements IActionMediator {
     this.action = action;
   }
 
+  /**
+   * @param objectSupplier
+   * @param action
+   * @param <O2>           the type of the objects the given objectSupplier
+   *                       supplies
+   * @return a new {@link IActionMediator} for the given objectSupplier and action
+   */
   public static <O2> IActionMediator forObjectSupplierAndAction(
     final IntFunction<O2> objectSupplier,
     final Consumer<O2> action) {

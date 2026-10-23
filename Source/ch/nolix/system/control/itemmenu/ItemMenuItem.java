@@ -55,10 +55,19 @@ public final class ItemMenuItem extends AbstractMutableElementWithProperties imp
     this.nullableSelectAction = selectAction;
   }
 
+  /**
+   * @return a new blank {@link ItemMenuItem}
+   */
   public static ItemMenuItem createBlankItem() {
     return withText(StringCatalog.EMPTY_STRING);
   }
 
+  /**
+   * @param specification
+   * @return a new {@link ItemMenuItem} from the given specification
+   * @throws RuntimeException if the given specification does not represent a
+   *                          {@link ItemMenuItem}
+   */
   public static ItemMenuItem fromSpecification(final Node<?> specification) {
     final var item = new ItemMenuItem();
     item.resetFromSpecification(specification);
@@ -66,6 +75,11 @@ public final class ItemMenuItem extends AbstractMutableElementWithProperties imp
     return item;
   }
 
+  /**
+   * @param id
+   * @param text
+   * @return a new {@link ItemMenuItem} with the given id and text
+   */
   public static ItemMenuItem withIdAndText(
     final String id,
     final String text) {
@@ -76,6 +90,12 @@ public final class ItemMenuItem extends AbstractMutableElementWithProperties imp
     return item;
   }
 
+  /**
+   * @param id
+   * @param text
+   * @param selectAction
+   * @return a new {@link ItemMenuItem} with the given id, text and selectAction
+   */
   public static ItemMenuItem withIdAndTextAndSelectAction(
     final String id,
     final String text,
@@ -89,6 +109,12 @@ public final class ItemMenuItem extends AbstractMutableElementWithProperties imp
     return item;
   }
 
+  /**
+   * @param id
+   * @param text
+   * @param selectAction
+   * @return a new {@link ItemMenuItem} with the given id, text and selectAction
+   */
   public static ItemMenuItem withIdAndTextAndSelectAction(
     final String id,
     final String text,
@@ -100,6 +126,10 @@ public final class ItemMenuItem extends AbstractMutableElementWithProperties imp
     return item;
   }
 
+  /**
+   * @param text
+   * @return a new {@link ItemMenuItem} with the given text
+   */
   public static ItemMenuItem withText(
     final String text) {
     final var item = new ItemMenuItem();
@@ -109,6 +139,11 @@ public final class ItemMenuItem extends AbstractMutableElementWithProperties imp
     return item;
   }
 
+  /**
+   * @param text
+   * @param selectAction
+   * @return a new {@link ItemMenuItem} with the given text and selectAction
+   */
   public static ItemMenuItem withTextAndSelectAction(
     final String text,
     final Runnable selectAction) {
@@ -121,6 +156,11 @@ public final class ItemMenuItem extends AbstractMutableElementWithProperties imp
     return item;
   }
 
+  /**
+   * @param text
+   * @param selectAction
+   * @return a new {@link ItemMenuItem} with the given text and selectAction
+   */
   public static ItemMenuItem withTextAndSelectAction(
     final String text,
     final Consumer<IItemMenuItem<?>> selectAction) {

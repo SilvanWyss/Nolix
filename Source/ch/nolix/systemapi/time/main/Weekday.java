@@ -19,6 +19,10 @@ public enum Weekday {
   SATURDAY,
   SUNDAY;
 
+  /**
+   * @param dayOfWeek
+   * @return the {@link Weekday} that corresponds to the given dayOfWeek
+   */
   public static Weekday fromDayOfWeek(final DayOfWeek dayOfWeek) {
     return switch (dayOfWeek) {
       case MONDAY ->
@@ -40,6 +44,12 @@ public enum Weekday {
     };
   }
 
+  /**
+   * @param specification
+   * @return the {@link Weekday} the given specification represents
+   * @throws RuntimeException if the given specification does not represent a
+   *                          {@link Weekday}
+   */
   public static Weekday fromSpecification(final Node<?> specification) {
     return Weekday.valueOf(specification.getSingleChildNodeHeader());
   }

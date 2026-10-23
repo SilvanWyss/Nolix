@@ -19,6 +19,10 @@ public final class BufferedImageCreator {
   private BufferedImageCreator() {
   }
 
+  /**
+   * @param bytes
+   * @return a new {@link BufferedImage} from the given bytes
+   */
   public static BufferedImage createBufferedImageFromBytes(final byte[] bytes) {
     try {
       return ImageIO.read(new ByteArrayInputStream(bytes));
@@ -27,6 +31,10 @@ public final class BufferedImageCreator {
     }
   }
 
+  /**
+   * @param filePath
+   * @return a new {@link BufferedImage} from the file with the given filePath
+   */
   public static BufferedImage createBufferedImageFromFileWithFilePath(final String filePath) {
     try {
       return ImageIO.read(new File(filePath));

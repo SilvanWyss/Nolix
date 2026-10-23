@@ -57,6 +57,10 @@ public final class SelectingStyle extends AbstractSelectingStyle {
       subStyles);
   }
 
+  /**
+   * @param selectingStyle
+   * @return a new {@link SelectingStyle} from the given selectingStyle
+   */
   public static SelectingStyle fromSelectingStyle(
     final ISelectingStyleWithSelectors selectingStyle) {
     if (selectingStyle instanceof final SelectingStyle elementSelectingStyle) {

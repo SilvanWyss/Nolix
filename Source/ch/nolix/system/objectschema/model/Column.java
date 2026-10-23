@@ -63,6 +63,17 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     setContentModel(fieldType, dataType, referenceableTables, backReferenceableColumns);
   }
 
+  /**
+   * @param id
+   * @param name
+   * @param fieldType
+   * @param dataType
+   * @param referenceableTables
+   * @param backReferenceableColumns
+   * @return a new {@link Column} with the given id, name and the given fieldType,
+   *         dataType, referenceableTables and backReferenceableColumns as content
+   *         model
+   */
   public static Column withIdAndNameAndContentModel(
     final String id,
     final String name,
@@ -74,6 +85,9 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   }
 
   // For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean belongsToDatabase() {
     return //

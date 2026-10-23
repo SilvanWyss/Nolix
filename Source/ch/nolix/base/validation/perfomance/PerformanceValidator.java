@@ -14,6 +14,12 @@ public final class PerformanceValidator {
   private PerformanceValidator() {
   }
 
+  /**
+   * @param objectSupplier
+   * @param <O>            the type of the objects the given objectSupplier
+   *                       supplies
+   * @return a new {@link IObjectSupplierMediator} for the given objectSupplier
+   */
   public static <O> IObjectSupplierMediator<O> assertThatOnAnObjectFrom(final IntFunction<O> objectSupplier) {
     return ObjectSupplierMediator.forObjectSupplier(objectSupplier);
   }

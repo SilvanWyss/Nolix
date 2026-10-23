@@ -15,6 +15,12 @@ public final class ButtonStyle extends AbstractControlStyle<IButtonStyle> implem
     initialize();
   }
 
+  /**
+   * @param specification
+   * @return a new {@link ButtonStyle} from the given specification
+   * @throws RuntimeException if the given specification does not represent a
+   *                          {@link ButtonStyle}
+   */
   public static ButtonStyle fromSpecification(final Node<?> specification) {
     final var buttonStyle = new ButtonStyle();
     buttonStyle.resetFromSpecification(specification);

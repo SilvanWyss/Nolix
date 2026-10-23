@@ -18,6 +18,10 @@ public final class EntityFlyWeight implements IEntityFlyWeight {
     this.insertAction = insertAction;
   }
 
+  /**
+   * @param insertAction
+   * @return a new {@link EntityFlyWeight} with the given insertAction
+   */
   public static EntityFlyWeight withInsertAction(final Runnable insertAction) {
     return new EntityFlyWeight(insertAction);
   }

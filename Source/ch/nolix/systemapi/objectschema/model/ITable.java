@@ -22,10 +22,34 @@ DatabaseComponent<IDatabase>,
 DatabaseObject,
 FluentMutableNameHolder<ITable>,
 IdHolder {
+  /**
+   * Adds the given column to the current {@link ITable}.
+   * 
+   * @param column
+   * @return the current {@link ITable}
+   */
   ITable addColumn(IColumn column);
 
+  /**
+   * Adds the given columns to the current {@link ITable}.
+   * 
+   * @param columns
+   * @return the current {@link ITable}
+   */
   ITable addColumns(ExtendedIterable<IColumn> columns);
 
+  /**
+   * Adds a new {@link IColumn} with the given name and the given fieldType,
+   * dataType, referenceableTables and backReferenceableColumns as content model
+   * to the current {@link ITable}.
+   * 
+   * @param name
+   * @param fieldType
+   * @param dataType
+   * @param referenceableTables
+   * @param backReferenceableColumns
+   * @return the current {@link ITable}
+   */
   ITable addColumnWithNameAndContentModel(
     String name,
     FieldType fieldType,
@@ -33,7 +57,13 @@ IdHolder {
     ExtendedIterable<? extends ITable> referenceableTables,
     ExtendedIterable<? extends IColumn> backReferenceableColumns);
 
+  /**
+   * @return the number of {@link IColumn}s of the current {@link ITable}
+   */
   int getColumnCount();
 
+  /**
+   * @return the {@link IColumn}s of the current {@link ITable}
+   */
   ExtendedIterable<? extends IColumn> getStoredColumns();
 }

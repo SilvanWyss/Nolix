@@ -13,6 +13,10 @@ public final class TableLoader {
   private TableLoader() {
   }
 
+  /**
+   * @param midSchemaReader
+   * @return the {@link Table}s loaded with the given midSchemaReader
+   */
   public static ExtendedIterable<Table> loadTables(final ISchemaReader midSchemaReader) {
     final var midSchemaTableDtos = midSchemaReader.loadTables();
 

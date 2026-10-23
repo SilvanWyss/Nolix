@@ -24,6 +24,12 @@ public final class MsSqlDataAdapterAndSchemaReader extends AbstractDataAdapterAn
     this.sqlConnection = sqlConnection;
   }
 
+  /**
+   * @param databaseName
+   * @param sqlConnection
+   * @return a new {@link MsSqlDataAdapterAndSchemaReader} for the database with
+   *         the given databaseName using the given sqlConnection
+   */
   public static MsSqlDataAdapterAndSchemaReader forDatabaseNameAndSqlConnection(
     final String databaseName,
     final ISqlConnection sqlConnection) {

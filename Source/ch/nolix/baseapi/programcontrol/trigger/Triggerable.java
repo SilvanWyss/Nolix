@@ -7,5 +7,8 @@ package ch.nolix.baseapi.programcontrol.trigger;
  * @author Silvan Wyss
  */
 public interface Triggerable {
+  /**
+   * Triggers the current {@link Triggerable}.
+   */
   void trigger();
 }

@@ -12,6 +12,10 @@ public final class ValidationLabelHtmlBuilderHelper {
   private ValidationLabelHtmlBuilderHelper() {
   }
 
+  /**
+   * @param validationLabel
+   * @return the inner text of the HTML div for the given validationLabel
+   */
   public static String getHtmlDivInnerTextForValidationLabel(final IValidationLabel validationLabel) {
     if (validationLabel.containsAny()) {
       return validationLabel.getError().getMessage() + "\u2800";

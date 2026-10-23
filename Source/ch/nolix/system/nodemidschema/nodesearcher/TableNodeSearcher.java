@@ -16,6 +16,9 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.ITableNodeSearcher;
 public final class TableNodeSearcher implements ITableNodeSearcher {
   private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getOneBasedIndexOfColumnInTableNodeByColumnName(final IMutableNode<?> tableNode, final String columnName) {
     var oneBasedColumnIndex = FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS + 1;

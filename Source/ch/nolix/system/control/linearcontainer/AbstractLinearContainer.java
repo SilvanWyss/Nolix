@@ -31,6 +31,9 @@ implements ILinearContainer<C, S> {
     this::addControl,
     ControlFactory::createControlFromSpecification);
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final C addControl(final Control<?, ?> control) {
     final var controlParent = ControlParent.forControl(this);

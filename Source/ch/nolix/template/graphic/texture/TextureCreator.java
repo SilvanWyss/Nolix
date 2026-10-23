@@ -14,6 +14,9 @@ public final class TextureCreator {
   private TextureCreator() {
   }
 
+  /**
+   * @return a new concrete texture
+   */
   public static ImmutableImage createConcreteTexture() {
     final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 
@@ -36,6 +39,9 @@ public final class TextureCreator {
     return texture.toImmutableImage();
   }
 
+  /**
+   * @return a new fir wood texture
+   */
   public static ImmutableImage createFirWoodTexture() {
     final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 
@@ -58,6 +64,9 @@ public final class TextureCreator {
     return texture.toImmutableImage();
   }
 
+  /**
+   * @return a new jute texture
+   */
   public static ImmutableImage createJuteTexture() {
     final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 
@@ -80,6 +89,9 @@ public final class TextureCreator {
     return texture.toImmutableImage();
   }
 
+  /**
+   * @return a new parchment texture
+   */
   public static ImmutableImage createParchmentTexture() {
     final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 
@@ -102,6 +114,9 @@ public final class TextureCreator {
     return texture.toImmutableImage();
   }
 
+  /**
+   * @return a new white marble texture
+   */
   public static ImmutableImage createWhiteMarbleTexture() {
     final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 

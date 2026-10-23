@@ -42,6 +42,12 @@ public final class SqlSchemaAdapter implements SchemaAdapter {
     getStoredCloseController().createCloseDependencyTo(schemaWriter);
   }
 
+  /**
+   * @param databaseName
+   * @param sqlConnectionPool
+   * @return a new {@link SqlSchemaAdapter} for the database with the given
+   *         databaseName using the given sqlConnectionPool
+   */
   public static SqlSchemaAdapter forDatabaseNameAndWithSqlConnectionPool(
     final String databaseName,
     final ResourcePool<ISqlConnection> sqlConnectionPool) {

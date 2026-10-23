@@ -7,5 +7,8 @@ package ch.nolix.baseapi.programcontrol.refresh;
  * @author Silvan Wyss
  */
 public interface Refreshable {
+  /**
+   * Refreshes the current {@link Refreshable}.
+   */
   void refresh();
 }

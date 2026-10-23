@@ -19,17 +19,26 @@ public final class MockSlot implements Slot {
 
   private String latestReceivedMessage;
 
+  /**
+   * @return the latest message the current {@link MockSlot} has received
+   */
   public String getLatestReceivedMessage() {
     assertHasReceivedMessage();
 
     return latestReceivedMessage;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getName() {
     return NAME;
   }
 
+  /**
+   * @return true if the current {@link MockSlot} has received a message, false otherwise
+   */
   public boolean hasReceivedMessage() {
     return (latestReceivedMessage != null);
   }

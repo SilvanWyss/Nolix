@@ -12,6 +12,12 @@ public final class ExecutableExaminerHelper {
   private ExecutableExaminerHelper() {
   }
 
+  /**
+   * @param executable
+   * @param type
+   * @return true if all parameters of the given executable are of the given type,
+   *         false otherwise
+   */
   public static boolean allParametersOfExecutableAreOfTypeWhenExecutableAndTypeAreNotNull(
     final Executable executable,
     final Class<?> type) {

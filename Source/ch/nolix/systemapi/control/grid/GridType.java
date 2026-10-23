@@ -13,6 +13,12 @@ public enum GridType {
   INNER_AND_OUTER_LINES,
   NO_LINES;
 
+  /**
+   * @param specification
+   * @return the {@link GridType} the given specification represents
+   * @throws RuntimeException if the given specification does not represent a
+   *                          {@link GridType}
+   */
   public static GridType fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }

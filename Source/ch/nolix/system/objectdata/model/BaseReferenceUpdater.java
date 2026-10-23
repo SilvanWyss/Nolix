@@ -18,6 +18,16 @@ public final class BaseReferenceUpdater {
   private BaseReferenceUpdater() {
   }
 
+  /**
+   * Updates the {@link BaseBackReference} of the given entity, that can reference
+   * back the given baseReference, if there is such a {@link BaseBackReference},
+   * for the case that the given entity is added to or set to the given
+   * baseReference.
+   * 
+   * @param baseReference
+   * @param entity
+   * @param <E>           the type of the given entity
+   */
   public static <E extends Entity> void ofBaseReferenceUpdatePotentialBaseBackReferenceForAddOrSetEntity(
     final BaseReference baseReference,
     final E entity) {

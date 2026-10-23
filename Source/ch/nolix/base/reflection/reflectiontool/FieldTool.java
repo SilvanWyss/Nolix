@@ -16,6 +16,9 @@ import ch.nolix.baseapi.reflection.reflectiontool.IFieldTool;
 public final class FieldTool implements IFieldTool {
   private static final FieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   @SuppressWarnings("unchecked")
   public <V> V getValueOfStaticField(final Field paramField) {

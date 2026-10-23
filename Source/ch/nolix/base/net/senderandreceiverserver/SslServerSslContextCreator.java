@@ -40,6 +40,10 @@ final class SslServerSslContextCreator {
   private SslServerSslContextCreator() {
   }
 
+  /**
+   * @param sslCertificate
+   * @return a new {@link SslContext} for the given sslCertificate
+   */
   public static SslContext createSSLContext(final ISslCertificate sslCertificate) {
     try {
       final var cert = getCert(sslCertificate);

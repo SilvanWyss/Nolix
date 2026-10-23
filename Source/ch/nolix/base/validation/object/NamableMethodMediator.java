@@ -13,10 +13,19 @@ public final class NamableMethodMediator extends AbstractMethodMediator {
     super(argument);
   }
 
+  /**
+   * @param argument
+   * @return a new {@link NamableMethodMediator} for the given argument
+   */
   public static NamableMethodMediator forArgument(final Method argument) {
     return new NamableMethodMediator(argument);
   }
 
+  /**
+   * @param argumentName
+   * @return a new {@link MethodMediator} for the argument of the current
+   *         {@link NamableMethodMediator} with the given argumentName
+   */
   public MethodMediator thatIsNamed(final String argumentName) {
     return MethodMediator.forArgumentAndArgumentName(getStoredArgument(), argumentName);
   }

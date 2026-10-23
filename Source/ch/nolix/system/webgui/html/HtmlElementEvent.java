@@ -8,6 +8,12 @@ import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
 
 //record
 public record HtmlElementEvent(String htmlElementId, String htmlEvent) implements IHtmlElementEvent {
+  /**
+   * @param htmlElementId
+   * @param htmlEvent
+   * @return a new {@link HtmlElementEvent} with the given htmlElementId and
+   *         htmlEvent
+   */
   public static HtmlElementEvent withHtmlElementIdAndHtmlEvent(final String htmlElementId, final String htmlEvent) {
     return new HtmlElementEvent(htmlElementId, htmlEvent);
   }

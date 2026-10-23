@@ -19,11 +19,17 @@ public abstract class WebClientSession<S> // NOSONAR: A web client session class
 extends AbstractWebClientSession<WebClient<S>, S> {
   private final IWebGui<?> webGui = new WebGui();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final Class<?> getClientClass() {
     return WebClient.class;
   }
 
+  /**
+   * @return the GUI of the current {@link WebClientSession}
+   */
   public final IWebGui<?> getStoredGui() {
     return webGui;
   }
@@ -48,10 +54,24 @@ extends AbstractWebClientSession<WebClient<S>, S> {
     getStoredParentClient().internalUpdateCounterpartFromWebGui(getStoredGui(), true);
   }
 
+  /**
+   * Updates the given control on the counterpart of the current
+   * {@link WebClientSession}.
+   * 
+   * @param control
+   * @param updateConstellationOrStyle
+   */
   public final void updateControlOnCounterpart(final Control<?, ?> control, final boolean updateConstellationOrStyle) {
     getStoredParentClient().internalUpdateControlOnCounterpart(control, updateConstellationOrStyle);
   }
 
+  /**
+   * Updates the given controls on the counterpart of the current
+   * {@link WebClientSession}.
+   * 
+   * @param controls
+   * @param updateConstellationOrStyle
+   */
   public final void updateControlsOnCounterpart(
     final ExtendedIterable<Control<?, ?>> controls,
     final boolean updateConstellationOrStyle) {

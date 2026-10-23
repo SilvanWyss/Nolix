@@ -7,5 +7,8 @@ package ch.nolix.baseapi.document.json;
  * @author Silvan Wyss
  */
 public interface JsonString extends JsonValue {
+  /**
+   * @return the string of the current {@link JsonString}
+   */
   String getString();
 }

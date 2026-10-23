@@ -69,6 +69,9 @@ public final class MatrixColumn<E> extends AbstractExtendedIterable<E> implement
     return parentMatrix.getRowCount();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getOneBasedColumnIndex() {
     return oneBasedColumnIndex;

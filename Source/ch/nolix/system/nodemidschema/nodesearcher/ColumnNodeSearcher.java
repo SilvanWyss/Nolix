@@ -15,6 +15,9 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.IColumnNodeSearcher;
  */
 public final class ColumnNodeSearcher implements IColumnNodeSearcher {
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ExtendedIterable<String> getBackReferenceableColumnIdsFromColumnNode(final IMutableNode<?> columnNode) {
     final var backReferenceableColumnIdsNode = getStoredBackReferenceableColumnIdsNodeFromColumnNode(columnNode);

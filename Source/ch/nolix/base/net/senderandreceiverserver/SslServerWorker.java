@@ -45,6 +45,14 @@ final class SslServerWorker extends AbstractWorker {
     start();
   }
 
+  /**
+   * @param parentWebSocketServer
+   * @param port
+   * @param htmlPage
+   * @param paramSSLCertificate
+   * @return a new {@link SslServerWorker} for the given parentWebSocketServer,
+   *         port, htmlPage and paramSSLCertificate
+   */
   public static SslServerWorker forWebSocketServerAndPortAndHtmlPageAndSslCertificate(
     final SslServer parentWebSocketServer,
     final int port,

@@ -7,5 +7,9 @@ package ch.nolix.systemapi.database.databaserequest;
  * @author Silvan Wyss
  */
 public interface LoadingRequestable {
+  /**
+   * @return true if the current {@link LoadingRequestable} is loaded, false
+   *         otherwise
+   */
   boolean isLoaded();
 }

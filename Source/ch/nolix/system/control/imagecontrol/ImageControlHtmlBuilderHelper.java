@@ -18,6 +18,10 @@ public final class ImageControlHtmlBuilderHelper {
   private ImageControlHtmlBuilderHelper() {
   }
 
+  /**
+   * @param imageControl
+   * @return new {@link IHtmlAttribute}s for the given imageControl
+   */
   public static ExtendedIterable<IHtmlAttribute> createHtmlAttributesForImageControl(final IImageControl imageControl) {
     final ILinkedList<IHtmlAttribute> htmlAttributes = LinkedList.createEmpty();
 

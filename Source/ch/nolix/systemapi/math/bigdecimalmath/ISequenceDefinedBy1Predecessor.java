@@ -9,5 +9,8 @@ package ch.nolix.systemapi.math.bigdecimalmath;
  *            {@link ISequenceDefinedBy1Predecessor}.
  */
 public interface ISequenceDefinedBy1Predecessor<V> extends ISequence<V> {
+  /**
+   * @return the first value of the current {@link ISequenceDefinedBy1Predecessor}
+   */
   V getFirstValue();
 }

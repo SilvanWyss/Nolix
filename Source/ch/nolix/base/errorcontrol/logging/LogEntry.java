@@ -41,10 +41,19 @@ public final class LogEntry {
     }
   }
 
+  /**
+   * @param error
+   * @return a new {@link LogEntry} for the given error
+   */
   public static LogEntry forError(final Throwable error) {
     return new LogEntry(HarmLevel.ERROR, getMessageFromError(error), getAdditionalInfoLinesFromError(error));
   }
 
+  /**
+   * @param message
+   * @param harmLevel
+   * @return a new {@link LogEntry} with the given message and harmLevel
+   */
   public static LogEntry withMessageAndHarmLevel(final String message, final HarmLevel harmLevel) {
     return new LogEntry(harmLevel, message, new String[0]);
   }
@@ -66,18 +75,31 @@ public final class LogEntry {
     return message;
   }
 
+  /**
+   * @return the additional info lines of the current {@link LogEntry}
+   */
   public SimpleImmutableList<String> getAdditionalInfoLines() {
     return additionalInfoLines;
   }
 
+  /**
+   * @return the creation time of the current {@link LogEntry} in milliseconds
+   *         since 1970
+   */
   public long getCreationTimeInMillisecondsSince1970() {
     return creationTimeInMillisecondsSince1970;
   }
 
+  /**
+   * @return the {@link HarmLevel} of the current {@link LogEntry}
+   */
   public HarmLevel getHarmLevel() {
     return harmLevel;
   }
 
+  /**
+   * @return the message of the current {@link LogEntry}
+   */
   public String getMessage() {
     return message;
   }

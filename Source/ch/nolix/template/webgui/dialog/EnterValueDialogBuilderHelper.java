@@ -16,6 +16,12 @@ public final class EnterValueDialogBuilderHelper {
   private EnterValueDialogBuilderHelper() {
   }
 
+  /**
+   * Passes the text of the given valueTextbox to the given valueTaker.
+   * 
+   * @param valueTextbox
+   * @param valueTaker
+   */
   public static void confirmNewValue(final ITextbox valueTextbox, final Consumer<String> valueTaker) {
     final var newValue = valueTextbox.getText();
 

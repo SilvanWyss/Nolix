@@ -17,6 +17,9 @@ extends AbstractFieldValidator<IReference<Entity>>
 implements IReferenceValidator {
   private static final ReferenceExaminer REFERENCE_EXAMINER = new ReferenceExaminer();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public <E extends Entity> void assertCanSetEntity(final IReference<E> reference, final E entity) {
     if (!REFERENCE_EXAMINER.canSetEntity(reference, entity)) {

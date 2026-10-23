@@ -28,6 +28,10 @@ public final class SchematicEntityLoader implements ISchematicEntityLoader {
     this.sqlConnection = sqlConnection;
   }
 
+  /**
+   * @param sqlConnection
+   * @return a new {@link SchematicEntityLoader} with the given sqlConnection
+   */
   public static SchematicEntityLoader withSqlConnection(final ISqlConnection sqlConnection) {
     return new SchematicEntityLoader(sqlConnection);
   }

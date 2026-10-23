@@ -15,6 +15,10 @@ public final class NextIndexMediator implements INextIndexMediator {
     this.nextIndex = nextIndex;
   }
 
+  /**
+   * @param nextIndex
+   * @return a new {@link NextIndexMediator} for the given nextIndex
+   */
   public static NextIndexMediator forNextIndex(final int nextIndex) {
     return new NextIndexMediator(nextIndex);
   }

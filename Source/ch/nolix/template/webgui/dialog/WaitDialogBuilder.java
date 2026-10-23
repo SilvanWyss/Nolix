@@ -26,6 +26,9 @@ public final class WaitDialogBuilder implements Builder<ILayer> {
 
   private Runnable terminalAction = DEFAULT_TERMINAL_ACTION;
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ILayer build() {
     final var waitDialog = new Layer()
@@ -43,12 +46,24 @@ public final class WaitDialogBuilder implements Builder<ILayer> {
     return waitDialog;
   }
 
+  /**
+   * Sets the given job to the current {@link WaitDialogBuilder}.
+   * 
+   * @param job
+   * @return the current {@link WaitDialogBuilder}
+   */
   public WaitDialogBuilder setJob(final Runnable job) {
     this.job = job;
 
     return this;
   }
 
+  /**
+   * Sets the given terminalAction to the current {@link WaitDialogBuilder}.
+   * 
+   * @param terminalAction
+   * @return the current {@link WaitDialogBuilder}
+   */
   public WaitDialogBuilder setTerminalAction(final Runnable terminalAction) {
     this.terminalAction = terminalAction;
 

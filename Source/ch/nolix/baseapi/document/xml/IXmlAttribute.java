@@ -9,5 +9,8 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
  * @author Silvan Wyss
  */
 public interface IXmlAttribute extends NameHolder {
+  /**
+   * @return the value of the current {@link IXmlAttribute}
+   */
   String getValue();
 }

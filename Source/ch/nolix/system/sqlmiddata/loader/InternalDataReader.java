@@ -57,16 +57,29 @@ public final class InternalDataReader {
     sqlConnection.executeStatement("USE " + databaseName);
   }
 
+  /**
+   * @param databaseName
+   * @param sqlConnection
+   * @return a new {@link InternalDataReader} for the database with the given
+   *         databaseName using the given sqlConnection
+   */
   public static InternalDataReader withDatabaseNameAndSqlConnection(
     final String databaseName,
     final ISqlConnection sqlConnection) {
     return new InternalDataReader(databaseName, sqlConnection);
   }
 
+  /**
+   * @return the name of the database of the current {@link InternalDataReader}
+   */
   public String getDatabaseName() {
     return databaseName;
   }
 
+  /**
+   * @param tableName
+   * @return the number of entities of the table with the given tableName
+   */
   public int getEntityCount(String tableName) {
     final var query = ENTITY_QUERY_CREATOR.createQueryToCountEntities(tableName);
     final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
@@ -74,6 +87,10 @@ public final class InternalDataReader {
     return Integer.valueOf(sqlRecord.getStoredSingle());
   }
 
+  /**
+   * @return the schema timestamp of the database of the current
+   *         {@link InternalDataReader}
+   */
   public Time getSchemaTimestamp() {
     return Time.fromString(
       sqlConnection
@@ -81,6 +98,14 @@ public final class InternalDataReader {
         .getStoredAtOneBasedIndex(1));
   }
 
+  /**
+   * @param table
+   * @param entityId
+   * @param multiBackReferenceColumnId
+   * @return the entries of the multi back reference column with the given
+   *         multiBackReferenceColumnId of the entity with the given entityId of
+   *         the given table
+   */
   public ExtendedIterable<MultiBackReferenceEntryDto> loadMultiBackReferenceEntries(
     final TableIdentification table,
     final String entityId,
@@ -98,6 +123,13 @@ public final class InternalDataReader {
       tableName);
   }
 
+  /**
+   * @param entityId
+   * @param multiBackReferenceColumnId
+   * @return the ids of the entries of the multi back reference column with the
+   *         given multiBackReferenceColumnId of the entity with the given
+   *         entityId
+   */
   public ExtendedIterable<String> loadMultiBackReferenceEntriesIds(
     final String entityId,
     final String multiBackReferenceColumnId) {
@@ -109,6 +141,13 @@ public final class InternalDataReader {
     return sqlConnection.getRecordsFromQuery(query).to(r -> r.getStoredAtOneBasedIndex(1));
   }
 
+  /**
+   * @param entityId
+   * @param multiReferenceColumnId
+   * @param databaseView
+   * @return the entries of the multi reference column with the given
+   *         multiReferenceColumnId of the entity with the given entityId
+   */
   public ExtendedIterable<MultiReferenceEntryDto> loadMultiReferenceEntries(
     final String entityId,
     final String multiReferenceColumnId,
@@ -123,6 +162,12 @@ public final class InternalDataReader {
       r -> MULTI_REFERENCE_ENTRY_DTO_MAPPER.mapMultiReferenceEntrySqlRecordToMultiReferenceEntryDto(r, databaseView));
   }
 
+  /**
+   * @param entityId
+   * @param multiValueColumnView
+   * @return the entries of the multi value column of the given
+   *         multiValueColumnView of the entity with the given entityId
+   */
   public ExtendedIterable<Object> loadMultiValueEntries(
     final String entityId,
     final ColumnInfoDto multiValueColumnView) {
@@ -134,6 +179,12 @@ public final class InternalDataReader {
       .to(r -> VALUE_MAPPER.mapStringToValue(r.getStoredAtOneBasedIndex(1), multiValueColumnView.dataType()));
   }
 
+  /**
+   * @param tableName
+   * @param id
+   * @return true if the table with the given tableName contains an entity with
+   *         the given id, false otherwise
+   */
   public boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
     final var entityCount = Integer.valueOf(
       sqlConnection
@@ -143,6 +194,14 @@ public final class InternalDataReader {
     return entityCount > 0;
   }
 
+  /**
+   * @param tableName
+   * @param columnView
+   * @param value
+   * @return true if the table with the given tableName contains an entity with
+   *         the given value at the column of the given columnView, false
+   *         otherwise
+   */
   public boolean tableContainsEntityWithGivenValueAtGivenColumn(
     final String tableName,
     final ColumnInfoDto columnView,
@@ -165,6 +224,15 @@ public final class InternalDataReader {
     };
   }
 
+  /**
+   * @param tableName
+   * @param columnView
+   * @param value
+   * @param entitiesToIgnoreIds
+   * @return true if the table with the given tableName contains an entity, that
+   *         does not have one of the given entitiesToIgnoreIds, with the given
+   *         value at the column of the given columnView, false otherwise
+   */
   public boolean tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
     final String tableName,
     final ColumnInfoDto columnView,

@@ -16,6 +16,9 @@ extends AbstractFieldValidator<IValueField<?>>
 implements IValueFieldValidator {
   private static final ValueFieldExaminer VALUE_TOOL = new ValueFieldExaminer();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertCanSetValue(final IValueField<?> valueField, final Object value) {
     if (!VALUE_TOOL.canSetValue(valueField, value)) {

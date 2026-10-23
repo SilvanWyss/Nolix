@@ -22,6 +22,13 @@ public abstract class AbstractMethodMediator extends AbstractObjectMediator<Meth
     super(argument, argumentName);
   }
 
+  /**
+   * @return the current {@link AbstractMethodMediator}
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractMethodMediator} is null
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractMethodMediator} has annotations
+   */
   public final AbstractMethodMediator doesNotHaveAnnotations() {
     isNotNull();
 
@@ -36,6 +43,13 @@ public abstract class AbstractMethodMediator extends AbstractObjectMediator<Meth
     return this;
   }
 
+  /**
+   * @return the current {@link AbstractMethodMediator}
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractMethodMediator} is null
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractMethodMediator} returns something
+   */
   public final AbstractMethodMediator doesNotReturnAnything() {
     isNotNull();
 
@@ -50,6 +64,17 @@ public abstract class AbstractMethodMediator extends AbstractObjectMediator<Meth
     return this;
   }
 
+  /**
+   * @param annotationType
+   * @param <A>            the type of the annotation
+   * @return the current {@link AbstractMethodMediator}
+   * @throws RuntimeException if the given annotationType is null
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractMethodMediator} is null
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractMethodMediator} does not have an
+   *                          annotation of the given annotationType
+   */
   public final <A extends Annotation> AbstractMethodMediator hasAnnotation(final Class<A> annotationType) {
     if (annotationType == null) {
       throw ArgumentIsNullException.forArgumentName("annotation type");
@@ -68,6 +93,16 @@ public abstract class AbstractMethodMediator extends AbstractObjectMediator<Meth
     return this;
   }
 
+  /**
+   * @param type
+   * @return the current {@link AbstractMethodMediator}
+   * @throws RuntimeException if the given type is null
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractMethodMediator} is null
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractMethodMediator} has a parameter that
+   *                          is not of the given type
+   */
   public final AbstractMethodMediator hasParametersOfTypeOnly(final Class<String> type) {
     if (type == null) {
       throw ArgumentIsNullException.forArgumentName(getArgumentName());
@@ -88,6 +123,14 @@ public abstract class AbstractMethodMediator extends AbstractObjectMediator<Meth
     return this;
   }
 
+  /**
+   * @param returnType
+   * @return the current {@link AbstractMethodMediator}
+   * @throws RuntimeException if the given returnType is null
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractMethodMediator} is null or does not
+   *                          have the given returnType
+   */
   public final AbstractMethodMediator hasReturnType(final Class<?> returnType) {
     if (returnType == null) {
       throw ArgumentIsNullException.forArgumentName("return type");

@@ -58,6 +58,10 @@ public final class Polynom {
     coefficients = coefficientArray; // NOSONAR: A Polynom operates on the original instance.
   }
 
+  /**
+   * @param coefficients
+   * @return a new {@link Polynom} with the given coefficients
+   */
   public static Polynom withCoefficients(final double... coefficients) {
     return new Polynom(coefficients);
   }

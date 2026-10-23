@@ -16,6 +16,10 @@ public final class SqlSchemaColumnDtoMapperHelper {
   private SqlSchemaColumnDtoMapperHelper() {
   }
 
+  /**
+   * @param columnDto
+   * @return a new main SQL schema column DTO from the given columnDto
+   */
   public static ch.nolix.systemapi.sqlschema.model.ColumnDto mapColumnDtoToMainSqlSchemaColumnDto(
     final ColumnDto columnDto) {
     final var columnName = columnDto.name();
@@ -25,6 +29,10 @@ public final class SqlSchemaColumnDtoMapperHelper {
     return new ch.nolix.systemapi.sqlschema.model.ColumnDto(columnName, dataType, constraints);
   }
 
+  /**
+   * @param columnDto
+   * @return a new table SQL schema column DTO from the given columnDto
+   */
   public static ch.nolix.systemapi.sqlschema.model.ColumnDto mapColumnDtoToTableSqlSchemaColumnDto(
     final ColumnDto columnDto) {
     final var columnName = columnDto.name() + "Table";

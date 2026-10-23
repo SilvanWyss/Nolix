@@ -16,6 +16,10 @@ final class Worker extends Thread {
     start();
   }
 
+  /**
+   * @param jobPool
+   * @return a new {@link Worker} for the given jobPool
+   */
   public static Worker forJobPool(final JobPool jobPool) {
     return new Worker(jobPool);
   }

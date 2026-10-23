@@ -16,6 +16,9 @@ extends AbstractFieldValidator<IMultiValueField<?>>
 implements IMultiValueFieldValidator {
   private static final MultiValueFieldExaminer MULTI_VALUE_EXAMINER = new MultiValueFieldExaminer();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public <V> void assertCanAddValue(final IMultiValueField<V> multiValueField, final V value) {
     if (!MULTI_VALUE_EXAMINER.canAddValue(multiValueField, value)) {

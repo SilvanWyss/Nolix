@@ -76,10 +76,22 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
     extractStateProperties();
   }
 
+  /**
+   * @param state
+   * @return the {@link ValueStoringState} of the current
+   *         {@link AbstractMaterializedProperty} for the given state
+   */
   public final ValueStoringState getAssignmentTypeForState(final S state) {
     return stateProperties[(getStateOf(state).getIndex())].getAssignmentType();
   }
 
+  /**
+   * @param state
+   * @return a {@link Optional} with the value of the current
+   *         {@link AbstractMaterializedProperty} for the given state if the
+   *         current {@link AbstractMaterializedProperty} has a value for the
+   *         given state, an empty {@link Optional} otherwise
+   */
   public final Optional<V> getOptionalValueOfState(final S state) {
     final var stateProperty = stateProperties[getStateOf(state).getIndex()];
 
@@ -90,22 +102,48 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
     return Optional.of(stateProperty.getValue());
   }
 
+  /**
+   * @param state
+   * @return the value of the current {@link AbstractMaterializedProperty} for the
+   *         given state
+   * @throws RuntimeException if the current {@link AbstractMaterializedProperty}
+   *                          does not have a value for the given state
+   */
   public final V getValueOfState(final S state) {
     return stateProperties[getStateOf(state).getIndex()].getValue();
   }
 
+  /**
+   * @param state
+   * @return the value of the current {@link AbstractMaterializedProperty} when
+   *         its parent element has the given state
+   */
   public final V getValueWhenHasState(final S state) {
     return getValueWhenHasState(getStateOf(state));
   }
 
+  /**
+   * @return true if the current {@link AbstractMaterializedProperty} has a setter
+   *         method, false otherwise
+   */
   public final boolean hasSetterMethod() {
     return (setterMethod != null);
   }
 
+  /**
+   * @param state
+   * @return true if the current {@link AbstractMaterializedProperty} has a value
+   *         for the given state, false otherwise
+   */
   public final boolean hasValueForState(final S state) {
     return stateProperties[getStateOf(state).getIndex()].hasValue();
   }
 
+  /**
+   * @param state
+   * @return true if the current {@link AbstractMaterializedProperty} has a value
+   *         or is defined as empty for the given state, false otherwise
+   */
   public final boolean hasValueOrIsEmptyForState(final S state) {
     return stateProperties[getStateOf(state).getIndex()].hasValueOrDefinesEmpty();
   }
@@ -120,10 +158,23 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
     }
   }
 
+  /**
+   * Sets the current {@link AbstractMaterializedProperty} undefined for the given
+   * state.
+   * 
+   * @param state
+   */
   public void setUndefinedForState(final S state) {
     stateProperties[getStateOf(state).getIndex()].setForwarding();
   }
 
+  /**
+   * Sets the given value for the given state to the current
+   * {@link AbstractMaterializedProperty}.
+   * 
+   * @param state
+   * @param value
+   */
   public final void setValueForState(final S state, final V value) {
     stateProperties[getStateOf(state).getIndex()].setValue(value);
   }

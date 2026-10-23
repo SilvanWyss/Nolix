@@ -31,10 +31,19 @@ public final class XmlAttribute implements IXmlAttribute {
     this.value = value;
   }
 
+  /**
+   * @param name
+   * @return a new {@link XmlAttribute} with the given name
+   */
   public static XmlAttribute withName(final String name) {
     return new XmlAttribute(name);
   }
 
+  /**
+   * @param name
+   * @param value
+   * @return a new {@link XmlAttribute} with the given name and value
+   */
   public static XmlAttribute withNameAndValue(final String name, final String value) {
     return new XmlAttribute(name, value);
   }

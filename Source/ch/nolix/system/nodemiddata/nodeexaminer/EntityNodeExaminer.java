@@ -13,6 +13,9 @@ import ch.nolix.systemapi.nodemiddata.nodeexaminer.IEntityNodeExaminer;
 public final class EntityNodeExaminer implements IEntityNodeExaminer {
   private static final EntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean entityNodeHasSaveStamp(final IMutableNode<?> entityNode, final String saveStamp) {
     if (entityNode != null) {

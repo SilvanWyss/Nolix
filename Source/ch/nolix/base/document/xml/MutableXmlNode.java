@@ -29,10 +29,17 @@ public final class MutableXmlNode implements IMutableXmlNode {
   private MutableXmlNode() {
   }
 
+  /**
+   * @return a new blank {@link MutableXmlNode}
+   */
   public static MutableXmlNode createBlankMutableXmlNode() {
     return new MutableXmlNode();
   }
 
+  /**
+   * @param pXmlNode
+   * @return a new {@link MutableXmlNode} from the given pXmlNode
+   */
   public static MutableXmlNode fromXmlNode(final IXmlNode<?> pXmlNode) {
     final var mutableXmlNode = new MutableXmlNode();
 
@@ -164,6 +171,9 @@ public final class MutableXmlNode implements IMutableXmlNode {
   }
 
   // For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public MutableXmlNode addChildNodes(final Iterable<IMutableXmlNode> childNodes) {
     memberChildNodes.addAtEnd(childNodes);
@@ -187,6 +197,9 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return memberChildNodes.containsAny();
   }
 
+  /**
+   * @return the number of attributes of the current {@link MutableXmlNode}
+   */
   public int getAttributeCount() {
     return memberAttributes.getCount();
   }
@@ -199,6 +212,9 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return memberAttributes;
   }
 
+  /**
+   * @return the number of child nodes of the current {@link MutableXmlNode}
+   */
   public int getChildNodeCount() {
     return memberChildNodes.getCount();
   }
@@ -257,12 +273,22 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return (memberValue != null);
   }
 
+  /**
+   * Removes the attributes of the current {@link MutableXmlNode}.
+   * 
+   * @return the current {@link MutableXmlNode}
+   */
   public IMutableXmlNode removeAttributes() {
     memberAttributes.clear();
 
     return this;
   }
 
+  /**
+   * Removes the child nodes of the current {@link MutableXmlNode}.
+   * 
+   * @return the current {@link MutableXmlNode}
+   */
   public IMutableXmlNode removeChildNodes() {
     memberChildNodes.clear();
 
@@ -309,6 +335,10 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return this;
   }
 
+  /**
+   * @return a formatted {@link String} representation of the current
+   *         {@link MutableXmlNode}
+   */
   public String toFormatedString() {
     return toFormatedString(this, 0);
   }

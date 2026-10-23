@@ -11,10 +11,19 @@ public final class NamableByteMediator extends AbstractByteMediator {
     super(argument);
   }
 
+  /**
+   * @param argument
+   * @return a new {@link NamableByteMediator} for the given argument
+   */
   public static NamableByteMediator forArgument(final byte argument) {
     return new NamableByteMediator(argument);
   }
 
+  /**
+   * @param argumentName
+   * @return a new {@link ByteMediator} for the argument of the current
+   *         {@link NamableByteMediator} with the given argumentName
+   */
   public ByteMediator thatIsNamed(final String argumentName) {
     return ByteMediator.forArgumentAndArgumentName(getArgument(), argumentName);
   }

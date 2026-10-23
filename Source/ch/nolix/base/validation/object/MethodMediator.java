@@ -15,6 +15,12 @@ public final class MethodMediator extends AbstractMethodMediator {
     super(argument, argumentName);
   }
 
+  /**
+   * @param argument
+   * @param argumentName
+   * @return a new {@link MethodMediator} for the given argument with the given
+   *         argumentName
+   */
   public static MethodMediator forArgumentAndArgumentName(final Method argument, final String argumentName) {
     return new MethodMediator(argument, argumentName);
   }

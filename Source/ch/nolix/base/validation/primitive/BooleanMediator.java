@@ -16,10 +16,19 @@ public final class BooleanMediator extends AbstractMediator {
     this.argument = argument;
   }
 
+  /**
+   * @param argument
+   * @return a new {@link BooleanMediator} for the given argument
+   */
   public static BooleanMediator forArgument(final boolean argument) {
     return new BooleanMediator(argument);
   }
 
+  /**
+   * @param value
+   * @throws RuntimeException if the argument of the current
+   *                          {@link BooleanMediator} is not the given value
+   */
   public void is(final boolean value) { // NOSONAR: The parameter is a boolean.
     if (value) {
       isTrue();
@@ -28,12 +37,20 @@ public final class BooleanMediator extends AbstractMediator {
     }
   }
 
+  /**
+   * @throws RuntimeException if the argument of the current
+   *                          {@link BooleanMediator} is not false
+   */
   public void isFalse() {
     if (argument) {
       throw InvalidArgumentException.forArgument(argument);
     }
   }
 
+  /**
+   * @throws RuntimeException if the argument of the current
+   *                          {@link BooleanMediator} is not true
+   */
   public void isTrue() {
     if (!argument) {
       throw InvalidArgumentException.forArgument(argument);

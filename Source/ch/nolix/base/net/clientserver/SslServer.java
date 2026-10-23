@@ -39,6 +39,11 @@ public final class SslServer extends AbstractServer<SslServer> {
     createCloseDependencyTo(internalWebSocketServer);
   }
 
+  /**
+   * @return a new {@link SslServer} that listens on the HTTPS port and uses the
+   *         default domain and the default SSL certificate from the local Nolix
+   *         configuration
+   */
   public static SslServer forHttpsPortAndDomainAndSSLCertificateFromNolixConfiguration() {
     final var domain = NolixConfigurationSslCertificateReader.getDefaultDomainFromLocalNolixConfiguration();
 
@@ -48,6 +53,12 @@ public final class SslServer extends AbstractServer<SslServer> {
     return new SslServer(PortCatalog.HTTPS, domain, paramSSLCertificate);
   }
 
+  /**
+   * @param domain
+   * @return a new {@link SslServer} that listens on the HTTPS port and uses the
+   *         given domain and the default SSL certificate from the local Nolix
+   *         configuration
+   */
   public static SslServer forHttpsPortAndDomainAndSSLCertificateFromNolixConfiguration(
     final String domain) {
     final var paramSSLCertificate = //
@@ -56,6 +67,13 @@ public final class SslServer extends AbstractServer<SslServer> {
     return new SslServer(PortCatalog.HTTPS, domain, paramSSLCertificate);
   }
 
+  /**
+   * @param port
+   * @param domain
+   * @return a new {@link SslServer} that listens on the given port and uses the
+   *         given domain and the default SSL certificate from the local Nolix
+   *         configuration
+   */
   public static SslServer forPortAndDomainAndSSLCertificateFromNolixConfiguration(
     final int port,
     final String domain) {

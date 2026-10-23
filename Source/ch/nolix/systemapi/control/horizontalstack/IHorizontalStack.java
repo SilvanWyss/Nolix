@@ -10,7 +10,17 @@ import ch.nolix.systemapi.gui.guiproperty.VerticalContentAlignment;
  * @author Silvan Wyss
  */
 public interface IHorizontalStack extends ILinearContainer<IHorizontalStack, IHorizontalStackStyle> {
+  /**
+   * @return the {@link VerticalContentAlignment} of the current
+   *         {@link IHorizontalStack}
+   */
   VerticalContentAlignment getContentAlignment();
 
+  /**
+   * Sets the given contentAlignment to the current {@link IHorizontalStack}.
+   * 
+   * @param contentAlignment
+   * @return the current {@link IHorizontalStack}
+   */
   IHorizontalStack setContentAlignment(VerticalContentAlignment contentAlignment);
 }

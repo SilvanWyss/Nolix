@@ -311,6 +311,10 @@ public final class JobExecutor extends Thread {
     return new JobExecutor(step, nextStepRunCondition, delayBetweenStepRunsInMilliseconds);
   }
 
+  /**
+   * @param jobs
+   * @return a new {@link JobExecutor} for the given jobs
+   */
   public static JobExecutor forJobs(final ExtendedIterable<Runnable> jobs) {
     final var concatenatedJob = JOB_TOOL.createConcatenatedJobFromJobs(jobs);
     final var jobExecutor = new JobExecutor(concatenatedJob, 1);
@@ -320,6 +324,10 @@ public final class JobExecutor extends Thread {
     return jobExecutor;
   }
 
+  /**
+   * @param jobs
+   * @return a new {@link JobExecutor} for the given jobs
+   */
   public static JobExecutor forJobs(final Runnable... jobs) {
     final var jobContainer = ExtendedIterableView.forArray(jobs);
 

@@ -25,6 +25,9 @@ implements ResourcePool<W> {
 
   private final LinkedList<R> availableResources = LinkedList.createEmpty();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final synchronized W borrowResource() {
     final var resource = provideResource();

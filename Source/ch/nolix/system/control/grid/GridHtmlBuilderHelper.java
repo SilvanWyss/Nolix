@@ -18,6 +18,10 @@ public final class GridHtmlBuilderHelper {
   private GridHtmlBuilderHelper() {
   }
 
+  /**
+   * @param control
+   * @return a new {@link HtmlElement} for the table of the given control
+   */
   public static HtmlElement createHtmlElementForTableOfGrid(final IGrid control) {
     final var type = HtmlElementTypeCatalog.TABLE;
     final var childElement = GridHtmlBuilderHelper.createHtmlElementForTableBodyOfGrid(control);
@@ -25,6 +29,10 @@ public final class GridHtmlBuilderHelper {
     return HtmlElement.withTypeAndChildElement(type, childElement);
   }
 
+  /**
+   * @param grid
+   * @return a new {@link HtmlElement} for the table body of the given grid
+   */
   public static HtmlElement createHtmlElementForTableBodyOfGrid(final IGrid grid) {
     final var type = HtmlElementTypeCatalog.TBODY;
     final var childElement = createHtmlElementsForChildControlsOfGrid(grid);

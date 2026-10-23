@@ -15,6 +15,9 @@ public abstract class AbstractEntity extends AbstractBaseEntity {
 
   private static final EntityFieldExtractor ENTITY_FIELD_EXTRACTOR = new EntityFieldExtractor();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final String getParentTableName() {
     return TABLE_NAME_EXTRACTOR.getTableNameOfEntity(this);

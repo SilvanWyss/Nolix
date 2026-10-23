@@ -22,6 +22,10 @@ public abstract class AbstractBitMediator extends AbstractMediator {
     this.argument = argument;
   }
 
+  /**
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractBitMediator} is not cleared
+   */
   public final void isCleared() {
     if (argument) {
       throw //
@@ -32,6 +36,10 @@ public abstract class AbstractBitMediator extends AbstractMediator {
     }
   }
 
+  /**
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractBitMediator} is not set
+   */
   public final void isSet() {
     if (!argument) {
       throw //

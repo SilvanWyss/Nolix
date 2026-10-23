@@ -22,10 +22,23 @@ public final class DatabaseMutationExaminerHelper {
   private DatabaseMutationExaminerHelper() {
   }
 
+  /**
+   * @param database
+   * @param table
+   * @return true if the given table can be added to the given database regarding
+   *         the columns of the given table, false otherwise
+   */
   public static boolean canAddGivenTableBecauseOfColumns(final IDatabase database, final ITable table) {
     return table.getStoredColumns().containsMatchingOnly(c -> canAddGivenTableBecauseOfGivenColumn(database, table, c));
   }
 
+  /**
+   * @param database
+   * @param table
+   * @param column
+   * @return true if the given table can be added to the given database regarding
+   *         the given column, false otherwise
+   */
   public static boolean canAddGivenTableBecauseOfGivenColumn(
     final IDatabase database,
     final ITable table,
@@ -45,6 +58,13 @@ public final class DatabaseMutationExaminerHelper {
     };
   }
 
+  /**
+   * @param database
+   * @param table
+   * @param referenceColumn
+   * @return true if the given table can be added to the given database regarding
+   *         the given referenceColumn, false otherwise
+   */
   public static boolean canAddGivenTableBecauseOfGivenReferenceColumn(
     final IDatabase database,
     final ITable table,

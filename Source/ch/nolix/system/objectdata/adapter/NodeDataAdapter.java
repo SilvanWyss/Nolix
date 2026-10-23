@@ -29,11 +29,25 @@ public final class NodeDataAdapter extends AbstractDataAdapter {
     this.nodeDatabase = nodeDatabase;
   }
 
+  /**
+   * @param nodeDatabase
+   * @return a {@link WithNameCaptor} to define the name and the schema of a new
+   *         {@link NodeDataAdapter} for the given nodeDatabase
+   * @throws RuntimeException if the given nodeDatabase is null
+   */
   public static WithNameCaptor<AndSchemaCaptor<IEntityTypeSet, NodeDataAdapter>> forNodeDatabase(
     final IMutableNode<?> nodeDatabase) {
     return NodeDataAdapterBuilder.createNodeDataAdapter().forNodeDatabase(nodeDatabase);
   }
 
+  /**
+   * @param databaseName
+   * @param nodeDatabase
+   * @param entityTypeSet
+   * @return a new {@link NodeDataAdapter} for the database with the given
+   *         databaseName in the given nodeDatabase, that uses the given
+   *         entityTypeSet
+   */
   public static NodeDataAdapter forDatabaseNameAndNodeDatabaseAndSchema(
     final String databaseName,
     final IMutableNode<?> nodeDatabase,
@@ -41,6 +55,10 @@ public final class NodeDataAdapter extends AbstractDataAdapter {
     return new NodeDataAdapter(databaseName, nodeDatabase, entityTypeSet);
   }
 
+  /**
+   * @return a {@link WithNameCaptor} to define the name and the schema of a new
+   *         {@link NodeDataAdapter} for a temporary in-memory database
+   */
   public static WithNameCaptor<AndSchemaCaptor<IEntityTypeSet, NodeDataAdapter>> forTemporaryInMemoryDatabase() {
     return NodeDataAdapterBuilder.createNodeDataAdapter().forTemporaryInMemoryNodeDatabase();
   }

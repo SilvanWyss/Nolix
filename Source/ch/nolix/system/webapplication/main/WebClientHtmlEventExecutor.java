@@ -16,6 +16,16 @@ public final class WebClientHtmlEventExecutor {
   private WebClientHtmlEventExecutor() {
   }
 
+  /**
+   * Runs the given htmlEvent on the given triggeredControl and updates the GUI
+   * and the counterpart accordingly.
+   * 
+   * @param triggeredControl
+   * @param htmlEvent
+   * @param openStateRequester
+   * @param guiUpdater
+   * @param controlUpdater
+   */
   public static void runHtmlEventOfTriggeredControlAndUpdateAccordingly(
     final Control<?, ?> triggeredControl,
     final String htmlEvent,

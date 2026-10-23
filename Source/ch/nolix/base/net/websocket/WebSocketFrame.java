@@ -87,6 +87,11 @@ public final class WebSocketFrame {
     }
   }
 
+  /**
+   * @param pingFrame
+   * @return a new pong {@link WebSocketFrame} for the given pingFrame
+   * @throws RuntimeException if the given pingFrame is not a ping frame
+   */
   public static WebSocketFrame createPongFrameFor(final WebSocketFrame pingFrame) {
     if (!pingFrame.isPingFrame()) {
       throw //
@@ -99,10 +104,22 @@ public final class WebSocketFrame {
     return new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.PONG, false, pingFrame.getPayload());
   }
 
+  /**
+   * @param inputStream
+   * @return a new {@link WebSocketFrame} read from the given inputStream
+   */
   public static WebSocketFrame fromInputStream(final InputStream inputStream) {
     return new WebSocketFrame(inputStream);
   }
 
+  /**
+   * @param finBit
+   * @param opCode
+   * @param maskBit
+   * @param payload
+   * @return a new {@link WebSocketFrame} with the given finBit, opCode, maskBit
+   *         and payload
+   */
   public static WebSocketFrame withFinBitAndOpCodeAndMaskBitAndPayload(
     final boolean finBit,
     final WebSocketFrameOpcodeMeaning opCode,
@@ -111,6 +128,14 @@ public final class WebSocketFrame {
     return new WebSocketFrame(finBit, opCode, maskBit, payload);
   }
 
+  /**
+   * @param mFINBit
+   * @param opcode
+   * @param maskBit
+   * @param payload
+   * @return a new {@link WebSocketFrame} with the given mFINBit, opcode, maskBit
+   *         and payload
+   */
   public static WebSocketFrame withFinBitAndOpCodeAndMaskBitAndPayload(
     final boolean mFINBit,
     final WebSocketFrameOpcodeMeaning opcode,
@@ -119,6 +144,12 @@ public final class WebSocketFrame {
     return new WebSocketFrame(mFINBit, opcode, maskBit, payload);
   }
 
+  /**
+   * @return a new pong {@link WebSocketFrame} for the current
+   *         {@link WebSocketFrame}
+   * @throws RuntimeException if the current {@link WebSocketFrame} is not a ping
+   *                          frame
+   */
   public WebSocketFrame createPongFrame() {
     if (!isPingFrame()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not a ping frame");
@@ -127,10 +158,16 @@ public final class WebSocketFrame {
     return new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.PONG, false, payload);
   }
 
+  /**
+   * @return the FIN bit of the current {@link WebSocketFrame}
+   */
   public boolean getFINBit() { // NOSONAR: This method returns a bit as a boolean.
     return firstNibble.getFINBit();
   }
 
+  /**
+   * @return the {@link WebSocketFrameType} of the current {@link WebSocketFrame}
+   */
   public WebSocketFrameType getFrameType() {
     if (isControlFrame()) {
       return WebSocketFrameType.CONTROL_FRAME;
@@ -143,6 +180,9 @@ public final class WebSocketFrame {
     throw InvalidArgumentException.forArgument(this);
   }
 
+  /**
+   * @return the length of the current {@link WebSocketFrame} in bytes
+   */
   public BigDecimal getLengthInBytes() {
     var byteRepresentationLength = BigDecimal.valueOf(2);
 
@@ -165,10 +205,18 @@ public final class WebSocketFrame {
     return byteRepresentationLength;
   }
 
+  /**
+   * @return the mask bit of the current {@link WebSocketFrame}
+   */
   public boolean getMaskBit() { // NOSONAR: This method returns a bit as a boolean.
     return firstNibble.getMaskBit();
   }
 
+  /**
+   * @return the length of the mask of the current {@link WebSocketFrame} in
+   *         bytes, 0 if the current {@link WebSocketFrame} does not mask its
+   *         payload
+   */
   public int getMaskLength() {
     if (masksPayload()) {
       return MASK_LENGTH_IN_BYTES;
@@ -177,22 +225,40 @@ public final class WebSocketFrame {
     return 0;
   }
 
+  /**
+   * @return the {@link WebSocketFrameOpcodeMeaning} of the current
+   *         {@link WebSocketFrame}
+   */
   public WebSocketFrameOpcodeMeaning getOpcodeMeaning() {
     return firstNibble.getOpcodeMeaning();
   }
 
+  /**
+   * @return the payload of the current {@link WebSocketFrame}
+   */
   public byte[] getPayload() {
     return payload; // NOSONAR: A WebSocketFrame returns the original instance.
   }
 
+  /**
+   * @return the length of the payload of the current {@link WebSocketFrame}
+   */
   public long getPayloadLength() {
     return payloadLength.getValue();
   }
 
+  /**
+   * @return the {@link WebSocketFramePayloadLengthType} of the current
+   *         {@link WebSocketFrame}
+   */
   public WebSocketFramePayloadLengthType getPayloadLengthType() {
     return firstNibble.getPayloadLengthType();
   }
 
+  /**
+   * @return true if the current {@link WebSocketFrame} is a control frame, false
+   *         otherwise
+   */
   public boolean isControlFrame() {
     return switch (getOpcodeMeaning()) {
       case CONNECTION_CLOSE, PING, PONG ->
@@ -202,6 +268,10 @@ public final class WebSocketFrame {
     };
   }
 
+  /**
+   * @return true if the current {@link WebSocketFrame} is a data frame, false
+   *         otherwise
+   */
   public boolean isDataFrame() {
     return switch (getOpcodeMeaning()) {
       case TEXT_FRAME, BINARY_FRAME ->
@@ -211,22 +281,41 @@ public final class WebSocketFrame {
     };
   }
 
+  /**
+   * @return true if the current {@link WebSocketFrame} is a final fragment, false
+   *         otherwise
+   */
   public boolean isFinalFragment() {
     return getFINBit();
   }
 
+  /**
+   * @return true if the current {@link WebSocketFrame} is a ping frame, false
+   *         otherwise
+   */
   public boolean isPingFrame() {
     return (getOpcodeMeaning() == WebSocketFrameOpcodeMeaning.PING);
   }
 
+  /**
+   * @return true if the current {@link WebSocketFrame} is a pong frame, false
+   *         otherwise
+   */
   public boolean isPongFrame() {
     return (getOpcodeMeaning() == WebSocketFrameOpcodeMeaning.PONG);
   }
 
+  /**
+   * @return true if the current {@link WebSocketFrame} masks its payload, false
+   *         otherwise
+   */
   public boolean masksPayload() {
     return getMaskBit();
   }
 
+  /**
+   * @return the bytes of the current {@link WebSocketFrame}
+   */
   public byte[] toBytes() {
     final var bytes = new byte[getLengthInBytes().intValue()];
 

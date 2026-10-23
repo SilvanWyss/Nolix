@@ -12,17 +12,43 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
  */
 public interface IXmlNode<N extends IXmlNode<N>>
 extends FluentMutableOptionalNameHolder<N> {
+  /**
+   * @return true if the current {@link IXmlNode} contains attributes, false
+   *         otherwise
+   */
   boolean containsAttributes();
 
+  /**
+   * @return true if the current {@link IXmlNode} contains child nodes, false
+   *         otherwise
+   */
   boolean containsChildNodes();
 
+  /**
+   * @return the attributes of the current {@link IXmlNode}
+   */
   ExtendedIterable<IXmlAttribute> getAttributes();
 
+  /**
+   * @return the child nodes of the current {@link IXmlNode}
+   */
   ExtendedIterable<N> getStoredChildNodes();
 
+  /**
+   * @return the value of the current {@link IXmlNode}
+   * @throws RuntimeException if the current {@link IXmlNode} does not have a
+   *                          value
+   */
   String getValue();
 
+  /**
+   * @return true if the current {@link IXmlNode} has a value and child nodes,
+   *         false otherwise
+   */
   boolean hasMixedContent();
 
+  /**
+   * @return true if the current {@link IXmlNode} has a value, false otherwise
+   */
   boolean hasValue();
 }

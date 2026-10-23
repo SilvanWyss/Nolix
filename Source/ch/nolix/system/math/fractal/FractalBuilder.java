@@ -59,6 +59,9 @@ public final class FractalBuilder implements IFractalBuilder {
 
   private int decimalPlaces = DEFAULT_BIG_DECIMAL_SCALE;
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Fractal build() {
     return //

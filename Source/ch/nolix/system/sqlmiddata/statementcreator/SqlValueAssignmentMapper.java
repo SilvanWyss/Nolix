@@ -15,6 +15,9 @@ import ch.nolix.systemapi.sqlmiddata.statementcreator.ISqlValueAssignmentMapper;
 public final class SqlValueAssignmentMapper implements ISqlValueAssignmentMapper {
   private static final SqlLiteralMapper SQL_LITERAL_MAPPER = new SqlLiteralMapper();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ExtendedIterable<String> mapValueStringFieldDtoToSqlValueAssignemnts(
     final ValueStringFieldDto valueStringFieldDto) {

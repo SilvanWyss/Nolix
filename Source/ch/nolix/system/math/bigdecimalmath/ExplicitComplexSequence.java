@@ -22,6 +22,10 @@ public final class ExplicitComplexSequence extends AbstractSequence<IComplexNumb
     this.valueSupplier = valueSupplier;
   }
 
+  /**
+   * @param valueSupplier
+   * @return a new {@link ExplicitComplexSequence} with the given valueSupplier
+   */
   public static ExplicitComplexSequence withValueSupplier(final IntFunction<IComplexNumber> valueSupplier) {
     return new ExplicitComplexSequence(valueSupplier);
   }

@@ -12,5 +12,9 @@ import ch.nolix.systemapi.webgui.main.Control;
  *            for.
  */
 public interface IControlHtmlBuilder<C extends Control<C, ?>> {
+  /**
+   * @param control
+   * @return a new {@link IHtmlElement} for the given control
+   */
   IHtmlElement createHtmlElementForControl(C control);
 }

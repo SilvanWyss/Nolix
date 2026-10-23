@@ -42,6 +42,13 @@ public final class SchemaWriterActionProvider {
   private SchemaWriterActionProvider() {
   }
 
+  /**
+   * Adds the given column to the given table in the given nodeDatabase.
+   * 
+   * @param nodeDatabase
+   * @param table
+   * @param column
+   */
   public static void addColumn(
     final IMutableNode<?> nodeDatabase,
     final TableIdentification table,
@@ -54,10 +61,24 @@ public final class SchemaWriterActionProvider {
     tableNode.addChildNode(COLUMN_NODE_MAPPER.mapColumnDtoToColumnNode(column));
   }
 
+  /**
+   * Adds the given table to the given nodeDatabase.
+   * 
+   * @param nodeDatabase
+   * @param table
+   */
   public static void addTable(final IMutableNode<?> nodeDatabase, final TableDto table) {
     nodeDatabase.addChildNode(TABLE_NODE_MAPPER.mapTableDtoToNode(table));
   }
 
+  /**
+   * Deletes the column with the given columnName from the given table in the
+   * given nodeDatabase.
+   * 
+   * @param nodeDatabase
+   * @param table
+   * @param columnName
+   */
   public static void deleteColumn(
     final IMutableNode<?> nodeDatabase,
     final TableIdentification table,
@@ -73,6 +94,12 @@ public final class SchemaWriterActionProvider {
         .hasHeader(columnName));
   }
 
+  /**
+   * Deletes the table with the given tableName from the given nodeDatabase.
+   * 
+   * @param nodeDatabase
+   * @param tableName
+   */
   public static void deleteTable(final IMutableNode<?> nodeDatabase, final String tableName) {
     nodeDatabase.removeFirstChildNodeThat(
       (final Node<?> a) -> a.hasHeader(NodeHeaderCatalog.TABLE)
@@ -80,6 +107,15 @@ public final class SchemaWriterActionProvider {
         .hasHeader(tableName));
   }
 
+  /**
+   * Renames the column with the given columnName of the table with the given
+   * tableName in the given nodeDatabase to the given newColumnName.
+   * 
+   * @param nodeDatabase
+   * @param tableName
+   * @param columnName
+   * @param newColumnName
+   */
   public static void renameColumn(
     final IMutableNode<?> nodeDatabase,
     final String tableName,
@@ -92,6 +128,14 @@ public final class SchemaWriterActionProvider {
     headerNode.setHeader(newColumnName);
   }
 
+  /**
+   * Renames the table with the given tableName in the given nodeDatabase to the
+   * given newTableName.
+   * 
+   * @param nodeDatabase
+   * @param tableName
+   * @param newTableName
+   */
   public static void renameTable(
     final IMutableNode<?> nodeDatabase,
     final String tableName,
@@ -102,6 +146,19 @@ public final class SchemaWriterActionProvider {
     nameNode.getStoredSingleChildNode().setHeader(newTableName);
   }
 
+  /**
+   * Sets the given fieldType, dataType, referenceableTableIds and
+   * backReferenceableColumnIds as model of the given column of the given table in
+   * the given nodeDatabase.
+   * 
+   * @param nodeDatabase
+   * @param table
+   * @param column
+   * @param fieldType
+   * @param dataType
+   * @param referenceableTableIds
+   * @param backReferenceableColumnIds
+   */
   public static void setColumnModel(
     final IMutableNode<?> nodeDatabase,
     final TableIdentification table,
@@ -136,6 +193,12 @@ public final class SchemaWriterActionProvider {
     backReferenceableColumnIdsNode.setChildNodes(backReferenceableColumnIdNodes);
   }
 
+  /**
+   * Sets the given schemaTimestamp to the given nodeDatabase.
+   * 
+   * @param nodeDatabase
+   * @param schemaTimestamp
+   */
   public static void setSchemaTimestamp(final IMutableNode<?> nodeDatabase, final ITime schemaTimestamp) {
     final var databasePropertiesNode = //
     DATABASE_NODE_SEARCHER.getStoredDatabasePropertiesNodeFromNodeDatabase(nodeDatabase);

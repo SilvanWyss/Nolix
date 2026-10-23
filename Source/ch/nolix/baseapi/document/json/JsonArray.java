@@ -10,5 +10,8 @@ import ch.nolix.baseapi.generalstate.staterequest.EmptinessRequestable;
  * @author Silvan Wyss
  */
 public interface JsonArray extends EmptinessRequestable, JsonValue {
+  /**
+   * @return the {@link JsonObject}s of the current {@link JsonArray}
+   */
   ExtendedIterable<JsonObject> getStoredObjects();
 }

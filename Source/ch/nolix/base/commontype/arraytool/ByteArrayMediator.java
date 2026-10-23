@@ -21,6 +21,10 @@ public final class ByteArrayMediator implements IByteArrayMediator {
     this.byteArray = byteArray; // NOSONAR: A ByteArrayMediator operates on the original instance.
   }
 
+  /**
+   * @param byteArray
+   * @return a new {@link ByteArrayMediator} for the given byteArray
+   */
   public static ByteArrayMediator forByteArray(final byte[] byteArray) {
     return new ByteArrayMediator(byteArray);
   }

@@ -15,6 +15,10 @@ public final class PascalCaseTransformer {
   private PascalCaseTransformer() {
   }
 
+  /**
+   * @param string
+   * @return the Pascal case representation of the given string
+   */
   public static String toPascalCase(final String string) {
     if (string.isEmpty()) {
       return StringCatalog.EMPTY_STRING;

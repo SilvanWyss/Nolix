@@ -86,6 +86,12 @@ public final class Background extends AbstractElement implements IBackground {
     this.imageApplication = imageApplication;
   }
 
+  /**
+   * @param specification
+   * @return a new {@link Background} from the given specification
+   * @throws RuntimeException if the given specification does not represent a
+   *                          {@link Background}
+   */
   public static Background fromSpecification(final Node<?> specification) {
     final var childNode = specification.getStoredFirstChildNode();
 
@@ -105,18 +111,35 @@ public final class Background extends AbstractElement implements IBackground {
     };
   }
 
+  /**
+   * @param color
+   * @return a new {@link Background} with the given color
+   */
   public static Background withColor(final IColor color) {
     return new Background(color);
   }
 
+  /**
+   * @param colorGradient
+   * @return a new {@link Background} with the given colorGradient
+   */
   public static Background withColorGradient(final IColorGradient colorGradient) {
     return new Background(colorGradient);
   }
 
+  /**
+   * @param image
+   * @return a new {@link Background} with the given image
+   */
   public static Background withImage(final Image image) {
     return withImageAndImageApplication(image, DEFAULT_IMAGE_APPLICATION);
   }
 
+  /**
+   * @param image
+   * @param imageApplication
+   * @return a new {@link Background} with the given image and imageApplication
+   */
   public static Background withImageAndImageApplication(
     final Image image,
     final ImageApplication imageApplication) {
@@ -214,18 +237,32 @@ public final class Background extends AbstractElement implements IBackground {
     return BackgroundType.TRANSPARENCY;
   }
 
+  /**
+   * @return true if the current {@link Background} is a color, false otherwise
+   */
   public boolean isColor() {
     return (color != null);
   }
 
+  /**
+   * @return true if the current {@link Background} is a color gradient, false
+   *         otherwise
+   */
   public boolean isColorGradient() {
     return (colorGradient != null);
   }
 
+  /**
+   * @return true if the current {@link Background} is an image, false otherwise
+   */
   public boolean isImage() {
     return (image != null);
   }
 
+  /**
+   * @return true if the current {@link Background} is transparent, false
+   *         otherwise
+   */
   public boolean isTransparent() {
     return !isColor() && !isColorGradient() && !isImage();
   }

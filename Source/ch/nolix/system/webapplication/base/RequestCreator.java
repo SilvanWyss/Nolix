@@ -13,6 +13,11 @@ public final class RequestCreator {
   private RequestCreator() {
   }
 
+  /**
+   * @param cookieName
+   * @return a new request to get the value of the cookie with the given
+   *         cookieName
+   */
   public static ImmutableChainedNode createGetCookieValueRequestForCookieName(final String cookieName) {
     return //
     ImmutableChainedNode.withHeaderAndChildNode(
@@ -20,10 +25,18 @@ public final class RequestCreator {
       ImmutableChainedNode.withHeader(cookieName));
   }
 
+  /**
+   * @return a new request to get the text from the clipboard
+   */
   public static ImmutableChainedNode createGetTextFromClipboardRequest() {
     return ImmutableChainedNode.withHeader(RequestProtocol.GET_TEXT_FROM_CLIPBOARD);
   }
 
+  /**
+   * @param urlParameterName
+   * @return a new request to get the value of the URL parameter with the given
+   *         urlParameterName
+   */
   public static ImmutableChainedNode createGetUrlParameterValueRequestForUrlParameterName(
     final String urlParameterName) {
     return //

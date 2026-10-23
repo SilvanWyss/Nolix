@@ -17,6 +17,17 @@ public final class BaseBackReferenceUpdater {
   private BaseBackReferenceUpdater() {
   }
 
+  /**
+   * Updates the given baseBackReference for the case that a BaseReference that
+   * references the {@link Entity} with the given backReferencedEntityId is
+   * cleared.
+   * 
+   * @param baseBackReference
+   * @param backReferencedEntityId
+   * @throws RuntimeException if the given baseBackReference is not a
+   *                          {@link BackReference}, {@link OptionalBackReference}
+   *                          or {@link MultiBackReference}
+   */
   public static void updateBaseBackReferenceForClearBaseReference(
     final BaseBackReference baseBackReference,
     final String backReferencedEntityId) {
@@ -32,6 +43,16 @@ public final class BaseBackReferenceUpdater {
     }
   }
 
+  /**
+   * Updates the given baseBackReference, that references back the given entity,
+   * for the case that the given entity is deleted.
+   * 
+   * @param baseBackReference
+   * @param entity
+   * @throws RuntimeException if the given baseBackReference is not a
+   *                          {@link BackReference}, {@link OptionalBackReference}
+   *                          or {@link MultiBackReference}
+   */
   public static void updateBaseBackReferenceThatReferencesBackEntityForDeleteEntity(
     final BaseBackReference baseBackReference,
     final Entity entity) {
@@ -49,6 +70,12 @@ public final class BaseBackReferenceUpdater {
     }
   }
 
+  /**
+   * Updates the {@link BaseBackReference}s that reference back the given entity
+   * for the case that the given entity is deleted.
+   * 
+   * @param entity
+   */
   public static void updateBaseBackReferencesThatReferencesBackEntityForDeleteEntity(final Entity entity) {
     final var baseBackReferences = ENTITY_SEARCHER.getStoredBaseBackReferencesThatReferenceBackEntity(entity);
 

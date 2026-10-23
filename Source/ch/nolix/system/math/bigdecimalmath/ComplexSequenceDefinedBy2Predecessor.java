@@ -36,6 +36,13 @@ implements ISequenceDefinedBy2Predecessor<IComplexNumber> {
     this.nextValueSupplier = nextValueSupplier;
   }
 
+  /**
+   * @param firstValue
+   * @param secondValue
+   * @param nextValueSupplier
+   * @return a new {@link ComplexSequenceDefinedBy2Predecessor} with the given
+   *         firstValue, secondValue and nextValueSupplier
+   */
   public static ComplexSequenceDefinedBy2Predecessor withFirstValueAndSecondValueAndNextValueSupplier(
     final IComplexNumber firstValue,
     final IComplexNumber secondValue,

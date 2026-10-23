@@ -15,6 +15,10 @@ public final class CapitalSnakeCaseTransformer {
   private CapitalSnakeCaseTransformer() {
   }
 
+  /**
+   * @param string
+   * @return the capital snake case representation of the given string
+   */
   public static String toCapitalSnakeCase(final String string) {
     if (string.isEmpty()) {
       return StringCatalog.EMPTY_STRING;

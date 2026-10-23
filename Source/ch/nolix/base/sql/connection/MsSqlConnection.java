@@ -21,6 +21,14 @@ public final class MsSqlConnection extends AbstractSqlConnection {
     super(SQL_DATABASE_ENGINE, host, port, userName, userPassword);
   }
 
+  /**
+   * @param host
+   * @param port
+   * @param userName
+   * @param userPassword
+   * @return a new {@link MsSqlConnection} to the MSSQL server with the given host
+   *         and port, that uses the given userName and userPassword
+   */
   public static MsSqlConnection toHostAndPortAndWithUserNameAndUserPassword(
     final String host,
     final int port,
@@ -29,6 +37,13 @@ public final class MsSqlConnection extends AbstractSqlConnection {
     return new MsSqlConnection(host, port, userName, userPassword);
   }
 
+  /**
+   * @param port
+   * @param userName
+   * @param userPassword
+   * @return a new {@link MsSqlConnection} to the MSSQL server on the local host
+   *         with the given port, that uses the given userName and userPassword
+   */
   public static MsSqlConnection toLocalHostAndPortAndWithUserNameAndUserPassword(
     final int port,
     final String userName,

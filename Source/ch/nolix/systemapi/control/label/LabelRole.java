@@ -21,6 +21,12 @@ public enum LabelRole {
   WARNING_LABEL,
   ERROR_LABEL;
 
+  /**
+   * @param specification
+   * @return the {@link LabelRole} the given specification represents
+   * @throws RuntimeException if the given specification does not represent a
+   *                          {@link LabelRole}
+   */
   public static LabelRole fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }

@@ -98,6 +98,9 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     return statements;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToAddBackReferenceableColumn(
     final ColumnIdentification parentBaseBackReferenceColumn,

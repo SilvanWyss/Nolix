@@ -36,6 +36,9 @@ AndSchemaCaptor<IEntityTypeSet, MsSqlDataAdapter>>>>>> {
     setBuilder(this::buildMsSqlDataAdapter);
   }
 
+  /**
+   * @return a new {@link MsSqlDataAdapterBuilder}
+   */
   public static MsSqlDataAdapterBuilder createMsSqlDataAdapter() {
     return new MsSqlDataAdapterBuilder();
   }

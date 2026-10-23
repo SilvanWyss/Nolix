@@ -36,6 +36,12 @@ public final class SchemaReader implements ISchemaReader {
     this.sqlConnection = sqlConnection;
   }
 
+  /**
+   * @param databaseName
+   * @param sqlConnection
+   * @return a new {@link SchemaReader} for the database with the given
+   *         databaseName using the given sqlConnection
+   */
   public static SchemaReader forDatabaseNameAndSqlConnection(
     final String databaseName,
     final ISqlConnection sqlConnection) {

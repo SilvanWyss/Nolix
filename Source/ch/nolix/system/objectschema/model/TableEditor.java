@@ -15,6 +15,12 @@ public final class TableEditor {
   private TableEditor() {
   }
 
+  /**
+   * Adds the given column to the given table.
+   * 
+   * @param table
+   * @param column
+   */
   public static void addColumnToTable(final Table table, final Column column) {
     table.addColumnAttribute(column);
     column.setParentTableAttribute(table);
@@ -32,6 +38,11 @@ public final class TableEditor {
     table.setEdited();
   }
 
+  /**
+   * Deletes the given table.
+   * 
+   * @param table
+   */
   public static void deleteTable(final Table table) {
     if (table.belongsToDatabase()) {
       table.getStoredParentDatabase().removeTableAttribute(table);
@@ -44,6 +55,12 @@ public final class TableEditor {
     table.setDeleted();
   }
 
+  /**
+   * Sets the given name to the given table.
+   * 
+   * @param table
+   * @param name
+   */
   public static void setNameToTable(final Table table, final String name) {
     final var oldName = table.getName();
 

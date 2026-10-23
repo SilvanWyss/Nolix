@@ -49,6 +49,13 @@ final class WebSocketEndPoint extends AbstractNetEndPoint {
     createMessageListenerAndWaitToTargetInfo();
   }
 
+  /**
+   * @param socket
+   * @param socketInputStream
+   * @param socketOutputStream
+   * @return a new {@link WebSocketEndPoint} with the given socket,
+   *         socketInputStream and socketOutputStream
+   */
   public static WebSocketEndPoint withSocketAndSocketInputStreamAndSocketOutputStream(
     final Socket socket,
     final InputStream socketInputStream,

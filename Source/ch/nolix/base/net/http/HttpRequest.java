@@ -16,6 +16,10 @@ public record HttpRequest(String content) {
 
   public static final String HTTP_HEADER = "HTTP";
 
+  /**
+   * @param lines
+   * @return true if the given lines can be a {@link HttpRequest}, false otherwise
+   */
   public static boolean canBe(final ExtendedIterable<String> lines) {
     return lines.containsMatching(l -> l.contains(HTTP_HEADER))
     && lines.containsMatching(l -> l.contains(HOST_HEADER))
@@ -29,6 +33,9 @@ public record HttpRequest(String content) {
     this.content = content;
   }
 
+  /**
+   * @return the content of the current {@link HttpRequest}
+   */
   public String getContent() {
     return content;
   }

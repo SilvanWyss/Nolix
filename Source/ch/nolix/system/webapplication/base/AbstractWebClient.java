@@ -29,6 +29,9 @@ implements ICookieManager {
 
   private final FileReader fileReader = FileReader.forBackendWebClient(this);
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void deleteCookieByName(final String name) {
     final var deleteCookieCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createDeleteCookieCommand(name);
@@ -47,6 +50,13 @@ implements ICookieManager {
     return cookieValueData.getOptionalHeader();
   }
 
+  /**
+   * @param urlParameterName
+   * @return a {@link Optional} with the value of the URL parameter with the given
+   *         urlParameterName if the counterpart of the current
+   *         {@link AbstractWebClient} has such a URL parameter, an empty
+   *         {@link Optional} otherwise
+   */
   public final Optional<String> getOptionalUrlParameterValueByUrlParameterName(final String urlParameterName) {
     final var getUrlParameterValueRequest = //
     RequestCreator.createGetUrlParameterValueRequestForUrlParameterName(urlParameterName);

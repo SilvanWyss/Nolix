@@ -20,6 +20,9 @@ import ch.nolix.systemapi.objectschema.model.ITable;
  * @author Silvan Wyss
  */
 public final class ColumnMapper implements IColumnMapper {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IColumn mapFieldToColumn(final Field field, final String columnId, final ExtendedIterable<ITable> tables) {
     if (field instanceof final BaseValueField<?> baseValueField) {

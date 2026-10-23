@@ -11,5 +11,8 @@ import ch.nolix.baseapi.generalstate.staterequest.MaterializationRequestable;
  *            to.
  */
 public interface Materiazable<M> extends MaterializationRequestable {
+  /**
+   * @return a new materialized object from the current {@link Materiazable}
+   */
   M toMaterialized();
 }

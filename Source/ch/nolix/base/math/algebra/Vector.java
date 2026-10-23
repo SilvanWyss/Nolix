@@ -156,6 +156,11 @@ public final class Vector {
     return toString().hashCode();
   }
 
+  /**
+   * @param vector
+   * @return true if the current {@link Vector} has the same size as the given
+   *         vector, false otherwise
+   */
   public boolean hasSameSizeAs(final Vector vector) {
     return (getSize() == vector.getSize());
   }

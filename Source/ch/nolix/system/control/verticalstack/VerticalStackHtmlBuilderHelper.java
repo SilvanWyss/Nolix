@@ -16,6 +16,11 @@ public final class VerticalStackHtmlBuilderHelper {
   private VerticalStackHtmlBuilderHelper() {
   }
 
+  /**
+   * @param verticalStack
+   * @return new {@link HtmlElement}s for the child controls of the given
+   *         verticalStack
+   */
   public static ExtendedIterable<HtmlElement> createHtmlElementsForChildControlsOfVerticalStack(
     final IVerticalStack verticalStack) {
     return verticalStack.getStoredChildControls().to(VerticalStackHtmlBuilderHelper::createHtmlElementsForChildControl);

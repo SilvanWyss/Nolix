@@ -55,18 +55,36 @@ implements ISelectingStyleWithSelectors {
     memberSelectorTokens = ImmutableList.fromIterable(selectorTokens);
   }
 
+  /**
+   * @param selectorRole
+   * @return true if the current {@link AbstractSelectingStyle} contains the given
+   *         selectorRole, false otherwise
+   */
   public final boolean containsSelectorRole(final String selectorRole) {
     return memberSelectorRoles.containsEqual(selectorRole);
   }
 
+  /**
+   * @return true if the current {@link AbstractSelectingStyle} contains selector
+   *         roles, false otherwise
+   */
   public final boolean containsSelectorRoles() {
     return memberSelectorRoles.containsAny();
   }
 
+  /**
+   * @param selectorToken
+   * @return true if the current {@link AbstractSelectingStyle} contains the given
+   *         selectorToken, false otherwise
+   */
   public final boolean containsSelectorToken(final String selectorToken) {
     return memberSelectorTokens.containsEqual(selectorToken);
   }
 
+  /**
+   * @return true if the current {@link AbstractSelectingStyle} contains selector
+   *         tokens, false otherwise
+   */
   public final boolean containsSelectorTokens() {
     return memberSelectorTokens.containsAny();
   }
@@ -146,6 +164,11 @@ implements ISelectingStyleWithSelectors {
     return (memberSelectorId != null);
   }
 
+  /**
+   * @param selectorId
+   * @return true if the current {@link AbstractSelectingStyle} has the given
+   *         selectorId, false otherwise
+   */
   public final boolean hasSelectorId(final String selectorId) {
     if (!hasSelectorId()) {
       return false;
@@ -162,12 +185,22 @@ implements ISelectingStyleWithSelectors {
     return (memberSelectorType != null);
   }
 
+  /**
+   * @param selectorType
+   * @return true if the current {@link AbstractSelectingStyle} has the given
+   *         selectorType, false otherwise
+   */
   public final boolean hasSelectorType(final Class<?> selectorType) {
     return //
     selectorType != null
     && hasSelectorType(selectorType.getSimpleName());
   }
 
+  /**
+   * @param selectorType
+   * @return true if the current {@link AbstractSelectingStyle} has the given
+   *         selectorType, false otherwise
+   */
   public final boolean hasSelectorType(final String selectorType) {
     if (!hasSelectorType()) {
       return false;
@@ -228,6 +261,9 @@ implements ISelectingStyleWithSelectors {
     return withAdditionalSelectorRoles(selectorRolesContainer);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final ISelectingStyleWithSelectors withAdditionalSelectorToken(final String additionalSelectorToken) {
     final var additionalSelectorTokens = ImmutableList.withElement(additionalSelectorToken);

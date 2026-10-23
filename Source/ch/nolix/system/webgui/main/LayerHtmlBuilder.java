@@ -20,6 +20,10 @@ public final class LayerHtmlBuilder {
   private LayerHtmlBuilder() {
   }
 
+  /**
+   * @param layer
+   * @return a new {@link IHtmlElement} for the given layer
+   */
   public static IHtmlElement getHtmlElementForLayer(final ILayer layer) {
     return HtmlElement.withTypeAndAttributesAndChildElements(
       HtmlElementTypeCatalog.DIV,
@@ -33,6 +37,10 @@ public final class LayerHtmlBuilder {
     return ImmutableList.withElements(idHtmlAttribute);
   }
 
+  /**
+   * @param layer
+   * @return a new id {@link IHtmlAttribute} for the given layer
+   */
   public static IHtmlAttribute createIdHtmlAttributeForLayer(final ILayer layer) {
     return HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalog.ID, layer.getInternalId());
   }

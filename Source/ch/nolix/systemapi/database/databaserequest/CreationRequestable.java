@@ -7,5 +7,9 @@ package ch.nolix.systemapi.database.databaserequest;
  * @author Silvan Wyss
  */
 public interface CreationRequestable {
+  /**
+   * @return true if the current {@link CreationRequestable} is new, false
+   *         otherwise
+   */
   boolean isNew();
 }

@@ -32,6 +32,9 @@ AndPasswordCaptor<SqlConnectionPool>>>>>> {
     setBuilder(this::buildSqlConnectionPool);
   }
 
+  /**
+   * @return a new {@link SqlConnectionPoolBuilder}
+   */
   public static SqlConnectionPoolBuilder createConnectionPool() {
     return new SqlConnectionPoolBuilder();
   }

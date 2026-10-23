@@ -42,14 +42,27 @@ public final class WebSocketHandShakeResponse {
     }
   }
 
+  /**
+   * @param secWebSocketKey
+   * @return a new {@link WebSocketHandShakeResponse} with the given
+   *         secWebSocketKey
+   */
   public static WebSocketHandShakeResponse withSecWebSocketKey(final String secWebSocketKey) {
     return new WebSocketHandShakeResponse(secWebSocketKey);
   }
 
+  /**
+   * @return the Sec-WebSocket-Accept of the current
+   *         {@link WebSocketHandShakeResponse}
+   */
   public String getSecWebSocketAccept() {
     return secWebSocketAccept;
   }
 
+  /**
+   * @return the Sec-WebSocket-Key of the current
+   *         {@link WebSocketHandShakeResponse}
+   */
   public String getSecWebSocketKey() {
     return secWebSocketKey;
   }

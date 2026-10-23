@@ -15,10 +15,20 @@ public final class ByteMediator extends AbstractByteMediator {
     super(argument, argumentName);
   }
 
+  /**
+   * @param argument
+   * @return a new {@link ByteMediator} for the given argument
+   */
   public static ByteMediator forArgument(final byte argument) {
     return new ByteMediator(argument);
   }
 
+  /**
+   * @param argument
+   * @param argumentName
+   * @return a new {@link ByteMediator} for the given argument with the given
+   *         argumentName
+   */
   public static ByteMediator forArgumentAndArgumentName(final byte argument, final String argumentName) {
     return new ByteMediator(argument, argumentName);
   }

@@ -52,6 +52,10 @@ public final class BackgroundToCssMapperHelper {
     };
   }
 
+  /**
+   * @param background
+   * @return the CSS properties for the given background, that is a color
+   */
   public static ExtendedIterable<ICssProperty> mapBackgroundToCssPropertiesWhenIsColor(final IBackground background) {
     final var color = background.getColor();
     final var colorCssValue = CSS_VALUE_MAPPER.mapColorToCssValue(color);
@@ -60,6 +64,10 @@ public final class BackgroundToCssMapperHelper {
     return ImmutableList.withElements(backgroundCssProperty);
   }
 
+  /**
+   * @param background
+   * @return the CSS properties for the given background, that is a color gradient
+   */
   public static ExtendedIterable<ICssProperty> mapBackgroundToCssPropertiesWhenIsColorGradient(
     final IBackground background) {
     final var colorGradient = background.getColorGradient();
@@ -74,6 +82,10 @@ public final class BackgroundToCssMapperHelper {
     return ImmutableList.withElements(backgroundCssProperty);
   }
 
+  /**
+   * @param background
+   * @return the CSS properties for the given background, that is an image
+   */
   public static ExtendedIterable<ICssProperty> mapBackgroundToCssPropertiesWhenIsImage(final IBackground background) {
     final var image = background.getImage();
     final var imageCode = "data:image/jpeg;base64," + image.toBase64Jpg();
@@ -88,6 +100,10 @@ public final class BackgroundToCssMapperHelper {
     return ImmutableList.withElements(backgroundImageCssProperty, backgroundRepeatCssProperty);
   }
 
+  /**
+   * @param imageApplication
+   * @return the background-repeat CSS property for the given imageApplication
+   */
   public static ICssProperty mapImageApplicationToBackgroundRepeatCssProperty(final ImageApplication imageApplication) {
     return //
     switch (imageApplication) {

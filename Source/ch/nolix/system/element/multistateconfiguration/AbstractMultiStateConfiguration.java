@@ -43,6 +43,9 @@ implements MultiStateConfiguration<C, S> {
     return AbstractProperty.class.isAssignableFrom(field.getType());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void addChild(final MultiStateConfiguration<?, S> child) {
     Validator.assertThat(child).thatIsNamed(LowerCaseVariableNameCatalog.CHILD).isNotNull();
@@ -107,6 +110,9 @@ implements MultiStateConfiguration<C, S> {
     return baseState.getEnumValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public <T extends MultiStateConfiguration<T, S>> void removeChild(final T multiStateConfiguration) {
     @SuppressWarnings("unchecked")
@@ -123,6 +129,12 @@ implements MultiStateConfiguration<C, S> {
     getStoredProperties().forEach(AbstractProperty::setUndefined);
   }
 
+  /**
+   * Sets the values of the given element to the current
+   * {@link AbstractMultiStateConfiguration}.
+   * 
+   * @param element
+   */
   public final void setFrom(final C element) {
     @SuppressWarnings("unchecked")
     final var iterator = ((AbstractMultiStateConfiguration<C, S>) element).getStoredProperties().iterator();

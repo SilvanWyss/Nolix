@@ -13,10 +13,19 @@ public final class NamableTimeMediator extends AbstractTimeMediator {
     super(argument);
   }
 
+  /**
+   * @param argument
+   * @return a new {@link NamableTimeMediator} for the given argument
+   */
   public static NamableTimeMediator forArgument(ITime argument) {
     return new NamableTimeMediator(argument);
   }
 
+  /**
+   * @param argumentName
+   * @return a new {@link TimeMediator} for the argument of the current
+   *         {@link NamableTimeMediator} with the given argumentName
+   */
   public TimeMediator thatIsNamed(final String argumentName) {
     return TimeMediator.forArugmentNameAndArgument(argumentName, getStoredArgument());
   }

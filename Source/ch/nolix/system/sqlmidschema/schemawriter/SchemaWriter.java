@@ -54,6 +54,12 @@ public final class SchemaWriter implements ISchemaWriter {
     createCloseDependencyTo(this.sqlSchemaWriter);
   }
 
+  /**
+   * @param databaseName
+   * @param sqlConnection
+   * @return a new {@link SchemaWriter} for the database with the given
+   *         databaseName using the given sqlConnection
+   */
   public static SchemaWriter forDatabaseNameAndSqlConnection(
     final String databaseName,
     final ISqlConnection sqlConnection) {

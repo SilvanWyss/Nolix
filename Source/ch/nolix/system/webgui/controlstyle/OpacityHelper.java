@@ -12,6 +12,11 @@ public final class OpacityHelper {
   private OpacityHelper() {
   }
 
+  /**
+   * @param string
+   * @return the opacity the given string represents
+   * @throws RuntimeException if the given string does not represent an opacity
+   */
   public static double getOpacityFromString(final String string) {
     Validator.assertThat(string).isNotBlank();
 

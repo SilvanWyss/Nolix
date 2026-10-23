@@ -9,7 +9,13 @@ package ch.nolix.baseapi.datastructure.pair;
  * @param <V> the type of the value of a {@link IKeyValuePair}
  */
 public interface IKeyValuePair<K, V> {
+  /**
+   * @return the key of the current {@link IKeyValuePair}
+   */
   K getKey();
 
+  /**
+   * @return the value of the current {@link IKeyValuePair}
+   */
   V getStoredValue();
 }

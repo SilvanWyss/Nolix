@@ -21,6 +21,13 @@ public final class SqlConnectionHelper {
   private SqlConnectionHelper() {
   }
 
+  /**
+   * @param query
+   * @param statement
+   * @return the records the given query returns, executed with the given
+   *         statement
+   * @throws SQLException if a database access error occurs
+   */
   public static ExtendedIterable<ISqlRecord> getRecordsFromStatement(
     final String query,
     final Statement statement)

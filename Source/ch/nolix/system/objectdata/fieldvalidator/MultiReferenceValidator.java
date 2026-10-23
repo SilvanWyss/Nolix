@@ -17,6 +17,9 @@ extends AbstractFieldValidator<IMultiReference<Entity>>
 implements IMultiReferenceValidator {
   private static final MultiReferenceExaminer MULTI_REFERENCE_EXAMINER = new MultiReferenceExaminer();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public <E extends Entity> void assertCanAddEntity(final IMultiReference<E> multiReference, final E entity) {
     if (!MULTI_REFERENCE_EXAMINER.canAddEntity(multiReference, entity)) {

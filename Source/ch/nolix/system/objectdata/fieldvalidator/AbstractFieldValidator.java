@@ -23,6 +23,9 @@ extends AbstractDatabaseObjectValidator<F>
 implements IFieldValidator<F> {
   private static final FieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void assertBelongsToEntity(final Field field) {
     if (!field.belongsToEntity()) {

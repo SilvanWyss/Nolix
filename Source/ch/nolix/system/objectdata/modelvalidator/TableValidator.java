@@ -15,6 +15,9 @@ import ch.nolix.systemapi.objectdata.modelvalidator.ITableValidator;
 public final class TableValidator implements ITableValidator {
   private static final TableExaminer TABLE_EXAMINER = new TableExaminer();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertCanInsertEntity(final ITable<? extends Entity> table, final Entity entity) {
     if (!TABLE_EXAMINER.canInsertGivenEntity(table, entity)) {

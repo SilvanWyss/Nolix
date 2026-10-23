@@ -11,6 +11,12 @@ final class DatabaseMutationExecutor {
   private DatabaseMutationExecutor() {
   }
 
+  /**
+   * Adds the given table to the given database.
+   * 
+   * @param database
+   * @param table
+   */
   public static void addTableToDatabase(final Database database, final Table table) {
     database.addTableAttribute(table);
     table.setParentDatabase(database);

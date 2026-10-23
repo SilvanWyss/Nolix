@@ -22,6 +22,10 @@ public final class WebGuiCssBuilder {
   private WebGuiCssBuilder() {
   }
 
+  /**
+   * @param webGui
+   * @return a new {@link Css} for the given webGui
+   */
   public static Css createCssForWebGui(final IWebGui<?> webGui) {
     final ILinkedList<ICssRule> cssRules = LinkedList.createEmpty();
 

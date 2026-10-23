@@ -31,6 +31,9 @@ MsSqlSchemaAdapter>>>>> {
     setBuilder(this::buildMsSqlSchemaAdapter);
   }
 
+  /**
+   * @return a new {@link MsSqlSchemaAdapterBuilder}
+   */
   public static MsSqlSchemaAdapterBuilder createMsSqlSchemaAdapter() {
     return new MsSqlSchemaAdapterBuilder();
   }

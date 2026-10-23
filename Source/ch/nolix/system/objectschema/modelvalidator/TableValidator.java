@@ -20,6 +20,9 @@ import ch.nolix.systemapi.objectschema.modelvalidator.ITableValidator;
 public final class TableValidator extends AbstractDatabaseObjectValidator<ITable> implements ITableValidator {
   private static final TableExaminer TABLE_EXAMINER = new TableExaminer();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertContainsColumn(final ITable table, final IColumn column) {
     if (!TABLE_EXAMINER.containsColumn(table, column)) {

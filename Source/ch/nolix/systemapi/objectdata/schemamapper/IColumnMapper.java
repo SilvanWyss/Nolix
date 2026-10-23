@@ -12,5 +12,12 @@ import ch.nolix.systemapi.objectschema.model.ITable;
  * @author Silvan Wyss
  */
 public interface IColumnMapper {
+  /**
+   * @param field
+   * @param columnId
+   * @param referencedTables
+   * @return a new {@link IColumn} with the given columnId from the given field,
+   *         that can reference the given referencedTables
+   */
   IColumn mapFieldToColumn(Field field, String columnId, ExtendedIterable<ITable> referencedTables);
 }

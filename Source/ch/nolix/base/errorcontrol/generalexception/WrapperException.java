@@ -15,10 +15,20 @@ public final class WrapperException extends RuntimeException {
     super(errorMessage, error);
   }
 
+  /**
+   * @param error
+   * @return a new {@link WrapperException} for the given error
+   */
   public static WrapperException forError(final Throwable error) {
     return new WrapperException(error);
   }
 
+  /**
+   * @param errorMessage
+   * @param error
+   * @return a new {@link WrapperException} for the given error with the given
+   *         errorMessage
+   */
   public static WrapperException forErrorMessageAndError(final String errorMessage, final Throwable error) {
     return new WrapperException(errorMessage, error);
   }

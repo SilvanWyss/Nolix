@@ -22,14 +22,24 @@ record ServerHttpMessage(String serverIP, int serverPort) {
     this.serverPort = serverPort;
   }
 
+  /**
+   * @return the server IP of the current {@link ServerHttpMessage}
+   */
   public String getServerIP() {
     return serverIP;
   }
 
+  /**
+   * @return the server IP of the current {@link ServerHttpMessage} in single
+   *         quotes
+   */
   public String getServerIpInQuotes() {
     return "'" + getServerIP() + "'";
   }
 
+  /**
+   * @return the server port of the current {@link ServerHttpMessage}
+   */
   public int getServerPort() {
     return serverPort;
   }

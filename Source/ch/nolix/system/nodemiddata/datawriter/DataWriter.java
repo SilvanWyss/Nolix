@@ -44,6 +44,11 @@ public final class DataWriter implements IDataWriter {
     executiveDataWriter = ExecutiveDataWriter.forNodeDatabase(nodeDatabase);
   }
 
+  /**
+   * @param nodeDatabase
+   * @param databaseView
+   * @return a new {@link DataWriter} for the given nodeDatabase and databaseView
+   */
   public static DataWriter forNodeDatabaseAndDatabaseView(
     final IMutableNode<?> nodeDatabase,
     final DatabaseInfoDto databaseView) {

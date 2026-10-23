@@ -14,6 +14,10 @@ public enum CharacterType {
   DIGIT,
   OTHER;
 
+  /**
+   * @param character
+   * @return the {@link CharacterType} of the given character
+   */
   public static CharacterType ofCharacter(final char character) {
     return //
     switch (character) {

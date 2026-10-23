@@ -16,6 +16,9 @@ import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 public final class EntityNodeMapper implements IEntityNodeMapper {
   private static final FieldNodeMapper FIELD_NODE_MAPPER = new FieldNodeMapper();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   /**
    * {@inheritDoc}

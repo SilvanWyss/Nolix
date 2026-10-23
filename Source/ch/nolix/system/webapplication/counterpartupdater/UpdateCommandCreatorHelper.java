@@ -23,10 +23,18 @@ public final class UpdateCommandCreatorHelper {
   private UpdateCommandCreatorHelper() {
   }
 
+  /**
+   * @param css
+   * @return a new command to set the given css
+   */
   public static ImmutableChainedNode createSetCssCommandFromCss(final ICss css) {
     return createSetCssCommandFromCss(css.toStringWithoutEnclosingBrackets());
   }
 
+  /**
+   * @param css
+   * @return a new command to set the given css
+   */
   public static ImmutableChainedNode createSetCssCommandFromCss(final String css) {
     return ImmutableChainedNode.withHeaderAndNextNode(
       ObjectProtocol.GUI,
@@ -35,6 +43,12 @@ public final class UpdateCommandCreatorHelper {
         ImmutableChainedNode.withHeader(css)));
   }
 
+  /**
+   * @param htmlElementId
+   * @param htmlElement
+   * @return a new command to set the given htmlElement to the HTML element with
+   *         the given htmlElementId
+   */
   public static ImmutableChainedNode createSetHtmlElementCommandFromHtmlElement(
     final String htmlElementId,
     final IHtmlElement htmlElement) {
@@ -46,6 +60,11 @@ public final class UpdateCommandCreatorHelper {
         ImmutableChainedNode.withHeader(htmlElement.toString())));
   }
 
+  /**
+   * @param htmlElementEventRegistrations
+   * @return a new command to set the event functions for the given
+   *         htmlElementEventRegistrations
+   */
   public static ImmutableChainedNode createSetEventFunctionsCommandFromHtmlElementEventRegistrations(
     final ExtendedIterable<IHtmlElementEvent> htmlElementEventRegistrations) {
     final var eventFunctionsView = //
@@ -61,6 +80,10 @@ public final class UpdateCommandCreatorHelper {
         eventFunctionsView));
   }
 
+  /**
+   * @param htmlElement
+   * @return a new command to set the given htmlElement as root HTML element
+   */
   public static ImmutableChainedNode createSetRootHtmlElementCommandFromHtmlElement(final IHtmlElement htmlElement) {
     return ImmutableChainedNode.withHeaderAndNextNode(
       ObjectProtocol.GUI,
@@ -69,6 +92,10 @@ public final class UpdateCommandCreatorHelper {
         ImmutableChainedNode.withHeader(htmlElement.toString())));
   }
 
+  /**
+   * @param controls
+   * @return a new command to set the user input functions of the given controls
+   */
   public static ImmutableChainedNode createSetUserInputFunctionsCommandForControls(
     final ExtendedIterable<Control<?, ?>> controls) {
     final ILinkedList<ChainedNode> userInputFunctions = LinkedList.createEmpty();
@@ -88,6 +115,12 @@ public final class UpdateCommandCreatorHelper {
         userInputFunctions));
   }
 
+  /**
+   * @param control
+   * @param string
+   * @return a new user input function for the given control with the given string
+   *         as JavaScript code
+   */
   public static ImmutableChainedNode createUserInputFunctionFromControlAndString(
     final Control<?, ?> control,
     final String string) {

@@ -15,6 +15,11 @@ public final class IterableExaminerHelper {
   private IterableExaminerHelper() {
   }
 
+  /**
+   * @param iterable
+   * @return true if the elements of the given iterable equal the elements of the
+   *         given iterable in the same order, false otherwise
+   */
   public static boolean containsExactlyAllEqualInSameOrderWhenIterableNotNullAndObjectsNotNull(Iterable<?> iterable) {
     final var objectsIterator = iterable.iterator();
 
@@ -31,6 +36,12 @@ public final class IterableExaminerHelper {
     return !objectsIterator.hasNext();
   }
 
+  /**
+   * @param iterable
+   * @param object
+   * @return true if the given iterable contains the given object exactly once,
+   *         false otherwise
+   */
   public static boolean containsOnceWhenNotNull(final Iterable<?> iterable, final Object object) {
     var found = false;
 
@@ -47,6 +58,12 @@ public final class IterableExaminerHelper {
     return found;
   }
 
+  /**
+   * @param iterable
+   * @param object
+   * @return true if the given iterable contains exactly one element that equals
+   *         the given object, false otherwise
+   */
   public static boolean containsOneEqualWhenNotNull(final Iterable<?> iterable, final Object object) {
     var found = false;
 
@@ -63,6 +80,13 @@ public final class IterableExaminerHelper {
     return found;
   }
 
+  /**
+   * @param iterable
+   * @param selector
+   * @param <T>      the type of the elements of the given iterable
+   * @return true if the given iterable contains exactly one element the given
+   *         selector selects, false otherwise
+   */
   public static <T> boolean containsOneMatchingWhenNotNullAndSelectorNotNull(
     final Iterable<T> iterable,
     final Predicate<T> selector) {
@@ -81,6 +105,11 @@ public final class IterableExaminerHelper {
     return found;
   }
 
+  /**
+   * @param iterable
+   * @return true if the given iterable contains exactly one element that is not
+   *         null, false otherwise
+   */
   public static boolean containsOneNoneNullWhenNotNull(final Iterable<?> iterable) {
     var found = false;
 
@@ -97,6 +126,10 @@ public final class IterableExaminerHelper {
     return found;
   }
 
+  /**
+   * @param iterable
+   * @return the number of elements of the given iterable
+   */
   public static int getCount(final Iterable<?> iterable) {
     if (iterable != null) {
       var count = 0;
@@ -111,6 +144,10 @@ public final class IterableExaminerHelper {
     return 0;
   }
 
+  /**
+   * @param objects
+   * @return the number of the given objects
+   */
   public static int getCount(final Object[] objects) {
     if (objects != null) {
       return objects.length;
@@ -119,6 +156,10 @@ public final class IterableExaminerHelper {
     return 0;
   }
 
+  /**
+   * @param objects
+   * @return true if the given objects is empty, false otherwise
+   */
   public static boolean isEmpty(final Object[] objects) {
     if (objects != null) {
       return objects.length == 0;

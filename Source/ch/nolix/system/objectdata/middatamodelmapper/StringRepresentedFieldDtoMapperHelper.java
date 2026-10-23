@@ -22,6 +22,10 @@ public final class StringRepresentedFieldDtoMapperHelper {
   private StringRepresentedFieldDtoMapperHelper() {
   }
 
+  /**
+   * @param optionalValue
+   * @return a new {@link ValueStringFieldDto} from the given optionalValue
+   */
   public static ValueStringFieldDto mapOptionalValueToStringContentFieldDto(
     final IOptionalValueField<?> optionalValue) {
     final var columnName = optionalValue.getName();
@@ -33,6 +37,10 @@ public final class StringRepresentedFieldDtoMapperHelper {
     return new ValueStringFieldDto(columnName, optionalValue.getStoredValue().toString(), null);
   }
 
+  /**
+   * @param optionalReference
+   * @return a new {@link ValueStringFieldDto} from the given optionalReference
+   */
   public static ValueStringFieldDto mapOptionalReferenceToStringContentFieldDto(
     final IOptionalReference<?> optionalReference) {
     final var columnName = optionalReference.getName();
@@ -47,6 +55,11 @@ public final class StringRepresentedFieldDtoMapperHelper {
     return new ValueStringFieldDto(columnName, value, additionalValue);
   }
 
+  /**
+   * @param optionalBackReference
+   * @return a new {@link ValueStringFieldDto} from the given
+   *         optionalBackReference
+   */
   public static ValueStringFieldDto mapOptionalBackReferenceToStringContentFieldDto(
     final IOptionalBackReference<?> optionalBackReference) {
     final var columnName = optionalBackReference.getName();

@@ -43,6 +43,13 @@ public final class MultiReference<E extends Entity> extends AbstractBaseReferenc
     super(referenceableTableNames);
   }
 
+  /**
+   * @param entityTypes
+   * @param <T>         the type of the {@link Entity}s the created
+   *                    {@link MultiReference} can reference
+   * @return a new {@link MultiReference} that can reference {@link Entity}s of
+   *         the given entityTypes
+   */
   @SafeVarargs
   public static <T extends Entity> MultiReference<T> forEntityTypes(
     final Class<? extends T>... entityTypes) {
@@ -52,6 +59,13 @@ public final class MultiReference<E extends Entity> extends AbstractBaseReferenc
     return new MultiReference<>(referenceableTableNamesView);
   }
 
+  /**
+   * @param entityTypes
+   * @param <T>         the type of the {@link Entity}s the created
+   *                    {@link MultiReference} can reference
+   * @return a new {@link MultiReference} that can reference {@link Entity}s of
+   *         the given entityTypes
+   */
   public static <T extends Entity> MultiReference<T> forEntityTypes(
     final ExtendedIterable<Class<? extends T>> entityTypes) {
     final var referenceableTableNamesView = entityTypes.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
@@ -59,11 +73,25 @@ public final class MultiReference<E extends Entity> extends AbstractBaseReferenc
     return new MultiReference<>(referenceableTableNamesView);
   }
 
+  /**
+   * @param referenceableTableNames
+   * @param <T>                     the type of the {@link Entity}s the created
+   *                                {@link MultiReference} can reference
+   * @return a new {@link MultiReference} that can reference {@link Entity}s of
+   *         the ITables with the given referenceableTableNames
+   */
   public static <T extends Entity> MultiReference<T> forReferenceableTableNames(
     final ExtendedIterable<String> referenceableTableNames) {
     return new MultiReference<>(referenceableTableNames);
   }
 
+  /**
+   * @param referenceableTableNames
+   * @param <T>                     the type of the {@link Entity}s the created
+   *                                {@link MultiReference} can reference
+   * @return a new {@link MultiReference} that can reference {@link Entity}s of
+   *         the ITables with the given referenceableTableNames
+   */
   public static <T extends Entity> MultiReference<T> forReferenceableTableNames(
     final String... referenceableTableNames) {
     final var referenceableTableNamesView = ExtendedIterableView.forArray(referenceableTableNames);

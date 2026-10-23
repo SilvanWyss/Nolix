@@ -108,6 +108,12 @@ implements ILayer {
 
   private IWebGui<?> memberParentGui;
 
+  /**
+   * @param specification
+   * @return a new {@link Layer} from the given specification
+   * @throws RuntimeException if the given specification does not represent a
+   *                          {@link Layer}
+   */
   public static Layer fromSpecification(final Node<?> specification) {
     final var layer = new Layer();
     layer.resetFromSpecification(specification);
@@ -370,6 +376,9 @@ implements ILayer {
     background.clear();
   }
 
+  /**
+   * Removes the role of the current {@link Layer}.
+   */
   public void removeRole() {
     memberRole.clear();
   }
@@ -384,6 +393,12 @@ implements ILayer {
     }
   }
 
+  /**
+   * Sets the given background to the current {@link Layer}.
+   * 
+   * @param background
+   * @return the current {@link Layer}
+   */
   public Layer setBackground(final IBackground background) {
     this.background.setValue(background);
 

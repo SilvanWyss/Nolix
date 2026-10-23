@@ -15,6 +15,10 @@ public final class SqlConnectionFactory {
   private SqlConnectionFactory() {
   }
 
+  /**
+   * @param sqlConnectionPool
+   * @return a new {@link AbstractSqlConnection} for the given sqlConnectionPool
+   */
   public static AbstractSqlConnection createSqlConnectionForSqlConnectionPool(
     final SqlConnectionPool sqlConnectionPool) {
     return switch (sqlConnectionPool.getSqlDatabaseEngine()) {

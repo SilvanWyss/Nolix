@@ -13,6 +13,12 @@ public enum LayerRole {
   MAIN_LAYER,
   DIALOG_LAYER;
 
+  /**
+   * @param specification
+   * @return the {@link LayerRole} the given specification represents
+   * @throws RuntimeException if the given specification does not represent a
+   *                          {@link LayerRole}
+   */
   public static LayerRole fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }

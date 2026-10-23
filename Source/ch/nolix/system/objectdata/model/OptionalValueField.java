@@ -26,6 +26,12 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
     super(valueType);
   }
 
+  /**
+   * @param initialValue
+   * @param <V2>         the type of the given initialValue
+   * @return a new {@link OptionalValueField} with the given initialValue
+   * @throws RuntimeException if the given initialValue is null
+   */
   public static <V2> OptionalValueField<V2> withInitialValue(final V2 initialValue) {
     @SuppressWarnings("unchecked")
     final var optionalValue = (OptionalValueField<V2>) OptionalValueField.withValueType(initialValue.getClass());
@@ -35,6 +41,14 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
     return optionalValue;
   }
 
+  /**
+   * @param valueType
+   * @param <V2>      the type of the values of the created
+   *                  {@link OptionalValueField}
+   * @return a new empty {@link OptionalValueField} for values of the given
+   *         valueType
+   * @throws RuntimeException if the given valueType is null
+   */
   public static <V2> OptionalValueField<V2> withValueType(final Class<V2> valueType) {
     return new OptionalValueField<>(valueType);
   }

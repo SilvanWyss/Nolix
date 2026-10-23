@@ -12,6 +12,12 @@ public final class ChainedNodeComparator {
   private ChainedNodeComparator() {
   }
 
+  /**
+   * @param chainedNode1
+   * @param chainedNode2
+   * @return true if the given chainedNode1 and chainedNode2 are equal, false
+   *         otherwise
+   */
   public static boolean areEqual(final ChainedNode chainedNode1, final ChainedNode chainedNode2) {
     if (chainedNode1 == null) {
       return (chainedNode2 == null);

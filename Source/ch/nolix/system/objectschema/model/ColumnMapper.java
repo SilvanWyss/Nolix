@@ -15,6 +15,12 @@ public final class ColumnMapper {
   private ColumnMapper() {
   }
 
+  /**
+   * @param midTableDto
+   * @param tables
+   * @return new loaded {@link Column}s from the given midTableDto, that can
+   *         reference the given tables
+   */
   public static ExtendedIterable<Column> mapMidSchemaTableDtoToLoadedColumns(
     final TableDto midTableDto,
     final ExtendedIterable<Table> tables) {

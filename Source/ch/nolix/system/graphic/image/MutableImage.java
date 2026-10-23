@@ -62,16 +62,28 @@ extends AbstractMutableElementWithProperties implements IMutableImage<MutableIma
     this.pixels = pixels;
   }
 
+  /**
+   * @param image
+   * @return a new {@link MutableImage} with the pixels of the given image
+   */
   public static MutableImage fromAnyImage(final Image image) {
     return withPixels(image.getPixels());
   }
 
+  /**
+   * @param bytes
+   * @return a new {@link MutableImage} from the given bytes
+   */
   public static MutableImage fromBytes(final byte[] bytes) {
     final var bufferedImage = BufferedImageCreator.createBufferedImageFromBytes(bytes);
 
     return fromBufferedImage(bufferedImage);
   }
 
+  /**
+   * @param bufferedImage
+   * @return a new {@link MutableImage} from the given bufferedImage
+   */
   public static MutableImage fromBufferedImage(final BufferedImage bufferedImage) {
     final var image = MutableImage.withWidthAndHeightAndWhiteColor(bufferedImage.getWidth(), bufferedImage.getHeight());
     for (var i = 1; i <= image.getWidth(); i++) {
@@ -91,16 +103,30 @@ extends AbstractMutableElementWithProperties implements IMutableImage<MutableIma
     return image;
   }
 
+  /**
+   * @param filePath
+   * @return a new {@link MutableImage} from the file with the given filePath
+   */
   public static MutableImage fromFile(final String filePath) {
     final var bufferedImage = BufferedImageCreator.createBufferedImageFromFileWithFilePath(filePath);
 
     return fromBufferedImage(bufferedImage);
   }
 
+  /**
+   * @param path
+   * @return a new {@link MutableImage} from the resource with the given path
+   */
   public static MutableImage fromResource(final String path) {
     return fromBytes(RunningJar.getResourceAsBytes(path));
   }
 
+  /**
+   * @param specification
+   * @return a new {@link MutableImage} from the given specification
+   * @throws RuntimeException if the given specification does not represent an
+   *                          image
+   */
   public static MutableImage fromSpecification(final Node<?> specification) {
     if (specification.containsChildNodeWithHeader(JPG_STRING)) {
       final var lJPGString = specification.getStoredFirstChildNodeWithHeader(JPG_STRING).getSingleChildNodeHeader();
@@ -130,14 +156,29 @@ extends AbstractMutableElementWithProperties implements IMutableImage<MutableIma
     return image;
   }
 
+  /**
+   * @param string
+   * @return a new {@link MutableImage} from the given string
+   */
   public static MutableImage fromString(final String string) {
     return fromSpecification(ImmutableNode.fromString(string));
   }
 
+  /**
+   * @param pixels
+   * @return a new {@link MutableImage} with the given pixels
+   */
   public static MutableImage withPixels(final IMatrix<IColor> pixels) {
     return new MutableImage(MutableMatrix.fromMatrix(pixels));
   }
 
+  /**
+   * @param width
+   * @param height
+   * @param color
+   * @return a new {@link MutableImage} with the given width and height whose
+   *         pixels have the given color
+   */
   public static MutableImage withWidthAndHeightAndColor(final int width, final int height, final IColor color) {
     Validator.assertThat(width).thatIsNamed(LowerCaseVariableNameCatalog.WIDTH).isPositive();
     Validator.assertThat(height).thatIsNamed(LowerCaseVariableNameCatalog.HEIGHT).isPositive();
@@ -159,6 +200,12 @@ extends AbstractMutableElementWithProperties implements IMutableImage<MutableIma
     return new MutableImage(pixels);
   }
 
+  /**
+   * @param width
+   * @param height
+   * @return a new {@link MutableImage} with the given width and height whose
+   *         pixels are white
+   */
   public static MutableImage withWidthAndHeightAndWhiteColor(final int width, final int height) {
     return withWidthAndHeightAndColor(width, height, X11ColorCatalog.WHITE);
   }
@@ -296,6 +343,12 @@ extends AbstractMutableElementWithProperties implements IMutableImage<MutableIma
     return this;
   }
 
+  /**
+   * Sets the pixels the given pixelArray specifies to the current
+   * {@link MutableImage}.
+   * 
+   * @param pixelArray
+   */
   public void setPixelArray(final Node<?> pixelArray) {
     final var pixelSpecifications = pixelArray.getStoredChildNodes();
 
@@ -313,6 +366,11 @@ extends AbstractMutableElementWithProperties implements IMutableImage<MutableIma
     }
   }
 
+  /**
+   * Sets the given pixelArray as pixels to the current {@link MutableImage}.
+   * 
+   * @param pixelArray
+   */
   public void setPixelArray(final ExtendedIterable<IColor> pixelArray) {
     Validator.assertThat(pixelArray.getCount()).thatIsNamed("number of pixels").isEqualTo(getPixelCount());
 

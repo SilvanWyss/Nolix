@@ -12,5 +12,8 @@ import ch.nolix.baseapi.document.node.NodeRepresentable;
  */
 public interface JsonNameValuePair
 extends FormattedStringRepresentable, NameHolder, NodeRepresentable {
+  /**
+   * @return the {@link JsonValue} of the current {@link JsonNameValuePair}
+   */
   JsonValue getStoredValue();
 }

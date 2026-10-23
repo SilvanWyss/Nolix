@@ -59,6 +59,15 @@ final class MultiReferenceEntry<E extends Entity> implements IMultiReferenceEntr
     this.referencedEntityCache = new EntityCache<>(referencedEntityId, referencedTableId, null);
   }
 
+  /**
+   * @param multiReference
+   * @param referencedEntityId
+   * @param referencedTableId
+   * @param <T>                the type of the {@link Entity} the created
+   *                           {@link MultiReferenceEntry} references
+   * @return a new loaded {@link MultiReferenceEntry} for the given
+   *         multiReference, referencedEntityId and referencedTableId
+   */
   public static <T extends Entity> MultiReferenceEntry<T> //
   createLoadedEntryForMultiReferenceAndReferencedEntityIdAndReferencedTableId(
     final IMultiReference<T> multiReference,
@@ -72,12 +81,28 @@ final class MultiReferenceEntry<E extends Entity> implements IMultiReferenceEntr
       referencedTableId);
   }
 
+  /**
+   * @param multiReference
+   * @param referencedEntity
+   * @param <T>              the type of the given referencedEntity
+   * @return a new new {@link MultiReferenceEntry} for the given multiReference
+   *         and referencedEntity
+   */
   public static <T extends Entity> MultiReferenceEntry<T> createNewEntryForMultiReferenceAndReferencedEntity(
     final IMultiReference<T> multiReference,
     final T referencedEntity) {
     return new MultiReferenceEntry<>(multiReference, DatabaseObjectState.NEW, referencedEntity);
   }
 
+  /**
+   * @param multiReference
+   * @param referencedEntityId
+   * @param referencedTableId
+   * @param <T>                the type of the {@link Entity} the created
+   *                           {@link MultiReferenceEntry} references
+   * @return a new new {@link MultiReferenceEntry} for the given multiReference,
+   *         referencedEntityId and referencedTableId
+   */
   public static <T extends Entity> MultiReferenceEntry<T> //
   createNewEntryForMultiReferenceAndReferencedEntityIdAndReferencedTableId(
     final IMultiReference<T> multiReference,

@@ -40,10 +40,25 @@ public final class ArrayListIterator<E> implements CopyableIterator<E> {
     nextIndex = startIndex;
   }
 
+  /**
+   * @param array
+   * @param maxNextIndex
+   * @param <T>          the type of the elements of the given array
+   * @return a new {@link ArrayListIterator} for the given array that iterates
+   *         until the given maxNextIndex
+   */
   public static <T> ArrayListIterator<T> forArrayAndMaxNextIndex(final T[] array, final int maxNextIndex) {
     return new ArrayListIterator<>(array, maxNextIndex);
   }
 
+  /**
+   * @param array
+   * @param startIndex
+   * @param maxIndex
+   * @param <T>        the type of the elements of the given array
+   * @return a new {@link ArrayListIterator} for the given array that starts at
+   *         the given startIndex and iterates until the given maxIndex
+   */
   public static <T> ArrayListIterator<T> forArrayAndStartIndexAndMaxNextIndex(
     final T[] array,
     final int startIndex,

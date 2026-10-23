@@ -13,6 +13,9 @@ import ch.nolix.systemapi.database.databaseobject.DatabaseObjectState;
 abstract class AbstractSchemaObject implements DatabaseObject {
   private DatabaseObjectState state = DatabaseObjectState.NEW;
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final DatabaseObjectState getState() {
     return state;

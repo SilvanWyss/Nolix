@@ -52,12 +52,30 @@ public final class ComplexNumber implements IComplexNumber {
     this(BigDecimal.valueOf(realComponent), BigDecimal.valueOf(imaginaryComponent), decimalPlaces);
   }
 
+  /**
+   * @param realComponent
+   * @param imaginaryComponent
+   * @return a new {@link ComplexNumber} with the given realComponent and
+   *         imaginaryComponent
+   * @throws RuntimeException if the given realComponent is null
+   * @throws RuntimeException if the given imaginaryComponent is null
+   */
   public static ComplexNumber withRealComponentAndImaginaryComponent(
     final BigDecimal realComponent,
     final BigDecimal imaginaryComponent) {
     return new ComplexNumber(realComponent, imaginaryComponent);
   }
 
+  /**
+   * @param realComponent
+   * @param imaginaryComponent
+   * @param decimalPlaceCount
+   * @return a new {@link ComplexNumber} with the given realComponent,
+   *         imaginaryComponent and decimalPlaceCount
+   * @throws RuntimeException if the given realComponent is null
+   * @throws RuntimeException if the given imaginaryComponent is null
+   * @throws RuntimeException if the given decimalPlaceCount is not positive
+   */
   public static ComplexNumber withRealComponentAndImaginaryComponentAndDecimalPlaceCount(
     final BigDecimal realComponent,
     final BigDecimal imaginaryComponent,
@@ -65,12 +83,26 @@ public final class ComplexNumber implements IComplexNumber {
     return new ComplexNumber(realComponent, imaginaryComponent, decimalPlaceCount);
   }
 
+  /**
+   * @param realComponent
+   * @param imaginaryComponent
+   * @return a new {@link ComplexNumber} with the given realComponent and
+   *         imaginaryComponent
+   */
   public static ComplexNumber withRealComponentAndImaginaryComponent(
     final double realComponent,
     final double imaginaryComponent) {
     return new ComplexNumber(realComponent, imaginaryComponent);
   }
 
+  /**
+   * @param realComponent
+   * @param imaginaryComponent
+   * @param decimalPlaceCount
+   * @return a new {@link ComplexNumber} with the given realComponent,
+   *         imaginaryComponent and decimalPlaceCount
+   * @throws RuntimeException if the given decimalPlaceCount is not positive
+   */
   public static ComplexNumber withRealComponentAndImaginaryComponentAndDecimalPlaceCount(
     final double realComponent,
     final double imaginaryComponent,
@@ -86,6 +118,9 @@ public final class ComplexNumber implements IComplexNumber {
     return getMagnitude().compareTo(complexNumber.getMagnitude());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean equals(final Object object) {
     return //

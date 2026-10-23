@@ -40,6 +40,12 @@ public final class GridCell extends AbstractMutableElementWithProperties impleme
   private GridCell() {
   }
 
+  /**
+   * @param specification
+   * @return a new {@link GridCell} from the given specification
+   * @throws RuntimeException if the given specification does not represent a
+   *                          {@link GridCell}
+   */
   public static GridCell fromSpecification(final Node<?> specification) {
     final var cell = new GridCell();
     cell.resetFromSpecification(specification);
@@ -47,6 +53,12 @@ public final class GridCell extends AbstractMutableElementWithProperties impleme
     return cell;
   }
 
+  /**
+   * @param rowIndex
+   * @param columnIndex
+   * @return a new empty {@link GridCell} with the given one-based rowIndex and
+   *         columnIndex
+   */
   public static GridCell withOneBasedRowIndexAndColumnIndex(final int rowIndex, final int columnIndex) {
     final var cell = new GridCell();
     cell.setRowIndex(rowIndex);
@@ -63,14 +75,24 @@ public final class GridCell extends AbstractMutableElementWithProperties impleme
     control.clear();
   }
 
+  /**
+   * @return the one-based column index of the current {@link GridCell}
+   */
   public int getColumnIndex() {
     return columnIndex.getStoredValue();
   }
 
+  /**
+   * @return the one-based row index of the current {@link GridCell}
+   */
   public int getRowIndex() {
     return rowIndex.getStoredValue();
   }
 
+  /**
+   * @return the control of the current {@link GridCell}
+   * @throws RuntimeException if the current {@link GridCell} is empty
+   */
   public Control<?, ?> getStoredControl() {
     return control.getStoredValue();
   }
@@ -91,6 +113,11 @@ public final class GridCell extends AbstractMutableElementWithProperties impleme
     clear();
   }
 
+  /**
+   * Sets the given control to the current {@link GridCell}.
+   * 
+   * @param control
+   */
   public void setControl(final Control<?, ?> control) {
     this.control.setValue(control);
   }

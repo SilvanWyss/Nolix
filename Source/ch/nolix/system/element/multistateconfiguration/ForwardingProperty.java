@@ -32,6 +32,16 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends AbstractProp
     this.abstractMaterializedProperties = LinkedList.fromIterable(materializedProperties);
   }
 
+  /**
+   * @param name
+   * @param materializedProperties
+   * @param <S2>                   the type of the states of the given
+   *                               materializedProperties
+   * @param <V2>                   the type of the values of the given
+   *                               materializedProperties
+   * @return a new {@link ForwardingProperty} with the given name that forwards to
+   *         the given materializedProperties
+   */
   @SafeVarargs
   public static <S2 extends Enum<S2>, V2> ForwardingProperty<S2, V2> withNameAndForProperty(
     final String name,
@@ -47,6 +57,13 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends AbstractProp
     abstractMaterializedProperties.forEach(AbstractMaterializedProperty::setUndefined);
   }
 
+  /**
+   * Sets the given value for the given state to the properties the current
+   * {@link ForwardingProperty} forwards to.
+   * 
+   * @param state
+   * @param value
+   */
   public void setValueForState(final S state, final V value) {
     for (final var p : abstractMaterializedProperties) {
       p.setValueForState(state, value);

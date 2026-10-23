@@ -16,5 +16,9 @@ import ch.nolix.systemapi.webgui.main.Control;
  *            {@link IControlCssBuilder} is for.
  */
 public interface IControlCssBuilder<C extends Control<C, S>, S extends ControlStyle<S>> {
+  /**
+   * @param control
+   * @return new {@link ICssRule}s for the given control
+   */
   ExtendedIterable<ICssRule> createCssRulesForControl(C control);
 }

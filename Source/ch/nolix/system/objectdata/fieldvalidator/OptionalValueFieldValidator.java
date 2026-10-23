@@ -15,6 +15,9 @@ public final class OptionalValueFieldValidator extends AbstractFieldValidator<IO
 implements IOptionalValueFieldValidator {
   private static final OptionalValueFieldExaminer OPTIONAL_VALUE_TOOL = new OptionalValueFieldExaminer();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public <V> void assertCanSetValue(final IOptionalValueField<V> optionalValueField, final V value) {
     if (!OPTIONAL_VALUE_TOOL.canSetValue(optionalValueField, value)) {

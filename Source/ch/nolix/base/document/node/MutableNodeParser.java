@@ -16,6 +16,13 @@ public final class MutableNodeParser {
   private MutableNodeParser() {
   }
 
+  /**
+   * Resets the given mutableNode from the given string.
+   * 
+   * @param mutableNode
+   * @param string
+   * @throws RuntimeException if the given string does not represent a node
+   */
   public static void resetMutableNodeFromString(final IMutableNode<?> mutableNode, final String string) {
     mutableNode.reset();
 

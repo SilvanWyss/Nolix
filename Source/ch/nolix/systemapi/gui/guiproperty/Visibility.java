@@ -12,6 +12,12 @@ public enum Visibility {
   VISIBLE,
   INVISIBLE;
 
+  /**
+   * @param specification
+   * @return the {@link Visibility} the given specification represents
+   * @throws RuntimeException if the given specification does not represent a
+   *                          {@link Visibility}
+   */
   public static Visibility fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }

@@ -9,6 +9,10 @@ public final class GeneralException extends RuntimeException {
     super(getValidErroMessageOfErrorMessage(errorMessage));
   }
 
+  /**
+   * @param errorMessage
+   * @return a new {@link GeneralException} with the given errorMessage
+   */
   public static GeneralException withErrorMessage(final String errorMessage) {
     return new GeneralException(errorMessage);
   }

@@ -14,6 +14,9 @@ import ch.nolix.systemapi.nodemiddata.schemaviewmodelmapper.IColumnSchemaViewDto
 public final class ColumnSchemaViewDtoMapper implements IColumnSchemaViewDtoMapper {
   private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   /**
    * {@inheritDoc}

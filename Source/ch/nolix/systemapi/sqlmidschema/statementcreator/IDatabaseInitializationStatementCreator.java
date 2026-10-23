@@ -9,5 +9,10 @@ import ch.nolix.systemapi.time.main.ITime;
  * @author Silvan Wyss
  */
 public interface IDatabaseInitializationStatementCreator {
+  /**
+   * @param schemaTimestamp
+   * @return a statement to create the schema timestamp entry with the given
+   *         schemaTimestamp
+   */
   String createStatementToCreateSchemaTimestampEntry(ITime schemaTimestamp);
 }

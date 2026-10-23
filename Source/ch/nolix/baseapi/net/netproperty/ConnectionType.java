@@ -17,6 +17,9 @@ public enum ConnectionType {
     this.baseType = baseType;
   }
 
+  /**
+   * @return the {@link BaseConnectionType} of the current {@link ConnectionType}
+   */
   public BaseConnectionType getBaseType() {
     return baseType;
   }

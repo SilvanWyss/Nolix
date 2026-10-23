@@ -26,6 +26,10 @@ public final class NodeDataAdapter extends AbstractDataAdapter {
       DataWriter.forNodeDatabaseAndDatabaseView(nodeDatabase, databaseSchemaView));
   }
 
+  /**
+   * @param nodeDatabase
+   * @return a new {@link NodeDataAdapter} for the given nodeDatabase
+   */
   public static NodeDataAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
     return new NodeDataAdapter(nodeDatabase);
   }

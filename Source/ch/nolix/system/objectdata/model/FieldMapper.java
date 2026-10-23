@@ -13,6 +13,10 @@ public final class FieldMapper {
   private FieldMapper() {
   }
 
+  /**
+   * @param column
+   * @return a new {@link AbstractField} for the given column
+   */
   public static AbstractField mapColumnToField(final IColumn column) {
     final var field = mapColumnToUnlinkedField(column);
 

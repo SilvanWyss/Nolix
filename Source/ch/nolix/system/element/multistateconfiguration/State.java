@@ -27,6 +27,14 @@ public final class State<S extends Enum<S>> {
     memberEnumValue = enumValue;
   }
 
+  /**
+   * @param qualifyingPrefix
+   * @param index
+   * @param enumValue
+   * @param <S2>             the type of the given enumValue
+   * @return a new {@link State} with the given qualifyingPrefix, index and
+   *         enumValue
+   */
   public static <S2 extends Enum<S2>> State<S2> withQualifyingPrefixAndIndexAndEnumValue(
     final String qualifyingPrefix,
     final int index,
@@ -34,18 +42,32 @@ public final class State<S extends Enum<S>> {
     return new State<>(qualifyingPrefix, index, enumValue);
   }
 
+  /**
+   * @return the enum value of the current {@link State}
+   */
   public S getEnumValue() {
     return memberEnumValue;
   }
 
+  /**
+   * @return the index of the current {@link State}
+   */
   public int getIndex() {
     return index;
   }
 
+  /**
+   * @return the qualifying prefix of the current {@link State}
+   */
   public String getQualifyingPrefix() {
     return qualifyingPrefix;
   }
 
+  /**
+   * @param enumValue
+   * @return true if the current {@link State} has the given enumValue, false
+   *         otherwise
+   */
   public boolean hasEnumValue(final S enumValue) {
     return (getEnumValue() == enumValue);
   }

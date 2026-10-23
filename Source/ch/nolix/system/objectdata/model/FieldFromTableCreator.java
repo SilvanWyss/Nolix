@@ -14,6 +14,10 @@ public final class FieldFromTableCreator {
   private FieldFromTableCreator() {
   }
 
+  /**
+   * @param table
+   * @return new {@link AbstractField}s for the IColumns of the given table
+   */
   public static ExtendedIterable<AbstractField> createFieldsFromTable(final ITable<? extends Entity> table) {
     return table.getStoredColumns().to(FieldMapper::mapColumnToField);
   }

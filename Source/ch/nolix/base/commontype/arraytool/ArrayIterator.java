@@ -41,10 +41,22 @@ public final class ArrayIterator<E> implements CopyableIterator<E> {
     this.nextIndex = startIndex;
   }
 
+  /**
+   * @param array
+   * @param <T>   the type of the elements of the given array
+   * @return a new {@link ArrayIterator} for the given array
+   */
   public static <T> ArrayIterator<T> forArray(final T[] array) {
     return new ArrayIterator<>(array);
   }
 
+  /**
+   * @param array
+   * @param startIndex
+   * @param <T>        the type of the elements of the given array
+   * @return a new {@link ArrayIterator} for the given array that starts at the
+   *         given startIndex
+   */
   public static <T> ArrayIterator<T> forArrayAndStartIndex(final T[] array, final int startIndex) {
     return new ArrayIterator<>(array, startIndex);
   }

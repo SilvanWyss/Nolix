@@ -13,6 +13,14 @@ public final class WebSocketFrameHelper {
   private WebSocketFrameHelper() {
   }
 
+  /**
+   * Reads the 16 bits payload length of a {@link WebSocketFrame} from the given
+   * inputStream.
+   * 
+   * @param inputStream
+   * @return a new {@link WebSocketFramePayloadLength}
+   * @throws IOException if an I/O error occurs
+   */
   public static WebSocketFramePayloadLength calculatePayloadLengthWhenPayloadLengthIs16Bits(
     final InputStream inputStream)
   throws IOException {
@@ -23,6 +31,14 @@ public final class WebSocketFrameHelper {
       + (headerNext2Bytes[1] & 0b11111111));
   }
 
+  /**
+   * Reads the 64 bits payload length of a {@link WebSocketFrame} from the given
+   * inputStream.
+   * 
+   * @param inputStream
+   * @return a new {@link WebSocketFramePayloadLength}
+   * @throws IOException if an I/O error occurs
+   */
   public static WebSocketFramePayloadLength calculatePayloadLengthWhenPayloadLengthIs64Bits(
     final InputStream inputStream)
   throws IOException {
@@ -39,6 +55,13 @@ public final class WebSocketFrameHelper {
       + (headerNext8Bytes[7] & 0b11111111));
   }
 
+  /**
+   * Writes the given payloadLengthBytes into the given bytes of a
+   * {@link WebSocketFrame} with a 64 bits payload length.
+   * 
+   * @param bytes
+   * @param payloadLengthBytes
+   */
   public static void writePayloadLengthIntoBytesWhenPayloadLengthTypeIsBits64(
     final byte[] bytes,
     final byte[] payloadLengthBytes) {

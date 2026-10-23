@@ -15,6 +15,11 @@ public final class FloatContainerHtmlBuilderHelper {
   private FloatContainerHtmlBuilderHelper() {
   }
 
+  /**
+   * @param floatContainer
+   * @return new {@link HtmlElement}s for the child controls of the given
+   *         floatContainer
+   */
   public static ExtendedIterable<HtmlElement> createHtmlElementsForChildControlsOfFloatContainer(
     final FloatContainer floatContainer) {
     return //

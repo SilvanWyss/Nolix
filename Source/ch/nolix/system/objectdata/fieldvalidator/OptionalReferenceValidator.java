@@ -16,6 +16,9 @@ public final class OptionalReferenceValidator extends AbstractFieldValidator<IOp
 implements IOptionalReferenceValidator {
   private static final OptionalReferenceExaminer OPTIONAL_REFERENCE_EXAMINER = new OptionalReferenceExaminer();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertCanBeCleared(final IOptionalReference<? extends Entity> optionalReference) {
     if (!OPTIONAL_REFERENCE_EXAMINER.canBeCleared(optionalReference)) {

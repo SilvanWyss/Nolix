@@ -240,6 +240,9 @@ implements ControlStyle<S> {
   ForwardingProperty.withNameAndForProperty(PADDING_HEADER, memberLeftPadding, memberRightPadding, memberTopPadding,
     memberBottomPadding);
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean definesHeightForState(final ControlState state) {
     return memberHeight.hasValueForState(state);

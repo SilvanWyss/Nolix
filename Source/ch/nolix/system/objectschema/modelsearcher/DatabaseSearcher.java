@@ -15,6 +15,9 @@ import ch.nolix.systemapi.objectschema.modelsearcher.IDatabaseSearcher;
 public final class DatabaseSearcher implements IDatabaseSearcher {
   private static final TableSearcher TABLE_SEARCHER = new TableSearcher();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ExtendedIterable<? extends IColumn> getStoredBaseBackReferenceColumns(final IDatabase database) {
     final var tables = database.getStoredTables();

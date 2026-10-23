@@ -31,6 +31,18 @@ public final class StandardApplication<C extends AbstractBackendClient<C, S>, S>
     this.initialSessionClass = initialSessionClass;
   }
 
+  /**
+   * @param applicationName
+   * @param applicationService
+   * @param initialSessionClass
+   * @param <C2>                the type of the {@link AbstractBackendClient}s of
+   *                            the created {@link StandardApplication}
+   * @param <T>                 the type of the initial sessions of the created
+   *                            {@link StandardApplication}
+   * @param <S2>                the type of the given applicationService
+   * @return a new {@link StandardApplication} with the given applicationName,
+   *         applicationService and initialSessionClass
+   */
   public static <C2 extends AbstractBackendClient<C2, S2>, T extends AbstractSession<C2, S2>, S2> //
   StandardApplication<C2, S2> //
   withNameAndApplicationServiceAndInitialSessionClass(

@@ -28,6 +28,16 @@ public final class EntityTypeSet implements IEntityTypeSet {
     this.entityTypes = ImmutableList.fromIterable(entityTypes);
   }
 
+  /**
+   * @param entityType
+   * @param entityTypes
+   * @return a new {@link EntityTypeSet} with the given entityType and entityTypes
+   * @throws RuntimeException if the given entityType is null
+   * @throws RuntimeException if the given entityTypes is null
+   * @throws RuntimeException if one of the given entityTypes is null
+   * @throws RuntimeException if the given entityType and entityTypes are not
+   *                          distinct
+   */
   @SuppressWarnings("unchecked")
   public static EntityTypeSet withEntityType(
     final Class<?> entityType,
@@ -43,6 +53,13 @@ public final class EntityTypeSet implements IEntityTypeSet {
     return new EntityTypeSet(allEntityTypes);
   }
 
+  /**
+   * @param entityTypes
+   * @return a new {@link EntityTypeSet} with the given entityTypes
+   * @throws RuntimeException if the given entityTypes is null
+   * @throws RuntimeException if one of the given entityTypes is null
+   * @throws RuntimeException if the given entityTypes are not distinct
+   */
   public static EntityTypeSet withEntityTypes(ExtendedIterable<Class<? extends Entity>> entityTypes) {
     return new EntityTypeSet(entityTypes);
   }

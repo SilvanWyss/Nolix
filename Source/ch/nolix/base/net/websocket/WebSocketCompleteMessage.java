@@ -31,6 +31,16 @@ public final class WebSocketCompleteMessage implements CompletenessRequestable {
     }
   }
 
+  /**
+   * Reads a new {@link WebSocketCompleteMessage} from the given inputStream while
+   * the given isOpenFunction returns true. Passes the control frames to the given
+   * controlFrameTaker.
+   * 
+   * @param isOpenFunction
+   * @param inputStream
+   * @param controlFrameTaker
+   * @return a new {@link WebSocketCompleteMessage}
+   */
   public static WebSocketCompleteMessage fromIsOpenFunctionAndInputStreamAndControlFrameTaker(
     final BooleanSupplier isOpenFunction,
     final InputStream inputStream,
@@ -38,10 +48,17 @@ public final class WebSocketCompleteMessage implements CompletenessRequestable {
     return new WebSocketCompleteMessage(isOpenFunction, inputStream, controlFrameTaker);
   }
 
+  /**
+   * @return the message of the current {@link WebSocketCompleteMessage}
+   */
   public String getMessage() {
     return new String(getMessageAsByteArray(), StandardCharsets.UTF_8);
   }
 
+  /**
+   * @return the message of the current {@link WebSocketCompleteMessage} as byte
+   *         array
+   */
   public byte[] getMessageAsByteArray() {
     final var byteArray = new byte[message.getCount()];
     var i = 0;

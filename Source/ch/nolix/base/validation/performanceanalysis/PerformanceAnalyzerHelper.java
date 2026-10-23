@@ -19,6 +19,16 @@ public final class PerformanceAnalyzerHelper {
   private PerformanceAnalyzerHelper() {
   }
 
+  /**
+   * @param objectSupplier
+   * @param action
+   * @param timeComplexityFunction
+   * @param <O>                    the type of the objects the given
+   *                               objectSupplier supplies
+   * @return true if the given action runs at least once with the given
+   *         timeComplexityFunction or a lower time complexity on the objects from
+   *         the given objectSupplier, false otherwise
+   */
   public static <O> boolean onObjectsFromObjectSupplierActionRunsAtLeastOnceWithGivenOrLowerTimeComplexity(
     final IntFunction<O> objectSupplier,
     final Consumer<O> action,

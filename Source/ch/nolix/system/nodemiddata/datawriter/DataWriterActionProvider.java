@@ -50,6 +50,16 @@ public final class DataWriterActionProvider {
   private DataWriterActionProvider() {
   }
 
+  /**
+   * Clears the multi reference at the given
+   * multiReferencedColumnOneBasedOrdinalIndex of the entity with the given
+   * entityId of the table with the given tableName in the given nodeDatabase.
+   * 
+   * @param nodeDatabase
+   * @param tableName
+   * @param entityId
+   * @param multiReferencedColumnOneBasedOrdinalIndex
+   */
   public static void clearMultiReference(
     final IMutableNode<?> nodeDatabase,
     final String tableName,
@@ -64,6 +74,16 @@ public final class DataWriterActionProvider {
     multiReferenceNode.reset();
   }
 
+  /**
+   * Clears the multi value at the given multiValueColumnOneBasedOrdinalIndex of
+   * the entity with the given entityId of the table with the given tableName in
+   * the given nodeDatabase.
+   * 
+   * @param nodeDatabase
+   * @param tableName
+   * @param entityId
+   * @param multiValueColumnOneBasedOrdinalIndex
+   */
   public static void clearMultiValue(
     final IMutableNode<?> nodeDatabase,
     final String tableName,
@@ -76,6 +96,17 @@ public final class DataWriterActionProvider {
     multiValueNode.reset();
   }
 
+  /**
+   * Deletes the entity with the given entityId of the table with the given
+   * tableName from the given database.
+   * 
+   * @param database
+   * @param tableName
+   * @param entityId
+   * @param entitySaveStamp
+   * @throws RuntimeException if the entity with the given entityId does not have
+   *                          the given entitySaveStamp
+   */
   public static void deleteEntity(
     final IMutableNode<?> database,
     final String tableName,
@@ -92,6 +123,18 @@ public final class DataWriterActionProvider {
     }
   }
 
+  /**
+   * Deletes the entry with the given backReferencedEntityId from the multi back
+   * reference at the given multiBackReferenceColumnOneBasedOrdinalIndex of the
+   * entity with the given entityId of the table with the given tableName in the
+   * given nodeDatabase.
+   * 
+   * @param nodeDatabase
+   * @param tableName
+   * @param entityId
+   * @param multiBackReferenceColumnOneBasedOrdinalIndex
+   * @param backReferencedEntityId
+   */
   public static void deleteMultiBackReferenceEntry(
     final IMutableNode<?> nodeDatabase,
     final String tableName,
@@ -107,6 +150,18 @@ public final class DataWriterActionProvider {
     multiBackReferenceColumnNode.removeFirstChildNodeWithHeader(backReferencedEntityId);
   }
 
+  /**
+   * Deletes the entry with the given referencedEntityId from the multi reference
+   * at the given multiReferencedColumnOneBasedOrdinalIndex of the entity with the
+   * given entityId of the table with the given tableName in the given
+   * nodeDatabase.
+   * 
+   * @param nodeDatabase
+   * @param tableName
+   * @param entityId
+   * @param multiReferencedColumnOneBasedOrdinalIndex
+   * @param referencedEntityId
+   */
   public static void deleteMultiReferenceEntry(
     final IMutableNode<?> nodeDatabase,
     final String tableName,
@@ -123,6 +178,17 @@ public final class DataWriterActionProvider {
       n -> n.getStoredChildNodeAtOneBasedIndex(1).hasHeader(referencedEntityId));
   }
 
+  /**
+   * Deletes the given entry from the multi value at the given
+   * multiValueColumnOneBasedOrdinalIndex of the entity with the given entityId of
+   * the table with the given tableName in the given nodeDatabase.
+   * 
+   * @param nodeDatabase
+   * @param tableName
+   * @param entityId
+   * @param multiValueColumnOneBasedOrdinalIndex
+   * @param entry
+   */
   public static void deleteMultiValueEntry(
     final IMutableNode<?> nodeDatabase,
     final String tableName,
@@ -136,6 +202,12 @@ public final class DataWriterActionProvider {
     multiValueNode.removeFirstChildNodeWithHeader(entry);
   }
 
+  /**
+   * @param nodeDatabase
+   * @param schemaTimestamp
+   * @throws RuntimeException if the given nodeDatabase does not have the given
+   *                          schemaTimestamp
+   */
   public static void expectSchemaTimestamp(final IMutableNode<?> nodeDatabase, final ITime schemaTimestamp) {
     final var databasePropertiesNode = //
     DATABASE_NODE_SEARCHER.getStoredDatabasePropertiesNodeFromNodeDatabase(nodeDatabase);
@@ -148,6 +220,14 @@ public final class DataWriterActionProvider {
     }
   }
 
+  /**
+   * @param nodeDatabase
+   * @param tableName
+   * @param entityId
+   * @throws RuntimeException if the table with the given tableName in the given
+   *                          nodeDatabase does not contain an entity with the
+   *                          given entityId
+   */
   public static void expectTableContainsEntity(
     final IMutableNode<?> nodeDatabase,
     final String tableName,
@@ -157,6 +237,17 @@ public final class DataWriterActionProvider {
     TABLE_NODE_VALIDATOR.assertTableNodeContainsEntityWithId(tableNode, entityId);
   }
 
+  /**
+   * Inserts the given entityNode into the table with the given tableName in the
+   * given nodeDatabase and the given entityIndexNode for the entity with the
+   * given entityId.
+   * 
+   * @param nodeDatabase
+   * @param tableName
+   * @param entityId
+   * @param entityIndexNode
+   * @param entityNode
+   */
   public static void insertEntity(
     final IMutableNode<?> nodeDatabase,
     final String tableName,
@@ -176,6 +267,18 @@ public final class DataWriterActionProvider {
     tableNode.addChildNode(entityNode);
   }
 
+  /**
+   * Inserts the given multiBackReferenceEntryNode into the multi back reference
+   * at the given multiBackReferenceColumnOneBasedOrdinalIndex of the entity with
+   * the given entityId of the table with the given tableName in the given
+   * nodeDatabase.
+   * 
+   * @param nodeDatabase
+   * @param tableName
+   * @param entityId
+   * @param multiBackReferenceColumnOneBasedOrdinalIndex
+   * @param multiBackReferenceEntryNode
+   */
   public static void insertMultiBackReferenceEntry(
     final IMutableNode<?> nodeDatabase,
     final String tableName,
@@ -191,6 +294,17 @@ public final class DataWriterActionProvider {
     multiBackReferenceNode.addChildNode(multiBackReferenceEntryNode);
   }
 
+  /**
+   * Inserts the given multiReferenceEntryNode into the multi reference at the
+   * given multiReferenceColumnOneBasedOrdinalIndex of the entity with the given
+   * entityId of the table with the given tableName in the given nodeDatabase.
+   * 
+   * @param nodeDatabase
+   * @param tableName
+   * @param entityId
+   * @param multiReferenceColumnOneBasedOrdinalIndex
+   * @param multiReferenceEntryNode
+   */
   public static void insertMultiReferenceEntry(
     final IMutableNode<?> nodeDatabase,
     final String tableName,
@@ -206,6 +320,17 @@ public final class DataWriterActionProvider {
     multiReferenceNode.addChildNode(multiReferenceEntryNode);
   }
 
+  /**
+   * Inserts the given value into the multi value at the given
+   * multiValueColumnOneBasedOrdinalIndex of the entity with the given entityId of
+   * the table with the given tableName in the given nodeDatabase.
+   * 
+   * @param nodeDatabase
+   * @param tableName
+   * @param entityId
+   * @param multiValueColumnOneBasedOrdinalIndex
+   * @param value
+   */
   public static void insertMultiValueEntry(
     final IMutableNode<?> nodeDatabase,
     final String tableName,
@@ -220,6 +345,14 @@ public final class DataWriterActionProvider {
     multiValueNode.addChildNode(multiValueValueNode);
   }
 
+  /**
+   * Applies the given entityUpdate on the given database using the given
+   * tableView.
+   * 
+   * @param database
+   * @param entityUpdate
+   * @param tableView
+   */
   public static void updateEntity(
     final IMutableNode<?> database,
     final EntityUpdateDto entityUpdate,

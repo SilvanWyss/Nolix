@@ -19,6 +19,10 @@ public final class WebGuiHtmlBuilder {
   private WebGuiHtmlBuilder() {
   }
 
+  /**
+   * @param webGui
+   * @return a new {@link IHtmlElement} for the given webGui
+   */
   public static IHtmlElement createHtmlForWebGui(final IWebGui<?> webGui) {
     final var type = HtmlElementTypeCatalog.DIV;
     final var idAttribute = HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalog.ID, "root");

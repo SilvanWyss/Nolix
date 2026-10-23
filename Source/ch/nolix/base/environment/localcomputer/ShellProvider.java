@@ -22,6 +22,11 @@ public final class ShellProvider {
   private ShellProvider() {
   }
 
+  /**
+   * Runs the given command in a shell.
+   * 
+   * @param command
+   */
   public static void run(final String[] command) {
     Validator.assertThat(command).thatIsNamed(LowerCaseVariableNameCatalog.COMMAND).isNotNull();
 
@@ -30,10 +35,18 @@ public final class ShellProvider {
     runRuntimeCommand(runtimeCommand);
   }
 
+  /**
+   * Starts the default web browser opening the loop back address.
+   */
   public static void startDefaultWebBrowserOpeningLoopBackAddress() {
     startDefaultWebBrowserOpeningUrl(IPv4Catalog.LOOP_BACK_ADDRESS);
   }
 
+  /**
+   * Starts the default web browser opening the given url.
+   * 
+   * @param url
+   */
   public static void startDefaultWebBrowserOpeningUrl(final String url) {
     try {
       Desktop.getDesktop().browse(new URI(getUrlWithHttpPrefix(url)));
@@ -42,14 +55,28 @@ public final class ShellProvider {
     }
   }
 
+  /**
+   * Starts Firefox.
+   */
   public static void startFirefox() {
     run(new String[] { "start", "firefox" });
   }
 
+  /**
+   * Starts Firefox opening the given url.
+   * 
+   * @param url
+   */
   public static void startFirefox(final String url) {
     startFirefox(url, PortCatalog.HTTP);
   }
 
+  /**
+   * Starts Firefox opening the given url with the given port.
+   * 
+   * @param url
+   * @param port
+   */
   public static void startFirefox(final String url, final int port) {
     Validator
       .assertThat(url)
@@ -64,10 +91,18 @@ public final class ShellProvider {
     run(new String[] { "start", "firefox", "--url", url + ":" + port });
   }
 
+  /**
+   * Starts Firefox opening the loop back address.
+   */
   public static void startFirefoxOpeningLoopBackAddress() {
     startFirefox(IPv4Catalog.LOOP_BACK_ADDRESS, PortCatalog.HTTP);
   }
 
+  /**
+   * Starts Firefox opening the loop back address with the given port.
+   * 
+   * @param port
+   */
   public static void startFirefoxOpeningLoopBackAddress(final int port) {
     startFirefox(IPv4Catalog.LOOP_BACK_ADDRESS, port);
   }

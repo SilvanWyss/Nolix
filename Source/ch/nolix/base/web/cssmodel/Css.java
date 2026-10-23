@@ -18,6 +18,10 @@ public final class Css implements ICss {
     this.rules = rules.to(CssRule::fromCssRule);
   }
 
+  /**
+   * @param rules
+   * @return a new {@link Css} with the given rules
+   */
   public static Css withRules(final ExtendedIterable<ICssRule> rules) {
     return new Css(rules);
   }

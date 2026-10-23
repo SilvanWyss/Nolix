@@ -48,6 +48,16 @@ implements IMultiBackReference<E> {
     super(backReferenceableTableNames, backReferencedFieldName);
   }
 
+  /**
+   * @param backReferencedFieldName
+   * @param backReferenceableEntityTypes
+   * @param <T>                          the type of the {@link Entity}s the
+   *                                     created {@link MultiBackReference} can
+   *                                     reference back
+   * @return a new {@link MultiBackReference} that can reference back the
+   *         {@link Field}s with the given backReferencedFieldName of the
+   *         {@link Entity}s of the given backReferenceableEntityTypes
+   */
   @SafeVarargs
   public static <T extends Entity> MultiBackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
     final String backReferencedFieldName,
@@ -59,6 +69,16 @@ implements IMultiBackReference<E> {
     return new MultiBackReference<>(backReferenceableTableNamesView, backReferencedFieldName);
   }
 
+  /**
+   * @param backReferencedFieldName
+   * @param backReferenceableEntityTypes
+   * @param <T>                          the type of the {@link Entity}s the
+   *                                     created {@link MultiBackReference} can
+   *                                     reference back
+   * @return a new {@link MultiBackReference} that can reference back the
+   *         {@link Field}s with the given backReferencedFieldName of the
+   *         {@link Entity}s of the given backReferenceableEntityTypes
+   */
   public static <T extends Entity> MultiBackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
     final String backReferencedFieldName,
     final ExtendedIterable<Class<? extends T>> backReferenceableEntityTypes) {
@@ -68,6 +88,17 @@ implements IMultiBackReference<E> {
     return new MultiBackReference<>(backReferenceableTableNamesView, backReferencedFieldName);
   }
 
+  /**
+   * @param backReferencedFieldName
+   * @param backReferenceableTableNames
+   * @param <T>                         the type of the {@link Entity}s the
+   *                                    created {@link MultiBackReference} can
+   *                                    reference back
+   * @return a new {@link MultiBackReference} that can reference back the
+   *         {@link Field}s with the given backReferencedFieldName of the
+   *         {@link Entity}s of the ITables with the given
+   *         backReferenceableTableNames
+   */
   public static <T extends Entity> MultiBackReference<T> forBackReferencedFieldNameAndBackReferenceableTableNames(
     final String backReferencedFieldName,
     final ExtendedIterable<String> backReferenceableTableNames) {

@@ -61,6 +61,15 @@ public final class MultiBackReferenceEntry<E extends Entity> implements IMultiBa
     this.backReferencedEntityCache = new EntityCache<>(backReferencedEntityId, backReferencedTableId, null);
   }
 
+  /**
+   * @param multiBackReference
+   * @param backReferencedEntityId
+   * @param backReferencedTableId
+   * @param <T>                    the type of the {@link Entity} the created
+   *                               {@link MultiBackReferenceEntry} references back
+   * @return a new loaded {@link MultiBackReferenceEntry} for the given
+   *         multiBackReference, backReferencedEntityId and backReferencedTableId
+   */
   public static <T extends Entity> MultiBackReferenceEntry<T> //
   createLoadedEntryForMultiBackReferenceAndBackReferencedEntityIdAndBackReferencedTableId(
     final IMultiBackReference<T> multiBackReference,
@@ -74,6 +83,15 @@ public final class MultiBackReferenceEntry<E extends Entity> implements IMultiBa
       backReferencedTableId);
   }
 
+  /**
+   * @param multiBackReference
+   * @param backReferencedEntityId
+   * @param backReferencedTableId
+   * @param <T>                    the type of the {@link Entity} the created
+   *                               {@link MultiBackReferenceEntry} references back
+   * @return a new new {@link MultiBackReferenceEntry} for the given
+   *         multiBackReference, backReferencedEntityId and backReferencedTableId
+   */
   public static <T extends Entity> MultiBackReferenceEntry<T> //
   createNewEntryForMultiBackReferenceAndBackReferencedEntityIdAndBackReferencedTableId(
     final IMultiBackReference<T> multiBackReference,
@@ -87,6 +105,13 @@ public final class MultiBackReferenceEntry<E extends Entity> implements IMultiBa
       backReferencedTableId);
   }
 
+  /**
+   * @param multiBackReference
+   * @param backReferencedEntity
+   * @param <T>                  the type of the given backReferencedEntity
+   * @return a new new {@link MultiBackReferenceEntry} for the given
+   *         multiBackReference and backReferencedEntity
+   */
   public static <T extends Entity> MultiBackReferenceEntry<T> //
   createNewEntryForMultiBackReferenceAndBackReferencedEntity(
     final IMultiBackReference<T> multiBackReference,

@@ -36,6 +36,9 @@ public final class ShowValueDialogBuilder implements Builder<ILayer> {
 
   private Consumer<String> valueCopier;
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ILayer build() {
     return new Layer()
@@ -64,24 +67,49 @@ public final class ShowValueDialogBuilder implements Builder<ILayer> {
               .setLeftMouseButtonPressAction(b -> b.getStoredParentLayer().removeSelfFromGui())));
   }
 
+  /**
+   * Sets the given confirmButtonText to the current
+   * {@link ShowValueDialogBuilder}.
+   * 
+   * @param confirmButtonText
+   * @return the current {@link ShowValueDialogBuilder}
+   */
   public ShowValueDialogBuilder setConfirmButtonText(final String confirmButtonText) {
     this.confirmButtonText = confirmButtonText;
 
     return this;
   }
 
+  /**
+   * Sets the given value to the current {@link ShowValueDialogBuilder}.
+   * 
+   * @param value
+   * @return the current {@link ShowValueDialogBuilder}
+   */
   public ShowValueDialogBuilder setValue(final String value) {
     this.value = value;
 
     return this;
   }
 
+  /**
+   * Sets the given valueCopier to the current {@link ShowValueDialogBuilder}.
+   * 
+   * @param valueCopier
+   * @return the current {@link ShowValueDialogBuilder}
+   */
   public ShowValueDialogBuilder setValueCopier(final Consumer<String> valueCopier) {
     this.valueCopier = valueCopier;
 
     return this;
   }
 
+  /**
+   * Sets the given valueName to the current {@link ShowValueDialogBuilder}.
+   * 
+   * @param valueName
+   * @return the current {@link ShowValueDialogBuilder}
+   */
   public ShowValueDialogBuilder setValueName(final String valueName) {
     this.valueName = valueName;
 

@@ -17,6 +17,13 @@ public final class OptionalMediator<T> extends AbstractOptionalMediator<T> {
     super(argument, argumentName);
   }
 
+  /**
+   * @param argument
+   * @param argumentName
+   * @param <T2>         the type of the value of the given argument
+   * @return a new {@link OptionalMediator} for the given argument with the given
+   *         argumentName
+   */
   public static <T2> OptionalMediator<T2> forArgumentAndArgumentName(
     final Optional<T2> argument, // NOSONAR: An Optional is the argument of a OptionalMediator.
     final String argumentName) {

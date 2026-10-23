@@ -19,6 +19,9 @@ public final class ClassTool implements IClassTool {
 
   private static final ConstructorTool CONSTRUCTOR_TOOL = new ConstructorTool();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public <T> T createInstanceFromDefaultConstructorOfClass(final Class<T> paramClass) {
     return CONSTRUCTOR_TOOL.createInstanceFromDefaultConstructor(getDefaultConstructorOfClass(paramClass));

@@ -25,10 +25,18 @@ public abstract class AbstractLogHandler {
     this.minHarmLevel = minHarmLevel;
   }
 
+  /**
+   * @return the min {@link HarmLevel} of the current {@link AbstractLogHandler}
+   */
   public final HarmLevel getMinHarmLevel() {
     return minHarmLevel;
   }
 
+  /**
+   * @param logEntry
+   * @return true if the current {@link AbstractLogHandler} would log the given
+   *         logEntry, false otherwise
+   */
   public final boolean wouldLog(final LogEntry logEntry) {
     return (logEntry != null && !logEntry.getHarmLevel().isLowerThan(getMinHarmLevel()));
   }

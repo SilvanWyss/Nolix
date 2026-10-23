@@ -25,6 +25,11 @@ public final class SimpleImmutableListIterator<E> implements Iterator<E> {
     nextIndex = 0;
   }
 
+  /**
+   * @param array
+   * @param <T>   the type of the elements of the given array
+   * @return a new {@link SimpleImmutableListIterator} for the given array
+   */
   public static <T> SimpleImmutableListIterator<T> forArray(final T[] array) {
     return new SimpleImmutableListIterator<>(array);
   }

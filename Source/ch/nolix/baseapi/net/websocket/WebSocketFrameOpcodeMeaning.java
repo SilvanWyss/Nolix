@@ -15,6 +15,13 @@ public enum WebSocketFrameOpcodeMeaning {
   PONG,
   RESERVED;
 
+  /**
+   * @param number
+   * @return the {@link WebSocketFrameOpcodeMeaning} with the given number
+   * @throws RuntimeException if there is not a
+   *                          {@link WebSocketFrameOpcodeMeaning} with the given
+   *                          number
+   */
   public static WebSocketFrameOpcodeMeaning fromNumber(final int number) {
     return switch (number) {
       case 0x0 ->
@@ -39,6 +46,9 @@ public enum WebSocketFrameOpcodeMeaning {
     };
   }
 
+  /**
+   * @return the number of the current {@link WebSocketFrameOpcodeMeaning}
+   */
   public int toNumber() {
     return switch (this) {
       case CONTINUATION_FRAME ->

@@ -16,6 +16,9 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
 
   private static final ColumnExaminer COLUMN_EXAMINER = new ColumnExaminer();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean allBaseBackReferencesAreValid(final IDatabase database) {
     final var tables = database.getStoredTables();

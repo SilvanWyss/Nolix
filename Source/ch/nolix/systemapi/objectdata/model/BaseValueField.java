@@ -8,5 +8,8 @@ package ch.nolix.systemapi.objectdata.model;
  * @param <V> the type of the values of a {@link BaseValueField}.
  */
 public interface BaseValueField<V> extends Field {
+  /**
+   * @return the type of the values of the current {@link BaseValueField}
+   */
   Class<V> getValueType();
 }

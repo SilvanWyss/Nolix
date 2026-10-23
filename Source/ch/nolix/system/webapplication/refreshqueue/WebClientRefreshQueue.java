@@ -39,12 +39,24 @@ public final class WebClientRefreshQueue {
     this.counterpartRunner = counterpartRunner;
   }
 
+  /**
+   * @param counterpartRunner
+   * @param openStateRequester
+   * @return a new {@link WebClientRefreshQueue} with the given counterpartRunner
+   *         and openStateRequester
+   */
   public static WebClientRefreshQueue forCounterpartRunnerAndOpenStateRequestable(
     final Consumer<ExtendedIterable<? extends ChainedNode>> counterpartRunner,
     final BooleanSupplier openStateRequester) {
     return new WebClientRefreshQueue(counterpartRunner, openStateRequester);
   }
 
+  /**
+   * Enqueues an update of the given control on the counterpart.
+   * 
+   * @param control
+   * @param updateConstellationOrStyle
+   */
   public void updateControlOnCounterpart(
     final Control<?, ?> control,
     final boolean updateConstellationOrStyle) {
@@ -53,6 +65,12 @@ public final class WebClientRefreshQueue {
     updateControlsOnCounterpart(controls, updateConstellationOrStyle);
   }
 
+  /**
+   * Enqueues an update of the given controls on the counterpart.
+   * 
+   * @param controls
+   * @param updateConstellationOrStyle
+   */
   public void updateControlsOnCounterpart(
     final ExtendedIterable<Control<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
@@ -63,6 +81,12 @@ public final class WebClientRefreshQueue {
     }
   }
 
+  /**
+   * Enqueues an update of the given webGui on the counterpart.
+   * 
+   * @param webGui
+   * @param updateConstellationOrStyle
+   */
   public void updateWebGuiOfCounterpart(
     final IWebGui<?> webGui,
     final boolean updateConstellationOrStyle) {

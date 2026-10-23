@@ -48,20 +48,35 @@ public final class InternalDataReader {
     this.nodeDatabase = nodeDatabase;
   }
 
+  /**
+   * @param nodeDatabase
+   * @return a new {@link InternalDataReader} for the given nodeDatabase
+   */
   public static InternalDataReader forNodeDatabase(final IMutableNode<?> nodeDatabase) {
     return new InternalDataReader(nodeDatabase);
   }
 
+  /**
+   * @return the name of the database of the current {@link InternalDataReader}
+   */
   public String getDatabaseName() {
     return DATABASE_NODE_SEARCHER.getDatabaseNameFromNodeDatabase(nodeDatabase);
   }
 
+  /**
+   * @param tableName
+   * @return the number of entities of the table with the given tableName
+   */
   public int getEntityCount(String tableName) {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
     return TABLE_NODE_SEARCHER.getEntityNodeCount(tableNode);
   }
 
+  /**
+   * @return the schema timestamp of the database of the current
+   *         {@link InternalDataReader}
+   */
   public ITime getSchemaTimestamp() {
     final var databasePropertiesNode = DATABASE_NODE_SEARCHER
       .getStoredDatabasePropertiesNodeFromNodeDatabase(nodeDatabase);
@@ -69,6 +84,10 @@ public final class InternalDataReader {
     return DATABASE_PROPERTIES_NODE_SEARCHER.getSchemaTimestampFromDatabasePropertiesNode(databasePropertiesNode);
   }
 
+  /**
+   * @param tableView
+   * @return the entities of the table of the given tableView
+   */
   public ExtendedIterable<EntityLoadingDto> loadEntitiesOfTable(final TableInfoDto tableView) {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableView.name());
@@ -78,6 +97,13 @@ public final class InternalDataReader {
       .to(rn -> ENTITY_LOADING_DTO_MAPPER.mapEntityNodeToEntityLoadingDto(rn, tableView));
   }
 
+  /**
+   * @param tableView
+   * @param id
+   * @return the entity with the given id of the table of the given tableView
+   * @throws RuntimeException if the table of the given tableView does not contain
+   *                          an entity with the given id
+   */
   public EntityLoadingDto loadEntity(final TableInfoDto tableView, final String id) {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableView.name());
@@ -87,6 +113,14 @@ public final class InternalDataReader {
     return ENTITY_LOADING_DTO_MAPPER.mapEntityNodeToEntityLoadingDto(entityNode, tableView);
   }
 
+  /**
+   * @param tableName
+   * @param entityId
+   * @param multiBackReferenceColumnView
+   * @return the ids of the entities the multi back reference of the given
+   *         multiBackReferenceColumnView of the entity with the given entityId of
+   *         the table with the given tableName references back
+   */
   public ExtendedIterable<String> loadMultiBackReferenceBackReferencedEntityIds(
     final String tableName,
     final String entityId,
@@ -103,6 +137,14 @@ public final class InternalDataReader {
     return multiBackReferenceBackReferencedEntityNodes.to(b -> b.getStoredFirstChildNode().getHeader());
   }
 
+  /**
+   * @param tableName
+   * @param entityId
+   * @param multiBackReferenceColumn
+   * @return the entries of the multi back reference of the given
+   *         multiBackReferenceColumn of the entity with the given entityId of the
+   *         table with the given tableName
+   */
   public ExtendedIterable<MultiBackReferenceEntryDto> loadMultiBackReferenceEntries(
     final String tableName,
     final String entityId,
@@ -123,6 +165,14 @@ public final class InternalDataReader {
       multiBackReferenceNode);
   }
 
+  /**
+   * @param tableName
+   * @param entityId
+   * @param multiReferenceColumnView
+   * @return the entries of the multi reference of the given
+   *         multiReferenceColumnView of the entity with the given entityId of the
+   *         table with the given tableName
+   */
   public ExtendedIterable<MultiReferenceEntryDto> loadMultiReferenceEntries(
     final String tableName,
     final String entityId,
@@ -149,6 +199,14 @@ public final class InternalDataReader {
           n.getStoredChildNodeAtOneBasedIndex(2).getHeader()));
   }
 
+  /**
+   * @param tableName
+   * @param entityId
+   * @param multiValueColumnView
+   * @return the entries of the multi value of the given multiValueColumnView of
+   *         the entity with the given entityId of the table with the given
+   *         tableName
+   */
   public ExtendedIterable<Object> loadMultiValueEntries(
     final String tableName,
     final String entityId,
@@ -163,12 +221,26 @@ public final class InternalDataReader {
       .to(a -> VALUE_MAPPER.mapStringToValue(a.getHeader(), multiValueColumnView.dataType()));
   }
 
+  /**
+   * @param tableName
+   * @param id
+   * @return true if the table with the given tableName contains an entity with
+   *         the given id, false otherwise
+   */
   public boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
     return TABLE_NODE_EXAMINER.tableNodeContainsEntityNodeWithGivenId(tableNode, id);
   }
 
+  /**
+   * @param tableName
+   * @param columnView
+   * @param value
+   * @return true if the table with the given tableName contains an entity with
+   *         the given value at the column of the given columnView, false
+   *         otherwise
+   */
   public boolean tableContainsEntityWithGivenValueAtGivenColumn(
     final String tableName,
     final ColumnInfoDto columnView,
@@ -183,6 +255,15 @@ public final class InternalDataReader {
       value);
   }
 
+  /**
+   * @param tableName
+   * @param columnView
+   * @param value
+   * @param entitiesToIgnoreIds
+   * @return true if the table with the given tableName contains an entity, that
+   *         does not have one of the given entitiesToIgnoreIds, with the given
+   *         value at the column of the given columnView, false otherwise
+   */
   public boolean tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
     final String tableName,
     final ColumnInfoDto columnView,

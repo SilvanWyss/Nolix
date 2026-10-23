@@ -17,12 +17,20 @@ public final class EnglishNounTool {
   private EnglishNounTool() {
   }
 
+  /**
+   * @param noun
+   * @return the indefinite article of the given noun
+   */
   public static String getArticleOfNoun(final String noun) {
     final var firstLetter = noun.charAt(0);
 
     return getArticleOfNounWithFirstLetter(firstLetter);
   }
 
+  /**
+   * @param noun
+   * @return the plural of the given noun
+   */
   public static String getPluralOfNoun(final String noun) {
     return //
     switch (noun) {

@@ -13,6 +13,11 @@ public final class JobToolHelper {
   private JobToolHelper() {
   }
 
+  /**
+   * Runs the given jobs.
+   * 
+   * @param jobs
+   */
   public static void runJobs(final ExtendedIterable<Runnable> jobs) {
     for (var i = 1; i <= jobs.getCount(); i++) {
       try {

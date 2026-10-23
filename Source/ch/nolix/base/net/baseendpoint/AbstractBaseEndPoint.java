@@ -16,6 +16,9 @@ import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 public abstract class AbstractBaseEndPoint implements BaseEndPoint {
   private final ICloseController closeController = CloseController.forElement(this);
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final ICloseController getStoredCloseController() {
     return closeController;

@@ -61,6 +61,12 @@ public final class TabContainerTab extends AbstractMutableElementWithProperties 
     optionalParentTabContainer = null;
   }
 
+  /**
+   * @param specification
+   * @return a new {@link TabContainerTab} from the given specification
+   * @throws RuntimeException if the given specification does not represent a
+   *                          {@link TabContainerTab}
+   */
   public static TabContainerTab fromSpecification(final Node<?> specification) {
     final var tab = new TabContainerTab();
     tab.resetFromSpecification(specification);

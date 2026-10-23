@@ -84,6 +84,9 @@ extends AbstractControl<M, S> implements IItemMenu<M, S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public M addItems(final String... items) {
     for (final var i : items) {

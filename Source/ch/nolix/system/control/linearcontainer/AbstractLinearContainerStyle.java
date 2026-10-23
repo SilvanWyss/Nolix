@@ -30,6 +30,9 @@ implements ILinearContainerStyle<S> {
       this::setChildControlMarginForState,
       DEFAULT_CHILD_CONTROL_MARGIN);
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getChildControlMarginWhenHasState(final ControlState state) {
     return childControlMargin.getValueWhenHasState(state);

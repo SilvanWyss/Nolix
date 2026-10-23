@@ -13,10 +13,19 @@ public final class NamableBigDecimalMediator extends AbstractBigDecimalMediator 
     super(argument);
   }
 
+  /**
+   * @param argument
+   * @return a new {@link NamableBigDecimalMediator} for the given argument
+   */
   public static NamableBigDecimalMediator forArgument(final BigDecimal argument) {
     return new NamableBigDecimalMediator(argument);
   }
 
+  /**
+   * @param argumentName
+   * @return a new {@link BigDecimalMediator} for the argument of the current
+   *         {@link NamableBigDecimalMediator} with the given argumentName
+   */
   public BigDecimalMediator thatIsNamed(final String argumentName) {
     return BigDecimalMediator.forArgumentAndArumgentName(getStoredArgument(), argumentName);
   }

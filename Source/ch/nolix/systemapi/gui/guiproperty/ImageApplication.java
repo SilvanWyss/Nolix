@@ -12,6 +12,12 @@ public enum ImageApplication {
   SCALE_TO_FRAME,
   REPEAT;
 
+  /**
+   * @param specification
+   * @return the {@link ImageApplication} the given specification represents
+   * @throws RuntimeException if the given specification does not represent a
+   *                          {@link ImageApplication}
+   */
   public static ImageApplication fromSpecification(Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }

@@ -46,6 +46,9 @@ public final class EnterValueDialogBuilder implements Builder<ILayer> {
 
   private Consumer<String> valueTaker = DEFAULT_VALUE_TAKER;
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ILayer build() {
     final var valueTextbox = new Textbox().setText(originalValue);
@@ -74,6 +77,13 @@ public final class EnterValueDialogBuilder implements Builder<ILayer> {
                     () -> EnterValueDialogBuilderHelper.confirmNewValue(valueTextbox, valueTaker)))));
   }
 
+  /**
+   * Sets the given cancelButtonText to the current
+   * {@link EnterValueDialogBuilder}.
+   * 
+   * @param cancelButtonText
+   * @return the current {@link EnterValueDialogBuilder}
+   */
   public EnterValueDialogBuilder setCancelButtonText(String cancelButtonText) {
     Validator.assertThat(cancelButtonText).thatIsNamed("cancel button text").isNotBlank();
 
@@ -82,6 +92,13 @@ public final class EnterValueDialogBuilder implements Builder<ILayer> {
     return this;
   }
 
+  /**
+   * Sets the given confirmButtonText to the current
+   * {@link EnterValueDialogBuilder}.
+   * 
+   * @param confirmButtonText
+   * @return the current {@link EnterValueDialogBuilder}
+   */
   public EnterValueDialogBuilder setConfirmButtonText(final String confirmButtonText) {
     Validator.assertThat(confirmButtonText).thatIsNamed("confirm button text").isNotBlank();
 
@@ -90,6 +107,12 @@ public final class EnterValueDialogBuilder implements Builder<ILayer> {
     return this;
   }
 
+  /**
+   * Sets the given infoText to the current {@link EnterValueDialogBuilder}.
+   * 
+   * @param infoText
+   * @return the current {@link EnterValueDialogBuilder}
+   */
   public EnterValueDialogBuilder setInfoText(final String infoText) {
     Validator.assertThat(infoText).thatIsNamed("info text").isNotBlank();
 
@@ -98,6 +121,12 @@ public final class EnterValueDialogBuilder implements Builder<ILayer> {
     return this;
   }
 
+  /**
+   * Sets the given originalValue to the current {@link EnterValueDialogBuilder}.
+   * 
+   * @param originalValue
+   * @return the current {@link EnterValueDialogBuilder}
+   */
   public EnterValueDialogBuilder setOriginalValue(final String originalValue) {
     Validator.assertThat(originalValue).thatIsNamed("original value").isNotNull();
 
@@ -106,6 +135,12 @@ public final class EnterValueDialogBuilder implements Builder<ILayer> {
     return this;
   }
 
+  /**
+   * Sets the given valueTaker to the current {@link EnterValueDialogBuilder}.
+   * 
+   * @param valueTaker
+   * @return the current {@link EnterValueDialogBuilder}
+   */
   public EnterValueDialogBuilder setValueTaker(final Consumer<String> valueTaker) {
     Validator.assertThat(valueTaker).thatIsNamed("value taker").isNotNull();
 

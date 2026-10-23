@@ -32,6 +32,13 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
     super(valueType);
   }
 
+  /**
+   * @param valueType
+   * @param <V2>      the type of the values of the created
+   *                  {@link MultiValueField}
+   * @return a new empty {@link MultiValueField} for values of the given valueType
+   * @throws RuntimeException if the given valueType is null
+   */
   public static <V2> MultiValueField<V2> withValueType(final Class<V2> valueType) {
     return new MultiValueField<>(valueType);
   }

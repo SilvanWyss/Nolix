@@ -25,10 +25,19 @@ public abstract class AbstractStatisticalModel {
     this.inputValues = inputValues.clone();
   }
 
+  /**
+   * @return the number of back steps of the current
+   *         {@link AbstractStatisticalModel}
+   */
   public final int getBackStepsCount() {
     return backStepCount;
   }
 
+  /**
+   * @param index
+   * @return the forecast of the current {@link AbstractStatisticalModel} for the
+   *         given index
+   */
   public final double getForecast(final int index) {
     Validator.assertThat(index).thatIsNamed("index").isPositive();
 
@@ -39,6 +48,10 @@ public abstract class AbstractStatisticalModel {
     return forecasts.getStoredAtOneBasedIndex(index);
   }
 
+  /**
+   * @return the number of input values of the current
+   *         {@link AbstractStatisticalModel}
+   */
   public final int getInputValuesCount() {
     return inputValues.length;
   }

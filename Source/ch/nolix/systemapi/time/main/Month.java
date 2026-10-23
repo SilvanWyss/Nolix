@@ -22,6 +22,10 @@ public enum Month {
   NOVEMBER,
   DECEMBER;
 
+  /**
+   * @param month
+   * @return the {@link Month} that corresponds to the given month
+   */
   public static Month fromJavaMonth(final java.time.Month month) { // NOSONAR: This method is uniform.
     return switch (month) {
       case JANUARY ->
@@ -53,6 +57,12 @@ public enum Month {
     };
   }
 
+  /**
+   * @param specification
+   * @return the {@link Month} the given specification represents
+   * @throws RuntimeException if the given specification does not represent a
+   *                          {@link Month}
+   */
   public Month fromSpecification(final Node<?> specification) {
     return Month.valueOf(specification.getSingleChildNodeHeader());
   }

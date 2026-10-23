@@ -14,6 +14,9 @@ import ch.nolix.systemapi.time.timetool.IIncrementalCurrentTimeCreator;
 public final class IncrementalCurrentTimeCreator implements IIncrementalCurrentTimeCreator {
   private ITime latestTime = Time.ofNowAndTimeZone(TimeZone.UTC);
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ITime getCurrentTime() {
     ITime now = Time.ofNowAndTimeZone(TimeZone.UTC);

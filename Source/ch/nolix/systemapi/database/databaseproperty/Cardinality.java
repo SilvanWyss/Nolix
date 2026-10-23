@@ -17,6 +17,9 @@ public enum Cardinality {
     this.baseCardinality = baseCardinality;
   }
 
+  /**
+   * @return the {@link BaseCardinality} of the current {@link Cardinality}
+   */
   public BaseCardinality getBaseCardinality() {
     return baseCardinality;
   }

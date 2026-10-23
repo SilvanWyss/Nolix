@@ -13,6 +13,9 @@ import ch.nolix.baseapi.resourcecontrol.closecontroller.IClosePool;
 public final class UncloseableCloseController implements ICloseController {
   private static final UncloseableClosePool UNCLOSEABLE_CLOSE_POOL = new UncloseableClosePool();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void close() {
     // Does nothing.

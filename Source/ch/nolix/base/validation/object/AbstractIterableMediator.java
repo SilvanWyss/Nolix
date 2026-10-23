@@ -36,6 +36,12 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
     super(argument, argumentName);
   }
 
+  /**
+   * @param element
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractIterableMediator} does not contain
+   *                          the given element
+   */
   public void contains(final Object element) {
     if (!ITERABLE_EXAMINER.contains(getStoredArgument(), element)) {
       throw ArgumentDoesNotContainElementException.forArgumentAndArgumentNameAndElement(
@@ -45,6 +51,13 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
     }
   }
 
+  /**
+   * @param condition
+   * @throws RuntimeException if the given condition is null
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractIterableMediator} does not contain an
+   *                          element that fulfills the given condition
+   */
   public void contains(final Predicate<E> condition) {
     if (condition == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.CONDITION);
@@ -66,6 +79,13 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
     }
   }
 
+  /**
+   * @param elements
+   * @throws RuntimeException if the given elements is null
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractIterableMediator} does not contain
+   *                          all of the given elements
+   */
   public void containsAll(final Object[] elements) {
     if (elements == null) {
       throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableNameCatalog.ELEMENTS);
@@ -76,6 +96,13 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
     }
   }
 
+  /**
+   * @param elements
+   * @throws RuntimeException if the given elements is null
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractIterableMediator} does not contain
+   *                          all of the given elements
+   */
   public void containsAll(final Iterable<Object> elements) {
     if (elements == null) {
       throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableNameCatalog.ELEMENTS);
@@ -84,6 +111,13 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
     elements.forEach(this::contains);
   }
 
+  /**
+   * @param array
+   * @throws RuntimeException if the given array is null
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractIterableMediator} does not contain as
+   *                          many elements as the given array
+   */
   public void containsAsManyElementsAs(final Object[] array) {
     if (array == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.ARRAY);
@@ -92,12 +126,28 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
     hasElementCount(array.length);
   }
 
+  /**
+   * @param iterable
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractIterableMediator} does not contain as
+   *                          many elements as the given iterable
+   */
   public void containsAsManyElementsAs(final Iterable<?> iterable) {
     final var elementCountOfIterable = ITERABLE_SEARCHER.getCount(iterable);
 
     hasElementCount(elementCountOfIterable);
   }
 
+  /**
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractIterableMediator} is null
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractIterableMediator} contains a null
+   *                          element
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractIterableMediator} contains an element
+   *                          several times
+   */
   public void containsDistinctNonNullElemensOnly() {
     containsNonNullElementsOnly();
 
@@ -114,6 +164,14 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
     }
   }
 
+  /**
+   * @param object
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractIterableMediator} is null
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractIterableMediator} does not contain an
+   *                          element that equals the given object
+   */
   public void containsEqualing(final Object object) {
     isNotNull();
 
@@ -135,12 +193,24 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
     }
   }
 
+  /**
+   * @param elements
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractIterableMediator} does not contain
+   *                          exactly the given elements
+   */
   public void containsExactly(final Object... elements) {
     hasElementCount(elements.length);
 
     containsAll(elements);
   }
 
+  /**
+   * @param elements
+   * @throws RuntimeException if the elements of the argument of the current
+   *                          {@link AbstractIterableMediator} do not equal the
+   *                          given elements in the same order
+   */
   public void containsExactlyEqualing(final Object... elements) {
     containsAsManyElementsAs(elements);
 
@@ -157,6 +227,12 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
     }
   }
 
+  /**
+   * @param elements
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractIterableMediator} does not contain
+   *                          exactly the given elements in the same order
+   */
   @SuppressWarnings("unchecked")
   public void containsExactlyInSameOrder(final E... elements) {
     containsAsManyElementsAs(elements);
@@ -175,6 +251,12 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
     }
   }
 
+  /**
+   * @param elements
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractIterableMediator} does not contain
+   *                          exactly the given elements in the same order
+   */
   public void containsExactlyInSameOrder(final Iterable<E> elements) {
     containsAsManyElementsAs(elements);
 

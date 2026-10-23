@@ -47,6 +47,13 @@ public final class DataReader implements IDataReader {
     createCloseDependencyTo(sqlConnection);
   }
 
+  /**
+   * @param databaseName
+   * @param databaseView
+   * @param sqlConnection
+   * @return a new {@link DataReader} for the database with the given databaseName
+   *         and databaseView using the given sqlConnection
+   */
   public static DataReader forDatabaseNameAndDatabaseSchemaViewAndSqlConnection(
     final String databaseName,
     final DatabaseInfoDto databaseView,

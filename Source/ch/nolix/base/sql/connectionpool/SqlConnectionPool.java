@@ -50,6 +50,17 @@ implements ISqlDatabaseTarget {
     credential = Credential.withLoginNameAndPassword(loginName, loginPassword);
   }
 
+  /**
+   * @param host
+   * @param port
+   * @param databaseName
+   * @param sqlDatabaseEngine
+   * @param loginName
+   * @param loginPassword
+   * @return a new {@link SqlConnectionPool} for the database with the given
+   *         databaseName and sqlDatabaseEngine on the server with the given host
+   *         and port, that uses the given loginName and loginPassword
+   */
   public static SqlConnectionPool withHostAndPortAndDatabaseNameAndSqlDatabaseEngineAndLoginNameAndLoginPassword(
     final String host,
     final int port,

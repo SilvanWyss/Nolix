@@ -21,6 +21,10 @@ public final class RunningJar {
   private RunningJar() {
   }
 
+  /**
+   * @param path
+   * @return the content of the resource with the given path of the running jar
+   */
   public static String getResource(final String path) {
     final var stringBuilder = new StringBuilder();
     final var inputStream = RunningJar.class.getResourceAsStream("/" + path);
@@ -37,6 +41,10 @@ public final class RunningJar {
     }
   }
 
+  /**
+   * @param path
+   * @return the bytes of the resource with the given path of the running jar
+   */
   public static byte[] getResourceAsBytes(final String path) {
     final var inputStream = RunningJar.class.getResourceAsStream("/" + path);
     try {
@@ -46,6 +54,10 @@ public final class RunningJar {
     }
   }
 
+  /**
+   * @param path
+   * @return the lines of the resource with the given path of the running jar
+   */
   public static ExtendedIterable<String> readLinesOfResource(final String path) {
     final ILinkedList<String> lines = LinkedList.createEmpty();
     final var inputStream = RunningJar.class.getResourceAsStream(StringCatalog.SLASH + path);

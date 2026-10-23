@@ -14,6 +14,14 @@ public final class MultiBackReferenceEntryMapper {
   private MultiBackReferenceEntryMapper() {
   }
 
+  /**
+   * @param multiBackReferenceEntryDto
+   * @param multiBackReference
+   * @param <E>                        the type of the {@link Entity}s the given
+   *                                   multiBackReference can reference back
+   * @return a new loaded {@link MultiBackReferenceEntry} for the given
+   *         multiBackReference from the given multiBackReferenceEntryDto
+   */
   public static <E extends Entity> MultiBackReferenceEntry<E> //
   mapMultiBackReferenceEntryDtoToLoadedMultiBackReferenceEntry(
     final MultiBackReferenceEntryDto multiBackReferenceEntryDto, final MultiBackReference<E> multiBackReference) {

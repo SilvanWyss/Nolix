@@ -9,5 +9,8 @@ import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
  * @author Silvan Wyss
  */
 public interface HtmlGetter {
+  /**
+   * @return the HTML of the current {@link HtmlGetter}
+   */
   IHtmlElement getHtml();
 }

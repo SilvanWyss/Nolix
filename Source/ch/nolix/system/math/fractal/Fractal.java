@@ -107,6 +107,18 @@ public final class Fractal implements IFractal {
     this.decimalPlaces = decimalPlaces;
   }
 
+  /**
+   * @param realComponentInterval
+   * @param imaginaryComponentInterval
+   * @param widthInPixel
+   * @param heightInPixel
+   * @param sequenceCreator
+   * @param sequencesMinDivergenceMagnitude
+   * @param sequencesMaxIterationCount
+   * @param colorFunction
+   * @param decimalPlaces
+   * @return a new {@link Fractal} with the given parameters
+   */
   public static Fractal withParams( // NOSONAR: A Fractal has many parameters.
     final IClosedInterval realComponentInterval,
     final IClosedInterval imaginaryComponentInterval,

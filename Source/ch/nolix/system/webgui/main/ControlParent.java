@@ -33,10 +33,18 @@ public final class ControlParent implements IControlParent {
     this.control = null;
   }
 
+  /**
+   * @param control
+   * @return a new {@link ControlParent} for the given control
+   */
   public static ControlParent forControl(final Control<?, ?> control) {
     return new ControlParent(control);
   }
 
+  /**
+   * @param layer
+   * @return a new {@link ControlParent} for the given layer
+   */
   public static ControlParent forLayer(final ILayer layer) {
     return new ControlParent(layer);
   }
@@ -83,6 +91,9 @@ public final class ControlParent implements IControlParent {
     return control;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ILayer getStoredLayer() {
     assertIsLayer();

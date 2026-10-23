@@ -12,6 +12,12 @@ public enum TextMode {
   NORMAL,
   SECRET;
 
+  /**
+   * @param specification
+   * @return the {@link TextMode} the given specification represents
+   * @throws RuntimeException if the given specification does not represent a
+   *                          {@link TextMode}
+   */
   public static TextMode fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }

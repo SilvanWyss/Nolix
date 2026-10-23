@@ -108,6 +108,11 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
     return (ImmutableList<T>) EMPTY;
   }
 
+  /**
+   * @param array
+   * @param <T>   the type of the elements of the given array
+   * @return a new {@link ImmutableList} with the elements of the given array
+   */
   public static <T> ImmutableList<T> fromArray(final T[] array) {
     return new ImmutableList<>(array);
   }

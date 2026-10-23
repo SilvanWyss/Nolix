@@ -42,6 +42,16 @@ public final class BackReference<E extends Entity> extends AbstractBaseBackRefer
     super(backReferenceableTableNames, backReferencedFieldName);
   }
 
+  /**
+   * @param backReferencedFieldName
+   * @param backReferenceableEntityTypes
+   * @param <T>                          the type of the {@link Entity}s the
+   *                                     created {@link BackReference} can
+   *                                     reference back
+   * @return a new {@link BackReference} that can reference back the
+   *         {@link Field}s with the given backReferencedFieldName of the
+   *         {@link Entity}s of the given backReferenceableEntityTypes
+   */
   @SafeVarargs
   public static <T extends Entity> BackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
     final String backReferencedFieldName,
@@ -53,6 +63,16 @@ public final class BackReference<E extends Entity> extends AbstractBaseBackRefer
     return new BackReference<>(backReferenceableTableNamesView, backReferencedFieldName);
   }
 
+  /**
+   * @param backReferencedFieldName
+   * @param backReferenceableEntityTypes
+   * @param <T>                          the type of the {@link Entity}s the
+   *                                     created {@link BackReference} can
+   *                                     reference back
+   * @return a new {@link BackReference} that can reference back the
+   *         {@link Field}s with the given backReferencedFieldName of the
+   *         {@link Entity}s of the given backReferenceableEntityTypes
+   */
   public static <T extends Entity> BackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
     final String backReferencedFieldName,
     final ExtendedIterable<Class<? extends T>> backReferenceableEntityTypes) {
@@ -62,6 +82,17 @@ public final class BackReference<E extends Entity> extends AbstractBaseBackRefer
     return new BackReference<>(backReferenceableTableNamesView, backReferencedFieldName);
   }
 
+  /**
+   * @param backReferencedFieldName
+   * @param backReferenceableTableNames
+   * @param <T>                         the type of the {@link Entity}s the
+   *                                    created {@link BackReference} can
+   *                                    reference back
+   * @return a new {@link BackReference} that can reference back the
+   *         {@link Field}s with the given backReferencedFieldName of the
+   *         {@link Entity}s of the {@link ITable}s with the given
+   *         backReferenceableTableNames
+   */
   public static <T extends Entity> BackReference<T> forBackReferencedFieldNameAndBackReferenceableTableNames(
     final String backReferencedFieldName,
     final ExtendedIterable<String> backReferenceableTableNames) {

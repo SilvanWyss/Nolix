@@ -21,12 +21,21 @@ public final class NodeSchemaAdapter extends AbstractSchemaAdapter {
       () -> SchemaWriter.forNodeDatabase(nodeDatabase));
   }
 
+  /**
+   * @param filePath
+   * @return a new {@link NodeSchemaAdapter} for the node database in the file
+   *         with the given filePath
+   */
   public static NodeSchemaAdapter forFileNodeDatabase(final String filePath) {
     final var nodeDatabase = FileNode.withFilePath(filePath);
 
     return new NodeSchemaAdapter(nodeDatabase);
   }
 
+  /**
+   * @param nodeDatabase
+   * @return a new {@link NodeSchemaAdapter} for the given nodeDatabase
+   */
   public static NodeSchemaAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
     return new NodeSchemaAdapter(nodeDatabase);
   }

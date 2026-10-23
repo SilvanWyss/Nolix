@@ -26,6 +26,12 @@ public final class SqlSchemaAdapter extends AbstractSchemaAdapter {
       () -> SchemaWriter.forDatabaseNameAndSqlConnection(databaseName, sqlConnection));
   }
 
+  /**
+   * @param databaseName
+   * @param sqlConnection
+   * @return a new {@link SqlSchemaAdapter} for the database with the given
+   *         databaseName using the given sqlConnection
+   */
   public static SqlSchemaAdapter forDatabaseNameAndSqlConnection(
     final String databaseName,
     final ISqlConnection sqlConnection) {

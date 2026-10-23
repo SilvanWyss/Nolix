@@ -306,6 +306,12 @@ public final class FileSystemAccessor {
     return new File(path).isDirectory();
   }
 
+  /**
+   * Overwrites the file with the given path with the given content.
+   * 
+   * @param path
+   * @param content
+   */
   public static void overwriteFile(final String path, final byte[] content) {
     // Asserts that there does not exist a folder with the given path.
     if (isFolder(path)) {

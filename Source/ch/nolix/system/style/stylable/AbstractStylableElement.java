@@ -29,6 +29,9 @@ implements StylableElement<E> {
   private final MultiValueProperty<String> tokens = //
   MultiValueProperty.forStringsWithNameAndAdder(TOKEN_HEADER, this::addToken);
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final E addToken(final String token) {
     Validator.assertThat(token).thatIsNamed(LowerCaseVariableNameCatalog.TOKEN).isNotBlank();

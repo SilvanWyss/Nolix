@@ -21,6 +21,10 @@ public abstract class AbstractTypeMediator<T> extends AbstractObjectMediator<Cla
     super(argument, argumentName);
   }
 
+  /**
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractTypeMediator} is null or not abstract
+   */
   public final void isAbstract() {
     isNotNull();
 
@@ -33,6 +37,10 @@ public abstract class AbstractTypeMediator<T> extends AbstractObjectMediator<Cla
     }
   }
 
+  /**
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractTypeMediator} is null or not a class
+   */
   public final void isClass() {
     isNotNull();
 
@@ -47,6 +55,10 @@ public abstract class AbstractTypeMediator<T> extends AbstractObjectMediator<Cla
     }
   }
 
+  /**
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractTypeMediator} is null or not concrete
+   */
   public final void isConcrete() {
     isNotNull();
 
@@ -59,6 +71,10 @@ public abstract class AbstractTypeMediator<T> extends AbstractObjectMediator<Cla
     }
   }
 
+  /**
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractTypeMediator} is null or not an enum
+   */
   public final void isEnum() {
     isNotNull();
 
@@ -71,6 +87,16 @@ public abstract class AbstractTypeMediator<T> extends AbstractObjectMediator<Cla
     }
   }
 
+  /**
+   * @param paramInterface
+   * @throws RuntimeException if the given paramInterface is null or not an
+   *                          interface
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractTypeMediator} is null or not a class
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractTypeMediator} does not implement the
+   *                          given paramInterface
+   */
   public final void isImplementing(final Class<?> paramInterface) {
     TypeMediator.forArgumentAndArgumentName(paramInterface, LowerCaseVariableNameCatalog.TYPE).isInterface();
 
@@ -85,6 +111,11 @@ public abstract class AbstractTypeMediator<T> extends AbstractObjectMediator<Cla
     }
   }
 
+  /**
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractTypeMediator} is null or not an
+   *                          interface
+   */
   public final void isInterface() {
     isNotNull();
 
@@ -97,6 +128,12 @@ public abstract class AbstractTypeMediator<T> extends AbstractObjectMediator<Cla
     }
   }
 
+  /**
+   * @param type
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractTypeMediator} is not a sub type of
+   *                          the given type
+   */
   public final void isSubTypeOf(final Class<?> type) {
     if (!type.isAssignableFrom(getStoredArgument())
     || getStoredArgument().isAssignableFrom(type)) {
@@ -108,6 +145,12 @@ public abstract class AbstractTypeMediator<T> extends AbstractObjectMediator<Cla
     }
   }
 
+  /**
+   * @param type
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractTypeMediator} is not a super type of
+   *                          the given type
+   */
   public final void isSuperTypeOf(final Class<?> type) {
     if (!getStoredArgument().isAssignableFrom(type)
     || type.isAssignableFrom(getStoredArgument())) {

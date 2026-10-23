@@ -12,7 +12,16 @@ import ch.nolix.systemapi.webgui.main.RootControlManager;
  */
 public interface IAccordionTab
 extends FluentMutableHeaderHolder<IAccordionTab>, RootControlManager<IAccordionTab>, Selectable {
+  /**
+   * @return true if the current {@link IAccordionTab} belongs to a
+   *         {@link IAccordion}, false otherwise
+   */
   boolean belongsToAccordion();
 
+  /**
+   * @return the parent {@link IAccordion} of the current {@link IAccordionTab}
+   * @throws RuntimeException if the current {@link IAccordionTab} does not belong
+   *                          to a {@link IAccordion}
+   */
   IAccordion getParentAccordion();
 }

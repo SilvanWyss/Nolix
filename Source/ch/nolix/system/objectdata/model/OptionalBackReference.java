@@ -21,8 +21,8 @@ import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the {@link Entity} a {@link OptionalBackReference}
- *            can references back
+ * @param <E> the type of the {@link Entity} a {@link OptionalBackReference} can
+ *            references back
  */
 public final class OptionalBackReference<E extends Entity>
 extends AbstractBaseBackReference
@@ -43,6 +43,16 @@ implements IOptionalBackReference<E> {
     super(backReferenceableTableNamese, backReferencedFieldName);
   }
 
+  /**
+   * @param backReferencedFieldName
+   * @param backReferenceableEntityTypes
+   * @param <T>                          the type of the {@link Entity}s the
+   *                                     created {@link OptionalBackReference} can
+   *                                     reference back
+   * @return a new {@link OptionalBackReference} that can reference back the
+   *         {@link Field}s with the given backReferencedFieldName of the
+   *         {@link Entity}s of the given backReferenceableEntityTypes
+   */
   @SafeVarargs
   public static <T extends Entity> OptionalBackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
     final String backReferencedFieldName,
@@ -55,6 +65,16 @@ implements IOptionalBackReference<E> {
     return new OptionalBackReference<>(backReferenceableTableNamesView, backReferencedFieldName);
   }
 
+  /**
+   * @param backReferencedFieldName
+   * @param backReferenceableEntityTypes
+   * @param <T>                          the type of the {@link Entity}s the
+   *                                     created {@link OptionalBackReference} can
+   *                                     reference back
+   * @return a new {@link OptionalBackReference} that can reference back the
+   *         {@link Field}s with the given backReferencedFieldName of the
+   *         {@link Entity}s of the given backReferenceableEntityTypes
+   */
   public static <T extends Entity> OptionalBackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
     final String backReferencedFieldName,
     final ExtendedIterable<Class<? extends T>> backReferenceableEntityTypes) {
@@ -64,6 +84,17 @@ implements IOptionalBackReference<E> {
     return new OptionalBackReference<>(backReferenceableTableNamesView, backReferencedFieldName);
   }
 
+  /**
+   * @param backReferencedFieldName
+   * @param backReferenceableTableNames
+   * @param <T>                         the type of the {@link Entity}s the
+   *                                    created {@link OptionalBackReference} can
+   *                                    reference back
+   * @return a new {@link OptionalBackReference} that can reference back the
+   *         {@link Field}s with the given backReferencedFieldName of the
+   *         {@link Entity}s of the {@link ITable}s with the given
+   *         backReferenceableTableNames
+   */
   public static <T extends Entity> OptionalBackReference<T> forBackReferencedFieldNameAndBackReferenceableTableNames(
     final String backReferencedFieldName,
     final ExtendedIterable<String> backReferenceableTableNames) {

@@ -16,10 +16,21 @@ public final class NodeSchemaAdapter extends AbstractSchemaAdapter {
     super(databaseName, ch.nolix.system.nodemidschema.adapter.NodeSchemaAdapter.forNodeDatabase(nodeDatabase));
   }
 
+  /**
+   * @param databaseName
+   * @param nodeDatabase
+   * @return a new {@link NodeSchemaAdapter} for the database with the given
+   *         databaseName in the given nodeDatabase
+   */
   public static NodeSchemaAdapter forNodeDatabase(final String databaseName, final IMutableNode<?> nodeDatabase) {
     return new NodeSchemaAdapter(databaseName, nodeDatabase);
   }
 
+  /**
+   * @param filePath
+   * @return a new {@link NodeSchemaAdapter} for the node database in the file
+   *         with the given filePath
+   */
   public static NodeSchemaAdapter forFileNodeDatabase(final String filePath) {
     final var fileName = FileAccessor.withFilePath(filePath).getName();
     final var databaseName = RegularExpressionPatternCatalog.DOT_PATTERN.split(fileName)[0];

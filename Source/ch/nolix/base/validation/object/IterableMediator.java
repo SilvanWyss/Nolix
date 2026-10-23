@@ -13,6 +13,13 @@ public final class IterableMediator<E> extends AbstractIterableMediator<E> {
     super(argument, argumentName);
   }
 
+  /**
+   * @param argument
+   * @param argumentName
+   * @param <T>          the type of the elements of the given argument
+   * @return a new {@link IterableMediator} for the given argument with the given
+   *         argumentName
+   */
   public static <T> IterableMediator<T> forArgumentAndArgumentName(
     final Iterable<T> argument,
     final String argumentName) {

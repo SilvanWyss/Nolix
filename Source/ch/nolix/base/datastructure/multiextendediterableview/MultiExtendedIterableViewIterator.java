@@ -36,6 +36,12 @@ public final class MultiExtendedIterableViewIterator<E> implements CopyableItera
     this.currentSubIterator = currentIterator;
   }
 
+  /**
+   * @param containers
+   * @param <T>        the type of the elements of the given containers
+   * @return a new {@link MultiExtendedIterableViewIterator} for the given
+   *         containers
+   */
   public static <T> MultiExtendedIterableViewIterator<T> forContainers(
     final ExtendedIterable<ExtendedIterable<T>> containers) {
     return new MultiExtendedIterableViewIterator<>(containers);

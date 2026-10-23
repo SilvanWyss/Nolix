@@ -16,6 +16,12 @@ public final class TableMapper {
   private TableMapper() {
   }
 
+  /**
+   * @param midTableDto
+   * @param database
+   * @return a new {@link Table} without columns from the given midTableDto for
+   *         the given database
+   */
   @SuppressWarnings("unchecked")
   public static Table<Entity> mapMidSchemaTableDtoToTableWithoutColumns(
     final TableDto midTableDto,

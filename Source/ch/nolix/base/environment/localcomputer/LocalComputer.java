@@ -15,6 +15,9 @@ public final class LocalComputer {
   private LocalComputer() {
   }
 
+  /**
+   * @return the LAN IP of the local computer
+   */
   public static String getLanIp() {
     try {
       return InetAddress.getLocalHost().getHostAddress();

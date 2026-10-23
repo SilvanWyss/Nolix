@@ -33,18 +33,36 @@ public final class WebClientPartialCounterpartUpdater {
     this.counterpartRunner = counterpartRunner;
   }
 
+  /**
+   * @param counterpartRunner
+   * @param openStateRequester
+   * @return a new {@link WebClientPartialCounterpartUpdater} with the given
+   *         counterpartRunner and openStateRequester
+   */
   public static WebClientPartialCounterpartUpdater forCounterpartRunnerAndOpenStateRequestable(
     final Consumer<ExtendedIterable<? extends ChainedNode>> counterpartRunner,
     final BooleanSupplier openStateRequester) {
     return new WebClientPartialCounterpartUpdater(counterpartRunner, openStateRequester);
   }
 
+  /**
+   * Updates the given control on the counterpart.
+   * 
+   * @param control
+   * @param updateConstellationOrStyle
+   */
   public void updateControlOnCounterpart(final Control<?, ?> control, final boolean updateConstellationOrStyle) {
     final ExtendedIterable<Control<?, ?>> controls = ImmutableList.withElements(control);
 
     updateControlsOnCounterpart(controls, updateConstellationOrStyle);
   }
 
+  /**
+   * Updates the given controls on the counterpart.
+   * 
+   * @param controls
+   * @param updateConstellationOrStyle
+   */
   public void updateControlsOnCounterpart(
     final ExtendedIterable<Control<?, ?>> controls,
     final boolean updateConstellationOrStyle) {

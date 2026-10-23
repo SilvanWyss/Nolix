@@ -34,6 +34,9 @@ implements IHorizontalStack {
     VerticalContentAlignment::fromSpecification,
     ImmutableNode::fromEnum);
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public VerticalContentAlignment getContentAlignment() {
     return contentAlignment.getStoredValue();

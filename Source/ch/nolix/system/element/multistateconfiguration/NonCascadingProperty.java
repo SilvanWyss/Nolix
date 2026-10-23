@@ -46,6 +46,16 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends AbstractMa
     this.defaultValue = defaultValue;
   }
 
+  /**
+   * @param name
+   * @param stateClass
+   * @param setterMethod
+   * @param defaultValue
+   * @param <S2>         the type of the states of the created
+   *                     {@link NonCascadingProperty}
+   * @return a new {@link NonCascadingProperty} for doubles with the given name,
+   *         stateClass, setterMethod and defaultValue
+   */
   public static <S2 extends Enum<S2>> NonCascadingProperty<S2, Double> //
   forDoubleWithNameAndStateClassAndSetterMethodAndDefaultValue(
     final String name,
@@ -61,6 +71,16 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends AbstractMa
       defaultValue);
   }
 
+  /**
+   * @param name
+   * @param stateClass
+   * @param setterMethod
+   * @param defaultValue
+   * @param <S2>         the type of the states of the created
+   *                     {@link NonCascadingProperty}
+   * @return a new {@link NonCascadingProperty} for ints with the given name,
+   *         stateClass, setterMethod and defaultValue
+   */
   public static <S2 extends Enum<S2>> NonCascadingProperty<S2, Integer>//
   forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
     final String name,
@@ -76,6 +96,19 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends AbstractMa
       defaultValue);
   }
 
+  /**
+   * @param name
+   * @param stateClass
+   * @param valueCreator
+   * @param specificationCreator
+   * @param defaultValue
+   * @param <S2>                 the type of the states of the created
+   *                             {@link NonCascadingProperty}
+   * @param <V2>                 the type of the values of the created
+   *                             {@link NonCascadingProperty}
+   * @return a new {@link NonCascadingProperty} with the given name, stateClass,
+   *         valueCreator, specificationCreator and defaultValue
+   */
   public static <S2 extends Enum<S2>, V2> NonCascadingProperty<S2, V2> //
   withNameAndStateClassAndValueMapperAndSpecificationMapperAndDefaultValue(
     final String name,
@@ -86,6 +119,20 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends AbstractMa
     return new NonCascadingProperty<>(name, stateClass, valueCreator, specificationCreator, defaultValue);
   }
 
+  /**
+   * @param name
+   * @param stateClass
+   * @param valueCreator
+   * @param specificationCreator
+   * @param setterMethod
+   * @param defaultValue
+   * @param <S2>                 the type of the states of the created
+   *                             {@link NonCascadingProperty}
+   * @param <V2>                 the type of the values of the created
+   *                             {@link NonCascadingProperty}
+   * @return a new {@link NonCascadingProperty} with the given name, stateClass,
+   *         valueCreator, specificationCreator, setterMethod and defaultValue
+   */
   public static <S2 extends Enum<S2>, V2> NonCascadingProperty<S2, V2> //
   withNameAndStateClassAndValueMapperAndSpecificationMapperAndSetterAndDefaultValue(
     final String name,
@@ -97,6 +144,11 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends AbstractMa
     return new NonCascadingProperty<>(name, stateClass, valueCreator, specificationCreator, setterMethod, defaultValue);
   }
 
+  /**
+   * Sets the current {@link NonCascadingProperty} empty for the given state.
+   * 
+   * @param state
+   */
   public void setEmptyForState(final S state) {
     stateProperties[(getStateOf(state).getIndex())].setEmpty();
   }

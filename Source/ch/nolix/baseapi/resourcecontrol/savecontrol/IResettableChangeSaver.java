@@ -10,5 +10,8 @@ import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
  * @author Silvan Wyss
  */
 public interface IResettableChangeSaver extends GroupCloseable, IChangeSaver, Resettable {
+  /**
+   * @return the number of saves of the current {@link IResettableChangeSaver}
+   */
   int getSaveCount();
 }

@@ -12,6 +12,10 @@ public final class TimeValidator {
   private TimeValidator() {
   }
 
+  /**
+   * @param time
+   * @return a new {@link NamableTimeMediator} for the given time
+   */
   public static NamableTimeMediator assertThat(final ITime time) {
     return NamableTimeMediator.forArgument(time);
   }

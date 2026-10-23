@@ -125,8 +125,8 @@ public final class FolderAccessor extends AbstractFileSystemItemAccessor {
   }
 
   /**
-   * @return new {@link AbstractFileSystemItemAccessor}s to the file system items in the
-   *         folder of the current {@link FolderAccessor}.
+   * @return new {@link AbstractFileSystemItemAccessor}s to the file system items
+   *         in the folder of the current {@link FolderAccessor}.
    */
   public ExtendedIterable<AbstractFileSystemItemAccessor> getFileSystemItemAccessors() {
     return FileSystemAccessor.getFileSystemItemAccessors(getPath());

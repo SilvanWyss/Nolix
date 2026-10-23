@@ -32,6 +32,9 @@ public abstract class AbstractControlCssBuilder<C extends Control<C, S>, S exten
 implements IControlCssBuilder<C, S> {
   private static final CssPropertyMapper CSS_PROPERTY_MAPPER = new CssPropertyMapper();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final ExtendedIterable<ICssRule> createCssRulesForControl(final C control) {
     final ILinkedList<ICssRule> cssRules = LinkedList.createEmpty();

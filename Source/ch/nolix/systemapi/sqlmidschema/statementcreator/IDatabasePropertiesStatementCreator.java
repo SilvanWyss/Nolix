@@ -9,5 +9,9 @@ import ch.nolix.systemapi.time.main.ITime;
  * @author Silvan Wyss
  */
 public interface IDatabasePropertiesStatementCreator {
+  /**
+   * @param schemaTimestamp
+   * @return a statement to set the given schemaTimestamp
+   */
   String createStatementToSetSchemaTimestamp(ITime schemaTimestamp);
 }

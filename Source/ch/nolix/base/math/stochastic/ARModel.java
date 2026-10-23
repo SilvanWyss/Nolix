@@ -48,6 +48,11 @@ public final class ARModel extends AbstractStatisticalModel {
     constant = factor2Matrix.getValue(factor2Matrix.getSize(), 1);
   }
 
+  /**
+   * @param pOrder
+   * @param inputValues
+   * @return a new {@link ARModel} with the given pOrder and inputValues
+   */
   public static ARModel withOrderAndInputValues(final int pOrder, final double[] inputValues) {
     return new ARModel(pOrder, inputValues);
   }
@@ -59,6 +64,10 @@ public final class ARModel extends AbstractStatisticalModel {
     return constant;
   }
 
+  /**
+   * @param index
+   * @return the p coefficient at the given index of the current {@link ARModel}
+   */
   public double getPCoefficient(final int index) {
     Validator.assertThat(index).thatIsNamed(LowerCaseVariableNameCatalog.INDEX).isBetween(1, getPOrder());
 

@@ -48,6 +48,15 @@ public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMater
     this.defaultValue = defaultValue;
   }
 
+  /**
+   * @param name
+   * @param stateClass
+   * @param defaultValue
+   * @param <S2>         the type of the states of the created
+   *                     {@link CascadingProperty}
+   * @return a new {@link CascadingProperty} for booleans with the given name,
+   *         stateClass and defaultValue
+   */
   public static <S2 extends Enum<S2>> CascadingProperty<S2, Boolean> forBooleanWithNameAndStateClassAndDefaultValue(
     final String name,
     final Class<S2> stateClass,
@@ -60,6 +69,16 @@ public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMater
       defaultValue);
   }
 
+  /**
+   * @param name
+   * @param stateClass
+   * @param setterMethod
+   * @param defaultValue
+   * @param <S2>         the type of the states of the created
+   *                     {@link CascadingProperty}
+   * @return a new {@link CascadingProperty} for ints with the given name,
+   *         stateClass, setterMethod and defaultValue
+   */
   public static <S2 extends Enum<S2>> CascadingProperty<S2, Integer>//
   forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
     final String name,
@@ -75,6 +94,19 @@ public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMater
       defaultValue);
   }
 
+  /**
+   * @param name
+   * @param stateClass
+   * @param valueCreator
+   * @param specificationCreator
+   * @param defaultValue
+   * @param <S2>                 the type of the states of the created
+   *                             {@link CascadingProperty}
+   * @param <V2>                 the type of the values of the created
+   *                             {@link CascadingProperty}
+   * @return a new {@link CascadingProperty} with the given name, stateClass,
+   *         valueCreator, specificationCreator and defaultValue
+   */
   public static <S2 extends Enum<S2>, V2> CascadingProperty<S2, V2> //
   withNameAndStateClassAndValueMapperAndSpecificationMapperAndDefaultValue(
     final String name,
@@ -85,6 +117,20 @@ public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMater
     return new CascadingProperty<>(name, stateClass, valueCreator, specificationCreator, defaultValue);
   }
 
+  /**
+   * @param name
+   * @param stateClass
+   * @param valueCreator
+   * @param specificationCreator
+   * @param setterMethod
+   * @param defaultValue
+   * @param <S2>                 the type of the states of the created
+   *                             {@link CascadingProperty}
+   * @param <V2>                 the type of the values of the created
+   *                             {@link CascadingProperty}
+   * @return a new {@link CascadingProperty} with the given name, stateClass,
+   *         valueCreator, specificationCreator, setterMethod and defaultValue
+   */
   public static <S2 extends Enum<S2>, V2> CascadingProperty<S2, V2> //
   withNameAndStateClassAndValueMapperAndSpecificationMapperAndSetterAndDefaultValue(
     final String name,

@@ -63,6 +63,9 @@ public final class DatabaseValidator extends AbstractDatabaseObjectValidator<IDa
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertContainsTable(final IDatabase database, final ITable table) {
     if (!DATABASE_EXAMINER.containsTable(database, table)) {

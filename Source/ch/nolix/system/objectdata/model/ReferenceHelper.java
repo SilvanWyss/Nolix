@@ -17,6 +17,16 @@ public final class ReferenceHelper {
   private ReferenceHelper() {
   }
 
+  /**
+   * @param id
+   * @param tableId
+   * @param <E>     the type of the {@link Entity} the created {@link EntityCache}
+   *                is for
+   * @return a new {@link EntityCache} with the given id and tableId
+   * @throws RuntimeException if the given id is null
+   * @throws RuntimeException if the given tableId is null
+   * @throws RuntimeException if the given id is not a {@link String}
+   */
   public static <E extends Entity> EntityCache<E> createEntityCacheFromIdAndTableId(
     final Object id,
     final String tableId) {

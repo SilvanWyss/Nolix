@@ -38,6 +38,10 @@ public final class SchemaReader implements ISchemaReader {
     this.nodeDatabase = nodeDatabase;
   }
 
+  /**
+   * @param nodeDatabase
+   * @return a new {@link SchemaReader} for the given nodeDatabase
+   */
   public static SchemaReader forNodeDatabase(final IMutableNode<?> nodeDatabase) {
     return new SchemaReader(nodeDatabase);
   }

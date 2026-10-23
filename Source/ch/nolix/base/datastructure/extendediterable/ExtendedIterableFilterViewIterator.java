@@ -43,6 +43,13 @@ public final class ExtendedIterableFilterViewIterator<E> implements CopyableIter
     moveToOptionalNextElement();
   }
 
+  /**
+   * @param iterator
+   * @param selector
+   * @param <T>      the type of the elements of the given iterator
+   * @return a new {@link ExtendedIterableFilterViewIterator} for the elements of
+   *         the given iterator the given selector selects
+   */
   public static <T> ExtendedIterableFilterViewIterator<T> forIteratorAndSelector(
     final CopyableIterator<T> iterator,
     final Predicate<T> selector) {

@@ -44,6 +44,10 @@ public final class SchemaWriter implements ISchemaWriter {
     reset();
   }
 
+  /**
+   * @param nodeDatabase
+   * @return a new {@link SchemaWriter} for the given nodeDatabase
+   */
   public static SchemaWriter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
     return new SchemaWriter(nodeDatabase);
   }

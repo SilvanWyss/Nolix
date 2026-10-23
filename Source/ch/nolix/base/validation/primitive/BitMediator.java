@@ -11,6 +11,12 @@ public final class BitMediator extends AbstractBitMediator {
     super(argument, argumentName);
   }
 
+  /**
+   * @param argument
+   * @param argumentName
+   * @return a new {@link BitMediator} for the given argument with the given
+   *         argumentName
+   */
   public static BitMediator forArgumentAndArgumentName(final boolean argument, final String argumentName) {
     return new BitMediator(argument, argumentName);
   }

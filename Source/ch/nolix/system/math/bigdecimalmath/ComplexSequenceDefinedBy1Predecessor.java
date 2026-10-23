@@ -31,6 +31,12 @@ implements ISequenceDefinedBy1Predecessor<IComplexNumber> {
     this.nextValueFunction = nextValueFunction;
   }
 
+  /**
+   * @param firstValue
+   * @param nextValueFunction
+   * @return a new {@link ComplexSequenceDefinedBy1Predecessor} with the given
+   *         firstValue and nextValueFunction
+   */
   public static ComplexSequenceDefinedBy1Predecessor withFirstValueAndNextValueFunction(
     final IComplexNumber firstValue,
     final UnaryOperator<IComplexNumber> nextValueFunction) {

@@ -17,24 +17,36 @@ public final class NolixEnvironmentService {
   private NolixEnvironmentService() {
   }
 
+  /**
+   * @return the path of the Nolix configuration file
+   */
   public static String getNolixConfigurationFilePath() {
     createFileIfDoesNotExist(NolixDirectoryAndFileCatalog.NOLIX_CONFIGURATION_FILE_PATH);
 
     return NolixDirectoryAndFileCatalog.NOLIX_CONFIGURATION_FILE_PATH;
   }
 
+  /**
+   * @return the path of the Nolix directory
+   */
   public static String getNolixDirectoryPath() {
     createDirectoryIfDoesNotExist(NolixDirectoryAndFileCatalog.NOLIX_DIRECTORY_PATH);
 
     return NolixDirectoryAndFileCatalog.NOLIX_DIRECTORY_PATH;
   }
 
+  /**
+   * @return the path of the Nolix licenses directory
+   */
   public static String getNolixLicensesDirectoryPath() {
     createDirectoryIfDoesNotExist(NolixDirectoryAndFileCatalog.NOLIX_LICENSES_DIRECTORY_PATH);
 
     return NolixDirectoryAndFileCatalog.NOLIX_LICENSES_DIRECTORY_PATH;
   }
 
+  /**
+   * @return the path of the Nolix log file
+   */
   public static String getNolixLogFilePath() {
     createFileIfDoesNotExist(NolixDirectoryAndFileCatalog.NOLIX_LOG_FILE_PATH);
 

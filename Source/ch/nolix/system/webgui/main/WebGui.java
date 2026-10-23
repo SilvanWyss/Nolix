@@ -111,6 +111,9 @@ implements IWebGui<WebGui> {
     layerStack.clear();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean containsControl(final Control<?, ?> control) {
     return layerStack.containsControl(control);
@@ -248,6 +251,9 @@ implements IWebGui<WebGui> {
     return layerStack.getStoredLayers();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ExtendedIterable<Control<?, ?>> getStoredStructureControls() {
     return layerStack.getStoredStructureControls();
@@ -345,6 +351,12 @@ implements IWebGui<WebGui> {
     layerStack.removeLayer(layer);
   }
 
+  /**
+   * Sets the given background to the current {@link WebGui}.
+   * 
+   * @param background
+   * @return the current {@link WebGui}
+   */
   public WebGui setBackground(final IBackground background) {
     this.background.setValue(background);
 

@@ -31,6 +31,10 @@ public final class LayerStack implements ILayerStack {
     this.parentGui = parentGui;
   }
 
+  /**
+   * @param webGui
+   * @return a new {@link LayerStack} for the given webGui
+   */
   public static LayerStack forWebGui(final IWebGui<?> webGui) {
     return new LayerStack(webGui);
   }
@@ -156,6 +160,9 @@ public final class LayerStack implements ILayerStack {
   }
 
   // mehod
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ILayerStack setRemoveLayerAction(Runnable removeLayerAction) {
     Validator.assertThat(removeLayerAction).thatIsNamed("remove layer action").isNotNull();

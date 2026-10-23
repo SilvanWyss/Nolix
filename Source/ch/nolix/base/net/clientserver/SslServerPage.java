@@ -29,14 +29,25 @@ public final class SslServerPage {
     this.port = port;
   }
 
+  /**
+   * @param domain
+   * @param port
+   * @return a new {@link SslServerPage} for the given domain and port
+   */
   public static SslServerPage forDomainAndPort(final String domain, final int port) {
     return new SslServerPage(domain, port);
   }
 
+  /**
+   * @return the domain of the current {@link SslServerPage}
+   */
   public String getDomain() {
     return domain;
   }
 
+  /**
+   * @return the port of the current {@link SslServerPage}
+   */
   public int getPort() {
     return port;
   }

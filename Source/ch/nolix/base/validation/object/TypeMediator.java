@@ -12,6 +12,13 @@ public final class TypeMediator<T> extends AbstractTypeMediator<T> {
     super(argument, argumentName);
   }
 
+  /**
+   * @param argument
+   * @param argumentName
+   * @param <U>          the type the given argument represents
+   * @return a new {@link TypeMediator} for the given argument with the given
+   *         argumentName
+   */
   public static <U> TypeMediator<U> forArgumentAndArgumentName(final Class<U> argument, final String argumentName) {
     return new TypeMediator<>(argument, argumentName);
   }

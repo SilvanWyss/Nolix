@@ -12,7 +12,20 @@ import ch.nolix.baseapi.argumentcaptor.base.ArgumentCaptor;
  * @param <S> the type of the successor of a {@link AndSchemaCaptor}
  */
 public interface IAndSchemaCaptor<T, S> extends ArgumentCaptor<S> {
+  /**
+   * Lets the current {@link IAndSchemaCaptor} capture the given schema.
+   * 
+   * @param schema
+   * @return the successor of the current {@link IAndSchemaCaptor}
+   * @throws RuntimeException if the current {@link IAndSchemaCaptor} does not
+   *                          have a successor
+   */
   S andSchema(T schema);
 
+  /**
+   * @return the schema the current {@link IAndSchemaCaptor} has captured
+   * @throws RuntimeException if the current {@link IAndSchemaCaptor} has not
+   *                          captured a schema
+   */
   T getStoredSchema();
 }

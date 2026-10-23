@@ -15,6 +15,11 @@ public final class HorizontalStackCssBuilderHelper {
   private HorizontalStackCssBuilderHelper() {
   }
 
+  /**
+   * @param horizontalStack
+   * @return a new {@link CssProperty} for the content alignment of the given
+   *         horizontalStack
+   */
   public static CssProperty createCssPropertyForContentAlignmentOfHorizontalStack(
     final IHorizontalStack horizontalStack) {
     final var contentAlignment = horizontalStack.getContentAlignment();

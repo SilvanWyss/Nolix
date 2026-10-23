@@ -32,6 +32,13 @@ public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
     this.value = value;
   }
 
+  /**
+   * @param key
+   * @param value
+   * @param <K2>  the type of the given key
+   * @param <V2>  the type of the given value
+   * @return a new {@link KeyValuePair} with the given key and value
+   */
   public static <K2, V2> KeyValuePair<K2, V2> withKeyAndValue(final K2 key, final V2 value) {
     return new KeyValuePair<>(key, value);
   }
@@ -53,6 +60,9 @@ public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
   }
 
   // For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toString() {
     return StringTool.getInParentheses(key + ";" + value);

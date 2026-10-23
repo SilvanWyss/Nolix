@@ -45,6 +45,13 @@ public final class DataWriter implements IDataWriter {
     createCloseDependencyTo(sqlConnection);
   }
 
+  /**
+   * @param databaseName
+   * @param databaseView
+   * @param sqlConnection
+   * @return a new {@link DataWriter} for the database with the given databaseName
+   *         and databaseView using the given sqlConnection
+   */
   public static DataWriter forDatabaseNameAndDatabaseViewAndSqlConnection(
     final String databaseName,
     final DatabaseInfoDto databaseView,

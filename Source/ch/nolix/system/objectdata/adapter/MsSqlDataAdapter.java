@@ -61,6 +61,17 @@ public final class MsSqlDataAdapter extends AbstractDataAdapter {
     this.sqlConnectionPool = sqlConnectionPool;
   }
 
+  /**
+   * @param host
+   * @param port
+   * @param databaseName
+   * @param userName
+   * @param userPassword
+   * @param entityTypeSet
+   * @return a new {@link MsSqlDataAdapter} to the database with the given
+   *         databaseName on the MSSQL server with the given host and port, that
+   *         uses the given userName, userPassword and entityTypeSet
+   */
   public static MsSqlDataAdapter toHostAndPortAndWithDatabaseNameAndUserNameAndUserPasswordAndEntityTypeSet(
     final String host,
     final int port,

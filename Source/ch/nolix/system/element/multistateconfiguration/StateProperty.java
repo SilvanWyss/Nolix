@@ -20,10 +20,17 @@ public final class StateProperty<V> {
   private StateProperty() {
   }
 
+  /**
+   * @param <V2> the type of the value of the created {@link StateProperty}
+   * @return a new undefined {@link StateProperty}
+   */
   public static <V2> StateProperty<V2> createUndefinedStateProperty() {
     return new StateProperty<>();
   }
 
+  /**
+   * @return the {@link ValueStoringState} of the current {@link StateProperty}
+   */
   public ValueStoringState getAssignmentType() {
     if (!hasValueOrDefinesEmpty()) {
       return ValueStoringState.FORWARDING;
@@ -37,6 +44,11 @@ public final class StateProperty<V> {
   }
 
   // For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * @return the value of the current {@link StateProperty}
+   * @throws RuntimeException if the current {@link StateProperty} does not have a
+   *                          value
+   */
   public V getValue() {
     if (!hasValueOrDefinesEmpty || value == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.VALUE);
@@ -45,25 +57,44 @@ public final class StateProperty<V> {
     return value;
   }
 
+  /**
+   * @return true if the current {@link StateProperty} has a value, false
+   *         otherwise
+   */
   public boolean hasValue() {
     return (value != null);
   }
 
+  /**
+   * @return true if the current {@link StateProperty} has a value or defines to
+   *         be empty, false otherwise
+   */
   public boolean hasValueOrDefinesEmpty() {
     return hasValueOrDefinesEmpty;
   }
 
+  /**
+   * Sets the current {@link StateProperty} empty.
+   */
   public void setEmpty() {
     hasValueOrDefinesEmpty = true;
     value = null;
   }
 
+  /**
+   * Sets the current {@link StateProperty} forwarding.
+   */
   public void setForwarding() {
     hasValueOrDefinesEmpty = false;
     value = null;
   }
 
   // For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * Sets the given value to the current {@link StateProperty}.
+   * 
+   * @param value
+   */
   public void setValue(final V value) {
     if (value == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.VALUE);

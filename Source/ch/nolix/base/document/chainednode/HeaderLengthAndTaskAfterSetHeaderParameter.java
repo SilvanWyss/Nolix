@@ -17,10 +17,18 @@ record HeaderLengthAndTaskAfterSetHeaderParameter(int headerLength, TaskAfterSet
     this.taskAfterSetHeader = taskAfterSetHeader;
   }
 
+  /**
+   * @return the header length of the current
+   *         {@link HeaderLengthAndTaskAfterSetHeaderParameter}
+   */
   public int getHeaderLength() {
     return headerLength;
   }
 
+  /**
+   * @return the {@link TaskAfterSetHeader} of the current
+   *         {@link HeaderLengthAndTaskAfterSetHeaderParameter}
+   */
   public TaskAfterSetHeader getTaskAfterSetHeader() {
     return taskAfterSetHeader;
   }

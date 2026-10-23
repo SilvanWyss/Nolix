@@ -12,7 +12,15 @@ import ch.nolix.systemapi.midschema.model.TableDto;
  * @author Silvan Wyss
  */
 public interface ISchemaReaderHelper {
+  /**
+   * @param tableNode
+   * @return the columns from the given tableNode
+   */
   ExtendedIterable<ColumnDto> loadColumnsFromTableNode(IMutableNode<?> tableNode);
 
+  /**
+   * @param tableNode
+   * @return the table from the given tableNode
+   */
   TableDto loadTableFromTableNode(IMutableNode<?> tableNode);
 }

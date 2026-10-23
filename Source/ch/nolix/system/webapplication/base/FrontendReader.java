@@ -18,6 +18,10 @@ final class FrontendReader implements IFrontEndReader {
     this.parentBackendWebClient = parentBackendWebClient;
   }
 
+  /**
+   * @param backendWebClient
+   * @return a new {@link FrontendReader} for the given backendWebClient
+   */
   public static FrontendReader forBackendWebClient(
     final AbstractWebClient<?, ?> backendWebClient) {
     return new FrontendReader(backendWebClient);

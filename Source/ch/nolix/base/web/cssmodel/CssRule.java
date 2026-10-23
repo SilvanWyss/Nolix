@@ -26,16 +26,30 @@ public final class CssRule implements ICssRule {
     this.selector = selector;
   }
 
+  /**
+   * @param cssRule
+   * @return a new {@link CssRule} from the given cssRule
+   */
   public static CssRule fromCssRule(final ICssRule cssRule) {
     return withSelectorAndProperties(cssRule.getSelector(), cssRule.getProperties());
   }
 
+  /**
+   * @param selector
+   * @param properties
+   * @return a new {@link CssRule} with the given selector and properties
+   */
   public static CssRule withSelectorAndProperties(
     final String selector,
     final ExtendedIterable<? extends ICssProperty> properties) {
     return new CssRule(selector, properties);
   }
 
+  /**
+   * @param selector
+   * @param properties
+   * @return a new {@link CssRule} with the given selector and properties
+   */
   public static CssRule withSelectorAndProperties(
     final String selector,
     final ICssProperty... properties) {

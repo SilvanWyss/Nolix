@@ -37,6 +37,12 @@ public final class ByteArrayWithStartIndexMediator implements IByteArrayWithStar
     index = startIndex;
   }
 
+  /**
+   * @param byteArray
+   * @param startIndex
+   * @return a new {@link ByteArrayWithStartIndexMediator} for the given byteArray
+   *         and startIndex
+   */
   public static ByteArrayWithStartIndexMediator forByteArrayAndStartIndex(final byte[] byteArray,
     final int startIndex) {
     return new ByteArrayWithStartIndexMediator(byteArray, startIndex);

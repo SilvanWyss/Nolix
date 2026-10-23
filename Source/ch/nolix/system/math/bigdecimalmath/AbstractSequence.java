@@ -12,6 +12,9 @@ import ch.nolix.systemapi.math.bigdecimalmath.ISequence;
 abstract class AbstractSequence<V> implements ISequence<V> {
   private final ArrayList<Pair<V, BigDecimal>> valuesAndSquaredMagnitudes = new ArrayList<>();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne(
     final BigDecimal limit,

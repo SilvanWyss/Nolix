@@ -13,6 +13,10 @@ public final class TableMapper {
   private TableMapper() {
   }
 
+  /**
+   * @param midSchemaTableDtos
+   * @return new loaded {@link Table}s from the given midSchemaTableDtos
+   */
   public static ExtendedIterable<Table> mapMidSchemaTableDtosToLoadedTables(
     final ExtendedIterable<TableDto> midSchemaTableDtos) {
     final var tables = mapMidSchemaTableDtosToEmptyLoadedTables(midSchemaTableDtos);

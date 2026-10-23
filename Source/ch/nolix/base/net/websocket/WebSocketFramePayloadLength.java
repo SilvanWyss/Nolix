@@ -18,14 +18,24 @@ public record WebSocketFramePayloadLength(long value) {
     this.value = value;
   }
 
+  /**
+   * @return the {@link WebSocketFramePayloadLengthType} of the current
+   *         {@link WebSocketFramePayloadLength}
+   */
   public WebSocketFramePayloadLengthType getType() {
     return WebSocketFramePayloadLengthType.fromPayloadLength(value);
   }
 
+  /**
+   * @return the value of the current {@link WebSocketFramePayloadLength}
+   */
   public long getValue() {
     return value;
   }
 
+  /**
+   * @return the bytes of the current {@link WebSocketFramePayloadLength}
+   */
   public byte[] toBytes() {
     return switch (getType()) {
       case BITS_7 ->

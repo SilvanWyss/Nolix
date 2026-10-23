@@ -47,6 +47,13 @@ implements IOptionalReference<E> {
     super(referenceableTableNames);
   }
 
+  /**
+   * @param entityTypes
+   * @param <T>         the type of the {@link Entity}s the created
+   *                    {@link OptionalReference} can reference
+   * @return a new {@link OptionalReference} that can reference {@link Entity}s of
+   *         the given entityTypes
+   */
   @SafeVarargs
   public static <T extends Entity> OptionalReference<T> forEntityTypes(
     final Class<? extends T>... entityTypes) {
@@ -56,6 +63,13 @@ implements IOptionalReference<E> {
     return new OptionalReference<>(referenceableTableNamesView);
   }
 
+  /**
+   * @param entityTypes
+   * @param <T>         the type of the {@link Entity}s the created
+   *                    {@link OptionalReference} can reference
+   * @return a new {@link OptionalReference} that can reference {@link Entity}s of
+   *         the given entityTypes
+   */
   public static <T extends Entity> OptionalReference<T> forEntityTypes(
     final ExtendedIterable<Class<? extends T>> entityTypes) {
     final var referenceableTableNamesView = entityTypes.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
@@ -63,11 +77,25 @@ implements IOptionalReference<E> {
     return new OptionalReference<>(referenceableTableNamesView);
   }
 
+  /**
+   * @param referenceableTableNames
+   * @param <T>                     the type of the {@link Entity}s the created
+   *                                {@link OptionalReference} can reference
+   * @return a new {@link OptionalReference} that can reference {@link Entity}s of
+   *         the {@link ITable}s with the given referenceableTableNames
+   */
   public static <T extends Entity> OptionalReference<T> forReferenceableTableNames(
     final ExtendedIterable<String> referenceableTableNames) {
     return new OptionalReference<>(referenceableTableNames);
   }
 
+  /**
+   * @param referenceableTableNames
+   * @param <T>                     the type of the {@link Entity}s the created
+   *                                {@link OptionalReference} can reference
+   * @return a new {@link OptionalReference} that can reference {@link Entity}s of
+   *         the {@link ITable}s with the given referenceableTableNames
+   */
   public static <T extends Entity> OptionalReference<T> forReferenceableTableNames(
     final String... referenceableTableNames) {
     final var referenceableTableNamesView = ExtendedIterableView.forArray(referenceableTableNames);

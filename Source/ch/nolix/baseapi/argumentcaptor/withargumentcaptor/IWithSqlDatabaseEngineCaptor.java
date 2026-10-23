@@ -12,7 +12,23 @@ import ch.nolix.baseapi.sql.sqlproperty.SqlDatabaseEngine;
  *            {@link IWithSqlDatabaseEngineCaptor}
  */
 public interface IWithSqlDatabaseEngineCaptor<S> extends ArgumentCaptor<S> {
+  /**
+   * @return the SQL database engine the current
+   *         {@link IWithSqlDatabaseEngineCaptor} has captured
+   * @throws RuntimeException if the current {@link IWithSqlDatabaseEngineCaptor}
+   *                          has not captured a SQL database engine
+   */
   SqlDatabaseEngine getSqlDatabaseEngine();
 
+  /**
+   * Lets the current {@link IWithSqlDatabaseEngineCaptor} capture the given
+   * sqlDatabaseEngine.
+   * 
+   * @param sqlDatabaseEngine
+   * @return the successor of the current {@link IWithSqlDatabaseEngineCaptor}
+   * @throws RuntimeException if the given sqlDatabaseEngine is null
+   * @throws RuntimeException if the current {@link IWithSqlDatabaseEngineCaptor}
+   *                          does not have a successor
+   */
   S withSqlDatabaseEngine(SqlDatabaseEngine sqlDatabaseEngine);
 }

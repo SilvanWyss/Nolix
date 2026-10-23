@@ -13,6 +13,13 @@ public enum VerticalContentAlignment {
   CENTER,
   BOTTOM;
 
+  /**
+   * @param specification
+   * @return the {@link VerticalContentAlignment} the given specification
+   *         represents
+   * @throws RuntimeException if the given specification does not represent a
+   *                          {@link VerticalContentAlignment}
+   */
   public static VerticalContentAlignment fromSpecification(final Node<?> specification) {
     final var verticalContentAlignmentString = specification.getSingleChildNodeHeader();
 

@@ -59,6 +59,10 @@ public final class ImageGenerator extends AbstractFuture implements IImageGenera
     futures = startFillImageAndGetFutures();
   }
 
+  /**
+   * @param fractal
+   * @return a new {@link ImageGenerator} for the given fractal
+   */
   public static ImageGenerator forFractal(final IFractal fractal) {
     return new ImageGenerator(fractal);
   }

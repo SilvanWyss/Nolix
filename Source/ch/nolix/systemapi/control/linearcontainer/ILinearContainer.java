@@ -14,11 +14,34 @@ import ch.nolix.systemapi.webgui.main.Control;
  */
 public interface ILinearContainer<C extends ILinearContainer<C, S>, S extends ILinearContainerStyle<S>>
 extends ch.nolix.systemapi.control.container.Container<C, S> {
+  /**
+   * Adds the given control to the current {@link ILinearContainer}.
+   * 
+   * @param control
+   * @return the current {@link ILinearContainer}
+   */
   C addControl(Control<?, ?> control);
 
+  /**
+   * Adds the given controls to the current {@link ILinearContainer}.
+   * 
+   * @param controls
+   * @return the current {@link ILinearContainer}
+   */
   C addControls(Control<?, ?>... controls);
 
+  /**
+   * Adds the given controls to the current {@link ILinearContainer}.
+   * 
+   * @param controls
+   * @return the current {@link ILinearContainer}
+   */
   C addControls(ExtendedIterable<? extends Control<?, ?>> controls);
 
+  /**
+   * Removes the given control from the current {@link ILinearContainer}.
+   * 
+   * @param control
+   */
   void removeControl(Control<?, ?> control);
 }

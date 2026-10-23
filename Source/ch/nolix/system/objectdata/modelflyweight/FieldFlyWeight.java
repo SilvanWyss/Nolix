@@ -18,6 +18,10 @@ public final class FieldFlyWeight implements IFieldFlyWeight {
     this.updateAction = updateAction;
   }
 
+  /**
+   * @param updateAction
+   * @return a new {@link FieldFlyWeight} with the given updateAction
+   */
   public static FieldFlyWeight wihUpdateAction(final Runnable updateAction) {
     return new FieldFlyWeight(updateAction);
   }

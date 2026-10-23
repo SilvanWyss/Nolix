@@ -24,6 +24,13 @@ public final class SslServer extends AbstractServer {
     createCloseDependencyTo(internalWebSocketServer);
   }
 
+  /**
+   * @param port
+   * @param htmlPage
+   * @param sslCertificate
+   * @return a new {@link SslServer} that listens on the given port and uses the
+   *         given htmlPage and sslCertificate
+   */
   public static SslServer forPortAndHtmlPageAndSSLCertificate(
     final int port,
     final String htmlPage,
@@ -31,6 +38,13 @@ public final class SslServer extends AbstractServer {
     return new SslServer(port, htmlPage, sslCertificate);
   }
 
+  /**
+   * @param port
+   * @param htmlPage
+   * @return a new {@link SslServer} that listens on the given port and uses the
+   *         given htmlPage and the default SSL certificate from the local Nolix
+   *         configuration
+   */
   public static SslServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(
     final int port,
     final String htmlPage) {

@@ -16,6 +16,12 @@ public abstract class AbstractTimeMediator extends AbstractObjectMediator<ITime>
     super(argument, argumentName);
   }
 
+  /**
+   * @param time
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractTimeMediator} is not after the given
+   *                          time
+   */
   public final void isAfter(final ITime time) {
     isNotNull();
 
@@ -28,6 +34,12 @@ public abstract class AbstractTimeMediator extends AbstractObjectMediator<ITime>
     }
   }
 
+  /**
+   * @param time
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractTimeMediator} is not before the given
+   *                          time
+   */
   public final void isBefore(final ITime time) {
     isNotNull();
 

@@ -15,6 +15,11 @@ public final class VerticalStackCssBuilderHelper {
   private VerticalStackCssBuilderHelper() {
   }
 
+  /**
+   * @param verticalStack
+   * @return a new {@link CssProperty} for the content alignment of the given
+   *         verticalStack
+   */
   public static CssProperty createCssPropertyForContentAlignmentOfVerticalStack(final IVerticalStack verticalStack) {
     final var contentAlignment = verticalStack.getContentAlignment();
 

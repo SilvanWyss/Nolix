@@ -29,6 +29,10 @@ public final class CssProperty implements ICssProperty {
     this.value = value;
   }
 
+  /**
+   * @param cssProperty
+   * @return a new {@link CssProperty} from the given cssProperty
+   */
   public static CssProperty fromCssProperty(final ICssProperty cssProperty) {
     if (cssProperty instanceof final CssProperty localCssProperty) {
       return localCssProperty;
@@ -37,18 +41,38 @@ public final class CssProperty implements ICssProperty {
     return withNameAndValue(cssProperty.getName(), cssProperty.getValue());
   }
 
+  /**
+   * @param name
+   * @param value
+   * @return a new {@link CssProperty} with the given name and value
+   */
   public static CssProperty withNameAndValue(final String name, final double value) {
     return new CssProperty(name, String.valueOf(value));
   }
 
+  /**
+   * @param name
+   * @param value
+   * @return a new {@link CssProperty} with the given name and value
+   */
   public static CssProperty withNameAndValue(final String name, final Enum<?> value) {
     return new CssProperty(name, value.toString());
   }
 
+  /**
+   * @param name
+   * @param value
+   * @return a new {@link CssProperty} with the given name and value
+   */
   public static CssProperty withNameAndValue(final String name, final int value) {
     return new CssProperty(name, String.valueOf(value));
   }
 
+  /**
+   * @param name
+   * @param value
+   * @return a new {@link CssProperty} with the given name and value
+   */
   public static CssProperty withNameAndValue(final String name, final String value) {
     return new CssProperty(name, value);
   }

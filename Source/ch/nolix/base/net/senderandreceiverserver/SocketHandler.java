@@ -33,6 +33,12 @@ public final class SocketHandler {
   private SocketHandler() {
   }
 
+  /**
+   * Handles the given socket for the given server.
+   * 
+   * @param socket
+   * @param server
+   */
   public static void handleSocketForServer(final Socket socket, final Server server) {
     final var backendNetEndPoint = createOptionalBackendNetEndPointForSocketAndServer(socket, server);
 

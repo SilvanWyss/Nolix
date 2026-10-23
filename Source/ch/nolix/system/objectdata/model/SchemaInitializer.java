@@ -31,6 +31,13 @@ public final class SchemaInitializer {
   private SchemaInitializer() {
   }
 
+  /**
+   * Initializes the database of the given schemaAdapter with the given
+   * entityTypeSet if the database is empty.
+   * 
+   * @param entityTypeSet
+   * @param schemaAdapter
+   */
   public static void initializeDatabaseIfDatabaseIsEmpty(
     final IEntityTypeSet entityTypeSet,
     final SchemaAdapter schemaAdapter) {

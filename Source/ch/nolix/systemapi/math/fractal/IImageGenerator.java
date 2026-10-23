@@ -10,5 +10,8 @@ import ch.nolix.systemapi.graphic.image.IMutableImage;
  * @author Silvan Wyss
  */
 public interface IImageGenerator extends IFuture {
+  /**
+   * @return the image of the current {@link IImageGenerator}
+   */
   IMutableImage<?> getStoredImage();
 }

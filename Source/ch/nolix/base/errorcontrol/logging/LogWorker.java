@@ -14,10 +14,17 @@ final class LogWorker extends Thread {
     start();
   }
 
+  /**
+   * @return true if the current {@link LogWorker} contains log entries, false
+   *         otherwise
+   */
   public synchronized boolean containsLogEntries() {
     return !logEntries.isEmpty();
   }
 
+  /**
+   * Inactivates the current {@link LogWorker}.
+   */
   public synchronized void inactivate() {
     active = false;
   }
@@ -49,6 +56,11 @@ final class LogWorker extends Thread {
     Logger.removeLogWorker();
   }
 
+  /**
+   * Lets the current {@link LogWorker} take the given logEntry.
+   * 
+   * @param logEntry
+   */
   public synchronized void takeLogEntry(final LogEntry logEntry) {
     logEntries.addAtEnd(logEntry);
   }

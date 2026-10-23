@@ -13,8 +13,8 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 public interface ITableExaminer extends IDatabaseObjectExaminer<ITable<Entity>> {
   /**
    * @param table
-   * @return true if all new and edited mandatory fields of the {@link Entity}s
-   *         of the given table are set, false otherwise
+   * @return true if all new and edited mandatory fields of the {@link Entity}s of
+   *         the given table are set, false otherwise
    */
   boolean allNewAndEditedMandatoryFieldsAreSet(ITable<?> table);
 

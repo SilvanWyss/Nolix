@@ -70,6 +70,9 @@ public final class LoadedEntityDtoMapper implements ILoadedEntityDtoMapper {
     return contentFieldDtos;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public EntityLoadingDto mapSqlRecordToEntityLoadingDto(
     final ISqlRecord sqlRecord,

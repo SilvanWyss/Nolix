@@ -25,10 +25,18 @@ public final class ImmutableJsonNumber implements JsonNumber {
     this.number = number;
   }
 
+  /**
+   * @param number
+   * @return a new {@link ImmutableJsonNumber} with the given number
+   */
   public static ImmutableJsonNumber withNumber(final BigDecimal number) {
     return new ImmutableJsonNumber(number);
   }
 
+  /**
+   * @param number
+   * @return a new {@link ImmutableJsonNumber} with the given number
+   */
   public static JsonValue withNumber(final int number) {
     final var numberBigDecimal = BigDecimal.valueOf(number);
 

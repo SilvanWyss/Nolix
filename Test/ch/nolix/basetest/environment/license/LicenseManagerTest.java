@@ -27,6 +27,9 @@ final class LicenseManagerTest extends StandardTest {
 
   // This class must be public that it can be processed by reflection.
   public static final class TestFeature extends AbstractFeature {
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ExtendedIterable<Class<?>> getAuthorizedLicenseTypes() {
       return LinkedList.withElement(TestLicense.class);

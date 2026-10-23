@@ -19,6 +19,9 @@ extends ForNodeDatabaseCaptor<WithNameCaptor<AndSchemaCaptor<IEntityTypeSet, Nod
     setBuilder(this::buildNodeDataAdapter);
   }
 
+  /**
+   * @return a new {@link NodeDataAdapterBuilder}
+   */
   public static NodeDataAdapterBuilder createNodeDataAdapter() {
     return new NodeDataAdapterBuilder();
   }

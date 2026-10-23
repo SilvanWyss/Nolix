@@ -13,6 +13,12 @@ public final class StringMediator extends AbstractStringMediator {
     super(argument, argumentName);
   }
 
+  /**
+   * @param argument
+   * @param argumentName
+   * @return a new {@link StringMediator} for the given argument with the given
+   *         argumentName
+   */
   public static StringMediator forArgumentAndArgumentName(final String argument, final String argumentName) {
     return new StringMediator(argument, argumentName);
   }

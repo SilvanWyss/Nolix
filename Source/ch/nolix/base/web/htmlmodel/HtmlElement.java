@@ -38,6 +38,10 @@ public final class HtmlElement implements IHtmlElement {
     this.childElements = childElements.to(HtmlElement::fromHtmlElement);
   }
 
+  /**
+   * @param htmlElement
+   * @return a new {@link HtmlElement} from the given htmlElement
+   */
   public static HtmlElement fromHtmlElement(final IHtmlElement htmlElement) {
     if (htmlElement instanceof final HtmlElement htmlAttribute) {
       return htmlAttribute;
@@ -49,11 +53,20 @@ public final class HtmlElement implements IHtmlElement {
       htmlElement.getChildElements());
   }
 
+  /**
+   * @param type
+   * @return a new {@link HtmlElement} with the given type
+   */
   public static HtmlElement withType(final String type) {
     return //
     new HtmlElement(type, ImmutableList.createEmpty(), StringCatalog.EMPTY_STRING, ImmutableList.createEmpty());
   }
 
+  /**
+   * @param type
+   * @param attributes
+   * @return a new {@link HtmlElement} with the given type and attributes
+   */
   public static HtmlElement withTypeAndAttributes(
     final String type,
     final IHtmlAttribute... attributes) {
@@ -65,6 +78,13 @@ public final class HtmlElement implements IHtmlElement {
       ImmutableList.createEmpty());
   }
 
+  /**
+   * @param type
+   * @param attribute
+   * @param childElement
+   * @return a new {@link HtmlElement} with the given type, attribute and
+   *         childElement
+   */
   public static HtmlElement withTypeAndAttributeAndChildElement(
     final String type,
     final IHtmlAttribute attribute,
@@ -76,12 +96,24 @@ public final class HtmlElement implements IHtmlElement {
       ImmutableList.withElements(childElement));
   }
 
+  /**
+   * @param type
+   * @param attributes
+   * @return a new {@link HtmlElement} with the given type and attributes
+   */
   public static HtmlElement withTypeAndAttributes(
     final String type,
     final ExtendedIterable<? extends IHtmlAttribute> attributes) {
     return new HtmlElement(type, attributes, StringCatalog.EMPTY_STRING, ImmutableList.createEmpty());
   }
 
+  /**
+   * @param type
+   * @param attributes
+   * @param childElements
+   * @return a new {@link HtmlElement} with the given type, attributes and
+   *         childElements
+   */
   public static HtmlElement withTypeAndAttributesAndChildElements(
     final String type,
     final ExtendedIterable<? extends IHtmlAttribute> attributes,
@@ -91,6 +123,13 @@ public final class HtmlElement implements IHtmlElement {
     return new HtmlElement(type, attributes, StringCatalog.EMPTY_STRING, childElementsContainerView);
   }
 
+  /**
+   * @param type
+   * @param attributes
+   * @param childElements
+   * @return a new {@link HtmlElement} with the given type, attributes and
+   *         childElements
+   */
   public static HtmlElement withTypeAndAttributesAndChildElements(
     final String type,
     final ExtendedIterable<? extends IHtmlAttribute> attributes,
@@ -98,6 +137,13 @@ public final class HtmlElement implements IHtmlElement {
     return new HtmlElement(type, attributes, StringCatalog.EMPTY_STRING, childElements);
   }
 
+  /**
+   * @param type
+   * @param attributes
+   * @param innerText
+   * @return a new {@link HtmlElement} with the given type, attributes and
+   *         innerText
+   */
   public static HtmlElement withTypeAndAttributesAndInnerText(
     final String type,
     final ExtendedIterable<? extends IHtmlAttribute> attributes,
@@ -105,6 +151,11 @@ public final class HtmlElement implements IHtmlElement {
     return new HtmlElement(type, attributes, innerText, ImmutableList.createEmpty());
   }
 
+  /**
+   * @param type
+   * @param childElement
+   * @return a new {@link HtmlElement} with the given type and childElement
+   */
   public static HtmlElement withTypeAndChildElement(
     final String type,
     final IHtmlElement childElement) {
@@ -116,6 +167,11 @@ public final class HtmlElement implements IHtmlElement {
       ImmutableList.withElement(childElement));
   }
 
+  /**
+   * @param type
+   * @param childElements
+   * @return a new {@link HtmlElement} with the given type and childElements
+   */
   public static HtmlElement withTypeAndChildElements(
     final String type,
     final IHtmlElement... childElements) {
@@ -127,12 +183,22 @@ public final class HtmlElement implements IHtmlElement {
       ExtendedIterableView.forArray(childElements));
   }
 
+  /**
+   * @param type
+   * @param childElements
+   * @return a new {@link HtmlElement} with the given type and childElements
+   */
   public static HtmlElement withTypeAndChildElements(
     final String type,
     final ExtendedIterable<? extends IHtmlElement> childElements) {
     return new HtmlElement(type, ImmutableList.createEmpty(), StringCatalog.EMPTY_STRING, childElements);
   }
 
+  /**
+   * @param type
+   * @param innerText
+   * @return a new {@link HtmlElement} with the given type and innerText
+   */
   public static HtmlElement withTypeAndInnerText(final String type, final String innerText) {
     return new HtmlElement(type, ImmutableList.createEmpty(), innerText, ImmutableList.createEmpty());
   }

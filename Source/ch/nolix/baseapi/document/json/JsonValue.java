@@ -10,5 +10,8 @@ import ch.nolix.baseapi.document.node.NodeRepresentable;
  * @author Silvan Wyss
  */
 public interface JsonValue extends FormattedStringRepresentable, NodeRepresentable {
+  /**
+   * @return the {@link JsonValueType} of the current {@link JsonValue}
+   */
   JsonValueType getType();
 }

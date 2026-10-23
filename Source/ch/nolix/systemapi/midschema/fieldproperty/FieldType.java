@@ -29,14 +29,26 @@ public enum FieldType {
     this.cardinality = cardinality;
   }
 
+  /**
+   * @param specification
+   * @return the {@link FieldType} the given specification represents
+   * @throws RuntimeException if the given specification does not represent a
+   *                          {@link FieldType}
+   */
   public static FieldType fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 
+  /**
+   * @return the {@link BaseFieldType} of the current {@link FieldType}
+   */
   public BaseFieldType getBaseType() {
     return baseType;
   }
 
+  /**
+   * @return the {@link Cardinality} of the current {@link FieldType}
+   */
   public Cardinality getCardinality() {
     return cardinality;
   }

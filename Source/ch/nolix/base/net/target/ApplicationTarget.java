@@ -30,6 +30,16 @@ public final class ApplicationTarget extends AbstractServerTarget implements IAp
     this.urlApplicationName = urlApplicationName;
   }
 
+  /**
+   * @param host
+   * @param port
+   * @param applicationInstanceName
+   * @param applicationUrlInstanceName
+   * @param securityModeForConnections
+   * @return a new {@link ApplicationTarget} with the given host, port,
+   *         applicationInstanceName, applicationUrlInstanceName and
+   *         securityModeForConnections
+   */
   public static ApplicationTarget//
   forHostAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
     final String host,

@@ -54,6 +54,21 @@ public final class Column implements IColumn {
     this.backReferenceableColumns = ImmutableList.fromIterable(backReferenceableColumns);
   }
 
+  /**
+   * @param parentTable
+   * @param id
+   * @param name
+   * @param fieldType
+   * @param dataTypeClass
+   * @param referenceableTables
+   * @param backReferenceableColumns
+   * @return a new {@link Column} with the given parentTable, id, name, fieldType,
+   *         dataTypeClass, referenceableTables and backReferenceableColumns
+   * @throws RuntimeException if the given id is null or blank
+   * @throws RuntimeException if the given name is null or blank
+   * @throws RuntimeException if the given fieldType is null
+   * @throws RuntimeException if the given dataTypeClass is null
+   */
   public static Column //
   withParentTableAndIdAndNameAndFieldTypeAndDataTypeClassAndReferenceableTablesAndBackReferenceableColumns(
     final Table<Entity> parentTable,

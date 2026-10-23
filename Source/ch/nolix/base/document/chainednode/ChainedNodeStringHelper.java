@@ -12,6 +12,13 @@ public final class ChainedNodeStringHelper {
   private ChainedNodeStringHelper() {
   }
 
+  /**
+   * @param startIndex
+   * @param headerLength
+   * @param taskAfterSetHeader
+   * @return the next index from the given startIndex, headerLength and
+   *         taskAfterSetHeader
+   */
   public static int calculateNextIndexFromStartIndexAndHeaderLengthAndTaskAfterSetHeader(
     final int startIndex,
     final int headerLength,
@@ -24,6 +31,12 @@ public final class ChainedNodeStringHelper {
     return startIndex + headerLength;
   }
 
+  /**
+   * @param string
+   * @param startIndex
+   * @return the length of the header and the task after setting the header of the
+   *         chained node the given string represents from the given startIndex on
+   */
   public static HeaderLengthAndTaskAfterSetHeaderParameter getHeaderLengthAndTaskAfterSetHeader(
     final String string,
     final int startIndex) {

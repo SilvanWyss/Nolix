@@ -7,5 +7,8 @@ package ch.nolix.baseapi.document.json;
  * @author Silvan Wyss
  */
 public interface JsonBoolean extends JsonValue {
+  /**
+   * @return the boolean of the current {@link JsonBoolean}
+   */
   boolean getBoolean();
 }

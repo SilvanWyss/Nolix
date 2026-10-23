@@ -21,10 +21,21 @@ public final class SimpleLinkedListIterator<E> implements Iterator<E> {
     this.nextNode = startNode;
   }
 
+  /**
+   * @param <T> the type of the elements of the created
+   *            {@link SimpleLinkedListIterator}
+   * @return a new {@link SimpleLinkedListIterator} for an empty list
+   */
   public static <T> SimpleLinkedListIterator<T> forEmptyList() {
     return new SimpleLinkedListIterator<>();
   }
 
+  /**
+   * @param startNode
+   * @param <T>       the type of the element of the given startNode
+   * @return a new {@link SimpleLinkedListIterator} that starts at the given
+   *         startNode
+   */
   public static <T> SimpleLinkedListIterator<T> forStartNode(final SimpleLinkedListNode<T> startNode) {
     return new SimpleLinkedListIterator<>(startNode);
   }

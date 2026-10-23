@@ -18,6 +18,12 @@ public enum MessageType {
     this.prefix = prefix;
   }
 
+  /**
+   * @param prefix
+   * @return the {@link MessageType} with the given prefix
+   * @throws RuntimeException if there is not a {@link MessageType} with the given
+   *                          prefix
+   */
   public static MessageType forPrefix(final String prefix) {
     return switch (prefix) {
       case MessagePrefixCatalog.TARGET_MESSAGE ->
@@ -33,6 +39,9 @@ public enum MessageType {
     };
   }
 
+  /**
+   * @return the prefix of the current {@link MessageType}
+   */
   public String getPrefix() {
     return prefix;
   }

@@ -41,6 +41,12 @@ public final class IterableExtendedIterableViewIterator<E> implements CopyableIt
     this.iterationCount = iterationCount;
   }
 
+  /**
+   * @param iterable
+   * @param <T>      the type of the elements of the given iterable
+   * @return a new {@link IterableExtendedIterableViewIterator} for the given
+   *         iterable
+   */
   public static <T> IterableExtendedIterableViewIterator<T> forIterable(final Iterable<T> iterable) {
     return new IterableExtendedIterableViewIterator<>(iterable);
   }

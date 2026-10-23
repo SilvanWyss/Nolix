@@ -48,15 +48,30 @@ public final class MultiExtendedIterableView<E> extends AbstractExtendedIterable
     wellOrderContainers = localContainers;
   }
 
+  /**
+   * @param arrays
+   * @param <T>    the type of the elements of the given arrays
+   * @return a new {@link MultiExtendedIterableView} for the given arrays
+   */
   @SuppressWarnings("unchecked")
   public static <T> MultiExtendedIterableView<T> forArrays(final T[]... arrays) {
     return new MultiExtendedIterableView<>(arrays);
   }
 
+  /**
+   * @param <T> the type of the elements of the created
+   *            {@link MultiExtendedIterableView}
+   * @return a new empty {@link MultiExtendedIterableView}
+   */
   public static <T> MultiExtendedIterableView<T> forEmpty() {
     return new MultiExtendedIterableView<>();
   }
 
+  /**
+   * @param iterables
+   * @param <T>       the type of the elements of the given iterables
+   * @return a new {@link MultiExtendedIterableView} for the given iterables
+   */
   @SafeVarargs
   public static <T> MultiExtendedIterableView<T> forIterables(final Iterable<? extends T>... iterables) {
     return new MultiExtendedIterableView<>(iterables);

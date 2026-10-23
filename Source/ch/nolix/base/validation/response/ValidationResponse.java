@@ -29,6 +29,10 @@ public final class ValidationResponse implements IValidationResponse {
     this.message = message;
   }
 
+  /**
+   * @param message
+   * @return a new not ok {@link ValidationResponse} with the given message
+   */
   public static ValidationResponse createNotOkValidationResponseWithMessage(final String message) {
     return new ValidationResponse(false, message);
   }

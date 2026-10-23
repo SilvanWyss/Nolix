@@ -9,5 +9,8 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
  * @author Silvan Wyss
  */
 public interface ICssProperty extends NameHolder {
+  /**
+   * @return the value of the current {@link ICssProperty}
+   */
   String getValue();
 }

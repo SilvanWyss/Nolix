@@ -13,10 +13,20 @@ public final class NamableIterableMediator<E> extends AbstractIterableMediator<E
     super(argument);
   }
 
+  /**
+   * @param argument
+   * @param <T>      the type of the elements of the given argument
+   * @return a new {@link NamableIterableMediator} for the given argument
+   */
   public static <T> NamableIterableMediator<T> forArgument(final Iterable<T> argument) {
     return new NamableIterableMediator<>(argument);
   }
 
+  /**
+   * @param argumentName
+   * @return a new {@link IterableMediator} for the argument of the current
+   *         {@link NamableIterableMediator} with the given argumentName
+   */
   public IterableMediator<E> thatIsNamed(final String argumentName) {
     return IterableMediator.forArgumentAndArgumentName(getStoredArgument(), argumentName);
   }

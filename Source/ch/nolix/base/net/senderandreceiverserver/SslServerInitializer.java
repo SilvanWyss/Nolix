@@ -29,6 +29,13 @@ final class SslServerInitializer extends ChannelInitializer<SocketChannel> {
     this.sslContext = sslContext;
   }
 
+  /**
+   * @param sslServer
+   * @param htmlPage
+   * @param sslContext
+   * @return a new {@link SslServerInitializer} for the given sslServer with the
+   *         given htmlPage and sslContext
+   */
   public static SslServerInitializer forSslServerWithHtmlPageAndSslContext(
     final SslServer sslServer,
     final String htmlPage,

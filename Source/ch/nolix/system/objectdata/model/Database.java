@@ -43,6 +43,15 @@ public final class Database implements IDatabase {
     this.tables = TableLoader.loadTablesForDatabase(this);
   }
 
+  /**
+   * @param entityTypeSet
+   * @param midDataAdapterAndSchemaReader
+   * @return a new {@link Database} with the given entityTypeSet and
+   *         midDataAdapterAndSchemaReader
+   * @throws RuntimeException if the given entityTypeSet is null
+   * @throws RuntimeException if the given midDataAdapterAndSchemaReader is null
+   *                          or closed
+   */
   public static Database withEntityTypeSetAndMidDataAdapterAndSchemaReader(
     final IEntityTypeSet entityTypeSet,
     final DataAdapterAndSchemaReader midDataAdapterAndSchemaReader) {

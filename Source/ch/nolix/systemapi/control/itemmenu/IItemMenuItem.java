@@ -14,9 +14,21 @@ import ch.nolix.systemapi.gui.guicontrol.Selectable;
  */
 public interface IItemMenuItem<I extends IItemMenuItem<I>>
 extends BlanknessRequestable, IdHolder, MutableElement, Selectable {
+  /**
+   * @return true if the current {@link IItemMenuItem} belongs to a
+   *         {@link IItemMenu}, false otherwise
+   */
   boolean belongsToMenu();
 
+  /**
+   * @return the text of the current {@link IItemMenuItem}
+   */
   String getText();
 
+  /**
+   * Sets the given parentMenu to the current {@link IItemMenuItem}.
+   * 
+   * @param parentMenu
+   */
   void internalSetParentMenu(IItemMenu<?, ?> parentMenu);
 }

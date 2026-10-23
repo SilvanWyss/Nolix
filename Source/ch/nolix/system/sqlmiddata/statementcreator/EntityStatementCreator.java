@@ -24,6 +24,9 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 
   private static final SqlValueAssignmentMapper SQL_VALUE_ASSIGNMENT_MAPPER = new SqlValueAssignmentMapper();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToDeleteEntity(final String tableName, final EntityDeletionDto entity) {
     return //

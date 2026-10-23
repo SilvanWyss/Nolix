@@ -16,6 +16,9 @@ import ch.nolix.systemapi.style.stylable.StylableElement;
 public final class MockStylableElement extends AbstractStylableElement<MockStylableElement> {
   private String memberRole;
 
+  /**
+   * @return the role of the current {@link MockStylableElement}
+   */
   public String getRole() {
     assertHasRole();
 
@@ -38,6 +41,9 @@ public final class MockStylableElement extends AbstractStylableElement<MockStyla
     return (hasRole() && getRole().equals(role));
   }
 
+  /**
+   * Removes the role of the current {@link MockStylableElement}.
+   */
   public void removeRole() {
     memberRole = null;
   }

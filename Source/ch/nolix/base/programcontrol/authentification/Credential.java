@@ -22,14 +22,25 @@ public final class Credential {
     this.password = password;
   }
 
+  /**
+   * @param loginName
+   * @param password
+   * @return a new {@link Credential} with the given loginName and password
+   */
   public static Credential withLoginNameAndPassword(final String loginName, final String password) {
     return new Credential(loginName, password);
   }
 
+  /**
+   * @return the login name of the current {@link Credential}
+   */
   public String getLoginName() {
     return loginName;
   }
 
+  /**
+   * @return the password of the current {@link Credential}
+   */
   public String getPassword() {
     return password;
   }

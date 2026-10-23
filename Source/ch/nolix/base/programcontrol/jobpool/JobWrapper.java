@@ -24,14 +24,27 @@ final class JobWrapper implements Runnable {
     this.job = job;
   }
 
+  /**
+   * @param job
+   * @return a new {@link JobWrapper} with the given job
+   */
   public static JobWrapper withJob(final Runnable job) {
     return new JobWrapper(job);
   }
 
+  /**
+   * @return true if the current {@link JobWrapper} caught an error, false
+   *         otherwise
+   */
   public boolean caughtError() {
     return (error != null);
   }
 
+  /**
+   * @return the error of the current {@link JobWrapper}
+   * @throws RuntimeException if the current {@link JobWrapper} did not catch an
+   *                          error
+   */
   public Throwable getError() {
     if (!caughtError()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.ERROR);
@@ -40,14 +53,23 @@ final class JobWrapper implements Runnable {
     return error;
   }
 
+  /**
+   * @return true if the current {@link JobWrapper} is finished, false otherwise
+   */
   public boolean isFinished() {
     return finished;
   }
 
+  /**
+   * @return true if the current {@link JobWrapper} is fresh, false otherwise
+   */
   public boolean isFresh() {
     return (!isRunning() && !isFinished());
   }
 
+  /**
+   * @return true if the current {@link JobWrapper} is running, false otherwise
+   */
   public boolean isRunning() {
     return running;
   }
@@ -71,10 +93,20 @@ final class JobWrapper implements Runnable {
     }
   }
 
+  /**
+   * Waits until the current {@link JobWrapper} is finished.
+   */
   public void waitUntilIsFinished() {
     BasicFlowController.waitUntil(this::isFinished);
   }
 
+  /**
+   * Waits until the current {@link JobWrapper} is finished.
+   * 
+   * @param timeoutInMilliseconds
+   * @throws RuntimeException if the current {@link JobWrapper} is not finished
+   *                          within the given timeoutInMilliseconds
+   */
   public void waitUntilIsFinished(final int timeoutInMilliseconds) {
     final var startTimeInMilliseconds = System.currentTimeMillis();
 

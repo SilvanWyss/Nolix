@@ -19,6 +19,9 @@ public final class TestReceivingDataProviderController implements ExecutorAndDat
 
   private ChainedNode latestReceivedRequest;
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Node<?> getDataForRequest(final ChainedNode request) {
     latestReceivedRequest = request;
@@ -42,10 +45,16 @@ public final class TestReceivingDataProviderController implements ExecutorAndDat
     return ExtendedIterableView.forIterable(requests).to(this::getDataForRequest);
   }
 
+  /**
+   * @return the latest command the current {@link TestReceivingDataProviderController} has received
+   */
   public ChainedNode getLatestReceivedCommand() {
     return latestReceivedCommand;
   }
 
+  /**
+   * @return the latest request the current {@link TestReceivingDataProviderController} has received
+   */
   public ChainedNode getLatestReceivedRequest() {
     return latestReceivedRequest;
   }

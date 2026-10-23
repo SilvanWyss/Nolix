@@ -14,6 +14,9 @@ import ch.nolix.systemapi.objectdata.modelvalidator.IDatabaseValidator;
 public final class DatabaseValidator implements IDatabaseValidator {
   private static final DatabaseExaminer DATABASE_EXAMINER = new DatabaseExaminer();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertCanSaveChanges(final IDatabase database) {
     if (!DATABASE_EXAMINER.canSaveChanges(database)) {

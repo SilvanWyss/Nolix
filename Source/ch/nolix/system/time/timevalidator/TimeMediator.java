@@ -14,6 +14,12 @@ public final class TimeMediator extends AbstractObjectMediator<ITime> {
     super(argument, argumentName);
   }
 
+  /**
+   * @param argumentName
+   * @param argument
+   * @return a new {@link TimeMediator} for the given argument with the given
+   *         argumentName
+   */
   public static TimeMediator forArugmentNameAndArgument(final String argumentName, final ITime argument) {
     return new TimeMediator(argumentName, argument);
   }

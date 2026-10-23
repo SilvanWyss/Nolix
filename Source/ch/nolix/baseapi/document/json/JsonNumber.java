@@ -9,5 +9,8 @@ import java.math.BigDecimal;
  * @author Silvan Wyss
  */
 public interface JsonNumber extends JsonValue {
+  /**
+   * @return the number of the current {@link JsonNumber}
+   */
   BigDecimal getNumber();
 }

@@ -29,17 +29,35 @@ final class FileReader {
     this.parentBackendWebClient = parentBackendWebClient;
   }
 
+  /**
+   * @param backendWebClient
+   * @return a new {@link FileReader} for the given backendWebClient
+   */
   public static FileReader forBackendWebClient(
     final AbstractWebClient<?, ?> backendWebClient) {
     return new FileReader(backendWebClient);
   }
 
+  /**
+   * Lets the counterpart of the client of the current {@link FileReader} select a
+   * file.
+   * 
+   * @return a {@link Optional} with the bytes of the file the counterpart has
+   *         selected if the counterpart has selected a file, an empty
+   *         {@link Optional} otherwise
+   */
   public Optional<byte[]> readOptionalFileFromCounterpart() {
     assertIsNotWaitingForFileFromCounterpart();
 
     return readOptionalFileFromCounterpartWhenIsNotWaitingForFileFromCounterpart();
   }
 
+  /**
+   * Lets the current {@link FileReader} receive the optional file of the given
+   * receiveOptionalFileCommand from the counterpart.
+   * 
+   * @param receiveOptionalFileCommand
+   */
   public void receiveOptionalFileFromCounterpart(final ChainedNode receiveOptionalFileCommand) {
     switch (receiveOptionalFileCommand.getChildNodeCount()) {
       case 0:

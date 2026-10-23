@@ -13,6 +13,12 @@ public final class BigDecimalMediator extends AbstractBigDecimalMediator {
     super(argument, argumentName);
   }
 
+  /**
+   * @param argument
+   * @param argumentName
+   * @return a new {@link BigDecimalMediator} for the given argument with the
+   *         given argumentName
+   */
   public static BigDecimalMediator forArgumentAndArumgentName(final BigDecimal argument, final String argumentName) {
     return new BigDecimalMediator(argument, argumentName);
   }

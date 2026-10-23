@@ -22,12 +22,24 @@ public abstract class AbstractByteMediator extends AbstractMediator {
     this.argument = argument;
   }
 
+  /**
+   * @param value
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractByteMediator} does not equal the
+   *                          given value
+   */
   public final void isEqualTo(final byte value) {
     if (argument != value) {
       throw UnequalArgumentException.forArgumentAndArgumentNameAndValue(argument, getArgumentName(), value);
     }
   }
 
+  /**
+   * @param value
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractByteMediator} does not equal the
+   *                          given value
+   */
   public final void isEqualTo(final int value) {
     if (argument != value) {
       throw UnequalArgumentException.forArgumentAndArgumentNameAndValue(argument, getArgumentName(), value);

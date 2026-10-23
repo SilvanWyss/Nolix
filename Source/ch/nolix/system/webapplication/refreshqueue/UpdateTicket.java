@@ -34,38 +34,66 @@ public final class UpdateTicket {
     this.controls = ImmutableList.fromIterable(controls);
   }
 
+  /**
+   * @param controls
+   * @param updateConstellationOrStyle
+   * @return a new {@link UpdateTicket} for the given controls
+   */
   public static UpdateTicket forControls(
     final ExtendedIterable<Control<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
     return new UpdateTicket(controls, updateConstellationOrStyle);
   }
 
+  /**
+   * @param webGui
+   * @param updateConstellationOrStyle
+   * @return a new {@link UpdateTicket} for the given webGui
+   */
   public static UpdateTicket forWebGui(
     final IWebGui<?> webGui,
     final boolean updateConstellationOrStyle) {
     return new UpdateTicket(webGui, updateConstellationOrStyle);
   }
 
+  /**
+   * @return the controls of the current {@link UpdateTicket}
+   */
   public ExtendedIterable<Control<?, ?>> getStoredControls() {
     assertIsForSpecificControls();
 
     return controls;
   }
 
+  /**
+   * @return the web GUI of the current {@link UpdateTicket}
+   */
   public IWebGui<?> getStoredWebGui() {
     assertIsForWholeWebGui();
 
     return webGui;
   }
 
+  /**
+   * @return true if the current {@link UpdateTicket} is for specific controls,
+   *         false otherwise
+   */
   public boolean isForSpecificControls() {
     return !isForWholeWebGui();
   }
 
+  /**
+   * @return true if the current {@link UpdateTicket} is for a whole web GUI,
+   *         false otherwise
+   */
   public boolean isForWholeWebGui() {
     return (webGui != null);
   }
 
+  /**
+   * @return true if the current {@link UpdateTicket} should update the
+   *         constellation or style, false otherwise
+   */
   public boolean shouldUpdateConstellationOrStyle() {
     return updateConstellationOrStyle;
   }

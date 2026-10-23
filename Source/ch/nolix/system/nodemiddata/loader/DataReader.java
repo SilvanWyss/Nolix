@@ -39,6 +39,11 @@ public final class DataReader implements IDataReader {
     this.internalDataReader = InternalDataReader.forNodeDatabase(nodeDatabase);
   }
 
+  /**
+   * @param nodeDatabase
+   * @param databaseView
+   * @return a new {@link DataReader} for the given nodeDatabase and databaseView
+   */
   public static DataReader forNodeDatabaseAndDatabaseView(
     final IMutableNode<?> nodeDatabase,
     final DatabaseInfoDto databaseView) {

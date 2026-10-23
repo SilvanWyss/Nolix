@@ -14,6 +14,10 @@ public final class StackTraceMapper {
   private StackTraceMapper() {
   }
 
+  /**
+   * @param error
+   * @return the stack trace of the given error
+   */
   public static String[] mapErrorToStackTrace(final Throwable error) {
     final SimpleLinkedList<String> list = SimpleLinkedList.createEmpty();
 

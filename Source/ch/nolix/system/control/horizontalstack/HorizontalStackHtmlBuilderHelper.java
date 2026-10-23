@@ -16,6 +16,11 @@ public final class HorizontalStackHtmlBuilderHelper {
   private HorizontalStackHtmlBuilderHelper() {
   }
 
+  /**
+   * @param horizontalStack
+   * @return new {@link HtmlElement}s for the child controls of the given
+   *         horizontalStack
+   */
   public static ExtendedIterable<HtmlElement> createHtmlElementsForChildControlsOfHorizontalStack(
     final IHorizontalStack horizontalStack) {
     return //

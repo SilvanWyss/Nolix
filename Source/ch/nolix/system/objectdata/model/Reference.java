@@ -43,6 +43,13 @@ public final class Reference<E extends Entity> extends AbstractBaseReference<E> 
     super(referenceableTableNames);
   }
 
+  /**
+   * @param entityTypes
+   * @param <T>         the type of the {@link Entity}s the created
+   *                    {@link Reference} can reference
+   * @return a new {@link Reference} that can reference {@link Entity}s of the
+   *         given entityTypes
+   */
   @SafeVarargs
   public static <T extends Entity> Reference<T> forEntityTypes(
     final Class<? extends T>... entityTypes) {
@@ -52,6 +59,13 @@ public final class Reference<E extends Entity> extends AbstractBaseReference<E> 
     return new Reference<>(referenceableTableNamesView);
   }
 
+  /**
+   * @param entityTypes
+   * @param <T>         the type of the {@link Entity}s the created
+   *                    {@link Reference} can reference
+   * @return a new {@link Reference} that can reference {@link Entity}s of the
+   *         given entityTypes
+   */
   public static <T extends Entity> Reference<T> forEntityTypes(
     final ExtendedIterable<Class<? extends T>> entityTypes) {
     final var referenceableTableNamesView = entityTypes.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
@@ -59,11 +73,25 @@ public final class Reference<E extends Entity> extends AbstractBaseReference<E> 
     return new Reference<>(referenceableTableNamesView);
   }
 
+  /**
+   * @param referenceableTableNames
+   * @param <T>                     the type of the {@link Entity}s the created
+   *                                {@link Reference} can reference
+   * @return a new {@link Reference} that can reference {@link Entity}s of the
+   *         {@link ITable}s with the given referenceableTableNames
+   */
   public static <T extends Entity> Reference<T> forReferenceableTableNames(
     final ExtendedIterable<String> referenceableTableNames) {
     return new Reference<>(referenceableTableNames);
   }
 
+  /**
+   * @param referenceableTableNames
+   * @param <T>                     the type of the {@link Entity}s the created
+   *                                {@link Reference} can reference
+   * @return a new {@link Reference} that can reference {@link Entity}s of the
+   *         {@link ITable}s with the given referenceableTableNames
+   */
   public static <T extends Entity> Reference<T> forReferenceableTableNames(final String... referenceableTableNames) {
     final var referenceableTableNamesView = ExtendedIterableView.forArray(referenceableTableNames);
 

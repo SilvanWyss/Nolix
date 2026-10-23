@@ -21,6 +21,11 @@ public abstract class AbstractBigDecimalMediator extends AbstractObjectMediator<
     super(argument, argumentName);
   }
 
+  /**
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractBigDecimalMediator} is null or
+   *                          negative
+   */
   public final void isNotNegative() {
     isNotNull();
 
@@ -29,6 +34,12 @@ public abstract class AbstractBigDecimalMediator extends AbstractObjectMediator<
     }
   }
 
+  /**
+   * @param value
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractBigDecimalMediator} is null or
+   *                          smaller than the given value
+   */
   public final void isNotSmallerThan(final BigDecimal value) {
     isNotNull();
 
@@ -37,6 +48,11 @@ public abstract class AbstractBigDecimalMediator extends AbstractObjectMediator<
     }
   }
 
+  /**
+   * @throws RuntimeException if the argument of the current
+   *                          {@link AbstractBigDecimalMediator} is null or not
+   *                          positive
+   */
   public final void isPositive() {
     isNotNull();
 
