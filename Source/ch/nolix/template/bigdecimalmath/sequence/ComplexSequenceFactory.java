@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.template.math.sequence;
+package ch.nolix.template.bigdecimalmath.sequence;
 
 import ch.nolix.system.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.system.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
@@ -11,8 +11,8 @@ import ch.nolix.systemapi.math.bigdecimalmath.ISequenceDefinedBy1Predecessor;
 /**
  * @author Silvan Wyss
  */
-public final class SequenceFactory {
-  private SequenceFactory() {
+public final class ComplexSequenceFactory {
+  private ComplexSequenceFactory() {
   }
 
   public static ISequenceDefinedBy1Predecessor<IComplexNumber> createMandelbrotSequenceForIncrement(

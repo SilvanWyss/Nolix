@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.math.bigdecimalmath.ComplexNumber;
-import ch.nolix.template.math.sequence.SequenceFactory;
+import ch.nolix.template.bigdecimalmath.sequence.ComplexSequenceFactory;
 
 /**
  * @author Silvan Wyss
@@ -16,7 +16,7 @@ final class SequenceCreatorTest extends StandardTest {
   @Test
   void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs0plus0i() {
     // execute
-    final var result = SequenceFactory
+    final var result = ComplexSequenceFactory
       .createMandelbrotSequenceForIncrement(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0));
 
     // verify
@@ -30,7 +30,7 @@ final class SequenceCreatorTest extends StandardTest {
   @Test
   void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs1plus0i() {
     // execute
-    final var result = SequenceFactory
+    final var result = ComplexSequenceFactory
       .createMandelbrotSequenceForIncrement(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 0.0));
 
     // verify
@@ -45,7 +45,7 @@ final class SequenceCreatorTest extends StandardTest {
   @Test
   void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs1plus1i() {
     // execute
-    final var result = SequenceFactory
+    final var result = ComplexSequenceFactory
       .createMandelbrotSequenceForIncrement(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 1.0));
 
     // verify
