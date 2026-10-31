@@ -60,7 +60,7 @@ test {
 mavenPublishing {
   publishToMavenCentral()
   signAllPublications()
-  coordinates("ch.nolix", "nolix", "0.0.0")
+  coordinates("ch.nolix", "nolix", "1.0.0")
 
   pom {
     name = 'Nolix'
