@@ -9,7 +9,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.copyableiterator.CopyableIterator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
-import ch.nolix.baseapi.datastructure.set.CountRequestable;
+import ch.nolix.baseapi.datastructure.set.BaseCountRequestable;
 import ch.nolix.baseapi.foundation.marker.Marker;
 import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
@@ -82,14 +82,15 @@ public final class ArrayList<E> extends AbstractExtendedIterable<E> implements I
   /**
    * The time complexity of this implementation is O(1).
    * 
-   * @param container
-   * @param <T>       the type of the elements of the created {@link ArrayList}
-   * @return a new {@link ArrayList} with a initialCapacity that is the size of
-   *         the given container
-   * @throws NullPointerException if the given container is null
+   * @param baseCountRequestable
+   * @param <T>                  the type of the elements of the created
+   *                             {@link ArrayList}
+   * @return a new {@link ArrayList} with a initialCapacity that is the count of
+   *         the given baseCountRequestable
+   * @throws NullPointerException if the given baseCountRequestable is null
    */
-  public static <T> ArrayList<T> withInitialCapacityFromSizeOfContainer(final CountRequestable<?> container) {
-    final var initialCapacity = container.getCount();
+  public static <T> ArrayList<T> withInitialCapacityFromSizeOf(final BaseCountRequestable baseCountRequestable) {
+    final var initialCapacity = baseCountRequestable.getCount();
 
     return withInitialCapacity(initialCapacity);
   }
