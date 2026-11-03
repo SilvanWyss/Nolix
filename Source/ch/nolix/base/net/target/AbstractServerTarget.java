@@ -75,17 +75,17 @@ public abstract class AbstractServerTarget implements IServerTarget {
 
   private String toHttpsUrl() {
     if (getPort() == PortCatalog.HTTPS) {
-      return String.format("https://%s", getHost());
+      return "https://" + getHost();
     }
 
-    return String.format("https://%s:%s", getHost(), getPort());
+    return "https://" + getHost() + ":" + getPort();
   }
 
   private String toHttpUrl() {
     if (getPort() == PortCatalog.HTTP) {
-      return String.format("http://%s", getHost());
+      return "http://" + getHost();
     }
 
-    return String.format("http://%s:%s", getHost(), getPort());
+    return "http://" + getHost() + ":" + getPort();
   }
 }
