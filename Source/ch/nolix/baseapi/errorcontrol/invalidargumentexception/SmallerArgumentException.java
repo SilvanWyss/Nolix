@@ -48,6 +48,19 @@ public final class SmallerArgumentException extends AbstractInvalidArgumentExcep
   }
 
   /**
+   * Creates a new {@link SmallerArgumentException} for the given argument,
+   * argumentName and min.
+   * 
+   * @param argument
+   * @param argumentName
+   * @param min
+   * @throws RuntimeException if the given argumentName is null or blank
+   */
+  private SmallerArgumentException(final long argument, final String argumentName, final long min) {
+    super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto("is smaller than " + min));
+  }
+
+  /**
    * @param argument
    * @param argumentName
    * @param limit
@@ -75,6 +88,21 @@ public final class SmallerArgumentException extends AbstractInvalidArgumentExcep
     final double argument,
     final String argumentName,
     final double min) {
+    return new SmallerArgumentException(argument, argumentName, min);
+  }
+
+  /**
+   * @param argument
+   * @param argumentName
+   * @param min
+   * @return a new {@link SmallerArgumentException} for the given argument,
+   *         argumentName and min
+   * @throws RuntimeException if the given argumentName is null or blank
+   */
+  public static SmallerArgumentException forArgumentAndArgumentNameAndMin(
+    final long argument,
+    final String argumentName,
+    final long min) {
     return new SmallerArgumentException(argument, argumentName, min);
   }
 

@@ -234,7 +234,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
    * @throws RuntimeException if the argument of the current {@link LongMediator}
    *                          is smaller than the given min
    */
-  public final void isNotSmallerThan(final int min) {
+  public final void isNotSmallerThan(final long min) {
     if (argument < min) {
       throw SmallerArgumentException.forArgumentAndArgumentNameAndMin(argument, getArgumentName(), min);
     }
