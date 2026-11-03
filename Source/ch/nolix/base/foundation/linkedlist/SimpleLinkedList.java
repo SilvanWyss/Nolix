@@ -25,10 +25,10 @@ public final class SimpleLinkedList<E> implements ISimpleLinkedList<E> {
    * @param list
    * @return a new array with the elements of the given list
    */
-  public static String[] createArrayFromList(final SimpleLinkedList<String> list) {
+  public static String[] createArrayFromList(final ISimpleLinkedList<String> list) {
     final var array = new String[list.getElementCount()];
-
     var index = 0;
+
     for (final var e : list) {
       array[index] = e;
       index++;
