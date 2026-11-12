@@ -6,12 +6,12 @@ package ch.nolix.system.nodemidschema.databaseinitializer;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.system.nodemidschema.nodeexaminer.NodeDatabaseExaminer;
 import ch.nolix.systemapi.midschema.databaseinitializer.DatabaseState;
-import ch.nolix.systemapi.nodemidschema.databaseinitializer.IDatabaseStateAnalyser;
+import ch.nolix.systemapi.nodemidschema.databaseinitializer.IDatabaseStateAnalyzer;
 
 /**
  * @author Silvan Wyss
  */
-public final class DatabaseStateAnalyser implements IDatabaseStateAnalyser {
+public final class DatabaseStateAnalyzer implements IDatabaseStateAnalyzer {
   private static final NodeDatabaseExaminer NODE_DATABASE_EXAMINER = new NodeDatabaseExaminer();
 
   /**

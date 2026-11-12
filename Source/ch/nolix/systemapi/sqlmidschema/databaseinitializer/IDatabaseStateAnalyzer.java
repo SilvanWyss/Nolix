@@ -9,7 +9,7 @@ import ch.nolix.systemapi.midschema.databaseinitializer.DatabaseState;
 /**
  * @author Silvan Wyss
  */
-public interface IDatabaseStateAnalyser {
+public interface IDatabaseStateAnalyzer {
   /**
    * @param databaseName
    * @param sqlConnection

@@ -3,15 +3,15 @@
  */
 package ch.nolix.baseapi.errorcontrol.exceptionargumentpreparatorimpl;
 
-import ch.nolix.baseapi.errorcontrol.exceptionargumentpreparator.IExceptionArgumentStringRepresentaionPreparator;
+import ch.nolix.baseapi.errorcontrol.exceptionargumentpreparator.IExceptionArgumentStringRepresentationPreparator;
 import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
 import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 
 /**
  * @author Silvan Wyss
  */
-public final class ExceptionArgumentStringRepresentaionPreparator
-implements IExceptionArgumentStringRepresentaionPreparator {
+public final class ExceptionArgumentStringRepresentationPreparator
+implements IExceptionArgumentStringRepresentationPreparator {
   private static final int MAX_STRING_REPRESENTATION_LENGTH = 10_000;
 
   /**

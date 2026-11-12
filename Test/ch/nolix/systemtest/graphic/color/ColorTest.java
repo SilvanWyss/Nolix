@@ -191,7 +191,7 @@ final class ColorTest extends StandardTest {
   "0xF0F0F0F0",
   "0xFFFFFFFF"
   })
-  void testCase_toHexadecimalStringWithAlphaValu(final String string) {
+  void testCase_toHexadecimalStringWithAlphaValue(final String string) {
     // setup
     final var testUnit = Color.fromString(string);
 

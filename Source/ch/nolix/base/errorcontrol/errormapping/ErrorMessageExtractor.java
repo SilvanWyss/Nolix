@@ -9,7 +9,7 @@ import ch.nolix.baseapi.errorcontrol.errormapping.IErrorMessageExtractor;
  * @author Silvan Wyss
  */
 public final class ErrorMessageExtractor implements IErrorMessageExtractor {
-  private static final String DEFAULT_ERROR_MESSAGE = "An error occured.";
+  private static final String DEFAULT_ERROR_MESSAGE = "An error occurred.";
 
   /**
    * {@inheritDoc}

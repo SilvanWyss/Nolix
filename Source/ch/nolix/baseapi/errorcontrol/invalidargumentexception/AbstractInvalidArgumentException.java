@@ -7,7 +7,7 @@ import ch.nolix.baseapi.errorcontrol.exceptionargumentbox.ArgumentNameDto;
 import ch.nolix.baseapi.errorcontrol.exceptionargumentbox.CauseDto;
 import ch.nolix.baseapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
 import ch.nolix.baseapi.errorcontrol.exceptionargumentpreparatorimpl.ExceptionArgumentNamePreparator;
-import ch.nolix.baseapi.errorcontrol.exceptionargumentpreparatorimpl.ExceptionArgumentStringRepresentaionPreparator;
+import ch.nolix.baseapi.errorcontrol.exceptionargumentpreparatorimpl.ExceptionArgumentStringRepresentationPreparator;
 import ch.nolix.baseapi.errorcontrol.exceptionargumentpreparatorimpl.ExceptionCausePreparator;
 import ch.nolix.baseapi.errorcontrol.exceptionargumentpreparatorimpl.ExceptionErrorPredicatePreparator;
 
@@ -27,8 +27,8 @@ import ch.nolix.baseapi.errorcontrol.exceptionargumentpreparatorimpl.ExceptionEr
 public abstract class AbstractInvalidArgumentException extends RuntimeException {
   private static final String DEFAULT_ERROR_PREDICATE = "is not valid";
 
-  private static final ExceptionArgumentStringRepresentaionPreparator ARGUMENT_STRING_REPRESENTAION_PREPARATOR = //
-  new ExceptionArgumentStringRepresentaionPreparator();
+  private static final ExceptionArgumentStringRepresentationPreparator ARGUMENT_STRING_REPRESENTATION_PREPARATOR = //
+  new ExceptionArgumentStringRepresentationPreparator();
 
   private static final ExceptionArgumentNamePreparator ARGUMENT_NAME_PREPARATOR = //
   new ExceptionArgumentNamePreparator();
@@ -54,7 +54,7 @@ public abstract class AbstractInvalidArgumentException extends RuntimeException 
     super(
       "The given "
       + ARGUMENT_NAME_PREPARATOR.getNameOfArgument(argument)
-      + ARGUMENT_STRING_REPRESENTAION_PREPARATOR
+      + ARGUMENT_STRING_REPRESENTATION_PREPARATOR
         .getSmartSpaceEnclosedQuotedStringRepresentationWithMaxLengthOfArgument(argument)
       + DEFAULT_ERROR_PREDICATE
       + ".");
@@ -78,7 +78,7 @@ public abstract class AbstractInvalidArgumentException extends RuntimeException 
     super(
       "The given "
       + ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameFromArgumentName(argumentNameDto.argumentName())
-      + ARGUMENT_STRING_REPRESENTAION_PREPARATOR
+      + ARGUMENT_STRING_REPRESENTATION_PREPARATOR
         .getSmartSpaceEnclosedQuotedStringRepresentationWithMaxLengthOfArgument(argument)
       + DEFAULT_ERROR_PREDICATE
       + ".");
@@ -110,7 +110,7 @@ public abstract class AbstractInvalidArgumentException extends RuntimeException 
     super(
       "The given "
       + ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameFromArgumentName(argumentNameDto.argumentName())
-      + ARGUMENT_STRING_REPRESENTAION_PREPARATOR
+      + ARGUMENT_STRING_REPRESENTATION_PREPARATOR
         .getSmartSpaceEnclosedQuotedStringRepresentationWithMaxLengthOfArgument(argument)
       + ERROR_PREDICATE_PREPARATOR.getValidErrorPredicateFromErrorPredicate(errorPredicateDto.errorPredicate())
       + ".");
@@ -146,7 +146,7 @@ public abstract class AbstractInvalidArgumentException extends RuntimeException 
     super(
       "The given "
       + ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameFromArgumentName(argumentNameDto.argumentName())
-      + ARGUMENT_STRING_REPRESENTAION_PREPARATOR
+      + ARGUMENT_STRING_REPRESENTATION_PREPARATOR
         .getSmartSpaceEnclosedQuotedStringRepresentationWithMaxLengthOfArgument(argument)
       + ERROR_PREDICATE_PREPARATOR.getValidErrorPredicateFromErrorPredicate(errorPredicateDto.errorPredicate())
       + ".",
@@ -171,7 +171,7 @@ public abstract class AbstractInvalidArgumentException extends RuntimeException 
     super(
       "The given "
       + ARGUMENT_NAME_PREPARATOR.getNameOfArgument(argument)
-      + ARGUMENT_STRING_REPRESENTAION_PREPARATOR
+      + ARGUMENT_STRING_REPRESENTATION_PREPARATOR
         .getSmartSpaceEnclosedQuotedStringRepresentationWithMaxLengthOfArgument(argument)
       + ERROR_PREDICATE_PREPARATOR.getValidErrorPredicateFromErrorPredicate(errorPredicateDto.errorPredicate())
       + ".");

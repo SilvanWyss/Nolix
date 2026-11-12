@@ -22,7 +22,7 @@ import ch.nolix.system.element.valueproperty.ValueProperty;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.system.style.stylable.AbstractStylableElement;
-import ch.nolix.system.webgui.controltool.ControlAnalyser;
+import ch.nolix.system.webgui.controltool.ControlAnalyzer;
 import ch.nolix.system.webgui.controltool.ControlTool;
 import ch.nolix.system.webgui.mainvalidator.LayerValidator;
 import ch.nolix.systemapi.graphic.color.IColor;
@@ -62,7 +62,7 @@ implements ILayer {
 
   private static final LayerValidator LAYER_VALIDATOR = new LayerValidator();
 
-  private static final ControlAnalyser CONTROL_ANALYSER = new ControlAnalyser();
+  private static final ControlAnalyzer CONTROL_ANALYZER = new ControlAnalyzer();
 
   private static final ControlTool CONTROL_TOOL = new ControlTool();
 
@@ -512,7 +512,7 @@ implements ILayer {
       return true;
     }
 
-    return CONTROL_ANALYSER.firstControlContainsSecondControl(localRootControl, control);
+    return CONTROL_ANALYZER.firstControlContainsSecondControl(localRootControl, control);
   }
 
   private void removeSelfFromGuiWhenBelongsToGui() {

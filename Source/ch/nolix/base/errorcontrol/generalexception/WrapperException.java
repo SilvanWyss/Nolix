@@ -5,7 +5,7 @@ package ch.nolix.base.errorcontrol.generalexception;
 
 @SuppressWarnings("serial")
 public final class WrapperException extends RuntimeException {
-  public static final String DEFAULT_ERROR_MESSAGE = "An error occured.";
+  public static final String DEFAULT_ERROR_MESSAGE = "An error occurred.";
 
   private WrapperException(final Throwable error) {
     this(DEFAULT_ERROR_MESSAGE, error);

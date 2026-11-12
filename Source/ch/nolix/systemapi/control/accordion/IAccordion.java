@@ -102,5 +102,5 @@ public interface IAccordion extends Container<IAccordion, IAccordionStyle> {
    * @param tabExpansionBehavior
    * @return the current {@link IAccordion}
    */
-  IAccordion setTabExpansionBehaviour(TabExpansionBehavior tabExpansionBehavior);
+  IAccordion setTabExpansionBehavior(TabExpansionBehavior tabExpansionBehavior);
 }

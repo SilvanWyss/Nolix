@@ -129,9 +129,9 @@ extends AbstractMutableElementWithProperties implements IMutableImage<MutableIma
    */
   public static MutableImage fromSpecification(final Node<?> specification) {
     if (specification.containsChildNodeWithHeader(JPG_STRING)) {
-      final var lJpgString = specification.getStoredFirstChildNodeWithHeader(JPG_STRING).getSingleChildNodeHeader();
+      final var jpgString = specification.getStoredFirstChildNodeWithHeader(JPG_STRING).getSingleChildNodeHeader();
 
-      return fromBytes(Base64.getDecoder().decode(lJpgString.substring(lJpgString.indexOf(',') + 1)));
+      return fromBytes(Base64.getDecoder().decode(jpgString.substring(jpgString.indexOf(',') + 1)));
     }
 
     final var pixelArraySpecification = specification.getStoredFirstChildNodeWithHeader(PIXEL_ARRAY_HEADER);
@@ -576,16 +576,16 @@ extends AbstractMutableElementWithProperties implements IMutableImage<MutableIma
   }
 
   private BufferedImage generateBufferedImage() {
-    final var lBufferedImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_4BYTE_ABGR_PRE);
+    final var bufferedImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_4BYTE_ABGR_PRE);
     for (var y = 0; y < getHeight(); y++) {
       for (var x = 0; x < getWidth(); x++) {
         final var pixel = pixels.getStoredAtOneBasedRowIndexAndColumnIndex(y + 1, x + 1);
 
-        lBufferedImage.setRGB(x, y, pixel.toAlphaRedGreenBlueInt());
+        bufferedImage.setRGB(x, y, pixel.toAlphaRedGreenBlueInt());
       }
     }
 
-    return lBufferedImage;
+    return bufferedImage;
   }
 
   private BufferedImage generateJpgBufferedImage() {

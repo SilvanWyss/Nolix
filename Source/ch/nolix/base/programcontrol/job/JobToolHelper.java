@@ -25,7 +25,7 @@ public final class JobToolHelper {
       } catch (final Throwable error) { // NOSONAR: All errors must be caught.
         throw //
         WrapperException.forErrorMessageAndError(
-          "An error occured by running the " + i + "th job of the given " + jobs.getCount() + " jobs.",
+          "An error occurred by running the " + i + "th job of the given " + jobs.getCount() + " jobs.",
           error);
       }
     }

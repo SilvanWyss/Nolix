@@ -188,10 +188,10 @@ implements MultiStateConfiguration<C, S> {
   }
 
   private void extractPropertiesWhenNotExtracted() {
-    final ILinkedList<AbstractProperty<S>> lProperties = LinkedList.createEmpty();
-    fillUpPropertiesIntoList(lProperties);
+    final ILinkedList<AbstractProperty<S>> properties = LinkedList.createEmpty();
+    fillUpPropertiesIntoList(properties);
 
-    abstractProperties = lProperties;
+    abstractProperties = properties;
 
     setItselsAsParentToProperties();
   }

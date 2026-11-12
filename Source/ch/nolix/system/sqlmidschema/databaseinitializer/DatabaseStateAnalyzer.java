@@ -7,13 +7,13 @@ import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.system.sqlschema.adapter.SchemaReader;
 import ch.nolix.systemapi.midschema.databaseinitializer.DatabaseState;
 import ch.nolix.systemapi.sqlmiddatabasestructure.table.MetaDataTable;
-import ch.nolix.systemapi.sqlmidschema.databaseinitializer.IDatabaseStateAnalyser;
+import ch.nolix.systemapi.sqlmidschema.databaseinitializer.IDatabaseStateAnalyzer;
 import ch.nolix.systemapi.sqlschema.adapter.ISchemaReader;
 
 /**
  * @author Silvan Wyss
  */
-public final class DatabaseStateAnalyser implements IDatabaseStateAnalyser {
+public final class DatabaseStateAnalyzer implements IDatabaseStateAnalyzer {
   /**
    * @param schemaReader
    * @return the state of the database from the given schemaReader

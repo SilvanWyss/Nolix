@@ -32,15 +32,15 @@ final class SslServerWorker extends AbstractWorker {
     final SslServer parentWebSocketServer,
     final int port,
     final String htmlPage,
-    final ISslCertificate paramSslCertificate) {
+    final ISslCertificate sslCertificate) {
     Validator.assertThat(parentWebSocketServer).thatIsNamed("parent web-socket server").isNotNull();
     Validator.assertThat(port).thatIsNamed(LowerCaseVariableNameCatalog.PORT).isPort();
-    Validator.assertThat(paramSslCertificate).thatIsNamed(ISslCertificate.class).isNotNull();
+    Validator.assertThat(sslCertificate).thatIsNamed(ISslCertificate.class).isNotNull();
 
     this.parentWebSocketServer = parentWebSocketServer;
     this.port = port;
     this.htmlPage = htmlPage;
-    mSslCertificate = paramSslCertificate;
+    mSslCertificate = sslCertificate;
 
     start();
   }
@@ -49,16 +49,16 @@ final class SslServerWorker extends AbstractWorker {
    * @param parentWebSocketServer
    * @param port
    * @param htmlPage
-   * @param paramSslCertificate
+   * @param sslCertificate
    * @return a new {@link SslServerWorker} for the given parentWebSocketServer,
-   *         port, htmlPage and paramSslCertificate
+   *         port, htmlPage and sslCertificate
    */
   public static SslServerWorker forWebSocketServerAndPortAndHtmlPageAndSslCertificate(
     final SslServer parentWebSocketServer,
     final int port,
     final String htmlPage,
-    final ISslCertificate paramSslCertificate) {
-    return new SslServerWorker(parentWebSocketServer, port, htmlPage, paramSslCertificate);
+    final ISslCertificate sslCertificate) {
+    return new SslServerWorker(parentWebSocketServer, port, htmlPage, sslCertificate);
   }
 
   /**
@@ -71,7 +71,7 @@ final class SslServerWorker extends AbstractWorker {
     final var workerGroup = new MultiThreadIoEventLoopGroup(NioIoHandler.newFactory());
 
     try { // NOSONAR: bossGroup and workerGroup will be shut down gracefully.
-      final var serverBootstrab = //
+      final var serverBootstrap = //
       new ServerBootstrap()
         .childOption(ChannelOption.TCP_NODELAY, true)
         .group(bossGroup, workerGroup)
@@ -80,7 +80,7 @@ final class SslServerWorker extends AbstractWorker {
         .childHandler(
           SslServerInitializer.forSslServerWithHtmlPageAndSslContext(parentWebSocketServer, htmlPage, sslContext));
 
-      channel = serverBootstrab.bind(port).sync().channel();
+      channel = serverBootstrap.bind(port).sync().channel();
       channel.closeFuture().sync();
     } catch (final InterruptedException interruptedException // NOSONAR: The Exception is wrapped.
     ) {

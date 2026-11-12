@@ -4,12 +4,12 @@
 package ch.nolix.baseapi.errorcontrol.exceptionargumentpreparator;
 
 /**
- * A {@link IExceptionArgumentStringRepresentaionPreparator} provides method to
+ * A {@link IExceptionArgumentStringRepresentationPreparator} provides method to
  * prepare {@link String} representations of arguments for {@link Exception}s.
  * 
  * @author Silvan Wyss
  */
-public interface IExceptionArgumentStringRepresentaionPreparator {
+public interface IExceptionArgumentStringRepresentationPreparator {
   /**
    * @param argument - Can be null
    * @return a space enclosed and quoted {@link String} representation of the

@@ -27,23 +27,23 @@ public final class SslServer extends AbstractServer {
 
   private final SslServerWorker sslServerWorker;
 
-  private SslServer(final int port, final String htmlPage, final ISslCertificate paramSslCertificate) {
+  private SslServer(final int port, final String htmlPage, final ISslCertificate sslCertificate) {
     sslServerWorker = //
-    SslServerWorker.forWebSocketServerAndPortAndHtmlPageAndSslCertificate(this, port, htmlPage, paramSslCertificate);
+    SslServerWorker.forWebSocketServerAndPortAndHtmlPageAndSslCertificate(this, port, htmlPage, sslCertificate);
   }
 
   /**
    * @param port
    * @param htmlPage
-   * @param paramSslCertificate
+   * @param sslCertificate
    * @return a new {@link SslServer} that listens on the given port and uses the
-   *         given htmlPage and paramSslCertificate
+   *         given htmlPage and sslCertificate
    */
   public static SslServer forPortAndHtmlPageAndSslCertificate(
     final int port,
     final String htmlPage,
-    final ISslCertificate paramSslCertificate) {
-    return new SslServer(port, htmlPage, paramSslCertificate);
+    final ISslCertificate sslCertificate) {
+    return new SslServer(port, htmlPage, sslCertificate);
   }
 
   /**
@@ -56,10 +56,10 @@ public final class SslServer extends AbstractServer {
   public static SslServer forPortAndHtmlPageAndSslCertificateFromNolixConfiguration(
     final int port,
     final String htmlPage) {
-    final var paramSslCertificate = //
+    final var sslCertificate = //
     NolixConfigurationSslCertificateReader.getDefaultSslCertificateFromLocalNolixConfiguration();
 
-    return new SslServer(port, htmlPage, paramSslCertificate);
+    return new SslServer(port, htmlPage, sslCertificate);
   }
 
   /**

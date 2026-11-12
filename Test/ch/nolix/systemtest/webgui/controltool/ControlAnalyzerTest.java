@@ -13,18 +13,18 @@ import ch.nolix.system.control.label.Label;
 import ch.nolix.system.control.link.Link;
 import ch.nolix.system.control.textbox.Textbox;
 import ch.nolix.system.control.verticalstack.VerticalStack;
-import ch.nolix.system.webgui.controltool.ControlAnalyser;
+import ch.nolix.system.webgui.controltool.ControlAnalyzer;
 
 /**
  * @author Silvan Wyss
  */
-final class ControlAnalyserTest extends StandardTest {
+final class ControlAnalyzerTest extends StandardTest {
   @Test
   void testCase_firstControlContainsSecondControl_whenGivenFirstControlContainsTheGivenSecondControlDirectly() {
     // setup
     final var label = new Label();
     final var verticalStack = new VerticalStack().addControls(new Button(), new Link(), label);
-    final var testUnit = new ControlAnalyser();
+    final var testUnit = new ControlAnalyzer();
 
     // execute
     final var result = testUnit.firstControlContainsSecondControl(verticalStack, label);
@@ -47,7 +47,7 @@ final class ControlAnalyserTest extends StandardTest {
             new Textbox(),
             new ImageControl(),
             label));
-    final var testUnit = new ControlAnalyser();
+    final var testUnit = new ControlAnalyzer();
 
     // execute
     final var result = testUnit.firstControlContainsSecondControl(verticalStack, label);
@@ -59,7 +59,7 @@ final class ControlAnalyserTest extends StandardTest {
   @Test
   void testCase_firstControlContainsSecondControl_whenGivenFirstControlIsNull() {
     // setup
-    final var testUnit = new ControlAnalyser();
+    final var testUnit = new ControlAnalyzer();
 
     // execute
     final var result = testUnit.firstControlContainsSecondControl(null, new Label());
@@ -71,7 +71,7 @@ final class ControlAnalyserTest extends StandardTest {
   @Test
   void testCase_firstControlContainsSecondControl_whenGivenSecondControlIsNull() {
     // setup
-    final var testUnit = new ControlAnalyser();
+    final var testUnit = new ControlAnalyzer();
 
     // execute
     final var result = testUnit.firstControlContainsSecondControl(new Label(), null);

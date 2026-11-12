@@ -64,12 +64,12 @@ public final class LogEntry {
 
   private static String getMessageFromError(final Throwable error) {
     if (error == null) {
-      return "An error occured.";
+      return "An error occurred.";
     }
 
     final var message = error.getMessage();
     if (message == null || message.isBlank()) {
-      return "An error occured.";
+      return "An error occurred.";
     }
 
     return message;

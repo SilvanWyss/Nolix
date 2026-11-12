@@ -8,7 +8,7 @@ import ch.nolix.systemapi.webgui.main.Control;
 /**
  * @author Silvan Wyss
  */
-public interface IControlAnalyser {
+public interface IControlAnalyzer {
   /**
    * @param firstControl
    * @param secondControl

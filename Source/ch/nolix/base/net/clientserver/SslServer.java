@@ -23,7 +23,7 @@ public final class SslServer extends AbstractServer<SslServer> {
 
   private final int port;
 
-  private SslServer(final int port, final String domain, final ISslCertificate paramSslCertificate) {
+  private SslServer(final int port, final String domain, final ISslCertificate sslCertificate) {
     final var htmlPage = SslServerPage.forDomainAndPort(domain, port);
     final var htmlPageAsString = htmlPage.toString();
 
@@ -31,7 +31,7 @@ public final class SslServer extends AbstractServer<SslServer> {
     ch.nolix.base.net.executoranddataproviderserver.SslServer.forPortAndHtmlPageAndSslCertificate(
       port,
       htmlPageAsString,
-      paramSslCertificate);
+      sslCertificate);
 
     this.domain = domain;
     this.port = port;
@@ -47,10 +47,10 @@ public final class SslServer extends AbstractServer<SslServer> {
   public static SslServer forHttpsPortAndDomainAndSslCertificateFromNolixConfiguration() {
     final var domain = NolixConfigurationSslCertificateReader.getDefaultDomainFromLocalNolixConfiguration();
 
-    final var paramSslCertificate = //
+    final var sslCertificate = //
     NolixConfigurationSslCertificateReader.getDefaultSslCertificateFromLocalNolixConfiguration();
 
-    return new SslServer(PortCatalog.HTTPS, domain, paramSslCertificate);
+    return new SslServer(PortCatalog.HTTPS, domain, sslCertificate);
   }
 
   /**
@@ -61,10 +61,10 @@ public final class SslServer extends AbstractServer<SslServer> {
    */
   public static SslServer forHttpsPortAndDomainAndSslCertificateFromNolixConfiguration(
     final String domain) {
-    final var paramSslCertificate = //
+    final var sslCertificate = //
     NolixConfigurationSslCertificateReader.getDefaultSslCertificateFromLocalNolixConfiguration();
 
-    return new SslServer(PortCatalog.HTTPS, domain, paramSslCertificate);
+    return new SslServer(PortCatalog.HTTPS, domain, sslCertificate);
   }
 
   /**
@@ -77,10 +77,10 @@ public final class SslServer extends AbstractServer<SslServer> {
   public static SslServer forPortAndDomainAndSslCertificateFromNolixConfiguration(
     final int port,
     final String domain) {
-    final var paramSslCertificate = //
+    final var sslCertificate = //
     NolixConfigurationSslCertificateReader.getDefaultSslCertificateFromLocalNolixConfiguration();
 
-    return new SslServer(port, domain, paramSslCertificate);
+    return new SslServer(port, domain, sslCertificate);
   }
 
   /**

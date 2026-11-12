@@ -14,12 +14,12 @@ import ch.nolix.baseapi.net.ssl.ISslCertificate;
 public final class SslServer extends AbstractServer {
   private final ch.nolix.base.net.senderandreceiverserver.SslServer internalWebSocketServer;
 
-  private SslServer(final int port, final String HtmlPage, final ISslCertificate paramSslCertificate) {
+  private SslServer(final int port, final String htmlPage, final ISslCertificate sslCertificate) {
     internalWebSocketServer = //
     ch.nolix.base.net.senderandreceiverserver.SslServer.forPortAndHtmlPageAndSslCertificate(
       port,
-      HtmlPage,
-      paramSslCertificate);
+      htmlPage,
+      sslCertificate);
 
     createCloseDependencyTo(internalWebSocketServer);
   }

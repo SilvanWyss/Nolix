@@ -14,7 +14,7 @@ import ch.nolix.systemapi.time.main.ITime;
  * @author Silvan Wyss
  */
 public final class DatabaseInitializer extends AbstractDatabaseInitializer {
-  private static final DatabaseStateAnalyser DATABASE_STATE_ANALYSER = new DatabaseStateAnalyser();
+  private static final DatabaseStateAnalyzer DATABASE_STATE_ANALYZER = new DatabaseStateAnalyzer();
 
   private static final DatabaseComponentCreator DATABASE_COMPONENT_CREATOR = new DatabaseComponentCreator();
 
@@ -57,7 +57,7 @@ public final class DatabaseInitializer extends AbstractDatabaseInitializer {
    */
   @Override
   public DatabaseState getDatabaseState() {
-    return DATABASE_STATE_ANALYSER.getStateOfNodeDatabase(nodeDatabase);
+    return DATABASE_STATE_ANALYZER.getStateOfNodeDatabase(nodeDatabase);
   }
 
   /**

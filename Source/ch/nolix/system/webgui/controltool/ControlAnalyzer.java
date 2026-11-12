@@ -3,13 +3,13 @@
  */
 package ch.nolix.system.webgui.controltool;
 
-import ch.nolix.systemapi.webgui.controltool.IControlAnalyser;
+import ch.nolix.systemapi.webgui.controltool.IControlAnalyzer;
 import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
  */
-public final class ControlAnalyser implements IControlAnalyser {
+public final class ControlAnalyzer implements IControlAnalyzer {
   /**
    * {@inheritDoc}
    */

@@ -53,7 +53,7 @@ public abstract class AbstractLogHandler {
     try {
       log(logEntry);
     } catch (final Throwable _) { // NOSONAR: All Throwable must be caught.
-      System.err.println("An error occured by writing a log entry."); // NOSONAR: This is a logger.
+      System.err.println("An error occurred by writing a log entry."); // NOSONAR: This is a logger.
     }
   }
 }

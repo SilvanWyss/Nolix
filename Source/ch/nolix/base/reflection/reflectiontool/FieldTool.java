@@ -21,15 +21,15 @@ public final class FieldTool implements IFieldTool {
    */
   @Override
   @SuppressWarnings("unchecked")
-  public <V> V getValueOfStaticField(final Field paramField) {
-    if (!FIELD_EXAMINER.isStatic(paramField)) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(paramField, "is not static");
+  public <V> V getValueOfStaticField(final Field field) {
+    if (!FIELD_EXAMINER.isStatic(field)) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(field, "is not static");
     }
 
     try {
-      paramField.setAccessible(true);
+      field.setAccessible(true);
 
-      return (V) paramField.get(null);
+      return (V) field.get(null);
     } catch (final IllegalAccessException illegalAccessException) {
       throw WrapperException.forError(illegalAccessException);
     }

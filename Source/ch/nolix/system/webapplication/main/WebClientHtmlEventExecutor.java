@@ -37,9 +37,9 @@ public final class WebClientHtmlEventExecutor {
 
     triggeredControl.runHtmlEvent(htmlEvent);
 
-    final var refreshBehaviour = getRefreshTrigger(triggeredControl, originalLayerCount, openStateRequester);
+    final var refreshBehavior = getRefreshTrigger(triggeredControl, originalLayerCount, openStateRequester);
 
-    switch (refreshBehaviour) {
+    switch (refreshBehavior) {
       case REFRESH_GUI:
         guiUpdater.run();
         break;
