@@ -46,7 +46,7 @@ final class LayerValidatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_assertDoesNotBelongsToGui_whenGivenLayerDoesNotBelongToAGui() {
+  void testCase_assertDoesNotBelongToGui_whenGivenLayerDoesNotBelongToAGui() {
     // setup
     final var layer = new Layer();
     final var testUnit = new LayerValidator();

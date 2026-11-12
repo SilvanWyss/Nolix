@@ -44,7 +44,7 @@ final class AndHostCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_andLocalHost_whenHasSurccessor() {
+  void testCase_andLocalHost_whenHasSuccessor() {
     // setup
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new AndHostCaptor<>(andNameCaptor);

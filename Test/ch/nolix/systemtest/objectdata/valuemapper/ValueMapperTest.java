@@ -105,7 +105,7 @@ final class ValueMapperTest extends StandardTest {
   }
 
   @Test
-  void testCase_mapStringToValue_whenGivenStringRepresentsASring() {
+  void testCase_mapStringToValue_whenGivenStringRepresentsAString() {
     // setup
     final var testUnit = new ValueMapper();
 

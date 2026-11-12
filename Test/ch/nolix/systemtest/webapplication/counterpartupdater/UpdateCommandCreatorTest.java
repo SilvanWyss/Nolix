@@ -81,7 +81,7 @@ final class UpdateCommandCreatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_createSetUserInputFunctionsCommandFromWebGui_whenGivenWebGuiContaisATextbox() {
+  void testCase_createSetUserInputFunctionsCommandFromWebGui_whenGivenWebGuiContainsATextbox() {
     // setup
     final var textbox = new Textbox();
     final var webGui = new WebGui().pushLayerWithRootControl(textbox);

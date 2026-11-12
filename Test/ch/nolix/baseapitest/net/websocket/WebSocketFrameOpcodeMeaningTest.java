@@ -64,7 +64,7 @@ final class WebSocketFrameOpcodeMeaningTest extends StandardTest {
 
   @ParameterizedTest
   @MethodSource("getWebSocketFrameOpcodeMeaningsAndTheirNumbers")
-  void testCase_toNumber_whenHaseANumber(final WebSocketFrameOpcodeMeaning testUnit, final int expectedNumber) {
+  void testCase_toNumber_whenHasANumber(final WebSocketFrameOpcodeMeaning testUnit, final int expectedNumber) {
     // execute
     final var result = testUnit.toNumber();
 

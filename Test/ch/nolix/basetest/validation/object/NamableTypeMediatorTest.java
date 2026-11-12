@@ -132,7 +132,7 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isEnum_whenGivenArgumentIsAClas() {
+  void testCase_isEnum_whenGivenArgumentIsAClass() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(ArrayList.class);
 
