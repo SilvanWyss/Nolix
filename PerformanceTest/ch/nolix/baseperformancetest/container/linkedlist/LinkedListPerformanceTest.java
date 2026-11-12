@@ -81,7 +81,12 @@ final class LinkedListPerformanceTest extends PerformanceTest {
   void testCase_toOrdered() {
     expectOnAnObjectFrom(this::createLinkedList)
       .running(l -> l.toOrdered(FunctionService::getSelf))
-      .hasGivenOrLowerTimeComplexity(n -> n * Math.sqrt(n));
+      .hasGivenOrLowerTimeComplexity(
+        n -> {
+          final var floatingPointN = (double) n;
+
+          return floatingPointN * Math.sqrt(floatingPointN);
+        });
   }
 
   private ILinkedList<Integer> createLinkedList(final int elementCount) {
