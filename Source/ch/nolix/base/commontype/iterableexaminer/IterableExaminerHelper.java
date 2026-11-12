@@ -17,18 +17,17 @@ public final class IterableExaminerHelper {
 
   /**
    * @param iterable
+   * @param objects
    * @return true if the elements of the given iterable equal the elements of the
-   *         given iterable in the same order, false otherwise
+   *         given objects in the same order, false otherwise
    */
-  public static boolean containsExactlyAllEqualInSameOrderWhenIterableNotNullAndObjectsNotNull(final Iterable<?> iterable) {
-    final var objectsIterator = iterable.iterator();
+  public static boolean containsExactlyAllEqualInSameOrderWhenIterableNotNullAndObjectsNotNull(
+    final Iterable<?> iterable,
+    final Iterable<?> objects) {
+    final var objectsIterator = objects.iterator();
 
     for (final var e : iterable) {
-      if (objectsIterator.hasNext()) {
-        if (!Objects.equals(e, objectsIterator.next())) {
-          return false;
-        }
-      } else {
+      if (!objectsIterator.hasNext() || !Objects.equals(e, objectsIterator.next())) {
         return false;
       }
     }

@@ -153,7 +153,8 @@ public final class IterableExaminer implements IIterableExaminer {
   public boolean containsExactlyAllEqualInSameOrder(final Iterable<?> iterable, final Iterable<?> objects) {
     if (iterable != null) {
       if (objects != null) {
-        return IterableExaminerHelper.containsExactlyAllEqualInSameOrderWhenIterableNotNullAndObjectsNotNull(iterable);
+        return IterableExaminerHelper.containsExactlyAllEqualInSameOrderWhenIterableNotNullAndObjectsNotNull(iterable,
+          objects);
       }
 
       return isEmpty(iterable);
