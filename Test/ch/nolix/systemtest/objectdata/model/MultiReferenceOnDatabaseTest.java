@@ -31,6 +31,44 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
   }
 
   @Test
+  void testCase_addEntity_whenParentEntityBelongsToTableAndAddedEntityDoesNot() {
+    // setup
+    final var nodeDatabase = MutableNode.createEmpty();
+    final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
+    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
+    final var john = new Person();
+    nodeDataAdapter.insertEntity(john);
+    final var garfield = new Pet();
+
+    // execute
+    john.pets.addEntity(garfield);
+
+    // verify
+    expect(garfield.belongsToTable()).isTrue();
+  }
+
+  @Test
+  void testCase_addEntity_whenParentEntityBelongsToTableAndAddedEntityDoesNot_andIsSaved() {
+    // setup
+    final var nodeDatabase = MutableNode.createEmpty();
+    final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
+    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
+    final var john = new Person();
+    nodeDataAdapter.insertEntity(john);
+    final var garfield = new Pet();
+
+    // execute
+    john.pets.addEntity(garfield);
+    nodeDataAdapter.saveChanges();
+
+    // verify
+    final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
+    final var loadedGarfield = //
+    nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
+    expect(loadedJohn.pets.getAllStoredReferencedEntities().getStoredSingle()).is(loadedGarfield);
+  }
+
+  @Test
   void testCase_whenIsLoadedAndEmpty() {
     // setup
     final var nodeDatabase = MutableNode.createEmpty();
@@ -126,43 +164,5 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
 
     // execute & verify
     expectRunning(nodeDataAdapter::saveChanges).doesNotThrowException();
-  }
-
-  @Test
-  void testCase_addEntity_whenParentEntityBelongsToTableAndAddedEntityDoesNot() {
-    // setup
-    final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
-    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
-    final var john = new Person();
-    nodeDataAdapter.insertEntity(john);
-    final var garfield = new Pet();
-
-    // execute
-    john.pets.addEntity(garfield);
-
-    // verify
-    expect(garfield.belongsToTable()).isTrue();
-  }
-
-  @Test
-  void testCase_addEntity_whenParentEntityBelongsToTableAndAddedEntityDoesNot_andIsSaved() {
-    // setup
-    final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
-    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
-    final var john = new Person();
-    nodeDataAdapter.insertEntity(john);
-    final var garfield = new Pet();
-
-    // execute
-    john.pets.addEntity(garfield);
-    nodeDataAdapter.saveChanges();
-
-    // verify
-    final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
-    final var loadedGarfield = //
-    nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
-    expect(loadedJohn.pets.getAllStoredReferencedEntities().getStoredSingle()).is(loadedGarfield);
   }
 }

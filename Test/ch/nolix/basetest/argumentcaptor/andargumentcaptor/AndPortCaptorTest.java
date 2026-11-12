@@ -15,34 +15,6 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
  */
 final class AndPortCaptorTest extends StandardTest {
   @Test
-  void testCase_andPort_whenHasSuccessor() {
-    // define test parameters
-    final var port = 8000;
-
-    // setup
-    final var andNameCaptor = new AndNameCaptor<>();
-    final var testUnit = new AndPortCaptor<>(andNameCaptor);
-
-    // execute
-    final var result = testUnit.andPort(port);
-
-    // verify
-    expect(testUnit.getPort()).isEqualTo(port);
-    expect(result).is(andNameCaptor);
-  }
-
-  @Test
-  void testCase_andPort_whenDoesNotHaveSuccessor() {
-    // setup
-    final var testUnit = new AndPortCaptor<>();
-
-    // execute & verify
-    expectRunning(() -> testUnit.andPort(8000))
-      .throwsException()
-      .ofType(ArgumentDoesNotHaveAttributeException.class);
-  }
-
-  @Test
   void testCase_andHttpPort_whenHasSuccessor() {
     // setup
     final var andNameCaptor = new AndNameCaptor<>();
@@ -81,6 +53,34 @@ final class AndPortCaptorTest extends StandardTest {
 
     // verify
     expect(testUnit.getPort()).isEqualTo(1433);
+    expect(result).is(andNameCaptor);
+  }
+
+  @Test
+  void testCase_andPort_whenDoesNotHaveSuccessor() {
+    // setup
+    final var testUnit = new AndPortCaptor<>();
+
+    // execute & verify
+    expectRunning(() -> testUnit.andPort(8000))
+      .throwsException()
+      .ofType(ArgumentDoesNotHaveAttributeException.class);
+  }
+
+  @Test
+  void testCase_andPort_whenHasSuccessor() {
+    // define test parameters
+    final var port = 8000;
+
+    // setup
+    final var andNameCaptor = new AndNameCaptor<>();
+    final var testUnit = new AndPortCaptor<>(andNameCaptor);
+
+    // execute
+    final var result = testUnit.andPort(port);
+
+    // verify
+    expect(testUnit.getPort()).isEqualTo(port);
     expect(result).is(andNameCaptor);
   }
 

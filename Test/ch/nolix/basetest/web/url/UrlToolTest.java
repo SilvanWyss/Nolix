@@ -15,18 +15,6 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullExce
  * @author Silvan Wyss
  */
 final class UrlToolTest extends StandardTest {
-  @Test
-  void testCase_getDisplayTextForUrl_whenGivenUrlIsNull() {
-    // setup
-    final var testUnit = new UrlTool();
-
-    // execute & verify
-    expectRunning(() -> testUnit.getDisplayTextForUrl(null))
-      .throwsException()
-      .ofType(ArgumentIsNullException.class)
-      .withMessage("The given url is null.");
-  }
-
   @ParameterizedTest
   @CsvSource({
   "http://nolix.ch, nolix.ch",
@@ -45,5 +33,17 @@ final class UrlToolTest extends StandardTest {
 
     // verify
     expect(result).isEqualTo(expectedResult);
+  }
+
+  @Test
+  void testCase_getDisplayTextForUrl_whenGivenUrlIsNull() {
+    // setup
+    final var testUnit = new UrlTool();
+
+    // execute & verify
+    expectRunning(() -> testUnit.getDisplayTextForUrl(null))
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given url is null.");
   }
 }

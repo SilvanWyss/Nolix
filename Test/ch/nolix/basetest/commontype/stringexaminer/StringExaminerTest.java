@@ -53,47 +53,6 @@ final class StringExaminerTest extends StandardTest {
 
   @ParameterizedTest
   @CsvSource({
-  "cheeseburger, ''", //
-  "cheeseburger, c", //
-  "cheeseburger, ch", //
-  "cheeseburger, che", //
-  "cheeseburger, chee", //
-  "cheeseburger, chees", //
-  "cheeseburger, cheese", //
-  "cheeseburger, cheeseb", //
-  "cheeseburger, cheesebu", //
-  "cheeseburger, cheesebur", //
-  "cheeseburger, cheeseburg", //
-  "cheeseburger, cheeseburge", //
-  "cheeseburger, cheeseburger", //
-  "cheeseburger, C", //
-  "cheeseburger, cH", //
-  "cheeseburger, chE", //
-  "cheeseburger, cheE", //
-  "cheeseburger, cheeS", //
-  "cheeseburger, cheesE", //
-  "cheeseburger, cheeseB", //
-  "cheeseburger, cheesebU", //
-  "cheeseburger, cheesebuR", //
-  "cheeseburger, cheeseburG", //
-  "cheeseburger, cheeseburgE", //
-  "cheeseburger, cheeseburgeR" //
-  })
-  void testCase_startsWithIgnoringCase_whenGivenStringStartsWithTheGivenPrefix(
-    final String string,
-    final String prefix) {
-    // setup
-    final var testUnit = new StringExaminer();
-
-    // execute
-    final var result = testUnit.startsWithIgnoringCase(string, prefix);
-
-    // verify
-    expect(result).isTrue();
-  }
-
-  @ParameterizedTest
-  @CsvSource({
   ", ''", //
   ", c", //
   ", ch", //
@@ -155,5 +114,46 @@ final class StringExaminerTest extends StandardTest {
 
     // verify
     expect(result).isFalse();
+  }
+
+  @ParameterizedTest
+  @CsvSource({
+  "cheeseburger, ''", //
+  "cheeseburger, c", //
+  "cheeseburger, ch", //
+  "cheeseburger, che", //
+  "cheeseburger, chee", //
+  "cheeseburger, chees", //
+  "cheeseburger, cheese", //
+  "cheeseburger, cheeseb", //
+  "cheeseburger, cheesebu", //
+  "cheeseburger, cheesebur", //
+  "cheeseburger, cheeseburg", //
+  "cheeseburger, cheeseburge", //
+  "cheeseburger, cheeseburger", //
+  "cheeseburger, C", //
+  "cheeseburger, cH", //
+  "cheeseburger, chE", //
+  "cheeseburger, cheE", //
+  "cheeseburger, cheeS", //
+  "cheeseburger, cheesE", //
+  "cheeseburger, cheeseB", //
+  "cheeseburger, cheesebU", //
+  "cheeseburger, cheesebuR", //
+  "cheeseburger, cheeseburG", //
+  "cheeseburger, cheeseburgE", //
+  "cheeseburger, cheeseburgeR" //
+  })
+  void testCase_startsWithIgnoringCase_whenGivenStringStartsWithTheGivenPrefix(
+    final String string,
+    final String prefix) {
+    // setup
+    final var testUnit = new StringExaminer();
+
+    // execute
+    final var result = testUnit.startsWithIgnoringCase(string, prefix);
+
+    // verify
+    expect(result).isTrue();
   }
 }

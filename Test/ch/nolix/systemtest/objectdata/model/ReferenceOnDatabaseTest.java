@@ -29,25 +29,6 @@ final class ReferenceOnDatabaseTest extends StandardTest {
   }
 
   @Test
-  void testCase_getStoredEntity_whenIsNewAndContainsAny() {
-    // setup
-    final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
-    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
-    final var garfield = new Pet();
-    nodeDataAdapter.insertEntity(garfield);
-    final var john = new Person();
-    john.pet.setEntity(garfield);
-    nodeDataAdapter.insertEntity(john);
-
-    // execute
-    final var result = john.pet.getStoredReferencedEntity();
-
-    // verify
-    expect(result).is(garfield);
-  }
-
-  @Test
   void testCase_getStoredEntity_whenIsLoadedAndContainsAny() {
     // setup step 1
     final var nodeDatabase = MutableNode.createEmpty();
@@ -71,16 +52,22 @@ final class ReferenceOnDatabaseTest extends StandardTest {
   }
 
   @Test
-  void testCase_isSaved_whenIsNewAndEmpty() {
+  void testCase_getStoredEntity_whenIsNewAndContainsAny() {
     // setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
+    final var garfield = new Pet();
+    nodeDataAdapter.insertEntity(garfield);
     final var john = new Person();
+    john.pet.setEntity(garfield);
     nodeDataAdapter.insertEntity(john);
 
-    // execute & verify
-    expectRunning(nodeDataAdapter::saveChanges).throwsException();
+    // execute
+    final var result = john.pet.getStoredReferencedEntity();
+
+    // verify
+    expect(result).is(garfield);
   }
 
   @Test
@@ -112,6 +99,19 @@ final class ReferenceOnDatabaseTest extends StandardTest {
 
     // execute & verify: try to save changes
     expectRunning(nodeDataAdapterB::saveChanges).throwsException();
+  }
+
+  @Test
+  void testCase_isSaved_whenIsNewAndEmpty() {
+    // setup
+    final var nodeDatabase = MutableNode.createEmpty();
+    final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
+    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
+    final var john = new Person();
+    nodeDataAdapter.insertEntity(john);
+
+    // execute & verify
+    expectRunning(nodeDataAdapter::saveChanges).throwsException();
   }
 
   @Test

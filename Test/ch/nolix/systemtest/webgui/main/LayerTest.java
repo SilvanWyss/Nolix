@@ -18,21 +18,6 @@ import ch.nolix.systemapi.webgui.main.LayerRole;
  */
 final class LayerTest extends StandardTest {
   @Test
-  void testCase_clear_whenIsEmpty() {
-    // setup
-    final var testUnit = new Layer();
-
-    // setup verification
-    expect(testUnit.isEmpty()).isTrue();
-
-    // execute
-    testUnit.clear();
-
-    // verify
-    expect(testUnit.isEmpty()).isTrue();
-  }
-
-  @Test
   void testCase_clear_whenContainsAny() {
     // setup
     final var testUnit = new Layer();
@@ -49,15 +34,18 @@ final class LayerTest extends StandardTest {
   }
 
   @Test
-  void testCase_removeSelfFromGui_whenDoesNotBelongToGui() {
+  void testCase_clear_whenIsEmpty() {
     // setup
     final var testUnit = new Layer();
 
     // setup verification
-    expect(testUnit.belongsToGui()).isFalse();
+    expect(testUnit.isEmpty()).isTrue();
 
     // execute
-    expectRunning(testUnit::removeSelfFromGui).doesNotThrowException();
+    testUnit.clear();
+
+    // verify
+    expect(testUnit.isEmpty()).isTrue();
   }
 
   @Test
@@ -77,6 +65,18 @@ final class LayerTest extends StandardTest {
     // verify
     expect(webGui.getStoredLayers().contains(testUnit)).isFalse();
     expect(testUnit.belongsToGui()).isFalse();
+  }
+
+  @Test
+  void testCase_removeSelfFromGui_whenDoesNotBelongToGui() {
+    // setup
+    final var testUnit = new Layer();
+
+    // setup verification
+    expect(testUnit.belongsToGui()).isFalse();
+
+    // execute
+    expectRunning(testUnit::removeSelfFromGui).doesNotThrowException();
   }
 
   @Test

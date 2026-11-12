@@ -34,42 +34,6 @@ final class ApplicationInstanceTargetTest extends StandardTest {
   }
 
   @Test
-  void testCase_toUrl_forHttpPortAndNoneSecurityMode() {
-    // setup
-    final var testUnit = ApplicationTarget
-      .forHostAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
-        "nolix.tech",
-        PortCatalog.HTTP,
-        "Demo Application",
-        "demo_application",
-        SecurityMode.NONE);
-
-    // execute
-    final var result = testUnit.toUrl();
-
-    // verify
-    expect(result).isEqualTo("http://nolix.tech?app=demo_application");
-  }
-
-  @Test
-  void testCase_toUrl_forHttpsPortAndSslSecurityMode() {
-    // setup
-    final var testUnit = ApplicationTarget
-      .forHostAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
-        "nolix.tech",
-        PortCatalog.HTTPS,
-        "Demo Application",
-        "demo_application",
-        SecurityMode.SSL);
-
-    // execute
-    final var result = testUnit.toUrl();
-
-    // verify
-    expect(result).isEqualTo("https://nolix.tech?app=demo_application");
-  }
-
-  @Test
   void testCase_toUrl_forCustomPortAndNoneSecurityMode() {
     // setup
     final var testUnit = ApplicationTarget
@@ -103,5 +67,41 @@ final class ApplicationInstanceTargetTest extends StandardTest {
 
     // verify
     expect(result).isEqualTo("https://nolix.tech:50000?app=demo_application");
+  }
+
+  @Test
+  void testCase_toUrl_forHttpPortAndNoneSecurityMode() {
+    // setup
+    final var testUnit = ApplicationTarget
+      .forHostAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
+        "nolix.tech",
+        PortCatalog.HTTP,
+        "Demo Application",
+        "demo_application",
+        SecurityMode.NONE);
+
+    // execute
+    final var result = testUnit.toUrl();
+
+    // verify
+    expect(result).isEqualTo("http://nolix.tech?app=demo_application");
+  }
+
+  @Test
+  void testCase_toUrl_forHttpsPortAndSslSecurityMode() {
+    // setup
+    final var testUnit = ApplicationTarget
+      .forHostAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
+        "nolix.tech",
+        PortCatalog.HTTPS,
+        "Demo Application",
+        "demo_application",
+        SecurityMode.SSL);
+
+    // execute
+    final var result = testUnit.toUrl();
+
+    // verify
+    expect(result).isEqualTo("https://nolix.tech?app=demo_application");
   }
 }

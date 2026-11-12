@@ -20,7 +20,7 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
  */
 final class FieldMapperTest extends StandardTest {
   @Test
-  void testCase_mapColumnToField_whenGivenColumnIsForValueFields() {
+  void testCase_mapColumnToField_whenGivenColumnIsForMultiValueFields() {
     // setup step 1: create tableMock.
     final var tableMock = Mockito.mock(Table.class);
 
@@ -31,7 +31,7 @@ final class FieldMapperTest extends StandardTest {
       tableMock,
       "id",
       "name",
-      FieldType.VALUE_FIELD,
+      FieldType.MULTI_VALUE_FIELD,
       Integer.class,
       ImmutableList.createEmpty(),
       ImmutableList.createEmpty());
@@ -39,14 +39,12 @@ final class FieldMapperTest extends StandardTest {
     // execute
     final var result = FieldMapper.mapColumnToField(column);
 
-    // verify part 1: Verifies parents.
     verifyParentsOfCreatedField(result, column);
 
     // verify part 2: Verifies attributes.
     expect(result.getName()).isEqualTo("name");
-    expect(result.getType()).is(FieldType.VALUE_FIELD);
+    expect(result.getType()).is(FieldType.MULTI_VALUE_FIELD);
 
-    // verify part 3: Verifies states.
     verifyStateOfCreatedField(result);
   }
 
@@ -80,7 +78,7 @@ final class FieldMapperTest extends StandardTest {
   }
 
   @Test
-  void testCase_mapColumnToField_whenGivenColumnIsForMultiValueFields() {
+  void testCase_mapColumnToField_whenGivenColumnIsForValueFields() {
     // setup step 1: create tableMock.
     final var tableMock = Mockito.mock(Table.class);
 
@@ -91,7 +89,7 @@ final class FieldMapperTest extends StandardTest {
       tableMock,
       "id",
       "name",
-      FieldType.MULTI_VALUE_FIELD,
+      FieldType.VALUE_FIELD,
       Integer.class,
       ImmutableList.createEmpty(),
       ImmutableList.createEmpty());
@@ -99,12 +97,14 @@ final class FieldMapperTest extends StandardTest {
     // execute
     final var result = FieldMapper.mapColumnToField(column);
 
+    // verify part 1: Verifies parents.
     verifyParentsOfCreatedField(result, column);
 
     // verify part 2: Verifies attributes.
     expect(result.getName()).isEqualTo("name");
-    expect(result.getType()).is(FieldType.MULTI_VALUE_FIELD);
+    expect(result.getType()).is(FieldType.VALUE_FIELD);
 
+    // verify part 3: Verifies states.
     verifyStateOfCreatedField(result);
   }
 

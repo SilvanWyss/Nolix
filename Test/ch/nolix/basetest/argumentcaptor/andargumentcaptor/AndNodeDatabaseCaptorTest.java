@@ -16,6 +16,20 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
  */
 final class AndNodeDatabaseCaptorTest extends StandardTest {
   @Test
+  void testCase_andNodeDatabase_whenDoesNotHaveSuccessor() {
+    // define test parameters
+    final var nodeDatabase = MutableNode.createEmpty();
+
+    // setup
+    final var testUnit = new AndNodeDatabaseCaptor<>();
+
+    // execute & verify
+    expectRunning(() -> testUnit.andNodeDatabase(nodeDatabase))
+      .throwsException()
+      .ofType(ArgumentDoesNotHaveAttributeException.class);
+  }
+
+  @Test
   void testCase_andNodeDatabase_whenHasSuccessor() {
     // define test parameters
     final var nodeDatabase = MutableNode.createEmpty();
@@ -33,15 +47,12 @@ final class AndNodeDatabaseCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_andNodeDatabase_whenDoesNotHaveSuccessor() {
-    // define test parameters
-    final var nodeDatabase = MutableNode.createEmpty();
-
+  void testCase_andTemporaryInMemoryNodeDatabase_whenDoesNotHaveSuccessor() {
     // setup
     final var testUnit = new AndNodeDatabaseCaptor<>();
 
     // execute & verify
-    expectRunning(() -> testUnit.andNodeDatabase(nodeDatabase))
+    expectRunning(testUnit::andTemporaryInMemoryNodeDatabase)
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
@@ -58,17 +69,6 @@ final class AndNodeDatabaseCaptorTest extends StandardTest {
     // verify
     expect(testUnit.getStoredNodeDatabase()).isOfType(MutableNode.class);
     expect(result).is(andNameCaptor);
-  }
-
-  @Test
-  void testCase_andTemporaryInMemoryNodeDatabase_whenDoesNotHaveSuccessor() {
-    // setup
-    final var testUnit = new AndNodeDatabaseCaptor<>();
-
-    // execute & verify
-    expectRunning(testUnit::andTemporaryInMemoryNodeDatabase)
-      .throwsException()
-      .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
   @Test

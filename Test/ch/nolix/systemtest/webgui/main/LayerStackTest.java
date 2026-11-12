@@ -16,22 +16,6 @@ import ch.nolix.system.webgui.main.WebGui;
  */
 final class LayerStackTest extends StandardTest {
   @Test
-  void testCase_getOptionalStoredControlByInternalId_whenIsEmpty() {
-    // setup
-    final var control = new Label();
-    final var testUnit = LayerStack.forWebGui(new WebGui());
-
-    // setup verification
-    expect(testUnit.isEmpty()).isTrue();
-
-    // execute
-    final var result = testUnit.getOptionalStoredControlByInternalId(control.getInternalId());
-
-    // verify
-    expect(result.isEmpty()).isTrue();
-  }
-
-  @Test
   void testCase_getOptionalStoredControlByInternalId_whenContainsSuchAControl() {
     // setup
     final var control = new Label();
@@ -46,18 +30,19 @@ final class LayerStackTest extends StandardTest {
   }
 
   @Test
-  void testCase_getStoredControls_whenIsEmpty() {
+  void testCase_getOptionalStoredControlByInternalId_whenIsEmpty() {
     // setup
+    final var control = new Label();
     final var testUnit = LayerStack.forWebGui(new WebGui());
 
     // setup verification
     expect(testUnit.isEmpty()).isTrue();
 
     // execute
-    final var result = testUnit.getStoredControls();
+    final var result = testUnit.getOptionalStoredControlByInternalId(control.getInternalId());
 
     // verify
-    expect(result).isEmpty();
+    expect(result.isEmpty()).isTrue();
   }
 
   @Test
@@ -90,5 +75,20 @@ final class LayerStackTest extends StandardTest {
 
     // verify
     expect(result).containsExactlyInSameOrder(verticalStack, label1, label2, label3);
+  }
+
+  @Test
+  void testCase_getStoredControls_whenIsEmpty() {
+    // setup
+    final var testUnit = LayerStack.forWebGui(new WebGui());
+
+    // setup verification
+    expect(testUnit.isEmpty()).isTrue();
+
+    // execute
+    final var result = testUnit.getStoredControls();
+
+    // verify
+    expect(result).isEmpty();
   }
 }

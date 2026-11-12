@@ -51,6 +51,16 @@ final class DoubleMediatorTest extends StandardTest {
   }
 
   @ParameterizedTest
+  @ValueSource(doubles = { 0.0, 0.001, 0.5, 1.0, 1.5, 1000.0 })
+  void testCase_isNotNegative_whenGivenArgumentIsNotNegative(final double argument) {
+    // setup
+    final var testUnit = DoubleMediator.forArgumentAndArgumentName(argument, "argument");
+
+    // execute & verify
+    expectRunning(testUnit::isNotNegative).doesNotThrowException();
+  }
+
+  @ParameterizedTest
   @ValueSource(doubles = { -1000.0, -1.5, -1.0, -0.5, -0.001 })
   void testCase_isNotNegative_wheTheGivenArgumentIsNegative(final double argument) {
     // setup
@@ -64,13 +74,13 @@ final class DoubleMediatorTest extends StandardTest {
   }
 
   @ParameterizedTest
-  @ValueSource(doubles = { 0.0, 0.001, 0.5, 1.0, 1.5, 1000.0 })
-  void testCase_isNotNegative_whenGivenArgumentIsNotNegative(final double argument) {
+  @ValueSource(doubles = { -1000.0, -1.5, -1.0, -0.5, -0.001, 0.0, 0.001, 0.5, 1.0, 1.5, 1000.0 })
+  void testCase_isNotSmallerThan_whenGivenArgumentIsNotSmallerThanTheChosenMin(final double argument) {
     // setup
     final var testUnit = DoubleMediator.forArgumentAndArgumentName(argument, "argument");
 
     // execute & verify
-    expectRunning(testUnit::isNotNegative).doesNotThrowException();
+    expectRunning(() -> testUnit.isNotSmallerThan(-1000.0)).doesNotThrowException();
   }
 
   @ParameterizedTest
@@ -87,26 +97,6 @@ final class DoubleMediatorTest extends StandardTest {
   }
 
   @ParameterizedTest
-  @ValueSource(doubles = { -1000.0, -1.5, -1.0, -0.5, -0.001, 0.0, 0.001, 0.5, 1.0, 1.5, 1000.0 })
-  void testCase_isNotSmallerThan_whenGivenArgumentIsNotSmallerThanTheChosenMin(final double argument) {
-    // setup
-    final var testUnit = DoubleMediator.forArgumentAndArgumentName(argument, "argument");
-
-    // execute & verify
-    expectRunning(() -> testUnit.isNotSmallerThan(-1000.0)).doesNotThrowException();
-  }
-
-  @ParameterizedTest
-  @ValueSource(doubles = { 0.001, 0.5, 1.0, 1.5, 1000.0 })
-  void testCase_isPositive_whenGivenArgumentIsPositive(final double argument) {
-    // setup
-    final var testUnit = DoubleMediator.forArgumentAndArgumentName(argument, "argument");
-
-    // execute & verify
-    expectRunning(testUnit::isPositive).doesNotThrowException();
-  }
-
-  @ParameterizedTest
   @ValueSource(doubles = { -1000.0, -1.5, -1.0, -0.5, -0.001, 0.0 })
   void testCase_isPositive_whenGivenArgumentIsNotPositive(final double argument) {
     // setup
@@ -117,5 +107,15 @@ final class DoubleMediatorTest extends StandardTest {
       .throwsException()
       .ofType(NonPositiveArgumentException.class)
       .withMessage("The given argument '" + argument + "' is not positive.");
+  }
+
+  @ParameterizedTest
+  @ValueSource(doubles = { 0.001, 0.5, 1.0, 1.5, 1000.0 })
+  void testCase_isPositive_whenGivenArgumentIsPositive(final double argument) {
+    // setup
+    final var testUnit = DoubleMediator.forArgumentAndArgumentName(argument, "argument");
+
+    // execute & verify
+    expectRunning(testUnit::isPositive).doesNotThrowException();
   }
 }

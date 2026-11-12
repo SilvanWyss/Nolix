@@ -21,11 +21,6 @@ final class TableTest extends StandardTest {
 
     private final ValueField<String> lastName = ValueField.withValueType(String.class);
 
-    void setFirstNameAndLastName(final String firstName, final String lastName) {
-      this.firstName.setValue(firstName);
-      this.lastName.setValue(lastName);
-    }
-
     String getFirstName() {
       return firstName.getStoredValue();
     }
@@ -33,22 +28,11 @@ final class TableTest extends StandardTest {
     String getLastName() {
       return lastName.getStoredValue();
     }
-  }
 
-  @Test
-  void testCase_getStoredAllEntities_whenIsEmpty() {
-    // setup
-    final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = EntityTypeSet.withEntityType(Person.class);
-    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
-    final var testUnit = nodeDataAdapter.getStoredTableByEntityType(Person.class);
-
-    // execute
-    final var result = testUnit.getStoredEntities();
-
-    // verify
-    expect(nodeDataAdapter.hasChanges()).isFalse();
-    expect(result).isEmpty();
+    void setFirstNameAndLastName(final String firstName, final String lastName) {
+      this.firstName.setValue(firstName);
+      this.lastName.setValue(lastName);
+    }
   }
 
   @Test
@@ -75,5 +59,21 @@ final class TableTest extends StandardTest {
     expect(loadedPerson.getId()).isEqualTo(person.getId());
     expect(loadedPerson.getFirstName()).isEqualTo("Donald");
     expect(loadedPerson.getLastName()).isEqualTo("Duck");
+  }
+
+  @Test
+  void testCase_getStoredAllEntities_whenIsEmpty() {
+    // setup
+    final var nodeDatabase = MutableNode.createEmpty();
+    final var schema = EntityTypeSet.withEntityType(Person.class);
+    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
+    final var testUnit = nodeDataAdapter.getStoredTableByEntityType(Person.class);
+
+    // execute
+    final var result = testUnit.getStoredEntities();
+
+    // verify
+    expect(nodeDataAdapter.hasChanges()).isFalse();
+    expect(result).isEmpty();
   }
 }

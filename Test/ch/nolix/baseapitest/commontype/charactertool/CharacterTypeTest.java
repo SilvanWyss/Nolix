@@ -13,20 +13,6 @@ import ch.nolix.baseapi.commontype.charactertool.CharacterType;
  */
 final class CharacterTypeTest extends StandardTest {
   @Test
-  void testCase_ofCharacter_whenGivenCharacterIsANumber() {
-    expect(CharacterType.ofCharacter('0')).is(CharacterType.DIGIT);
-    expect(CharacterType.ofCharacter('1')).is(CharacterType.DIGIT);
-    expect(CharacterType.ofCharacter('2')).is(CharacterType.DIGIT);
-    expect(CharacterType.ofCharacter('3')).is(CharacterType.DIGIT);
-    expect(CharacterType.ofCharacter('4')).is(CharacterType.DIGIT);
-    expect(CharacterType.ofCharacter('5')).is(CharacterType.DIGIT);
-    expect(CharacterType.ofCharacter('6')).is(CharacterType.DIGIT);
-    expect(CharacterType.ofCharacter('7')).is(CharacterType.DIGIT);
-    expect(CharacterType.ofCharacter('8')).is(CharacterType.DIGIT);
-    expect(CharacterType.ofCharacter('9')).is(CharacterType.DIGIT);
-  }
-
-  @Test
   void testCase_ofCharacter_whenGivenCharacterIsALowerCaseLetter() { // NOSONAR: The number of assertions makes sense.
     expect(CharacterType.ofCharacter('a')).is(CharacterType.LOWER_CASE_LETTER);
     expect(CharacterType.ofCharacter('b')).is(CharacterType.LOWER_CASE_LETTER);
@@ -58,6 +44,20 @@ final class CharacterTypeTest extends StandardTest {
     expect(CharacterType.ofCharacter('ä')).is(CharacterType.LOWER_CASE_LETTER);
     expect(CharacterType.ofCharacter('ö')).is(CharacterType.LOWER_CASE_LETTER);
     expect(CharacterType.ofCharacter('ü')).is(CharacterType.LOWER_CASE_LETTER);
+  }
+
+  @Test
+  void testCase_ofCharacter_whenGivenCharacterIsANumber() {
+    expect(CharacterType.ofCharacter('0')).is(CharacterType.DIGIT);
+    expect(CharacterType.ofCharacter('1')).is(CharacterType.DIGIT);
+    expect(CharacterType.ofCharacter('2')).is(CharacterType.DIGIT);
+    expect(CharacterType.ofCharacter('3')).is(CharacterType.DIGIT);
+    expect(CharacterType.ofCharacter('4')).is(CharacterType.DIGIT);
+    expect(CharacterType.ofCharacter('5')).is(CharacterType.DIGIT);
+    expect(CharacterType.ofCharacter('6')).is(CharacterType.DIGIT);
+    expect(CharacterType.ofCharacter('7')).is(CharacterType.DIGIT);
+    expect(CharacterType.ofCharacter('8')).is(CharacterType.DIGIT);
+    expect(CharacterType.ofCharacter('9')).is(CharacterType.DIGIT);
   }
 
   @Test

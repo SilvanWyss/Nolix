@@ -29,20 +29,6 @@ final class IdHolderTest extends StandardTest {
   }
 
   @Test
-  void testCase_hasId_whenHasTheGivenId() {
-    // setup
-    final var testUnit = Mockito.mock(IdHolder.class);
-    Mockito.when(testUnit.hasId(ArgumentMatchers.any())).thenCallRealMethod();
-    Mockito.when(testUnit.getId()).thenReturn("id");
-
-    // execute
-    final var result = testUnit.hasId("id");
-
-    // verify
-    expect(result).isTrue();
-  }
-
-  @Test
   void testCase_hasId_whenDoesNotHaveTheGivenId() {
     // setup
     final var testUnit = Mockito.mock(IdHolder.class);
@@ -54,5 +40,19 @@ final class IdHolderTest extends StandardTest {
 
     // verify
     expect(result).isFalse();
+  }
+
+  @Test
+  void testCase_hasId_whenHasTheGivenId() {
+    // setup
+    final var testUnit = Mockito.mock(IdHolder.class);
+    Mockito.when(testUnit.hasId(ArgumentMatchers.any())).thenCallRealMethod();
+    Mockito.when(testUnit.getId()).thenReturn("id");
+
+    // execute
+    final var result = testUnit.hasId("id");
+
+    // verify
+    expect(result).isTrue();
   }
 }

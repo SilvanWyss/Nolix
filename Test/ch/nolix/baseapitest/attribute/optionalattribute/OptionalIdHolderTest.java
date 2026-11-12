@@ -30,18 +30,17 @@ final class OptionalIdHolderTest extends StandardTest {
   }
 
   @Test
-  void testCase_hasId_whenHasTheGivenId() {
+  void testCase_hasId_whenDoesNotHaveAId() {
     // setup
     final var testUnit = Mockito.mock(OptionalIdHolder.class);
     Mockito.when(testUnit.hasId(ArgumentMatchers.any())).thenCallRealMethod();
-    Mockito.when(testUnit.hasId()).thenReturn(true);
-    Mockito.when(testUnit.getId()).thenReturn("id");
+    Mockito.when(testUnit.hasId()).thenReturn(false);
 
     // execute
     final var result = testUnit.hasId("id");
 
     // verify
-    expect(result).isTrue();
+    expect(result).isFalse();
   }
 
   @Test
@@ -60,16 +59,17 @@ final class OptionalIdHolderTest extends StandardTest {
   }
 
   @Test
-  void testCase_hasId_whenDoesNotHaveAId() {
+  void testCase_hasId_whenHasTheGivenId() {
     // setup
     final var testUnit = Mockito.mock(OptionalIdHolder.class);
     Mockito.when(testUnit.hasId(ArgumentMatchers.any())).thenCallRealMethod();
-    Mockito.when(testUnit.hasId()).thenReturn(false);
+    Mockito.when(testUnit.hasId()).thenReturn(true);
+    Mockito.when(testUnit.getId()).thenReturn("id");
 
     // execute
     final var result = testUnit.hasId("id");
 
     // verify
-    expect(result).isFalse();
+    expect(result).isTrue();
   }
 }

@@ -25,6 +25,17 @@ final class WithSchemaCaptorTest extends StandardTest {
   }
 
   @Test
+  void testCase_withSchema_whenDoesNotHaveSuccessor() {
+    // setup
+    final var testUnit = new WithSchemaCaptor<>();
+
+    // execute & verify
+    expectRunning(() -> testUnit.withSchema(new VoidObject()))
+      .throwsException()
+      .ofType(ArgumentDoesNotHaveAttributeException.class);
+  }
+
+  @Test
   void testCase_withSchema_whenHasSuccessor() {
     // define test parameters
     final var schema = new VoidObject();
@@ -39,16 +50,5 @@ final class WithSchemaCaptorTest extends StandardTest {
     // verify
     expect(testUnit.getStoredSchema()).is(schema);
     expect(result).is(andNameCaptor);
-  }
-
-  @Test
-  void testCase_withSchema_whenDoesNotHaveSuccessor() {
-    // setup
-    final var testUnit = new WithSchemaCaptor<>();
-
-    // execute & verify
-    expectRunning(() -> testUnit.withSchema(new VoidObject()))
-      .throwsException()
-      .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }

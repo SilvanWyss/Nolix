@@ -19,18 +19,6 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullExce
  */
 final class IteratorValidatorTest extends StandardTest {
   @Test
-  void testCase_whenGivenIteratorIsNull() {
-    // setup
-    final var testUnit = new IteratorValidator();
-
-    // execute & verify
-    expectRunning(() -> testUnit.assertHasNext(null))
-      .throwsException()
-      .ofType(ArgumentIsNullException.class)
-      .withMessage("The given Iterator is null.");
-  }
-
-  @Test
   void testCase_whenGivenIteratorDoesNotHaveNext() {
     // setup
     final var iterator = //
@@ -72,5 +60,17 @@ final class IteratorValidatorTest extends StandardTest {
 
     // execute & verify
     expectRunning(() -> testUnit.assertHasNext(iterator)).doesNotThrowException();
+  }
+
+  @Test
+  void testCase_whenGivenIteratorIsNull() {
+    // setup
+    final var testUnit = new IteratorValidator();
+
+    // execute & verify
+    expectRunning(() -> testUnit.assertHasNext(null))
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given Iterator is null.");
   }
 }

@@ -14,29 +14,6 @@ import ch.nolix.base.testing.standardtest.StandardTest;
  */
 final class GetCountTest extends StandardTest {
   @Test
-  void testCase_getCount_whenGivenIterableIsNull() {
-    // setup
-    final Iterable<Object> iterable = null;
-    final var testUnit = new IterableSearcher();
-
-    // execute & verify
-    expectRunning(() -> testUnit.getCount(iterable)).throwsException();
-  }
-
-  @Test
-  void testCase_getCount_whenGivenIterableIsEmpty() {
-    // setup
-    final Iterable<Object> iterable = SimpleLinkedList.createEmpty();
-    final var testUnit = new IterableSearcher();
-
-    // execute
-    final var result = testUnit.getCount(iterable);
-
-    // verify
-    expect(result).isEqualTo(0);
-  }
-
-  @Test
   void testCase_getCount_whenGivenIterableContains1Element() {
     // setup
     final Iterable<Object> iterable = SimpleLinkedList.fromArray(new String[] { "antelope" });
@@ -60,5 +37,28 @@ final class GetCountTest extends StandardTest {
 
     // verify
     expect(result).isEqualTo(2);
+  }
+
+  @Test
+  void testCase_getCount_whenGivenIterableIsEmpty() {
+    // setup
+    final Iterable<Object> iterable = SimpleLinkedList.createEmpty();
+    final var testUnit = new IterableSearcher();
+
+    // execute
+    final var result = testUnit.getCount(iterable);
+
+    // verify
+    expect(result).isEqualTo(0);
+  }
+
+  @Test
+  void testCase_getCount_whenGivenIterableIsNull() {
+    // setup
+    final Iterable<Object> iterable = null;
+    final var testUnit = new IterableSearcher();
+
+    // execute & verify
+    expectRunning(() -> testUnit.getCount(iterable)).throwsException();
   }
 }

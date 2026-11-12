@@ -17,21 +17,6 @@ import ch.nolix.system.webgui.mainvalidator.LayerValidator;
  */
 final class LayerValidatorTest extends StandardTest {
   @Test
-  void testCase_assertBelongsToGui_whenGivenLayerDoesNotBelongToAGui() {
-    // setup
-    final var layer = new Layer();
-    final var testUnit = new LayerValidator();
-
-    // setup verification
-    expect(layer.belongsToGui()).isFalse();
-
-    // execute & verify
-    expectRunning(() -> testUnit.assertBelongsToGui(layer))
-      .throwsException()
-      .ofType(ArgumentDoesNotBelongToParentException.class);
-  }
-
-  @Test
   void testCase_assertBelongsToGui_whenGivenLayerBelongsToAGui() {
     // setup
     final var layer = new Layer();
@@ -46,7 +31,7 @@ final class LayerValidatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_assertDoesNotBelongToGui_whenGivenLayerDoesNotBelongToAGui() {
+  void testCase_assertBelongsToGui_whenGivenLayerDoesNotBelongToAGui() {
     // setup
     final var layer = new Layer();
     final var testUnit = new LayerValidator();
@@ -55,7 +40,9 @@ final class LayerValidatorTest extends StandardTest {
     expect(layer.belongsToGui()).isFalse();
 
     // execute & verify
-    expectRunning(() -> testUnit.assertDoesNotBelongToGui(layer)).doesNotThrowException();
+    expectRunning(() -> testUnit.assertBelongsToGui(layer))
+      .throwsException()
+      .ofType(ArgumentDoesNotBelongToParentException.class);
   }
 
   @Test
@@ -72,5 +59,18 @@ final class LayerValidatorTest extends StandardTest {
     expectRunning(() -> testUnit.assertDoesNotBelongToGui(layer))
       .throwsException()
       .ofType(ArgumentBelongsToParentException.class);
+  }
+
+  @Test
+  void testCase_assertDoesNotBelongToGui_whenGivenLayerDoesNotBelongToAGui() {
+    // setup
+    final var layer = new Layer();
+    final var testUnit = new LayerValidator();
+
+    // setup verification
+    expect(layer.belongsToGui()).isFalse();
+
+    // execute & verify
+    expectRunning(() -> testUnit.assertDoesNotBelongToGui(layer)).doesNotThrowException();
   }
 }

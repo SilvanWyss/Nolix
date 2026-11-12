@@ -15,6 +15,12 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentEx
  */
 final class ForArrayAndStartIndexTest extends StandardTest {
   @Test
+  void testCase_forArrayAndStartIndex_whenGivenArrayIsEmptyAndGivenStartIndexIs0() {
+    // execute & verify
+    expectRunning(() -> ArrayIterator.forArrayAndStartIndex(new Object[0], 0)).doesNotThrowException();
+  }
+
+  @Test
   void testCase_forArrayAndStartIndex_whenGivenArrayIsNull() {
     // execute & verify
     expectRunning(() -> ArrayIterator.forArrayAndStartIndex(null, 0))
@@ -30,11 +36,5 @@ final class ForArrayAndStartIndexTest extends StandardTest {
       .throwsException()
       .ofType(NegativeArgumentException.class)
       .withMessage("The given start index '-1' is negative.");
-  }
-
-  @Test
-  void testCase_forArrayAndStartIndex_whenGivenArrayIsEmptyAndGivenStartIndexIs0() {
-    // execute & verify
-    expectRunning(() -> ArrayIterator.forArrayAndStartIndex(new Object[0], 0)).doesNotThrowException();
   }
 }

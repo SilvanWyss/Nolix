@@ -14,15 +14,6 @@ import ch.nolix.base.testing.standardtest.StandardTest;
  */
 final class ArraySorterTest extends StandardTest {
   @Test
-  final void testCase_sortArray_whenGivenArrayIsEmpty() {
-    // setup
-    final var array = new String[] {};
-
-    // execute & verify
-    expectRunning(() -> ArraySorter.sortArray(array, String::length)).doesNotThrowException();
-  }
-
-  @Test
   final void testCase_sortArray_1A() {
     // setup
     final var array = new String[] { "x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx" };
@@ -86,5 +77,14 @@ final class ArraySorterTest extends StandardTest {
     expect(array[7]).isEqualTo("shark");
     expect(array[8]).isEqualTo("tiger");
     expect(array[9]).isEqualTo("zebra");
+  }
+
+  @Test
+  final void testCase_sortArray_whenGivenArrayIsEmpty() {
+    // setup
+    final var array = new String[] {};
+
+    // execute & verify
+    expectRunning(() -> ArraySorter.sortArray(array, String::length)).doesNotThrowException();
   }
 }

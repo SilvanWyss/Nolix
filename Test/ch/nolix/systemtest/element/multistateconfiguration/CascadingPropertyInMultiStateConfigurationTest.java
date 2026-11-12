@@ -42,6 +42,19 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
   }
 
   @Test
+  void testCase_getValueOfState_whenDefinesValueForGivenState() {
+    // setup
+    final var multiStateConfiguration = new CustomMultiStateConfiguration();
+    multiStateConfiguration.testUnit.setValueForState(CustomState.C, X11ColorCatalog.RED);
+
+    // execute
+    final var result = multiStateConfiguration.testUnit.getValueWhenHasState(CustomState.C);
+
+    // verify
+    expect(result).is(X11ColorCatalog.RED);
+  }
+
+  @Test
   void testCase_getValueOfState_whenDoesNotDefineValueForGivenState() {
     // setup
     final var multiStateConfiguration = new CustomMultiStateConfiguration();
@@ -76,19 +89,6 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
     final var multiStateConfiguration = new CustomMultiStateConfiguration();
     parentMultiStateConfiguration.addChild(multiStateConfiguration);
     multiStateConfiguration.testUnit.setUndefinedForState(CustomState.C);
-
-    // execute
-    final var result = multiStateConfiguration.testUnit.getValueWhenHasState(CustomState.C);
-
-    // verify
-    expect(result).is(X11ColorCatalog.RED);
-  }
-
-  @Test
-  void testCase_getValueOfState_whenDefinesValueForGivenState() {
-    // setup
-    final var multiStateConfiguration = new CustomMultiStateConfiguration();
-    multiStateConfiguration.testUnit.setValueForState(CustomState.C, X11ColorCatalog.RED);
 
     // execute
     final var result = multiStateConfiguration.testUnit.getValueWhenHasState(CustomState.C);

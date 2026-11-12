@@ -24,6 +24,17 @@ final class WithLoginNameCaptorTest extends StandardTest {
   }
 
   @Test
+  void testCase_withLoginName_whenDoesNotHaveSuccessor() {
+    // setup
+    final var testUnit = new WithLoginNameCaptor<>();
+
+    // execute & verify
+    expectRunning(() -> testUnit.withLoginName("my_login_name"))
+      .throwsException()
+      .ofType(ArgumentDoesNotHaveAttributeException.class);
+  }
+
+  @Test
   void testCase_withLoginName_whenHasSuccessor() {
     // define test parameters
     final var loginName = "my_login_name";
@@ -38,16 +49,5 @@ final class WithLoginNameCaptorTest extends StandardTest {
     // verify
     expect(testUnit.getLoginName()).isEqualTo(loginName);
     expect(result).is(andNameCaptor);
-  }
-
-  @Test
-  void testCase_withLoginName_whenDoesNotHaveSuccessor() {
-    // setup
-    final var testUnit = new WithLoginNameCaptor<>();
-
-    // execute & verify
-    expectRunning(() -> testUnit.withLoginName("my_login_name"))
-      .throwsException()
-      .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }

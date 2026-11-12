@@ -15,6 +15,17 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
  */
 final class AndDatabaseCaptorTest extends StandardTest {
   @Test
+  void testCase_andDatabase_whenDoesNotHaveSuccessor() {
+    // setup
+    final var testUnit = new AndDatabaseCaptor<>();
+
+    // execute & verify
+    expectRunning(() -> testUnit.andDatabase("database"))
+      .throwsException()
+      .ofType(ArgumentDoesNotHaveAttributeException.class);
+  }
+
+  @Test
   void testCase_andDatabase_whenHasSuccessor() {
     // define test parameters
     final var database = "database";
@@ -29,17 +40,6 @@ final class AndDatabaseCaptorTest extends StandardTest {
     // verify
     expect(testUnit.getDatabase()).isEqualTo(database);
     expect(result).is(andNameCaptor);
-  }
-
-  @Test
-  void testCase_andDatabase_whenDoesNotHaveSuccessor() {
-    // setup
-    final var testUnit = new AndDatabaseCaptor<>();
-
-    // execute & verify
-    expectRunning(() -> testUnit.andDatabase("database"))
-      .throwsException()
-      .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
   @Test

@@ -14,32 +14,6 @@ import ch.nolix.base.testing.standardtest.StandardTest;
  */
 final class IsEmptyTest extends StandardTest {
   @Test
-  void testCase_isEmpty_whenGivenIterableIsNull() {
-    // setup
-    final Iterable<Object> iterable = null;
-    final var testUnit = new IterableExaminer();
-
-    // execute
-    final var result = testUnit.isEmpty(iterable);
-
-    // verify
-    expect(result).isTrue();
-  }
-
-  @Test
-  void testCase_isEmpty_whenGivenIterableIsEmpty() {
-    // setup
-    final Iterable<Object> iterable = SimpleLinkedList.createEmpty();
-    final var testUnit = new IterableExaminer();
-
-    // execute
-    final var result = testUnit.isEmpty(iterable);
-
-    // verify
-    expect(result).isTrue();
-  }
-
-  @Test
   void testCase_isEmpty_whenGivenIterableContains1Element() {
     // setup
     final Iterable<Object> iterable = SimpleLinkedList.fromArray(new String[] { "antelope" });
@@ -63,5 +37,31 @@ final class IsEmptyTest extends StandardTest {
 
     // verify
     expect(result).isFalse();
+  }
+
+  @Test
+  void testCase_isEmpty_whenGivenIterableIsEmpty() {
+    // setup
+    final Iterable<Object> iterable = SimpleLinkedList.createEmpty();
+    final var testUnit = new IterableExaminer();
+
+    // execute
+    final var result = testUnit.isEmpty(iterable);
+
+    // verify
+    expect(result).isTrue();
+  }
+
+  @Test
+  void testCase_isEmpty_whenGivenIterableIsNull() {
+    // setup
+    final Iterable<Object> iterable = null;
+    final var testUnit = new IterableExaminer();
+
+    // execute
+    final var result = testUnit.isEmpty(iterable);
+
+    // verify
+    expect(result).isTrue();
   }
 }

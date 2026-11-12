@@ -26,89 +26,6 @@ final class ValueOnDatabaseTest extends StandardTest {
   }
 
   @Test
-  void testCase_isSaved_whenIsEmpty() {
-    // setup
-    final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = EntityTypeSet.withEntityType(Pet.class);
-    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
-    final var garfield = new Pet();
-    nodeDataAdapter.insertEntity(garfield);
-
-    // execute & verify
-    expectRunning(nodeDataAdapter::saveChanges).throwsException();
-  }
-
-  @Test
-  void testCase_getStoredValue_whenContainsAnyAndIsNotSaved() {
-    // setup
-    final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = EntityTypeSet.withEntityType(Pet.class);
-    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
-    final var garfield = new Pet();
-    garfield.name.setValue("Garfield");
-    nodeDataAdapter.insertEntity(garfield);
-
-    // execute
-    final var result = garfield.name.getStoredValue();
-
-    // verify
-    expect(result).isEqualTo("Garfield");
-  }
-
-  @Test
-  void testCase_getStoredValue_whenContainsAnyAndIsSaved() {
-    // setup step 1
-    final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = EntityTypeSet.withEntityType(Pet.class);
-    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
-    final var garfield = new Pet();
-    garfield.name.setValue("Garfield");
-    nodeDataAdapter.insertEntity(garfield);
-    nodeDataAdapter.saveChanges();
-
-    // setup step 2
-    final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
-      .getStoredEntityById(garfield.getId());
-
-    // execute
-    final var result = loadedGarfield.name.getStoredValue();
-
-    // verify
-    expect(result).isEqualTo("Garfield");
-  }
-
-  @Test
-  void testCase_getState_whenIsNewAndNotEdited() {
-    // setup
-    final var garfield = new Pet();
-
-    // setup verification
-    expect(garfield.getState()).is(DatabaseObjectState.NEW);
-
-    // execute
-    final var result = garfield.name.getState();
-
-    // verify
-    expect(result).is(DatabaseObjectState.NEW);
-  }
-
-  @Test
-  void testCase_getState_whenIsNewAndEdited() {
-    // setup
-    final var garfield = new Pet();
-    garfield.name.setValue("Garfield");
-
-    // setup verification
-    expect(garfield.getState()).is(DatabaseObjectState.NEW);
-
-    // execute
-    final var result = garfield.name.getState();
-
-    // verify
-    expect(result).is(DatabaseObjectState.NEW);
-  }
-
-  @Test
   void testCase_getState_whenIsClosed() {
     // setup
     final var nodeDatabase = MutableNode.createEmpty();
@@ -152,5 +69,88 @@ final class ValueOnDatabaseTest extends StandardTest {
 
     // verify
     expect(result).is(DatabaseObjectState.UNEDITED);
+  }
+
+  @Test
+  void testCase_getState_whenIsNewAndEdited() {
+    // setup
+    final var garfield = new Pet();
+    garfield.name.setValue("Garfield");
+
+    // setup verification
+    expect(garfield.getState()).is(DatabaseObjectState.NEW);
+
+    // execute
+    final var result = garfield.name.getState();
+
+    // verify
+    expect(result).is(DatabaseObjectState.NEW);
+  }
+
+  @Test
+  void testCase_getState_whenIsNewAndNotEdited() {
+    // setup
+    final var garfield = new Pet();
+
+    // setup verification
+    expect(garfield.getState()).is(DatabaseObjectState.NEW);
+
+    // execute
+    final var result = garfield.name.getState();
+
+    // verify
+    expect(result).is(DatabaseObjectState.NEW);
+  }
+
+  @Test
+  void testCase_getStoredValue_whenContainsAnyAndIsNotSaved() {
+    // setup
+    final var nodeDatabase = MutableNode.createEmpty();
+    final var schema = EntityTypeSet.withEntityType(Pet.class);
+    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
+    final var garfield = new Pet();
+    garfield.name.setValue("Garfield");
+    nodeDataAdapter.insertEntity(garfield);
+
+    // execute
+    final var result = garfield.name.getStoredValue();
+
+    // verify
+    expect(result).isEqualTo("Garfield");
+  }
+
+  @Test
+  void testCase_getStoredValue_whenContainsAnyAndIsSaved() {
+    // setup step 1
+    final var nodeDatabase = MutableNode.createEmpty();
+    final var schema = EntityTypeSet.withEntityType(Pet.class);
+    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
+    final var garfield = new Pet();
+    garfield.name.setValue("Garfield");
+    nodeDataAdapter.insertEntity(garfield);
+    nodeDataAdapter.saveChanges();
+
+    // setup step 2
+    final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
+      .getStoredEntityById(garfield.getId());
+
+    // execute
+    final var result = loadedGarfield.name.getStoredValue();
+
+    // verify
+    expect(result).isEqualTo("Garfield");
+  }
+
+  @Test
+  void testCase_isSaved_whenIsEmpty() {
+    // setup
+    final var nodeDatabase = MutableNode.createEmpty();
+    final var schema = EntityTypeSet.withEntityType(Pet.class);
+    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
+    final var garfield = new Pet();
+    nodeDataAdapter.insertEntity(garfield);
+
+    // execute & verify
+    expectRunning(nodeDataAdapter::saveChanges).throwsException();
   }
 }

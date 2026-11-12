@@ -25,25 +25,26 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
 
   protected abstract N createNodeWithHeaderAndChildNodes(String header, String... childNodes);
 
-  @Test
-  final void testCase_getStoredSingleChildNode_whenNodeDoesNotContainChildNodes() {
+  @ParameterizedTest
+  @ValueSource(strings = {
+  "LoremXIpsum",
+  "Lorem$Ipsum",
+  "Lorem(Ipsum",
+  "Lorem)Ipsum",
+  "Lorem[Ipsum",
+  "Lorem]Ipsum",
+  "Lorem.Ipsum",
+  "Lorem,Ipsum",
+  "Lorem Ipsum" })
+  void testCase_getHeader(final String header) {
     // setup
-    final N testUnit = createNodeWithHeaderAndChildNodes("a");
-
-    // execute & verify
-    expectRunning(testUnit::getStoredSingleChildNode).throwsException().ofType(EmptyArgumentException.class);
-  }
-
-  @Test
-  final void testCase_getStoredSingleChildNode_whenNodeContains1ChildNode() {
-    // setup
-    final N testUnit = createNodeWithHeaderAndChildNodes("a", "b");
+    final N testUnit = createNodeWithHeaderAndChildNodes(header);
 
     // execute
-    final N result = testUnit.getStoredSingleChildNode();
+    final var result = testUnit.getHeader();
 
     // verify
-    expect(result).hasStringRepresentation("b");
+    expect(result).isEqualTo(header);
   }
 
   @Test
@@ -73,28 +74,6 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
       .ofType(ArgumentIsOutOfRangeException.class);
   }
 
-  @ParameterizedTest
-  @ValueSource(strings = {
-  "LoremXIpsum",
-  "Lorem$Ipsum",
-  "Lorem(Ipsum",
-  "Lorem)Ipsum",
-  "Lorem[Ipsum",
-  "Lorem]Ipsum",
-  "Lorem.Ipsum",
-  "Lorem,Ipsum",
-  "Lorem Ipsum" })
-  void testCase_getHeader(final String header) {
-    // setup
-    final N testUnit = createNodeWithHeaderAndChildNodes(header);
-
-    // execute
-    final var result = testUnit.getHeader();
-
-    // verify
-    expect(result).isEqualTo(header);
-  }
-
   @Test
   void testCase_getStoredSingleChildNode_1A() {
     // setup
@@ -113,6 +92,27 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
     final N testUnit = createBlankNode();
 
     // execute
+    expectRunning(testUnit::getStoredSingleChildNode).throwsException().ofType(EmptyArgumentException.class);
+  }
+
+  @Test
+  final void testCase_getStoredSingleChildNode_whenNodeContains1ChildNode() {
+    // setup
+    final N testUnit = createNodeWithHeaderAndChildNodes("a", "b");
+
+    // execute
+    final N result = testUnit.getStoredSingleChildNode();
+
+    // verify
+    expect(result).hasStringRepresentation("b");
+  }
+
+  @Test
+  final void testCase_getStoredSingleChildNode_whenNodeDoesNotContainChildNodes() {
+    // setup
+    final N testUnit = createNodeWithHeaderAndChildNodes("a");
+
+    // execute & verify
     expectRunning(testUnit::getStoredSingleChildNode).throwsException().ofType(EmptyArgumentException.class);
   }
 

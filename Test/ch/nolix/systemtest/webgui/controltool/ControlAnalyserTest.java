@@ -20,30 +20,6 @@ import ch.nolix.system.webgui.controltool.ControlAnalyser;
  */
 final class ControlAnalyserTest extends StandardTest {
   @Test
-  void testCase_firstControlContainsSecondControl_whenGivenFirstControlIsNull() {
-    // setup
-    final var testUnit = new ControlAnalyser();
-
-    // execute
-    final var result = testUnit.firstControlContainsSecondControl(null, new Label());
-
-    // verify
-    expect(result).isFalse();
-  }
-
-  @Test
-  void testCase_firstControlContainsSecondControl_whenGivenSecondControlIsNull() {
-    // setup
-    final var testUnit = new ControlAnalyser();
-
-    // execute
-    final var result = testUnit.firstControlContainsSecondControl(new Label(), null);
-
-    // verify
-    expect(result).isFalse();
-  }
-
-  @Test
   void testCase_firstControlContainsSecondControl_whenGivenFirstControlContainsTheGivenSecondControlDirectly() {
     // setup
     final var label = new Label();
@@ -78,5 +54,29 @@ final class ControlAnalyserTest extends StandardTest {
 
     // verify
     expect(result).isTrue();
+  }
+
+  @Test
+  void testCase_firstControlContainsSecondControl_whenGivenFirstControlIsNull() {
+    // setup
+    final var testUnit = new ControlAnalyser();
+
+    // execute
+    final var result = testUnit.firstControlContainsSecondControl(null, new Label());
+
+    // verify
+    expect(result).isFalse();
+  }
+
+  @Test
+  void testCase_firstControlContainsSecondControl_whenGivenSecondControlIsNull() {
+    // setup
+    final var testUnit = new ControlAnalyser();
+
+    // execute
+    final var result = testUnit.firstControlContainsSecondControl(new Label(), null);
+
+    // verify
+    expect(result).isFalse();
   }
 }

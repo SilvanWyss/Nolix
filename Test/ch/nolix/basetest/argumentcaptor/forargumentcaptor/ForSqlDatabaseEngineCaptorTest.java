@@ -16,6 +16,17 @@ import ch.nolix.baseapi.sql.sqlproperty.SqlDatabaseEngine;
  */
 final class ForSqlDatabaseEngineCaptorTest extends StandardTest {
   @Test
+  void testCase_forSqlDatabaseEngine_whenDoesNotHaveSuccessor() {
+    // setup
+    final var testUnit = new ForSqlDatabaseEngineCaptor<>();
+
+    // execute & verify
+    expectRunning(() -> testUnit.forSqlDatabaseEngine(SqlDatabaseEngine.MS_SQL))
+      .throwsException()
+      .ofType(ArgumentDoesNotHaveAttributeException.class);
+  }
+
+  @Test
   void testCase_forSqlDatabaseEngine_whenHasSuccessor() {
     // define test parameters
     final var sqlDatabaseEngine = SqlDatabaseEngine.MS_SQL;
@@ -30,17 +41,6 @@ final class ForSqlDatabaseEngineCaptorTest extends StandardTest {
     // verify
     expect(testUnit.getSqlDatabaseEngine()).is(sqlDatabaseEngine);
     expect(result).is(forNameCaptor);
-  }
-
-  @Test
-  void testCase_forSqlDatabaseEngine_whenDoesNotHaveSuccessor() {
-    // setup
-    final var testUnit = new ForSqlDatabaseEngineCaptor<>();
-
-    // execute & verify
-    expectRunning(() -> testUnit.forSqlDatabaseEngine(SqlDatabaseEngine.MS_SQL))
-      .throwsException()
-      .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
   @Test

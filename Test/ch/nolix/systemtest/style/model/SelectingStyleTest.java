@@ -33,25 +33,6 @@ final class SelectingStyleTest extends StandardTest {
   }
 
   @Test
-  void testCase_selects_whenHasSelectorIdAndTheGivenElementHasThatId() {
-    // setup mockStylableElement
-    final var mockStylableElement = new MockStylableElement();
-    mockStylableElement.setId("x");
-
-    // setup
-    final var testUnit = SelectingStyle.EMPTY.withSelectorId("x");
-
-    // setup verification
-    expect(mockStylableElement.hasId()).isTrue();
-
-    // execute
-    final var result = testUnit.selectsElement(mockStylableElement);
-
-    // verify
-    expect(result).isTrue();
-  }
-
-  @Test
   void testCase_selects_whenHasSelectorIdAndTheGivenElementHasOtherId() {
     // setup mockStylableElement
     final var mockStylableElement = new MockStylableElement();
@@ -71,6 +52,25 @@ final class SelectingStyleTest extends StandardTest {
   }
 
   @Test
+  void testCase_selects_whenHasSelectorIdAndTheGivenElementHasThatId() {
+    // setup mockStylableElement
+    final var mockStylableElement = new MockStylableElement();
+    mockStylableElement.setId("x");
+
+    // setup
+    final var testUnit = SelectingStyle.EMPTY.withSelectorId("x");
+
+    // setup verification
+    expect(mockStylableElement.hasId()).isTrue();
+
+    // execute
+    final var result = testUnit.selectsElement(mockStylableElement);
+
+    // verify
+    expect(result).isTrue();
+  }
+
+  @Test
   void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfAntoherType() {
     // setup mockStylableElement
     final var mockStylableElement = new MockStylableElement();
@@ -86,12 +86,12 @@ final class SelectingStyleTest extends StandardTest {
   }
 
   @Test
-  void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfTheSameType() {
+  void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfASubType() {
     // setup mockStylableElement
     final var mockStylableElement = new MockStylableElement();
 
     // setup testUnit
-    final var testUnit = SelectingStyle.EMPTY.withSelectorType(MockStylableElement.class);
+    final var testUnit = SelectingStyle.EMPTY.withSelectorType(AbstractMutableElementWithProperties.class);
 
     // execute
     final var result = testUnit.selectsElement(mockStylableElement);
@@ -101,12 +101,12 @@ final class SelectingStyleTest extends StandardTest {
   }
 
   @Test
-  void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfASubType() {
+  void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfTheSameType() {
     // setup mockStylableElement
     final var mockStylableElement = new MockStylableElement();
 
     // setup testUnit
-    final var testUnit = SelectingStyle.EMPTY.withSelectorType(AbstractMutableElementWithProperties.class);
+    final var testUnit = SelectingStyle.EMPTY.withSelectorType(MockStylableElement.class);
 
     // execute
     final var result = testUnit.selectsElement(mockStylableElement);

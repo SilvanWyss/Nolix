@@ -14,18 +14,6 @@ import ch.nolix.base.testing.standardtest.StandardTest;
  * @author Silvan Wyss
  */
 final class SqlLiteralMapperTest extends StandardTest {
-  @Test
-  void testCase_whenGivenNullableValueStringIsNull() {
-    // setup
-    final var testUnit = new SqlLiteralMapper();
-
-    // execute
-    final var result = testUnit.mapNullableValueStringToSqlLiteral(null);
-
-    // verify
-    expect(result).isEqualTo("NULL");
-  }
-
   @ParameterizedTest
   @CsvSource({
   "'', '\'''\''",
@@ -42,5 +30,17 @@ final class SqlLiteralMapperTest extends StandardTest {
 
     // verify
     expect(result).isEqualTo(expectedResult);
+  }
+
+  @Test
+  void testCase_whenGivenNullableValueStringIsNull() {
+    // setup
+    final var testUnit = new SqlLiteralMapper();
+
+    // execute
+    final var result = testUnit.mapNullableValueStringToSqlLiteral(null);
+
+    // verify
+    expect(result).isEqualTo("NULL");
   }
 }

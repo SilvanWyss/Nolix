@@ -14,19 +14,6 @@ import ch.nolix.base.testing.standardtest.StandardTest;
  */
 final class IsVisibleTest extends StandardTest {
   @ParameterizedTest
-  @ValueSource(chars = { 'A', 'a', 'X', 'x', '0', '9', '+', '/' })
-  void testCase_isVisible_whenIsVisible(final char character) {
-    // setup   
-    final var testUnit = new CharacterExaminer();
-
-    // execute
-    final var result = testUnit.isVisible(character);
-
-    // verify
-    expect(result).isTrue();
-  }
-
-  @ParameterizedTest
   @ValueSource(chars = { 0, 32, ' ', '\t', '\n' })
   void testCase_isVisible_whenIsNotVisible(final char character) {
     // setup   
@@ -37,5 +24,18 @@ final class IsVisibleTest extends StandardTest {
 
     // verify
     expect(result).isFalse();
+  }
+
+  @ParameterizedTest
+  @ValueSource(chars = { 'A', 'a', 'X', 'x', '0', '9', '+', '/' })
+  void testCase_isVisible_whenIsVisible(final char character) {
+    // setup   
+    final var testUnit = new CharacterExaminer();
+
+    // execute
+    final var result = testUnit.isVisible(character);
+
+    // verify
+    expect(result).isTrue();
   }
 }

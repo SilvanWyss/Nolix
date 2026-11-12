@@ -35,6 +35,32 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
   }
 
   @Test
+  void testCase_getAllBackReferencedEntityIds_whenIsLoaded() {
+    // setup step 1: create nodeDatabase.
+    final var nodeDatabase = MutableNode.createEmpty();
+    final var schema = EntityTypeSet.withEntityType(Plane.class, Flight.class);
+
+    // setup step 2: Creates and inserts and saves planes and flights.
+    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
+    final var a320 = new Plane();
+    nodeDataAdapter.insertEntity(a320);
+    final var fx2650 = new Flight();
+    fx2650.plane.setEntity(a320);
+    nodeDataAdapter.insertEntity(fx2650);
+    final var fx2651 = new Flight();
+    fx2651.plane.setEntity(a320);
+    nodeDataAdapter.insertEntity(fx2651);
+    nodeDataAdapter.saveChanges();
+
+    // execute
+    final var loaded320 = nodeDataAdapter.getStoredTableByEntityType(Plane.class).getStoredEntityById(a320.getId());
+    final var result = loaded320.flights.getAllBackReferencedEntityIds();
+
+    // verify
+    expect(result).containsExactlyEqualing(fx2650.getId(), fx2651.getId());
+  }
+
+  @Test
   void testCase_getAllStoredBackReferencedEntities_whenIsNewAndEmpty() {
     // setup step 1: create nodeDatabase.
     final var nodeDatabase = MutableNode.createEmpty();
@@ -77,50 +103,6 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
   }
 
   @Test
-  void testCase_getAllBackReferencedEntityIds_whenIsLoaded() {
-    // setup step 1: create nodeDatabase.
-    final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = EntityTypeSet.withEntityType(Plane.class, Flight.class);
-
-    // setup step 2: Creates and inserts and saves planes and flights.
-    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
-    final var a320 = new Plane();
-    nodeDataAdapter.insertEntity(a320);
-    final var fx2650 = new Flight();
-    fx2650.plane.setEntity(a320);
-    nodeDataAdapter.insertEntity(fx2650);
-    final var fx2651 = new Flight();
-    fx2651.plane.setEntity(a320);
-    nodeDataAdapter.insertEntity(fx2651);
-    nodeDataAdapter.saveChanges();
-
-    // execute
-    final var loaded320 = nodeDataAdapter.getStoredTableByEntityType(Plane.class).getStoredEntityById(a320.getId());
-    final var result = loaded320.flights.getAllBackReferencedEntityIds();
-
-    // verify
-    expect(result).containsExactlyEqualing(fx2650.getId(), fx2651.getId());
-  }
-
-  @Test
-  void testCase_isSaved_whenIsEmpty() {
-    // setup step 1: create nodeDatabase.
-    final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = EntityTypeSet.withEntityType(Plane.class, Flight.class);
-
-    // setup step 2: Creates and inserts and saves plane.
-    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
-    final var a320 = new Plane();
-    nodeDataAdapter.insertEntity(a320);
-
-    // setup verification
-    expect(a320.flights.isEmpty()).isTrue();
-
-    // execute & verify
-    expectRunning(nodeDataAdapter::saveChanges).doesNotThrowException();
-  }
-
-  @Test
   void testCase_isSaved_whenBackReferencedEntityIsDeleted() {
     // setup step 1: create nodeDatabase.
     final var nodeDatabase = MutableNode.createEmpty();
@@ -141,6 +123,24 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
     loadedFx2650.delete();
 
     // verify
+    expectRunning(nodeDataAdapter::saveChanges).doesNotThrowException();
+  }
+
+  @Test
+  void testCase_isSaved_whenIsEmpty() {
+    // setup step 1: create nodeDatabase.
+    final var nodeDatabase = MutableNode.createEmpty();
+    final var schema = EntityTypeSet.withEntityType(Plane.class, Flight.class);
+
+    // setup step 2: Creates and inserts and saves plane.
+    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
+    final var a320 = new Plane();
+    nodeDataAdapter.insertEntity(a320);
+
+    // setup verification
+    expect(a320.flights.isEmpty()).isTrue();
+
+    // execute & verify
     expectRunning(nodeDataAdapter::saveChanges).doesNotThrowException();
   }
 }

@@ -40,15 +40,6 @@ final class FunctionCatalogTest extends StandardTest {
   }
 
   @Test
-  void testCase_getStringRepresentationOf_whenNullIsGiven() {
-    // execute
-    final var result = FunctionService.getStringRepresentationOf(null);
-
-    // verify
-    expect(result).isEqualTo("null");
-  }
-
-  @Test
   void testCase_getStringRepresentationOf_whenAnIntIsGiven() {
     // execute
     final var result = FunctionService.getStringRepresentationOf(2500);
@@ -64,6 +55,15 @@ final class FunctionCatalogTest extends StandardTest {
 
     // verify
     expect(result).isEqualTo("Lorem ipsum");
+  }
+
+  @Test
+  void testCase_getStringRepresentationOf_whenNullIsGiven() {
+    // execute
+    final var result = FunctionService.getStringRepresentationOf(null);
+
+    // verify
+    expect(result).isEqualTo("null");
   }
 
   @Test

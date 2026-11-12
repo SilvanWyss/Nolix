@@ -37,27 +37,6 @@ final class NetEndPointTest extends StandardTest {
   }
 
   @Test
-  void testCase_runCommand() {
-    // define test parameters
-    final var port = 50000;
-
-    try (final var server = Server.forPort(port)) {
-      // setup
-      final var slot = new TestSlot();
-      server.addDefaultSlot(slot);
-
-      try (final var testUnit = NetEndPoint.toLocalMachineAndGivenPortAndDefaultSlot(port)) {
-        // execute
-        testUnit.runCommand(ImmutableChainedNode.fromString("test_command"));
-
-        // verify
-        expect(slot.getLatestCreatedReceivingDataProviderController().getLatestReceivedCommand())
-          .hasStringRepresentation("test_command");
-      }
-    }
-  }
-
-  @Test
   void testCase_getData() {
     // define test parameters
     final var port = 50000;
@@ -75,6 +54,27 @@ final class NetEndPointTest extends StandardTest {
         expect(slot.getLatestCreatedReceivingDataProviderController().getLatestReceivedRequest())
           .hasStringRepresentation("test_request");
         expect(result).isEqualTo(ImmutableNode.withHeader("test_data"));
+      }
+    }
+  }
+
+  @Test
+  void testCase_runCommand() {
+    // define test parameters
+    final var port = 50000;
+
+    try (final var server = Server.forPort(port)) {
+      // setup
+      final var slot = new TestSlot();
+      server.addDefaultSlot(slot);
+
+      try (final var testUnit = NetEndPoint.toLocalMachineAndGivenPortAndDefaultSlot(port)) {
+        // execute
+        testUnit.runCommand(ImmutableChainedNode.fromString("test_command"));
+
+        // verify
+        expect(slot.getLatestCreatedReceivingDataProviderController().getLatestReceivedCommand())
+          .hasStringRepresentation("test_command");
       }
     }
   }

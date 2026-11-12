@@ -13,18 +13,6 @@ import ch.nolix.base.testing.standardtest.StandardTest;
  */
 final class GetCopyMethodTest extends StandardTest {
   @Test
-  void testCase_getCopy_whenIsEmpty() {
-    // setup
-    final var testUnit = LinkedList.createEmpty();
-
-    // execute
-    final var result = testUnit.getCopy();
-
-    // verify
-    expect(result.isEmpty()).isTrue();
-  }
-
-  @Test
   void testCase_getCopy_whenContainsAny() {
     // setup
     final var antelope = "antelope";
@@ -40,5 +28,17 @@ final class GetCopyMethodTest extends StandardTest {
 
     // verify
     expect(result).containsExactlyInSameOrder(antelope, baboon, elephant, lion, rhino, zebra);
+  }
+
+  @Test
+  void testCase_getCopy_whenIsEmpty() {
+    // setup
+    final var testUnit = LinkedList.createEmpty();
+
+    // execute
+    final var result = testUnit.getCopy();
+
+    // verify
+    expect(result.isEmpty()).isTrue();
   }
 }

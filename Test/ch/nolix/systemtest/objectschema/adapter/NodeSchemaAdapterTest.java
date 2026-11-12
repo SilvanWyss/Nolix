@@ -15,27 +15,6 @@ import ch.nolix.system.objectschema.model.Table;
  */
 final class NodeSchemaAdapterTest extends StandardTest {
   @Test
-  void testCase_creation() {
-    // setup
-    final var database = MutableNode.createEmpty();
-
-    // setup verification
-    expect(database.isBlank()).isTrue();
-
-    // execute
-    final var testUnit = NodeSchemaAdapter.forNodeDatabase("MyDatabase", database);
-
-    // verify part 1
-    expect(testUnit.isChangeFree());
-
-    // verify part 2
-    expect(database.getHeader()).isEqualTo("Database");
-    expect(database.getChildNodeCount()).isEqualTo(2);
-    expect(database.getStoredChildNodeAtOneBasedIndex(1).getHeader()).isEqualTo("DatabaseProperties");
-    expect(database.getStoredChildNodeAtOneBasedIndex(2).getHeader()).isEqualTo("EntityIndexes");
-  }
-
-  @Test
   void testCase_addTable_whenSavesChangesAndResets() {
     // setup
     final var database = MutableNode.createEmpty();
@@ -55,6 +34,27 @@ final class NodeSchemaAdapterTest extends StandardTest {
     final var tableNode = tableNodes.getStoredFirstNonNull();
     final var nameNode = tableNode.getStoredFirstChildNodeWithHeader("Name");
     expect(nameNode.getSingleChildNodeHeader()).isEqualTo("MyTable");
+  }
+
+  @Test
+  void testCase_creation() {
+    // setup
+    final var database = MutableNode.createEmpty();
+
+    // setup verification
+    expect(database.isBlank()).isTrue();
+
+    // execute
+    final var testUnit = NodeSchemaAdapter.forNodeDatabase("MyDatabase", database);
+
+    // verify part 1
+    expect(testUnit.isChangeFree());
+
+    // verify part 2
+    expect(database.getHeader()).isEqualTo("Database");
+    expect(database.getChildNodeCount()).isEqualTo(2);
+    expect(database.getStoredChildNodeAtOneBasedIndex(1).getHeader()).isEqualTo("DatabaseProperties");
+    expect(database.getStoredChildNodeAtOneBasedIndex(2).getHeader()).isEqualTo("EntityIndexes");
   }
 
   @Test

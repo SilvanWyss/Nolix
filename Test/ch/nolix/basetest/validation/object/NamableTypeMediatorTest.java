@@ -20,6 +20,15 @@ import ch.nolix.baseapi.programcontrol.processproperty.WriteMode;
  */
 final class NamableTypeMediatorTest extends StandardTest {
   @Test
+  void testCase_isAbstract_whenGivenArgumentIsAbstract() {
+    // setup
+    final var testUnit = NamableTypeMediator.forArgument(List.class);
+
+    // execute & verify
+    expectRunning(testUnit::isAbstract).doesNotThrowException();
+  }
+
+  @Test
   void testCase_isAbstract_whenGivenArgumentIsNotAbstract() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(String.class);
@@ -29,15 +38,6 @@ final class NamableTypeMediatorTest extends StandardTest {
       .throwsException()
       .ofType(InvalidArgumentException.class)
       .withMessage("The given type 'class java.lang.String' is not abstract.");
-  }
-
-  @Test
-  void testCase_isAbstract_whenGivenArgumentIsAbstract() {
-    // setup
-    final var testUnit = NamableTypeMediator.forArgument(List.class);
-
-    // execute & verify
-    expectRunning(testUnit::isAbstract).doesNotThrowException();
   }
 
   @Test
@@ -62,18 +62,6 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isClass_whenGivenArgumentIsAnInterface() {
-    // setup
-    final var testUnit = NamableTypeMediator.forArgument(Iterable.class);
-
-    // execute & verify
-    expectRunning(testUnit::isClass)
-      .throwsException()
-      .ofType(InvalidArgumentException.class)
-      .withMessage("The given type 'interface java.lang.Iterable' is not a class.");
-  }
-
-  @Test
   void testCase_isClass_whenGivenArgumentIsAnEnum() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(WriteMode.class);
@@ -84,6 +72,18 @@ final class NamableTypeMediatorTest extends StandardTest {
       .ofType(InvalidArgumentException.class)
       .withMessage(
         "The given type 'class ch.nolix.baseapi.programcontrol.processproperty.WriteMode' is not a class.");
+  }
+
+  @Test
+  void testCase_isClass_whenGivenArgumentIsAnInterface() {
+    // setup
+    final var testUnit = NamableTypeMediator.forArgument(Iterable.class);
+
+    // execute & verify
+    expectRunning(testUnit::isClass)
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage("The given type 'interface java.lang.Iterable' is not a class.");
   }
 
   @Test
@@ -99,6 +99,15 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
+  void testCase_isConcrete_whenGivenArgumentIsConcrete() {
+    // setup
+    final var testUnit = NamableTypeMediator.forArgument(ArrayList.class);
+
+    // execute & verify
+    expectRunning(testUnit::isConcrete).doesNotThrowException();
+  }
+
+  @Test
   void testCase_isConcrete_whenGivenArgumentIsNotConcrete() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(AbstractList.class);
@@ -108,15 +117,6 @@ final class NamableTypeMediatorTest extends StandardTest {
       .throwsException()
       .ofType(InvalidArgumentException.class)
       .withMessage("The given type 'class java.util.AbstractList' is not concrete.");
-  }
-
-  @Test
-  void testCase_isConcrete_whenGivenArgumentIsConcrete() {
-    // setup
-    final var testUnit = NamableTypeMediator.forArgument(ArrayList.class);
-
-    // execute & verify
-    expectRunning(testUnit::isConcrete).doesNotThrowException();
   }
 
   @Test
@@ -144,6 +144,15 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
+  void testCase_isEnum_whenGivenArgumentIsAnEnum() {
+    // setup
+    final var testUnit = NamableTypeMediator.forArgument(WriteMode.class);
+
+    // execute & verify
+    expectRunning(testUnit::isEnum).doesNotThrowException();
+  }
+
+  @Test
   void testCase_isEnum_whenGivenArgumentIsAnInterface() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(Iterable.class);
@@ -153,15 +162,6 @@ final class NamableTypeMediatorTest extends StandardTest {
       .throwsException()
       .ofType(InvalidArgumentException.class)
       .withMessage("The given type 'interface java.lang.Iterable' is not an enum.");
-  }
-
-  @Test
-  void testCase_isEnum_whenGivenArgumentIsAnEnum() {
-    // setup
-    final var testUnit = NamableTypeMediator.forArgument(WriteMode.class);
-
-    // execute & verify
-    expectRunning(testUnit::isEnum).doesNotThrowException();
   }
 
   @Test
@@ -210,15 +210,6 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isInterface_whenGivenArgumentIsAnInterface() {
-    // setup
-    final var testUnit = NamableTypeMediator.forArgument(Iterable.class);
-
-    // execute & verify
-    expectRunning(testUnit::isInterface).doesNotThrowException();
-  }
-
-  @Test
   void testCase_isInterface_whenGivenArgumentIsAClass() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(ArrayList.class);
@@ -244,6 +235,15 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
+  void testCase_isInterface_whenGivenArgumentIsAnInterface() {
+    // setup
+    final var testUnit = NamableTypeMediator.forArgument(Iterable.class);
+
+    // execute & verify
+    expectRunning(testUnit::isInterface).doesNotThrowException();
+  }
+
+  @Test
   void testCase_isInterface_whenGivenArgumentIsNull() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(null);
@@ -253,6 +253,15 @@ final class NamableTypeMediatorTest extends StandardTest {
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given type is null.");
+  }
+
+  @Test
+  void testCase_isSubTypeOf_whenGivenArgumentIsASubTypeOfTheGivenType() {
+    // setup
+    final var testUnit = NamableTypeMediator.forArgument(List.class);
+
+    // execute & verify
+    expectRunning(() -> testUnit.isSubTypeOf(Iterable.class)).doesNotThrowException();
   }
 
   @Test
@@ -268,12 +277,12 @@ final class NamableTypeMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isSubTypeOf_whenGivenArgumentIsASubTypeOfTheGivenType() {
+  void testCase_isSuperTypeOf_whenGivenArgumentIsASuperTypeOfTheGivenType() {
     // setup
     final var testUnit = NamableTypeMediator.forArgument(List.class);
 
     // execute & verify
-    expectRunning(() -> testUnit.isSubTypeOf(Iterable.class)).doesNotThrowException();
+    expectRunning(() -> testUnit.isSuperTypeOf(ArrayList.class)).doesNotThrowException();
   }
 
   @Test
@@ -286,14 +295,5 @@ final class NamableTypeMediatorTest extends StandardTest {
       .throwsException()
       .ofType(InvalidArgumentException.class)
       .withMessage("The given type 'interface java.util.List' is not a super type of java.lang.Iterable.");
-  }
-
-  @Test
-  void testCase_isSuperTypeOf_whenGivenArgumentIsASuperTypeOfTheGivenType() {
-    // setup
-    final var testUnit = NamableTypeMediator.forArgument(List.class);
-
-    // execute & verify
-    expectRunning(() -> testUnit.isSuperTypeOf(ArrayList.class)).doesNotThrowException();
   }
 }

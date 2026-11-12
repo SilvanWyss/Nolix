@@ -16,20 +16,6 @@ import ch.nolix.baseapi.resourcecontrol.resourcerequest.ChangeRequestable;
  */
 final class ChangeRequestableTest extends StandardTest {
   @Test
-  void testCase_isChangeFree_whenIsChangeFree() {
-    // setup
-    final var testUnit = Mockito.mock(ChangeRequestable.class);
-    when(testUnit.isChangeFree()).thenCallRealMethod();
-    when(testUnit.hasChanges()).thenReturn(false);
-
-    // execute
-    final var result = testUnit.isChangeFree();
-
-    // verify
-    expect(result).isTrue();
-  }
-
-  @Test
   void testCase_isChangeFree_whenHasChanges() {
     // setup
     final var testUnit = Mockito.mock(ChangeRequestable.class);
@@ -41,5 +27,19 @@ final class ChangeRequestableTest extends StandardTest {
 
     // verify
     expect(result).isFalse();
+  }
+
+  @Test
+  void testCase_isChangeFree_whenIsChangeFree() {
+    // setup
+    final var testUnit = Mockito.mock(ChangeRequestable.class);
+    when(testUnit.isChangeFree()).thenCallRealMethod();
+    when(testUnit.hasChanges()).thenReturn(false);
+
+    // execute
+    final var result = testUnit.isChangeFree();
+
+    // verify
+    expect(result).isTrue();
   }
 }

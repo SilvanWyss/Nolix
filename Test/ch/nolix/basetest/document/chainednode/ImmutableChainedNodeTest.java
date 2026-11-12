@@ -16,18 +16,6 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgu
  */
 final class ImmutableChainedNodeTest extends StandardTest {
   @Test
-  void testCase_equals_whenIsBlankAndAnUnequalChainedNodeIsGiven() {
-    // setup
-    final var testUnit = ImmutableChainedNode.fromString("");
-
-    // execute
-    final var result = testUnit.equals(ImmutableChainedNode.fromString("a"));
-
-    // verify
-    expect(result).isFalse();
-  }
-
-  @Test
   void testCase_equals_whenIsBlankAndAnEqualChainedNodeIsGiven() {
     // setup
     final var testUnit = ImmutableChainedNode.fromString("");
@@ -40,17 +28,15 @@ final class ImmutableChainedNodeTest extends StandardTest {
   }
 
   @Test
-  void testCase_getOneAttributeAsInt_whenDoesNotContainAttributes() {
+  void testCase_equals_whenIsBlankAndAnUnequalChainedNodeIsGiven() {
     // setup
-    final var testUnit = ImmutableChainedNode.withHeader("a");
+    final var testUnit = ImmutableChainedNode.fromString("");
 
-    // setup verification
-    expect(testUnit.containsChildNodes()).isFalse();
+    // execute
+    final var result = testUnit.equals(ImmutableChainedNode.fromString("a"));
 
-    // execute & verify
-    expectRunning(testUnit::getSingleChildNodeAsInt)
-      .throwsException()
-      .ofType(EmptyArgumentException.class);
+    // verify
+    expect(result).isFalse();
   }
 
   @Test
@@ -97,15 +83,17 @@ final class ImmutableChainedNodeTest extends StandardTest {
   }
 
   @Test
-  void testCase_isBlank_whenIsBlank() {
+  void testCase_getOneAttributeAsInt_whenDoesNotContainAttributes() {
     // setup
-    final var testUnit = ImmutableChainedNode.fromString("");
+    final var testUnit = ImmutableChainedNode.withHeader("a");
 
-    // execute
-    final var result = testUnit.isBlank();
+    // setup verification
+    expect(testUnit.containsChildNodes()).isFalse();
 
-    // verify
-    expect(result).isTrue();
+    // execute & verify
+    expectRunning(testUnit::getSingleChildNodeAsInt)
+      .throwsException()
+      .ofType(EmptyArgumentException.class);
   }
 
   @Test
@@ -118,6 +106,18 @@ final class ImmutableChainedNodeTest extends StandardTest {
 
     // verify
     expect(result).isFalse();
+  }
+
+  @Test
+  void testCase_isBlank_whenIsBlank() {
+    // setup
+    final var testUnit = ImmutableChainedNode.fromString("");
+
+    // execute
+    final var result = testUnit.isBlank();
+
+    // verify
+    expect(result).isTrue();
   }
 
   @Test
@@ -181,18 +181,6 @@ final class ImmutableChainedNodeTest extends StandardTest {
   }
 
   @Test
-  void testCase_toNode_whenIsBlank() {
-    // setup
-    final var testUnit = ImmutableChainedNode.fromString("");
-
-    // execute
-    final var result = testUnit.toNode();
-
-    // verify
-    expect(result).hasStringRepresentation("");
-  }
-
-  @Test
   void testCase_toNode_whenHasHeaderOnly() {
     // setup
     final var testUnit = ImmutableChainedNode.withHeader("a");
@@ -214,5 +202,17 @@ final class ImmutableChainedNodeTest extends StandardTest {
       .throwsException()
       .ofType(UnrepresentingArgumentException.class)
       .withMessage("The given ImmutableChainedNode 'a.b' does not represent a Node.");
+  }
+
+  @Test
+  void testCase_toNode_whenIsBlank() {
+    // setup
+    final var testUnit = ImmutableChainedNode.fromString("");
+
+    // execute
+    final var result = testUnit.toNode();
+
+    // verify
+    expect(result).hasStringRepresentation("");
   }
 }

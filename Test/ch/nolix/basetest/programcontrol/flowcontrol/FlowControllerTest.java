@@ -28,16 +28,6 @@ final class FlowControllerTest extends StandardTest {
   }
 
   @Test
-  void testCase_runInBackground_whenPassingProcessIsGiven() {
-    // execute
-    final var result = FlowController.runInBackground(FunctionService::doNothing);
-    result.waitUntilIsFinished();
-
-    // verify
-    expect(result.isFinishedSuccessfully()).isTrue();
-  }
-
-  @Test
   void testCase_runInBackground_whenFunctionIsGiven() {
     // execute
     final var result = FlowController.runInBackground(() -> 3 + 4);
@@ -46,5 +36,15 @@ final class FlowControllerTest extends StandardTest {
     // verify
     expect(result.isFinishedSuccessfully()).isTrue();
     expect(result.getResult()).isEqualTo(7);
+  }
+
+  @Test
+  void testCase_runInBackground_whenPassingProcessIsGiven() {
+    // execute
+    final var result = FlowController.runInBackground(FunctionService::doNothing);
+    result.waitUntilIsFinished();
+
+    // verify
+    expect(result.isFinishedSuccessfully()).isTrue();
   }
 }

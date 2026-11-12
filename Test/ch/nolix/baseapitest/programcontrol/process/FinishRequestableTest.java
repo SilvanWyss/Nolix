@@ -13,18 +13,6 @@ import ch.nolix.baseapi.generalstate.staterequest.FinishRequestable;
  */
 final class FinishRequestableTest extends StandardTest {
   @Test
-  void testCase_isRunning_whenIsNotFinished() {
-    // setup
-    final FinishRequestable testUnit = () -> false;
-
-    // execute
-    final var result = testUnit.isRunning();
-
-    // verify
-    expect(result).isTrue();
-  }
-
-  @Test
   void testCase_isRunning_whenIsFinished() {
     // setup
     final FinishRequestable testUnit = () -> true;
@@ -34,5 +22,17 @@ final class FinishRequestableTest extends StandardTest {
 
     // verify
     expect(result).isFalse();
+  }
+
+  @Test
+  void testCase_isRunning_whenIsNotFinished() {
+    // setup
+    final FinishRequestable testUnit = () -> false;
+
+    // execute
+    final var result = testUnit.isRunning();
+
+    // verify
+    expect(result).isTrue();
   }
 }

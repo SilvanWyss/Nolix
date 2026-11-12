@@ -68,30 +68,6 @@ final class ValidatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_assertThat_whenGivenArgumentIsAnInt() {
-    // setup
-    final var argument = 50;
-
-    // execute
-    final var result = Validator.assertThat(argument);
-
-    // verify
-    expect(result).isOfType(AbstractLongMediator.class);
-  }
-
-  @Test
-  void testCase_assertThat_whenGivenArgumentIsAnIntArray() {
-    // setup
-    final var argument = new int[100];
-
-    // execute
-    final var result = Validator.assertThat(argument);
-
-    // verify
-    expect(result).isOfType(NamableIterableMediator.class);
-  }
-
-  @Test
   void testCase_assertThat_whenGivenArgumentIsALong() {
     // setup
     final var argument = 50L;
@@ -125,6 +101,30 @@ final class ValidatorTest extends StandardTest {
 
     // verify
     expect(result).isOfType(AbstractMethodMediator.class);
+  }
+
+  @Test
+  void testCase_assertThat_whenGivenArgumentIsAnInt() {
+    // setup
+    final var argument = 50;
+
+    // execute
+    final var result = Validator.assertThat(argument);
+
+    // verify
+    expect(result).isOfType(AbstractLongMediator.class);
+  }
+
+  @Test
+  void testCase_assertThat_whenGivenArgumentIsAnIntArray() {
+    // setup
+    final var argument = new int[100];
+
+    // execute
+    final var result = Validator.assertThat(argument);
+
+    // verify
+    expect(result).isOfType(NamableIterableMediator.class);
   }
 
   @Test

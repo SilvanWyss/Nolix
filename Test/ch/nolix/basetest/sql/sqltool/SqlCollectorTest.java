@@ -36,19 +36,6 @@ final class SqlCollectorTest extends StandardTest {
     expect(actualSqlStatements).containsExactlyInSameOrder(sqlStatement1, sqlStatement2);
   }
 
-  @Test
-  void testCase_addSqlStatement_whenGivenSqlStatementIsNull() {
-    // setup
-    final String sqlStatement = null;
-    final var testUnit = new SqlCollector();
-
-    // execute & verify
-    expectRunning(() -> testUnit.addSqlStatement(sqlStatement))
-      .throwsException()
-      .ofType(ArgumentIsNullException.class)
-      .withMessage("The given SQL statement is null.");
-  }
-
   @ParameterizedTest
   @ValueSource(strings = { StringCatalog.EMPTY_STRING, StringCatalog.SPACE, StringCatalog.TAB })
   void testCase_addSqlStatement_whenGivenSqlStatementIsBlank(final String sqlStatement) {
@@ -60,6 +47,19 @@ final class SqlCollectorTest extends StandardTest {
       .throwsException()
       .ofType(InvalidArgumentException.class)
       .withMessage("The given SQL statement is blank.");
+  }
+
+  @Test
+  void testCase_addSqlStatement_whenGivenSqlStatementIsNull() {
+    // setup
+    final String sqlStatement = null;
+    final var testUnit = new SqlCollector();
+
+    // execute & verify
+    expectRunning(() -> testUnit.addSqlStatement(sqlStatement))
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given SQL statement is null.");
   }
 
   @Test

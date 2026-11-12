@@ -54,19 +54,6 @@ final class UpdateCommandCreatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_createSetUserInputFunctionsCommandFromWebGui_whenGivenWebGuiIsEmpty() {
-    // setup
-    final var webGui = new WebGui();
-    final var testUnit = new UpdateCommandCreator();
-
-    // execute
-    final var result = testUnit.createSetUserInputFunctionsCommandForWebGui(webGui);
-
-    // verify
-    expect(result).hasStringRepresentation("GUI.SetUserInputFunctions");
-  }
-
-  @Test
   void testCase_createSetUserInputFunctionsCommandFromWebGui_whenGivenWebGuiContainsAButton() {
     // setup
     final var button = new Button();
@@ -93,5 +80,18 @@ final class UpdateCommandCreatorTest extends StandardTest {
     // verify
     expect(result).hasStringRepresentation(
       "GUI.SetUserInputFunctions((" + textbox.getInternalId() + ",return x$Dvalue;))");
+  }
+
+  @Test
+  void testCase_createSetUserInputFunctionsCommandFromWebGui_whenGivenWebGuiIsEmpty() {
+    // setup
+    final var webGui = new WebGui();
+    final var testUnit = new UpdateCommandCreator();
+
+    // execute
+    final var result = testUnit.createSetUserInputFunctionsCommandForWebGui(webGui);
+
+    // verify
+    expect(result).hasStringRepresentation("GUI.SetUserInputFunctions");
   }
 }

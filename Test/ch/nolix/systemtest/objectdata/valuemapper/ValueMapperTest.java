@@ -14,6 +14,19 @@ import ch.nolix.systemapi.database.databaseproperty.DataType;
  */
 final class ValueMapperTest extends StandardTest {
   @Test
+  void testCase_mapStringToValue_whenGivenStringRepresentsABoolean() {
+    // setup
+    final var testUnit = new ValueMapper();
+
+    // execute
+    final var result = testUnit.mapStringToValue("true", DataType.BOOLEAN);
+
+    // verify
+    final Boolean expectedResult = Boolean.TRUE;
+    expect(result).is(expectedResult);
+  }
+
+  @Test
   void testCase_mapStringToValue_whenGivenStringRepresentsAByte() {
     // setup
     final var testUnit = new ValueMapper();
@@ -23,58 +36,6 @@ final class ValueMapperTest extends StandardTest {
 
     // verify
     final byte expectedResult = 25;
-    expect(result).isEqualTo(expectedResult);
-  }
-
-  @Test
-  void testCase_mapStringToValue_whenGivenStringRepresentsAShort() {
-    // setup
-    final var testUnit = new ValueMapper();
-
-    // execute
-    final var result = testUnit.mapStringToValue("25000", DataType.INTEGER_2BYTE);
-
-    // verify
-    final short expectedResult = 25_000;
-    expect(result).isEqualTo(expectedResult);
-  }
-
-  @Test
-  void testCase_mapStringToValue_whenGivenStringRepresentsAnInt() {
-    // setup
-    final var testUnit = new ValueMapper();
-
-    // execute
-    final var result = testUnit.mapStringToValue("25000000", DataType.INTEGER_4BYTE);
-
-    // verify
-    final int expectedResult = 25_000_000;
-    expect(result).isEqualTo(expectedResult);
-  }
-
-  @Test
-  void testCase_mapStringToValue_whenGivenStringRepresentsALong() {
-    // setup
-    final var testUnit = new ValueMapper();
-
-    // execute
-    final var result = testUnit.mapStringToValue("25000000000", DataType.INTEGER_8BYTE);
-
-    // verify
-    final long expectedResult = 25_000_000_000L;
-    expect(result).isEqualTo(expectedResult);
-  }
-
-  @Test
-  void testCase_mapStringToValue_whenGivenStringRepresentsAFloat() {
-    // setup
-    final var testUnit = new ValueMapper();
-
-    // execute
-    final var result = testUnit.mapStringToValue("3.141592", DataType.FLOATING_POINT_NUMBER_4BYTE);
-
-    // verify
-    final float expectedResult = 3.141592F;
     expect(result).isEqualTo(expectedResult);
   }
 
@@ -92,16 +53,55 @@ final class ValueMapperTest extends StandardTest {
   }
 
   @Test
-  void testCase_mapStringToValue_whenGivenStringRepresentsABoolean() {
+  void testCase_mapStringToValue_whenGivenStringRepresentsAFloat() {
     // setup
     final var testUnit = new ValueMapper();
 
     // execute
-    final var result = testUnit.mapStringToValue("true", DataType.BOOLEAN);
+    final var result = testUnit.mapStringToValue("3.141592", DataType.FLOATING_POINT_NUMBER_4BYTE);
 
     // verify
-    final Boolean expectedResult = Boolean.TRUE;
-    expect(result).is(expectedResult);
+    final float expectedResult = 3.141592F;
+    expect(result).isEqualTo(expectedResult);
+  }
+
+  @Test
+  void testCase_mapStringToValue_whenGivenStringRepresentsALong() {
+    // setup
+    final var testUnit = new ValueMapper();
+
+    // execute
+    final var result = testUnit.mapStringToValue("25000000000", DataType.INTEGER_8BYTE);
+
+    // verify
+    final long expectedResult = 25_000_000_000L;
+    expect(result).isEqualTo(expectedResult);
+  }
+
+  @Test
+  void testCase_mapStringToValue_whenGivenStringRepresentsAnInt() {
+    // setup
+    final var testUnit = new ValueMapper();
+
+    // execute
+    final var result = testUnit.mapStringToValue("25000000", DataType.INTEGER_4BYTE);
+
+    // verify
+    final int expectedResult = 25_000_000;
+    expect(result).isEqualTo(expectedResult);
+  }
+
+  @Test
+  void testCase_mapStringToValue_whenGivenStringRepresentsAShort() {
+    // setup
+    final var testUnit = new ValueMapper();
+
+    // execute
+    final var result = testUnit.mapStringToValue("25000", DataType.INTEGER_2BYTE);
+
+    // verify
+    final short expectedResult = 25_000;
+    expect(result).isEqualTo(expectedResult);
   }
 
   @Test

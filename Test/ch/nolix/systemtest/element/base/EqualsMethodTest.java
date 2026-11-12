@@ -18,23 +18,6 @@ import ch.nolix.system.element.base.AbstractElement;
  */
 final class EqualsMethodTest extends StandardTest {
   @Test
-  void testCase_equals_whenGivenObjectIsNull() {
-    // setup
-    final var testUnit = new AbstractElement() {
-      @Override
-      public ExtendedIterable<Node<?>> getAttributes() {
-        return ImmutableList.withElements(ImmutableNode.withHeader("my_flag"));
-      }
-    };
-
-    // execute
-    final var result = testUnit.equals(null);
-
-    // verify
-    expect(result).isFalse();
-  }
-
-  @Test
   void testCase_equals_whenGivenObjectIsAVoidObject() {
     // setup
     final Object object = new VoidObject();
@@ -47,6 +30,23 @@ final class EqualsMethodTest extends StandardTest {
 
     // execute
     final var result = testUnit.equals(object);
+
+    // verify
+    expect(result).isFalse();
+  }
+
+  @Test
+  void testCase_equals_whenGivenObjectIsNull() {
+    // setup
+    final var testUnit = new AbstractElement() {
+      @Override
+      public ExtendedIterable<Node<?>> getAttributes() {
+        return ImmutableList.withElements(ImmutableNode.withHeader("my_flag"));
+      }
+    };
+
+    // execute
+    final var result = testUnit.equals(null);
 
     // verify
     expect(result).isFalse();

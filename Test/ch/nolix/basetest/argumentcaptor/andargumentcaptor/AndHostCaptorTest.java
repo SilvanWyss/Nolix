@@ -16,6 +16,17 @@ import ch.nolix.baseapi.net.netcatalog.IpV4Catalog;
  */
 final class AndHostCaptorTest extends StandardTest {
   @Test
+  void testCase_andHost_whenDoesNotHaveSuccessor() {
+    // setup
+    final var testUnit = new AndHostCaptor<>();
+
+    // execute & verify
+    expectRunning(() -> testUnit.andHost("nolix.ch"))
+      .throwsException()
+      .ofType(ArgumentDoesNotHaveAttributeException.class);
+  }
+
+  @Test
   void testCase_andHost_whenHasSuccessor() {
     // define test parameters
     final var host = "nolix.ch";
@@ -30,17 +41,6 @@ final class AndHostCaptorTest extends StandardTest {
     // verify
     expect(testUnit.getHost()).isEqualTo(host);
     expect(result).is(andNameCaptor);
-  }
-
-  @Test
-  void testCase_andHost_whenDoesNotHaveSuccessor() {
-    // setup
-    final var testUnit = new AndHostCaptor<>();
-
-    // execute & verify
-    expectRunning(() -> testUnit.andHost("nolix.ch"))
-      .throwsException()
-      .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
   @Test

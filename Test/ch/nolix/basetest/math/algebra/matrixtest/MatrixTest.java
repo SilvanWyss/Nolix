@@ -75,17 +75,6 @@ final class MatrixTest extends StandardTest {
   }
 
   @Test
-  void testCase_createIdendityMatrix_with1Row() {
-    // execute
-    final var result = Matrix.createIdendityMatrixWithLength(1);
-
-    // verify
-    expect(result.getRowCount()).isEqualTo(1);
-    expect(result.getColumnCount()).isEqualTo(1);
-    expect(result.getValue(1, 1)).isEqualTo(1.0);
-  }
-
-  @Test
   void testCase_createIdendityMatrix_with10Rows() {
     // execute
     final var result = Matrix.createIdendityMatrixWithLength(10);
@@ -102,6 +91,17 @@ final class MatrixTest extends StandardTest {
         }
       }
     }
+  }
+
+  @Test
+  void testCase_createIdendityMatrix_with1Row() {
+    // execute
+    final var result = Matrix.createIdendityMatrixWithLength(1);
+
+    // verify
+    expect(result.getRowCount()).isEqualTo(1);
+    expect(result.getColumnCount()).isEqualTo(1);
+    expect(result.getValue(1, 1)).isEqualTo(1.0);
   }
 
   @Test
@@ -247,19 +247,6 @@ final class MatrixTest extends StandardTest {
   }
 
   @Test
-  void testCase_toPolynom_whenHas1Row() {
-    // setup
-    final var testUnit = Matrix.withRowCountAndColumnCount(1, 4);
-    testUnit.setValues(1.0, 2.0, 3.0, 4.0);
-
-    // execute
-    final var result = testUnit.toPolynom();
-
-    // verify
-    expect(result).hasStringRepresentation("x->x^3+2.0x^2+3.0x+4.0");
-  }
-
-  @Test
   void testCase_toPolynom_whenHas1Column() {
     // setup
     final var testUnit = Matrix.withRowCountAndColumnCount(4, 1);
@@ -273,16 +260,16 @@ final class MatrixTest extends StandardTest {
   }
 
   @Test
-  void testCase_toPolynom_whenHas2Rows() {
+  void testCase_toPolynom_whenHas1Row() {
     // setup
-    final var testUnit = Matrix.withRowCountAndColumnCount(2, 4);
-    testUnit.setValues(1.0, 2.0, 3.0, 4.0, 11.0, 12.0, 13.0, 14.0);
+    final var testUnit = Matrix.withRowCountAndColumnCount(1, 4);
+    testUnit.setValues(1.0, 2.0, 3.0, 4.0);
 
-    // execute & verify
-    expectRunning(testUnit::toPolynom)
-      .throwsException()
-      .ofType(UnrepresentingArgumentException.class)
-      .withMessage("The given Matrix '[1.0,2.0,3.0,4.0;11.0,12.0,13.0,14.0]' does not represent a Polynom.");
+    // execute
+    final var result = testUnit.toPolynom();
+
+    // verify
+    expect(result).hasStringRepresentation("x->x^3+2.0x^2+3.0x+4.0");
   }
 
   @Test
@@ -299,9 +286,22 @@ final class MatrixTest extends StandardTest {
   }
 
   @Test
-  void testCase_toVector_whenContains1Row() {
+  void testCase_toPolynom_whenHas2Rows() {
     // setup
-    final var testUnit = Matrix.withRowCountAndColumnCount(1, 4).setValues(1.0, 2.0, 3.0, 4.0);
+    final var testUnit = Matrix.withRowCountAndColumnCount(2, 4);
+    testUnit.setValues(1.0, 2.0, 3.0, 4.0, 11.0, 12.0, 13.0, 14.0);
+
+    // execute & verify
+    expectRunning(testUnit::toPolynom)
+      .throwsException()
+      .ofType(UnrepresentingArgumentException.class)
+      .withMessage("The given Matrix '[1.0,2.0,3.0,4.0;11.0,12.0,13.0,14.0]' does not represent a Polynom.");
+  }
+
+  @Test
+  void testCase_toVector_whenContains1Column() {
+    // setup
+    final var testUnit = Matrix.withRowCountAndColumnCount(4, 1).setValues(1.0, 2.0, 3.0, 4.0);
 
     // execute
     final var result = testUnit.toVector();
@@ -311,9 +311,9 @@ final class MatrixTest extends StandardTest {
   }
 
   @Test
-  void testCase_toVector_whenContains1Column() {
+  void testCase_toVector_whenContains1Row() {
     // setup
-    final var testUnit = Matrix.withRowCountAndColumnCount(4, 1).setValues(1.0, 2.0, 3.0, 4.0);
+    final var testUnit = Matrix.withRowCountAndColumnCount(1, 4).setValues(1.0, 2.0, 3.0, 4.0);
 
     // execute
     final var result = testUnit.toVector();

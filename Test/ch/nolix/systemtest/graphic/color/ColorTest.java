@@ -85,18 +85,6 @@ final class ColorTest extends StandardTest {
   }
 
   @Test
-  void testCase_getGreenValue() {
-    // setup
-    final var testUnit = Color.fromString("0x102030A0");
-
-    // execute
-    final var result = testUnit.getGreenValue();
-
-    // verify
-    expect(result).isEqualTo(0x20);
-  }
-
-  @Test
   void testCase_getColorNameOrHexadecimalString_1A() {
     // setup
     final var testUnit = X11ColorCatalog.ALICE_BLUE;
@@ -118,6 +106,18 @@ final class ColorTest extends StandardTest {
 
     // verify
     expect(result).isEqualTo("YellowGreen");
+  }
+
+  @Test
+  void testCase_getGreenValue() {
+    // setup
+    final var testUnit = Color.fromString("0x102030A0");
+
+    // execute
+    final var result = testUnit.getGreenValue();
+
+    // verify
+    expect(result).isEqualTo(0x20);
   }
 
   @Test

@@ -17,6 +17,18 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullExce
  */
 final class ImmutableChainedNodeCreationTest extends StandardTest {
   @Test
+  void testCase_fromNode_whenNodeHasHeaderOnly() {
+    // setup
+    final var node = ImmutableNode.withHeader("a");
+
+    // execute
+    final var result = ImmutableChainedNode.fromNode(node);
+
+    // verify
+    expect(result).hasStringRepresentation("a");
+  }
+
+  @Test
   void testCase_fromNode_whenNodeIsBlank() {
     // setup
     final var node = ImmutableNode.EMPTY_NODE;
@@ -29,18 +41,6 @@ final class ImmutableChainedNodeCreationTest extends StandardTest {
 
     // verify
     expect(result).hasStringRepresentation("");
-  }
-
-  @Test
-  void testCase_fromNode_whenNodeHasHeaderOnly() {
-    // setup
-    final var node = ImmutableNode.withHeader("a");
-
-    // execute
-    final var result = ImmutableChainedNode.fromNode(node);
-
-    // verify
-    expect(result).hasStringRepresentation("a");
   }
 
   @ParameterizedTest
@@ -69,20 +69,20 @@ final class ImmutableChainedNodeCreationTest extends StandardTest {
   }
 
   @Test
-  void testCase_withHeader_whenNullHeaderIsGiven() {
-    // execute & verify
-    expectRunning(() -> ImmutableChainedNode.withHeader(null))
-      .throwsException()
-      .ofType(ArgumentIsNullException.class)
-      .withMessage("The given header is null.");
-  }
-
-  @Test
   void testCase_withHeader_whenHeaderIsGiven() {
     // execute
     final var result = ImmutableChainedNode.withHeader("a");
 
     // verify
     expect(result).hasStringRepresentation("a");
+  }
+
+  @Test
+  void testCase_withHeader_whenNullHeaderIsGiven() {
+    // execute & verify
+    expectRunning(() -> ImmutableChainedNode.withHeader(null))
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given header is null.");
   }
 }

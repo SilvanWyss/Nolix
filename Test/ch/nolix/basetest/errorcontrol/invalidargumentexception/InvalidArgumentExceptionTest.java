@@ -16,18 +16,6 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
  */
 final class InvalidArgumentExceptionTest extends StandardTest {
   @Test
-  void testCase_forArgument_whenArgumentIsNull() {
-    // execute
-    final var result = InvalidArgumentException.forArgument(null);
-
-    // verify
-    expect(result.getArgumentName()).isEqualTo("argument");
-    expect(result.getStoredArgument()).isNull();
-    expect(result.getErrorPredicate()).isEqualTo("is not valid");
-    expect(result.getMessage()).isEqualTo("The given argument is not valid.");
-  }
-
-  @Test
   void testCase_forArgument_whenArgumentIsANode() {
     // setup
     final var node = ImmutableNode.fromString("Parking(Slot(Id(A)),Slot(Id(B)))");
@@ -40,6 +28,18 @@ final class InvalidArgumentExceptionTest extends StandardTest {
     expect(result.getStoredArgument()).is(node);
     expect(result.getErrorPredicate()).isEqualTo("is not valid");
     expect(result.getMessage()).isEqualTo("The given ImmutableNode 'Parking(Slot(Id(A)),Slot(Id(B)))' is not valid.");
+  }
+
+  @Test
+  void testCase_forArgument_whenArgumentIsNull() {
+    // execute
+    final var result = InvalidArgumentException.forArgument(null);
+
+    // verify
+    expect(result.getArgumentName()).isEqualTo("argument");
+    expect(result.getStoredArgument()).isNull();
+    expect(result.getErrorPredicate()).isEqualTo("is not valid");
+    expect(result.getMessage()).isEqualTo("The given argument is not valid.");
   }
 
   @Test

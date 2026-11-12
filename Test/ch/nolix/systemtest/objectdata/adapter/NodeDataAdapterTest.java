@@ -28,27 +28,6 @@ final class NodeDataAdapterTest extends StandardTest {
   }
 
   @Test
-  void testCase_close_whenIsOpen() {
-    // setup
-    final var nodeDatabase = MutableNode.createEmpty();
-    try ( //
-    final var testUnit = //
-    NodeDataAdapter
-      .forNodeDatabase(nodeDatabase)
-      .withName("MyDatabase")
-      .andSchema(EntityTypeSet.EMPTY_SCHEMA)) {
-      // setup verification
-      expect(testUnit.isOpen()).isTrue();
-
-      // execute
-      testUnit.close();
-
-      // verify
-      expect(testUnit.isClosed()).isTrue();
-    }
-  }
-
-  @Test
   void testCase_close_whenIsClosed() {
     // setup
     final var nodeDatabase = MutableNode.createEmpty();
@@ -62,6 +41,27 @@ final class NodeDataAdapterTest extends StandardTest {
 
       // setup verification
       expect(testUnit.isClosed()).isTrue();
+
+      // execute
+      testUnit.close();
+
+      // verify
+      expect(testUnit.isClosed()).isTrue();
+    }
+  }
+
+  @Test
+  void testCase_close_whenIsOpen() {
+    // setup
+    final var nodeDatabase = MutableNode.createEmpty();
+    try ( //
+    final var testUnit = //
+    NodeDataAdapter
+      .forNodeDatabase(nodeDatabase)
+      .withName("MyDatabase")
+      .andSchema(EntityTypeSet.EMPTY_SCHEMA)) {
+      // setup verification
+      expect(testUnit.isOpen()).isTrue();
 
       // execute
       testUnit.close();

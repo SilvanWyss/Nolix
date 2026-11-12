@@ -23,6 +23,17 @@ final class WithNameCaptorTest extends StandardTest {
   }
 
   @Test
+  void testCase_withName_whenDoesNotHaveSuccessor() {
+    // setup
+    final var testUnit = new WithNameCaptor<>();
+
+    // execute & verify
+    expectRunning(() -> testUnit.withName("john"))
+      .throwsException()
+      .ofType(ArgumentDoesNotHaveAttributeException.class);
+  }
+
+  @Test
   void testCase_withName_whenHasSuccessor() {
     // define test parameters
     final var name = "john";
@@ -37,16 +48,5 @@ final class WithNameCaptorTest extends StandardTest {
     // verify
     expect(testUnit.getName()).isEqualTo(name);
     expect(result).is(andNameCaptor);
-  }
-
-  @Test
-  void testCase_withName_whenDoesNotHaveSuccessor() {
-    // setup
-    final var testUnit = new WithNameCaptor<>();
-
-    // execute & verify
-    expectRunning(() -> testUnit.withName("john"))
-      .throwsException()
-      .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }

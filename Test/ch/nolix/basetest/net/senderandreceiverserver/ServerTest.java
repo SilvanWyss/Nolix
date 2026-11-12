@@ -35,23 +35,6 @@ final class ServerTest extends StandardTest {
   }
 
   @Test
-  void testCase_clear_whenIsEmpty() {
-    // define test parameters
-    final var port = 50000;
-
-    try (final var testUnit = Server.forPort(port)) {
-      // setup verification
-      expect(testUnit.isEmpty()).isTrue();
-
-      // execute
-      testUnit.clear();
-
-      // verify
-      expect(testUnit.isEmpty()).isTrue();
-    }
-  }
-
-  @Test
   void testCase_clear_whenContainsAny() {
     // define test parameters
     final var port = 50000;
@@ -62,6 +45,23 @@ final class ServerTest extends StandardTest {
 
       // setup verification
       expect(testUnit.containsAny()).isTrue();
+
+      // execute
+      testUnit.clear();
+
+      // verify
+      expect(testUnit.isEmpty()).isTrue();
+    }
+  }
+
+  @Test
+  void testCase_clear_whenIsEmpty() {
+    // define test parameters
+    final var port = 50000;
+
+    try (final var testUnit = Server.forPort(port)) {
+      // setup verification
+      expect(testUnit.isEmpty()).isTrue();
 
       // execute
       testUnit.clear();

@@ -123,6 +123,20 @@ final class StringToolTest extends StandardTest {
 
   @ParameterizedTest
   @CsvSource({
+  ",", //
+  "cursor", //
+  "cursorIcon" //
+  })
+  void testCase_isPascalCase_whenGivenStringIsNotPascalCase(final String string) {
+    // execute
+    final var result = StringTool.isPascalCase(string);
+
+    // verify
+    expect(result).isFalse();
+  }
+
+  @ParameterizedTest
+  @CsvSource({
   "''", //
   "Cursor", //
   "CursorIcon" //
@@ -137,16 +151,24 @@ final class StringToolTest extends StandardTest {
 
   @ParameterizedTest
   @CsvSource({
-  ",", //
-  "cursor", //
-  "cursorIcon" //
+  "x", //
+  "y", //
+  "z", //
+  "-1", //
+  "+1", //
+  "2", //
+  "3", //
+  "10" //
   })
-  void testCase_isPascalCase_whenGivenStringIsNotPascalCase(final String string) {
-    // execute
-    final var result = StringTool.isPascalCase(string);
+  void testCase_toBoolean_whenGivenStringDoesNotRepresentABoolean(final String string) {
+    // setup
+    final var testUnit = new StringToolUnit();
 
-    // verify
-    expect(result).isFalse();
+    // execute & verify
+    expectRunning(() -> testUnit.toBoolean(string))
+      .throwsException()
+      .ofType(UnrepresentingArgumentException.class)
+      .withMessage("The given String '" + string + "' does not represent a boolean.");
   }
 
   @ParameterizedTest
@@ -189,48 +211,6 @@ final class StringToolTest extends StandardTest {
 
   @ParameterizedTest
   @CsvSource({
-  "x", //
-  "y", //
-  "z", //
-  "-1", //
-  "+1", //
-  "2", //
-  "3", //
-  "10" //
-  })
-  void testCase_toBoolean_whenGivenStringDoesNotRepresentABoolean(final String string) {
-    // setup
-    final var testUnit = new StringToolUnit();
-
-    // execute & verify
-    expectRunning(() -> testUnit.toBoolean(string))
-      .throwsException()
-      .ofType(UnrepresentingArgumentException.class)
-      .withMessage("The given String '" + string + "' does not represent a boolean.");
-  }
-
-  @ParameterizedTest
-  @CsvSource({
-  "-2", //
-  "-1", //
-  "-0", //
-  "0", //
-  "1", //
-  "2", //
-  })
-  void testCase_toDouble_whenGivenStringDoesNotRepresentADouble(final String string) {
-    // setup
-    final var testUnit = new StringToolUnit();
-
-    // execute & verify
-    expectRunning(() -> testUnit.toDouble(string))
-      .throwsException()
-      .ofType(UnrepresentingArgumentException.class)
-      .withMessage("The given String '" + string + "' does not represent a double.");
-  }
-
-  @ParameterizedTest
-  @CsvSource({
   "'', ''", //
   "cursor, CURSOR", //
   "CURSOR, CURSOR", //
@@ -265,6 +245,26 @@ final class StringToolTest extends StandardTest {
 
     // verify
     expect(result).isEqualTo(expectedResult);
+  }
+
+  @ParameterizedTest
+  @CsvSource({
+  "-2", //
+  "-1", //
+  "-0", //
+  "0", //
+  "1", //
+  "2", //
+  })
+  void testCase_toDouble_whenGivenStringDoesNotRepresentADouble(final String string) {
+    // setup
+    final var testUnit = new StringToolUnit();
+
+    // execute & verify
+    expectRunning(() -> testUnit.toDouble(string))
+      .throwsException()
+      .ofType(UnrepresentingArgumentException.class)
+      .withMessage("The given String '" + string + "' does not represent a double.");
   }
 
   @ParameterizedTest

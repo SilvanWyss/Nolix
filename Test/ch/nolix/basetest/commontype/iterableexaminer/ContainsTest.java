@@ -15,34 +15,6 @@ import ch.nolix.base.testing.standardtest.StandardTest;
  */
 final class ContainsTest extends StandardTest {
   @Test
-  void testCase_contains_whenGivenIterableIsNull() {
-    // setup
-    final var object = new VoidObject();
-    final Iterable<Object> iterable = null;
-    final var testUnit = new IterableExaminer();
-
-    // execute
-    final var result = testUnit.contains(iterable, object);
-
-    // verify
-    expect(result).isFalse();
-  }
-
-  @Test
-  void testCase_contains_whenGivenIterableIsEmpty() {
-    // setup
-    final var object = new VoidObject();
-    final Iterable<Object> iterable = ImmutableList.createEmpty();
-    final var testUnit = new IterableExaminer();
-
-    // execute
-    final var result = testUnit.contains(iterable, object);
-
-    // verify
-    expect(result).isFalse();
-  }
-
-  @Test
   void testCase_contains_whenGivenIterableContainsGivenObject() {
     // setup
     final var object = new VoidObject();
@@ -89,6 +61,34 @@ final class ContainsTest extends StandardTest {
 
     // execute
     final var result = testUnit.contains(iterable, object4);
+
+    // verify
+    expect(result).isFalse();
+  }
+
+  @Test
+  void testCase_contains_whenGivenIterableIsEmpty() {
+    // setup
+    final var object = new VoidObject();
+    final Iterable<Object> iterable = ImmutableList.createEmpty();
+    final var testUnit = new IterableExaminer();
+
+    // execute
+    final var result = testUnit.contains(iterable, object);
+
+    // verify
+    expect(result).isFalse();
+  }
+
+  @Test
+  void testCase_contains_whenGivenIterableIsNull() {
+    // setup
+    final var object = new VoidObject();
+    final Iterable<Object> iterable = null;
+    final var testUnit = new IterableExaminer();
+
+    // execute
+    final var result = testUnit.contains(iterable, object);
 
     // verify
     expect(result).isFalse();

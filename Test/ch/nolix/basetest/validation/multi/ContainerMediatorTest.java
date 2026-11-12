@@ -18,17 +18,13 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
  */
 final class ContainerMediatorTest extends StandardTest {
   @Test
-  void testCase_contains_whenGivenConditionIsNull() {
+  void testCase_contains_whenGivenArgumentContainsAWantedElement() {
     // setup
     final var list = ImmutableList.withElements("ax", "ax", "bx", "bx", "cx", "cx", "dx", "dx");
-    final Predicate<String> condition = null;
     final var testUnit = NamableIterableMediator.forArgument(list);
 
     // execute & verify
-    expectRunning(() -> testUnit.contains(condition))
-      .throwsException()
-      .ofType(ArgumentIsNullException.class)
-      .withMessage("The given condition is null.");
+    expectRunning(() -> testUnit.contains(e -> e.startsWith("c"))).doesNotThrowException();
   }
 
   @Test
@@ -47,12 +43,16 @@ final class ContainerMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_contains_whenGivenArgumentContainsAWantedElement() {
+  void testCase_contains_whenGivenConditionIsNull() {
     // setup
     final var list = ImmutableList.withElements("ax", "ax", "bx", "bx", "cx", "cx", "dx", "dx");
+    final Predicate<String> condition = null;
     final var testUnit = NamableIterableMediator.forArgument(list);
 
     // execute & verify
-    expectRunning(() -> testUnit.contains(e -> e.startsWith("c"))).doesNotThrowException();
+    expectRunning(() -> testUnit.contains(condition))
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given condition is null.");
   }
 }

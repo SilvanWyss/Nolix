@@ -50,35 +50,6 @@ final class TimeTest extends StandardTest {
   }
 
   @Test
-  void testCase_isAfter_whenGivenTimeIsBefore() {
-    // setup
-    final var testUnit = //
-    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
-      2030,
-      06,
-      02,
-      00,
-      00,
-      00,
-      000);
-    final var time = //
-    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
-      2030,
-      06,
-      01,
-      00,
-      00,
-      00,
-      000);
-
-    // execute
-    final var result = testUnit.isAfter(time);
-
-    // verify
-    expect(result).isTrue();
-  }
-
-  @Test
   void testCase_isAfter_whenGivenTimeEquals() {
     // setup
     final var testUnit = //
@@ -137,18 +108,18 @@ final class TimeTest extends StandardTest {
   }
 
   @Test
-  void testCase_isBefore_whenGivenTimeIsBefore() {
+  void testCase_isAfter_whenGivenTimeIsBefore() {
     // setup
-    final var time = //
+    final var testUnit = //
     Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
       2030,
       06,
-      01,
+      02,
       00,
       00,
       00,
       000);
-    final var testUnit = //
+    final var time = //
     Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
       2030,
       06,
@@ -159,10 +130,10 @@ final class TimeTest extends StandardTest {
       000);
 
     // execute
-    final var result = testUnit.isBefore(time);
+    final var result = testUnit.isAfter(time);
 
     // verify
-    expect(result).isFalse();
+    expect(result).isTrue();
   }
 
   @Test
@@ -221,6 +192,35 @@ final class TimeTest extends StandardTest {
 
     // verify
     expect(result).isTrue();
+  }
+
+  @Test
+  void testCase_isBefore_whenGivenTimeIsBefore() {
+    // setup
+    final var time = //
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
+      2030,
+      06,
+      01,
+      00,
+      00,
+      00,
+      000);
+    final var testUnit = //
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
+      2030,
+      06,
+      01,
+      00,
+      00,
+      00,
+      000);
+
+    // execute
+    final var result = testUnit.isBefore(time);
+
+    // verify
+    expect(result).isFalse();
   }
 
   @Test

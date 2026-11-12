@@ -22,18 +22,6 @@ public abstract class ControlTest<C extends Control<C, ?>> extends StandardTest 
   protected abstract C createTestUnit();
 
   @Test
-  final void testCase_belongsToGui_whenDoesNotBelongToGui() {
-    // setup
-    final var testUnit = createTestUnit();
-
-    // execute
-    final var result = testUnit.belongsToGui();
-
-    // verify
-    expect(result).isFalse();
-  }
-
-  @Test
   final void testCase_belongsToGui_whenBelongsDirectlyToGui() {
     // setup
     final var webGui = new WebGui();
@@ -61,6 +49,18 @@ public abstract class ControlTest<C extends Control<C, ?>> extends StandardTest 
 
     // verify
     expect(result).isTrue();
+  }
+
+  @Test
+  final void testCase_belongsToGui_whenDoesNotBelongToGui() {
+    // setup
+    final var testUnit = createTestUnit();
+
+    // execute
+    final var result = testUnit.belongsToGui();
+
+    // verify
+    expect(result).isFalse();
   }
 
   @Test

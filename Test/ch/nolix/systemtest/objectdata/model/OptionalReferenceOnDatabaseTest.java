@@ -29,20 +29,26 @@ final class OptionalReferenceOnDatabaseTest extends StandardTest {
   }
 
   @Test
-  void testCase_isSaved_whenIsNewAndEmpty() {
-    // setup
+  void testCase_getStoredEntity_whenIsLoadedAndNotEmpty() {
+    // setup step 1
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
+    final var garfield = new Pet();
+    nodeDataAdapter.insertEntity(garfield);
     final var john = new Person();
+    john.pet.setEntity(garfield);
     nodeDataAdapter.insertEntity(john);
-
-    // execute
     nodeDataAdapter.saveChanges();
 
-    // verify
+    // setup step 2
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
-    expect(loadedJohn.pet.isEmpty()).isTrue();
+
+    // execute
+    final var result = loadedJohn.pet.getStoredReferencedEntity();
+
+    // verify
+    expect(result.getId()).isEqualTo(garfield.getId());
   }
 
   @Test
@@ -65,26 +71,20 @@ final class OptionalReferenceOnDatabaseTest extends StandardTest {
   }
 
   @Test
-  void testCase_getStoredEntity_whenIsLoadedAndNotEmpty() {
-    // setup step 1
+  void testCase_isSaved_whenIsNewAndEmpty() {
+    // setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
-    final var garfield = new Pet();
-    nodeDataAdapter.insertEntity(garfield);
     final var john = new Person();
-    john.pet.setEntity(garfield);
     nodeDataAdapter.insertEntity(john);
-    nodeDataAdapter.saveChanges();
-
-    // setup step 2
-    final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
 
     // execute
-    final var result = loadedJohn.pet.getStoredReferencedEntity();
+    nodeDataAdapter.saveChanges();
 
     // verify
-    expect(result.getId()).isEqualTo(garfield.getId());
+    final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
+    expect(loadedJohn.pet.isEmpty()).isTrue();
   }
 
   @Test

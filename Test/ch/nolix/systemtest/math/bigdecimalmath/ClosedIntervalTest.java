@@ -17,18 +17,6 @@ import ch.nolix.system.math.bigdecimalmath.ClosedInterval;
  * @author Silvan Wyss
  */
 final class ClosedIntervalTest extends StandardTest {
-  @Test
-  void testCase_containsValue_whenNullIsGiven() {
-    // setup
-    final var testUnit = ClosedInterval.withMinAndMax(0.0, 1.0);
-
-    // execute
-    final var result = testUnit.containsValue(null);
-
-    // verify
-    expect(result).isFalse();
-  }
-
   @ParameterizedTest
   @CsvSource({
   "0.0, 1.0, 0.0", //value = min
@@ -65,21 +53,27 @@ final class ClosedIntervalTest extends StandardTest {
   }
 
   @Test
-  void testCase_withMinAndMax_whenGivenMinIsNull() {
-    // execute & verify
-    expectRunning(() -> ClosedInterval.withMinAndMax(null, BigDecimal.valueOf(1.0)))
-      .throwsException()
-      .ofType(ArgumentIsNullException.class)
-      .withMessage("The given minimum is null.");
+  void testCase_containsValue_whenNullIsGiven() {
+    // setup
+    final var testUnit = ClosedInterval.withMinAndMax(0.0, 1.0);
+
+    // execute
+    final var result = testUnit.containsValue(null);
+
+    // verify
+    expect(result).isFalse();
   }
 
   @Test
-  void testCase_withMinAndMax_whenGivenMaxIsNull() {
-    // execute & verify
-    expectRunning(() -> ClosedInterval.withMinAndMax(BigDecimal.valueOf(1.0), null))
-      .throwsException()
-      .ofType(ArgumentIsNullException.class)
-      .withMessage("The given maximum is null.");
+  void testCase_equals_whenEqualClosedIntervalIsGiven() {
+    // setup
+    final var testUnit = ClosedInterval.withMinAndMax(0.0, 1.0);
+
+    // execute
+    final var result = testUnit.equals(ClosedInterval.withMinAndMax(0.0, 1.0));
+
+    // verify
+    expect(result).isTrue();
   }
 
   @Test
@@ -105,18 +99,6 @@ final class ClosedIntervalTest extends StandardTest {
 
     // verify
     expect(result).isFalse();
-  }
-
-  @Test
-  void testCase_equals_whenEqualClosedIntervalIsGiven() {
-    // setup
-    final var testUnit = ClosedInterval.withMinAndMax(0.0, 1.0);
-
-    // execute
-    final var result = testUnit.equals(ClosedInterval.withMinAndMax(0.0, 1.0));
-
-    // verify
-    expect(result).isTrue();
   }
 
   @Test
@@ -310,5 +292,23 @@ final class ClosedIntervalTest extends StandardTest {
 
     // verify
     expect(result).isEqualTo("[-1.00000, 1.00000]");
+  }
+
+  @Test
+  void testCase_withMinAndMax_whenGivenMaxIsNull() {
+    // execute & verify
+    expectRunning(() -> ClosedInterval.withMinAndMax(BigDecimal.valueOf(1.0), null))
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given maximum is null.");
+  }
+
+  @Test
+  void testCase_withMinAndMax_whenGivenMinIsNull() {
+    // execute & verify
+    expectRunning(() -> ClosedInterval.withMinAndMax(null, BigDecimal.valueOf(1.0)))
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given minimum is null.");
   }
 }

@@ -23,6 +23,17 @@ final class WithPasswordCaptorTest extends StandardTest {
   }
 
   @Test
+  void testCase_withPassword_whenDoesNotHaveSuccessor() {
+    // setup
+    final var testUnit = new WithPasswordCaptor<>();
+
+    // execute & verify
+    expectRunning(() -> testUnit.withPassword("secret"))
+      .throwsException()
+      .ofType(ArgumentDoesNotHaveAttributeException.class);
+  }
+
+  @Test
   void testCase_withPassword_whenHasSuccessor() {
     // define test parameters
     final var password = "secret";
@@ -37,16 +48,5 @@ final class WithPasswordCaptorTest extends StandardTest {
     // verify
     expect(testUnit.getPassword()).isEqualTo(password);
     expect(result).is(successor);
-  }
-
-  @Test
-  void testCase_withPassword_whenDoesNotHaveSuccessor() {
-    // setup
-    final var testUnit = new WithPasswordCaptor<>();
-
-    // execute & verify
-    expectRunning(() -> testUnit.withPassword("secret"))
-      .throwsException()
-      .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }

@@ -19,19 +19,6 @@ import ch.nolix.system.webgui.main.WebGui;
  */
 final class StyleTest extends StandardTest {
   @Test
-  void testCase_fromSpecification_whenIsEmpty() {
-    // setup
-    final var specification = ImmutableNode.withHeader("Style");
-
-    // execute
-    final var result = Style.fromSpecification(specification);
-
-    // verify
-    expect(result.getAttachingAttributes()).isEmpty();
-    expect(result.getSubStyles()).isEmpty();
-  }
-
-  @Test
   void testCase_fromSpecification_whenContainsAttachingAttributesAndSubStyles() {
     // setup
     final var specification = ImmutableNode
@@ -56,6 +43,19 @@ final class StyleTest extends StandardTest {
   }
 
   @Test
+  void testCase_fromSpecification_whenIsEmpty() {
+    // setup
+    final var specification = ImmutableNode.withHeader("Style");
+
+    // execute
+    final var result = Style.fromSpecification(specification);
+
+    // verify
+    expect(result.getAttachingAttributes()).isEmpty();
+    expect(result.getSubStyles()).isEmpty();
+  }
+
+  @Test
   void testCase_styleElement() {
     // setup step 1: create WebGui
     final var webGui = new WebGui();
@@ -75,39 +75,6 @@ final class StyleTest extends StandardTest {
   }
 
   @Test
-  void testCase_withAttachingAttribute_whenIsEmpty() {
-    // setup
-    final var testUnit = Style.EMPTY;
-
-    // execute
-    final var result = testUnit.withAttachingAttributes("p1(v1)", "p2(v2)");
-
-    // verify
-    expect(result.getAttachingAttributes()
-      .toStrings())
-      .containsExactlyEqualing("p1(v1)", "p2(v2)");
-    expect(result.getSubStyles()).isEmpty();
-  }
-
-  @Test
-  void testCase_withSubStyle_whenIsEmpty() {
-    // setup
-    final var subStyle1 = SelectingStyle.EMPTY;
-    final var subStyle2 = SelectingStyle.EMPTY;
-    final var testUnit = Style.EMPTY;
-
-    // execute
-    final var result = testUnit.withAdditionalSubStyles(subStyle1, subStyle2);
-
-    // verify
-    expect(result.getAttachingAttributes()).isEmpty();
-    final var subStyles = result.getSubStyles();
-    expect(subStyles).hasElementCount(2);
-    expect(subStyles.getStoredAtOneBasedIndex(1)).is(subStyle1);
-    expect(subStyles.getStoredAtOneBasedIndex(2)).is(subStyle2);
-  }
-
-  @Test
   void testCase_withAttachingAttribute_whenContainsAny() {
     // setup
     final var testUnit = Style.EMPTY.withAttachingAttributes("p1(v1)", "p2(v2)");
@@ -122,6 +89,21 @@ final class StyleTest extends StandardTest {
         "p2(v2)",
         "p3(v3)",
         "p4(v4)");
+    expect(result.getSubStyles()).isEmpty();
+  }
+
+  @Test
+  void testCase_withAttachingAttribute_whenIsEmpty() {
+    // setup
+    final var testUnit = Style.EMPTY;
+
+    // execute
+    final var result = testUnit.withAttachingAttributes("p1(v1)", "p2(v2)");
+
+    // verify
+    expect(result.getAttachingAttributes()
+      .toStrings())
+      .containsExactlyEqualing("p1(v1)", "p2(v2)");
     expect(result.getSubStyles()).isEmpty();
   }
 
@@ -145,5 +127,23 @@ final class StyleTest extends StandardTest {
     expect(subStyles.getStoredAtOneBasedIndex(2)).is(subStyle2);
     expect(subStyles.getStoredAtOneBasedIndex(3)).is(subStyle3);
     expect(subStyles.getStoredAtOneBasedIndex(4)).is(subStyle4);
+  }
+
+  @Test
+  void testCase_withSubStyle_whenIsEmpty() {
+    // setup
+    final var subStyle1 = SelectingStyle.EMPTY;
+    final var subStyle2 = SelectingStyle.EMPTY;
+    final var testUnit = Style.EMPTY;
+
+    // execute
+    final var result = testUnit.withAdditionalSubStyles(subStyle1, subStyle2);
+
+    // verify
+    expect(result.getAttachingAttributes()).isEmpty();
+    final var subStyles = result.getSubStyles();
+    expect(subStyles).hasElementCount(2);
+    expect(subStyles.getStoredAtOneBasedIndex(1)).is(subStyle1);
+    expect(subStyles.getStoredAtOneBasedIndex(2)).is(subStyle2);
   }
 }

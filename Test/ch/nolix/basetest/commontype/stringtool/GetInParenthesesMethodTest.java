@@ -14,18 +14,6 @@ import ch.nolix.base.testing.standardtest.StandardTest;
  * @author Silvan Wyss
  */
 final class GetInParenthesesMethodTest extends StandardTest {
-  @Test
-  void testCase_getInParantheses_whenGivenObjectIsNull() {
-    // setup
-    final var testUnit = new StringToolUnit();
-
-    // execute
-    final var result = testUnit.getInParentheses(null, null, null);
-
-    // verify
-    expect(result).isEqualTo("(null,null,null)");
-  }
-
   @ParameterizedTest
   @CsvSource({
   "'', '()'", //
@@ -53,6 +41,18 @@ final class GetInParenthesesMethodTest extends StandardTest {
 
     // verify
     expect(result).isEqualTo("(antelope,baboon,elephant)");
+  }
+
+  @Test
+  void testCase_getInParantheses_whenGivenObjectIsNull() {
+    // setup
+    final var testUnit = new StringToolUnit();
+
+    // execute
+    final var result = testUnit.getInParentheses(null, null, null);
+
+    // verify
+    expect(result).isEqualTo("(null,null,null)");
   }
 
   @Test

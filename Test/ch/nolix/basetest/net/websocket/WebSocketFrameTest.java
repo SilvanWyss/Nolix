@@ -79,22 +79,40 @@ final class WebSocketFrameTest extends StandardTest {
   }
 
   @Test
-  void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIsEmpty() {
+  void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs1000000Bytes() {
+    // setup
+    final var payload = new byte[1_000_000];
+    final var lByte = UnsignedByte.withBits(1, 0, 1, 0, 1, 1, 0, 0).toByte();
+    for (var i = 0; i < payload.length; i++) {
+      payload[i] = lByte;
+    }
+
     // setup
     final var testUnit = //
     WebSocketFrame.withFinBitAndOpCodeAndMaskBitAndPayload(
       true,
       WebSocketFrameOpcodeMeaning.TEXT_FRAME,
       false,
-      new byte[] {});
+      payload);
 
     // execute
     final var result = testUnit.toBytes();
 
     // verify
-    expect(result.length).isEqualTo(2);
+    expect(result.length).isEqualTo(1_000_010);
     expect(UnsignedByte.fromByte(result[0])).hasStringRepresentation("10000001");
-    expect(UnsignedByte.fromByte(result[1])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[1])).hasStringRepresentation("01111111");
+    expect(UnsignedByte.fromByte(result[2])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[3])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[4])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[5])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[6])).hasStringRepresentation("00000000");
+    expect(UnsignedByte.fromByte(result[7])).hasStringRepresentation("00001111");
+    expect(UnsignedByte.fromByte(result[8])).hasStringRepresentation("01000010");
+    expect(UnsignedByte.fromByte(result[9])).hasStringRepresentation("01000000");
+    for (var i = 10; i < 1_000_010; i++) {
+      expect(result[i]).isEqualTo(lByte);
+    }
   }
 
   @Test
@@ -189,39 +207,21 @@ final class WebSocketFrameTest extends StandardTest {
   }
 
   @Test
-  void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs1000000Bytes() {
-    // setup
-    final var payload = new byte[1_000_000];
-    final var lByte = UnsignedByte.withBits(1, 0, 1, 0, 1, 1, 0, 0).toByte();
-    for (var i = 0; i < payload.length; i++) {
-      payload[i] = lByte;
-    }
-
+  void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIsEmpty() {
     // setup
     final var testUnit = //
     WebSocketFrame.withFinBitAndOpCodeAndMaskBitAndPayload(
       true,
       WebSocketFrameOpcodeMeaning.TEXT_FRAME,
       false,
-      payload);
+      new byte[] {});
 
     // execute
     final var result = testUnit.toBytes();
 
     // verify
-    expect(result.length).isEqualTo(1_000_010);
+    expect(result.length).isEqualTo(2);
     expect(UnsignedByte.fromByte(result[0])).hasStringRepresentation("10000001");
-    expect(UnsignedByte.fromByte(result[1])).hasStringRepresentation("01111111");
-    expect(UnsignedByte.fromByte(result[2])).hasStringRepresentation("00000000");
-    expect(UnsignedByte.fromByte(result[3])).hasStringRepresentation("00000000");
-    expect(UnsignedByte.fromByte(result[4])).hasStringRepresentation("00000000");
-    expect(UnsignedByte.fromByte(result[5])).hasStringRepresentation("00000000");
-    expect(UnsignedByte.fromByte(result[6])).hasStringRepresentation("00000000");
-    expect(UnsignedByte.fromByte(result[7])).hasStringRepresentation("00001111");
-    expect(UnsignedByte.fromByte(result[8])).hasStringRepresentation("01000010");
-    expect(UnsignedByte.fromByte(result[9])).hasStringRepresentation("01000000");
-    for (var i = 10; i < 1_000_010; i++) {
-      expect(result[i]).isEqualTo(lByte);
-    }
+    expect(UnsignedByte.fromByte(result[1])).hasStringRepresentation("00000000");
   }
 }

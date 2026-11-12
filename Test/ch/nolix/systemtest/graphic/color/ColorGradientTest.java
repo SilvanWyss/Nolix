@@ -16,19 +16,6 @@ import ch.nolix.systemapi.graphic.graphicproperty.Direction;
  */
 final class ColorGradientTest extends StandardTest {
   @Test
-  void testCase_getSpecification() {
-    // setup
-    final var testUnit = ColorGradient.withDirectionAndColors(Direction.HORIZONTAL, X11ColorCatalog.BLACK,
-      X11ColorCatalog.WHITE);
-
-    // execute
-    final var result = testUnit.getSpecification();
-
-    // verify
-    expect(result).hasStringRepresentation("ColorGradient(HORIZONTAL,0x000000,0xFFFFFF)");
-  }
-
-  @Test
   void testCase_fromSpecification_1A() {
     // setup
     final var specification = ImmutableNode.fromString("ColorGradient(0x000000,0xFFFFFF)");
@@ -54,6 +41,19 @@ final class ColorGradientTest extends StandardTest {
     expect(result.getDirection()).is(Direction.HORIZONTAL);
     expect(result.getColor1()).isEqualTo(X11ColorCatalog.BLACK);
     expect(result.getColor2()).isEqualTo(X11ColorCatalog.WHITE);
+  }
+
+  @Test
+  void testCase_getSpecification() {
+    // setup
+    final var testUnit = ColorGradient.withDirectionAndColors(Direction.HORIZONTAL, X11ColorCatalog.BLACK,
+      X11ColorCatalog.WHITE);
+
+    // execute
+    final var result = testUnit.getSpecification();
+
+    // verify
+    expect(result).hasStringRepresentation("ColorGradient(HORIZONTAL,0x000000,0xFFFFFF)");
   }
 
   @Test

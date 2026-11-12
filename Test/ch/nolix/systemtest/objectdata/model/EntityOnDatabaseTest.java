@@ -31,6 +31,54 @@ final class EntityOnDatabaseTest extends StandardTest {
   }
 
   @Test
+  void testCase_delete_whenIsClosed() {
+    // setup
+    final var nodeDatabase = MutableNode.createEmpty();
+    final var schema = EntityTypeSet.withEntityType(Pet.class);
+    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
+    final var garfield = new Pet();
+    garfield.ageInYears.setValue(5);
+    nodeDataAdapter.insertEntity(garfield);
+    nodeDataAdapter.saveChanges();
+
+    // execute & verify
+    expectRunning(garfield::delete).throwsException();
+  }
+
+  @Test
+  void testCase_delete_whenIsLoaded() {
+    // setup step 1
+    final var nodeDatabase = MutableNode.createEmpty();
+    final var schema = EntityTypeSet.withEntityType(Pet.class);
+    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
+    final var garfield = new Pet();
+    garfield.ageInYears.setValue(5);
+    nodeDataAdapter.insertEntity(garfield);
+    nodeDataAdapter.saveChanges();
+
+    // setup step 2
+    final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
+      .getStoredEntityById(garfield.getId());
+
+    // execute part 1
+    loadedGarfield.delete();
+
+    // verify part 1
+    expect(loadedGarfield.isDeleted()).isTrue();
+
+    // execute part 2
+    nodeDataAdapter.saveChanges();
+
+    // verify part 2
+    expect(loadedGarfield.isClosed());
+    expect(
+      nodeDataAdapter
+        .getStoredTableByEntityType(Pet.class)
+        .getStoredEntities()
+        .containsNoMatching(e -> e.hasId(garfield.getId())));
+  }
+
+  @Test
   void testCase_isInserted_whenHasInsertAction() {
     // setup
     final var nodeDatabase = MutableNode.createEmpty();
@@ -143,53 +191,5 @@ final class EntityOnDatabaseTest extends StandardTest {
       .throwsException()
       .ofType(ChangedResourceException.class)
       .withMessage("The data was changed in the meanwhile.");
-  }
-
-  @Test
-  void testCase_delete_whenIsLoaded() {
-    // setup step 1
-    final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = EntityTypeSet.withEntityType(Pet.class);
-    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
-    final var garfield = new Pet();
-    garfield.ageInYears.setValue(5);
-    nodeDataAdapter.insertEntity(garfield);
-    nodeDataAdapter.saveChanges();
-
-    // setup step 2
-    final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
-      .getStoredEntityById(garfield.getId());
-
-    // execute part 1
-    loadedGarfield.delete();
-
-    // verify part 1
-    expect(loadedGarfield.isDeleted()).isTrue();
-
-    // execute part 2
-    nodeDataAdapter.saveChanges();
-
-    // verify part 2
-    expect(loadedGarfield.isClosed());
-    expect(
-      nodeDataAdapter
-        .getStoredTableByEntityType(Pet.class)
-        .getStoredEntities()
-        .containsNoMatching(e -> e.hasId(garfield.getId())));
-  }
-
-  @Test
-  void testCase_delete_whenIsClosed() {
-    // setup
-    final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = EntityTypeSet.withEntityType(Pet.class);
-    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
-    final var garfield = new Pet();
-    garfield.ageInYears.setValue(5);
-    nodeDataAdapter.insertEntity(garfield);
-    nodeDataAdapter.saveChanges();
-
-    // execute & verify
-    expectRunning(garfield::delete).throwsException();
   }
 }

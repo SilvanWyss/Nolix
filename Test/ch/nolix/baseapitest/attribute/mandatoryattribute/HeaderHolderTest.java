@@ -29,20 +29,6 @@ final class HeaderHolderTest extends StandardTest {
   }
 
   @Test
-  void testCase_hasHeader_whenHasTheGivenHeader() {
-    // setup
-    final var testUnit = Mockito.mock(HeaderHolder.class);
-    Mockito.when(testUnit.hasHeader(ArgumentMatchers.any())).thenCallRealMethod();
-    Mockito.when(testUnit.getHeader()).thenReturn("header");
-
-    // execute
-    final var result = testUnit.hasHeader("header");
-
-    // verify
-    expect(result).isTrue();
-  }
-
-  @Test
   void testCase_hasHeader_whenDoesNotHaveTheGivenHeader() {
     // setup
     final var testUnit = Mockito.mock(HeaderHolder.class);
@@ -57,18 +43,14 @@ final class HeaderHolderTest extends StandardTest {
   }
 
   @Test
-  void testCase_hasSameHeaderAs_whenHasTheSameHeader() {
-    // setup step 1: create headerHolderMock
-    final var headerHolderMock = Mockito.mock(HeaderHolder.class);
-    Mockito.when(headerHolderMock.getHeader()).thenReturn("header");
-
-    // setup step 2: create testUnit
+  void testCase_hasHeader_whenHasTheGivenHeader() {
+    // setup
     final var testUnit = Mockito.mock(HeaderHolder.class);
-    Mockito.when(testUnit.hasSameHeaderAs(ArgumentMatchers.any())).thenCallRealMethod();
+    Mockito.when(testUnit.hasHeader(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getHeader()).thenReturn("header");
 
     // execute
-    final var result = testUnit.hasSameHeaderAs(headerHolderMock);
+    final var result = testUnit.hasHeader("header");
 
     // verify
     expect(result).isTrue();
@@ -90,5 +72,23 @@ final class HeaderHolderTest extends StandardTest {
 
     // verify
     expect(result).isFalse();
+  }
+
+  @Test
+  void testCase_hasSameHeaderAs_whenHasTheSameHeader() {
+    // setup step 1: create headerHolderMock
+    final var headerHolderMock = Mockito.mock(HeaderHolder.class);
+    Mockito.when(headerHolderMock.getHeader()).thenReturn("header");
+
+    // setup step 2: create testUnit
+    final var testUnit = Mockito.mock(HeaderHolder.class);
+    Mockito.when(testUnit.hasSameHeaderAs(ArgumentMatchers.any())).thenCallRealMethod();
+    Mockito.when(testUnit.getHeader()).thenReturn("header");
+
+    // execute
+    final var result = testUnit.hasSameHeaderAs(headerHolderMock);
+
+    // verify
+    expect(result).isTrue();
   }
 }

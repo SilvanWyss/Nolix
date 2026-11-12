@@ -19,16 +19,6 @@ import ch.nolix.systemtest.webgui.main.ControlTest;
  */
 public abstract class ItemMenuTest<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>> extends ControlTest<M> {
   @Test
-  final void testCase_creation() {
-    // setup
-    final M testUnit = createTestUnit();
-
-    // setup verification
-    expect(testUnit.isEmpty()).isTrue();
-    expect(testUnit.containsSelectedItem()).isFalse();
-  }
-
-  @Test
   final void testCase_addItemWithIdAndText() {
     // setup
     final M testUnit = createTestUnit();
@@ -63,6 +53,16 @@ public abstract class ItemMenuTest<M extends IItemMenu<M, S>, S extends IItemMen
     // verify
     expect(testUnit.getStoredItems().getViewOf(IItemMenuItem::getText))
       .containsExactlyEqualing("my_text1", "my_text2", "my_text3", "my_text4");
+  }
+
+  @Test
+  final void testCase_creation() {
+    // setup
+    final M testUnit = createTestUnit();
+
+    // setup verification
+    expect(testUnit.isEmpty()).isTrue();
+    expect(testUnit.containsSelectedItem()).isFalse();
   }
 
   @Test

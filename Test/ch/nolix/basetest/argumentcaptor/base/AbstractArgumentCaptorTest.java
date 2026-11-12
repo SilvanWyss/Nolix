@@ -21,10 +21,10 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
  */
 final class AbstractArgumentCaptorTest extends StandardTest {
   @Test
-  void testCase_constructor_whenGivenNextArgumentCaptorIsNull() {
+  void testCase_constructor_whenGivenNextArgumentCaptorIsNotValid() {
     // execute & verify
     expectRunning(() -> //
-    new AbstractArgumentCaptor<String, VoidObject>(null) {
+    new AbstractArgumentCaptor<String, VoidObject>(new VoidObject()) {
       // This class is a sub class without additional methods.
     }) //
       .throwsException()
@@ -32,10 +32,10 @@ final class AbstractArgumentCaptorTest extends StandardTest {
   }
 
   @Test
-  void testCase_constructor_whenGivenNextArgumentCaptorIsNotValid() {
+  void testCase_constructor_whenGivenNextArgumentCaptorIsNull() {
     // execute & verify
     expectRunning(() -> //
-    new AbstractArgumentCaptor<String, VoidObject>(new VoidObject()) {
+    new AbstractArgumentCaptor<String, VoidObject>(null) {
       // This class is a sub class without additional methods.
     }) //
       .throwsException()

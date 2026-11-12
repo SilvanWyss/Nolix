@@ -30,18 +30,17 @@ final class OptionalNameHolderTest extends StandardTest {
   }
 
   @Test
-  void testCase_hasName_whenHasTheGivenName() {
+  void testCase_hasName_whenDoesNotHaveAName() {
     // setup
     final var testUnit = Mockito.mock(OptionalNameHolder.class);
     Mockito.when(testUnit.hasName(ArgumentMatchers.any())).thenCallRealMethod();
-    Mockito.when(testUnit.hasName()).thenReturn(true);
-    Mockito.when(testUnit.getName()).thenReturn("name");
+    Mockito.when(testUnit.hasName()).thenReturn(false);
 
     // execute
     final var result = testUnit.hasName("name");
 
     // verify
-    expect(result).isTrue();
+    expect(result).isFalse();
   }
 
   @Test
@@ -60,16 +59,17 @@ final class OptionalNameHolderTest extends StandardTest {
   }
 
   @Test
-  void testCase_hasName_whenDoesNotHaveAName() {
+  void testCase_hasName_whenHasTheGivenName() {
     // setup
     final var testUnit = Mockito.mock(OptionalNameHolder.class);
     Mockito.when(testUnit.hasName(ArgumentMatchers.any())).thenCallRealMethod();
-    Mockito.when(testUnit.hasName()).thenReturn(false);
+    Mockito.when(testUnit.hasName()).thenReturn(true);
+    Mockito.when(testUnit.getName()).thenReturn("name");
 
     // execute
     final var result = testUnit.hasName("name");
 
     // verify
-    expect(result).isFalse();
+    expect(result).isTrue();
   }
 }

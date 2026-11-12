@@ -16,19 +16,6 @@ import ch.nolix.system.webgui.base.AbsoluteOrRelativeInt;
  */
 final class AbsoluteOrRelativeIntTest extends StandardTest {
   @Test
-  void testCase_fromSpecification_whenGivenSpecificationSpecifiesAValue() {
-    // setup
-    final var specification = ImmutableNode.fromString("Width(500)");
-
-    // execute
-    final var result = AbsoluteOrRelativeInt.fromSpecification(specification);
-
-    // verify
-    expect(result.isAbsolute()).isTrue();
-    expect(result.getAbsoluteValue()).isEqualTo(500);
-  }
-
-  @Test
   void testCase_fromSpecification_whenGivenSpecificationSpecifiesAPercentage() {
     // setup
     final var specification = ImmutableNode.fromString("Width(20%)");
@@ -39,6 +26,19 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
     // verify
     expect(result.isRelative()).isTrue();
     expect(result.getPercentage()).isEqualTo(0.2);
+  }
+
+  @Test
+  void testCase_fromSpecification_whenGivenSpecificationSpecifiesAValue() {
+    // setup
+    final var specification = ImmutableNode.fromString("Width(500)");
+
+    // execute
+    final var result = AbsoluteOrRelativeInt.fromSpecification(specification);
+
+    // verify
+    expect(result.isAbsolute()).isTrue();
+    expect(result.getAbsoluteValue()).isEqualTo(500);
   }
 
   @Test

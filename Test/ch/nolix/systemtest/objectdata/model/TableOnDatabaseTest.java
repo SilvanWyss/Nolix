@@ -22,24 +22,6 @@ final class TableOnDatabaseTest extends StandardTest {
   }
 
   @Test
-  void testCase_containsEntityWithId_whenDoesNotContainEntityWithGivenId() {
-    // setup step 1: initialize database
-    final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = EntityTypeSet.withEntityType(Thing.class);
-    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
-    final var thing = new Thing();
-
-    // setup step 2: gains test unit
-    final var testUnit = nodeDataAdapter.getStoredTableByEntityType(Thing.class);
-
-    // execute
-    final var result = testUnit.containsEntityWithId(thing.getId());
-
-    // verify
-    expect(result).isFalse();
-  }
-
-  @Test
   void testCase_containsEntityWithId_whenContainsEntityWithGivenId() {
     // setup step 1: initialize database
     final var nodeDatabase = MutableNode.createEmpty();
@@ -57,5 +39,23 @@ final class TableOnDatabaseTest extends StandardTest {
 
     // verify
     expect(result).isTrue();
+  }
+
+  @Test
+  void testCase_containsEntityWithId_whenDoesNotContainEntityWithGivenId() {
+    // setup step 1: initialize database
+    final var nodeDatabase = MutableNode.createEmpty();
+    final var schema = EntityTypeSet.withEntityType(Thing.class);
+    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
+    final var thing = new Thing();
+
+    // setup step 2: gains test unit
+    final var testUnit = nodeDataAdapter.getStoredTableByEntityType(Thing.class);
+
+    // execute
+    final var result = testUnit.containsEntityWithId(thing.getId());
+
+    // verify
+    expect(result).isFalse();
   }
 }

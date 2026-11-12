@@ -17,6 +17,19 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
  */
 final class VectorTest extends StandardTest {
   @Test
+  void testCase_equals_whenDoesNotEqual() {
+    // setup
+    final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
+    final var vector = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 1.0);
+
+    // execute
+    final var result = testUnit.equals(vector);
+
+    // verify
+    expect(result).isFalse();
+  }
+
+  @Test
   void testCase_equals_whenEquals() {
     // setup
     final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
@@ -30,9 +43,9 @@ final class VectorTest extends StandardTest {
   }
 
   @Test
-  void testCase_equals_whenDoesNotEqual() {
+  void testCase_equals_whenIsEmptyAndDoesNotEqual() {
     // setup
-    final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
+    final var testUnit = Vector.EMPTY_VECTOR;
     final var vector = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 1.0);
 
     // execute
@@ -53,19 +66,6 @@ final class VectorTest extends StandardTest {
 
     // verify
     expect(result).isTrue();
-  }
-
-  @Test
-  void testCase_equals_whenIsEmptyAndDoesNotEqual() {
-    // setup
-    final var testUnit = Vector.EMPTY_VECTOR;
-    final var vector = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 1.0);
-
-    // execute
-    final var result = testUnit.equals(vector);
-
-    // verify
-    expect(result).isFalse();
   }
 
   @Test

@@ -35,16 +35,94 @@ final class LinkedListTest extends ExtendedIterableTest {
   }
 
   @Test
-  void testCase_addAtBegin_whenIsEmpty() {
+  void testCase_addAtBegin_forArray_whenContainsSeveralElementsAndServeralElementsAreGiven() {
     // setup
+    final var antelope = "antelope";
+    final var baboon = "baboon";
     final var elephant = "elephant";
-    final var testUnit = LinkedList.createEmpty();
+    final var lion = "lion";
+    final var rhino = "rhino";
+    final var zebra = "zebra";
+    final var array = new String[] { antelope, baboon, elephant };
+    final var testUnit = LinkedList.withElement(lion, rhino, zebra);
 
     // execute
-    testUnit.addAtBegin(elephant);
+    testUnit.addAtBegin(array);
 
     // verify
-    expect(testUnit).containsExactlyInSameOrder(elephant);
+    expect(testUnit).containsExactlyInSameOrder(antelope, baboon, elephant, lion, rhino, zebra);
+  }
+
+  @Test
+  void testCase_addAtBegin_forArray_whenGivenArrayIsNull() {
+    // setup
+    final String[] array = null;
+    final LinkedList<String> testUnit = LinkedList.createEmpty();
+
+    // execute & verify
+    expectRunning(() -> testUnit.addAtBegin(array)).throwsException();
+  }
+
+  @Test
+  void testCase_addAtBegin_forIterable() {
+    // setup
+    final var antelope = "antelope";
+    final var baboon = "baboon";
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var rhino = "rhino";
+    final var zebra = "zebra";
+    final var testUnit = LinkedList.withElement(lion, rhino, zebra);
+    final var list = LinkedList.withElement(antelope, baboon, elephant);
+
+    // execute
+    testUnit.addAtBegin(list);
+
+    // verify
+    expect(testUnit).containsExactlyInSameOrder(antelope, baboon, elephant, lion, rhino, zebra);
+  }
+
+  @Test
+  void testCase_addAtBegin_forIterable_whenGivenElementIsNull() {
+    // setup
+    final var testUnit = LinkedList.createEmpty();
+    final Iterable<String> element = null;
+
+    // execute & verify
+    expectRunning(() -> testUnit.addAtBegin(element))
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given elements is null.");
+  }
+
+  @Test
+  void testCase_addAtBegin_forIterable_whenGivenListIsEmpty() {
+    // setup
+    final var rhino = "rhino";
+    final var zebra = "zebra";
+    final var testUnit = LinkedList.withElement(rhino, zebra);
+    final ILinkedList<String> list = LinkedList.createEmpty();
+
+    // execute
+    testUnit.addAtBegin(list);
+
+    // verify
+    expect(testUnit).containsExactlyInSameOrder(rhino, zebra);
+  }
+
+  @Test
+  void testCase_addAtBegin_forIterable_whenIsEmpty() {
+    // setup
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final ILinkedList<String> testUnit = LinkedList.createEmpty();
+    final var list = LinkedList.withElement(elephant, lion);
+
+    // execute
+    testUnit.addAtBegin(list);
+
+    // verify
+    expect(testUnit).containsExactlyInSameOrder(elephant, lion);
   }
 
   @Test
@@ -95,94 +173,16 @@ final class LinkedListTest extends ExtendedIterableTest {
   }
 
   @Test
-  void testCase_addAtBegin_forArray_whenGivenArrayIsNull() {
-    // setup
-    final String[] array = null;
-    final LinkedList<String> testUnit = LinkedList.createEmpty();
-
-    // execute & verify
-    expectRunning(() -> testUnit.addAtBegin(array)).throwsException();
-  }
-
-  @Test
-  void testCase_addAtBegin_forArray_whenContainsSeveralElementsAndServeralElementsAreGiven() {
-    // setup
-    final var antelope = "antelope";
-    final var baboon = "baboon";
-    final var elephant = "elephant";
-    final var lion = "lion";
-    final var rhino = "rhino";
-    final var zebra = "zebra";
-    final var array = new String[] { antelope, baboon, elephant };
-    final var testUnit = LinkedList.withElement(lion, rhino, zebra);
-
-    // execute
-    testUnit.addAtBegin(array);
-
-    // verify
-    expect(testUnit).containsExactlyInSameOrder(antelope, baboon, elephant, lion, rhino, zebra);
-  }
-
-  @Test
-  void testCase_addAtBegin_forIterable() {
-    // setup
-    final var antelope = "antelope";
-    final var baboon = "baboon";
-    final var elephant = "elephant";
-    final var lion = "lion";
-    final var rhino = "rhino";
-    final var zebra = "zebra";
-    final var testUnit = LinkedList.withElement(lion, rhino, zebra);
-    final var list = LinkedList.withElement(antelope, baboon, elephant);
-
-    // execute
-    testUnit.addAtBegin(list);
-
-    // verify
-    expect(testUnit).containsExactlyInSameOrder(antelope, baboon, elephant, lion, rhino, zebra);
-  }
-
-  @Test
-  void testCase_addAtBegin_forIterable_whenIsEmpty() {
+  void testCase_addAtBegin_whenIsEmpty() {
     // setup
     final var elephant = "elephant";
-    final var lion = "lion";
-    final ILinkedList<String> testUnit = LinkedList.createEmpty();
-    final var list = LinkedList.withElement(elephant, lion);
-
-    // execute
-    testUnit.addAtBegin(list);
-
-    // verify
-    expect(testUnit).containsExactlyInSameOrder(elephant, lion);
-  }
-
-  @Test
-  void testCase_addAtBegin_forIterable_whenGivenListIsEmpty() {
-    // setup
-    final var rhino = "rhino";
-    final var zebra = "zebra";
-    final var testUnit = LinkedList.withElement(rhino, zebra);
-    final ILinkedList<String> list = LinkedList.createEmpty();
-
-    // execute
-    testUnit.addAtBegin(list);
-
-    // verify
-    expect(testUnit).containsExactlyInSameOrder(rhino, zebra);
-  }
-
-  @Test
-  void testCase_addAtBegin_forIterable_whenGivenElementIsNull() {
-    // setup
     final var testUnit = LinkedList.createEmpty();
-    final Iterable<String> element = null;
 
-    // execute & verify
-    expectRunning(() -> testUnit.addAtBegin(element))
-      .throwsException()
-      .ofType(ArgumentIsNullException.class)
-      .withMessage("The given elements is null.");
+    // execute
+    testUnit.addAtBegin(elephant);
+
+    // verify
+    expect(testUnit).containsExactlyInSameOrder(elephant);
   }
 
   @Test
@@ -199,18 +199,6 @@ final class LinkedListTest extends ExtendedIterableTest {
   }
 
   @Test
-  void testCase_clear_whenIsEmpty() {
-    // setup
-    final var testUnit = LinkedList.createEmpty();
-
-    // execute
-    testUnit.clear();
-
-    // verify
-    expect(testUnit.isEmpty()).isTrue();
-  }
-
-  @Test
   void testCase_clear_whenContainsAny() {
     // setup
     final var testUnit = LinkedList.withElement("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -223,24 +211,15 @@ final class LinkedListTest extends ExtendedIterableTest {
   }
 
   @Test
-  void testCase_fromArray_whenGivenArrayIsNull() {
-    // execute & verify
-    expectRunning(() -> LinkedList.fromArray(null))
-      .throwsException()
-      .ofType(ArgumentIsNullException.class)
-      .withMessage("The given array is null.");
-  }
-
-  @Test
-  void testCase_fromArray_whenGivenArrayIsEmpty() {
+  void testCase_clear_whenIsEmpty() {
     // setup
-    final var array = new String[0];
+    final var testUnit = LinkedList.createEmpty();
 
     // execute
-    final var result = LinkedList.fromArray(array);
+    testUnit.clear();
 
     // verify
-    expect(result.isEmpty()).isTrue();
+    expect(testUnit.isEmpty()).isTrue();
   }
 
   @Test
@@ -254,6 +233,17 @@ final class LinkedListTest extends ExtendedIterableTest {
 
     // verify
     expect(result).containsExactlyInSameOrder(elephant);
+  }
+
+  @Test
+  void testCase_fromArray_whenGivenArrayContainsANullElement() {
+    // setup
+    final var array = new String[] { "lephant", "lion", null, "zebra" };
+
+    // execute & verify
+    expectRunning(() -> LinkedList.fromArray(array))
+      .throwsException()
+      .ofType(ArgumentIsNullException.class);
   }
 
   @Test
@@ -275,14 +265,40 @@ final class LinkedListTest extends ExtendedIterableTest {
   }
 
   @Test
-  void testCase_fromArray_whenGivenArrayContainsANullElement() {
+  void testCase_fromArray_whenGivenArrayIsEmpty() {
     // setup
-    final var array = new String[] { "lephant", "lion", null, "zebra" };
+    final var array = new String[0];
 
+    // execute
+    final var result = LinkedList.fromArray(array);
+
+    // verify
+    expect(result.isEmpty()).isTrue();
+  }
+
+  @Test
+  void testCase_fromArray_whenGivenArrayIsNull() {
     // execute & verify
-    expectRunning(() -> LinkedList.fromArray(array))
+    expectRunning(() -> LinkedList.fromArray(null))
       .throwsException()
-      .ofType(ArgumentIsNullException.class);
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given array is null.");
+  }
+
+  @Test
+  void testCase_removeFirstOccurrenceOf_whenContainsTheGivenElement() {
+    // setup
+    final var element1 = new VoidObject();
+    final var element2 = new VoidObject();
+    final var element3 = new VoidObject();
+    final var element4 = new VoidObject();
+    final var testUnit = LinkedList.withElement(element1, element2, element3, element4);
+
+    // execute
+    testUnit.removeFirstOccurrenceOf(element3);
+
+    // verify
+    expect(testUnit).containsExactly(element1, element2, element4);
   }
 
   @Test
@@ -303,7 +319,7 @@ final class LinkedListTest extends ExtendedIterableTest {
   }
 
   @Test
-  void testCase_removeFirstOccurrenceOf_whenContainsTheGivenElement() {
+  void testCase_removeStrictlyFirstOccurrenceOf_whenContainsTheGivenElement() {
     // setup
     final var element1 = new VoidObject();
     final var element2 = new VoidObject();
@@ -312,7 +328,7 @@ final class LinkedListTest extends ExtendedIterableTest {
     final var testUnit = LinkedList.withElement(element1, element2, element3, element4);
 
     // execute
-    testUnit.removeFirstOccurrenceOf(element3);
+    testUnit.removeStrictlyFirstOccurrenceOf(element3);
 
     // verify
     expect(testUnit).containsExactly(element1, element2, element4);
@@ -332,22 +348,6 @@ final class LinkedListTest extends ExtendedIterableTest {
     expectRunning(() -> testUnit.removeStrictlyFirstOccurrenceOf(element5))
       .throwsException()
       .ofType(ArgumentDoesNotContainElementException.class);
-  }
-
-  @Test
-  void testCase_removeStrictlyFirstOccurrenceOf_whenContainsTheGivenElement() {
-    // setup
-    final var element1 = new VoidObject();
-    final var element2 = new VoidObject();
-    final var element3 = new VoidObject();
-    final var element4 = new VoidObject();
-    final var testUnit = LinkedList.withElement(element1, element2, element3, element4);
-
-    // execute
-    testUnit.removeStrictlyFirstOccurrenceOf(element3);
-
-    // verify
-    expect(testUnit).containsExactly(element1, element2, element4);
   }
 
   @Test

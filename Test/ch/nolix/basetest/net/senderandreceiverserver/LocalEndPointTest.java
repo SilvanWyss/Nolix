@@ -20,34 +20,6 @@ import ch.nolix.baseapi.net.netproperty.SecurityMode;
  */
 final class LocalEndPointTest extends StandardTest {
   @Test
-  void testCase_sendMessage_whenSends1Message() {
-    // setup
-    final var slot = new MockSlot();
-    final var testUnit = LocalEndPoint.toSlot(slot);
-
-    // execute 
-    testUnit.sendMessage("my_message");
-
-    // verify
-    expect(slot.getLatestReceivedMessage()).is("my_message");
-  }
-
-  @Test
-  void testCase_sendMessage_whenSends3Messages() {
-    // setup
-    final var slot = new MockSlot();
-    final var testUnit = LocalEndPoint.toSlot(slot);
-
-    // execute 
-    testUnit.sendMessage("my_message1");
-    testUnit.sendMessage("my_message2");
-    testUnit.sendMessage("my_message3");
-
-    // verify
-    expect(slot.getLatestReceivedMessage()).is("my_message3");
-  }
-
-  @Test
   void testCase_sendMessage_whenGivenMessageIsNull() {
     // setup
     final var slot = new MockSlot();
@@ -86,6 +58,34 @@ final class LocalEndPointTest extends StandardTest {
 
     // verify
     expect(slot.getLatestReceivedMessage()).isNull();
+  }
+
+  @Test
+  void testCase_sendMessage_whenSends1Message() {
+    // setup
+    final var slot = new MockSlot();
+    final var testUnit = LocalEndPoint.toSlot(slot);
+
+    // execute 
+    testUnit.sendMessage("my_message");
+
+    // verify
+    expect(slot.getLatestReceivedMessage()).is("my_message");
+  }
+
+  @Test
+  void testCase_sendMessage_whenSends3Messages() {
+    // setup
+    final var slot = new MockSlot();
+    final var testUnit = LocalEndPoint.toSlot(slot);
+
+    // execute 
+    testUnit.sendMessage("my_message1");
+    testUnit.sendMessage("my_message2");
+    testUnit.sendMessage("my_message3");
+
+    // verify
+    expect(slot.getLatestReceivedMessage()).is("my_message3");
   }
 
   @Test

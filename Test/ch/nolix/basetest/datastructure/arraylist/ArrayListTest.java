@@ -32,19 +32,6 @@ final class ArrayListTest extends ExtendedIterableTest {
   }
 
   @Test
-  void testCase_addAtEnd_whenHasAvailableCapacity() {
-    // setup
-    final var elements = new String[] {};
-    final var testUnit = ArrayList.withInitialCapacity(10);
-
-    // execute
-    testUnit.addAtEnd(elements);
-
-    // verify
-    expect(testUnit).containsAll(elements);
-  }
-
-  @Test
   void testCase_addAtEnd_whenDoesNotHaveAvailableCapacity() {
     // setup
     final var elements = new String[] { "antelope", "baboon", "elephant", "lion", "rhino", "zebra" };
@@ -58,9 +45,22 @@ final class ArrayListTest extends ExtendedIterableTest {
   }
 
   @Test
-  void testCase_clear_whenIsEmpty() {
+  void testCase_addAtEnd_whenHasAvailableCapacity() {
     // setup
-    final ArrayList<String> testUnit = ArrayList.createEmpty();
+    final var elements = new String[] {};
+    final var testUnit = ArrayList.withInitialCapacity(10);
+
+    // execute
+    testUnit.addAtEnd(elements);
+
+    // verify
+    expect(testUnit).containsAll(elements);
+  }
+
+  @Test
+  void testCase_clear_whenContainsAny() {
+    // setup
+    final var testUnit = ArrayList.withElements("antelope", "baboon", "elephant", "lion", "rhino", "zebra");
 
     // execute
     testUnit.clear();
@@ -70,9 +70,9 @@ final class ArrayListTest extends ExtendedIterableTest {
   }
 
   @Test
-  void testCase_clear_whenContainsAny() {
+  void testCase_clear_whenIsEmpty() {
     // setup
-    final var testUnit = ArrayList.withElements("antelope", "baboon", "elephant", "lion", "rhino", "zebra");
+    final ArrayList<String> testUnit = ArrayList.createEmpty();
 
     // execute
     testUnit.clear();

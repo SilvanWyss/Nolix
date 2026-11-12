@@ -13,18 +13,6 @@ import ch.nolix.base.testing.standardtest.StandardTest;
  */
 final class PolynomTest extends StandardTest {
   @Test
-  void testCase_equals_whenGivenObjectIsNull() {
-    // setup
-    final var testUnit = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
-
-    // execute
-    final var result = testUnit.equals(null);
-
-    // verify
-    expect(result).isFalse();
-  }
-
-  @Test
   void testCase_equals_whenGivenObjectDoesNotEqual_1A() {
     // setup
     final var testUnit = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
@@ -61,6 +49,18 @@ final class PolynomTest extends StandardTest {
 
     // verify
     expect(result).isTrue();
+  }
+
+  @Test
+  void testCase_equals_whenGivenObjectIsNull() {
+    // setup
+    final var testUnit = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
+
+    // execute
+    final var result = testUnit.equals(null);
+
+    // verify
+    expect(result).isFalse();
   }
 
   @Test
@@ -151,18 +151,6 @@ final class PolynomTest extends StandardTest {
   }
 
   @Test
-  void testCase_toString_whenThereIsGiven1Coefficient() {
-    // setup
-    final var testUnit = Polynom.withCoefficients(1.0);
-
-    // execute
-    final var result = testUnit.toString();
-
-    // execute
-    expect(result).isEqualTo("x->1.0");
-  }
-
-  @Test
   void testCase_toString_whenThereAreGiven2Coefficients() {
     // setup
     final var testUnit = Polynom.withCoefficients(2.0, 1.0);
@@ -187,13 +175,15 @@ final class PolynomTest extends StandardTest {
   }
 
   @Test
-  void testCase_withCoefficient_whenThereIsGiven1Coefficient() {
-    // execute
-    final var result = Polynom.withCoefficients(1.0);
+  void testCase_toString_whenThereIsGiven1Coefficient() {
+    // setup
+    final var testUnit = Polynom.withCoefficients(1.0);
 
-    // verify
-    expect(result.getDegree()).isEqualTo(0);
-    expect(result.getCoefficientForDegree(0)).isEqualTo(1.0);
+    // execute
+    final var result = testUnit.toString();
+
+    // execute
+    expect(result).isEqualTo("x->1.0");
   }
 
   @Test
@@ -217,5 +207,15 @@ final class PolynomTest extends StandardTest {
     expect(result.getCoefficientForDegree(0)).isEqualTo(1.0);
     expect(result.getCoefficientForDegree(1)).isEqualTo(2.0);
     expect(result.getCoefficientForDegree(2)).isEqualTo(3.0);
+  }
+
+  @Test
+  void testCase_withCoefficient_whenThereIsGiven1Coefficient() {
+    // execute
+    final var result = Polynom.withCoefficients(1.0);
+
+    // verify
+    expect(result.getDegree()).isEqualTo(0);
+    expect(result.getCoefficientForDegree(0)).isEqualTo(1.0);
   }
 }

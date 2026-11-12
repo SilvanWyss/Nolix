@@ -25,23 +25,6 @@ final class MultiValueOnDatabaseTest extends StandardTest {
   }
 
   @Test
-  void testCase_isSaved_whenIsNewAndEmpty() {
-    // setup
-    final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = EntityTypeSet.withEntityType(Round.class);
-    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
-    final var round = new Round();
-    nodeDataAdapter.insertEntity(round);
-    nodeDataAdapter.saveChanges();
-
-    // execute
-    final var loadedRound = nodeDataAdapter.getStoredTableByEntityType(Round.class).getStoredEntityById(round.getId());
-
-    // verify
-    expect(loadedRound.amounts.isEmpty()).isTrue();
-  }
-
-  @Test
   void testCase_isSaved_whenIsNewAndContainsValue() {
     // setup
     final var nodeDatabase = MutableNode.createEmpty();
@@ -62,6 +45,23 @@ final class MultiValueOnDatabaseTest extends StandardTest {
     final var loadedValues = loadedRound.amounts.getAllStoredValues();
     expect(loadedValues.getCount()).isEqualTo(4);
     expect(loadedValues.containsAll(10, 20, 30, 40)).isTrue();
+  }
+
+  @Test
+  void testCase_isSaved_whenIsNewAndEmpty() {
+    // setup
+    final var nodeDatabase = MutableNode.createEmpty();
+    final var schema = EntityTypeSet.withEntityType(Round.class);
+    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
+    final var round = new Round();
+    nodeDataAdapter.insertEntity(round);
+    nodeDataAdapter.saveChanges();
+
+    // execute
+    final var loadedRound = nodeDataAdapter.getStoredTableByEntityType(Round.class).getStoredEntityById(round.getId());
+
+    // verify
+    expect(loadedRound.amounts.isEmpty()).isTrue();
   }
 
   @Test

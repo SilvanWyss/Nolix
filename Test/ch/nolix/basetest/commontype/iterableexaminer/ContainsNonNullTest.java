@@ -16,29 +16,17 @@ import ch.nolix.base.testing.standardtest.StandardTest;
  */
 final class ContainsNonNullTest extends StandardTest {
   @Test
-  void testCase_containsNonNull_whenGivenIterableIsNull() {
+  void testCase_containsNonNull_whenGivenIterableContainsNonNullElement() {
     // setup
-    final Iterable<Object> iterable = null;
+    final ArrayList<Object> iterable = new ArrayList<>();
+    iterable.add("antelope");
     final var testUnit = new IterableExaminer();
 
     // execute
     final var result = testUnit.containsNonNull(iterable);
 
     // verify
-    expect(result).isFalse();
-  }
-
-  @Test
-  void testCase_containsNonNull_whenGivenIterableIsEmpty() {
-    // setup
-    final Iterable<Object> iterable = List.of();
-    final var testUnit = new IterableExaminer();
-
-    // execute
-    final var result = testUnit.containsNonNull(iterable);
-
-    // verify
-    expect(result).isFalse();
+    expect(result).isTrue();
   }
 
   @Test
@@ -57,20 +45,6 @@ final class ContainsNonNullTest extends StandardTest {
   }
 
   @Test
-  void testCase_containsNonNull_whenGivenIterableContainsNonNullElement() {
-    // setup
-    final ArrayList<Object> iterable = new ArrayList<>();
-    iterable.add("antelope");
-    final var testUnit = new IterableExaminer();
-
-    // execute
-    final var result = testUnit.containsNonNull(iterable);
-
-    // verify
-    expect(result).isTrue();
-  }
-
-  @Test
   void testCase_containsNonNull_whenGivenIterableContainsNullElementAndNonNullElement() {
     // setup
     final ArrayList<Object> iterable = new ArrayList<>();
@@ -83,5 +57,31 @@ final class ContainsNonNullTest extends StandardTest {
 
     // verify
     expect(result).isTrue();
+  }
+
+  @Test
+  void testCase_containsNonNull_whenGivenIterableIsEmpty() {
+    // setup
+    final Iterable<Object> iterable = List.of();
+    final var testUnit = new IterableExaminer();
+
+    // execute
+    final var result = testUnit.containsNonNull(iterable);
+
+    // verify
+    expect(result).isFalse();
+  }
+
+  @Test
+  void testCase_containsNonNull_whenGivenIterableIsNull() {
+    // setup
+    final Iterable<Object> iterable = null;
+    final var testUnit = new IterableExaminer();
+
+    // execute
+    final var result = testUnit.containsNonNull(iterable);
+
+    // verify
+    expect(result).isFalse();
   }
 }
