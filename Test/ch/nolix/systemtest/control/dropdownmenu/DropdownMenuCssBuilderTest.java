@@ -27,4 +27,12 @@ final class DropdownMenuCssBuilderTest extends ControlCssBuilderTest<DropdownMen
   protected DropdownMenuCssBuilder createTestUnit() {
     return new DropdownMenuCssBuilder();
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected int getExpectedCssRuleCountForNewControl() {
+    return 4;
+  }
 }

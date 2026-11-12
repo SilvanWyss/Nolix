@@ -27,4 +27,12 @@ final class ButtonCssBuilderTest extends ControlCssBuilderTest<ButtonCssBuilder,
   protected ButtonCssBuilder createTestUnit() {
     return new ButtonCssBuilder();
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected int getExpectedCssRuleCountForNewControl() {
+    return 4;
+  }
 }

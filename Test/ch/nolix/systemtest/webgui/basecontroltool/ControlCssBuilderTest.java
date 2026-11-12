@@ -24,6 +24,8 @@ extends StandardTest {
 
   protected abstract B createTestUnit();
 
+  protected abstract int getExpectedCssRuleCountForNewControl();
+
   @Test
   final void testCase_createCssRulesForControl_whenGivenControlHasAHoverBackgroundColor() {
     // setup
@@ -37,7 +39,7 @@ extends StandardTest {
     // verify
     final var controlInternalId = control.getInternalId();
     final var hoverCssRule = result
-      .getStoredSingle(r -> r.getSelector().startsWith("#" + controlInternalId + ":hover"));
+      .getStoredSingle(r -> r.getSelector().trim().equals("#" + controlInternalId + ":hover"));
     expect(hoverCssRule.getProperties()).containsExactlyOneWithStringRepresentation("background: #102030;");
   }
 
@@ -52,7 +54,7 @@ extends StandardTest {
     final var result = testUnit.createCssRulesForControl(control);
 
     // verify part 1
-    expect(result).hasElementCount(4);
+    expect(result).hasElementCount(getExpectedCssRuleCountForNewControl());
     final var cssRuleForAllStates = result.getStoredFirst(r -> r.getSelector().startsWith("#" + controlInternalId));
     expect(cssRuleForAllStates.getProperties().containsMatching(p -> p.hasName("cursor"))).isTrue();
 

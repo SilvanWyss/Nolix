@@ -27,4 +27,12 @@ final class UploaderCssBuilderTest extends ControlCssBuilderTest<UploaderCssBuil
   protected UploaderCssBuilder createTestUnit() {
     return new UploaderCssBuilder();
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected int getExpectedCssRuleCountForNewControl() {
+    return 4;
+  }
 }

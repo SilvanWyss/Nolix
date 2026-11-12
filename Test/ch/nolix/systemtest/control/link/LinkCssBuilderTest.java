@@ -27,4 +27,12 @@ final class LinkCssBuilderTest extends ControlCssBuilderTest<LinkCssBuilder, ILi
   protected LinkCssBuilder createTestUnit() {
     return new LinkCssBuilder();
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected int getExpectedCssRuleCountForNewControl() {
+    return 4;
+  }
 }

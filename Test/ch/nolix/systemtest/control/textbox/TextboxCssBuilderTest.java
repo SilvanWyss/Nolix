@@ -27,4 +27,12 @@ final class TextboxCssBuilderTest extends ControlCssBuilderTest<TextboxCssBuilde
   protected TextboxCssBuilder createTestUnit() {
     return new TextboxCssBuilder();
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected int getExpectedCssRuleCountForNewControl() {
+    return 4;
+  }
 }

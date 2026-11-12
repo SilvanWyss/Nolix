@@ -27,4 +27,12 @@ final class ValidationLabelCssBuilderTest extends ControlCssBuilderTest<Validati
   protected ValidationLabelCssBuilder createTestUnit() {
     return new ValidationLabelCssBuilder();
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected int getExpectedCssRuleCountForNewControl() {
+    return 4;
+  }
 }

@@ -27,4 +27,12 @@ final class SingleContainerCssBuilderTest extends ControlCssBuilderTest<SingleCo
   protected SingleContainerCssBuilder createTestUnit() {
     return new SingleContainerCssBuilder();
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected int getExpectedCssRuleCountForNewControl() {
+    return 4;
+  }
 }

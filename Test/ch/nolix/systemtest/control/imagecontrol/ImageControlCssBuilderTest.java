@@ -27,4 +27,12 @@ final class ImageControlCssBuilderTest extends ControlCssBuilderTest<ImageContro
   protected ImageControlCssBuilder createTestUnit() {
     return new ImageControlCssBuilder();
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected int getExpectedCssRuleCountForNewControl() {
+    return 4;
+  }
 }

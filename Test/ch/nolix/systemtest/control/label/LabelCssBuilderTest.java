@@ -27,4 +27,12 @@ final class LabelCssBuilderTest extends ControlCssBuilderTest<LabelCssBuilder, I
   protected LabelCssBuilder createTestUnit() {
     return new LabelCssBuilder();
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected int getExpectedCssRuleCountForNewControl() {
+    return 4;
+  }
 }

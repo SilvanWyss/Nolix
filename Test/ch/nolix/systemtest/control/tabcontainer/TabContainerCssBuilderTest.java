@@ -27,4 +27,12 @@ final class TabContainerCssBuilderTest extends ControlCssBuilderTest<TabContaine
   protected TabContainerCssBuilder createTestUnit() {
     return new TabContainerCssBuilder();
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected int getExpectedCssRuleCountForNewControl() {
+    return 4;
+  }
 }
