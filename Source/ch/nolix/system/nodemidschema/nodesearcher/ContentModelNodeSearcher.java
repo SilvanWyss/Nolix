@@ -86,7 +86,8 @@ public final class ContentModelNodeSearcher implements IContentModelNodeSearcher
    * {@inheritDoc}
    */
   @Override
-  public IMutableNode<?> getStoredReferenceableTableIdsNodeFromContentModelNode(final IMutableNode<?> contentModelNode) {
+  public IMutableNode<?> getStoredReferenceableTableIdsNodeFromContentModelNode(
+    final IMutableNode<?> contentModelNode) {
     return contentModelNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.REFERENCEABLE_TABLE_IDS);
   }
 }

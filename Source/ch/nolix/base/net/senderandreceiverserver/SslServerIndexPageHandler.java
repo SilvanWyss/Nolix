@@ -84,7 +84,10 @@ public final class SslServerIndexPageHandler extends SimpleChannelInboundHandler
     sendHttpResponse(ctx, req, res);
   }
 
-  private static void sendHttpResponse(final ChannelHandlerContext ctx, final FullHttpRequest req, final FullHttpResponse res) {
+  private static void sendHttpResponse(
+    final ChannelHandlerContext ctx,
+    final FullHttpRequest req,
+    final FullHttpResponse res) {
     // Generate an error page if response getStatus code is not OK (200).
     HttpResponseStatus responseStatus = res.status();
     if (responseStatus.code() != 200) {
