@@ -69,7 +69,7 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<String> getReferenceableTableIdsFromColumnNode(IMutableNode<?> columnNode) {
+  public ExtendedIterable<String> getReferenceableTableIdsFromColumnNode(final IMutableNode<?> columnNode) {
     final var referenceableTableIdsNode = getStoredReferenceableTableIdsNodeFromColumnNode(columnNode);
 
     return referenceableTableIdsNode.getChildNodesHeaders();
@@ -127,7 +127,7 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
    * {@inheritDoc}
    */
   @Override
-  public IMutableNode<?> getStoredReferenceableTableIdsNodeFromColumnNode(IMutableNode<?> columnNode) {
+  public IMutableNode<?> getStoredReferenceableTableIdsNodeFromColumnNode(final IMutableNode<?> columnNode) {
     return columnNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.REFERENCEABLE_TABLE_IDS);
   }
 }

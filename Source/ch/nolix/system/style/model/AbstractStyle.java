@@ -100,7 +100,7 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
    *                          {@link AbstractStyle} is not valid for the given
    *                          element
    */
-  protected final void setAttachingAttributesToElement(StylableElement<?> element) {
+  protected final void setAttachingAttributesToElement(final StylableElement<?> element) {
     for (final var a : getAttachingAttributes()) {
       try {
         element.addOrChangeAttribute(a);

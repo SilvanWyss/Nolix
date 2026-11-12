@@ -77,7 +77,7 @@ public final class EntityFieldExtractor implements IEntityFieldExtractor {
   @Override
   public <F extends Field> ExtendedIterable<F> extractStoredFieldsFromEntity(
     final Object entity,
-    Class<F> fieldClass) {
+    final Class<F> fieldClass) {
     if (entity == null) {
       return ImmutableList.createEmpty();
     }

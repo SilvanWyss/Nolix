@@ -122,7 +122,7 @@ implements IValidationLabel {
    * {@inheritDoc}
    */
   @Override
-  public void runHtmlEvent(String htmlEvent) {
+  public void runHtmlEvent(final String htmlEvent) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHtmlEvent");
   }
 

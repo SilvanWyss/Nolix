@@ -319,7 +319,7 @@ public final class Color extends AbstractElement implements IColor {
    * @InvalidArgumentException if the given hexadecimalDigit is not valid
    */
   private static int mapHexadecimalDigitFromStringToInt( // NOSONAR: This method is uniform.
-    char hexadecimalDigit,
+    final char hexadecimalDigit,
     final String string) {
     // Enumerates the given character.
     return switch (hexadecimalDigit) {

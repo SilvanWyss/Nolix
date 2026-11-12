@@ -79,7 +79,7 @@ public final class ImmutableImage extends AbstractElement implements Image {
    * @param pixels
    * @return a new {@link ImmutableImage} with the given pixels
    */
-  public static ImmutableImage withPixels(MutableMatrix<IColor> pixels) {
+  public static ImmutableImage withPixels(final MutableMatrix<IColor> pixels) {
     return new ImmutableImage(MutableImage.withPixels(pixels));
   }
 
@@ -119,7 +119,7 @@ public final class ImmutableImage extends AbstractElement implements Image {
    * {@inheritDoc}
    */
   @Override
-  public IColor getPixel(int xPosition, int yPosition) {
+  public IColor getPixel(final int xPosition, final int yPosition) {
     return internalImage.getPixel(xPosition, yPosition);
   }
 
@@ -143,7 +143,7 @@ public final class ImmutableImage extends AbstractElement implements Image {
    * {@inheritDoc}
    */
   @Override
-  public MutableImage getSection(int xPosition, int yPosition, int width, int height) {
+  public MutableImage getSection(final int xPosition, final int yPosition, final int width, final int height) {
     return internalImage.getSection(xPosition, yPosition, width, height);
   }
 
@@ -239,7 +239,7 @@ public final class ImmutableImage extends AbstractElement implements Image {
    * {@inheritDoc}
    */
   @Override
-  public MutableImage toRepeatedImage(int width, int height) {
+  public MutableImage toRepeatedImage(final int width, final int height) {
     return internalImage.toRepeatedImage(width, height);
   }
 
@@ -255,7 +255,7 @@ public final class ImmutableImage extends AbstractElement implements Image {
    * {@inheritDoc}
    */
   @Override
-  public MutableImage toScaledImage(double factor) {
+  public MutableImage toScaledImage(final double factor) {
     return internalImage.toScaledImage(factor);
   }
 
@@ -263,7 +263,7 @@ public final class ImmutableImage extends AbstractElement implements Image {
    * {@inheritDoc}
    */
   @Override
-  public MutableImage toScaledImage(double widthFactor, double heightFactor) {
+  public MutableImage toScaledImage(final double widthFactor, final double heightFactor) {
     return internalImage.toScaledImage(widthFactor, heightFactor);
   }
 

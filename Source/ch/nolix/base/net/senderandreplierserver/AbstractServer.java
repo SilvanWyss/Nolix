@@ -159,7 +159,7 @@ public abstract class AbstractServer implements Server {
    *                          already a {@link Slot} with the same name like the
    *                          given slot
    */
-  private void addSlotToList(Slot slot) {
+  private void addSlotToList(final Slot slot) {
     assertDoesNotContainSlotWithName(slot.getName());
 
     this.slots.addAtEnd(slot);

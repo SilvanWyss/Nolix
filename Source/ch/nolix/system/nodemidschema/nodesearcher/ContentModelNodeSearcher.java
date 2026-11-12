@@ -50,7 +50,7 @@ public final class ContentModelNodeSearcher implements IContentModelNodeSearcher
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<String> getReferenceableTableIdsFromContentModelNode(IMutableNode<?> contentModelNode) {
+  public ExtendedIterable<String> getReferenceableTableIdsFromContentModelNode(final IMutableNode<?> contentModelNode) {
     final var referenceableTableIdsNode = getStoredReferenceableTableIdsNodeFromContentModelNode(contentModelNode);
 
     return referenceableTableIdsNode.getChildNodesHeaders();
@@ -86,7 +86,7 @@ public final class ContentModelNodeSearcher implements IContentModelNodeSearcher
    * {@inheritDoc}
    */
   @Override
-  public IMutableNode<?> getStoredReferenceableTableIdsNodeFromContentModelNode(IMutableNode<?> contentModelNode) {
+  public IMutableNode<?> getStoredReferenceableTableIdsNodeFromContentModelNode(final IMutableNode<?> contentModelNode) {
     return contentModelNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.REFERENCEABLE_TABLE_IDS);
   }
 }

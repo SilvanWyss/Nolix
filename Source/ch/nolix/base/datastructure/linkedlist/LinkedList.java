@@ -139,7 +139,7 @@ implements ILinkedList<E> {
    */
   @Override
   @SuppressWarnings("unchecked")
-  public void addAtBegin(E... elements) {
+  public void addAtBegin(final E... elements) {
     if (isEmpty()) {
       addAtBeginWhenIsEmpty(elements);
     } else {
@@ -223,7 +223,7 @@ implements ILinkedList<E> {
    */
   @Override
   @SuppressWarnings("unchecked")
-  public <T extends E> void addAtEnd(T... elements) {
+  public <T extends E> void addAtEnd(final T... elements) {
     // Iterates the given elements.
     for (final var e : elements) {
       addAtEnd(e);
@@ -533,7 +533,7 @@ implements ILinkedList<E> {
    * {@inheritDoc}
    */
   @Override
-  public void removeStrictlyFirstOccurrenceOf(Object element) {
+  public void removeStrictlyFirstOccurrenceOf(final Object element) {
     // Handles the case that the current LinkedList contains any.
     if (containsAny()) {
       removeStrictlyFirstOccurrenceOfWhenContainsAny(element);
@@ -595,7 +595,7 @@ implements ILinkedList<E> {
    * @throws RuntimeException if one of the given elements is null
    */
   @SuppressWarnings("null")
-  private void addAtBeginWhenContainsAny(E[] elements) {
+  private void addAtBeginWhenContainsAny(final E[] elements) {
     LinkedListNode<E> newFirstNode = null;
     LinkedListNode<E> iteratorNode = null;
 
@@ -627,7 +627,7 @@ implements ILinkedList<E> {
    * @param elements
    * @throws RuntimeException if one of the given elements is null
    */
-  private void addAtBeginWhenIsEmpty(E[] elements) {
+  private void addAtBeginWhenIsEmpty(final E[] elements) {
     LinkedListNode<E> iteratorNode = null;
 
     for (final var e : elements) {

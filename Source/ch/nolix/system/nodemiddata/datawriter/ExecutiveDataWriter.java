@@ -183,7 +183,7 @@ public final class ExecutiveDataWriter {
    * 
    * @param schemaTimestamp
    */
-  public void expectSchemaTimestamp(ITime schemaTimestamp) {
+  public void expectSchemaTimestamp(final ITime schemaTimestamp) {
     final Consumer<IMutableNode<?>> updateAction = //
     d -> DataWriterActionProvider.expectSchemaTimestamp(d, schemaTimestamp);
 

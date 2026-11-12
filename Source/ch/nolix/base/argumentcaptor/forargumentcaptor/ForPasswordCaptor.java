@@ -24,7 +24,7 @@ public class ForPasswordCaptor<S> extends AbstractArgumentCaptor<String, S> impl
    * {@inheritDoc}
    */
   @Override
-  public final S forPassword(String password) {
+  public final S forPassword(final String password) {
     Validator.assertThat(password).thatIsNamed(LowerCaseVariableNameCatalog.PASSWORD).isNotBlank();
 
     return setArgumentAndGetStoredSuccessor(password);

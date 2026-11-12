@@ -61,7 +61,7 @@ public final class SchemaWriter implements ISchemaWriter {
    * {@inheritDoc}
    */
   @Override
-  public void addAdditionalSqlStatements(ExtendedIterable<String> additionalSqlStatements) {
+  public void addAdditionalSqlStatements(final ExtendedIterable<String> additionalSqlStatements) {
     addiditionalSqlStatements.addAtEnd(additionalSqlStatements);
   }
 

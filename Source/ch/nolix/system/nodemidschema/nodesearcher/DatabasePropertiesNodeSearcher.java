@@ -17,7 +17,7 @@ public final class DatabasePropertiesNodeSearcher implements IDatabaseProperties
    * {@inheritDoc}
    */
   @Override
-  public String getDatabaseNameFromDatabasePropertiesNode(IMutableNode<?> databasePropertiesNode) {
+  public String getDatabaseNameFromDatabasePropertiesNode(final IMutableNode<?> databasePropertiesNode) {
     final var databaseNameNode = getStoredDatabaseNameNodeFromDatabasePropertiesNode(databasePropertiesNode);
 
     return databaseNameNode.getSingleChildNodeHeader();
@@ -37,7 +37,7 @@ public final class DatabasePropertiesNodeSearcher implements IDatabaseProperties
    * {@inheritDoc}
    */
   @Override
-  public IMutableNode<?> getStoredDatabaseNameNodeFromDatabasePropertiesNode(IMutableNode<?> databasePropertiesNode) {
+  public IMutableNode<?> getStoredDatabaseNameNodeFromDatabasePropertiesNode(final IMutableNode<?> databasePropertiesNode) {
     return databasePropertiesNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.NAME);
   }
 

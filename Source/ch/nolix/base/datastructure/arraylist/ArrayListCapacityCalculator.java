@@ -63,7 +63,7 @@ public final class ArrayListCapacityCalculator {
    * @param value2
    * @return the bigger value of the given value1 and value2
    */
-  private static int getMax(int value1, int value2) {
+  private static int getMax(final int value1, final int value2) {
     if (value1 > value2) {
       return value1;
     }

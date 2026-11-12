@@ -24,7 +24,7 @@ public class ForLoginNameCaptor<S> extends AbstractArgumentCaptor<String, S> imp
    * {@inheritDoc}
    */
   @Override
-  public final S forLoginName(String loginName) {
+  public final S forLoginName(final String loginName) {
     Validator.assertThat(loginName).thatIsNamed(LowerCaseVariableNameCatalog.LOGIN_NAME).isNotBlank();
 
     return setArgumentAndGetStoredSuccessor(loginName);

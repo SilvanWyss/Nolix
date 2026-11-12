@@ -67,7 +67,7 @@ public final class InternalDataReader {
    * @param tableName
    * @return the number of entities of the table with the given tableName
    */
-  public int getEntityCount(String tableName) {
+  public int getEntityCount(final String tableName) {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
     return TABLE_NODE_SEARCHER.getEntityNodeCount(tableNode);

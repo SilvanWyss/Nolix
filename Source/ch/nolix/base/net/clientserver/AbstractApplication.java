@@ -103,7 +103,7 @@ implements Application<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final void internalSetParentServer(ch.nolix.baseapi.net.clientserver.Server<?> parentServer) {
+  public final void internalSetParentServer(final ch.nolix.baseapi.net.clientserver.Server<?> parentServer) {
     Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
     assertDoesNotBelongToServer();
 

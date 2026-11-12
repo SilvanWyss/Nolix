@@ -24,7 +24,7 @@ public class ForDatabaseCaptor<S> extends AbstractArgumentCaptor<String, S> impl
    * {@inheritDoc}
    */
   @Override
-  public final S forDatabase(String database) {
+  public final S forDatabase(final String database) {
     Validator.assertThat(database).thatIsNamed(LowerCaseVariableNameCatalog.DATABASE).isNotBlank();
 
     return setArgumentAndGetStoredSuccessor(database);

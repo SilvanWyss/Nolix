@@ -58,7 +58,7 @@ public interface OptionalHeaderHolder {
    * @return true if the current {@link OptionalHeaderHolder} has the given
    *         header, false otherwise
    */
-  default boolean hasHeader(String header) {
+  default boolean hasHeader(final String header) {
     return hasHeader() && getHeader().equals(header);
   }
 }

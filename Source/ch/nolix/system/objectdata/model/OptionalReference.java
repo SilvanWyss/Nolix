@@ -251,7 +251,7 @@ implements IOptionalReference<E> {
    * {@inheritDoc}
    */
   @Override
-  public boolean referencesEntity(Entity entity) {
+  public boolean referencesEntity(final Entity entity) {
     return containsAny()
     && entity != null
     && getReferencedEntityId().equals(entity.getId());

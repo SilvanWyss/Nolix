@@ -37,7 +37,7 @@ public final class StringToolUnit implements IStringTool {
    * {@inheritDoc}
    */
   @Override
-  public int getIndexOfNextVisibleCharacterOrMinusOne(String string, int startIndex) {
+  public int getIndexOfNextVisibleCharacterOrMinusOne(final String string, final int startIndex) {
     for (var i = startIndex; i < string.length(); i++) {
       final var character = string.charAt(i);
 

@@ -98,7 +98,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
    * {@inheritDoc}
    */
   @Override
-  public String createQueryToLoadEntityByTableAndId(String id, TableInfoDto tableView) {
+  public String createQueryToLoadEntityByTableAndId(final String id, final TableInfoDto tableView) {
     return "SELECT Id, SaveStamp, "
     + tableView.columnViews().getViewOf(ColumnInfoDto::name).toStringWithDelimiter(", ")
     + " FROM "

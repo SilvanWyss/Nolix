@@ -226,7 +226,7 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
 
   @Override
   @SuppressWarnings("unchecked")
-  protected void setFrom(AbstractProperty<S> property) {
+  protected void setFrom(final AbstractProperty<S> property) {
     setFrom((AbstractMaterializedProperty<S, V>) property);
   }
 

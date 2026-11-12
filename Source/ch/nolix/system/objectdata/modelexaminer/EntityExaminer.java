@@ -79,7 +79,7 @@ public final class EntityExaminer extends AbstractDatabaseObjectExaminer<Entity>
    * {@inheritDoc}
    */
   @Override
-  public boolean isReferencedIgnoringLocallyDeletedEntities(Entity entity) {
+  public boolean isReferencedIgnoringLocallyDeletedEntities(final Entity entity) {
     return //
     isReferencedInLocalDataIgnoringLocallyDeletedEntities(entity)
     || isReferencedInPersistedDataIgnoringLocallyDeletedEntities(entity);

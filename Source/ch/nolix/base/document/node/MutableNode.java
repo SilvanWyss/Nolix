@@ -188,7 +188,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public void removeFirstChildNodeWithHeader(String header) {
+  public void removeFirstChildNodeWithHeader(final String header) {
     memberChildNodes.removeFirst(cn -> cn.hasHeader(header));
   }
 
@@ -233,7 +233,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public Node<?> withNewHeader(String header) {
+  public Node<?> withNewHeader(final String header) {
     return ImmutableNode.withHeaderAndChildNodes(header, getStoredChildNodes());
   }
 

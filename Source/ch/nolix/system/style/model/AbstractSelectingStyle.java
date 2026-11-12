@@ -213,7 +213,7 @@ implements ISelectingStyleWithSelectors {
    * {@inheritDoc}
    */
   @Override
-  public final boolean selectsElement(StylableElement<?> element) {
+  public final boolean selectsElement(final StylableElement<?> element) {
     return selectorIdAllowsToSelectElement(element)
     && selectorTypeAllowsToSelectElement(element)
     && selectorRolesAllowToSelectElement(element)
@@ -305,7 +305,7 @@ implements ISelectingStyleWithSelectors {
     return !hasSelectorId() || element.hasId(getSelectorId());
   }
 
-  private boolean selectorRolesAllowToSelectElement(StylableElement<?> element) {
+  private boolean selectorRolesAllowToSelectElement(final StylableElement<?> element) {
     return !containsSelectorRoles() || getSelectorRoles().containsMatching(element::hasRole);
   }
 

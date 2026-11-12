@@ -17,7 +17,7 @@ public final class NamableTimeMediator extends AbstractTimeMediator {
    * @param argument
    * @return a new {@link NamableTimeMediator} for the given argument
    */
-  public static NamableTimeMediator forArgument(ITime argument) {
+  public static NamableTimeMediator forArgument(final ITime argument) {
     return new NamableTimeMediator(argument);
   }
 

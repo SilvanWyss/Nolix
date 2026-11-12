@@ -60,7 +60,7 @@ implements StyleHolder<E> {
    * {@inheritDoc}
    */
   @Override
-  public E setStyle(IStyle style) {
+  public E setStyle(final IStyle style) {
     this.style.setValue(style);
     applyStyleIfHasStyle();
 

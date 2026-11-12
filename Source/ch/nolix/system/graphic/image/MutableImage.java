@@ -335,7 +335,7 @@ extends AbstractMutableElementWithProperties implements IMutableImage<MutableIma
    * {@inheritDoc}
    */
   @Override
-  public MutableImage setPixel(int xPosition, int yPosition, final IColor color) {
+  public MutableImage setPixel(final int xPosition, final int yPosition, final IColor color) {
     removeGeneratedOutputs();
 
     pixels.setAtOneBasedRowIndexAndColumnIndex(yPosition, xPosition, color);

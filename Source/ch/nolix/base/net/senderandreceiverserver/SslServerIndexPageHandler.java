@@ -44,7 +44,7 @@ public final class SslServerIndexPageHandler extends SimpleChannelInboundHandler
    * @return a new {@link SslServerIndexPageHandler} with the givne htmlPage
    * @throws RuntimeException if the given htmlPage is null
    */
-  public static SslServerIndexPageHandler withHtmlPage(String htmlPage) {
+  public static SslServerIndexPageHandler withHtmlPage(final String htmlPage) {
     return new SslServerIndexPageHandler(htmlPage);
   }
 
@@ -52,7 +52,7 @@ public final class SslServerIndexPageHandler extends SimpleChannelInboundHandler
    * {@inheritDoc}
    */
   @Override
-  public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+  public void exceptionCaught(final ChannelHandlerContext ctx, final Throwable cause) {
     Logger.logError(cause);
     ctx.close();
   }
@@ -61,7 +61,7 @@ public final class SslServerIndexPageHandler extends SimpleChannelInboundHandler
    * {@inheritDoc}
    */
   @Override
-  protected void channelRead0(ChannelHandlerContext ctx, FullHttpRequest req) throws Exception {
+  protected void channelRead0(final ChannelHandlerContext ctx, final FullHttpRequest req) throws Exception {
     // Handle a bad request.
     if (!req.decoderResult().isSuccess()) {
       sendHttpResponse(ctx, req,
@@ -84,7 +84,7 @@ public final class SslServerIndexPageHandler extends SimpleChannelInboundHandler
     sendHttpResponse(ctx, req, res);
   }
 
-  private static void sendHttpResponse(ChannelHandlerContext ctx, FullHttpRequest req, FullHttpResponse res) {
+  private static void sendHttpResponse(final ChannelHandlerContext ctx, final FullHttpRequest req, final FullHttpResponse res) {
     // Generate an error page if response getStatus code is not OK (200).
     HttpResponseStatus responseStatus = res.status();
     if (responseStatus.code() != 200) {

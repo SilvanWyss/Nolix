@@ -32,7 +32,7 @@ public class WithDatabaseCaptor<S> extends AbstractArgumentCaptor<String, S> imp
    * {@inheritDoc}
    */
   @Override
-  public final S withDatabase(String database) {
+  public final S withDatabase(final String database) {
     Validator.assertThat(database).thatIsNamed(LowerCaseVariableNameCatalog.DATABASE).isNotBlank();
 
     return setArgumentAndGetStoredSuccessor(database);

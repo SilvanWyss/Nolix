@@ -33,7 +33,7 @@ public final class ArrayIterableViewIterator<E> implements Iterator<E> {
    * @param <T>   the type of the elements of the given array
    * @return a new {@link ArrayIterableViewIterator} for the given array
    */
-  public static <T> Iterator<T> forArray(T[] array) {
+  public static <T> Iterator<T> forArray(final T[] array) {
     return new ArrayIterableViewIterator<>(array);
   }
 

@@ -110,7 +110,7 @@ public final class ClosedInterval implements IClosedInterval {
   public static ClosedInterval withMinAndMaxAndDecimalPlaceCount(
     final BigDecimal min,
     final BigDecimal max,
-    int decimalPlaceCount) {
+    final int decimalPlaceCount) {
     return new ClosedInterval(min, max, decimalPlaceCount);
   }
 

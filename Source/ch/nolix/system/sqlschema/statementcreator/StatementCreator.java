@@ -23,7 +23,7 @@ public final class StatementCreator implements IStatementCreator {
    * {@inheritDoc}
    */
   @Override
-  public String createStatementToAddTable(TableDto table) {
+  public String createStatementToAddTable(final TableDto table) {
     return //
     "CREATE TABLE "
     + table.name()

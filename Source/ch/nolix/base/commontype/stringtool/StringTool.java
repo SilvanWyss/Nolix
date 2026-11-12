@@ -116,7 +116,7 @@ public final class StringTool {
    * @param string
    * @return a new {@link String} in pascal case for the given string
    */
-  public static String toPascalCase(String string) {
+  public static String toPascalCase(final String string) {
     return STRING_TOOL_UNIT.toPascalCase(string);
   }
 
@@ -125,7 +125,7 @@ public final class StringTool {
    * @return a proportion in [0, 1] from the given string
    * @throws RuntimeException if the given string does not represent a proportion
    */
-  public static double toProportion(String string) {
+  public static double toProportion(final String string) {
     return STRING_TOOL_UNIT.toProportion(string);
   }
 }

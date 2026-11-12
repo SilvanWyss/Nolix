@@ -108,7 +108,7 @@ extends AbstractControl<M, S> implements IItemMenu<M, S> {
    * {@inheritDoc}
    */
   @Override
-  public final M addItemWithIdAndTextAndSelectAction(final String id, String text, final Runnable selectAction) {
+  public final M addItemWithIdAndTextAndSelectAction(final String id, final String text, final Runnable selectAction) {
     return addItem(ItemMenuItem.withIdAndTextAndSelectAction(id, text, selectAction));
   }
 

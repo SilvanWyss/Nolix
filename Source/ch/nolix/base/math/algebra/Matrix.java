@@ -330,7 +330,7 @@ public final class Matrix { // NOSONAR: A Matrix is a principal object thus it h
    * @return a matrix with the first columns of the current {@link Matrix}
    * @throws RuntimeException if the given column count is not valid
    */
-  public Matrix getMatrixWithFirstColumns(int columnCount) {
+  public Matrix getMatrixWithFirstColumns(final int columnCount) {
     // Asserts that the given column count is valid.
     Validator
       .assertThat(columnCount)
@@ -589,7 +589,7 @@ public final class Matrix { // NOSONAR: A Matrix is a principal object thus it h
    * @return true if the current {@link Matrix} has the same size as the given
    *         matrix, false otherwise
    */
-  public boolean hasSameSize(Matrix matrix) {
+  public boolean hasSameSize(final Matrix matrix) {
     return getRowCount() == matrix.getRowCount() && getColumnCount() == matrix.getColumnCount();
   }
 
@@ -634,7 +634,7 @@ public final class Matrix { // NOSONAR: A Matrix is a principal object thus it h
    * @param factor
    * @return the current {@link Matrix}
    */
-  public Matrix multiply(double factor) {
+  public Matrix multiply(final double factor) {
     for (var i = 0; i < getRowCount(); i++) {
       for (var j = 0; j < getColumnCount(); j++) {
         values[i][j] *= factor;
@@ -702,7 +702,7 @@ public final class Matrix { // NOSONAR: A Matrix is a principal object thus it h
    * @param value
    * @return the current {@link Matrix}
    */
-  public Matrix setAllValuesTo(double value) {
+  public Matrix setAllValuesTo(final double value) {
     for (var i = 0; i < values.length; i++) {
       for (var j = 0; j < values[i].length; j++) {
         values[i][j] = value;
@@ -719,7 +719,7 @@ public final class Matrix { // NOSONAR: A Matrix is a principal object thus it h
    * @return the current {@link Matrix}
    * @throws RuntimeException if the current {@link Matrix} is not quadratic
    */
-  public Matrix setDiagonalValuesTo(double value) {
+  public Matrix setDiagonalValuesTo(final double value) {
     assertIsQuadratic();
 
     for (var i = 0; i < values.length; i++) {
@@ -795,7 +795,7 @@ public final class Matrix { // NOSONAR: A Matrix is a principal object thus it h
    * @throws RuntimeException if the current {@link Matrix} does not have a row
    *                          with the given row1 index
    */
-  public Matrix swapRows(int row1Index, int row2Index) {
+  public Matrix swapRows(final int row1Index, final int row2Index) {
     // Asserts that the current Matrix has a row with the given row 1 index.
     Validator.assertThat(row1Index).thatIsNamed(LowerCaseVariableNameCatalog.ROW_INDEX).isBetween(1, getRowCount());
 
@@ -1051,7 +1051,7 @@ public final class Matrix { // NOSONAR: A Matrix is a principal object thus it h
    * @return true if the current {@link Matrix} equals the given matrix, false
    *         otherwise
    */
-  private boolean equalsMatrix(Matrix matrix) {
+  private boolean equalsMatrix(final Matrix matrix) {
     if (!hasSameSize(matrix)) {
       return false;
     }

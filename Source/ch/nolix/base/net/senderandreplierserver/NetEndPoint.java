@@ -155,7 +155,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws RuntimeException if the given port is not in [0, 65535]
    * @throws RuntimeException if the given slot is null or blank
    */
-  public static NetEndPoint toLocalMachineAndGivenPortAndGivenSlot(int port, String slot) {
+  public static NetEndPoint toLocalMachineAndGivenPortAndGivenSlot(final int port, final String slot) {
     return new NetEndPoint(port, slot);
   }
 

@@ -191,7 +191,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    * {@inheritDoc}
    */
   @Override
-  public ISequencePattern<E> withConditionsForNexts(ExtendedIterable<Predicate<E>> conditions) {
+  public ISequencePattern<E> withConditionsForNexts(final ExtendedIterable<Predicate<E>> conditions) {
     Validator.assertThatTheElements(conditions).areNotNull();
 
     final var allElementConditions = ExtendedIterableView.forIterables(elementConditions, conditions);

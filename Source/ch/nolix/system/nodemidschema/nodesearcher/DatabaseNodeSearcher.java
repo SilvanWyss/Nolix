@@ -23,7 +23,7 @@ public final class DatabaseNodeSearcher implements IDatabaseNodeSearcher {
    * {@inheritDoc}
    */
   @Override
-  public String getDatabaseNameFromNodeDatabase(IMutableNode<?> nodeDatabase) {
+  public String getDatabaseNameFromNodeDatabase(final IMutableNode<?> nodeDatabase) {
     final var databasePropertiesNode = getStoredDatabasePropertiesNodeFromNodeDatabase(nodeDatabase);
 
     return DATABASE_PROPERTIES_NODE_SEARCHER.getDatabaseNameFromDatabasePropertiesNode(databasePropertiesNode);

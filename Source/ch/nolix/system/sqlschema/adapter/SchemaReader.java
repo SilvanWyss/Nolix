@@ -83,7 +83,7 @@ public final class SchemaReader implements ISchemaReader {
    * {@inheritDoc}
    */
   @Override
-  public TableDto loadTable(String tableName) {
+  public TableDto loadTable(final String tableName) {
     final var query = QUERY_CREATOR.createQueryToLoadNameAndDataTypeOfColumns(tableName);
     final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
 
@@ -121,7 +121,7 @@ public final class SchemaReader implements ISchemaReader {
    * {@inheritDoc}
    */
   @Override
-  public boolean tableExists(String tableName) {
+  public boolean tableExists(final String tableName) {
     final var query = QUERY_CREATOR.createQueryToGetTableCount(tableName);
     final var records = sqlConnection.getSingleRecordFromQuery(query);
 

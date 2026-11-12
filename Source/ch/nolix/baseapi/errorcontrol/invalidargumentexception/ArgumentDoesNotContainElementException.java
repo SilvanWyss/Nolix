@@ -116,7 +116,7 @@ public final class ArgumentDoesNotContainElementException extends AbstractInvali
     return new ArgumentDoesNotContainElementException(argument, element);
   }
 
-  private static String getElementNameFromElementName(String elementName) {
+  private static String getElementNameFromElementName(final String elementName) {
     if (elementName != null && !elementName.isBlank()) {
       return elementName;
     }

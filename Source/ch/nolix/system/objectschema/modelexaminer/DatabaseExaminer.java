@@ -62,7 +62,7 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean containsTable(final IDatabase database, ITable table) {
+  public boolean containsTable(final IDatabase database, final ITable table) {
     return //
     database != null
     && database.getStoredTables().contains(table);

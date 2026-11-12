@@ -20,7 +20,7 @@ public final class IterableExaminerHelper {
    * @return true if the elements of the given iterable equal the elements of the
    *         given iterable in the same order, false otherwise
    */
-  public static boolean containsExactlyAllEqualInSameOrderWhenIterableNotNullAndObjectsNotNull(Iterable<?> iterable) {
+  public static boolean containsExactlyAllEqualInSameOrderWhenIterableNotNullAndObjectsNotNull(final Iterable<?> iterable) {
     final var objectsIterator = iterable.iterator();
 
     for (final var e : iterable) {

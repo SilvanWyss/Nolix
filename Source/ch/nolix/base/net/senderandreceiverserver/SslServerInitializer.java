@@ -47,7 +47,7 @@ final class SslServerInitializer extends ChannelInitializer<SocketChannel> {
    * {@inheritDoc}
    */
   @Override
-  public void initChannel(SocketChannel ch) throws Exception {
+  public void initChannel(final SocketChannel ch) throws Exception {
     final var pipeline = ch.pipeline();
 
     if (sslContext != null) {

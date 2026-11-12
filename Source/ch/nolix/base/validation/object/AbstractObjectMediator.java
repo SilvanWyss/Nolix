@@ -51,7 +51,7 @@ public abstract class AbstractObjectMediator<A> extends AbstractMediator {
    *                          {@link AbstractObjectMediator} does not fulfill the
    *                          given condition
    */
-  public final void fulfills(Predicate<A> condition) {
+  public final void fulfills(final Predicate<A> condition) {
     if (condition == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.CONDITION);
     }

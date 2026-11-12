@@ -18,7 +18,7 @@ public final class ItemMenuValidator implements IItemMenuValidator {
    * {@inheritDoc}
    */
   @Override
-  public void assertCanAddItem(IItemMenu<?, ?> itemMenu, IItemMenuItem<?> item) {
+  public void assertCanAddItem(final IItemMenu<?, ?> itemMenu, final IItemMenuItem<?> item) {
     if (!ITEM_MENU_EXAMINER.canAddItem(itemMenu, item)) {
       throw //
       InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(

@@ -68,7 +68,7 @@ public final class ControlFactoryUnit {
    * @param controlClasses
    */
   @SuppressWarnings("unchecked")
-  public void registerControlClasses(Class<AbstractControl<?, ?>>... controlClasses) {
+  public void registerControlClasses(final Class<AbstractControl<?, ?>>... controlClasses) {
     for (final var c : controlClasses) {
       registerControlClass(c);
     }

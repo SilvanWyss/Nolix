@@ -110,7 +110,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements Ser
    * {@inheritDoc}
    */
   @Override
-  public <C extends BackendClient<C, T>, T> S addDefaultApplication(Application<C, T> defaultApplication) {
+  public <C extends BackendClient<C, T>, T> S addDefaultApplication(final Application<C, T> defaultApplication) {
     final var localDefaultApplication = (AbstractApplication<?, ?>) defaultApplication;
 
     localDefaultApplication.internalSetParentServer(this);

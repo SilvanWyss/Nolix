@@ -35,7 +35,7 @@ implements IOptionalMediator {
    * {@inheritDoc}
    */
   @Override
-  public final void containsEqualObject(Object object) {
+  public final void containsEqualObject(final Object object) {
     final var argument = getStoredArgument();
 
     if (argument == null // NOSONAR: The argument can be null.
@@ -53,7 +53,7 @@ implements IOptionalMediator {
    * {@inheritDoc}
    */
   @Override
-  public final void containsObject(Object object) {
+  public final void containsObject(final Object object) {
     final var argument = getStoredArgument();
 
     if (argument == null // NOSONAR: The argument can be null.
@@ -68,7 +68,7 @@ implements IOptionalMediator {
    * {@inheritDoc}
    */
   @Override
-  public final void containsObjectOfType(Class<Object> type) {
+  public final void containsObjectOfType(final Class<Object> type) {
     if (type == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.TYPE);
     }

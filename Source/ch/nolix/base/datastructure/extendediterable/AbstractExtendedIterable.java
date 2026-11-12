@@ -334,7 +334,7 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final double getMaxOrZero(Function<E, Number> numberMapper) {
+  public final double getMaxOrZero(final Function<E, Number> numberMapper) {
     // Asserts that the given numberMapper is not null.
     Validator.assertThat(numberMapper).thatIsNamed("Number mapper").isNotNull();
 
@@ -418,7 +418,7 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final double getMedianOrZero(Function<E, Number> norm) {
+  public final double getMedianOrZero(final Function<E, Number> norm) {
     // Handles the case that the current Container is empty.
     if (isEmpty()) {
       return 0.0;

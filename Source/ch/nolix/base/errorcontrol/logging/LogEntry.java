@@ -58,7 +58,7 @@ public final class LogEntry {
     return new LogEntry(harmLevel, message, new String[0]);
   }
 
-  private static String[] getAdditionalInfoLinesFromError(Throwable error) {
+  private static String[] getAdditionalInfoLinesFromError(final Throwable error) {
     return StackTraceMapper.mapErrorToStackTrace(error);
   }
 

@@ -76,7 +76,7 @@ public final class QueryCreator implements IQueryCreator {
    * {@inheritDoc}
    */
   @Override
-  public String createQueryToLoadJoinedColumns(String tableName) {
+  public String createQueryToLoadJoinedColumns(final String tableName) {
     return //
     "SELECT "
     + SchemaTable.COLUMN + "." + ColumnColumn.ID

@@ -23,7 +23,7 @@ public final class SchemaReaderHelper implements ISchemaReaderHelper {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<ColumnDto> loadColumnsFromTableNode(IMutableNode<?> tableNode) {
+  public ExtendedIterable<ColumnDto> loadColumnsFromTableNode(final IMutableNode<?> tableNode) {
     final var columnNodes = TABLE_NODE_SEARCHER.getStoredColumnNodesFromTableNode(tableNode);
 
     return columnNodes.to(COLUMN_DTO_MAPPER::mapColumnNodeToColumnDto);
@@ -33,7 +33,7 @@ public final class SchemaReaderHelper implements ISchemaReaderHelper {
    * {@inheritDoc}
    */
   @Override
-  public TableDto loadTableFromTableNode(IMutableNode<?> tableNode) {
+  public TableDto loadTableFromTableNode(final IMutableNode<?> tableNode) {
     final var tableId = TABLE_NODE_SEARCHER.getTableIdFromTableNode(tableNode);
     final var tableName = TABLE_NODE_SEARCHER.getTableNameFromTableNode(tableNode);
     final var columns = loadColumnsFromTableNode(tableNode);

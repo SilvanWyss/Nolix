@@ -332,7 +332,7 @@ public final class Table<E extends Entity> implements ITable<E> {
     return internalGetStoredEntitiesInLocalData().getStoredFirst(e -> e.hasId(id));
   }
 
-  private void insertEntityFromGivenLoadedEntityDtoInLocalDataIfNotInserted(EntityLoadingDto loadedEntity) {
+  private void insertEntityFromGivenLoadedEntityDtoInLocalDataIfNotInserted(final EntityLoadingDto loadedEntity) {
     if (!TABLE_EXAMINER.containsEntityWithGivenIdInLocalData(this, loadedEntity.id())) {
       final var entity = ENTITY_CREATOR.createEmptyEntityForEntityType(getEntityType());
 

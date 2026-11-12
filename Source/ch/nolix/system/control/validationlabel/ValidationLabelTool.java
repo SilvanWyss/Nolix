@@ -44,8 +44,8 @@ public final class ValidationLabelTool implements IValidationLabelTool {
    */
   @Override
   public <C extends Control<C, ?>> void executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
-    C control,
-    Consumer<? super C> action) {
+    final C control,
+    final Consumer<? super C> action) {
     try {
       action.accept(control);
       clearNearestValidationLabelOfControl(control);

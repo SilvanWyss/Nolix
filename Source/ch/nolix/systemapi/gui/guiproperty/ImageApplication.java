@@ -18,7 +18,7 @@ public enum ImageApplication {
    * @throws RuntimeException if the given specification does not represent a
    *                          {@link ImageApplication}
    */
-  public static ImageApplication fromSpecification(Node<?> specification) {
+  public static ImageApplication fromSpecification(final Node<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 }

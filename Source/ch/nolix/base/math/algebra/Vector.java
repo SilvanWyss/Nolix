@@ -57,7 +57,7 @@ public final class Vector {
    * {@inheritDoc}
    */
   @Override
-  public boolean equals(Object object) {
+  public boolean equals(final Object object) {
     return object instanceof final Vector vector && equalsVector(vector);
   }
 

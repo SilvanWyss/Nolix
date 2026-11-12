@@ -102,7 +102,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements Node<N>
    * {@inheritDoc}
    */
   @Override
-  public final boolean equals(Object object) {
+  public final boolean equals(final Object object) {
     return //
     object instanceof final Node<?> node
     && NODE_COMPARATOR.areEqual(this, node);
@@ -154,7 +154,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements Node<N>
    * {@inheritDoc}
    */
   @Override
-  public Optional<N> getOptionalStoredFirstChildNode(Predicate<Node<?>> selector) {
+  public Optional<N> getOptionalStoredFirstChildNode(final Predicate<Node<?>> selector) {
     return getStoredChildNodes().getOptionalStoredFirst(selector);
   }
 
@@ -226,7 +226,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements Node<N>
    * {@inheritDoc}
    */
   @Override
-  public final N getStoredFirstChildNode(Predicate<Node<?>> selector) {
+  public final N getStoredFirstChildNode(final Predicate<Node<?>> selector) {
     return getStoredChildNodes().getStoredFirst(selector);
   }
 

@@ -44,7 +44,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements E
    * {@inheritDoc}
    */
   @Override
-  public final void runCommands(ChainedNode... commands) {
+  public final void runCommands(final ChainedNode... commands) {
     for (final var c : commands) {
       runCommand(c);
     }

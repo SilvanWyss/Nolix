@@ -50,7 +50,7 @@ public final class SchemaReader implements ISchemaReader {
    * {@inheritDoc}
    */
   @Override
-  public boolean columnIsEmpty(String tableName, String columnName) {
+  public boolean columnIsEmpty(final String tableName, final String columnName) {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
     return TABLE_NODE_EXAMINER.columnOfTableNodeIsEmptyByColumnName(tableNode, columnName);

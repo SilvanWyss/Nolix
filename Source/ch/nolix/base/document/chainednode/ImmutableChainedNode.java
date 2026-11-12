@@ -300,7 +300,7 @@ implements ChainedNode {
    * @throws RuntimeException if the given header is blank
    * @throws RuntimeException if the given nextNode is null
    */
-  public static ImmutableChainedNode withHeaderAndNextNode(final String header, ImmutableChainedNode nextNode) {
+  public static ImmutableChainedNode withHeaderAndNextNode(final String header, final ImmutableChainedNode nextNode) {
     final var chainedNode = new ImmutableChainedNode();
     chainedNode.setHeader(header);
     chainedNode.setNextNode(nextNode);

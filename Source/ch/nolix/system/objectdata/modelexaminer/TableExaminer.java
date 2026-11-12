@@ -38,7 +38,7 @@ public final class TableExaminer extends AbstractDatabaseObjectExaminer<ITable<E
    * {@inheritDoc}
    */
   @Override
-  public boolean canInsertGivenEntity(ITable<?> table, Entity entity) {
+  public boolean canInsertGivenEntity(final ITable<?> table, final Entity entity) {
     return canInsertEntity(table)
     && ENTITY_EXAMINER.canBeInsertedIntoTable(entity)
     && !hasInsertedGivenEntityInLocalData(table, entity);

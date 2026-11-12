@@ -95,7 +95,7 @@ public abstract class AbstractDataAdapter implements DataAdapter {
    * {@inheritDoc}
    */
   @Override
-  public final <E extends Entity> E getStoredEntityByTypeAndId(Class<E> type, String id) {
+  public final <E extends Entity> E getStoredEntityByTypeAndId(final Class<E> type, final String id) {
     final var table = getStoredTableByEntityType(type);
 
     return table.getStoredEntityById(id);

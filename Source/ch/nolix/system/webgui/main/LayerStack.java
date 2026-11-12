@@ -69,7 +69,7 @@ public final class LayerStack implements ILayerStack {
    * {@inheritDoc}
    */
   @Override
-  public Optional<Control<?, ?>> getOptionalStoredControlByInternalId(String internalId) {
+  public Optional<Control<?, ?>> getOptionalStoredControlByInternalId(final String internalId) {
     for (final var l : getStoredLayers()) {
       final var control = l.getOptionalStoredControlByInternalId(internalId);
 
@@ -133,7 +133,7 @@ public final class LayerStack implements ILayerStack {
    * {@inheritDoc}
    */
   @Override
-  public ILayerStack pushLayer(ILayer layer) {
+  public ILayerStack pushLayer(final ILayer layer) {
     layer.internalSetParentGui(parentGui);
 
     layers.addAtEnd(layer);
@@ -145,7 +145,7 @@ public final class LayerStack implements ILayerStack {
    * {@inheritDoc}
    */
   @Override
-  public ILayerStack pushLayerWithRootControl(Control<?, ?> rootControl) {
+  public ILayerStack pushLayerWithRootControl(final Control<?, ?> rootControl) {
     return pushLayer(new Layer().setRootControl(rootControl));
   }
 
@@ -164,7 +164,7 @@ public final class LayerStack implements ILayerStack {
    * {@inheritDoc}
    */
   @Override
-  public ILayerStack setRemoveLayerAction(Runnable removeLayerAction) {
+  public ILayerStack setRemoveLayerAction(final Runnable removeLayerAction) {
     Validator.assertThat(removeLayerAction).thatIsNamed("remove layer action").isNotNull();
 
     this.removeLayerAction = removeLayerAction;

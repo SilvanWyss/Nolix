@@ -74,7 +74,7 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends AbstractProp
    * {@inheritDoc}
    */
   @Override
-  protected void fillUpValuesSpecificationInto(ILinkedList<Node<?>> list) {
+  protected void fillUpValuesSpecificationInto(final ILinkedList<Node<?>> list) {
     // Does nothing.
   }
 
@@ -82,7 +82,7 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends AbstractProp
    * {@inheritDoc}
    */
   @Override
-  protected void setFrom(AbstractProperty<S> property) {
+  protected void setFrom(final AbstractProperty<S> property) {
     // Does nothing.
   }
 

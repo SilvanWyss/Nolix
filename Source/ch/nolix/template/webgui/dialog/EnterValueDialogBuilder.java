@@ -84,7 +84,7 @@ public final class EnterValueDialogBuilder implements Builder<ILayer> {
    * @param cancelButtonText
    * @return the current {@link EnterValueDialogBuilder}
    */
-  public EnterValueDialogBuilder setCancelButtonText(String cancelButtonText) {
+  public EnterValueDialogBuilder setCancelButtonText(final String cancelButtonText) {
     Validator.assertThat(cancelButtonText).thatIsNamed("cancel button text").isNotBlank();
 
     this.cancelButtonText = cancelButtonText;

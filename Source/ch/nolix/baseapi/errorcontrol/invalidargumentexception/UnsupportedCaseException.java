@@ -75,7 +75,7 @@ public final class UnsupportedCaseException extends AbstractInvalidArgumentExcep
    * @return the name of the given paramCase
    * @throws RuntimeException if the given paramCase is null or blank
    */
-  private static String getNameOfCase(String paramCase) {
+  private static String getNameOfCase(final String paramCase) {
     if (paramCase == null) {
       throw new IllegalArgumentException("The given case is null.");
     }

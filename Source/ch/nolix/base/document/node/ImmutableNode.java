@@ -404,7 +404,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public Node<?> withNewHeader(String header) {
+  public Node<?> withNewHeader(final String header) {
     return withHeaderAndChildNodes(header, getStoredChildNodes());
   }
 }

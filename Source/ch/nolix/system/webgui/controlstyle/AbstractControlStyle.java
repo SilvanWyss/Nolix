@@ -260,7 +260,7 @@ implements ControlStyle<S> {
    * {@inheritDoc}
    */
   @Override
-  public final S forStateSetBackground(ControlState state, IBackground background) {
+  public final S forStateSetBackground(final ControlState state, final IBackground background) {
     memberBackground.setValueForState(state, background);
 
     return asConcrete();

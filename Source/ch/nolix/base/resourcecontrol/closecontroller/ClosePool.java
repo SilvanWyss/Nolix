@@ -79,7 +79,7 @@ final class ClosePool implements IClosePool {
    * @throws RuntimeException if the current {@link ClosePool} contains already
    *                          the given element
    */
-  private void addElement(GroupCloseable element) {
+  private void addElement(final GroupCloseable element) {
     assertDoesNotContainElement(element);
 
     memberElements.addAtEnd(element);

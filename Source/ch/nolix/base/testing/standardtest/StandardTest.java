@@ -153,7 +153,7 @@ public abstract class StandardTest { // NOSONAR: StandardTest does not have abst
    * @return a new multi double mediator that belongs to this test and is for the
    *         given arguments
    */
-  protected static final MultiDoubleMediator expectTheDoubles(Iterable<Double> arguments) {
+  protected static final MultiDoubleMediator expectTheDoubles(final Iterable<Double> arguments) {
     return MultiDoubleMediator.forArguments(arguments);
   }
 

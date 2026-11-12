@@ -106,7 +106,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @return a new {@link ColorGradient} from the given attributes
    * @throws RuntimeException if the given attributes are not valid
    */
-  private static ColorGradient from2Attributes(ExtendedIterable<? extends Node<?>> attributes) {
+  private static ColorGradient from2Attributes(final ExtendedIterable<? extends Node<?>> attributes) {
     final var color1Specification = ImmutableNode.withChildNode(attributes.getStoredAtOneBasedIndex(1));
     final var color2Specification = ImmutableNode.withChildNode(attributes.getStoredAtOneBasedIndex(2));
 
@@ -121,7 +121,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @return a new {@link ColorGradient} from the given attributes
    * @throws RuntimeException if the given attributes are not valid
    */
-  private static ColorGradient from3Attributes(ExtendedIterable<? extends Node<?>> attributes) {
+  private static ColorGradient from3Attributes(final ExtendedIterable<? extends Node<?>> attributes) {
     final var directionSpecification = ImmutableNode.withChildNode(attributes.getStoredAtOneBasedIndex(1));
     final var color1Specification = ImmutableNode.withChildNode(attributes.getStoredAtOneBasedIndex(2));
     final var color2Specification = ImmutableNode.withChildNode(attributes.getStoredAtOneBasedIndex(3));

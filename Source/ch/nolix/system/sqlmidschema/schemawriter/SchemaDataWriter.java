@@ -155,7 +155,7 @@ public final class SchemaDataWriter {
    * 
    * @param schemaTimestamp
    */
-  public void setSchemaTimestamp(ITime schemaTimestamp) {
+  public void setSchemaTimestamp(final ITime schemaTimestamp) {
     final var statement = DATABASE_PROPERTIES_STATEMENT_CREATOR.createStatementToSetSchemaTimestamp(schemaTimestamp);
 
     sqlCollector.addSqlStatement(statement);

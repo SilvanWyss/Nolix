@@ -164,7 +164,7 @@ public final class DataWriter implements IDataWriter {
    * {@inheritDoc}
    */
   @Override
-  public void expectSchemaTimestamp(ITime schemaTimestamp) {
+  public void expectSchemaTimestamp(final ITime schemaTimestamp) {
     executiveDataWriter.expectSchemaTimestamp(schemaTimestamp);
   }
 

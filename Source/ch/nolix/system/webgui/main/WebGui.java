@@ -425,7 +425,7 @@ implements IWebGui<WebGui> {
    * {@inheritDoc}
    */
   @Override
-  public WebGui setRemoveLayerAction(Runnable removeLayerAction) {
+  public WebGui setRemoveLayerAction(final Runnable removeLayerAction) {
     layerStack.setRemoveLayerAction(removeLayerAction);
 
     return this;

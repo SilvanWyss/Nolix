@@ -80,7 +80,7 @@ public final class InternalDataReader {
    * @param tableName
    * @return the number of entities of the table with the given tableName
    */
-  public int getEntityCount(String tableName) {
+  public int getEntityCount(final String tableName) {
     final var query = ENTITY_QUERY_CREATOR.createQueryToCountEntities(tableName);
     final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
 

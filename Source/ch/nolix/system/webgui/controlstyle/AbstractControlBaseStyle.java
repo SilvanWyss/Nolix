@@ -198,7 +198,7 @@ implements ControlBaseStyle<C> {
    * {@inheritDoc}
    */
   @Override
-  public LineDecoration getTextLineDecorationWhenHasState(ControlState state) {
+  public LineDecoration getTextLineDecorationWhenHasState(final ControlState state) {
     return memberTextLineDecoration.getValueWhenHasState(state);
   }
 

@@ -40,7 +40,7 @@ public final class LocalServer extends AbstractServer<LocalServer> {
    * {@inheritDoc}
    */
   @Override
-  protected void noteAddedApplication(Application<?, ?> application) {
+  protected void noteAddedApplication(final Application<?, ?> application) {
     // Does nothing.
   }
 
@@ -48,7 +48,7 @@ public final class LocalServer extends AbstractServer<LocalServer> {
    * {@inheritDoc}
    */
   @Override
-  protected void noteAddedDefaultApplication(AbstractApplication<?, ?> defaultApplication2) {
+  protected void noteAddedDefaultApplication(final AbstractApplication<?, ?> defaultApplication2) {
     // Does nothing.
   }
 
@@ -56,7 +56,7 @@ public final class LocalServer extends AbstractServer<LocalServer> {
    * {@inheritDoc}
    */
   @Override
-  protected void noteRemovedApplication(Application<?, ?> application) {
+  protected void noteRemovedApplication(final Application<?, ?> application) {
     // Does nothing.
   }
 }

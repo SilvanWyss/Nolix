@@ -232,7 +232,7 @@ implements IOptionalBackReference<E> {
    * {@inheritDoc}
    */
   @Override
-  public boolean referencesBackEntity(Entity entity) {
+  public boolean referencesBackEntity(final Entity entity) {
     return containsAny()
     && entity != null
     && getBackReferencedEntityId().equals(entity.getId());

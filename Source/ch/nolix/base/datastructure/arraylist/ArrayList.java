@@ -50,7 +50,7 @@ public final class ArrayList<E> extends AbstractExtendedIterable<E> implements I
    * @throws RuntimeException if one of the given elements is null
    */
   @SafeVarargs
-  public static <T> ArrayList<T> withElements(T... elements) {
+  public static <T> ArrayList<T> withElements(final T... elements) {
     final var arrayList = new ArrayList<T>();
 
     arrayList.addAtEnd(elements);

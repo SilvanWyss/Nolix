@@ -44,7 +44,7 @@ public final class ColumnEditor implements IColumnEditor<Column> {
     final FieldType fieldType,
     final DataType dataType,
     final ExtendedIterable<? extends ITable> referenceableTables,
-    ExtendedIterable<? extends IColumn> backReferenceableColumns) {
+    final ExtendedIterable<? extends IColumn> backReferenceableColumns) {
     COLUMN_MUTATION_VALIDATOR.assertCanSetContentModel(
       column,
       fieldType,

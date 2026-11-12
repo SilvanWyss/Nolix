@@ -60,7 +60,7 @@ public final class EntityTypeSet implements IEntityTypeSet {
    * @throws RuntimeException if one of the given entityTypes is null
    * @throws RuntimeException if the given entityTypes are not distinct
    */
-  public static EntityTypeSet withEntityTypes(ExtendedIterable<Class<? extends Entity>> entityTypes) {
+  public static EntityTypeSet withEntityTypes(final ExtendedIterable<Class<? extends Entity>> entityTypes) {
     return new EntityTypeSet(entityTypes);
   }
 
