@@ -8,7 +8,7 @@ import ch.nolix.system.objectdata.middatamodelmapper.MultiReferenceEntryDeletion
 import ch.nolix.system.objectdata.middatamodelmapper.MultiReferenceEntryDtoMapper;
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
-import ch.nolix.systemapi.objectdata.perstistence.IMultiReferenceEntrySaver;
+import ch.nolix.systemapi.objectdata.persistence.IMultiReferenceEntrySaver;
 
 /**
  * @author Silvan Wyss

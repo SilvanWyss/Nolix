@@ -11,7 +11,7 @@ import ch.nolix.systemapi.objectdata.model.Field;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
-import ch.nolix.systemapi.objectdata.perstistence.IMultiFieldSaver;
+import ch.nolix.systemapi.objectdata.persistence.IMultiFieldSaver;
 
 /**
  * @author Silvan Wyss

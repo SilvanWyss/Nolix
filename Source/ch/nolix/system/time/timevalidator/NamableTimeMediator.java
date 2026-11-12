@@ -27,6 +27,6 @@ public final class NamableTimeMediator extends AbstractTimeMediator {
    *         {@link NamableTimeMediator} with the given argumentName
    */
   public TimeMediator thatIsNamed(final String argumentName) {
-    return TimeMediator.forArugmentNameAndArgument(argumentName, getStoredArgument());
+    return TimeMediator.forArgumentNameAndArgument(argumentName, getStoredArgument());
   }
 }

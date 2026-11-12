@@ -5,7 +5,7 @@ package ch.nolix.base.testing.performancetest;
 
 import java.util.function.IntFunction;
 
-import ch.nolix.base.validation.perfomance.ObjectSupplierMediator;
+import ch.nolix.base.validation.performance.ObjectSupplierMediator;
 import ch.nolix.baseapi.validation.performance.IObjectSupplierMediator;
 
 /**

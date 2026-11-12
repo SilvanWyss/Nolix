@@ -23,5 +23,5 @@ public interface ITableSearcher {
    * @param table
    * @return the {@link IColumn}s that references the given table
    */
-  <E extends Entity> ExtendedIterable<IColumn> getStoredColumsThatReferencesTable(ITable<E> table);
+  <E extends Entity> ExtendedIterable<IColumn> getStoredColumnsThatReferenceTable(ITable<E> table);
 }

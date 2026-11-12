@@ -6,7 +6,7 @@ package ch.nolix.system.objectdata.persistence;
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.Entity;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
-import ch.nolix.systemapi.objectdata.perstistence.IMultiBackReferenceSaver;
+import ch.nolix.systemapi.objectdata.persistence.IMultiBackReferenceSaver;
 
 /**
  * @author Silvan Wyss

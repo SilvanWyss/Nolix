@@ -22,11 +22,11 @@ public final class NamableTypeMediator<T> extends AbstractTypeMediator<T> {
   }
 
   /**
-   * @param arguemtName
+   * @param argumentName
    * @return a new {@link TypeMediator} for the argument of the current
-   *         {@link NamableTypeMediator} with the given arguemtName
+   *         {@link NamableTypeMediator} with the given argumentName
    */
-  public TypeMediator<T> thatIsNamed(final String arguemtName) {
-    return TypeMediator.forArgumentAndArgumentName(getStoredArgument(), arguemtName);
+  public TypeMediator<T> thatIsNamed(final String argumentName) {
+    return TypeMediator.forArgumentAndArgumentName(getStoredArgument(), argumentName);
   }
 }

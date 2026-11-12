@@ -35,7 +35,7 @@ public final class TableSearcher implements ITableSearcher {
    * {@inheritDoc}
    */
   @Override
-  public <E extends Entity> ExtendedIterable<IColumn> getStoredColumsThatReferencesTable(
+  public <E extends Entity> ExtendedIterable<IColumn> getStoredColumnsThatReferenceTable(
     final ITable<E> table) {
     if (table == null) {
       return ImmutableList.createEmpty();

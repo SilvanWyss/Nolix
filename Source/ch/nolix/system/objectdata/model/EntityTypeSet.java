@@ -23,7 +23,7 @@ public final class EntityTypeSet implements IEntityTypeSet {
   private EntityTypeSet(final ExtendedIterable<Class<? extends Entity>> entityTypes) {
     Validator.assertThat(entityTypes)
       .thatIsNamed(PluralLowerCaseVariableNameCatalog.ENTITY_TYPES)
-      .containsDistinctNonNullElemensOnly();
+      .containsDistinctNonNullElementsOnly();
 
     this.entityTypes = ImmutableList.fromIterable(entityTypes);
   }

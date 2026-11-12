@@ -150,7 +150,7 @@ public final class TabContainerTab extends AbstractMutableElementWithProperties 
    * {@inheritDoc}
    */
   @Override
-  public void internalsetParentTabContainer(final ITabContainer tabContainer) {
+  public void internalSetParentTabContainer(final ITabContainer tabContainer) {
     Validator.assertThat(tabContainer).thatIsNamed("tab container").isNotNull();
 
     assertDoesNotBelongToTabContainer();

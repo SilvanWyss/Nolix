@@ -31,7 +31,7 @@ public interface IDatabaseExaminer {
    * @return true if the given database contains a {@link IColumn} the given
    *         column references back, false otherwise
    */
-  boolean containsBackReferencededColumnByColumn(IDatabase database, IColumn column);
+  boolean containsBackReferencedColumnByColumn(IDatabase database, IColumn column);
 
   /**
    * @param database

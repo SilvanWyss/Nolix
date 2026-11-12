@@ -14,5 +14,5 @@ public interface ISqlValueAssignmentMapper {
    * @param valueStringFieldDto
    * @return the SQL value assignments for the given valueStringFieldDto
    */
-  ExtendedIterable<String> mapValueStringFieldDtoToSqlValueAssignemnts(ValueStringFieldDto valueStringFieldDto);
+  ExtendedIterable<String> mapValueStringFieldDtoToSqlValueAssignments(ValueStringFieldDto valueStringFieldDto);
 }

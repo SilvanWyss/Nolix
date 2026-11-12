@@ -70,7 +70,7 @@ public interface IButton extends Control<IButton, IButtonStyle>, FluentMutableTe
    * @param leftMouseButtonReleaseAction
    * @return the current {@link IButton}
    */
-  IButton setLeftMouseButtonRelaseAction(Runnable leftMouseButtonReleaseAction);
+  IButton setLeftMouseButtonReleaseAction(Runnable leftMouseButtonReleaseAction);
 
   /**
    * Sets the given leftMouseButtonReleaseAction to the current {@link IButton}.
@@ -78,7 +78,7 @@ public interface IButton extends Control<IButton, IButtonStyle>, FluentMutableTe
    * @param leftMouseButtonReleaseAction
    * @return the current {@link IButton}
    */
-  IButton setLeftMouseButtonRelaseAction(Consumer<IButton> leftMouseButtonReleaseAction);
+  IButton setLeftMouseButtonReleaseAction(Consumer<IButton> leftMouseButtonReleaseAction);
 
   /**
    * Sets the given role to the current {@link IButton}.

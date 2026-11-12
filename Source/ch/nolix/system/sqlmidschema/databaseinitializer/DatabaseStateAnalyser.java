@@ -34,7 +34,7 @@ public final class DatabaseStateAnalyser implements IDatabaseStateAnalyser {
    * {@inheritDoc}
    */
   @Override
-  public DatabaseState getDatabasState(
+  public DatabaseState getDatabaseState(
     final String databaseName,
     final ISqlConnection sqlConnection) {
     final var schemaReader = //

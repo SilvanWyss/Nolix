@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.validation.perfomance;
+package ch.nolix.base.validation.performance;
 
 import java.util.function.Consumer;
 import java.util.function.IntFunction;

@@ -50,7 +50,7 @@ public final class Table<E extends Entity> implements ITable<E> {
   private final Class<E> entityClass;
 
   private final LazyCalculatedProperty<ExtendedIterable<IColumn>> columnsThatReferenceCurrentTable = //
-  LazyCalculatedProperty.forValueCreater(() -> TABLE_TOOL.getStoredColumsThatReferencesTable(this));
+  LazyCalculatedProperty.forValueCreator(() -> TABLE_TOOL.getStoredColumnsThatReferenceTable(this));
 
   private boolean loadedAllEntitiesInLocalData;
 

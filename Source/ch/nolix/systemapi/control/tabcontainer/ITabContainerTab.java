@@ -33,5 +33,5 @@ extends FluentMutableHeaderHolder<ITabContainerTab>, MutableElement, RootControl
    * 
    * @param tabContainer
    */
-  void internalsetParentTabContainer(ITabContainer tabContainer);
+  void internalSetParentTabContainer(ITabContainer tabContainer);
 }

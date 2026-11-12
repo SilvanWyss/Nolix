@@ -27,6 +27,6 @@ public final class NamableBigDecimalMediator extends AbstractBigDecimalMediator 
    *         {@link NamableBigDecimalMediator} with the given argumentName
    */
   public BigDecimalMediator thatIsNamed(final String argumentName) {
-    return BigDecimalMediator.forArgumentAndArumgentName(getStoredArgument(), argumentName);
+    return BigDecimalMediator.forArgumentAndArgumentName(getStoredArgument(), argumentName);
   }
 }

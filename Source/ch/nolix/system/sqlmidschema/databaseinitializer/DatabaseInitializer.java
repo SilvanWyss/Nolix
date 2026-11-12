@@ -62,7 +62,7 @@ public final class DatabaseInitializer extends AbstractDatabaseInitializer {
    */
   @Override
   public DatabaseState getDatabaseState() {
-    return DATABASE_STATE_ANALYSER.getDatabasState(databaseName, sqlConnection);
+    return DATABASE_STATE_ANALYSER.getDatabaseState(databaseName, sqlConnection);
   }
 
   /**
@@ -70,7 +70,7 @@ public final class DatabaseInitializer extends AbstractDatabaseInitializer {
    */
   @Override
   protected void initializeDatabaseWithInitialSchemaTimestamp(final ITime initialSchemaTimestamp) {
-    final var schemaWriter = SchemaWriter.forDatabasNameAndSqlConnection(databaseName, sqlConnection);
+    final var schemaWriter = SchemaWriter.forDatabaseNameAndSqlConnection(databaseName, sqlConnection);
 
     DATABASE_INITIALIZER_TOOL.initializeFixTables(schemaWriter);
     DATABASE_INITIALIZER_TOOL.saveSchemaTimestamp(initialSchemaTimestamp, sqlConnection, databaseName);

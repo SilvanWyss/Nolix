@@ -34,7 +34,7 @@ public final class SqlSchemaAdapter implements SchemaAdapter {
       databaseName,
       sqlConnection);
 
-    schemaWriter = SchemaWriter.forDatabasNameAndSqlConnection(
+    schemaWriter = SchemaWriter.forDatabaseNameAndSqlConnection(
       databaseName,
       sqlConnection);
 

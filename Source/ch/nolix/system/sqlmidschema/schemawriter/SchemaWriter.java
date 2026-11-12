@@ -48,7 +48,7 @@ public final class SchemaWriter implements ISchemaWriter {
     this.schemaDataWriter = SchemaDataWriter.forSqlCollector(sqlCollector);
 
     this.sqlSchemaWriter = //
-    ch.nolix.system.sqlschema.adapter.SchemaWriter.forDatabasNameAndSqlConnection(databaseName, sqlConnection);
+    ch.nolix.system.sqlschema.adapter.SchemaWriter.forDatabaseNameAndSqlConnection(databaseName, sqlConnection);
 
     createCloseDependencyTo(this.sqlConnection);
     createCloseDependencyTo(this.sqlSchemaWriter);

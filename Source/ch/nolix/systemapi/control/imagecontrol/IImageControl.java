@@ -89,7 +89,7 @@ public interface IImageControl extends Clearable, Control<IImageControl, IImageC
    * @param leftMouseButtonReleaseAction
    * @return the current {@link IImageControl}
    */
-  IImageControl setLeftMouseButtonRelaseAction(Runnable leftMouseButtonReleaseAction);
+  IImageControl setLeftMouseButtonReleaseAction(Runnable leftMouseButtonReleaseAction);
 
   /**
    * Sets the given leftMouseButtonReleaseAction to the current
@@ -98,5 +98,5 @@ public interface IImageControl extends Clearable, Control<IImageControl, IImageC
    * @param leftMouseButtonReleaseAction
    * @return the current {@link IImageControl}
    */
-  IImageControl setLeftMouseButtonRelaseAction(Consumer<IImageControl> leftMouseButtonReleaseAction);
+  IImageControl setLeftMouseButtonReleaseAction(Consumer<IImageControl> leftMouseButtonReleaseAction);
 }

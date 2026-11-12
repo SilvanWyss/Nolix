@@ -138,7 +138,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     final var updatedContentFields = entityUpdate.updatedContentFields();
 
     final var updatedContentFieldSqlValueAssignments = //
-    updatedContentFields.toMultiples(SQL_VALUE_ASSIGNMENT_MAPPER::mapValueStringFieldDtoToSqlValueAssignemnts);
+    updatedContentFields.toMultiples(SQL_VALUE_ASSIGNMENT_MAPPER::mapValueStringFieldDtoToSqlValueAssignments);
 
     var contentFieldSetsPrecessor = " ";
 

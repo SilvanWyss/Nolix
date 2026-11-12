@@ -220,7 +220,7 @@ public abstract class AbstractField implements Field {
    */
   @Override
   public final void setUpdateAction(final Runnable updateAction) {
-    fieldFlyWeight = FieldFlyWeight.wihUpdateAction(updateAction);
+    fieldFlyWeight = FieldFlyWeight.withUpdateAction(updateAction);
   }
 
   protected final DataAdapterAndSchemaReader getStoredDataAndSchemaAdapter() {

@@ -76,7 +76,7 @@ final class WebSocketFrameFirstWord {
    * @return a new {@link WebSocketFrameFirstWord} with the given mFINBit,
    *         opcodeMeaning, maskBit and payloadLength
    */
-  public static WebSocketFrameFirstWord withFinBitAndOpCodeMeaningAndMaskBitAndPaylaodLength(
+  public static WebSocketFrameFirstWord withFinBitAndOpCodeMeaningAndMaskBitAndPayloadLength(
     final boolean mFINBit,
     final WebSocketFrameOpcodeMeaning opcodeMeaning,
     final boolean maskBit,

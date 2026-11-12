@@ -51,7 +51,7 @@ public final class SchemaWriter implements ISchemaWriter {
    * @return a new {@link SchemaWriter} for the database with the given
    *         databaseName using the given sqlConnection
    */
-  public static SchemaWriter forDatabasNameAndSqlConnection(
+  public static SchemaWriter forDatabaseNameAndSqlConnection(
     final String databaseName,
     final ISqlConnection sqlConnection) {
     return new SchemaWriter(databaseName, sqlConnection);

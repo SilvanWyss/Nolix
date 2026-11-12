@@ -248,20 +248,20 @@ public final class ImageControl extends AbstractControl<IImageControl, IImageCon
    */
   @Override
   @SuppressWarnings("unused")
-  public IImageControl setLeftMouseButtonRelaseAction(final Runnable leftMouseButtonReleaseAction) {
+  public IImageControl setLeftMouseButtonReleaseAction(final Runnable leftMouseButtonReleaseAction) {
     Validator
       .assertThat(leftMouseButtonReleaseAction)
       .thatIsNamed("left mouse button release action")
       .isNotNull();
 
-    return setLeftMouseButtonRelaseAction(b -> leftMouseButtonReleaseAction.run());
+    return setLeftMouseButtonReleaseAction(b -> leftMouseButtonReleaseAction.run());
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public IImageControl setLeftMouseButtonRelaseAction(
+  public IImageControl setLeftMouseButtonReleaseAction(
     final Consumer<IImageControl> leftMouseButtonReleaseAction) {
     Validator
       .assertThat(leftMouseButtonReleaseAction)

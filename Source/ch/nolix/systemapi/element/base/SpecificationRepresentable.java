@@ -29,7 +29,7 @@ public interface SpecificationRepresentable {
    * @return a formated {@link String} representation of the current
    *         {@link SpecificationRepresentable}
    */
-  default String toFormatedString() {
+  default String toFormattedString() {
     return getSpecification().toFormattedString();
   }
 }

@@ -98,7 +98,7 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
    */
   @Override
   public ITabContainer addTab(final ITabContainerTab tab) {
-    tab.internalsetParentTabContainer(this);
+    tab.internalSetParentTabContainer(this);
 
     if (isEmpty()) {
       tab.select();

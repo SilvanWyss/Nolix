@@ -7,7 +7,7 @@ import ch.nolix.system.objectdata.expectation.DatabaseExpectationAdder;
 import ch.nolix.system.objectdata.modelvalidator.DatabaseValidator;
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
-import ch.nolix.systemapi.objectdata.perstistence.IDatabasePersister;
+import ch.nolix.systemapi.objectdata.persistence.IDatabasePersister;
 
 /**
  * @author Silvan Wyss

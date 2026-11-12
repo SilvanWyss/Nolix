@@ -22,7 +22,7 @@ public final class FieldFlyWeight implements IFieldFlyWeight {
    * @param updateAction
    * @return a new {@link FieldFlyWeight} with the given updateAction
    */
-  public static FieldFlyWeight wihUpdateAction(final Runnable updateAction) {
+  public static FieldFlyWeight withUpdateAction(final Runnable updateAction) {
     return new FieldFlyWeight(updateAction);
   }
 

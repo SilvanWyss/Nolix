@@ -21,7 +21,7 @@ final class StateExtractor<S extends Enum<S>> {
    * @return new {@link State}s from the class of the given state
    */
   @SuppressWarnings("unchecked")
-  public ExtendedIterable<State<S>> createtStatesFromState(final S state) {
+  public ExtendedIterable<State<S>> createStatesFromState(final S state) {
     return createStatesFromStateClass((Class<S>) state.getClass());
   }
 

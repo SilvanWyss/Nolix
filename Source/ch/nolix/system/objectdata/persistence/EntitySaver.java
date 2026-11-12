@@ -7,7 +7,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 import ch.nolix.system.objectdata.middatamodelmapper.EntityDtoMapper;
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.Entity;
-import ch.nolix.systemapi.objectdata.perstistence.IEntitySaver;
+import ch.nolix.systemapi.objectdata.persistence.IEntitySaver;
 
 /**
  * @author Silvan Wyss

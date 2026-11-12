@@ -247,20 +247,20 @@ public final class Button extends AbstractControl<IButton, IButtonStyle> impleme
    */
   @Override
   @SuppressWarnings("unused")
-  public IButton setLeftMouseButtonRelaseAction(final Runnable leftMouseButtonReleaseAction) {
+  public IButton setLeftMouseButtonReleaseAction(final Runnable leftMouseButtonReleaseAction) {
     Validator
       .assertThat(leftMouseButtonReleaseAction)
       .thatIsNamed("left mouse button release action")
       .isNotNull();
 
-    return setLeftMouseButtonRelaseAction(b -> leftMouseButtonReleaseAction.run());
+    return setLeftMouseButtonReleaseAction(b -> leftMouseButtonReleaseAction.run());
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public IButton setLeftMouseButtonRelaseAction(final Consumer<IButton> leftMouseButtonReleaseAction) {
+  public IButton setLeftMouseButtonReleaseAction(final Consumer<IButton> leftMouseButtonReleaseAction) {
     Validator
       .assertThat(leftMouseButtonReleaseAction)
       .thatIsNamed("left mouse button release action")

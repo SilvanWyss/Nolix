@@ -148,7 +148,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
    *                          {@link AbstractIterableMediator} contains an element
    *                          several times
    */
-  public void containsDistinctNonNullElemensOnly() {
+  public void containsDistinctNonNullElementsOnly() {
     containsNonNullElementsOnly();
 
     final var argument = getStoredArgument();

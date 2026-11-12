@@ -8,7 +8,7 @@ import ch.nolix.system.objectdata.middatamodelmapper.MultiBackReferenceEntryDele
 import ch.nolix.system.objectdata.middatamodelmapper.MultiBackReferenceEntryDtoMapper;
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReferenceEntry;
-import ch.nolix.systemapi.objectdata.perstistence.IMultiBackReferenceEntrySaver;
+import ch.nolix.systemapi.objectdata.persistence.IMultiBackReferenceEntrySaver;
 
 /**
  * @author Silvan Wyss

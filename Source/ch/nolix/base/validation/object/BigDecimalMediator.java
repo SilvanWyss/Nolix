@@ -19,7 +19,7 @@ public final class BigDecimalMediator extends AbstractBigDecimalMediator {
    * @return a new {@link BigDecimalMediator} for the given argument with the
    *         given argumentName
    */
-  public static BigDecimalMediator forArgumentAndArumgentName(final BigDecimal argument, final String argumentName) {
+  public static BigDecimalMediator forArgumentAndArgumentName(final BigDecimal argument, final String argumentName) {
     return new BigDecimalMediator(argument, argumentName);
   }
 }

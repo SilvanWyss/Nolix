@@ -19,7 +19,7 @@ public final class SqlValueAssignmentMapper implements ISqlValueAssignmentMapper
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<String> mapValueStringFieldDtoToSqlValueAssignemnts(
+  public ExtendedIterable<String> mapValueStringFieldDtoToSqlValueAssignments(
     final ValueStringFieldDto valueStringFieldDto) {
     final var columnName = valueStringFieldDto.columnName();
     final var nullableValueString = valueStringFieldDto.nullableValueString();

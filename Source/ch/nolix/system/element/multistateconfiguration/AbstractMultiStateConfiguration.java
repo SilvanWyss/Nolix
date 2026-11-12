@@ -35,7 +35,7 @@ implements MultiStateConfiguration<C, S> {
   protected AbstractMultiStateConfiguration(final S baseState) {
     Validator.assertThat(baseState).thatIsNamed("base state").isNotNull();
 
-    availableStates = new StateExtractor<S>().createtStatesFromState(baseState);
+    availableStates = new StateExtractor<S>().createStatesFromState(baseState);
     this.baseState = availableStates.getStoredFirst(s -> s.hasEnumValue(baseState));
   }
 

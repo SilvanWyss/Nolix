@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.persistence;
 
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
-import ch.nolix.systemapi.objectdata.perstistence.IMultiValueFieldSaver;
+import ch.nolix.systemapi.objectdata.persistence.IMultiValueFieldSaver;
 
 /**
  * @author Silvan Wyss

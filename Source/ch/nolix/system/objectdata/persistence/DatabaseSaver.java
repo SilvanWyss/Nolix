@@ -6,7 +6,7 @@ package ch.nolix.system.objectdata.persistence;
 import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
-import ch.nolix.systemapi.objectdata.perstistence.IDatabaseSaver;
+import ch.nolix.systemapi.objectdata.persistence.IDatabaseSaver;
 
 /**
  * @author Silvan Wyss

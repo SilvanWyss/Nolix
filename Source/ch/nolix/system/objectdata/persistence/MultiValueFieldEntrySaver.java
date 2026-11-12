@@ -7,7 +7,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 import ch.nolix.system.objectdata.middatamodelmapper.MultiValueEntryDtoMapper;
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IMultiValueFieldEntry;
-import ch.nolix.systemapi.objectdata.perstistence.IMultiValueFieldEntrySaver;
+import ch.nolix.systemapi.objectdata.persistence.IMultiValueFieldEntrySaver;
 
 /**
  * @author Silvan Wyss

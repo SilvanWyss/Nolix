@@ -104,7 +104,7 @@ public final class DatabaseValidator extends AbstractDatabaseObjectValidator<IDa
   public void assertContainsTableWithColumnBackReferencedByGivenColumn(
     final IDatabase database,
     final IColumn column) {
-    if (!DATABASE_EXAMINER.containsBackReferencededColumnByColumn(database, column)) {
+    if (!DATABASE_EXAMINER.containsBackReferencedColumnByColumn(database, column)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
         this,
         "does not contain a table with a column that references back the column " + column.getName());

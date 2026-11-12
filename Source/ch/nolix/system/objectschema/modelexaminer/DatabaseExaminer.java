@@ -44,7 +44,7 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean containsBackReferencededColumnByColumn(
+  public boolean containsBackReferencedColumnByColumn(
     final IDatabase database,
     final IColumn column) {
     // This part is not mandatory, but provides a better performance.

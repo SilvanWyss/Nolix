@@ -60,7 +60,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return mutableXmlNode;
   }
 
-  private static String toFormatedString(final IMutableXmlNode mutableXmlNode, final int leadingTabulatorCount) {
+  private static String toFormattedString(final IMutableXmlNode mutableXmlNode, final int leadingTabulatorCount) {
     final var stringBuilder = new StringBuilder();
 
     stringBuilder
@@ -93,7 +93,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
       for (final var c : mutableXmlNode.getStoredChildNodes()) {
         stringBuilder
           .append(CharacterCatalog.NEW_LINE)
-          .append(toFormatedString(c, leadingTabulatorCount + 1));
+          .append(toFormattedString(c, leadingTabulatorCount + 1));
       }
 
       stringBuilder.append(CharacterCatalog.NEW_LINE);
@@ -339,8 +339,8 @@ public final class MutableXmlNode implements IMutableXmlNode {
    * @return a formatted {@link String} representation of the current
    *         {@link MutableXmlNode}
    */
-  public String toFormatedString() {
-    return toFormatedString(this, 0);
+  public String toFormattedString() {
+    return toFormattedString(this, 0);
   }
 
   /**

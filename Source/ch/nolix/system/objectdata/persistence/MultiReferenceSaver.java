@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.persistence;
 
 import ch.nolix.systemapi.middata.adapter.DataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
-import ch.nolix.systemapi.objectdata.perstistence.IMultiReferenceSaver;
+import ch.nolix.systemapi.objectdata.persistence.IMultiReferenceSaver;
 
 /**
  * @author Silvan Wyss
