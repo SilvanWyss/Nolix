@@ -41,6 +41,14 @@ public abstract class AbstractLogHandler {
     return logEntry != null && !logEntry.getHarmLevel().isLowerThan(getMinHarmLevel());
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected final void finalize() throws Throwable {
+    // Does nothing.
+  }
+
   protected abstract void log(final LogEntry logEntry);
 
   final void takeLogEntry(final LogEntry logEntry) {

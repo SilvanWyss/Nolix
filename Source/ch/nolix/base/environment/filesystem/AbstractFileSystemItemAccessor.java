@@ -109,6 +109,14 @@ public abstract class AbstractFileSystemItemAccessor {
   }
 
   /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected final void finalize() throws Throwable {
+    // Does nothing.
+  }
+
+  /**
    * @return the internal accessor of this file system item accessor
    */
   protected final File getInternalAccessor() {

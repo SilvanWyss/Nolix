@@ -143,6 +143,14 @@ public abstract class AbstractThrownExceptionMediator {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected final void finalize() throws Throwable {
+    // Does nothing.
+  }
+
   // For a better performance, this implementation does not use all available comfort methods.
   /**
    * @return the exception of the current {@link AbstractThrownExceptionMediator}

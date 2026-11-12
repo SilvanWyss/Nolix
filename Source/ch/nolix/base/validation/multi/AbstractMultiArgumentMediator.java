@@ -45,6 +45,14 @@ public abstract class AbstractMultiArgumentMediator<A> {
   }
 
   /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected final void finalize() throws Throwable {
+    // Does nothing.
+  }
+
+  /**
    * @return the arguments of the current {@link AbstractMultiArgumentMediator}
    */
   protected final Iterable<A> getStoredArguments() {

@@ -166,6 +166,14 @@ public abstract class AbstractSqlConnection implements ISqlConnection {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected final void finalize() throws Throwable {
+    // Does nothing.
+  }
+
   protected abstract String getSqlDatabaseEngineDriverClass();
 
   private void registerSqlDatabaseEngineDriver() {

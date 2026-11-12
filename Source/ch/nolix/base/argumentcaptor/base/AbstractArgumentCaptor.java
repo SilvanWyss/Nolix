@@ -52,6 +52,14 @@ public abstract class AbstractArgumentCaptor<A, S> implements ArgumentCaptor<S> 
     return successorArgumentCaptorAsSuccessor;
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected final void finalize() throws Throwable {
+    // Does nothing.
+  }
+
   protected final A getStoredArgument() {
     assertHasArgument();
 

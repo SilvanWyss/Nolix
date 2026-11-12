@@ -41,6 +41,14 @@ public abstract class AbstractMediator {
   }
 
   /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected final void finalize() throws Throwable {
+    // Does nothing.
+  }
+
+  /**
    * @return the argument name of the current {@link AbstractMediator}
    */
   protected final String getArgumentName() {

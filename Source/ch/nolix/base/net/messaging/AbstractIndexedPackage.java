@@ -58,4 +58,12 @@ public abstract class AbstractIndexedPackage<C> {
   public final boolean hasIndex(final int index) {
     return getIndex() == index;
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected final void finalize() throws Throwable {
+    // Does nothing.
+  }
 }
