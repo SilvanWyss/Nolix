@@ -51,7 +51,7 @@ public final class UnsupportedCaseException extends AbstractInvalidArgumentExcep
   /**
    * @param paramCase
    * @return a new {@link UnsupportedCaseException} for the given paramCase
-   * @throws RuntimeException if the given pCase is null or blank
+   * @throws RuntimeException if the given paramCase is null or blank
    */
   public static UnsupportedCaseException forCase(final String paramCase) {
     return new UnsupportedCaseException(paramCase);

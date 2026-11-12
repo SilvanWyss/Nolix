@@ -161,20 +161,20 @@ public final class Color extends AbstractElement implements IColor {
   }
 
   /**
-   * @param pLong
-   * @return a new {@link Color} from the given pLong
-   * @throws RuntimeException if the given pLong does not represent a
+   * @param paramLong
+   * @return a new {@link Color} from the given paramLong
+   * @throws RuntimeException if the given paramLong does not represent a
    *                          {@link Color}
    */
-  public static Color fromLong(final long pLong) {
-    // Asserts that the given pLong is a true color value.
-    Validator.assertThat(pLong).isBetween(MIN_COLOR_LONG, MAX_COLOR_LONG);
+  public static Color fromLong(final long paramLong) {
+    // Asserts that the given paramLong is a true color value.
+    Validator.assertThat(paramLong).isBetween(MIN_COLOR_LONG, MAX_COLOR_LONG);
 
-    var lLong = pLong;
+    var lLong = paramLong;
 
     var alphaValue = DEFAULT_ALPHA_VALUE;
 
-    // Handles the case that the given pLong specifies an alpha value.
+    // Handles the case that the given paramLong specifies an alpha value.
     if (lLong >= 16_777_216) {
       alphaValue = ((int) (lLong % 256));
       lLong /= 256;

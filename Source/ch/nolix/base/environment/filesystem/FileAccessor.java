@@ -129,8 +129,8 @@ public final class FileAccessor extends AbstractFileSystemItemAccessor {
       while ((line = bufferedReader.readLine()) != null) {
         lines.addAtEnd(line);
       }
-    } catch (final IOException pIOException) {
-      throw WrapperException.forError(pIOException);
+    } catch (final IOException ioException) {
+      throw WrapperException.forError(ioException);
     }
 
     return lines;

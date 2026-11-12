@@ -29,12 +29,12 @@ public final class BackgroundToCssMapperHelper {
   private BackgroundToCssMapperHelper() {
   }
 
-  private static String getDegreeCodeOfColorGradient(final IColorGradient pColorGradient) {
-    return getDegreeOfColorGradient(pColorGradient) + "deg";
+  private static String getDegreeCodeOfColorGradient(final IColorGradient colorGradient) {
+    return getDegreeOfColorGradient(colorGradient) + "deg";
   }
 
-  private static int getDegreeOfColorGradient(final IColorGradient pColorGradient) {
-    return getDegreeOfDirection(pColorGradient.getDirection());
+  private static int getDegreeOfColorGradient(final IColorGradient colorGradient) {
+    return getDegreeOfDirection(colorGradient.getDirection());
   }
 
   private static int getDegreeOfDirection(final Direction direction) {

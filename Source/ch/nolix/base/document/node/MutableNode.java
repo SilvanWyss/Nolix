@@ -102,8 +102,8 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public <N extends Node<?>> MutableNode addChildNodes(final Iterable<N> pChildNodes) {
-    for (final var c : pChildNodes) {
+  public <N extends Node<?>> MutableNode addChildNodes(final Iterable<N> childNodes) {
+    for (final var c : childNodes) {
       memberChildNodes.addAtEnd(fromNode(c));
     }
 

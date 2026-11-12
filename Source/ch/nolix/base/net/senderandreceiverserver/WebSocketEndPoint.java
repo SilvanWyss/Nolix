@@ -98,8 +98,8 @@ final class WebSocketEndPoint extends AbstractNetEndPoint {
 
     try {
       socket.close();
-    } catch (final IOException pIOException) {
-      throw WrapperException.forError(pIOException);
+    } catch (final IOException ioException) {
+      throw WrapperException.forError(ioException);
     }
   }
 
@@ -151,8 +151,8 @@ final class WebSocketEndPoint extends AbstractNetEndPoint {
     try {
       socketOutputStream.write(bytes);
       socketOutputStream.flush();
-    } catch (final IOException pIOException) {
-      throw WrapperException.forError(pIOException);
+    } catch (final IOException ioException) {
+      throw WrapperException.forError(ioException);
     }
   }
 

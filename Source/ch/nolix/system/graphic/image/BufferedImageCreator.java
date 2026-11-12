@@ -26,8 +26,8 @@ public final class BufferedImageCreator {
   public static BufferedImage createBufferedImageFromBytes(final byte[] bytes) {
     try {
       return ImageIO.read(new ByteArrayInputStream(bytes));
-    } catch (final IOException pIOException) {
-      throw WrapperException.forError(pIOException);
+    } catch (final IOException ioException) {
+      throw WrapperException.forError(ioException);
     }
   }
 
@@ -38,8 +38,8 @@ public final class BufferedImageCreator {
   public static BufferedImage createBufferedImageFromFileWithFilePath(final String filePath) {
     try {
       return ImageIO.read(new File(filePath));
-    } catch (final IOException pIOException) {
-      throw WrapperException.forError(pIOException);
+    } catch (final IOException ioException) {
+      throw WrapperException.forError(ioException);
     }
   }
 }

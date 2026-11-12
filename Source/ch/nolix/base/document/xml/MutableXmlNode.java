@@ -37,24 +37,24 @@ public final class MutableXmlNode implements IMutableXmlNode {
   }
 
   /**
-   * @param pXmlNode
-   * @return a new {@link MutableXmlNode} from the given pXmlNode
+   * @param xmlNode
+   * @return a new {@link MutableXmlNode} from the given xmlNode
    */
-  public static MutableXmlNode fromXmlNode(final IXmlNode<?> pXmlNode) {
+  public static MutableXmlNode fromXmlNode(final IXmlNode<?> xmlNode) {
     final var mutableXmlNode = new MutableXmlNode();
 
-    if (pXmlNode.hasName()) {
-      mutableXmlNode.setName(pXmlNode.getName());
+    if (xmlNode.hasName()) {
+      mutableXmlNode.setName(xmlNode.getName());
     }
 
-    mutableXmlNode.addAttributes(pXmlNode.getAttributes());
+    mutableXmlNode.addAttributes(xmlNode.getAttributes());
 
-    for (final var c : pXmlNode.getStoredChildNodes()) {
+    for (final var c : xmlNode.getStoredChildNodes()) {
       mutableXmlNode.addChildNode(fromXmlNode(c));
     }
 
-    if (pXmlNode.hasValue()) {
-      mutableXmlNode.setValue(pXmlNode.getValue());
+    if (xmlNode.hasValue()) {
+      mutableXmlNode.setValue(xmlNode.getValue());
     }
 
     return mutableXmlNode;

@@ -152,8 +152,8 @@ public final class Server extends AbstractServer {
   public void noteClose() {
     try {
       serverSocket.close();
-    } catch (final IOException pIOException) {
-      throw WrapperException.forError(pIOException);
+    } catch (final IOException ioException) {
+      throw WrapperException.forError(ioException);
     }
   }
 

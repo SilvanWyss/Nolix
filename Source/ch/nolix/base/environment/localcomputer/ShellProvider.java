@@ -124,8 +124,8 @@ public final class ShellProvider {
   private static void runRuntimeCommand(final String[] runtimeCommand) {
     try {
       Runtime.getRuntime().exec(runtimeCommand);
-    } catch (final IOException pIOException) {
-      throw WrapperException.forError(pIOException);
+    } catch (final IOException ioException) {
+      throw WrapperException.forError(ioException);
     }
   }
 }

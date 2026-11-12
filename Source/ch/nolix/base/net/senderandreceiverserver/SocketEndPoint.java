@@ -283,8 +283,8 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
       try {
         sendRawMessage(MessageType.CLOSE_MESSAGE.getPrefix());
         socket.close();
-      } catch (final IOException pIOException) {
-        throw WrapperException.forError(pIOException);
+      } catch (final IOException ioException) {
+        throw WrapperException.forError(ioException);
       }
     }
   }
@@ -299,8 +299,8 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
     try {
       socketOutputStream.write((rawMessage + "\r\n").getBytes(StandardCharsets.UTF_8));
       socketOutputStream.flush();
-    } catch (final IOException pIOException) {
-      throw WrapperException.forError(pIOException);
+    } catch (final IOException ioException) {
+      throw WrapperException.forError(ioException);
     }
   }
 

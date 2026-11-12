@@ -45,8 +45,8 @@ public final class FileSystemAccessor {
   public static String getFolderPathOfRunningJarFile() {
     try {
       return FileSystemAccessor.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
-    } catch (final URISyntaxException pURISyntaxException) {
-      throw WrapperException.forError(pURISyntaxException);
+    } catch (final URISyntaxException uriSyntaxException) {
+      throw WrapperException.forError(uriSyntaxException);
     }
   }
 
@@ -102,8 +102,8 @@ public final class FileSystemAccessor {
       }
 
       return FileAccessor.withFilePath(path);
-    } catch (final IOException pIOException) {
-      throw WrapperException.forError(pIOException);
+    } catch (final IOException ioException) {
+      throw WrapperException.forError(ioException);
     }
   }
 
@@ -221,8 +221,8 @@ public final class FileSystemAccessor {
   public static void deleteFileSystemItem(final String path) {
     try {
       Files.delete(Path.of(path));
-    } catch (final IOException pIOException) {
-      throw WrapperException.forError(pIOException);
+    } catch (final IOException ioException) {
+      throw WrapperException.forError(ioException);
     }
   }
 

@@ -446,8 +446,8 @@ extends AbstractMutableElementWithProperties implements IMutableImage<MutableIma
       imageWriter.dispose();
 
       return byteArrayOutputStream.toByteArray();
-    } catch (final IOException pIOException) {
-      throw WrapperException.forError(pIOException);
+    } catch (final IOException ioException) {
+      throw WrapperException.forError(ioException);
     }
   }
 
@@ -470,8 +470,8 @@ extends AbstractMutableElementWithProperties implements IMutableImage<MutableIma
       ImageIO.write(toBufferedImage(), "png", byteArrayOutputStream);
 
       return byteArrayOutputStream.toByteArray();
-    } catch (final IOException pIOException) {
-      throw WrapperException.forError(pIOException);
+    } catch (final IOException ioException) {
+      throw WrapperException.forError(ioException);
     }
   }
 

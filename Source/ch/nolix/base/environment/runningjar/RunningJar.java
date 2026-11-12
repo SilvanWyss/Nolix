@@ -36,8 +36,8 @@ public final class RunningJar {
         line = bufferedReader.readLine();
       }
       return stringBuilder.toString();
-    } catch (final IOException pIOException) {
-      throw WrapperException.forError(pIOException);
+    } catch (final IOException ioException) {
+      throw WrapperException.forError(ioException);
     }
   }
 
@@ -49,8 +49,8 @@ public final class RunningJar {
     final var inputStream = RunningJar.class.getResourceAsStream("/" + path);
     try {
       return inputStream.readAllBytes();
-    } catch (final IOException pIOException) {
-      throw WrapperException.forError(pIOException);
+    } catch (final IOException ioException) {
+      throw WrapperException.forError(ioException);
     }
   }
 

@@ -34,8 +34,8 @@ public final class FileLogHandler extends AbstractLogHandler {
           "  " + l + System.lineSeparator(),
           StandardOpenOption.APPEND);
       }
-    } catch (final IOException pIOException) {
-      throw WrapperException.forError(pIOException);
+    } catch (final IOException ioException) {
+      throw WrapperException.forError(ioException);
     }
   }
 }

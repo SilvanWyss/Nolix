@@ -204,8 +204,8 @@ implements MultiStateConfiguration<C, S> {
     }
   }
 
-  private void fillUpPropertiesFromClassIntoList(final Class<?> pClass, final ILinkedList<AbstractProperty<S>> list) {
-    for (final var f : pClass.getDeclaredFields()) {
+  private void fillUpPropertiesFromClassIntoList(final Class<?> paramClass, final ILinkedList<AbstractProperty<S>> list) {
+    for (final var f : paramClass.getDeclaredFields()) {
       fillUpPotentialPropertyFromFieldIntoList(f, list);
     }
   }
