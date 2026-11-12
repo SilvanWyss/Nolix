@@ -13,7 +13,7 @@ import ch.nolix.base.testing.standardtest.StandardTest;
  */
 final class MutableXmlNodeTest extends StandardTest {
   @Test
-  void test_toString() {
+  void testCase_toString() {
     // setup
     final var testUnit = MutableXmlNode.createBlankMutableXmlNode().setName("Node");
 
@@ -25,7 +25,7 @@ final class MutableXmlNodeTest extends StandardTest {
   }
 
   @Test
-  void test_toString_whenHas1Attribute() {
+  void testCase_toString_whenHas1Attribute() {
     // setup
     final var testUnit = MutableXmlNode.createBlankMutableXmlNode().setName("Node").addAttributeWithNameAndValue("key",
       "value");
@@ -38,7 +38,7 @@ final class MutableXmlNodeTest extends StandardTest {
   }
 
   @Test
-  void test_toString_whenHas1ChildNode() {
+  void testCase_toString_whenHas1ChildNode() {
     // setup
     final var testUnit = MutableXmlNode.createBlankMutableXmlNode().setName("Node")
       .addChildNode(MutableXmlNode.createBlankMutableXmlNode().setName("ChildNode"));
@@ -51,7 +51,7 @@ final class MutableXmlNodeTest extends StandardTest {
   }
 
   @Test
-  void test_toString_whenHas2Attributes() {
+  void testCase_toString_whenHas2Attributes() {
     // setup
     final var testUnit = MutableXmlNode.createBlankMutableXmlNode()
       .setName("Node")
@@ -66,7 +66,7 @@ final class MutableXmlNodeTest extends StandardTest {
   }
 
   @Test
-  void test_toString_whenHas2ChildNodes() {
+  void testCase_toString_whenHas2ChildNodes() {
     // setup
     final var testUnit = MutableXmlNode.createBlankMutableXmlNode()
       .setName("Node")

@@ -15,7 +15,7 @@ import ch.nolix.systemapi.math.bigdecimalmath.IComplexNumber;
  */
 final class ComplexSequenceDefinedBy2PredecessorTest extends StandardTest {
   @Test
-  void test_getValueAtOneBasedIndex() {
+  void testCase_getValueAtOneBasedIndex() {
     // setup
     final var testUnit = //
     ComplexSequenceDefinedBy2Predecessor.withFirstValueAndSecondValueAndNextValueSupplier(
