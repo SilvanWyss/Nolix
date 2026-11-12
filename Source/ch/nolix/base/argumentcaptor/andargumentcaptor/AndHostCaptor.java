@@ -7,7 +7,7 @@ import ch.nolix.base.argumentcaptor.base.AbstractArgumentCaptor;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.argumentcaptor.andargumentcaptor.IAndHostCaptor;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.net.netcatalog.IPv4Catalog;
+import ch.nolix.baseapi.net.netcatalog.IpV4Catalog;
 
 /**
  * @author Silvan Wyss
@@ -36,7 +36,7 @@ public class AndHostCaptor<S> extends AbstractArgumentCaptor<String, S> implemen
    */
   @Override
   public final S andLocalHost() {
-    return setArgumentAndGetStoredSuccessor(IPv4Catalog.LOOP_BACK_ADDRESS);
+    return setArgumentAndGetStoredSuccessor(IpV4Catalog.LOOP_BACK_ADDRESS);
   }
 
   /**

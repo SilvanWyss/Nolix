@@ -7,7 +7,7 @@ import ch.nolix.base.argumentcaptor.base.AbstractArgumentCaptor;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.argumentcaptor.toargumentcaptor.IToHostCaptor;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.net.netcatalog.IPv4Catalog;
+import ch.nolix.baseapi.net.netcatalog.IpV4Catalog;
 
 /**
  * @author Silvan Wyss
@@ -44,6 +44,6 @@ public class ToHostCaptor<S> extends AbstractArgumentCaptor<String, S> implement
    */
   @Override
   public final S toLocalHost() {
-    return toHost(IPv4Catalog.LOOP_BACK_ADDRESS);
+    return toHost(IpV4Catalog.LOOP_BACK_ADDRESS);
   }
 }

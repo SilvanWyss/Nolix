@@ -129,9 +129,9 @@ extends AbstractMutableElementWithProperties implements IMutableImage<MutableIma
    */
   public static MutableImage fromSpecification(final Node<?> specification) {
     if (specification.containsChildNodeWithHeader(JPG_STRING)) {
-      final var lJPGString = specification.getStoredFirstChildNodeWithHeader(JPG_STRING).getSingleChildNodeHeader();
+      final var lJpgString = specification.getStoredFirstChildNodeWithHeader(JPG_STRING).getSingleChildNodeHeader();
 
-      return fromBytes(Base64.getDecoder().decode(lJPGString.substring(lJPGString.indexOf(',') + 1)));
+      return fromBytes(Base64.getDecoder().decode(lJpgString.substring(lJpgString.indexOf(',') + 1)));
     }
 
     final var pixelArraySpecification = specification.getStoredFirstChildNodeWithHeader(PIXEL_ARRAY_HEADER);

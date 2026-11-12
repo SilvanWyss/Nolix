@@ -14,12 +14,12 @@ import ch.nolix.baseapi.net.ssl.ISslCertificate;
 public final class SslServer extends AbstractServer {
   private final ch.nolix.base.net.senderandreplierserver.SslServer internalWebSocketServer;
 
-  private SslServer(final int port, final String HtmlPage, final ISslCertificate paramSSLCertificate) {
+  private SslServer(final int port, final String HtmlPage, final ISslCertificate paramSslCertificate) {
     internalWebSocketServer = //
     ch.nolix.base.net.senderandreplierserver.SslServer.forPortAndHtmlPageAndSslCertificate(
       port,
       HtmlPage,
-      paramSSLCertificate);
+      paramSslCertificate);
 
     createCloseDependencyTo(internalWebSocketServer);
   }
@@ -31,7 +31,7 @@ public final class SslServer extends AbstractServer {
    * @return a new {@link SslServer} that listens on the given port and uses the
    *         given htmlPage and sslCertificate
    */
-  public static SslServer forPortAndHtmlPageAndSSLCertificate(
+  public static SslServer forPortAndHtmlPageAndSslCertificate(
     final int port,
     final String htmlPage,
     final ISslCertificate sslCertificate) {
@@ -45,11 +45,11 @@ public final class SslServer extends AbstractServer {
    *         given htmlPage and the default SSL certificate from the local Nolix
    *         configuration
    */
-  public static SslServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(
+  public static SslServer forPortAndHtmlPageAndSslCertificateFromNolixConfiguration(
     final int port,
     final String htmlPage) {
     final var sslCertificate = //
-    NolixConfigurationSslCertificateReader.getDefaultSSLCertificatefromLocalNolixConfiguration();
+    NolixConfigurationSslCertificateReader.getDefaultSslCertificateFromLocalNolixConfiguration();
 
     return new SslServer(port, htmlPage, sslCertificate);
   }

@@ -27,10 +27,10 @@ public final class NolixConfigurationSslCertificateReader {
    * @return the default {@link ISslCertificate} from the local Nolix
    *         configuration
    */
-  public static ISslCertificate getDefaultSSLCertificatefromLocalNolixConfiguration() {
+  public static ISslCertificate getDefaultSslCertificateFromLocalNolixConfiguration() {
     final var localNolixConfiguration = getNolixConfiguration();
 
-    return getDefaultSSLCertificateFromNolixConfiguration(localNolixConfiguration);
+    return getDefaultSslCertificateFromNolixConfiguration(localNolixConfiguration);
   }
 
   /**
@@ -43,37 +43,37 @@ public final class NolixConfigurationSslCertificateReader {
   }
 
   private static String getDefaultDomainFromDefaultCertificateConfiguration(
-    final Node<?> defaultSSLCertificateConfiguration) {
-    return defaultSSLCertificateConfiguration
+    final Node<?> defaultSslCertificateConfiguration) {
+    return defaultSslCertificateConfiguration
       .getStoredFirstChildNodeWithHeader(DOMAIN_HEADER)
       .getSingleChildNodeHeader();
   }
 
   private static String getDefaultDomainFromNolixConfiguration(final Node<?> nolixConfiguration) {
-    final var defaultSSLCertificateConfiguration = nolixConfiguration
+    final var defaultSslCertificateConfiguration = nolixConfiguration
       .getStoredFirstChildNodeWithHeader(DEFAULT_SSL_CERTIFICATE_HEADER);
 
-    return getDefaultDomainFromDefaultCertificateConfiguration(defaultSSLCertificateConfiguration);
+    return getDefaultDomainFromDefaultCertificateConfiguration(defaultSslCertificateConfiguration);
   }
 
-  private static ISslCertificate getDefaultSSLCertificateFromDefaultCertificateConfiguration(
-    final Node<?> defaultSSLCertificateConfiguration) {
-    final var publicKeyPemFilePath = defaultSSLCertificateConfiguration
+  private static ISslCertificate getDefaultSslCertificateFromDefaultCertificateConfiguration(
+    final Node<?> defaultSslCertificateConfiguration) {
+    final var publicKeyPemFilePath = defaultSslCertificateConfiguration
       .getStoredFirstChildNodeWithHeader(PUBLIC_KEY_PEM_FILE_HEADER)
       .getSingleChildNodeHeader();
 
-    final var privateKeyPemFilePath = defaultSSLCertificateConfiguration
+    final var privateKeyPemFilePath = defaultSslCertificateConfiguration
       .getStoredFirstChildNodeWithHeader(PRIVATE_KEY_PEM_FILE_HEADER)
       .getSingleChildNodeHeader();
 
     return new SslCertificate(publicKeyPemFilePath, privateKeyPemFilePath);
   }
 
-  private static ISslCertificate getDefaultSSLCertificateFromNolixConfiguration(final Node<?> nolixConfiguration) {
-    final var defaultSSLCertificateConfiguration = nolixConfiguration
+  private static ISslCertificate getDefaultSslCertificateFromNolixConfiguration(final Node<?> nolixConfiguration) {
+    final var defaultSslCertificateConfiguration = nolixConfiguration
       .getStoredFirstChildNodeWithHeader(DEFAULT_SSL_CERTIFICATE_HEADER);
 
-    return getDefaultSSLCertificateFromDefaultCertificateConfiguration(defaultSSLCertificateConfiguration);
+    return getDefaultSslCertificateFromDefaultCertificateConfiguration(defaultSslCertificateConfiguration);
   }
 
   private static Node<?> getNolixConfiguration() {

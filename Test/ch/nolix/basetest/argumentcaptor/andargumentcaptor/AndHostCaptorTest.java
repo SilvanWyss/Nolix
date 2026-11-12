@@ -9,7 +9,7 @@ import ch.nolix.base.argumentcaptor.andargumentcaptor.AndHostCaptor;
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.net.netcatalog.IPv4Catalog;
+import ch.nolix.baseapi.net.netcatalog.IpV4Catalog;
 
 /**
  * @author Silvan Wyss
@@ -53,7 +53,7 @@ final class AndHostCaptorTest extends StandardTest {
     final var result = testUnit.andLocalHost();
 
     // verify
-    expect(testUnit.getHost()).isEqualTo(IPv4Catalog.LOOP_BACK_ADDRESS);
+    expect(testUnit.getHost()).isEqualTo(IpV4Catalog.LOOP_BACK_ADDRESS);
     expect(result).is(andNameCaptor);
   }
 

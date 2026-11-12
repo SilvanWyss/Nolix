@@ -4,16 +4,16 @@
 package ch.nolix.baseapi.net.netcatalog;
 
 /**
- * Of the {@link IPv4Catalog} an instance cannot be created.
+ * Of the {@link IpV4Catalog} an instance cannot be created.
  * 
  * @author Silvan Wyss
  */
-public final class IPv4Catalog {
+public final class IpV4Catalog {
   public static final String LOOP_BACK_ADDRESS = "127.0.0.1";
 
   /**
-   * Prevents that an instance of the {@link IPv4Catalog} can be created.
+   * Prevents that an instance of the {@link IpV4Catalog} can be created.
    */
-  private IPv4Catalog() {
+  private IpV4Catalog() {
   }
 }

@@ -45,13 +45,13 @@ final class WebSocketFrameTest extends StandardTest {
     final var webSocketFrame = WebSocketFrame.fromInputStream(inputStream);
 
     // execute
-    final var resultFINBit = webSocketFrame.getFINBit();
+    final var resultFinBit = webSocketFrame.getFinBit();
     final var resultMaskBit = webSocketFrame.getMaskBit();
     final var resultOpcode = webSocketFrame.getOpcodeMeaning();
     final var resultPayload = webSocketFrame.getPayload();
 
     // verify
-    expect(resultFINBit).isTrue();
+    expect(resultFinBit).isTrue();
     expect(resultMaskBit).isFalse();
     expect(resultOpcode).isEqualTo(WebSocketFrameOpcodeMeaning.TEXT_FRAME);
     expect(resultPayload.length).isEqualTo(2);

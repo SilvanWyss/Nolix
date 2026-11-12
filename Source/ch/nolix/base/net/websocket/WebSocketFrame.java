@@ -34,7 +34,7 @@ public final class WebSocketFrame {
   private final byte[] maskingKey;
 
   private WebSocketFrame(
-    final boolean mFINBit,
+    final boolean mFinBit,
     final WebSocketFrameOpcodeMeaning opcode,
     final boolean maskBit,
     final byte[] payload) {
@@ -42,7 +42,7 @@ public final class WebSocketFrame {
 
     firstNibble = //
     WebSocketFrameFirstWord.withFinBitAndOpCodeMeaningAndMaskBitAndPayloadLength(
-      mFINBit,
+      mFinBit,
       opcode,
       maskBit,
       payload.length);
@@ -53,11 +53,11 @@ public final class WebSocketFrame {
   }
 
   private WebSocketFrame(
-    final boolean mFINBit,
+    final boolean mFinBit,
     final WebSocketFrameOpcodeMeaning opcode,
     final boolean maskBit,
     final String payload) {
-    this(mFINBit, opcode, maskBit, payload.getBytes(StandardCharsets.UTF_8));
+    this(mFinBit, opcode, maskBit, payload.getBytes(StandardCharsets.UTF_8));
   }
 
   private WebSocketFrame(final InputStream inputStream) {
@@ -129,19 +129,19 @@ public final class WebSocketFrame {
   }
 
   /**
-   * @param mFINBit
+   * @param mFinBit
    * @param opcode
    * @param maskBit
    * @param payload
-   * @return a new {@link WebSocketFrame} with the given mFINBit, opcode, maskBit
+   * @return a new {@link WebSocketFrame} with the given mFinBit, opcode, maskBit
    *         and payload
    */
   public static WebSocketFrame withFinBitAndOpCodeAndMaskBitAndPayload(
-    final boolean mFINBit,
+    final boolean mFinBit,
     final WebSocketFrameOpcodeMeaning opcode,
     final boolean maskBit,
     final String payload) {
-    return new WebSocketFrame(mFINBit, opcode, maskBit, payload);
+    return new WebSocketFrame(mFinBit, opcode, maskBit, payload);
   }
 
   /**
@@ -161,8 +161,8 @@ public final class WebSocketFrame {
   /**
    * @return the FIN bit of the current {@link WebSocketFrame}
    */
-  public boolean getFINBit() { // NOSONAR: This method returns a bit as a boolean.
-    return firstNibble.getFINBit();
+  public boolean getFinBit() { // NOSONAR: This method returns a bit as a boolean.
+    return firstNibble.getFinBit();
   }
 
   /**
@@ -286,7 +286,7 @@ public final class WebSocketFrame {
    *         otherwise
    */
   public boolean isFinalFragment() {
-    return getFINBit();
+    return getFinBit();
   }
 
   /**

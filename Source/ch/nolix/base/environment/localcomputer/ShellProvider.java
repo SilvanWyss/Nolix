@@ -12,7 +12,7 @@ import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.net.netcatalog.IPv4Catalog;
+import ch.nolix.baseapi.net.netcatalog.IpV4Catalog;
 import ch.nolix.baseapi.net.netcatalog.PortCatalog;
 
 /**
@@ -39,7 +39,7 @@ public final class ShellProvider {
    * Starts the default web browser opening the loop back address.
    */
   public static void startDefaultWebBrowserOpeningLoopBackAddress() {
-    startDefaultWebBrowserOpeningUrl(IPv4Catalog.LOOP_BACK_ADDRESS);
+    startDefaultWebBrowserOpeningUrl(IpV4Catalog.LOOP_BACK_ADDRESS);
   }
 
   /**
@@ -95,7 +95,7 @@ public final class ShellProvider {
    * Starts Firefox opening the loop back address.
    */
   public static void startFirefoxOpeningLoopBackAddress() {
-    startFirefox(IPv4Catalog.LOOP_BACK_ADDRESS, PortCatalog.HTTP);
+    startFirefox(IpV4Catalog.LOOP_BACK_ADDRESS, PortCatalog.HTTP);
   }
 
   /**
@@ -104,7 +104,7 @@ public final class ShellProvider {
    * @param port
    */
   public static void startFirefoxOpeningLoopBackAddress(final int port) {
-    startFirefox(IPv4Catalog.LOOP_BACK_ADDRESS, port);
+    startFirefox(IpV4Catalog.LOOP_BACK_ADDRESS, port);
   }
 
   private static String[] createRuntimeCommandFromCommand(final String[] command) {

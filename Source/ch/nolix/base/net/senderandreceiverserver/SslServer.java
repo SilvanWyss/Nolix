@@ -27,23 +27,23 @@ public final class SslServer extends AbstractServer {
 
   private final SslServerWorker sslServerWorker;
 
-  private SslServer(final int port, final String htmlPage, final ISslCertificate paramSSLCertificate) {
+  private SslServer(final int port, final String htmlPage, final ISslCertificate paramSslCertificate) {
     sslServerWorker = //
-    SslServerWorker.forWebSocketServerAndPortAndHtmlPageAndSslCertificate(this, port, htmlPage, paramSSLCertificate);
+    SslServerWorker.forWebSocketServerAndPortAndHtmlPageAndSslCertificate(this, port, htmlPage, paramSslCertificate);
   }
 
   /**
    * @param port
    * @param htmlPage
-   * @param paramSSLCertificate
+   * @param paramSslCertificate
    * @return a new {@link SslServer} that listens on the given port and uses the
-   *         given htmlPage and paramSSLCertificate
+   *         given htmlPage and paramSslCertificate
    */
-  public static SslServer forPortAndHtmlPageAndSSLCertificate(
+  public static SslServer forPortAndHtmlPageAndSslCertificate(
     final int port,
     final String htmlPage,
-    final ISslCertificate paramSSLCertificate) {
-    return new SslServer(port, htmlPage, paramSSLCertificate);
+    final ISslCertificate paramSslCertificate) {
+    return new SslServer(port, htmlPage, paramSslCertificate);
   }
 
   /**
@@ -53,13 +53,13 @@ public final class SslServer extends AbstractServer {
    *         given htmlPage and the default SSL certificate from the local Nolix
    *         configuration
    */
-  public static SslServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(
+  public static SslServer forPortAndHtmlPageAndSslCertificateFromNolixConfiguration(
     final int port,
     final String htmlPage) {
-    final var paramSSLCertificate = //
-    NolixConfigurationSslCertificateReader.getDefaultSSLCertificatefromLocalNolixConfiguration();
+    final var paramSslCertificate = //
+    NolixConfigurationSslCertificateReader.getDefaultSslCertificateFromLocalNolixConfiguration();
 
-    return new SslServer(port, htmlPage, paramSSLCertificate);
+    return new SslServer(port, htmlPage, paramSslCertificate);
   }
 
   /**

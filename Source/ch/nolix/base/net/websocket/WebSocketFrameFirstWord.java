@@ -9,7 +9,7 @@ import ch.nolix.baseapi.net.websocket.WebSocketFrameOpcodeMeaning;
 import ch.nolix.baseapi.net.websocket.WebSocketFramePayloadLengthType;
 
 final class WebSocketFrameFirstWord {
-  private final boolean mFINBit;
+  private final boolean mFinBit;
 
   private final int opcode;
 
@@ -20,13 +20,13 @@ final class WebSocketFrameFirstWord {
   private final int m7BitPayloadLength;
 
   private WebSocketFrameFirstWord(
-    final boolean mFINBit,
+    final boolean mFinBit,
     final WebSocketFrameOpcodeMeaning opcodeMeaning,
     final boolean maskBit,
     final int payloadLength) {
     Validator.assertThat(opcodeMeaning).thatIsNamed("opcode meaning").isNotNull();
 
-    this.mFINBit = mFINBit;
+    this.mFinBit = mFinBit;
     this.opcode = opcodeMeaning.toNumber();
     this.maskBit = maskBit;
     payloadLengthSpecification = WebSocketFramePayloadLengthType.fromPayloadLength(payloadLength);
@@ -50,7 +50,7 @@ final class WebSocketFrameFirstWord {
     Validator.assertThatTheBit(rsv2Bit).thatIsNamed("RSV2Bit").isCleared();
     Validator.assertThatTheBit(rsv3Bit).thatIsNamed("RSV3Bit").isCleared();
 
-    mFINBit = wrapperByte1.getBitAt(1);
+    mFinBit = wrapperByte1.getBitAt(1);
     opcode = byte1 & 0b1111;
     maskBit = wrapperByte2.getBitAt(1);
     payloadLengthSpecification = WebSocketFramePayloadLengthType.fromCode(byte2 & 0b01111111);
@@ -69,19 +69,19 @@ final class WebSocketFrameFirstWord {
   }
 
   /**
-   * @param mFINBit
+   * @param mFinBit
    * @param opcodeMeaning
    * @param maskBit
    * @param payloadLength
-   * @return a new {@link WebSocketFrameFirstWord} with the given mFINBit,
+   * @return a new {@link WebSocketFrameFirstWord} with the given mFinBit,
    *         opcodeMeaning, maskBit and payloadLength
    */
   public static WebSocketFrameFirstWord withFinBitAndOpCodeMeaningAndMaskBitAndPayloadLength(
-    final boolean mFINBit,
+    final boolean mFinBit,
     final WebSocketFrameOpcodeMeaning opcodeMeaning,
     final boolean maskBit,
     final int payloadLength) {
-    return new WebSocketFrameFirstWord(mFINBit, opcodeMeaning, maskBit, payloadLength);
+    return new WebSocketFrameFirstWord(mFinBit, opcodeMeaning, maskBit, payloadLength);
   }
 
   /**
@@ -98,7 +98,7 @@ final class WebSocketFrameFirstWord {
   public byte getByte1() {
     var byte1 = 0;
 
-    if (getFINBit()) {
+    if (getFinBit()) {
       byte1 |= 0b10000000;
     }
 
@@ -139,8 +139,8 @@ final class WebSocketFrameFirstWord {
   /**
    * @return the FIN bit of the current {@link WebSocketFrameFirstWord}
    */
-  public boolean getFINBit() { // NOSONAR: This method returns a bit as a boolean.
-    return mFINBit;
+  public boolean getFinBit() { // NOSONAR: This method returns a bit as a boolean.
+    return mFinBit;
   }
 
   /**

@@ -24,7 +24,7 @@ final class SslServerWorker extends AbstractWorker {
 
   private final String htmlPage;
 
-  private final ISslCertificate mSSLCertificate;
+  private final ISslCertificate mSslCertificate;
 
   private Channel channel;
 
@@ -32,15 +32,15 @@ final class SslServerWorker extends AbstractWorker {
     final SslServer parentWebSocketServer,
     final int port,
     final String htmlPage,
-    final ISslCertificate paramSSLCertificate) {
+    final ISslCertificate paramSslCertificate) {
     Validator.assertThat(parentWebSocketServer).thatIsNamed("parent web-socket server").isNotNull();
     Validator.assertThat(port).thatIsNamed(LowerCaseVariableNameCatalog.PORT).isPort();
-    Validator.assertThat(paramSSLCertificate).thatIsNamed(ISslCertificate.class).isNotNull();
+    Validator.assertThat(paramSslCertificate).thatIsNamed(ISslCertificate.class).isNotNull();
 
     this.parentWebSocketServer = parentWebSocketServer;
     this.port = port;
     this.htmlPage = htmlPage;
-    mSSLCertificate = paramSSLCertificate;
+    mSslCertificate = paramSslCertificate;
 
     start();
   }
@@ -49,16 +49,16 @@ final class SslServerWorker extends AbstractWorker {
    * @param parentWebSocketServer
    * @param port
    * @param htmlPage
-   * @param paramSSLCertificate
+   * @param paramSslCertificate
    * @return a new {@link SslServerWorker} for the given parentWebSocketServer,
-   *         port, htmlPage and paramSSLCertificate
+   *         port, htmlPage and paramSslCertificate
    */
   public static SslServerWorker forWebSocketServerAndPortAndHtmlPageAndSslCertificate(
     final SslServer parentWebSocketServer,
     final int port,
     final String htmlPage,
-    final ISslCertificate paramSSLCertificate) {
-    return new SslServerWorker(parentWebSocketServer, port, htmlPage, paramSSLCertificate);
+    final ISslCertificate paramSslCertificate) {
+    return new SslServerWorker(parentWebSocketServer, port, htmlPage, paramSslCertificate);
   }
 
   /**
@@ -66,7 +66,7 @@ final class SslServerWorker extends AbstractWorker {
    */
   @Override
   protected void run() {
-    final var sslContext = SslServerSslContextCreator.createSSLContext(mSSLCertificate);
+    final var sslContext = SslServerSslContextCreator.createSslContext(mSslCertificate);
     final var bossGroup = new MultiThreadIoEventLoopGroup(NioIoHandler.newFactory());
     final var workerGroup = new MultiThreadIoEventLoopGroup(NioIoHandler.newFactory());
 

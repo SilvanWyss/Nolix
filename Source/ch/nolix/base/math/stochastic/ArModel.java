@@ -10,12 +10,12 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 /**
  * @author Silvan Wyss
  */
-public final class ARModel extends AbstractStatisticalModel {
+public final class ArModel extends AbstractStatisticalModel {
   private final double constant;
 
   private final double[] pCoefficients;
 
-  private ARModel(final int pOrder, final double[] inputValues) {
+  private ArModel(final int pOrder, final double[] inputValues) {
     // Calls constructor of the base class.
     super(pOrder, inputValues);
 
@@ -51,10 +51,10 @@ public final class ARModel extends AbstractStatisticalModel {
   /**
    * @param pOrder
    * @param inputValues
-   * @return a new {@link ARModel} with the given pOrder and inputValues
+   * @return a new {@link ArModel} with the given pOrder and inputValues
    */
-  public static ARModel withOrderAndInputValues(final int pOrder, final double[] inputValues) {
-    return new ARModel(pOrder, inputValues);
+  public static ArModel withOrderAndInputValues(final int pOrder, final double[] inputValues) {
+    return new ArModel(pOrder, inputValues);
   }
 
   /**
@@ -66,7 +66,7 @@ public final class ARModel extends AbstractStatisticalModel {
 
   /**
    * @param index
-   * @return the p coefficient at the given index of the current {@link ARModel}
+   * @return the p coefficient at the given index of the current {@link ArModel}
    */
   public double getPCoefficient(final int index) {
     Validator.assertThat(index).thatIsNamed(LowerCaseVariableNameCatalog.INDEX).isBetween(1, getPOrder());

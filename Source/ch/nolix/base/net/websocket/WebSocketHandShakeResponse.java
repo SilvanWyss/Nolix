@@ -30,12 +30,12 @@ public final class WebSocketHandShakeResponse {
 
     this.secWebSocketKey = secWebSocketKey;
 
-    final var secWebSocketKeyAndWebSocketGUID = secWebSocketKey + WEB_SOCKET_GUID;
+    final var secWebSocketKeyAndWebSocketGuid = secWebSocketKey + WEB_SOCKET_GUID;
     try {
       final var messageDigest = //
       MessageDigest.getInstance("SHA-1"); // NOSONAR: For web sockets the SHA-1 algorithm is required.
 
-      final var bytes = messageDigest.digest(secWebSocketKeyAndWebSocketGUID.getBytes(StandardCharsets.UTF_8));
+      final var bytes = messageDigest.digest(secWebSocketKeyAndWebSocketGuid.getBytes(StandardCharsets.UTF_8));
       secWebSocketAccept = Base64.getEncoder().encodeToString(bytes);
     } catch (final NoSuchAlgorithmException noSuchAlgorithmException) {
       throw WrapperException.forError(noSuchAlgorithmException);

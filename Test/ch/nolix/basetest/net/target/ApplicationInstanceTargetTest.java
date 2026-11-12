@@ -52,7 +52,7 @@ final class ApplicationInstanceTargetTest extends StandardTest {
   }
 
   @Test
-  void testCase_toUrl_forHttpsPortAndSSLSecurityMode() {
+  void testCase_toUrl_forHttpsPortAndSslSecurityMode() {
     // setup
     final var testUnit = ApplicationTarget
       .forHostAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(

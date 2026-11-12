@@ -7,26 +7,26 @@ import ch.nolix.base.environment.runningjar.RunningJar;
 import ch.nolix.base.foundation.resource.ResourcePathCatalog;
 import ch.nolix.base.validation.validator.Validator;
 
-record ServerHttpMessage(String serverIP, int serverPort) {
+record ServerHttpMessage(String serverIp, int serverPort) {
   private static final String REQUIRE_JS_SCRIPT = RunningJar.getResource(ResourcePathCatalog.REQUIRE_JS);
 
   private static final String NOLIX_SCRIPT = RunningJar.getResource(ResourcePathCatalog.NOLIX_JS);
 
   public ServerHttpMessage( // NOSONAR: This constructor does more than the default one.
-    final String serverIP,
+    final String serverIp,
     final int serverPort) {
-    Validator.assertThat(serverIP).thatIsNamed("server IP").isNotBlank();
+    Validator.assertThat(serverIp).thatIsNamed("server IP").isNotBlank();
     Validator.assertThat(serverPort).thatIsNamed("server port").isBetween(0, 65535);
 
-    this.serverIP = serverIP;
+    this.serverIp = serverIp;
     this.serverPort = serverPort;
   }
 
   /**
    * @return the server IP of the current {@link ServerHttpMessage}
    */
-  public String getServerIP() {
-    return serverIP;
+  public String getServerIp() {
+    return serverIp;
   }
 
   /**
@@ -34,7 +34,7 @@ record ServerHttpMessage(String serverIP, int serverPort) {
    *         quotes
    */
   public String getServerIpInQuotes() {
-    return "'" + getServerIP() + "'";
+    return "'" + getServerIp() + "'";
   }
 
   /**

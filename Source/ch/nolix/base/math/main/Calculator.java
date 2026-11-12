@@ -6,7 +6,7 @@ package ch.nolix.base.math.main;
 import ch.nolix.base.math.algebra.Matrix;
 import ch.nolix.base.math.algebra.Polynom;
 import ch.nolix.base.math.basic.BasicCalculator;
-import ch.nolix.base.math.stochastic.ARModel;
+import ch.nolix.base.math.stochastic.ArModel;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
@@ -121,11 +121,11 @@ public final class Calculator {
   /**
    * @param pOrder
    * @param inputValues
-   * @return a new {@link ARModel} with the given pOrder and inputValues
+   * @return a new {@link ArModel} with the given pOrder and inputValues
    * @throws RuntimeException if the given pOrder is negative
    */
-  public static ARModel getARModell(final int pOrder, final double[] inputValues) {
-    return ARModel.withOrderAndInputValues(pOrder, inputValues);
+  public static ArModel getArModel(final int pOrder, final double[] inputValues) {
+    return ArModel.withOrderAndInputValues(pOrder, inputValues);
   }
 
   /**

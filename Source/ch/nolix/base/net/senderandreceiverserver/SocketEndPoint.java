@@ -12,7 +12,7 @@ import java.nio.charset.StandardCharsets;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.net.netcatalog.IPv6Catalog;
+import ch.nolix.baseapi.net.netcatalog.IpV6Catalog;
 import ch.nolix.baseapi.net.netcatalog.PortCatalog;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
@@ -196,7 +196,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @throws RuntimeException if the given port is not in [0, 65535]
    */
   public static SocketEndPoint toLocalHostAndPortAndDefaultSlot(final int port) {
-    return new SocketEndPoint(IPv6Catalog.LOOP_BACK_ADDRESS, port);
+    return new SocketEndPoint(IpV6Catalog.LOOP_BACK_ADDRESS, port);
   }
 
   /**
@@ -208,7 +208,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @throws RuntimeException if the given slot slot null or blank
    */
   public static SocketEndPoint toLocalHostAndPortAndSlot(final int port, final String slot) {
-    return new SocketEndPoint(IPv6Catalog.LOOP_BACK_ADDRESS, port, slot);
+    return new SocketEndPoint(IpV6Catalog.LOOP_BACK_ADDRESS, port, slot);
   }
 
   /**
